@@ -5947,7 +5947,7 @@
     "COMMERCIAL_USE.txt": "dae6750b67ae2edee8288ffb9f632e87a9bd4e2ccaffbde0539d7735151b5dc3",
     "CONTRIBUTING.md": "df90ebc1e862ba2f921eeb1d8e007960e3f6620b44fc5c560e57c30ae53fbe40",
     "LICENSE": "2dfd77442714922d1051194e8319f8ff3b3806f8c78fb2a2d98aedfe2265cb10",
-    "PUBLIC_RELEASE.json": "64c9f224499b13b28f6a57acaf758a2106aec9f260f255976ca7fedb5f324f85",
+    "PUBLIC_RELEASE.json": "43a4cf118a65a36d7391645f7262a66a7a7d46c18422fff63eb9881c4b5656eb",
     "README.md": "09247ceaaeaebdc020337ed768a2148a3bedfe108b8e64870392f61df39acae4",
     "README.txt": "09247ceaaeaebdc020337ed768a2148a3bedfe108b8e64870392f61df39acae4",
     "THIRD_PARTY_NOTICES.txt": "23b773e4612c5225039b97d955fb0a71f7ca3baed222c7a0685477464ff018ea",
@@ -5958,7 +5958,7 @@
     "manuscript/chapters/toolkit.tex": "bfc9bd16a19bff190ba93b9a60933083cc361b3e3aff59f91757450dfb96de55",
     "manuscript/reference.tex": "7b90dc2f8a3a7467e936c829550502b3906c4a7ccb1735b146ca82a8e42fb111",
     "publication/front_matter.tex": "f581f2d17c5be8824404e7ee0522e2a4ddcc2b7c81bcab601b2a21116163d4e5",
-    "publication/validate_public.py": "d8ece782d086c199e1f5de0ac45832fa6f7f09f7141b5e41ecef2cd21ecda0ee"
+    "publication/validate_public.py": "e86ca3d682ee1b1a4314edc0fac11a31e08a016400de1bd985bf90ab1486798b"
   },
   "history": "Numbered editions in retained artifacts identify internal research iterations; they do not establish prior public publication.",
   "publication_status": "prepared_not_published",

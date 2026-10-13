@@ -97,8 +97,10 @@ def bindings(root):
     if not wheel['path'].startswith('validation/scientific_baseline/files/dist/'):
         raise ValueError('The baseline installed-wheel evidence must remain archived separately')
     metadata = json.loads((root/'PUBLIC_RELEASE.json').read_text())
-    if metadata['publication_status'] != 'prepared_not_published':
-        raise ValueError('Local validation must not imply publication occurred')
+    if metadata['publication_status'] not in ('prepared_not_published', 'published_to_repository'):
+        raise ValueError('Unknown publication status')
+    if metadata['publication_status'] == 'published_to_repository' and not metadata['publication_actions_performed']:
+        raise ValueError('Published metadata requires an explicit publication record')
     if (root/'README.md').read_bytes() != (root/'README.txt').read_bytes():
         raise ValueError('GitHub and reproduction README payloads differ')
     return mapping, hashes

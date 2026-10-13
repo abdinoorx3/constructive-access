@@ -42,19 +42,19 @@
     },
     "PUBLICATION_MAP.json": {
       "bytes": 312227,
-      "sha256": "949963cb8f8bfb4c2923318ad51f13e74a9933c7a9a8b09206d0f7d8bc61ec7f"
+      "sha256": "91ae723754051e08eecfe01bde2d7397b6784aaef4b5753a3451139659c80fc9"
     },
     "PUBLIC_EDITORIAL_DELTA.json": {
       "bytes": 24530,
-      "sha256": "9481a7128733bfe110fe6ea57e11e921a806b499fc3b0d26683b155c332878b2"
+      "sha256": "0d4c8d974fa2c4040fa2de363785d6ff931ec46ef493ffff9e31b1d53ec0f1e1"
     },
     "PUBLIC_EDITORIAL_VALIDATION.json": {
       "bytes": 694,
       "sha256": "9dae03b86208c127e11970ebc74d96b2894c88c0acfeb1acf7aece9813a9d5ca"
     },
     "PUBLIC_RELEASE.json": {
-      "bytes": 1309,
-      "sha256": "64c9f224499b13b28f6a57acaf758a2106aec9f260f255976ca7fedb5f324f85"
+      "bytes": 1502,
+      "sha256": "43a4cf118a65a36d7391645f7262a66a7a7d46c18422fff63eb9881c4b5656eb"
     },
     "PUBLIC_SOFTWARE_VALIDATION.json": {
       "bytes": 29212,
@@ -2089,8 +2089,8 @@
       "sha256": "f581f2d17c5be8824404e7ee0522e2a4ddcc2b7c81bcab601b2a21116163d4e5"
     },
     "publication/validate_public.py": {
-      "bytes": 9755,
-      "sha256": "d8ece782d086c199e1f5de0ac45832fa6f7f09f7141b5e41ecef2cd21ecda0ee"
+      "bytes": 9967,
+      "sha256": "e86ca3d682ee1b1a4314edc0fac11a31e08a016400de1bd985bf90ab1486798b"
     },
     "publication/validate_software.py": {
       "bytes": 13457,
@@ -3995,7 +3995,7 @@
   },
   "project": "Constructive Access",
   "public_release_version": "1.0",
-  "publication_status": "prepared_not_published",
+  "publication_status": "published_to_repository",
   "schema_version": 1,
   "scope": "SHA-256 of every current public archive payload except this manifest; historical reports retain their original hashes.",
   "toolkit_version": "0.10.0"

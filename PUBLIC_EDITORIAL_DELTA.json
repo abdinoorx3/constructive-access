@@ -218,7 +218,7 @@
     {
       "path": "PUBLIC_RELEASE.json",
       "original_sha256": "9ac762e426fd4fb42639fb3a7d02ad646242a9e2447345874407a5800f9950bd",
-      "public_sha256": "64c9f224499b13b28f6a57acaf758a2106aec9f260f255976ca7fedb5f324f85"
+      "public_sha256": "43a4cf118a65a36d7391645f7262a66a7a7d46c18422fff63eb9881c4b5656eb"
     },
     {
       "path": "PUBLIC_SOFTWARE_VALIDATION.json",
@@ -323,12 +323,12 @@
     {
       "path": "PUBLICATION_MAP.json",
       "original_sha256": "4b8d25fde3855dcf2788bbfccc333ec5e8d857be9fc45a4de55d2ce22cd4ba1a",
-      "public_sha256": "949963cb8f8bfb4c2923318ad51f13e74a9933c7a9a8b09206d0f7d8bc61ec7f"
+      "public_sha256": "91ae723754051e08eecfe01bde2d7397b6784aaef4b5753a3451139659c80fc9"
     },
     {
       "path": "publication/validate_public.py",
       "original_sha256": "d8b18ddb7dea6b19e215d7baf94a00899e6a9c48646800bc3f1ade1cd14ec64d",
-      "public_sha256": "d8ece782d086c199e1f5de0ac45832fa6f7f09f7141b5e41ecef2cd21ecda0ee"
+      "public_sha256": "e86ca3d682ee1b1a4314edc0fac11a31e08a016400de1bd985bf90ab1486798b"
     }
   ],
   "description": "Publication presentation edits. Mathematical chapters, toolkit code, scientific results and license terms are unchanged. Historical validation reports retain their original input hashes; the current manifest binds the public files.",

@@ -25,7 +25,13 @@
   },
   "repository_url": "https://github.com/abdinoorx3/constructive-access",
   "doi": null,
-  "publication_actions_performed": [],
-  "publication_status": "prepared_not_published",
+  "publication_actions_performed": [
+    {
+      "action": "licensed_source_published",
+      "url": "https://github.com/abdinoorx3/constructive-access",
+      "source_commit": "94884259d2e9c7819f308906d2d4e14b6f4a115b"
+    }
+  ],
+  "publication_status": "published_to_repository",
   "public_release_version": "1.0"
 }
