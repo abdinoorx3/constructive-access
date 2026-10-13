@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "classical": {
+    "aggregate_coefficient": "-23/44",
+    "gate_coefficient_ts3": "2*eta**2*f/15"
+  },
+  "quantum": {
+    "closure_columns": 10,
+    "stationary_state_checked": true,
+    "protocols": [
+      {
+        "protocol": "XX",
+        "coefficients": [
+          "1/2",
+          "0",
+          "4*delta**2/25 - 1/4"
+        ]
+      },
+      {
+        "protocol": "ZXZ",
+        "coefficients": [
+          "0",
+          "0",
+          "1/2 - 16*delta**2/25"
+        ]
+      }
+    ]
+  },
+  "application_numbers": {
+    "chemical_vertices": 32,
+    "current_interval": [
+      "193/204",
+      "207/196"
+    ],
+    "qubit_menu_depths": 80,
+    "best_calls": [
+      4,
+      60,
+      240
+    ]
+  },
+  "empirical_data": false,
+  "chapter_sha256": {
+    "continuous_thermodynamics.tex": "9e1940d863689f72a95e0b37e78aae6d8ef200b9503c618cc645976192166bf6",
+    "applications.tex": "60e1cd50b21d219b745bd83fd447a1099adedab4b4c8e044050c3d057ba2fbc8"
+  }
+}

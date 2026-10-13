@@ -1,0 +1,41 @@
+Continuous-domain correlation certificate: proof and implementation record
+Abdinoor / 2D Labs / 12 October 2026
+
+Access: positive integer lag menu, common homogeneous generator, fixed
+noninvasive binary detector with independent conditional readout noise.
+Stationary ordinary-reversal reference laws have positive mixtures of real
+exponentials. Stochastic detector variance is accommodated by missing mass at
+zero in the positive-lag moment representation. Unknown stationary mean uses
+its full [-1,1] range. A transient observed mean cannot narrow that range.
+
+The numerical design routine proposes rational positive likelihood scores.
+It never certifies an optimization result or a discretized spectral model.
+The exact routine upper-bounds the score expectation over the whole continuous
+moment comparison set by rational Bernstein subdivision, and lower-bounds its
+log expectation using directed rational logarithm intervals. Minimization over
+a simultaneous probability box preserves its coverage after score selection.
+The resulting J is a rigorous observable relative-entropy separation.
+
+The thermodynamic comparison theorem implies stationary sigma >= 4 J / mean lag.
+Without stationarity the inferred requirement is D(nu||pi) plus half the expected
+integrated housekeeping entropy >= J. This latter conclusion defaults to the
+full reference-mean range; narrowed ranges require separately declared reference
+calibration. These statements are conditional model requirements, not direct
+apparatus energy measurements.
+
+New reproducible example: the specified 40-state driven ring and rational cosine-
+shaped stochastic detector give three positive decreasing agreement probabilities
+that violate convexity. The exact dual rate is >0.0007316148 despite widening
+each exact probability enclosure by 1/5000. Negative-correlation and increasing-
+correlation bounds return zero. The example is a classical model prediction
+with a synthetic uncertainty box; it is not measured data or sample optimality.
+
+Underlying ingredients are established: reversible spectral representation,
+variational relative entropy, Bernstein polynomial enclosures, and concentration
+bounds. The closest stationary quarter-factor bridge has prior art, explicitly
+credited. Candidate originality concerns the integrated calibrated procedure and
+its operational resource interpretation; historical priority remains unresolved.
+
+Validation: nine producer tests, independent adversarial coverage, exact rational
+recalculation, numerical-generator counterchecks in the phase's independent suite.
+See manuscript/energy_certificate.tex and research/final_integration_review.txt.

@@ -1,0 +1,78 @@
+Unified toolkit implementation record
+Abdinoor / 2D Labs / 12 October 2026
+
+Scope
+Version 0.1.0 is an installable source package named constructive-access.
+The JSON workflow accepts exactly two finite normalized classical rational
+instruments. Inputs explicitly state target labels, interventions, preparation,
+resource meanings, action costs, excluded resource items and sampling target.
+Quantum/general linear models remain an advanced Python interface requiring
+separate physical admissibility evidence. No empirical data are generated.
+
+Public APIs
+  load_contract(path_or_mapping_or_contract) -> immutable Contract
+  analyze(contract_or_mapping_or_path) -> JSON-compatible report
+  verify_report(contract_or_mapping_or_path, report) -> verification result
+  CLI: constructive-access analyze CONTRACT -o REPORT
+       constructive-access verify CONTRACT REPORT
+
+The checker receives an independently chosen contract, reconstructs the paired
+model, validates filtered closure expansions without synthesis or rank, and
+recomputes the reported complete experiment and statistical quantities. It
+does not infer calibration. Reports omit unchecked search diagnostics.
+
+Examples
+passive.json: exact equivalence under passive readout.
+active.json: drive then read; least action charge 3; per-record charge 4;
+  complete laws (3/4,1/4) versus (1/4,3/4); TV1/2; one-record Bayes risk1/4;
+  12 sufficient nominal iid records and batch charge48 at target error1/10.
+calibrated.json: supplied complete-record TV radii1/100 each and calibration
+  failure1/100. Robust event gap12/25; threshold1/2; 21 records sufficient;
+  conditional each-hypothesis error9/100 plus failure1/100; batch charge84.
+calibration_gap_closed.json: both radii1/4, so no robust event certificate.
+grammar.json: only a drive followed by a read is a complete accepted protocol.
+
+Sampling and calibration assumptions
+Conditional on pre-acquisition calibration information, every fixed actual
+hypothesis generates iid classification records. A simultaneous calibration
+event certifies those conditional whole-record laws. Classification records
+are not reused to choose/calibrate the event or threshold. The software
+checks rational consequences of stated bounds, not their empirical validity.
+The selected robust event is {transcripts: P0>P1}. Its nominal contrast is TV.
+A positive event gap yields a Hoeffding count from an outward rational log
+enclosure. It is a sufficient count, not statistical or energy optimality.
+
+Evidence as of implementation
+Command: PYTHONPATH=src python -m unittest discover -s tests -p test_workflow.py -v
+Result: 18 tests passed, including CLI, arithmetic, tamper rejection, model
+substitution, non-iid refusal, grammar/zero costs and preserved access
+certificate when explicit transcript enumeration exceeds the declared cap.
+Additional public-API cases verify exact minimax error1/25 for the two-row
+selective fingerprint and a counting-channel cap22 at mu10,beta1/100,
+yielding declared energy37 with per-event work3/2 and apparatus4.
+
+Command: python -m pip wheel --no-deps --no-build-isolation --wheel-dir
+         /tmp/constructive-access-wheel .
+Result: wheel built. Installed to a fresh /tmp target with --no-deps and tested
+under python -I from /tmp with only the installed target added to sys.path.
+Analysis and independent verification of the calibrated example succeeded;
+module path was /tmp/constructive-access-installed/constructive_access and
+no package code was imported from /workspace. The system SymPy dependency
+was available. Root performs the final distribution reproduction separately.
+
+Source provenance
+Seven modules were copied from prior phases. cost_certificate.py, accesskit.py,
+model_adequacy.py, intervention_criterion.py and energy_tail.py are unchanged.
+ctmc_adapter.py and budgeted_design.py change
+only 'from accesskit import' to relative '.accesskit'. Exact original and
+vendored SHA256 hashes are recorded in the package PROVENANCE.json. Prior
+source files and releases were not edited.
+
+Limits
+No API certifies a new physical law, four engineering grand challenges,
+historical priority, external peer review, total unobserved energy, quantum
+scalability, arbitrary neural-network latent state, or model completeness.
+The least nonzero-witness action charge is not the least total repeated
+experimental charge. The user-specified transcript cap may stop statistical
+evaluation without changing the separate exact access result. Community
+validation and physical calibration remain distinct evidence requirements.

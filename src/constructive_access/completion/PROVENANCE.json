@@ -1,0 +1,46 @@
+[
+  {
+    "original_file": "completion/code/composition.py",
+    "original_sha256": "a808ca96faafccf8bce2e5a0587208dc63c4365a986a4cbfd7810649da6cacbf",
+    "packaged_file": "src/constructive_access/completion/composition.py",
+    "packaged_sha256": "a808ca96faafccf8bce2e5a0587208dc63c4365a986a4cbfd7810649da6cacbf",
+    "changes": []
+  },
+  {
+    "original_file": "completion/code/graph_access.py",
+    "original_sha256": "594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f",
+    "packaged_file": "src/constructive_access/completion/graph_access.py",
+    "packaged_sha256": "594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f",
+    "changes": []
+  },
+  {
+    "original_file": "completion/code/physical_access.py",
+    "original_sha256": "485bac61f5a654a886c40da1a918242358d451bf621b90ff40a93be97e081a5b",
+    "packaged_file": "src/constructive_access/completion/physical_access.py",
+    "packaged_sha256": "485bac61f5a654a886c40da1a918242358d451bf621b90ff40a93be97e081a5b",
+    "changes": []
+  },
+  {
+    "original_file": "completion/code/pulse_test.py",
+    "original_sha256": "79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828",
+    "packaged_file": "src/constructive_access/completion/pulse_test.py",
+    "packaged_sha256": "79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828",
+    "changes": []
+  },
+  {
+    "original_file": "completion/code/quantum_completion.py",
+    "original_sha256": "caea447b506a62e388f2c8a8d8ce22f6df684acc76295418f15c54218f69eedc",
+    "packaged_file": "src/constructive_access/completion/quantum_completion.py",
+    "packaged_sha256": "caea447b506a62e388f2c8a8d8ce22f6df684acc76295418f15c54218f69eedc",
+    "changes": []
+  },
+  {
+    "original_file": "completion/code/robust_completion.py",
+    "original_sha256": "9308b740c53f9b77009cb55cf5b638d36118809f1d03fce9e9fa4479d8218f64",
+    "packaged_file": "src/constructive_access/completion/robust_completion.py",
+    "packaged_sha256": "3aac69f5d31c39c8a8be61d14347b69f23b54efc311290ab5746e548fd83ab45",
+    "changes": [
+      "Sibling graph_access imports made package-relative."
+    ]
+  }
+]

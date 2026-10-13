@@ -1,0 +1,173 @@
+\chapter{What the virtual laboratory establishes}
+\label{ch:vl-positioning}
+
+The virtual laboratory tests whether the inference procedure works when records
+are generated through a physical model and an imperfect measurement process.
+It separates the hidden process, apparatus and statistical analysis. This makes
+it possible to locate a failure: a detector can erase a signal, a clock can
+change the model class, a reset can leave dependence between trials, or a
+confidence calculation can overstate the evidence. Each calls for a different
+correction.
+
+The results have two levels. The proofs specify conditions under which a
+certificate is valid. The simulations measure the operating characteristics
+of particular implementations under specified data laws. Agreement between an
+independent simulator and an analytical prediction verifies the numerical
+model. Establishing that an apparatus obeys that model requires physical
+measurements. This distinction follows established verification and validation
+practice \cite{vlOberkampf2002}.
+
+\section{The experimental contract includes the apparatus}
+
+A temporal trace is generated jointly by dynamics, preparation, detector and
+clock. A fixed imperfect detector can often be included in an unknown response
+function. A detector that changes with the selected waiting time generally
+cannot. Fixed preparation errors can similarly be absorbed into an unknown
+initial state, whereas an unrecorded preparation variable correlated with the
+controls can enlarge the hidden state space.
+
+This distinction makes a useful robustness question precise: does an
+imperfection leave the null class unchanged, merely weaken detection power,
+or change the class the theorem describes? The laboratory includes examples
+of all three. A counterfeit signal produced by setting-dependent readout is
+a demonstration of a missing apparatus assumption. It is not evidence against
+a theorem that explicitly requires a fixed detector.
+
+Practical dimension witnesses and processor characterization already have a
+substantial experimental literature. Hendrych and collaborators demonstrated
+preparation--measurement dimension witnesses \cite{vlHendrych2012}. Gate set
+tomography jointly characterizes states, operations and measurement
+\cite{vlNielsen2021}. Proctor and collaborators detected and tracked drift in
+processor experiments \cite{vlProctor2020}. These results support checking
+apparatus stability and retaining acquisition timestamps. They do not establish
+those conditions for the illustrative apparatus used here.
+
+The rates, decoherence ratios and readout errors in this laboratory are
+\emph{illustrative parameters}. They are not calibrated performance figures
+for a superconducting, trapped-ion, photonic or spin platform. A physical
+implementation would need joint evidence for its coherence, drive stability,
+reset, detector and clock under the intended protocol. A favorable ratio of
+frequency to damping alone is insufficient.
+
+\section{Finite-data dissipation inference has close precedents}
+
+Hidden dissipation can already be inferred from apparently time-symmetric
+observations. Skinner and Dunkel established such bounds through optimization
+over compatible hidden models and applied their framework to biological data
+\cite{vlSkinner2021}. Waiting-time methods supply related information
+\cite{vlSkinnerWaiting2021}. Finite-sample uncertainty in kinetic inference has
+also been treated directly \cite{vlBebon2023}.
+
+The effects of imperfect resolution and finite statistics are particularly
+close to the study by Fritz, Ertel and Seifert \cite{vlFritz2025}. Their
+comparisons show that finite-data estimates can exceed the underlying entropy
+production and that finer resolution need not improve performance at a fixed
+observation duration. The practical issue addressed here is therefore a
+certified lower confidence bound under an explicit observation contract.
+
+For fresh binary endpoint records, the single-lag floor, monotonicity
+constraint, full reversible moment set and predeclared linear contrast use
+the same accessible data. Comparisons among them can match record count,
+confidence and exposure. A waiting-time estimator requires observed events
+that this contract does not supply. Full tomography likewise asks a different
+inference question with a richer menu of operations. Neither is a fair
+performance baseline if its required observations are withheld.
+
+Combining observables to tighten thermodynamic bounds is established
+\cite{vlDechant2021}. The specific improvement studied here compiles a
+polynomially certified equilibrium constraint into a single contrast with a
+finite-count guarantee. Its validity depends on selecting the contrast before
+the held-out records are examined. Optimizing it on those same records requires
+an additional selection correction.
+
+\section{Timing errors have different mathematical effects}
+
+Positive exponential mixtures are a standard consequence of reversible
+spectral theory \cite{vlAldousFill2002}. Random-time semigroups and their
+functional calculus belong to classical subordination theory
+\cite{vlSchilling2012}. The timing results here apply those structures to the
+measurement contract.
+
+For independent, identically distributed nonnegative time increments $X_j$,
+\[
+ \mathbb E\!\left[e^{Q(X_1+\cdots+X_k)}\right]
+ =\left(\mathbb E[e^{QX_1}]\right)^k.
+\]
+The same finite hidden state space therefore supports a common stochastic
+channel. Both the repeated-channel dimension certificate and the reversible
+spectral restrictions survive this type of timing uncertainty.
+
+A common random scale, $T_k=kV$, has a different consequence. For each
+reversible spectral mode, $\mathbb E[e^{-\lambda kV}]$ is the $k$th moment of
+$x=e^{-\lambda V}$ on $[0,1]$. It preserves the equilibrium moment set. It need
+not preserve the same finite-state channel representation: mixing two clock
+speeds can turn one decaying mode into two. The clock contributes unobserved
+memory if its realization is not retained.
+
+Arbitrary setting-dependent timing laws do not inherit either guarantee
+merely because their mean is correct or their errors are bounded. The relevant
+condition is the entire family of Laplace profiles used in the theorem. This
+provides an apparatus design rule: specify the joint timing mechanism before
+assigning it a statistical error bar.
+
+The denominator in a dissipation-rate certificate must also describe physical
+exposure. Expected actual waiting time, nominal time and a maximum duration
+are different resource statements. An unbounded clock with finite mean has no
+pathwise duration cap. Ordinary integration over a detector exposure window
+also requires its own observation model; it cannot automatically be replaced
+by a randomly selected endpoint.
+
+\section{Dependence is handled through a declared reset guarantee}
+
+Independent trials make binomial intervals appropriate
+\cite{vlClopper1934}. Chronological records can instead remain dependent after
+an imperfect reset. The dependent-record extension uses a uniform bound on the
+conditional bias of each bounded observation relative to its target
+probability. Conditional moment-generating-function bounds then control the
+fluctuations around those conditional means, and the reset bias enters as a
+separate deterministic allowance.
+
+This is an application of established concentration machinery
+\cite{caHoeffding1963,vlHoward2021}; mixing-based Markov concentration also has
+an extensive theory \cite{vlPaulin2015}. The physical content lies in justifying
+the conditional-bias bound. A known worst-case mixing or minorization bound can
+supply it after a specified blind waiting interval. A fitted correlation time
+from a short record does not establish that uniform condition.
+Chapter~\ref{ch:ci-dependence} supplies a separate common-block argument
+under a calibrated hidden-process contraction bound.
+
+The supplied argument specifies predictable settings and fixed per-setting
+quotas. It does not automatically cover unrestricted data-dependent stopping.
+Chapter~\ref{ci:sequential} implements a separate anytime construction
+using established confidence-sequence ideas~\cite{vlHoward2021}, conditional
+mean bounds and predictable acquisition. It does not license optional
+stopping for this fixed-quota result.
+
+\section{Matched design and reproducible evaluation}
+
+The simulation plan separates design data from evaluation data, fixes the
+analysis before held-out trials, and retains unsuccessful regimes. This follows
+standard simulation methodology \cite{vlMorris2019}. The report should identify
+the generated model, accessible records, target quantity, competing methods,
+performance measures and random seeds. Independent implementations should
+cross-check physical propagation and statistical evaluation where possible.
+
+A scalar contrast can reduce the loss from demanding simultaneous confidence
+for every coordinate. Allocating samples in proportion to coefficient size,
+and adjusting by the square root of per-record cost, follows classical optimal
+stratified allocation \cite{vlCochran1977}. Its use here provides a direct
+connection between the chosen physical witness and the measurement budget;
+the allocation principle itself is established.
+
+Finite simulation repetitions have uncertainty of their own. If no failures
+occur in $R$ independent repetitions, the one-sided $95\%$ exact binomial upper
+limit on the failure probability is $1-0.05^{1/R}$. A reported zero count must
+therefore retain that uncertainty. Power comparisons on common records should
+use paired outcomes, while comparisons with different acquisition menus must
+state the additional access and exposure.
+
+The contribution of this laboratory is an auditable bridge from model theorem
+to executable protocol: it identifies which imperfections preserve a
+certificate, quantifies the resulting confidence and power, and gives explicit
+counterexamples when an assumption is removed. Physical validation, external
+review and historical priority remain separate stages of evidence.

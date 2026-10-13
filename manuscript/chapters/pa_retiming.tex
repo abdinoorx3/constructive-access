@@ -1,0 +1,179 @@
+\chapter{Repairing a noise obstruction by changing the measurement lag}
+\label{ch:pa-retiming}
+
+The noisy example in Chapter~\ref{ch:pa-joint-analog} cannot produce a
+positive population gap anywhere in its chosen two-lag quadratic family.
+That obstruction concerns a specific set of observation times. Retaining the
+same detector and changing those times exposes a negative correlation, which
+does admit a dissipation certificate. The new experiment below recovers
+386 positive certificates in 400 fresh noisy datasets, compared with zero
+for either former fixed contrast, at the same declared evolution time and
+with substantially fewer detector readings.
+
+This is a complete example of the research loop: certify why the present
+protocol fails, change an identifiable feature of physical access, and test
+the resulting prediction on new data. Negative-correlation constraints and
+the use of temporal correlations to study irreversibility have established
+antecedents~\cite{vlAldousFill2002,ciVSR2024,ciVSRProofs2024}. The contribution
+here is the explicit repair, its direct finite-data dissipation bound and its
+frozen comparison. It is not a claim that useful timing is new or that every
+unknown system has a similarly favorable lag.
+
+\section{One observed lag is sufficient}
+Assume the stationary homogeneous Markov and ordinary even-variable reversal
+conditions of Theorem~\ref{thm:pa-finite-lag}. Let $Z\in[-1,1]$ be the same
+noninvasive memoryless analog detector, with conditional mean $f$ and
+independent endpoint noise. Write
+\[
+ C(\tau)=\mathbb E[Z_0Z_\tau]=\langle f,e^{\tau Q}f\rangle_\pi.
+\]
+Under a reversible explanation,
+\[
+ C(\tau)=\|e^{\tau Q/2}f\|_\pi^2\geq0.
+\]
+This condition includes a nonzero detector mean; no mean subtraction or
+zero-lag second-moment estimate is needed for this particular test.
+
+\begin{corollary}[Negative-correlation dissipation certificate]
+Set $t=\tau/2$ and $s=0$ in the direct finite-lag theorem. If an already
+covered lower bound $g\geq0$ obeys $2g\leq[-C(\tau)]_+$, then
+\begin{equation}
+ \sigma\geq\frac{2\Phi(2g)}{\tau}\geq\frac{8g}{\tau},\qquad
+ \Phi(u)=2\sqrt u\,\operatorname{atanh}\sqrt u,
+ \quad 0\leq u<1.
+ \label{eq:pa-retiming-bridge}
+\end{equation}
+The conclusion concerns the same physical model and confidence event.
+\end{corollary}
+\begin{proof}
+The semigroup defect becomes
+$-s^2C(0)+2sC(t)-C(2t)=-C(\tau)$.
+The two unused coordinates have zero coefficients, so they need not be
+measured. The detector mean has range at most two. Substituting $t=\tau/2$
+and normalized covered defect $2g$ into the direct theorem gives the result.
+\end{proof}
+
+The hidden semigroup identity uses $\tau/2$, but the instrument does not
+perform a half-lag measurement. It records only the two endpoints separated
+by $\tau$. There are no dedicated zero-lag calibration acquisitions. Bounds
+on the detector, its channel stability and memory, the clock and stationary
+preparation remain physical calibration requirements.
+
+For $n$ independent stationary pairs, let
+$W_i=(1+Z_{i,0}Z_{i,\tau})/2\in[0,1]$. At failure probability $\alpha$,
+\begin{equation}
+ g_n=\left[\frac12-\overline W
+   -\sqrt{\frac{\log(1/\alpha)}{2n}}-e-\delta\right]_+
+ \label{eq:pa-retiming-confidence}
+\end{equation}
+is valid. The quantity $e$ bounds numerical mean error, and $\delta$ bounds
+a declared conditional mean discrepancy given the complete preceding record.
+The independent stationary-pair design has $\delta=0$. This is Hoeffding's
+one-sided bound; it does not assume that an analog score is a Bernoulli
+count. The implementation accepts exact product sums, propagates the declared
+errors, and applies the same rational enclosure of $\Phi$ as the preceding
+chapter. A lag chosen on these same inference records requires a separate
+selection correction.
+
+\section{An exact reason to move the lag}
+The earlier ring has 20 states, clockwise rate 20 and counterclockwise rate 1.
+For an ideal cosine detector, its fundamental-mode correlation has the form
+\[
+ C(\tau)=A e^{-\gamma\tau}\cos(\omega\tau),\qquad
+ \gamma=21\bigl(1-\cos(2\pi/20)\bigr),\quad
+ \omega=19\sin(2\pi/20).
+\]
+The implemented detector is rounded to denominator 4096; the noisy channel
+adds an independent fair noise of amplitude $1/2$ to half that cosine.
+The exact audit therefore uses the actual rational detector and generator,
+not the ideal single-mode approximation.
+
+At the former lags $0.1$ and $0.2$, completing the square and exact
+uniformization showed that the greatest analog quadratic gap over every real
+$s$ is below $-0.007$. At the newly fixed lag $\tau=0.5$, exact uniformization
+instead encloses
+\[
+ C(0.5)\simeq-0.0732037920< -0.07.
+\]
+Its population linear dissipation bound is approximately $0.585630$; the
+nonlinear bound is $0.600583$. Both remain far below the actual microscopic
+rate $19\log20\simeq56.9189$.
+
+The rational calculation expands $e^{\tau Q}$ by uniformization with rate 21.
+Each discrete-step correlation has absolute value at most $A$, by stationary
+Markov contraction in $L^2(\pi)$. A geometric bound on the positive exponential
+tail therefore encloses the omitted correlation contribution, including either
+sign. Eighty terms give the reported rigorous interval. An independent
+100-digit Fourier calculation checks that interval. This calculation and the
+choice of the new lag use the known model after the earlier failed protocol;
+the subsequent evaluation uses a new random seed and new held-out records.
+
+\section{Fresh evaluation with equal evolution time}
+Before generating the new evaluation bank, the design fixes
+$\tau=1/2$, $n=1800$ and $\alpha=1/20$. The new method uses 1,800 stationary
+pair preparations, 3,600 detector readings and 900 units of evolution time.
+The comparison retains both former fixed values $s=1/2$ and $s=3/4$, each
+using the actual joint-analog API and its stronger direct dissipation bridge.
+Those methods receive fresh banks of 4,000 stationary single readings and
+3,000 pairs at each of lags $0.1$ and $0.2$: 10,000 acquisitions, 16,000
+readings and the same 900 units of evolution time.
+
+Thus the retimed design uses 22.5\% as many readings, a factor $40/9$
+reduction. Its preparation count also changes. Preparation, reset, detector
+operation and processing overhead are unmeasured and are not assigned zero.
+The comparison matches declared evolution time; it does not claim equal
+total wall time, equal processing energy or a calibrated joule saving.
+
+Four cases each receive 400 new datasets. The driven rates are 20 and 1;
+the equilibrium rates are $21/2$ in each direction. Both clean and noisy
+versions use the same channels defined above.
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Case & Old $s=1/2$ & Old $s=3/4$ & Retimed\\
+\midrule
+Driven &400/400&400/400&400/400\\
+Equilibrium &0/400&0/400&0/400\\
+Noisy driven &0/400&0/400&386/400\\
+Noisy equilibrium &0/400&0/400&0/400\\
+\bottomrule
+\end{tabular}
+\end{center}
+The noisy detection fraction is 96.5\%, with a nominal Wilson 95\% Monte
+Carlo interval of 94.21--97.90\%. Its mean nonlinear lower bound is
+$0.124947$, only 0.2195\% of the actual rate. Retiming restores a usable
+certificate in this example; it does not reconstruct the microscopic
+dissipation accurately. For the clean driven case, the mean bound is
+$2.05450$, compared with $0.621640$ and $0.900411$ for the two earlier fixed
+designs. None of the 1,600 datasets produces a bound above its model's true
+rate. That simulation observation is additional checking, not a replacement
+for the confidence proof.
+
+All three methods have individual 95\% certificates. Their unadjusted maximum
+is not advertised as another 95\% certificate. The archive preserves every
+dataset's exact sufficient statistics and the first raw bank of each case.
+Independent code reconstructs every reported rate and checks the raw-bank
+summaries, physical counts and population intervals.
+
+\section{What this repair does and does not identify}
+The timing change avoids the conservative $B-A$ calibration penalty because
+the zero-lag coefficient is zero. Independent detector noise still reduces
+the conditional mean signal and hence the accessible correlation. It does
+not vanish from the experiment, and many driven systems or available lag
+ranges may have no statistically useful negative correlation.
+
+The ordinary-reversal and detector assumptions also remain necessary. An
+equilibrium one-state target coupled to an unobserved driven sensor ring can
+produce exactly the same recorded law as the noisy driven example. The full
+target-plus-sensor system dissipates, while the target alone need not.
+Assigning the inferred lower bound to the target requires excluding such
+sensor memory or including it in the physical system being bounded.
+Equilibrium systems with odd hidden variables, such as inertial dynamics,
+likewise require the correct reversal operation and a separate argument.
+
+The result establishes a concrete change in experimental access: one protocol
+family provably has no positive population gap, while a redesigned timing
+choice provides a finite-data dissipation certificate with fewer readings at
+the same evolution budget. It is a model-assisted, reproducible repair under
+stated assumptions, rather than a universal rule for selecting lags without
+prior information about a system.

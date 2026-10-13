@@ -1,0 +1,212 @@
+{
+  "alpha": "1/20",
+  "clock_law": "actual lag = nominal lag * V, independent V uniform[1-jitter,1+jitter] with common law at every setting",
+  "count_interval": "simultaneous two-sided Hoeffding box, 2K exp(-2nr\u00b2)<=alpha, checked with exact rational log enclosure",
+  "extra_case": {
+    "backward": 1.0,
+    "contract": "outside_stationarity; valid preparation-resource interpretation",
+    "forward": 9.0,
+    "initial_state": 0,
+    "menu": "revival",
+    "name": "prepared_equilibrium",
+    "states": 2
+  },
+  "holdout_datasets": 200,
+  "holdout_seed": 94170029,
+  "matched_access": "All three inference methods use identical counts, settings and physical exposure within each case.",
+  "menus": {
+    "curvature": {
+      "box_radius": "7/1000",
+      "detector": [
+        "1",
+        "123461/125000",
+        "951057/1000000",
+        "891007/1000000",
+        "809017/1000000",
+        "707107/1000000",
+        "117557/200000",
+        "45399/100000",
+        "309017/1000000",
+        "78217/500000",
+        "0",
+        "-78217/500000",
+        "-309017/1000000",
+        "-45399/100000",
+        "-117557/200000",
+        "-707107/1000000",
+        "-809017/1000000",
+        "-891007/1000000",
+        "-951057/1000000",
+        "-123461/125000",
+        "-1",
+        "-123461/125000",
+        "-951057/1000000",
+        "-891007/1000000",
+        "-809017/1000000",
+        "-707107/1000000",
+        "-117557/200000",
+        "-45399/100000",
+        "-309017/1000000",
+        "-78217/500000",
+        "0",
+        "78217/500000",
+        "309017/1000000",
+        "45399/100000",
+        "117557/200000",
+        "707107/1000000",
+        "809017/1000000",
+        "891007/1000000",
+        "951057/1000000",
+        "123461/125000"
+      ],
+      "lags": [
+        1,
+        2,
+        3
+      ],
+      "memory_agreement": [
+        0.7169821595,
+        0.64530792105,
+        0.55144537275
+      ],
+      "records_per_setting": 50000,
+      "scores": [
+        [
+          "101/100",
+          "199/200"
+        ],
+        [
+          "49/50",
+          "101/100"
+        ],
+        [
+          "101/100",
+          "199/200"
+        ]
+      ],
+      "step": "3/20"
+    },
+    "revival": {
+      "box_radius": "21/1000",
+      "detector": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1",
+        "-1"
+      ],
+      "lags": [
+        16,
+        21
+      ],
+      "memory_agreement": [
+        0.512,
+        0.736
+      ],
+      "records_per_setting": 5000,
+      "scores": [
+        [
+          "61/47",
+          "32/39"
+        ],
+        [
+          "33/47",
+          "46/39"
+        ]
+      ],
+      "step": "1/10"
+    }
+  },
+  "monte_carlo_interval": "two-sided95% Clopper-Pearson interval across independent held-out datasets",
+  "no_claims": [
+    "empirical physical validation",
+    "universal heat interpretation",
+    "free stationary reset",
+    "inference validity under detector memory"
+  ],
+  "pilot_datasets": 20,
+  "pilot_seed": 94170011,
+  "raw_dataset": "curvature/driven, first held-out dataset, every simulated record",
+  "root_predeclared_extension": "curvature contrast(-1,2,-1), alpha.05; independently implemented by root; same held-out counts",
+  "scenarios": [
+    {
+      "backward": 1.0,
+      "contract": "within",
+      "forward": 20.0,
+      "gain": 1.0,
+      "jitter_halfwidth": 0.0,
+      "name": "driven"
+    },
+    {
+      "backward": 10.5,
+      "contract": "within",
+      "forward": 10.5,
+      "gain": 1.0,
+      "jitter_halfwidth": 0.0,
+      "name": "equilibrium"
+    },
+    {
+      "backward": 1.0,
+      "contract": "within",
+      "forward": 20.0,
+      "gain": 0.2,
+      "jitter_halfwidth": 0.0,
+      "name": "high_readout_noise"
+    },
+    {
+      "backward": 1.0,
+      "contract": "within_random_scale_clock",
+      "forward": 20.0,
+      "gain": 1.0,
+      "jitter_halfwidth": 0.3,
+      "name": "independent_clock_jitter"
+    },
+    {
+      "backward": 10.5,
+      "contract": "outside_detector_memory",
+      "forward": 10.5,
+      "gain": 1.0,
+      "jitter_halfwidth": 0.0,
+      "name": "detector_memory"
+    }
+  ],
+  "states": 40,
+  "status": "frozen before production; synthetic stochastic trajectories",
+  "units": "arbitrary declared model time; rates are illustrative, not empirical calibration",
+  "version": 1
+}

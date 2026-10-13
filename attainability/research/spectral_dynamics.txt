@@ -1,0 +1,128 @@
+Spectral dynamics: evidence and reproducibility record
+2026-10-12T22:41:14Z
+
+Question
+Can a direct physical dissipation inequality substantially improve the sixth
+edition's record-divergence/Pinsker comparison without assuming a hidden graph?
+
+The initial infinitesimal curvature candidate was not promoted. Although
+C''(0) = ||Sf||² - ||Af||² is immediate, its conversion to entropy requires
+additional kinetic information and derivative estimation. A finite-lag
+transition-operator identity provided a more useful route.
+
+Conditional theorem
+For a stationary homogeneous Markov semigroup with ordinary physical reversal
+of the complete hidden state, a real detector f of known range R, and real s,
+Delta = -s² C(0) + 2s C(t) - C(2t)
+      = ||Bf||² - ||(H-sI)f||²,
+where H = (P_t + P_t†)/2 and B = (P_t - P_t†)/2.
+With u = 4[Delta]+/R², conditional total variation, the sharp half-Jeffreys
+inequality and Jensen give endpoint KL >= Phi(u), where
+Phi(u) = 2 sqrt(u) atanh(sqrt(u)). Path KL = t sigma then implies
+sigma >= Phi(u)/t >= 8[Delta]+/(R² t).
+No hidden dimension or rate bound is needed. This does not establish the exact
+minimum over all compatible continuous-time physical models.
+
+Finite-confidence integration
+The existing joint count confidence event gives 2g <= [Delta]+ with g >= 0.
+Thus u = 8g/R² and sigma >= Phi(u)/t >= 16g/(R² t). For R = 2, the linear
+bound is 4g/t. Analog squared-readout calibration is conservative because
+B_obs >= E(f²) and its coefficient is -s². No additional alpha is used.
+The numerical bridge uses rational positive series and a rigorous tail bound.
+For u >= 1 it flags finite-entropy incompatibility on the coverage event,
+retains the valid linear inequality and does not clip or interpret a possible
+confidence failure as empirical model refutation.
+
+Sharpness and its limit
+A discrete-time four-cycle with forward probability (1+z)/2, backward
+probability (1-z)/2, f = (1,1,-1,-1), and s = 0 gives Delta = z² and endpoint
+KL = 2z atanh(z), saturating the nonlinear endpoint theorem exactly.
+Its determinant is -z² < 0, whereas det(exp(tQ)) > 0 for a finite CTMC.
+It proves endpoint sharpness, not CTMC rate sharpness. The realization gap
+remains explicit. The physical_minimum agent's ring theorem addresses a
+separate, architecture-restricted optimization.
+
+Extensions
+A bounded map F into a real Hilbert space works with its joint image diameter R
+and C(t) = E <F(X_0), F(X_t)>. The difference of kernel expectations is TV times
+a difference of barycenters, of norm at most R. The unit-circle detector
+(cos(theta), sin(theta)) doubles the cosine-only defect with the same diameter
+two; it changes experimental access and requires counting both detector
+channels. No new physical vector-detector performance is claimed.
+The diffusion extension requires a justified ordinary forward/reverse path
+identity KL = t sigma. This is not the earlier additive-reversible comparison
+with path KL = t sigma/4.
+
+Counterexamples retained
+1. A nonstationary preparation of a reversible two-state generator gives a
+positive defect despite zero stationary entropy production.
+2. An equilibrium inertial oscillator can give positive bounded-position
+defects while velocity is odd under physical time reversal.
+3. Circle drift-diffusion is generalized reversible under theta -> -theta,
+although the even observable cos(theta) can have a positive defect. An even
+retained observable alone does not establish ordinary full-state reversal.
+4. The sixth edition's invalid-calibration control still produces false
+certificates. A stronger mathematical implication cannot repair a wrong
+measurement contract.
+
+Closest prior art checked
+Sason (2015), DOI 10.1109/TIT.2014.2387065, Proposition 4: sharp symmetric
+KL/TV inequality, used here as an established ingredient.
+Van Vu, Vo and Saito (2024), DOI 10.1103/PhysRevResearch.6.013273, Eq. 13 and
+Appendix D Eqs. 112-117: finite-time cross-correlation asymmetry and the
+endpoint/path KL contraction. The two-observable asymmetry numerator vanishes
+for one common observable; the scalar finite-lag polynomial is different.
+The 2024 variance sum rule already infers dissipation from time-symmetric
+correlations. Gu (2026) and Shiraishi (2026) delimit spectral inferences.
+The literature agent supplies the primary-source assessment and bibliography.
+Search does not prove historical priority. No external peer review is claimed.
+
+Owned files
+code/spectral_dynamics.py
+tests/test_spectral_dynamics.py
+manuscript/spectral_dynamics.tex
+results/spectral_dynamics_replay.json
+
+Public functions
+from_gap(gap_lower, lag_unit=1, range_bound=2, terms=24)
+phi_interval, population_gap, inspect_model, replay_sixth_joint.
+inspect_model is a floating-point diagnostic, not an exact numerical certificate.
+
+Reproduction
+Set OPENBLAS_NUM_THREADS=1 and OMP_NUM_THREADS=1. Set PYTHONPATH to
+/workspace/discovery_program/calibrated_inference/release/src.
+Run:
+python -m unittest discover \
+  -s /workspace/discovery_program/physical_attainability/tests \
+  -p test_spectral_dynamics.py -q
+Result: 14 tests passed in 0.662 seconds. Tests include 60 random nonuniform
+stationary models, reversible controls, exact discrete sharpness and
+nonembedding, a vector channel, rational interval validation against 100-digit
+mpmath, and nonstationarity and odd-variable counterexamples.
+
+Run:
+python /workspace/discovery_program/physical_attainability/code/spectral_dynamics.py \
+  --sixth-results /workspace/discovery_program/calibrated_inference/results \
+  --output /workspace/discovery_program/physical_attainability/results/spectral_dynamics_replay.json
+All 1,600 saved datasets replayed, with maximum old-rate discrepancy zero.
+Input hashes are retained. No samples, parameters, confidence events or
+acquisition resources changed. For the driven case:
+- Positive certificates: 399/400, unchanged.
+- Previous mean lower bound: 0.000800513327939656.
+- New linear mean: 0.1098465799930295.
+- New nonlinear mean: 0.11224493036266925.
+- Ratio of nonlinear to previous means: 140.21619184225557.
+- Actual model entropy production: 3.55736119555427.
+Equilibrium: 0/400 positive. High readout noise: 6/400 positive. Invalid
+calibration: 400/400 false positives, explicitly retained as a failure control.
+The joint protocol retains 20,000 pairs, 40,000 readouts and 24,000 units of
+evolution time. The archived paired-comparison bank also contains additional
+baseline arms, whose separate costs remain in the source JSON.
+
+Internal review
+/root/independent_review confirmed the identity, constants, conditional
+Jeffreys step, positive-part confidence wording, nonembedding argument and
+vector proof, and is preparing independent tests. Root derived the main
+bound independently. /root/physical_minimum independently checked the main
+manuscript proof. External review, physical validation and universal CTMC
+attainability remain open.

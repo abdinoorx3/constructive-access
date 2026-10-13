@@ -1,0 +1,244 @@
+PHYSICAL ACCESS COMPLETION: FINITE-PULSE CURRENT RESPONSE
+Abdinoor / 2D Labs / 12 October 2026
+Authoring agent: /root/completion_physics
+Research checkpoint: 2026-10-12 18:35 UTC; see source and results for final checks.
+
+STATUS AND SCIENTIFIC POSITION
+
+This branch supplies a proved finite-state stochastic-model theorem, exact
+inference helpers, constructed network examples, negative controls, and a
+physical validation contract. It reports no laboratory data and no new physical
+law. Historical originality remains subject to comparison with existing kinetic
+response theory. The useful candidate extension is finite-amplitude, all-finite-
+time endpoint sign preservation together with a constructive calibrated current
+assay. Finite-amplitude static response and linear transient response have close
+published precedents; the elementary first-hitting argument must not be renamed
+as a new general branch of mathematics.
+
+FILES OWNED
+
+code/physical_access.py
+tests/test_physical_access.py
+results/physical_access.json
+manuscript/classical_section.tex
+research/physical_access.txt
+
+STRONGEST SURVIVING RESULT
+
+Row-generator convention. Let Q and Q' be valid finite CTMC generators, pi a
+stationary probability row for Q, and i != j. Suppose their only changes are the
+two directed rates i->j and j->i and compensating diagonals. Set
+
+ gamma = pi_i (Q'_ij-Q_ij) - pi_j (Q'_ji-Q_ji).
+
+Then at every finite t>0 under the same constant Q' through readout,
+
+ [pi exp(tQ')]_j-pi_j = gamma H_ij(t),
+ H_ij(t) = integral_0^t [P'_jj(s)-P'_ij(s)] ds
+         = integral_0^t P'_jj(s) Pr_i^{Q'}(tau_j>t-s) ds > 0.
+
+This statement requires no irreducibility or positive stationary mass at every
+state. The finite generator and distinct endpoints imply finite exit rates and
+positive no-jump probabilities. Exact zero at any positive finite time is
+equivalent to gamma=0; otherwise the baseline displacement has one fixed sign.
+It need not be monotone, nor stay on one side of its eventual stationary value.
+
+PROOF
+
+Stationarity and the two-endpoint support give pi Q'=gamma(e_j-e_i).
+Integrating d[pi exp(sQ')]/ds proves the first identity. Start the perturbed
+process at i and stop at the first hitting time tau_j of j. There is no j
+occupation before tau_j. The strong Markov property gives
+
+ integral_0^t P'_ij(s) ds
+ = E_i[1_{tau_j<=t} integral_0^{t-tau_j} P'_jj(s) ds].
+
+Tonelli's theorem subtracts this nonnegative expression from the integrated
+return probability and gives the survival convolution above. No assumption
+P'_jj(s)>=P'_ij(s) is used; that pointwise statement is false on a directed
+three-cycle. Positivity follows from
+
+ P'_jj(s)>=exp(-lambda_j s),
+ Pr_i(tau_j>u)>=exp(-lambda_i u),
+
+where lambda_k=-Q'_kk. Endpoint upper bounds Lambda_i,Lambda_j thus give
+
+ integral_0^t exp[-Lambda_j s-Lambda_i(t-s)] ds <= H_ij(t) <= t.
+
+For a common cap Lambda, t exp(-Lambda t)<=H<=t. These are local endpoint
+bounds; large exit rates elsewhere do not enter the proof.
+
+SELECTIVE PHYSICAL CHANNEL
+
+For a separately specified bidirectional physical channel e with rates a_e,b_e,
+native J_e=pi_i a_e-pi_j b_e, multiply that channel's two rates by r in (0,1),
+without changing any other rates. Then gamma=-(1-r)J_e and the paired endpoint
+difference D=E[1{X0=j}-1{Xt=j}]=(1-r)J_e H. This is a sign-identifying
+experiment on any finite network obeying the access contract.
+
+Three channel decompositions (3,1,1,3), (2,2,2,2), (1,3,3,1) give the same
+two-state aggregate generator with rates4,4, but first-channel currents1,0,-1.
+Passive full state trajectories cannot distinguish them. Selective suppression
+changes their aggregate generators differently and activates the current sign.
+A common additive state-level control preserves the equal generators instead.
+
+A calibrated Arrhenius barrier shift can realize common forward/reverse
+scaling, preserving that channel's local rate ratio. Enzyme perturbations,
+binding reporters, or shared fuel changes do not automatically satisfy this
+assumption. The intervention can change native current and stationary occupancy;
+the theorem infers the original current from a newly induced response.
+
+SENSOR ACCESS AND COMPOSITION
+
+Full-state paths already identify simple-edge currents. Selective perturbation
+is needed for physical parallel-channel decomposition, or can supply a weaker
+endpoint-only sensor when full paths are unavailable. These are distinct access
+contracts. The graph completion layer must not silently assume full-state paths
+while claiming simple-edge currents were unobservable.
+
+For a coarse detector B containing j and excluding i, positivity survives if
+every directed path from i into B first enters at j. Removing j and testing
+reachability into B is an executable sufficient certificate. Before tau_j there
+is no B-occupation, hence the same proof replaces P'_jj(s) by P'_j(B,s), which
+is at least P'_jj(s). This is a genuine coarse-readout extension with an explicit
+physical interface requirement.
+
+More generally, if pi Q'=gamma(nu_B-nu_A), nu_A is outside B, nu_B inside B,
+and the first entrance into B from nu_A resets to nu_B independently of entrance
+time, the same first-hitting convolution is positive. The entrance-time/state
+factorization is a substantive assumption, not a consequence of coarse graining.
+
+ESSENTIAL FAILURE CONTROLS
+
+1. Arbitrary coarse readout can cross classically. Four channels
+   (0,1,2,1),(0,2,10,1),(1,3,10,1),(2,3,1,3) have native pi=(7,4,80,30)/121.
+   Suppression of channel0 by1/2 gives perturbed pi=(13,6,140,50)/209.
+   For B={1,2}, initial response derivative=-5/121 and eventual displacement
+   =10/2299>0. Continuity proves a finite-time crossing. A destination singleton
+   still has the required sign. Red-team independently certified responses at
+   t=.1 and t=.5 by rational Taylor bounds.
+
+2. Native stationarity is essential. In the two-state (3,1,1,3) model with true
+   J=1 and suppression1/2, preparation(.9,.1) instead of(.5,.5) lets destination
+   population rise. Its response sign is opposite the native-stationary law.
+
+3. The controlled generator must stay fixed until readout. The red-team found a
+   three-cycle cw4,ccw1/10, suppression1/2 on0<->1 for duration1/10, whose
+   immediate destination displacement is about-.04823. Restoring the native
+   generator and waiting2/5 produces about+.002293. Readout latency and release
+   therefore require explicit treatment.
+
+4. Feedback, state-dependent stopping, simultaneous changes on other channels,
+   or invalid preparation can violate the stated contract. A sign crossing alone
+   does not certify quantum coherence or reject all classical hidden-state models.
+
+5. A fixed pulse with only a lower/upper kernel bound identifies sign more sharply
+   than magnitude. Infinite records do not collapse multiplicative kernel
+   uncertainty. Kernel calibration or a shrinking-pulse scheme is needed for
+   arbitrary-precision magnitude inference.
+
+CALIBRATION AND FINITE DATA
+
+For independent classical native-stationary preparations and noninvasive
+initial/final singleton readout, Z=1{X0=j}-1{Xt=j} lies in[-1,1]. Hoeffding gives
+P(|Zbar-EZ|>=s)<=2exp(-Ns^2/2). The code chooses a sufficient N and checks its
+exponential with rational Taylor bounds. This is not a minimum-record claim and
+does not transfer automatically to an initially disturbed quantum state.
+
+With factor interval[rlo,rhi] inside(0,1), endpoint capLambda, and response
+interval[dlo,dhi], preparation TVeta contributes at most2eta expectation bias.
+Add detector and fully propagated model-response error to obtain biasb. Then
+
+ Dideal in ([dlo-b,dhi+b] intersect[-1,1]),
+ (1-r)H in[(1-rhi)t exp(-Lambda*t),(1-rlo)t].
+
+Taking four ratio endpoints gives a rigorous current interval. The code uses
+an exact rational exponential enclosure. An interval containing0 yields the
+status unresolved. This is conservative, not a sharp minimax claim over networks.
+Joint calibration failure adds once to the sample allowance by union bound.
+
+An improved magnitude plan exploits paired-record variance. Write a=1-r,
+|J|<=Jmax, pi_j<=pmax. Exact stationarity implies
+
+ EZ^2=2pi_j(1-P'_jj(t))-D
+     <=[2pmax Lambda+a Jmax]t.
+
+Also |Z-EZ|<=2. Bernstein gives failure<=2exp[-N s^2/(2(V+2s/3))],
+V=min(1,[2pmax Lambda+aJmax]t). The bias of Zbar/(at) is at mostJmax Lambda t.
+For desired current error eps, take t=eps/(2Jmax Lambda), s=at eps/2 and
+N>=2log(2/alpha)(V+2s/3)/s^2. This is a sufficient O(eps^-3) record count.
+The earlier range-only Hoeffding O(eps^-4) bound is valid but weaker. Neither is
+a minimax lower bound. Fixed response calibration error is amplified1/t and
+can impose an error floor; the exact-preparation theorem must not hide it.
+If no tighter current bound is calibrated, Jmax=Lambda/r follows from the
+perturbed endpoint exit caps: r*a_e,r*b_e<=Lambda and |J_e|<=max(a_e,b_e).
+This is conservative but uses no global generator reconstruction.
+
+ENERGY
+
+If separately calibrated per-record energy is bounded by E0+Pmax*t, then the
+preceding plan gives total boundN(E0+Pmax*t), in addition to any shared calibration
+cost not included inE0. As eps->0 this sufficient preparation term scaleseps^-3
+and active-pulse term scaleseps^-2. This is not a universal energy-information
+law. E0 must include resets, preparation, readout, recording, and control costs
+outside the acquisition interval. Arrhenius DeltaB=-kBTlogr is a barrier
+parameter, not total work consumed per measurement.
+
+STRONGER LOCAL RATE-COUNT INTERFACE
+
+For users with local transition counters, suppressing a channel by knownr gives
+
+ J_e=[pi_i(q0_ij-qr_ij)-pi_j(q0_ji-qr_ji)]/(1-r).
+
+The exact interval helper evaluates all128 vertices of a rectangular box in
+pi_i,pi_j,q0_ij,q0_ji,qr_ij,qr_ji,r. Each coordinate dependence is affine or
+linear-fractional with positive denominator, so extrema occur at vertices.
+The box may contain physically inconsistent points; the returned enclosure is
+sharp algebraically for that box and can be conservative physically.
+
+Finite transition-rate records can be justified using inverse local time:
+tau_i(T)=inf{t:integral_0^t1{Xs=i}ds>=T}. In a fixed finite irreducible CTMC,
+source-time marked departures are independent Poisson processes and
+N_ij(tau_i(T))~Pois(q_ij*T). This is not a conditional-on-occupation assertion
+at a fixed wall time. For q_ij<=Lambda, Bernstein gives
+
+ P(|N_ij/T-q_ij|>=eps)
+ <=2exp[-T eps^2/(2(Lambda+eps/3))].
+
+The code chooses sufficient rationalT and certifies the exponential bound.
+Starting at i, E tau_i(T)=T/pi_i by the renewal/Kac identity. The actual elapsed
+time is unbounded; in a perturbed experiment use the perturbed pi_i. A fixed
+deadline can report incomplete exposure and abstain. Coverage remains an
+unconditional probability of a wrong reported interval; no conditional-on-
+completion coverage is claimed.
+
+VALIDATION AND REPRODUCTION
+
+python -m unittest discover -s tests -p test_physical_access.py -v
+python code/physical_access.py
+
+The test module has exact premise/interval/negative-control checks and seeded
+independent augmented-semigroup checks for20 distinct rational models at4 pulse
+times. The reported family has4,5,8,16,32,64 states, fixed coreJ=1/8 and endpoint
+exit cap<=4, with nonidentical leaf kinetics. Thirty numerical pulses compare
+responses against local kernel bounds at times1/100,1/4,1,4,16. This constructed
+family demonstrates size-independent access bounds when target magnitude,
+endpoint rates, and preparation assumptions are held fixed. Arbitrary physical
+networks need not have these properties.
+
+SOURCE CONTEXT
+
+Primary literature leads reviewed in coordination with completion_prior_art:
+- Aslyamov and Esposito, Nonequilibrium Response for Markov Jump Processes:
+  Exact Results and Tight Bounds, PRL132037101(2024),
+  https://doi.org/10.1103/PhysRevLett.132.037101
+- Aslyamov and Esposito, General Theory of Static Response for Markov Jump
+  Processes, PRL133107103(2024), https://doi.org/10.1103/PhysRevLett.133.107103
+- Bao and Liang, arXiv2412.19602v6: finite-amplitude static barrier/current
+  relations, first-passage expressions, and explicit parallel-channel treatment.
+- Zheng and Lu, arXiv2604.06162v2; PRE doi10.1103/tvqj-7ddn: finite-time
+  linear response and Laplace-domain mutual linearity.
+- Liang and Bao, arXiv2608.11202v1: first-passage response/monotonicity context.
+
+The root's literature audit should bind the final bibliography and priority
+language. No claim of first discovery follows from this finite search.

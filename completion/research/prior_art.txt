@@ -1,0 +1,237 @@
+ACCESS COMPLETION: PRIMARY-LITERATURE AUDIT
+Abdinoor / 2D Labs / 12 October 2026
+
+Purpose and status
+------------------
+This audit tests attribution and positioning, not theorem correctness. It extends
+the earlier unified/research/bibliography_sources.txt and positioning.txt audits.
+The search was performed during this research phase. A failure to locate an
+identical statement is not evidence of historical priority. No outside peer
+review, laboratory validation, or bibliometric impact assessment occurred.
+The accompanying sources.json records precise reading limits. Search snippets
+and metadata were not treated as substitutes for unavailable theorem statements.
+
+Decision for the current contribution
+-------------------------------------
+The basic row-space criterion, equivalence algorithms, flow-conservation sensor
+placement, cotree construction, robust linear recovery, optimal experimental
+design, lumpability, and the need for compositional equivalence are established.
+They are useful foundations and implementation components, not new physical laws.
+
+The strongest candidate developed in this phase is more specific: finite-time,
+finite-amplitude recovery of the sign of a stationary physical-channel current
+from the endpoint response to selective channel suppression; explicit local
+calibration bounds; and a quantum model whose response crosses the forbidden
+classical sign boundary. The all-time sign statement must remain restricted to
+the stated preparation, intervention, and singleton detector contract. A hidden
+classical network can have arbitrarily many states within that contract. This
+does not exclude arbitrary classical descriptions with a different intervention,
+coarse detector, time-dependent rates, or nonstationary preparation.
+
+Suggested positioning:
+"We combine established flow observability, optimal recovery, and Markov response
+theory into a constructive procedure for completing experimental access. A
+finite-pulse endpoint-response theorem gives a network-independent current-sign
+test under selective channel control. Its violation in a driven-qubit model
+provides a conditional classical-network exclusion witness."
+
+This is a substantive testable mathematical target. Do not call it the first
+such theorem, a universal law of physics, a device-independent quantum witness,
+or a solved measurement technology without further evidence.
+
+1. FLOW OBSERVABILITY AND GRAPH SENSOR PLACEMENT
+
+Ali--Narasimhan (1993, 1995), Bagajewicz--Sanchez (2000), He (2013), and
+Xu--Lo--Chen--Castillo (2016) establish a substantial earlier literature on
+conservation-law sensor design, complete/target observability, redundancy, cost,
+and uncertain measurements. In the full Bagajewicz--Sanchez article, section 3
+explicitly describes observability using instruments on the chords of a spanning
+tree. This blocks a novelty claim for the minimum measured cotree construction.
+Its sections 2 and 6 already discuss target-variable measurement design and
+precision constraints. Our exact interval-radius objective still needs a precise
+comparison; general cost-optimal robust sensor placement itself is established.
+
+Prakash (2026), DOI 10.1016/j.compchemeng.2026.109863, is exceptionally close by
+title and publisher-indexed description: an exact algebraic graph framework for
+cost-optimal sensor placement in flow processes. Author publication metadata and
+the publisher abstract were inspected; the full paper was inaccessible. Its
+unread theorems are an unresolved priority risk, not a basis for asserting a
+distinction. Retrieve and compare it before any priority-sensitive submission.
+
+The circulation target condition (a separating measured cut in the graph with
+the target removed), the max-flow dual of a deterministic error radius, and the
+maximum-weight spanning-forest solution should be presented as explicit
+specializations of classical graph linear algebra/optimization. The mixed
+parallel-channel/aggregate-sensor classification is a useful scoped extension
+to document with proof and an executable certificate. This audit did not locate
+an identical full theorem, but its kernel/quotient decomposition is elementary
+relative to the established foundations; no priority claim is justified.
+
+2. PERTURBATIONS AS ACCESS COMPLETION
+
+Gross--Bluthgen (2020), DOI 10.1093/bioinformatics/btaa404, is a direct neighboring
+framework for perturbation identifiability and experimental design. Its steady
+linear-response model is R approximately -J^{-1}SP; known network topology and
+generic noncancellation assumptions yield graph path/rank and maximum-flow
+criteria. The accompanying IdentiFlow software designs informative experiments.
+Our exact stationary circulation model and calibrated finite pulse are different
+inverse problems. The general claim that graph analysis can find informative
+perturbations is already established.
+
+Martinez--Bisker--Horowitz--Parrondo (2019), DOI
+10.1038/s41467-019-11051-w, includes an informed observer controlling an observed
+transition while leaving hidden rates fixed. Use it as a selective-access
+precedent. Do not transfer all entropy-production claims without examining the
+linked later Matters Arising discussion. Earlier unified references already
+cover high-order fluorescence correlations and coarse thermodynamic inference.
+
+3. EXACT RESPONSE AND FIRST PASSAGE: CLOSEST PHYSICAL PRIOR ART
+
+Aslyamov--Esposito, PRL 132, 037101 (2024), derive exact stationary response
+relations and bounds for Markov jump processes. Their PRL 133, 107103 (2024)
+develops a broader static-response theory. Barrier response proportional to an
+edge current is therefore not an original inference principle here. The
+derivative of an occupancy following a selective perturbation is also a direct
+generator identity and should not be advertised as a new law.
+
+Bao--Liang, arXiv:2412.19602v6 (2026 revision), is especially important. Equations
+(2b), (3)--(5) give finite-amplitude stationary barrier response in terms of
+mean-first-passage differences and current-rescaling factors. Supplement VIII,
+(S82)--(S84), explicitly covers parallel physical transition channels. The
+conclusion identifies transient response as further work. Accordingly,
+finite-amplitude stationary channel sensitivity, including parallel channels,
+is already covered; our candidate distinction is an all-finite-time endpoint
+sign guarantee plus finite-precision access calibration.
+
+Zheng--Lu, Phys. Rev. E 114, 014126 (2026), DOI 10.1103/tvqj-7ddn,
+arXiv:2604.06162v2, develops response relations out of stationarity.
+Section V contains time-dependent response kernels and Laplace-domain mutual
+linearity. The kernels involve differences of transition probabilities from the
+two endpoints. The inspected statements do not supply the particular fixed-time,
+finite-amplitude positive endpoint occupation kernel of this phase. Do not claim
+that transient Markov response is absent from prior work.
+
+Floyd--Dinner--Vaikuntanathan, arXiv:2507.07295v2 (2026 revision), proves fixed-sign
+steady-state responses across broad perturbation amplitudes using graph-tree
+structure. Section III and Appendix B include edge barriers. The independent
+variable in this monotonicity result is the perturbation strength, evaluated
+after equilibration to the new stationary state. Our candidate holds a
+perturbation fixed and constrains the sign during the entire transient.
+
+Liang--Bao, arXiv:2608.06368, and Bao--Liang, arXiv:2608.11202, develop bounds and exact
+responses for first-passage times. Their observables are completion times, not
+endpoint occupancy at a prescribed finite time. These are relevant methods and
+priority neighbors, not evidence of the endpoint theorem's novelty.
+
+The occupation-kernel proof uses the ordinary strong Markov property at the
+first hit of the measured endpoint. Deviation-matrix and expected-reward theory
+are established (Coolen-Schrijner--van Doorn 2002; Dendievel et al. 2017). We did
+not complete a historical search of every finite-time potential-kernel identity.
+An exact sign theorem can be a useful new application even if its short
+first-passage lemma is standard. Attribute the lemma's method accordingly.
+
+One newly indexed paper, Bao--Liang, "Exact Finite Response of Higher-Order
+Statistics in Nonequilibrium Networks," DOI 10.1088/0256-307X/43/10/100002,
+describes higher-cumulant response and variance sign reversals. Only its primary
+abstract was available. It is not evidence of transient endpoint sign reversal;
+the full text remains a live overlap check.
+
+4. QUANTUM VIOLATION: WHAT IS AND IS NOT DISTINCT
+
+Smirne et al., Quantum Sci. Technol. 4, 01LT01 (2019), DOI
+10.1088/2058-9565/aaebd5, connects generation and subsequent detection of coherence
+with nonclassical Markovian multi-time statistics. Coherence in a model alone
+does not exclude an alternative classical description. The present proposed
+test uses a different observation/intervention contract and a different
+inequality: no change of endpoint-response sign following the specified pulse.
+
+Prech--Potts--Landi, PRL 134, 020401 (2025), DOI
+10.1103/PhysRevLett.134.020401, analyzes violations of classical kinetic
+uncertainty bounds caused by quantum coherence. It includes a coherently driven
+qubit and effective classical rate descriptions. Their comparison concerns
+current fluctuations/activity; ours concerns a signed transient response to a
+specified change of a dissipative channel. The shared physical theme of using
+dynamical data to test a classical rate description requires attribution.
+
+The all-time classical theorem excludes a structural model class rather than
+"classicality" without qualifications. Stationary preparation, a single
+bidirectional physical channel multiplied by one constant factor, fixed other
+rates, and singleton endpoint readout are substantive assumptions. They cannot
+be certified from the two endpoint averages alone. Oscillation by itself is
+not the witness: classical networks and classical oscillators can oscillate.
+What matters is response sign crossing under the common calibrated contract.
+
+The exact qubit threshold reported by the composition agent is an internal
+derivation, not a literature fact or external validation. No identical
+threshold/witness was found in the inspected sources. Historical priority is
+still unestablished. Compare directly with stochastic-model tests and response
+witness literature before using "new" in an abstract.
+
+5. ROBUST RECOVERY, ENERGY ALLOCATION, AND COMPUTATIONAL COMPLEXITY
+
+Elfving (1952), DOI 10.1214/aoms/1177729442, already studies optimal allocation to
+estimate a specified linear functional, including different measurement costs.
+Harman--Jurik (2008), DOI 10.1016/j.csda.2008.06.023, gives a linear-programming
+method for finite c-optimal design. Donoho (1994) is a foundational optimal-recovery
+reference already in the unified release. These block a broad novelty claim for
+target-specific allocation. Adversarial interval widths and stochastic variance
+are different loss models and must not be silently interchanged.
+
+For the explicitly assumed error-energy law epsilon_e = delta_e + sqrt(a_e/E_e),
+the phase's fixed-cut formula and its calibration-floor complexity contrast are
+specific mathematical claims worth proving. The error-energy law itself is a
+calibration assumption, not a consequence of thermodynamics or a universal
+energy-information bound. Joules require an experimentally calibrated meaning.
+
+Aissi--Mahjoub (2024), DOI 10.1007/s10107-023-01987-9, studies terminal cuts with
+budget constraints and discusses strong NP-hardness already for two criteria.
+Kratsch et al., DOI 10.1007/s00453-019-00609-1, studies multi-budgeted directed
+cuts. Thus multiobjective cut hardness is established. A direct PARTITION
+reduction for this phase's nonlinear calibration-floor objective is a scoped
+specialization, not discovery of the general phenomenon. Global budgeted cuts
+and terminal s--t budgeted cuts have different complexity; do not conflate them.
+
+6. COMPOSITION AND CONTEXT-STABLE INTERFACES
+
+Buchholz (1994), Paige--Tarjan (1987), and Bian--Abate (2017) are established
+sources for lumpability, partition refinement, and approximate probabilistic
+bisimulation. The deterministic Markov interface compiler and adaptive trace
+error bound should be presented as a supporting integration with these ideas.
+
+Lalire, arXiv:quant-ph/0603274 (2006), explicitly distinguishes process
+bisimilarity from congruence under parallel composition. Deng--Feng (2012),
+DOI 10.1007/978-3-642-33475-7_9, develops quantum open bisimulation and its
+congruence properties. Hence isolated equivalence failing under coupling and
+the search for context-stable equivalence are not new foundational concepts.
+The classical interface result must not be extended to arbitrary entangled
+quantum contexts without a separate theorem.
+
+7. REQUIRED LIMITS ON APPLICATION CLAIMS
+
+No audited source makes the new framework a universal solution to AI energy,
+fault-tolerant quantum computing, in vivo metabolic flux, or biological sensing.
+Identifying a targeted channel current does not identify all microscopic
+thermodynamic forces, eliminate dissipation, or remove tomography's worst-case
+dimension. Selective suppression may be difficult experimentally, and a
+biochemical concentration often groups many microscopic states. The singleton
+classical sign theorem cannot be applied automatically to that coarse observable.
+
+A mature release should distinguish: established mathematical foundations;
+newly derived scoped propositions with reproducible checks; calibrated-model
+application demonstrations; and untested experimental proposals. The promising
+bridge here is a reusable intervention test with explicit failure contracts,
+not a claim to have created an unavoidable universal language of science.
+
+8. FOLLOW-UP PRIORITY CHECKS BEFORE A PRIORITY-SENSITIVE SUBMISSION
+
+(i) Obtain Prakash 2026 full text and compare exact sensor-design objectives.
+(ii) Compare the all-time endpoint-sign theorem with older finite-time potential
+kernel/Markov perturbation references, not only recent thermodynamics papers.
+(iii) Obtain the full higher-order response paper above; inspect new versions of
+the four recent response preprints immediately before submission.
+(iv) Audit quantum response and classical stochastic model testing for the exact
+single-channel contract; do not rely on generic "quantum oscillation" searches.
+(v) Keep the preparation/intervention/detector loopholes adjacent to the witness.
+
+No third-party full text is reproduced in this release. The JSON source map
+contains primary links, reading scopes, and claim families for independent review.

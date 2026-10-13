@@ -1,0 +1,17 @@
+test_entropy_grows_without_changing_sampled_law (test_exact_sampling.ExposureSamplingCountermodels.test_entropy_grows_without_changing_sampled_law) ... ok
+test_independent_exposure_integrals (test_exact_sampling.ExposureSamplingCountermodels.test_independent_exposure_integrals) ... ok
+test_invalid_inputs (test_exact_sampling.ExposureSamplingCountermodels.test_invalid_inputs) ... ok
+test_positive_mixtures_match_all_covariance_parameters (test_exact_sampling.ExposureSamplingCountermodels.test_positive_mixtures_match_all_covariance_parameters) ... ok
+test_ratio_strictly_decreases (test_exact_sampling.ExposureSamplingCountermodels.test_ratio_strictly_decreases) ... ok
+test_constructive_error_upper_bounds (test_counts.DesignCounts.test_constructive_error_upper_bounds) ... ok
+test_information_lower_bound_constants (test_counts.DesignCounts.test_information_lower_bound_constants) ... ok
+test_invalid_parameters (test_counts.DesignCounts.test_invalid_parameters) ... ok
+test_moments_against_complex_integral_formulas (test_counts.DesignCounts.test_moments_against_complex_integral_formulas) ... ok
+test_numerical_ceiling_stability_not_interval_certification (test_counts.DesignCounts.test_numerical_ceiling_stability_not_interval_certification) ... ok
+test_quartic_and_quadratic_asymptotic_orders (test_counts.DesignCounts.test_quartic_and_quadratic_asymptotic_orders) ... ok
+test_saved_report_reproduces_and_states_scope (test_counts.DesignCounts.test_saved_report_reproduces_and_states_scope) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.051s
+
+OK

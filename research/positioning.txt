@@ -1,0 +1,142 @@
+CONSTRUCTIVE ACCESS: POSITIONING AND LINEAGE
+Abdinoor / 2D Labs / 12 October 2026
+Owner: unified_provenance
+
+The strongest defensible positioning
+
+A unified reference and toolkit for identifying target properties of hidden
+dynamics under specified physical access. The distinctive practical object is
+the complete argument from an access contract to an independently checkable
+obstruction, intervention, statistical decision, calibration allowance, and
+physical resource claim. Generality resides in that common interface. Exact
+finite representations support constructive algorithms; other model classes
+need their own effective approximation and error contracts.
+
+This is a useful subject organization across existing fields. Calling it
+Constructive Access does not establish that a new accepted field exists. Its
+immediate contribution can be judged by whether another scientist can specify
+an apparatus, find an identification failure, construct a better experiment,
+and reproduce the resulting guarantee without rebuilding the algebra and
+statistical interfaces from several papers.
+
+Existing intellectual foundations
+
+1. Statistical decision and comparison of experiments: Blackwell's experiment
+   ordering supplies an established ancestor of access refinement. The target
+   matters; no scalar information score orders every scientific decision.
+2. Aggregated Markov models: Kienker (1989), Larget (1998), and subsequent
+   ion-channel literature already treat observationally equivalent hidden
+   mechanisms and the effect of additional experimental conditions.
+3. Automata, realization, and predictive states: Tzeng, Kiefer et al., Jaeger,
+   Littman et al., and Thon--Jaeger supply finite linear equivalence, witness
+   construction, and controlled prediction. A minimal predictive realization
+   is not uniquely identified physical ontology.
+4. Quantum finite-state equivalence: Faigle--Schoenhuth and Wang et al. supply
+   classical/quantum linear methods; Riechers--Elliott (2025) is close recent
+   primary work on unified canonical representations and minimality.
+5. Thermodynamic inference: Qian--Elson gives three-time correlation current
+   inference; Barato et al. gives equilibrium kinetic information; recent
+   transition-record methods recover some hidden kinetics and entropy bounds.
+6. Optimal recovery, finite decision design, uniformization, concentration,
+   and e-processes supply the statistical and computational foundations.
+
+What the trajectory adds, with status kept separate
+
+The ring classifications, response-order distinctions, controlled triangle,
+autonomous gate coefficient/activation result, and central quantum-access
+classification are specific model results. Their proofs and independent
+internal checks are in preserved sources. Historical priority is unresolved.
+
+The prescribed-action-cost filtered certificate and its independent rational
+checker are concrete computational artifacts. The distinction from earlier
+minimum-weight methods is the exact supplied objective and exported closure
+obligations, not the invention of algebraic equivalence or minimum words.
+
+The calibration/adequacy/resource composition makes an operational inference
+contract. Its ingredients are established probability and experimental-design
+methods. Its value is that users can audit the connecting assumptions and
+receive ambiguity or model rejection instead of an unsupported answer.
+
+The latest applications supply small reproducible physical diagnostics:
+selective reaction-channel inference, coherent/stochastic channel distinction,
+fixed-nuisance Ramsey design, and a visible-record equivalence family with
+unbounded hidden energy. They do not establish in-vivo flux recovery, scalable
+fault-tolerant computing, total AI power minimization, or optimized NV hardware.
+
+Claims refined or rejected
+
+- Existence of time from entropy increase -> separate dynamical evolution,
+  source dissipation, record irreversibility, and equilibrium compatibility.
+- Universal data cap -> target- and access-dependent equivalence and error.
+- Every scalar/coarse binary record is reversible -> only stated singleton
+  renewal settings; a two-by-two four-state partition is a counterexample.
+- Every modulation reveals a hidden mechanism -> same full-generator channel
+  decompositions survive common additive state-level controls.
+- Zero gate-channel steady entropy -> no inference of free sensing, free
+  preparation, undriven total system, or zero apparatus work.
+- Short exact witness -> no inference of reliable low-sample identification;
+  tiny signal and calibration errors can dominate, and qubit count matters.
+- Candidate nonrejection -> no model truth guarantee or family completeness.
+- Better Fisher information -> no automatic improvement in sign Bayes risk.
+- Four application grand challenges solved -> explicit model deliverables
+  plus calibrated external acceptance tests for each proposed transfer.
+- RSI, P=NP, neural-network latent ontology, a new universal physical law ->
+  not consequences of the established results.
+
+Fresh primary-source audit in this integration
+
+Riechers and Elliott, arXiv:2509.03004v1, submitted 3 September 2025. Read
+Sections II--III definitions of history/future spaces and finite word-list
+bounds from accessible primary HTML; abstract metadata has no journal entry.
+The rendered HTML body displayed an August 2026 date, while the arXiv version
+record is 2025; use the submission/version record in the citation. This paper
+reinforces direct attribution of the shared classical/quantum linear core.
+
+Maier et al., J. Stat. Phys. 191, DOI 10.1007/s10955-024-03315-7 (2024), primary
+arXiv:2406.12657v1, Sections 2--4: visible transition waiting-time laws recover
+some hidden topology/rates in periodic dynamics. Eq. (13) is proved; the
+different estimator in Eq. (15) is explicitly conjectured. We cite the access
+precedent, not the conjecture as a theorem. Rendered body date has the same
+artifact as above; retain the published year.
+
+Dieball and Godec, J. Chem. Phys. 162, 090901 (2025), primary arXiv:2412.02675v3:
+read introduction and organization of coarse-observation reversal issues.
+This supports explicitly modeling reversal and detector memory; it does not
+supply a contradiction to finite instantaneous even-state readouts.
+
+Stace et al., Phys. Rev. Applied 21, 014012 (2024): publisher abstract and
+metadata inspected. Experimental Bayesian quantum system identification is
+already demonstrated. No detailed theorem or benchmark equivalence inferred
+from the abstract; the source motivates a competent future hardware baseline.
+
+Blackwell (1953) and Donoho (1994): title/DOI metadata checked this pass;
+foundational attributions only, no claim of auditing every original proof.
+
+Earlier primary-source reading extents and unresolved access gaps are in the
+hash-bound historical priority notes. In particular, the full Kienker (1989)
+article has not been obtained. Literature searches cannot establish absence
+of prior results. No outside researcher was contacted in this integration.
+
+Application acceptance tests
+
+Reaction-channel inference: independently measure the selective response,
+demonstrate identifiable native rates against an orthogonal flux assay, and
+check disturbance and conversion to molecule/concentration units.
+
+Quantum diagnosis: validate the dictionary, SPAM, temporal memory, and crosstalk;
+compare to robust phase estimation/coherence or cycle-benchmarking baselines
+at the same fault target, error, device calls, resets, and elapsed exposure.
+
+Ramsey sensing: measure contrast, dephasing, readout offset and drift; test
+fixed versus adaptive policies on a fixed unknown sample, not a resampled
+nuisance; compare at the same decision loss and time/energy boundary.
+
+Energy inference: add measured fuel or power access that constrains hidden
+dissipation, calibrate conversion to gross/net work, include apparatus costs,
+and compare at fixed computational performance and accuracy.
+
+The release can be mature as a finite-model reference and toolkit once its
+entry workflow, proofs, negative controls and independent checks are complete.
+Physical maturity and community adoption are separate outcomes that require
+the above external events. No validation stage is inferred from enthusiasm,
+the number of pages, or the number of internally checked claims.

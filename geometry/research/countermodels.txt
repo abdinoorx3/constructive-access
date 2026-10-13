@@ -1,0 +1,180 @@
+OBSERVED GEOMETRY: ADVERSARIAL SCOPE AUDIT
+2026-10-12T23:38:05Z
+Owner /root/geometry_countermodels. Analytic examples, not physical experiments.
+Files: code/countermodels.py, tests/test_countermodels.py,
+       manuscript/countermodels.tex, results/countermodels.json.
+No seventh-edition file was changed.
+
+VERDICT
+The ideal continuous-path, retained-local-volatility population candidate
+survives these tests. Two tempting relaxations are false even for connected,
+smooth, compact, uniformly elliptic stationary diffusions:
+  (i) divide by conditional-mean volatility instead of retaining volatility;
+ (ii) insert finite-lag conditional moments without a bias correction.
+Ordinary versus generalized time reversal is a substantive physical assumption.
+Finite exposure and independent detector noise invalidate raw path-volatility
+access; increasing sampling frequency alone does not repair the contract.
+
+1. EXACT CONNECTED COUNTERMODEL TO CONDITIONAL-MEAN VOLATILITY
+State (x,z) on the two-dimensional 2pi-periodic torus, stationary density uniform.
+Set d(z)=1+(1/2)cos(z), D=diag(d(z),1), v=(c*d(z),0). The generator is
+ L=d(z) d_xx + d_zz + c*d(z) d_x.
+Every coefficient is smooth, D>=I/2, and div(v)=0, so the uniform density is
+stationary and the connected elliptic diffusion is ergodic. Ordinary entropy is
+ sigma=E[v^T D^-1 v]=c^2 E[d]=c^2.
+For f=cos(x), Y=f, one has
+ Sf=-dY, Af=-c*d*sin(x), Gamma=d*(1-Y^2).
+Because z and x are independent at stationarity, E[d]=1, Var(d)=1/8, E[d^2]=9/8:
+ g(Y)=-Y,
+ K(Y)=(9/8)Y^2-(9/8)c^2*(1-Y^2),
+ a_mean(Y)=E[Gamma|Y]=1-Y^2.
+The incorrectly substituted functional is therefore
+ B_mean=E[((9/8)c^2-(1/8)cot(x)^2)_+].
+Writing A=(9/8)c^2, B=1/8 and integrating uniform phase gives the exact formula
+ B_mean=(2/pi)*[(A+B)atan(sqrt(A/B))-sqrt(A*B)].
+For c=8, A=72 and B_mean=(2/pi)*[(577/8)atan(24)-3]. Numerically this is
+ 68.30307164743289, strictly larger than the actual entropy 64.
+This violation has a rational certificate, independent of floating point:
+ atan(24)=pi/2-atan(1/24)>pi/2-1/24, pi>3,
+ B_mean>577/8-1153/(96*pi)>19619/288>64.
+The lower margin is 1187/288. No disconnected mixture or perturbative limit is
+used, and no regularity condition from the candidate's model class is violated.
+
+Repair checked on exactly the same process: U=(Y,V), V=Gamma, determines
+ d=V/(1-Y^2) almost surely. Thus Sf is U-measurable, there is no conditional
+Jensen loss, and the correct functional is
+ E[(g(U)^2-K(U))_+/V]=E[c^2*d]=64.
+The local-volatility condition is doing essential inferential work. It is not
+a notational variant of conditional regression of squared increments.
+
+2. UNCORRECTED FINITE-LAG SUBSTITUTION CAN BE INFINITE
+Use the uniform stationary circle dX=dt+sqrt(2)dW modulo 2pi. Ordinary entropy is
+ sigma=1. Take the smooth bounded detector f(x)=cos(x)+(1/2)cos(2x).
+(The observable can be multiplied by 2/3 to lie in [-1,1], without changing any
+ratio below.) Let c=cos(x). Then
+ Y=c^2+c-1/2, V=Gamma=(1-c^2)(1+2c)^2.
+The pair U=(Y,V) determines c. Indeed, equal Y permits either c'=c or c'=-1-c;
+in the second case V(c)-V(c')=(1+2c)^3, which vanishes only when c'=c=-1/2.
+The remaining phase ambiguity x versus -x leaves every symmetric-semigroup
+quantity and squared antisymmetric-semigroup quantity below unchanged.
+
+For a stationary process define
+ g_h(U)=E[Y_h+Y_-h-2Y_0|U]/(2h),
+ K_h(U)=E[(Y_h-Y_0)(Y_-h-Y_0)|U]/h^2.
+Conditional past/future independence given full state gives, with
+ H_h=(P_h+P_h^dagger)/2 and B_h=(P_h-P_h^dagger)/2,
+ g_h=E[(H_h f-f)/h|U],
+ K_h=E[((H_h f-f)^2-(B_h f)^2)/h^2|U].
+Here H_h f-f is U-measurable. Therefore the finite-h defect is exactly
+ g_h^2-K_h=(B_h f)^2/h^2,
+ B_h f=-sin(x)[exp(-h)sin(h)+exp(-4h)sin(2h)c].
+Consequently, away from V=0, the naive finite-lag ratio equals
+ F_h(c)=[exp(-h)sin(h)+exp(-4h)sin(2h)c]^2/[h^2(1+2c)^2].
+At c=-1/2 the numerator before squaring is
+ sin(h)[exp(-h)-exp(-4h)cos(h)],
+which is nonzero for every 0<h<pi. The stationary density of c is
+ 1/[pi*sqrt(1-c^2)], positive and finite there. Thus E[F_h]=+infinity for every
+0<h<pi, while sigma=1. This is an analytic divergence, not a numerical artifact.
+
+Even retaining a fixed positive cutoff does not make the uncorrected estimator
+valid. At h=1, epsilon=1/15625, use the two annuli
+ 1/200 <= |c+1/2| <= 1/10.
+There, 1-c^2>=16/25 and hence V>=4*(16/25)*(1/200)^2=1/15625.
+Let a=exp(-1)sin(1), b=exp(-4)sin(2). Elementary bounds
+ 8/3<e<11/4, sin(1)>5/6
+imply a>3/10 and |b|<1/50, so a+bc>7/25 throughout [-1,1]. The arcsine
+density is >=1/pi. Directly integrating 1/(c+1/2)^2 on both annuli, and using
+pi<22/7, proves
+ E[1_{V>=epsilon} F_1] > (7/25)^2*(190/2)*(7/22)
+                             =6517/2750>1.
+Independent numerical quadrature is 3.6100873550; its reported quadrature error
+is a numerical diagnostic, not an interval certificate. The rational proof is
+already sufficient for rejection.
+
+For each noncritical x, F_h(x)->1 as h->0. The truncated population theorem is
+consistent with that limit. But taking epsilon down to zero first yields
+infinity at each nonzero h. The short-time and small-volatility limits do not
+commute. Finite-resolution theory needs explicit epsilon-dependent bias control.
+
+Equilibrium cannot provide this particular falsepositive under the correct
+measurement contract. If L=L^dagger, then B_h=0 and for EVERY deterministic
+conditioning U=U(X_0),
+ g_h^2-K_h=-Var((P_h f-f)/h|U)<=0.
+This exact finite-h negative control is stronger than checking a few examples.
+
+
+2b. FINITE-H FAILURE EVEN UNDER INVERTIBLE SCALAR RECALIBRATION
+A second example avoids an internal detector critical point and has an exact
+pointwise Gamma closure. On the same gamma=omega=1 circle take
+ f(x)=cos(x)+kappa*cos(x)^2, kappa=49/100.
+The scalar recalibration psi(c)=c+kappa*c^2 has derivative >=1/50 on [-1,1]
+and is a smooth diffeomorphism on a slightly larger interval. Thus Y alone
+determines c=cos(x), and Gamma=(1-c^2)(1+2*kappa*c)^2 is a function of Y.
+The uncorrected finite-h ratio is
+ F_h(c)=[exp(-h)sin(h)+kappa*exp(-4h)sin(2h)*c]^2/
+                         [h^2*(1+2*kappa*c)^2].
+Put r=2*kappa, alpha=exp(-4h)sin(2h)/2, beta=exp(-h)sin(h)-alpha.
+Elementary circle integrals give the exact finite expectation
+ E[F_h]=[alpha^2+2alpha*beta/sqrt(1-r^2)+beta^2/(1-r^2)^(3/2)]/h^2.
+At h=1 this is 11.540213366227903 despite actual entropy 1. To certify the
+violation without numerical quadrature, alpha>0 and beta>29/100. Because
+1-r^2=99/2500 and sqrt(99)<10,
+ E[F_1] > (29/100)^2*(12500/99)=4205/396>1.
+The value is finite and no cutoff limit is involved. The valid limiting
+functional is invariant under this invertible recalibration and remains 1;
+its uncorrected finite-h substitute is neither invariant nor a general bound.
+This isolates finite-lag bias from volatility closure and critical-point poles.
+
+3. GENERALIZED PARITY: EVEN OBSERVABLE DOES NOT FIX HIDDEN REVERSAL
+On a two-dimensional torus (q,p), let
+ pi(q,p)=exp(cos(p))/[(2pi)^2 I_0(1)], D=I,
+ S=d_qq+d_pp-sin(p)d_p, A=c*sin(p)d_q,
+ L=S+A, Theta(q,p)=(q,-p).
+The process is smooth, compact, stationary and uniformly elliptic. The density
+is Theta-invariant, Theta*S*Theta=S, and Theta*A*Theta=-A. Thus
+ L^dagger=Theta*L*Theta:
+its stationary path law is invariant under time reversal followed by Theta,
+and the entropy defined by that generalized physical reversal is zero.
+For ordinary reversal, v=(c sin(p),0), hence
+ sigma_ordinary=c^2 E_pi[sin(p)^2]=c^2 I_1(1)/I_0(1).
+The identity for the sine moment follows by integrating the derivative of
+sin(p)exp(cos(p)) over a period. At c=1 this is 0.4463899658965347.
+The detector f(q,p)=sin(q) is EVEN under Theta. Nevertheless
+ Gamma=1-Y^2, Sf=-Y, Af=c*sin(p)*cos(q),
+and the candidate local functional equals sigma_ordinary>0. It does not lower
+bound generalized physical entropy. This is not a counterexample to the theorem
+when ordinary reversal is part of its assumptions; it refutes extending the
+physical interpretation merely because the recorded scalar is even.
+
+4. DETECTOR ACCESS IS A MATHEMATICAL INPUT
+Independent centered sensor noise eta_k of variance nu^2 added to the stationary
+cos-circle record at t=kT/n gives
+ E[sum_k (Z_k-Z_{k-1})^2]
+ = n[1-exp(-gamma*T/n)cos(omega*T/n)] + 2n*nu^2.
+The clean term tends gamma*T=E[[Y]_T]. The sensor term diverges with n. Therefore
+half the time derivative of raw noisy realized quadratic variation cannot be
+silently treated as Gamma_f(X_t). The continuous-path theorem concerns a
+noiseless semimartingale observation, not this different record model.
+
+Conversely, finite exposure of a continuous latent trace,
+ Z_t=(1/delta)*integral_{t-delta}^t Y_s ds,
+has continuously differentiable paths with
+ dZ_t/dt=(Y_t-Y_{t-delta})/delta.
+Its path quadratic variation is identically zero. Its two-sided product limit
+is K(Z_t)=-E[(dZ_t/dt)^2|Z_t] while its symmetric-drift limit is zero. Thus raw
+local-defect/volatility substitution can divide a positive numerator by zero.
+The detector is history dependent, so it does not satisfy the smooth current-
+state detector contract for the original elliptic diffusion. Augmenting hidden
+state with a deterministic filter does not automatically restore uniform
+ellipticity or the required local entropy domination. Exposure correction or a
+new apparatus model is needed.
+
+5. REPRODUCTION AND CLAIM LIMITS
+Run from the phase directory:
+ python code/countermodels.py --output results/countermodels.json
+ python -m unittest discover -s tests -p 'test_countermodels.py' -v
+The analytic rejection certificates are rational, not Monte Carlo evidence.
+Numerical semigroup, quadrature and moment checks are supporting tests only.
+No historical novelty claim is made for the ingredients. These examples delimit
+the proposed access contract and finite-resolution extension. They do not
+invalidate the reviewed population argument with retained exact volatility.

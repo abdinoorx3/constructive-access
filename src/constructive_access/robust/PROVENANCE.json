@@ -1,0 +1,46 @@
+[
+  {
+    "original_file": "robustness/code/clock_design.py",
+    "original_sha256": "62ade1641617e545e5672893d0180395cad3f4cd5ab2cfabb2836b74686f5bbc",
+    "packaged_file": "src/constructive_access/robust/clock_design.py",
+    "packaged_sha256": "1947f6ee2aac0fabb2631fb190ca5163457f8fb418eebabfde5e9ef1c34b7867",
+    "changes": [
+      "Sibling preparation import made relative."
+    ]
+  },
+  {
+    "original_file": "robustness/code/detector_boundary.py",
+    "original_sha256": "8c587591103a67913427a76d8c44461471d2d646f265c348160a0bb6eb8bac95",
+    "packaged_file": "src/constructive_access/robust/detector_boundary.py",
+    "packaged_sha256": "8c587591103a67913427a76d8c44461471d2d646f265c348160a0bb6eb8bac95",
+    "changes": []
+  },
+  {
+    "original_file": "robustness/code/explanation.py",
+    "original_sha256": "251023813271f847ce12f62741ea194564a8bcf2b17dfc4ebc24eeb319d759a2",
+    "packaged_file": "src/constructive_access/robust/explanation.py",
+    "packaged_sha256": "251023813271f847ce12f62741ea194564a8bcf2b17dfc4ebc24eeb319d759a2",
+    "changes": []
+  },
+  {
+    "original_file": "robustness/code/preparation.py",
+    "original_sha256": "0e33e84309bfbdb2bef6a5aa5d07620f3bcd19b65a7098a962f36edf4ffcd66f",
+    "packaged_file": "src/constructive_access/robust/preparation.py",
+    "packaged_sha256": "0e33e84309bfbdb2bef6a5aa5d07620f3bcd19b65a7098a962f36edf4ffcd66f",
+    "changes": []
+  },
+  {
+    "original_file": "robustness/code/robust_physics.py",
+    "original_sha256": "197d630f33441fbe11538548711ec7e2b0e490540e4d394a15654d4fdc5af2da",
+    "packaged_file": "src/constructive_access/robust/robust_physics.py",
+    "packaged_sha256": "197d630f33441fbe11538548711ec7e2b0e490540e4d394a15654d4fdc5af2da",
+    "changes": []
+  },
+  {
+    "original_file": "robustness/code/statistics_design.py",
+    "original_sha256": "540a189c6fc532f265e35dcacb5ed260c4a388df2749adcdbc16af6291683e8b",
+    "packaged_file": "src/constructive_access/robust/statistics_design.py",
+    "packaged_sha256": "540a189c6fc532f265e35dcacb5ed260c4a388df2749adcdbc16af6291683e8b",
+    "changes": []
+  }
+]

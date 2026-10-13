@@ -1,0 +1,255 @@
+{
+  "audit_date": "2026-10-12",
+  "author": "Abdinoor / 2D Labs",
+  "scope": "Read-only primary-literature and experimental-feasibility audit; no laboratory work or external review.",
+  "sources": [
+    {
+      "id": "coolen2002",
+      "authors": "Pauline Coolen-Schrijner; Erik A. van Doorn",
+      "title": "The deviation matrix of a continuous-time Markov chain",
+      "publication": "Probability in the Engineering and Informational Sciences 16, 351–366 (2002)",
+      "doi": "10.1017/S0269964802163066",
+      "primary_url": "https://doi.org/10.1017/S0269964802163066",
+      "full_text_url": "https://ris.utwente.nl/ws/portalfiles/portal/5113205/1567.pdf",
+      "reading_scope": "Publisher metadata and abstract; author preprint sections 3–5, especially equation (3.11), and reference list.",
+      "relevance": "Verified established first-entrance renewal identity underlying occupation inequality; no priority claim for that identity."
+    },
+    {
+      "id": "lambert2010",
+      "authors": "Neill Lambert; Clive Emary; Yueh-Nan Chen; Franco Nori",
+      "title": "Distinguishing Quantum and Classical Transport through Nanostructures",
+      "publication": "Physical Review Letters 105, 176801 (2010)",
+      "doi": "10.1103/PhysRevLett.105.176801",
+      "primary_url": "https://doi.org/10.1103/PhysRevLett.105.176801",
+      "full_text_url": "https://dml.riken.jp/images/pub/nori/pdf/PhysRevLett.105.176801_2010.pdf",
+      "reading_scope": "Full primary paper, especially equation (2), singleton return-probability derivation and classical Markov assumptions.",
+      "relevance": "Essential established two-time population comparator; dimension-independent Markov exclusion is not a new general idea."
+    },
+    {
+      "id": "li2012",
+      "authors": "Che-Ming Li; Neill Lambert; Yueh-Nan Chen; Guang-Yin Chen; Franco Nori",
+      "title": "Witnessing Quantum Coherence: from solid-state to biological systems",
+      "publication": "Scientific Reports 2, 885 (2012)",
+      "doi": "10.1038/srep00885",
+      "primary_url": "https://doi.org/10.1038/srep00885",
+      "full_text_url": "https://arxiv.org/html/1212.0194",
+      "reading_scope": "Introduction, witnesses 1 and 2, formulas (1)–(6), experimental examples and references; primary author PDF also opened.",
+      "relevance": "Established population/propagator witnesses, restricted access and memory/preparation loopholes."
+    },
+    {
+      "id": "zhou2015",
+      "authors": "Zong-Quan Zhou; Susana F. Huelga; Chuan-Feng Li; Guang-Can Guo",
+      "title": "Experimental Detection of Quantum Coherent Evolution through the Violation of Leggett-Garg-Type Inequalities",
+      "publication": "Physical Review Letters 115, 113002 (2015)",
+      "doi": "10.1103/PhysRevLett.115.113002",
+      "primary_url": "https://doi.org/10.1103/PhysRevLett.115.113002",
+      "full_text_url": "https://arxiv.org/html/1209.2176",
+      "reading_scope": "Introduction, inequality and assumptions, experimental apparatus and independent stationarity/memory tests.",
+      "relevance": "Existing experimental model-class testing and need for independent premise checks."
+    },
+    {
+      "id": "huelga1995",
+      "authors": "Susana F. Huelga; Trevor W. Marshall; Emilio Santos",
+      "title": "Proposed test for realist theories using Rydberg atoms coupled to a high-Q resonator",
+      "publication": "Physical Review A 52, R2497–R2500 (1995)",
+      "doi": "10.1103/PhysRevA.52.R2497",
+      "primary_url": "https://doi.org/10.1103/PhysRevA.52.R2497",
+      "reading_scope": "Primary publisher metadata and citations in inspected later primary papers; full original proof not read.",
+      "relevance": "Earlier temporal-inequality lineage; no unread theorem attributed."
+    },
+    {
+      "id": "zhenglu2026",
+      "authors": "Jiming Zheng; Zhiyue Lu",
+      "title": "Mutual linearity in and out of stationarity for Markov jump processes: A trajectory-based approach",
+      "publication": "Physical Review E 114, 014126 (2026)",
+      "doi": "10.1103/tvqj-7ddn",
+      "primary_url": "https://doi.org/10.1103/tvqj-7ddn",
+      "full_text_url": "https://arxiv.org/html/2604.06162v2",
+      "reading_scope": "Revisited abstract, introduction and trajectory-response kernels; section V comparison retained from preceding phase's explicit audit.",
+      "relevance": "Transient response and transition-probability-difference kernels pre-exist this program."
+    },
+    {
+      "id": "guo2026",
+      "authors": "Qihao Guo; Botao Du; Ruichao Ma",
+      "title": "Entangling superconducting qubits via energy-selective local reservoirs",
+      "publication": "Physical Review Research 8, 033175 (2026)",
+      "doi": "10.1103/mr1g-zqtq",
+      "primary_url": "https://doi.org/10.1103/mr1g-zqtq",
+      "full_text_url": "https://arxiv.org/html/2605.12429v1",
+      "data_url": "https://zenodo.org/records/20190733",
+      "reading_scope": "Sections II and IV; experimental limitations; Appendices A–C and E. Data record identified but contents not downloaded or analyzed.",
+      "relevance": "Relevant programmable pump/loss hardware; does not establish our exact selective two-channel contract."
+    },
+    {
+      "id": "garciaperez2020",
+      "authors": "Guillermo Garcia-Perez; Matteo A. C. Rossi; Sabrina Maniscalco",
+      "title": "IBM Q Experience as a versatile experimental testbed for simulating open quantum systems",
+      "publication": "npj Quantum Information 6, 1 (2020)",
+      "doi": "10.1038/s41534-019-0235-y",
+      "primary_url": "https://doi.org/10.1038/s41534-019-0235-y",
+      "full_text_url": "https://arxiv.org/abs/1906.07099",
+      "reading_scope": "Primary abstract and indexed primary article excerpts; author/university metadata cross-check. Full protocol not independently reconstructed.",
+      "relevance": "Experimental digital open-system simulation precedent, not validation of our witness."
+    },
+    {
+      "id": "mueller2016",
+      "authors": "Matthias M. Mueller; Stefano Gherardini; Filippo Caruso",
+      "title": "Stochastic quantum Zeno-based detection of noise correlations",
+      "publication": "Scientific Reports 6, 38650 (2016)",
+      "doi": "10.1038/srep38650",
+      "primary_url": "https://doi.org/10.1038/srep38650",
+      "full_text_url": "https://arxiv.org/abs/1608.05802",
+      "reading_scope": "Primary abstract and indexed text describing repeated projections with randomized waiting intervals.",
+      "relevance": "Distinct repeated-monitoring protocol; avoid conflating random terminal readout with Zeno monitoring."
+    },
+    {
+      "id": "grunbaum2020",
+      "authors": "F. A. Grunbaum; L. Velazquez; J. Wilkening",
+      "title": "Occupation time for classical and quantum walks",
+      "publication": "arXiv:2012.07786",
+      "primary_url": "https://arxiv.org/abs/2012.07786",
+      "full_text_url": "https://arxiv.org/html/2012.07786",
+      "reading_scope": "Introduction and definitions of monitored discrete quantum walks; not every result or subsequent publication inspected.",
+      "relevance": "Neighboring occupation-statistics literature; different measurement model."
+    },
+    {
+      "id": "pavlides2012",
+      "authors": "Marios G. Pavlides; Jon A. Wellner",
+      "title": "Nonparametric estimation of multivariate scale mixtures of uniform densities",
+      "publication": "Journal of Multivariate Analysis 107, 71–89 (2012)",
+      "primary_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3318987/",
+      "full_text_url": "https://sites.stat.washington.edu/jaw/JAW-papers/jaw-pavlides.jmva.12.pdf",
+      "reading_scope": "Indexed primary text explicitly stating one-dimensional Khintchine mixture characterization; publication metadata cross-check.",
+      "relevance": "Established nonincreasing density mixture-of-uniforms representation."
+    },
+    {
+      "id": "colwell2023",
+      "authors": "David B. Colwell",
+      "title": "Hitting times, number of jumps, and occupation times for continuous-time finite state Markov chains",
+      "publication": "Statistics & Probability Letters 195, 109786 (2023)",
+      "doi": "10.1016/j.spl.2023.109786",
+      "primary_url": "https://doi.org/10.1016/j.spl.2023.109786",
+      "reading_scope": "Primary abstract and author publication metadata only; full article unavailable in audit.",
+      "relevance": "Further occupation/first-passage overlap check; no theorem-level conclusion."
+    },
+    {
+      "id": "shiraishi2018",
+      "authors": "Naoto Shiraishi; Ken Funo; Keiji Saito",
+      "title": "Speed Limit for Classical Stochastic Processes",
+      "publication": "Physical Review Letters 121, 070601 (2018)",
+      "doi": "10.1103/PhysRevLett.121.070601",
+      "primary_url": "https://doi.org/10.1103/PhysRevLett.121.070601",
+      "full_text_url": "https://arxiv.org/html/1802.06554",
+      "reading_scope": "Main-text setup and equations (1)–(13), including the dynamical-activity definition and speed-limit theorem.",
+      "relevance": "Established motion/activity/dissipation tradeoff; mean dynamical activity differs from a uniform conditional crossing-hazard cap."
+    },
+    {
+      "id": "hasegawa2024",
+      "authors": "Yoshihiko Hasegawa; Tomohiro Nishiyama",
+      "title": "Thermodynamic Concentration Inequalities and Trade-Off Relations",
+      "publication": "Physical Review Letters 133, 247101 (2024)",
+      "doi": "10.1103/PhysRevLett.133.247101",
+      "primary_url": "https://doi.org/10.1103/PhysRevLett.133.247101",
+      "full_text_url": "https://arxiv.org/html/2402.12197",
+      "reading_scope": "Version 5 main text, especially equations (7), (9), (13), (15), (19) and discussion; supplemental response derivation not fully reconstructed.",
+      "relevance": "Direct exponential no-jump and kinetic-concentration prior art; inspected text does not state the two-preparation occupation/reset-defect interpolation."
+    },
+    {
+      "id": "kuntz2019",
+      "authors": "Juan Kuntz; Philipp Thomas; Guy-Bart Stan; Mauricio Barahona",
+      "title": "The Exit Time Finite State Projection Scheme: Bounding Exit Distributions and Occupation Measures of Continuous-Time Markov Chains",
+      "publication": "SIAM Journal on Scientific Computing 41(2), A748–A769 (2019)",
+      "doi": "10.1137/18M1168261",
+      "primary_url": "https://doi.org/10.1137/18M1168261",
+      "full_text_url": "https://arxiv.org/html/1801.09507",
+      "reading_scope": "Version 3 abstract, introduction, definitions and Theorem 1.1; implementation not executed.",
+      "relevance": "Established certified occupation/exit calculations for specified chains, distinct from an inverse model-class envelope."
+    },
+    {
+      "id": "blom2024",
+      "authors": "Kristian Blom; Kevin Song; Etienne Vouga; Aljaž Godec; Dmitrii E. Makarov",
+      "title": "Milestoning estimators of dissipation in systems observed at a coarse resolution",
+      "publication": "Proceedings of the National Academy of Sciences 121(17), e2318333121 (2024)",
+      "doi": "10.1073/pnas.2318333121",
+      "primary_url": "https://doi.org/10.1073/pnas.2318333121",
+      "full_text_url": "https://arxiv.org/html/2310.06833",
+      "reading_scope": "Introduction, examples and discussion of coarse observation, memory and dissipation inference; primary published PDF also inspected.",
+      "relevance": "Established coarse-grained memory and thermodynamic-inference pitfalls; not a source for the proposed sharp reset envelope."
+    },
+    {
+      "id": "roberts1999",
+      "authors": "Gareth O. Roberts; Richard L. Tweedie",
+      "title": "Bounds on regeneration times and convergence rates for Markov chains",
+      "publication": "Stochastic Processes and their Applications 80(2), 211–229 (1999)",
+      "doi": "10.1016/S0304-4149(98)00085-4",
+      "primary_url": "https://www.sciencedirect.com/science/article/pii/S0304414998000854",
+      "reading_scope": "Primary abstract and author-institution publication metadata only; original proof not read.",
+      "relevance": "Regeneration/minorization lineage; no theorem-level non-overlap conclusion."
+    },
+    {
+      "id": "gyllenberg2000",
+      "authors": "Mats Gyllenberg; Dmitrii S. Silvestrov",
+      "title": "Nonlinearly perturbed regenerative processes and pseudo-stationary phenomena for stochastic systems",
+      "publication": "Stochastic Processes and their Applications 86(1), 1–27 (2000)",
+      "doi": "10.1016/S0304-4149(99)00084-8",
+      "primary_url": "https://www.sciencedirect.com/science/article/pii/S0304414999000848",
+      "reading_scope": "Primary abstract and metadata only; full proofs unavailable in this audit.",
+      "relevance": "Perturbed regenerative/semi-Markov asymptotic theory is established; exact finite-horizon overlap unresolved."
+    },
+    {
+      "id": "wolf2009",
+      "authors": "Michael M. Wolf; David Perez-Garcia",
+      "title": "Assessing Quantum Dimensionality from Observable Dynamics",
+      "publication": "Physical Review Letters 102, 190504 (2009)",
+      "doi": "10.1103/PhysRevLett.102.190504",
+      "primary_url": "https://doi.org/10.1103/PhysRevLett.102.190504",
+      "full_text_url": "https://arxiv.org/html/0901.2542",
+      "reading_scope": "Version 2 sections I, II, IV and V, including dimension and spectral methods and finite-data treatment. Preprint title is Assessing dimensions from evolution.",
+      "relevance": "Essential prior art for dynamical dimension certification and classical/quantum dimension separation."
+    },
+    {
+      "id": "gallego2010",
+      "authors": "Rodrigo Gallego; Nicolas Brunner; Christopher Hadley; Antonio Acin",
+      "title": "Device-Independent Tests of Classical and Quantum Dimensions",
+      "publication": "Physical Review Letters 105, 230501 (2010)",
+      "doi": "10.1103/PhysRevLett.105.230501",
+      "primary_url": "https://doi.org/10.1103/PhysRevLett.105.230501",
+      "full_text_url": "https://arxiv.org/html/1010.5064",
+      "reading_scope": "Scenario, tight classical dimension witness and quantum-witness sections; especially the elementary N-preparation/N-message simulation.",
+      "relevance": "Distinguishes unrestricted prepare-and-measure dimension claims from our constrained dynamical realization problem."
+    },
+    {
+      "id": "budroni2019",
+      "authors": "Costantino Budroni; Gabriel Fagundes; Matthias Kleinmann",
+      "title": "Memory cost of temporal correlations",
+      "publication": "New Journal of Physics 21, 093018 (2019)",
+      "doi": "10.1088/1367-2630/ab3cb4",
+      "primary_url": "https://doi.org/10.1088/1367-2630/ab3cb4",
+      "full_text_url": "https://arxiv.org/html/1902.06517",
+      "reading_scope": "Version 2 introduction and sections III and III.1, especially equations (4)–(13), autonomous memory assumptions and convex mixtures.",
+      "relevance": "Established finite-state temporal memory witnesses; external controller memory and shared model mixing must be explicit."
+    },
+    {
+      "id": "vieira2022",
+      "authors": "Lucas B. Vieira; Costantino Budroni",
+      "title": "Temporal correlations in the simplest measurement sequences",
+      "publication": "Quantum 6, 623 (2022)",
+      "doi": "10.22331/q-2022-01-18-623",
+      "primary_url": "https://quantum-journal.org/papers/q-2022-01-18-623/",
+      "full_text_url": "https://arxiv.org/html/2104.02467",
+      "reading_scope": "Primary journal metadata and sections 2 and 3 of the full text, defining binary instruments and deterministic complexity; numerical searches not repeated.",
+      "relevance": "Existing temporal quantum/classical dimension comparisons for repeated instruments; distinct measurement contract."
+    },
+    {
+      "id": "bialecki2024",
+      "authors": "Tomasz Bialecki; Tomasz Rybotycki; Josep Batle; Adam Bednorz",
+      "title": "Quantum dimension witness with a single repeated operation",
+      "publication": "Physical Review A 109, L020201 (2024)",
+      "doi": "10.1103/PhysRevA.109.L020201",
+      "primary_url": "https://doi.org/10.1103/PhysRevA.109.L020201",
+      "full_text_url": "https://arxiv.org/html/2308.11246",
+      "reading_scope": "Witness construction, equations (1)–(6), and error-analysis setup; primary published PDF metadata checked. Reported hardware data not independently reanalyzed.",
+      "relevance": "Relevant implemented repeated-operation rank/determinant comparator, including continuous-time Markov models."
+    }
+  ]
+}

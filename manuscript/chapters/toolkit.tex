@@ -1,0 +1,413 @@
+\chapter{The reference implementation}
+\label{toolkit:chapter}
+
+The accompanying package turns a precisely specified comparison into a
+portable algebraic certificate and a complete experimental plan. Its public
+entry point begins with the scientific question, the two target labels, the
+available interventions, and the preparation. The program does not infer
+these ingredients from a dataset. A scientist supplies them and can inspect
+every consequence reported by the calculation.
+
+Version 0.10.0 retains a strict JSON workflow for two finite classical
+instruments with rational coefficients. A second, Python-level interface
+exposes finite linear representations, continuous-time approximation,
+bounded adaptive design, and sequential model checks. These interfaces have
+different hypotheses; their availability in one package does not silently
+extend the scope of the JSON workflow.
+
+\section{Install and run the first comparison}
+
+From the root of the released reference package, use Python 3.10 or later:
+\begin{verbatim}
+python -m pip install .
+constructive-access analyze examples/passive.json -o passive-report.json
+constructive-access analyze examples/active.json -o active-report.json
+constructive-access verify examples/active.json active-report.json
+\end{verbatim}
+The installation requires SymPy and mpmath. The portable algebra checker itself uses
+only Python's standard library. For an existing environment with the
+dependencies installed, the same commands are available through
+\texttt{python -m constructive\_access}. No code imports from an earlier
+research directory or requires an unreleased local file.
+
+The passive example has two hidden states, initial distribution
+$(1/2,1/2)$, and the same state-revealing read operation under each candidate.
+All passive transcript laws coincide. The program returns an exact
+equivalence certificate; collecting more passive records does not change
+that model conclusion.
+
+The active example also permits an unobserved drive. Its transition matrix
+has both rows equal to $(3/4,1/4)$ under candidate 0 and $(1/4,3/4)$ under
+candidate 1. Reading costs one operation, driving costs two, and fresh
+preparation costs one additional operation per complete record. The
+least-action-charge distinguishing experiment is drive followed by read.
+It has action charge 3 and total declared charge 4 per record. Its complete
+two-outcome laws are
+\[
+ P_0=(3/4,1/4),\qquad P_1=(1/4,3/4).
+\]
+The reported total variation is $1/2$ and the one-record equal-prior Bayes
+error is $1/4$. The outward-rounded affinity calculation certifies 12
+independent complete records as sufficient for average error at most
+$1/10$, with declared batch charge 48. This is a sufficient count, not a
+minimum sample count. Neither the operation charge nor its minimum is a
+measured energy consumption.
+
+The witness contains an action--outcome word, but the implemented experiment
+retains \emph{all} outcomes of the associated action sequence. A drive is
+not repeated for free until a desired outcome occurs. The report lists the
+complete normalized law, making that distinction inspectable.
+
+\section{What a contract contains}
+
+\texttt{load\_contract} accepts a file path, a JSON-compatible mapping, or a
+validated contract. It rejects floating-point model coefficients, duplicate
+JSON keys, unsupported fields, invalid probability kernels, negative
+charges, and mismatched action/outcome alphabets. Integers and exact
+rational strings such as \texttt{"1/3"} are accepted. Decimals written as
+strings are interpreted as the exact rational number they specify, without
+a claim that the physical coefficient is exact.
+
+Each contract contains the following information:
+\begin{itemize}
+\item A question, target name, and two distinct target labels, ordered with
+the candidate models.
+\item Two normalized classical instruments: a row initial distribution and
+one nonnegative substochastic matrix for each recorded outcome of each
+action. Outcome matrices sum to a row-stochastic matrix for each action.
+Missing probability mass must be represented by an explicit recorded
+outcome, such as abort.
+\item A declared additive action charge, units, resource interpretation,
+per-record overhead, calibration statement, and included and excluded
+items. Energy is an allowed interpretation of a calibrated bound, never
+an inference from the word length.
+\item A preparation description and an explicit declaration of whether
+complete records are independently and identically prepared.
+\item A desired equal-prior average error, rational precision settings, and
+a cap on explicit transcript enumeration.
+\item Optionally, a deterministic finite automaton restricting complete
+action sequences. Its transitions cannot depend on postselected outcomes.
+\item Optionally, a whole-record total-variation calibration radius for
+each candidate, a joint calibration failure probability, and the stated
+justification for those inputs.
+\end{itemize}
+
+The canonical contract hash binds these assumptions and target meanings to
+the report. It identifies the supplied specification. It does not establish
+the provenance of a physical calibration, authenticate a laboratory, or
+prove that the candidate family contains the true mechanism.
+
+\section{Separate synthesis from checking}
+
+The Python entry points are:
+\begin{verbatim}
+from constructive_access import load_contract, analyze, verify_report
+
+contract = load_contract("examples/active.json")
+report = analyze(contract)
+verification = verify_report(contract, report)
+assert verification["verified"]
+\end{verbatim}
+Analysis builds a paired linear representation, runs an exact
+charge-priority span search, exports its filtered closure identities, and
+checks them. A witness is minimal in the lexicographic order
+\((\hbox{additive action charge},\hbox{word length})\).
+The report checker independently reconstructs the paired model from the
+caller-supplied contract and checks every required expansion identity.
+It does not rerun the witness search, compute ranks, or trust the
+synthesizer's history. It then reevaluates the complete selected experiment
+and its reported statistical quantities. Modified conclusions, unsupported
+fields in the report, altered probabilities, missing closure identities,
+and certificates for a substituted model fail this check.
+
+There are three distinct mathematical outputs. An equivalence certificate
+proves equality for every permitted finite protocol in the declared model.
+A witness proves a nonzero probability contrast. A finite-error bound
+provides a sufficient number of repeated complete records under its stated
+sampling assumptions. A nonzero contrast is not perfect discrimination.
+
+The transcript cap is a computational guard, not an observability theorem.
+If explicit enumeration exceeds it, the program retains the exact access
+certificate and returns \texttt{transcript\_limit\_exceeded}; it does not
+issue a statistical plan. If iid preparation is not declared, the program
+reports one-record quantities without a repeated-record guarantee.
+
+\section{Calibration can change the operational answer}
+
+Run the uncertainty example with:
+\begin{verbatim}
+constructive-access analyze examples/calibrated.json -o calibrated.json
+constructive-access analyze examples/calibration_gap_closed.json
+\end{verbatim}
+The first example assumes whole-record TV radii $1/100$ under both
+candidates and a joint calibration failure probability $1/100$. These are
+illustrative assumptions, not measurements. For the event
+$E=\{y:P_0(y)>P_1(y)\}$, the program evaluates
+\[
+ a=\max\{0,P_0(E)-r_0\},\qquad
+ b=\min\{1,P_1(E)+r_1\},\qquad g=a-b.
+\]
+When $g>0$, classify using the empirical event frequency with threshold
+$(a+b)/2$. Conditional on pre-acquisition calibration information, each
+fixed actual hypothesis must produce iid classification records. A
+simultaneous calibration event certifies the corresponding conditional
+whole-record laws. Classification records cannot be reused to choose or
+calibrate the event or threshold.
+
+For a conditional error allocation $\alpha$, the exact implementation
+chooses an integer $M$ satisfying
+\[
+ \frac{Mg^2}{2}\ge L\ge\log(1/\alpha).
+\]
+Here $L$ is a rational upper enclosure obtained by range reduction and the
+positive series
+\[
+ \log x=2\sum_{k=0}^{n-1}\frac{z^{2k+1}}{2k+1}+R_n,
+ \quad z=\frac{x-1}{x+1},\quad
+ 0\le R_n\le\frac{2z^{2n+1}}{(2n+1)(1-z^2)}
+\]
+after reducing $x$ to $[1,2]$. Hoeffding's inequality gives a conditional
+error at most $\alpha$ for each hypothesis. Adding the stated joint
+calibration failure probability gives the unconditional bound. There is no
+claim that this conservative event test is optimal.
+
+The supplied example has $g=12/25$, threshold $1/2$, and $M=21$. Its
+conditional allocation is $9/100$, and the unconditional bound is
+$1/10$. Declared batch charge is 84 operations, including the stated
+preparation overhead. The negative control increases both radii to $1/4$;
+the robust gap closes and the program returns
+\texttt{calibration\_gap\_not\_certified}. This failure concerns the
+specified uncertainty certificate. It does not prove that every possible
+physical experiment fails.
+
+\section{Advanced interfaces and their boundaries}
+
+The top-level Python package also exposes the following preserved
+implementations:
+\begin{description}
+\item[Finite instruments.] Use \texttt{RationalInstrument} for a normalized
+classical instrument. Use \texttt{LinearRepresentation} for a general
+weighted representation, and \texttt{ActionDFA} for an action grammar.
+The functions \path{compare_models}, \path{minimum_cost_witness}, and
+\path{experiment_law} support direct finite-model work. A signed linear
+representation is not automatically a physical quantum instrument; a
+separate complete-positivity and normalization justification is required.
+\item[Continuous time.] \texttt{certified\_wait} encloses a finite CTMC
+transition by an exact rational stochastic approximation and a row-TV
+error. \texttt{protocol\_tv\_radius} and
+\texttt{robust\_word\_gap} propagate the stated approximation error.
+Equality of approximate transition laws cannot prove equality of the true
+continuous-time laws.
+\item[Adaptive design.] \texttt{optimal\_design} optimizes the declared
+two-hypothesis classical Bayes risk under a finite integer budget and a
+mandatory finite horizon. \texttt{best\_fixed\_design} supplies a matched
+open-loop comparison. These routines do not optimize arbitrary quantum
+policies or unknown physical models.
+\item[Sequential adequacy.] \texttt{AdequacyMonitor},
+\texttt{Interval}, and \texttt{interval\_bet} maintain e-process evidence
+against declared conditional predictive envelopes. Their validity requires
+the appropriate conditional predictions at every step; stationary marginal
+intervals cannot be substituted.
+\item[Linear targets.] \texttt{identify\_linear\_target} checks the
+row-space criterion for a known fingerprint matrix.
+\texttt{minimax\_certificate} and
+\texttt{verify\_minimax\_certificate} compute and check exact
+primal--dual recovery bounds for small rational instances over the full
+positive parameter orthant with a coordinatewise deterministic error box.
+The generator uses vertex enumeration and is not presented as a scalable
+general linear-programming solver.
+\item[Counting-channel energy.] \texttt{count\_cap} and
+\texttt{verify\_count\_cap} produce and check a rational Chernoff
+envelope under a separately supplied predictable compensator bound.
+\texttt{declared\_energy\_cap} combines a checked count cap with a
+gross-work-per-event bound and an apparatus bound in the same physical
+unit. The compensator, work, and apparatus assumptions must be justified
+separately from observation-law calibration.
+\end{description}
+The finite-family experiment-suite workflow is described separately in this
+reference. It addresses target-specific design across multiple candidates;
+the two-model JSON command remains deliberately explicit about its smaller
+input class.
+
+For a concrete linear recovery example:
+\begin{verbatim}
+from constructive_access import minimax_certificate, verify_minimax_certificate
+
+F = [[1, 1], ["1/2", 1]]
+b = [1, 0]
+epsilon = ["1/100", "1/100"]
+certificate = minimax_certificate(F, b, epsilon)
+assert certificate["absolute_error"] == "1/25"
+assert verify_minimax_certificate(F, b, epsilon, certificate)["verified"]
+\end{verbatim}
+This deterministic minimax guarantee assumes a known intervention response
+matrix and the specified full error box. It does not certify that a
+biochemical reporter implements the declared selective intervention.
+For a counting-channel illustration, \texttt{count\_cap(10, "1/100")}
+returns 22. With gross event work at most $3/2$ and apparatus work at most
+4 in the same unit, the conservative declared energy cap is 37. The example
+does not establish those physical input bounds from sensor data.
+
+\section{Reproduction and provenance}
+
+The package contains source-level provenance for every preserved module in
+\path{constructive_access/_vendor/PROVENANCE.json}, including the
+original SHA-256, the vendored SHA-256, and any import-path substitution.
+Source copies are independent of earlier release directories. No software
+license is invented or implied by this packaging step.
+
+The workflow tests exercise passive equivalence, active witnesses, charge
+minimality checking, zero-charge actions, action grammars, complete
+transcript normalization, calibration gap closure, non-iid declarations,
+enumeration limits, malformed exact inputs, report forgery, model
+substitution, and command-line failure handling. The independent review
+tests supplement these with separately derived examples. Run the complete
+original workflow test collection using:
+\begin{verbatim}
+python -m unittest discover -s tests -v
+\end{verbatim}
+Passing these checks establishes reproducibility for the supported software
+contracts. It does not establish a sensor calibration, a successful
+laboratory intervention, an unmodeled dissipation estimate, or community
+acceptance of the proposed framework.
+
+\section{Response and access-completion modules}
+The \path{constructive_access.completion} subpackage adds six modules:
+\texttt{physical\_access}, \texttt{quantum\_completion},
+\texttt{pulse\_test}, \texttt{graph\_access},
+\texttt{robust\_completion}, and \texttt{composition}.
+Their contracts and examples appear in the corresponding chapters.
+\begin{verbatim}
+python examples/completion_tutorial.py \\
+    --output results/completion_tutorial.json
+python verify.py
+python research/clean_reproduction.py
+\end{verbatim}
+The first command uses the installed package to verify the qubit response
+threshold, construct the calibrated three-arm test, and certify both an
+energy lower and upper bound of 6400 in the declared model units. The full
+reproduction additionally runs producer tests and separate adversarial checks,
+regenerates exact certificates and numerical illustrations, and builds this
+reference. The clean reproduction builds an offline wheel, installs it in a
+separate environment, and checks scientific outputs against the source run.
+The software can check a supplied physical contract; it cannot establish an
+apparatus calibration or an experimental result by executing a model.
+
+\section{Calibrated explanations and sequential experiments}
+The \path{constructive_access.robust} subpackage adds exact physical response
+bounds, protected clock design, fixed and anytime statistical tests, and
+counts-to-explanation inference. Run the complete installed example with
+\begin{verbatim}
+python examples/robust_tutorial.py --output results/robust_tutorial.json
+\end{verbatim}
+The explanation routine receives an already specified preparation, detector,
+clock and calibration contract. Its synthetic demonstration is labeled in both
+source and output. For actual data the record count must be fixed before
+collection, or the separate time-uniform inference method must be used.
+The sequential betting fraction and null envelope must be selected before the
+current random preparation arm and clock are drawn. Marginal clock agreement
+without independence from the physical trajectory is insufficient.
+
+The same example certifies the arbitrary-preparation realization-size witness
+and its 6000-record four-arm design. The functions
+\texttt{encode\_dimension}, \texttt{dimension\_plan}, and
+\texttt{verify\_dimension} preserve the distinction between a complete
+witness-error radius and a single arm's error. The quantum certificate uses
+exact rational preparations and an independently checked open-system model.
+
+
+\section{Classical realization and thermodynamic certificates}
+The \path{constructive_access.frontier} subpackage exposes five separate
+contracts: \texttt{hierarchy}, \texttt{spectral}, \texttt{limits},
+\texttt{thermodynamic}, and \texttt{energy\_certificate}. Run their installed
+examples together with
+\begin{verbatim}
+python examples/frontier_tutorial.py --output results/frontier_tutorial.json
+\end{verbatim}
+The tutorial checks three finite-noise state requirements, an Erlang-clock
+certificate, a matching cyclic classical model, a reversible approximation,
+a synthetic-count entropy bound, and the continuous-moment curvature witness.
+These are different access contracts, not interchangeable black-box tests.
+
+For example, the following inference accepts two predeclared independent-pair
+counts. The numbers below are synthetic:
+\begin{verbatim}
+from fractions import Fraction as F
+from constructive_access.frontier import thermodynamic
+
+result = thermodynamic.from_counts(
+    5000, 2560, 5000, 3680,
+    F(1, 50), F(1, 20), F(8, 5), F(21, 10))
+assert result["rate_lower"] > 0
+\end{verbatim}
+The two lags are $8/5$ and $21/10$ in declared time units, the one-sided
+probability radius is $1/50$, and the joint sampling failure allowance is
+$1/20$. An entropy interpretation requires stationary sampling, common
+homogeneous dynamics, noninvasive fixed readout and ordinary time reversal.
+Sampling counts do not validate those physical assumptions.
+
+For a positive-integer lag menu, \texttt{energy\_certificate.certify} accepts
+simultaneous probability intervals and positive rational scores. Its exported
+certificate records all inputs, a continuous polynomial normalizer bound and
+a directed lower bound on relative-entropy separation. The function
+\texttt{verify} recalculates that certificate against separately supplied
+inputs. It is a deterministic recheck, not a second proof implementation.
+Independent tests separately check generator models and polynomial bounds.
+The optional \texttt{design} score proposer requires NumPy and SciPy; it is
+followed by exact continuous-domain checking. A failed or weak proposal cannot
+be interpreted as evidence of equilibrium.
+
+The complete cumulative test and figure collection is run by
+\texttt{python verify.py}; \texttt{--skip-pdf} omits typesetting only.
+Source provenance binds all five packaged modules to their preserved phase
+sources. No previous release directory is required. None of these certificate
+functions discovers an apparatus's hidden-state count, reversal parity or
+thermodynamic embedding from an undeclared dataset.
+
+
+\section{Virtual laboratories and apparatus-aware inference}
+The \path{constructive_access.virtual} subpackage adds exact contrast and
+dependent-record confidence interfaces, timing and exposure controls, and
+numerical laboratories for thermodynamic and qubit experiments. Simulations
+require the optional numerical dependencies:
+\begin{verbatim}
+python -m pip install '.[simulation]'
+python examples/virtual_tutorial.py --output results/virtual_tutorial.json
+\end{verbatim}
+The tutorial exercises the installed mathematical interfaces without replaying
+the production simulations. The complete frozen simulation contracts are in
+\path{virtual/contracts}. Standalone producer scripts and raw retained records
+are in \path{virtual/code} and \path{virtual/results}. A full
+\texttt{python verify.py} replay regenerates all model experiments, matched
+comparisons, exact countermodels, figures and the reference. The separate clean
+reproduction installs a wheel and compares scientific outputs byte for byte.
+
+All parameters in these virtual laboratories are illustrative. The simulator knows a hidden
+mechanism to evaluate coverage and power; the inference functions do not receive
+that mechanism. Exact concentration certificates, numerical physical evolution,
+Monte Carlo intervals and measured physical evidence are separately labeled.
+Chapter~\ref{ch:ci-empirical} separately reanalyzes published measurements;
+those data are included with attribution and an explicit inference limit.
+
+\section{Calibrated inference and public-data reanalysis}
+The \path{constructive_access.calibrated} subpackage supplies calibrated
+moment supports, nonlinear certificates, activity bounds, dissipation
+countermodels, sequential replay, common-block confidence and bounded analog
+inference. Run the installed tutorial with
+\begin{verbatim}
+python examples/calibrated_tutorial.py --output results/calibrated_tutorial.json
+\end{verbatim}
+Each function retains its own physical and sampling contract. In particular,
+stationary marginal records, independent pairs, dependent common blocks and
+predictable batches do not share interchangeable confidence corrections.
+The nonlinear primal upper bound concerns an observational relaxation, not
+an upper bound on physical entropy production. A null upper endpoint in the
+resolved-jump entropy helper means positive infinity.
+
+The empirical extra installs HDF5 support. The three licensed, unmodified
+measurement files live in \path{calibrated/data/source_audit}; the wheel does
+not embed them. Standalone loader and analysis commands reproduce the data
+audit and exploratory analysis without network access. Hash and schema
+checks precede numerical reads. Neither embedded Python objects nor pickled
+force models are evaluated. The empirical chapter records which unavailable
+calibrations prevent a thermodynamic certificate.

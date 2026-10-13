@@ -1,0 +1,166 @@
+UNIFIED PHYSICAL THEORY AND APPLICATIONS: CONSOLIDATION AND CHECK RECORD
+Authoring agent: /root/unified_physics
+Recorded: 2026-10-12 15:56 UTC
+
+Delivered chapters
+  manuscript/chapters/continuous_thermodynamics.tex
+  manuscript/chapters/applications.tex
+Bibliography
+  research/physics_bibliography.txt (16 keyed entries)
+Independent-from-archive transcription checker
+  research/physics_consistency.py
+  results/physics_consistency.json
+
+Purpose and achieved scope
+
+The chapters turn the physical branches into a coherent entry-to-application
+sequence. They define the source of a stationary arrow separately from its
+observed record and preparation, derive a graph/interface cycle criterion,
+explain the original boundary intuition without requiring higher-dimensional
+geometry, and then convert continuous dynamics into finite access contracts.
+The source criterion is attributed established cycle/cohomology mathematics,
+not a newly discovered physical law.
+
+The continuous chapter includes a rational stochastic uniformization
+approximation and exact row-TV envelope, its transfer to record laws, complete
+singleton renewal obstruction, an observable switched commutator/current proof,
+the exact triangle contrast with exponential derivation, and the autonomous
+gate quartic coefficient with a block-matrix derivation. Its finite-lag current
+interval explicitly includes bias, calibration premises and independence;
+its large generic constant is disclosed. Physical channel-resolved entropy,
+chemical free-energy expenditure, gross counts versus net expenditure, and a
+counting-process energy tail are kept distinct. Detector bandwidth and hidden
+intermediates are carried into the physical realization requirements.
+
+The application chapter uses a consistent target/access/intervention/precision/
+resource progression across chemistry, quantum symmetry and gate diagnostics,
+Ramsey sensing, and energy inference. It contains the full five-dimensional
+XX accessible-effect closure and Kraus action, the exact stationary state and
+two magnitude-witness Taylor expansions, and the reflection proof extending
+orientation blindness to ancillary feedback protocols. Bond asymmetry is
+explicitly a change of physical access. It remains a reservoir-bias example,
+separate from coherent gate error.
+
+Critical distinctions preserved
+
+* A stationary arrow is not the existence of time or monotone state entropy.
+* A bulk/interface source theorem does not prove detector visibility.
+* Survival/preparation can create endpoint asymmetry without sustained EP.
+* A singleton detector is not an arbitrary aggregate or scalar count.
+* Reversible frozen controls must share the same stationary law.
+* An additive balanced pathway differs from scaling a driven channel.
+* Equal full permitted generators remain equal under common additive gates.
+  Chemical channel decomposition instead needs selective access (or suitable
+  independently known thermodynamic priors).
+* A short exact witness is not a useful sample bound or perfect discriminator.
+* Quantum central magnitude activation does not remove reflection sign blindness.
+* Ramsey's nuisance parameter is fixed, not independently redrawn each shot;
+  the objective is finite-prior Bayes sign classification, not Fisher information.
+* A gate with zero added steady channel EP is not a free apparatus.
+* Arbitrarily strong processing cannot infer an independently hidden fuel cycle.
+* All worked numbers are hypothetical model calculations. Physical calibration,
+  device/biological measurements, external peer review, priority and adoption are
+  not represented as accomplished.
+
+Archived sources read directly (never edited)
+
+Original boundary source and observation definitions:
+  /workspace/boundary_arrow/manuscript/paper.tex
+  SHA256 827d2e2459b50d88294aef56a98aed9b50271dc559b29afd00d4d8e9c8b3a86f
+  /workspace/boundary_arrow/manuscript/cohomology_source.tex
+  SHA256 e2c176fe6351c782ba03338c7e2967b71a1e5b0d998343b87363caf354cdb155
+
+Switched currents, source assumptions, energy, survival conditioning:
+  /workspace/discovery_program/manuscript/access_to_hidden_currents.tex
+  SHA256 cd9d3d3ced76a1ff8c74eae90150a408ca7f9642600e0776d91c8cf5e0e7bca5
+
+Autonomous gate coefficient, finite-lag bound, implementation:
+  /workspace/discovery_program/controller_extension/manuscript/equilibrium_gates.tex
+  SHA256 ca77771b63c3bf79980fac4821b0d2b362487f2f5cef274bc42064a85161c2ab
+
+Quantum closure, symmetry and magnitude activation:
+  /workspace/discovery_program/manuscript/quantum_access.tex
+  SHA256 5453ff35305d7178880e077d0bd5e11f0cf248ed57ac716e019fca4e831fc83b
+
+Rational classical finite-time conversion:
+  /workspace/discovery_program/access_theory/code/ctmc_adapter.py
+  SHA256 76675832b47085d4a0b15fd18ad2ce752ddeab1fd5f60657d14353218bce96db
+
+Reviewed cross-domain application calculations:
+  /workspace/discovery_program/application_audit/manuscript/physical_diagnostics.tex
+  SHA256 a879c509d502ebca8d297e128f4b0169468f992f4aea87ae49bcd79c386c8790
+  /workspace/discovery_program/application_audit/research/cross_domain_review.txt
+  SHA256 b57a88b9e312d468583fbbccd94cc835dd125967d6716fe72f420d8eba84e279
+
+Related scoped review and source-audit records inspected:
+  application_audit/research/manuscript_review_metabolic.txt
+  application_audit/research/citation_audit.txt
+  application_audit/results/metabolic_flux.json
+Their historical checks are not claimed as new checks performed by this agent.
+
+New checks performed for this consolidation
+
+Command: python research/physics_consistency.py
+Environment: Python 3.12.14; SymPy 1.14.0.
+Status: passed; deterministic exact arithmetic, no random seed.
+No archived producing code is imported by this checker.
+
+1. Direct four-state matrix stationarity and aggregate cubic contrast -23/44.
+2. Symbolic triangle bias f and gate amplitude eta, nonuniform controller
+   stationary law (3/5,2/5), direct 6x6 block powers: quartic coefficient
+   2*f*eta^2/15; switched-current sign -2f/3.
+3. Ten symbolic XX adjoint/Kraus closure-column identities, for symbolic
+   delta,g,gamma,alpha,beta.
+4. Exact 8x8 stationary density identity and unit trace.
+5. Direct Schrödinger-picture XX/ZXZ Taylor coefficients through t^2.
+6. Exact native-current extrema across 32 calibration-box vertices; all
+   reconstructed rates positive; interval [193/204,207/196].
+7. All 80 qubit depths using rational rotation recurrence and calibration
+   subtraction; menu optimum (depth,records,calls)=(4,60,240), contrast
+   maximum (7,44,308), single-call baseline (1,590,590).
+
+The Ramsey exhaustive policy optimization, conservative chemical entropy
+logarithm interval, and the uniformization implementation were previously
+independently audited in the preserved application/access releases. They are
+not newly rerun by this transcription checker. General displayed proofs,
+not finite examples alone, establish the stated theorem scopes.
+
+Independent internal reviewer
+
+/root/unified_redteam read both chapters. It identified two transcription
+corrections: an accidental vertical-tab character in a varpi command, and
+the need to declare the uniformization rate lambda rational. Both were
+corrected and all current chapter files scanned for control characters.
+The reviewer then reported no substantive corrections for the application
+chapter, and independently reconstructed gate and quantum examples in
+tests/test_independent.py. Its independent gate used a different nonuniform
+controller and yielded coefficients +/-2/81 with all lower antisymmetric
+coefficients zero. The review is internal to this research session and is not
+external scientific peer review. This authoring record does not substitute
+for the reviewer's own audit file.
+
+/root/unified_foundations separately audited the continuous chapter and found
+the proofs sound, with three missing explicit edge/regime premises. Added:
+the one-state singleton case is trivial before dividing by its escape rate;
+the triangle weak-signal expansion is joint (F,eta)->(0,0); and the current
+estimator assumes D_R(u)>0. The consistency checker was rerun after these
+edits to bind its output to the updated source hash.
+
+Presentation validation
+
+A temporary book-class wrapper at /tmp/physics-chapter-check/check.tex compiled
+these two chapters and their bibliography with pdflatex. Final run succeeded:
+18 pages including bibliography and the book-class intervening blank page;
+no undefined references, citation warnings, or overfull boxes. A small table
+and two running titles were shortened for layout. Root's integrated reference
+will have its own final pagination and validation.
+
+Scope of cumulative coverage
+
+The full original seam-ring observable ideal/classification and finite-grid
+timing hierarchy are substantial specialized proofs in the preserved boundary
+release. These two chapters carry the source/observation/preparation principles
+through the unified theory but do not reproduce that entire classification.
+Root has been informed to retain the precise advanced-result map and source
+pointer or integrate an appendix as appropriate. No claim is made here that
+all archived specialized proofs have been re-proved in the current chapters.

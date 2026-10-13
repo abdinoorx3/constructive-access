@@ -1,0 +1,91 @@
+\chapter{From ideal access to a physical detector}
+\label{ch:dg-entry}
+
+The preceding geometry theorem answers a realization question: what must
+every admissible hidden diffusion dissipate to produce a given ideal
+observation law? A detector changes the law available to the scientist.
+Exposure averages a signal over time, sampling retains selected moments,
+and read noise adds uncertainty. Those operations must be included before
+an ideal-law theorem becomes an experimental claim.
+
+This extension separates three questions. Does the complete detector law
+still identify the ideal law? Can a finite experiment estimate the desired
+property with a stated error? How do preparation, read precision, duration
+and measurement energy change that error? Different answers to these
+questions can hold for the same physical model.
+
+\section{One target, several kinds of access}
+
+Use the stationary cosine-circle family as a reference:
+\[
+ d\phi_t=\omega\,dt+\sqrt{2\gamma}\,dW_t,
+ \qquad Y_t=\cos\phi_t,\qquad \gamma>0.
+\]
+Its ideal scalar law is reversible. Within the ordinary hidden-diffusion
+class of the preceding chapters, its exact compatible minimum is
+$\mathcal M=\omega^2/\gamma$. This target is a property of the ideal
+law, rather than an attempt to count arbitrary unobserved dissipative
+subsystems. The detector considered here retains an exposure average plus
+calibrated additive noise.
+
+\begin{center}
+\begin{tabular}{p{0.29\textwidth}p{0.60\textwidth}}
+\toprule
+Available access & Supported conclusion\\
+\midrule
+Complete densely sampled law; known exposure and independent noise &
+The ideal law can be identified under the stated mixing assumptions.
+The inverse is an infinite limiting construction.\\[3pt]
+Fixed sampling grid after known exposure &
+Distinct mixing diffusion mechanisms can have identical complete sampled
+laws; an explicit Gaussian example proves this ambiguity.\\[3pt]
+Finite stationary trials at fixed positive read noise &
+No uniformly finite upper confidence bound exists for the circle minimum
+over an unbounded frequency class.\\[3pt]
+Known binary hypotheses with fixed read precision &
+Passive stationary trials require and suffice at order $\omega^4$;
+oriented phase preparation changes this order to $\omega^2$.\\[3pt]
+Read precision purchased through the declared law $\nu^2=\kappa/E$ &
+Optimized passive and prepared measurement-energy requirements both have
+order $\omega^2$. Other apparatus costs remain additional.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The count comparison concerns the known pair $\omega$ and $2\omega$
+along a specified resonant sequence, at fixed positive diffusion, exposure,
+read-noise level and target error. It does not solve estimation over an
+arbitrary frequency interval. Preparation means setting the actual phase
+to $\pi/2$; selecting a scalar value $Y=0$ does not resolve the two possible
+orientations and does not supply the same operation.
+
+\section{Why the resource distinction matters}
+
+Stationary preparation makes the first moment of the exposure vanish.
+The leading contrast through a noisy detector then appears in a second
+moment. Oriented preparation supplies a first-moment contrast. This familiar
+statistical mechanism explains the different trial-count exponents in the
+proved example. It is not presented as a new general information law.
+
+The same example shows why a smaller number of trials is insufficient to
+establish an energy advantage. Under the explicitly declared sensor model,
+passive experiments can spend more energy on read precision and use fewer
+trials. The two access classes then share the same measurement-energy
+exponent. The result compares orders, not equal optimal constants, and
+does not include preparation, resetting, maintaining the drive, exposure
+overhead or computation in a total-energy optimum.
+
+The population proofs, finite-access theorems, exact countermodel and
+deterministic design table form one account. The new table contains evaluated
+analytic bounds, not additional simulated or measured experiments. The
+earlier frozen simulation bank remains a separate numerical validation of
+the finite-resolution certificate. Independent internal review checks both
+layers; external peer review and prospective detector calibration remain
+open.
+
+The next practical dependency is a detector-specific joint calibration
+guarantee for local volatility and the short-time statistics used in the
+entropy certificate. Existing motion-blur correction and noisy-diffusion
+inference provide essential baselines. Their assumptions must be carried
+through the physical entropy bound, including selection and dependence
+between calibration and test records.

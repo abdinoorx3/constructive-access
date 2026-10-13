@@ -1,0 +1,262 @@
+\chapter{Detector calibration and the zero-lag access boundary}
+\label{ch:ci-calibration}
+
+The size of an observed fluctuation depends on the detector as well as on the
+physical process. Calibrating that dependence can reveal irreversibility in a
+positive, monotonically decreasing correlation, before a negative correlation
+or revival appears. The same analysis also identifies a limit: arbitrarily
+precise measurements at a fixed positive-lag pair menu need not determine the
+calibration quantity itself.
+
+\section{The conditional second moment}
+Let a fixed, noninvasive binary detector have conditional mean
+$f_i=\mathbb E[Y\mid X=i]\in[-1,1]$. Under the stationary law $\pi$, define
+\begin{equation}
+ m=\sum_i\pi_i f_i,\qquad A=\sum_i\pi_i f_i^2,
+ \qquad u=m^2,\qquad0\leq u\leq A\leq1.
+ \label{eq:ci-mA}
+\end{equation}
+Two readings with conditionally independent noise at the same unchanged hidden
+state obey
+\begin{equation}
+ \mathbb E[Y^{(1)}Y^{(2)}]=A,
+ \qquad\Pr(Y^{(1)}=Y^{(2)})=\frac{1+A}{2}.
+ \label{eq:ci-zero-lag}
+\end{equation}
+Squaring one binary reading instead gives $Y^2=1$ and does not measure $A$.
+The two readings are generally dependent through their common hidden state.
+
+For an instantaneous detector, $m$ and $A$ agree under $Q$ and its additive
+reversibilization because $\pi$ and $f$ are unchanged. This transfer need not
+hold for nonlinear finite-exposure path functionals. A deterministic binary
+state detector already has $A=1$. If $f(X)$ itself is reliably observed, its
+square directly measures $A$; this is additional access, outside the binary-only
+obstruction proved below.
+
+\section{Bounded analog observations supply an upper calibration}
+A trusted instantaneous analog record can improve the comparison class even
+without a same-state replicate. Let $Z\in[-1,1]$ be the output of a fixed,
+noninvasive memoryless channel, and write $f_i=\mathbb E[Z\mid X=i]$. Then
+\begin{equation}
+ m=\mathbb E Z,\qquad
+ A=\mathbb E f(X)^2\leq B:=\mathbb E Z^2,
+ \qquad B-A=\mathbb E\operatorname{Var}(Z\mid X).
+ \label{eq:ci-analog-upper}
+\end{equation}
+At distinct times, conditionally independent readout noise gives
+$\mathbb E[Z_0Z_t]=\langle f,e^{Qt}f\rangle_\pi$. Thus a valid upper confidence
+bound on $B$ is also an upper bound on $A$. A lower bound on $B$ does not transfer.
+Both $m$ and $B$ are unchanged under the additive reversible reference because
+its stationary law and instantaneous detector channel are the same.
+
+For example, let $Z=X/4+\epsilon/2$, with independent fair signs $X,\epsilon$.
+Then $A=1/16$ while $B=5/16$. The observable second moment gives a useful upper
+bound, but it is not the latent conditional second moment. Randomizing two
+binary encodings from the same noisy $Z$ gives product mean $B$, not $A$, because
+they share the analog measurement noise. Independently encoding readings at
+distinct times is compatible with the correlation model.
+
+The API accepts any valid simultaneous bounds on $m$ and $B$ and sets
+$A\in[0,B_U]$. Its optional iid summary helper uses a two-sided Hoeffding bound
+for the mean and a one-sided bound for the squared observation. A dependent
+trajectory requires a separate valid calibration procedure; the iid helper
+cannot be applied to every raw sample merely because the detector noise is
+memoryless. Neither this upper-bound transfer nor the earlier exact transfer
+is automatic for nonlinear finite-exposure functionals.
+
+\section{A sharp calibrated reversible class}
+For commensurate positive lags $k\Delta$, define
+\begin{equation}
+ \mathcal M_{m,A}=\left\{
+ q_k=\frac{1+u+(A-u)\int_0^1x^k\,\mu(dx)}2:
+ \mu\text{ a probability measure}\right\}.
+ \label{eq:ci-calibrated-cone}
+\end{equation}
+
+\begin{theorem}[Sharp calibrated comparison class]
+For a finite menu of positive integer lag indices, the closure of the agreement
+vectors of finite stationary reversible chains with detector mean $m$ and
+conditional second moment $A$ is exactly $\mathcal M_{m,A}$. The closure is
+unchanged if the approximating chains must be irreducible.
+\end{theorem}
+\begin{proof}
+Necessity follows from the established reversible spectral representation:
+$C(t)=m^2+\sum_\ell b_\ell e^{-\lambda_\ell t}$, with
+$b_\ell\geq0$ and $\sum_\ell b_\ell=A-m^2$~\cite{vlAldousFill2002}.
+Additional conserved modes can be included at $\lambda=0$.
+
+For sufficiency, a finite moment vector has an atomic representing measure
+with at most $K+1$ atoms, where $K$ is the number of measured coordinates. If
+$A=m^2$, use a constant detector. Otherwise put
+\[
+ a=\frac{m-A}{1-m},\qquad r=\frac{m-a}{1-a}.
+\]
+Then $-1\leq a<m<1$ and $0<r<1$. A two-state block with stationary law
+$(r,1-r)$, detector values $(1,a)$, and generator
+\[
+ Q_x=\frac{-\log x}{\Delta}(\boldsymbol1\pi-I)
+\]
+has mean $m$, second moment $A$, and correlation
+$m^2+(A-m^2)x^k$. Mix such blocks with the desired atomic weights. Replace any
+atom $x=0$ by positive atoms approaching zero. Finally add
+$\varepsilon(\boldsymbol1\pi-I)$ to the full generator. This preserves
+$\pi,m,A$, makes the model irreducible and converges to the required moments as
+$\varepsilon\downarrow0$.
+\end{proof}
+
+The sharpness statement concerns deterministic commensurate lags. A compatible
+random-clock family preserves this calibrated set as an outer comparison class,
+but its particular clock law can impose further restrictions.
+
+\section{Calibration uncertainty and exact support}
+A simultaneous interval for $m$ maps to an interval $[u_L,u_U]$ for $m^2$.
+Its lower endpoint is zero if the mean interval crosses zero; otherwise use the
+smaller squared endpoint. Together with $A\in[A_L,A_U]$, this produces the
+exact polygon
+\[
+ \mathcal P=([u_L,u_U]\times[A_L,A_U])\cap\{0\leq u\leq A\leq1\}.
+\]
+For a contrast $c=(c_k)$, write $S_c=\sum_kc_k$ and
+$p_c(x)=\sum_kc_kx^k$. Its reversible support is
+\begin{equation}
+ \sup_{q\in\mathcal M_{\mathcal P}}\sum_kc_kq_k
+ =\frac12\max_{(u,A)\in\operatorname{vert}\mathcal P}
+ \left[(1+u)S_c+(A-u)\max_{0\leq x\leq1}p_c(x)\right].
+ \label{eq:ci-support}
+\end{equation}
+The full class is the convex hull of the vertex curves. A mixture has effective
+parameters in $\mathcal P$, and reweighting its atomic measures by $A-u$ gives
+another admissible measure. The implementation uses exact rational Bernstein
+bounds for the continuous polynomial maximum; a numerical grid is only a lower
+comparison.
+
+For fixed $m$, these closed positive-lag classes are nested in $A$: extra
+variance can be placed at $x=0$. Thus an upper calibration of $A$ sharpens the
+comparison set. A lower calibration alone does not force visible variance when
+arbitrarily fast hidden modes are allowed.
+
+For $N$ independent same-state pair records, the count table gives
+\[
+ \widehat m=\frac{n_{++}-n_{--}}N,\qquad
+ \widehat A=\frac{n_{++}+n_{--}-n_{+-}-n_{-+}}N.
+\]
+Both are averages of $N$ variables in $[-1,1]$. Hoeffding and a union bound give
+a simultaneous radius
+$\sqrt{2\log(4/\alpha)/N}$~\cite{caHoeffding1963}. This does not treat the
+$2N$ readings as independent. Calibration error probability must be combined
+with the subsequent inference guarantee. An empty physical calibration region
+is reported explicitly rather than converted into an entropy estimate.
+
+\section{Detecting excessively steep positive decay}
+Since $x-x^2\leq1/4$, every calibrated reversible model satisfies the sharp bound
+\begin{equation}
+ q(t)-q(2t)\leq\frac{A-m^2}{8}.
+ \label{eq:ci-steep-decay}
+\end{equation}
+A two-state block with $x=1/2$ attains it. This is a restriction on the rate of
+change relative to the calibrated fluctuation amplitude, not merely on whether
+the correlation is positive or decreasing.
+
+Consider a synthetic four-state cycle with clockwise rate three, reverse rate
+one and conditional detector means $(1/2,1/2,-1/2,-1/2)$. Its stationary law is
+uniform, $m=0$, $A=1/4$, and
+\[
+ C(t)=\frac14 e^{-4t}\cos(2t).
+\]
+At $t=7/40$, exact series enclosures certify
+\[
+ q(t)-q(2t)>0.03473386533798
+ >\frac1{32}=0.03125.
+\]
+Both correlations are positive and decrease. The uncalibrated support ceiling
+$1/8$ does not detect this example. Its true generator entropy rate is
+$2\log3$; that known model value is distinct from any lower bound inferred from
+its restricted records. This is a population certificate, not sampled
+experimental evidence.
+
+\section{Exact positive-lag ambiguity}
+\begin{theorem}[Finite pair menus do not identify the missing spectral mass]
+For every integer $K\geq1$, there are finite irreducible reversible models with
+zero detector mean, identical stationary binary-pair laws at each lag
+$1,\ldots,K$, and different values of $A$.
+\end{theorem}
+\begin{proof}
+Choose $x_j=j/(K+2)$ and $v_j=(-1)^j{K+1\choose j}$ for
+$j=1,\ldots,K+1$. Finite differences give
+\[
+ \sum_{j=1}^{K+1}v_jx_j^k=0\quad(1\leq k\leq K),
+ \qquad \sum_{j=1}^{K+1}v_j=-1.
+\]
+Split positive and negative coefficients and scale their magnitudes by
+$s=(2^{K+1}-1)^{-2}$. The two positive spectral measures have equal measured
+moments and unequal total mass.
+
+For either measure, use independent symmetric telegraph coordinates $Z_j$ with
+correlation $x_j^t$, and detector mean
+$f(Z)=\sum_j\sqrt{s|v_j|}\,Z_j$. Its absolute value is at most one because the nonzero $|v_j|$ are integers,
+so $\sqrt{s}\sum_j\sqrt{|v_j|}\leq\sqrt{s}\sum_j|v_j|\leq1$. The product chain is finite and irreducible, and its
+correlation is exactly the desired spectral sum. Its mean is zero. The binary
+pair law is $(1+abC(t))/4$ for outputs $a,b\in\{-1,1\}$, so the measured laws
+agree exactly while $A=C(0)$ differs.
+\end{proof}
+
+For a small explicit example, compare spectral weights $3/16$ at $x=1/4$ and
+$1/16$ at $x=3/4$ with weight $3/16$ at $x=1/2$. Their second moments are
+$1/4$ and $3/16$, but both give $C(1)=3/32$ and $C(2)=3/64$. They have
+irreducible four-state and two-state realizations, respectively, with exit rates
+below one. Even a finite rate cap therefore does not imply exact identification
+from an unchanged finite pair menu.
+
+The result does not equate their full time-resolved trajectories or all
+higher-order temporal records. Those observations, a known detector law or
+true same-state calibration supply additional access. Repeating the unchanged
+pair measurements cannot remove their exact ambiguity.
+
+\section{Fast modes and the quantitative kinetic repair}
+A second obstruction concerns uniform precision over unknown rates. Compare
+independent fair binary outputs with a reversible two-state model having
+correlation $Ae^{-\lambda t}$. Their pair total variation distance is
+$Ae^{-\lambda t}/2$. For $N$ independent records at lags at least $t_{\min}>0$,
+\begin{equation}
+ \operatorname{TV}(P_0^{(N)},P_\lambda^{(N)})
+ \leq\frac{NA}{2}e^{-\lambda t_{\min}}.
+ \label{eq:ci-fast-mode}
+\end{equation}
+An order-one difference in $A$ can therefore be hidden at any finite precision
+by a sufficiently fast reversible mode. Every model in this comparison has
+zero stationary entropy production. For any finite independent clock menu with
+no atom at zero, dominated convergence gives the same conclusion using
+$\mathbb E e^{-\lambda T}$. Exact continuum data with unlimited precision are
+a different observation contract.
+
+A calibrated kinetic bound permits a controlled approximation. For any stationary
+finite Markov chain, including a nonreversible one,
+\begin{equation}
+ A-C(t)=\frac12\mathbb E[(f(X_t)-f(X_0))^2].
+\end{equation}
+If every exit rate is at most $\Lambda$, then
+\begin{equation}
+ 0\leq A-C(t)\leq2(1-e^{-\Lambda t}).
+ \label{eq:ci-rate-repair}
+\end{equation}
+Indeed the integrand is at most four and vanishes when no jump occurs.
+A bound $J$ on stationary jump activity similarly gives $A-C(t)\leq2Jt$.
+These bounds make delayed calibration uniformly accurate as the accessible
+delay approaches zero. They do not promise exact identification at fixed
+positive lags. An energy-dissipation bound alone cannot supply either kinetic
+bound: arbitrarily fast reversible chains dissipate no stationary heat.
+
+Finally, the same-state noise premise is testable only with additional apparatus
+knowledge. Conditionally anti-correlated readouts can each have means
+$\pm1/2$ while their product has mean zero, although $A=1/4$. For example use
+conditional count proportions $(1/2,1/4,1/4,0)$ and
+$(0,1/4,1/4,1/2)$. An apparently feasible calibration can then be too small and
+falsely reject an equilibrium record. Marginal counts alone do not establish
+conditional independence or absence of measurement backaction.
+
+The ingredients of this chapter---reversible spectral mixtures, truncated
+moments, replicate covariance and concentration---are established. The scoped
+advance is their integration into a sharp calibrated comparison class, an
+executable confidence contract and explicit physical countermodels marking the
+remaining access boundary. Historical originality and empirical validation
+remain separate questions.

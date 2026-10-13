@@ -1,0 +1,287 @@
+EXPLORATORY DETECTOR EXPERIMENT — 2026-10-13 UTC
+Owner: /root/geometry_experiment
+Status: exact-moment simulator and primary design frozen; eighteen producer
+tests pass. The1600-dataset bank is complete. No laboratory record exists.
+All preceding exploratory choices and failures are retained below. The final
+contract is the authoritative specification of the primary virtual experiment.
+
+1. Physical simulator and retained records
+Use the stationary circle dphi=omega dt+sqrt(2gamma)dW with uniform phase.
+Three exposure windows begin at 0,h,2h and have common width 0<tau<=h.
+For window j, A_j=tau^-1 integral_window_j cos(phi_t)dt.
+Every binary replica R lies in {-1,+1}, with conditional mean kappa*A_j. All replicas
+are independent conditional on the complete latent path. This is a bounded
+stochastic detector with Var(R|path)=1-kappa²*A_j². The simulator declares gain
+0<=kappa<=1. Inference treats the common positive gain as unknown and uses
+additional constant and timed-step reference records to cover it. An unknown
+offset, unequal detector gains or correlated replicas are not covered.
+
+The two endpoint windows have one replica each. The center has 2m+2 replicas.
+m0 gives 4 bits/16 outcomes; m1 gives 6 bits/64 outcomes; m2 gives 8 bits/256
+outcomes. The m2 moment degree is 8, not 6. Exchangeable center permutations
+can instead be collapsed to (left sign,center plus count,right sign), giving
+12,20,28 categories. These counts preserve the complete sufficient statistics
+of the fixed symmetric polynomial score. The ordered-law option remains for
+independent checks, but an arbitrary later labeled-replica score cannot be
+recovered from collapsed counts.
+
+For an ordered record r with D=2m+4 bits,
+ P(r)=2^-D E product_i(1+kappa*r_i A_window(i)).
+This is a finite polynomial in exposure moments, so an exact finite moment
+calculation suffices. Brownian path discretization is unnecessary.
+
+2. Exact finite Fourier/additive-functional hierarchy
+During window j let I_j accumulate integral cos(phi_t)dt. Define
+ C[a,k]=E[I_left^a_left I_center^a_center I_right^a_right cos(k phi_t)],
+ S[a,k]=the corresponding sine moment.
+The stationary initial condition has C[0,0]=1 and all other needed entries 0.
+On an active window,
+ dC[a,k]/dt=-gamma k² C[a,k]-omega k S[a,k]
+             +(a_j/2)(C[a-e_j,k+1]+C[a-e_j,k-1]),
+ dS[a,k]/dt=-gamma k² S[a,k]+omega k C[a,k]
+             +(a_j/2)(S[a-e_j,k+1]+S[a-e_j,k-1]).
+Cosine is even in its mode; sine is odd; S[a,0]=0. In a free gap the last
+terms vanish. To recover final mode-zero moments through total degree D,
+only |k|+sum(a)<=D is needed. Every coupling lowers polynomial degree and
+shifts mode by one, so this cone closes exactly for the requested targets.
+The real dimensions for m0,m1,m2 are 60,140,252. Normalize final moments by
+tau^sum(a). All ODE coefficients and input durations are rational when the
+simulator parameters are rational.
+
+3. Rigorous numerical enclosure
+The code applies rational Taylor polynomials to each exposure and free-gap
+semigroup. For x=t||G||infinity, exp(x)<=3^ceil(x). An Nth-degree action
+has infinity-norm remainder at most
+ ||v||infinity *3^ceil(x)*x^(N+1)/(N+1)!.
+Existing input error is multiplied by the same exponential norm bound.
+The final moment radii account for normalization by tau^degree. Polynomial
+coefficient absolute sums propagate those radii into event-probability errors.
+This is an enclosure of the exact circle model, not a finite path-mesh model.
+The current exploratory cap is 512 Taylor terms, with explicit failure above it.
+
+Exact event probability centers sum to one. They are converted to a nonnegative
+63-bit dyadic law summing exactly to one; its distance to the ideal law is bounded
+by half the sum of the absolute center-to-dyadic displacement plus probability
+radii. For n independent records, the total-variation discrepancy is at most
+min(1,n*delta_law). Any simulation coverage comparison must include this charge
+rather than treat the nominal dyadic simulator as the exact real-valued model.
+
+The categorical sampler draws uniform 63-bit integers, searches an integer CDF,
+and accumulates counts. There is no floating-probability threshold. Uniform
+independent random bits remain the ideal sampling assumption; NumPy PCG64 is
+its practical pseudorandom implementation. This does not prove literal ideal
+randomness for a deterministic PRNG.
+
+4. Exploratory calculation, not a frozen benchmark
+At gamma 1, omega 3, h 1/10, tau 1/1000, center replicas 2, the solver returns 16
+probabilities with 60 real ODE states. Exposure Taylor degree 18 and free-gap
+degree 53 suffice for its requested probability accuracy. The full dyadic-law
+TV enclosure is approximately 1.08084e-18. The result is retained in
+exploratory_law.json solely as a solver fixture. One 1000-draw seed-replay test
+checks batching and conservation; it is not a detection-rate experiment.
+
+5. Physically counted resources
+One record uses one independent stationary preparation, three exposure windows,
+D binary detector readouts, and modeled evolution duration 2h+tau. Replicas do
+not count as free readings. A passive batch costs n times those quantities.
+Preparation/reset duration, shutters, calibrated physical clock, replica
+construction, energy and geometry calibration are additional unmeasured costs.
+Unknown actual exposure must be carried in the inference region or bounded
+through a proved exposure correction. The simulator's true tau is not an
+inference input merely because it is known to the producer.
+
+6. Covariance/blur baseline and structural distinction
+Gain-normalized independent twins expose M0=E[A_center²]. Cross-window products expose
+M1=E[A_left A_center] and M2=E[A_left A_right]. Every raw pair product has a
+factor kappa². Let z=gamma-i omega. Exact
+stationary circle formulas are
+ M0=Re[tau/z-(1-exp(-z tau))/z²]/tau²,
+ C_A(ell)=Re[exp(-z ell)(exp(z tau)+exp(-z tau)-2)/(z² tau²)]/2,
+ for nonoverlapping windows ell>=tau.
+Thus a model-aware covariance baseline should use these blur formulas and the
+same twin/lag observations, not naive realized variance or an uncorrected
+point-sample fit. A jointly covered nuisance set can be sought for bounded
+(gamma,|omega|,tau,kappa), using simultaneous moment confidence constraints; aliases
+and nonidentifiability must be retained rather than hidden by a point fit.
+
+This baseline assumes the complete circle covariance family. The intended
+new theorem instead permits arbitrary hidden dynamics satisfying the structural
+Gamma_f=gamma(1-f²) relation plus its calibrated derivative bounds. The two
+model classes are different; circle-fit precision must not be claimed as a
+broad-class guarantee. A general endpoint certificate at the same detector
+access is an additional relevant comparator. Root/theory own the final
+comparison and inference definitions.
+
+7. Fixed symmetric score and controlled references
+For r=2m+2 center replicas and plus count k, e_j is the mean product over all
+j-element subsets of the r replicas, with e_0=1. Its exact formula is
+ e_j=sum_l (-1)^(j-l) choose(k,l)choose(r-k,j-l)/choose(r,j).
+Set b=1-lambda*h and retain raw statistics
+ S_j=[-Z_left*Z_right*e_(2j)+b*(Z_left+Z_right)*e_(2j+1)
+      -b²*e_(2j+2)]/h², j=0,...,m,
+ U_j=e_(2j), j=1,...,max(m,1),
+ V=[e_2-(Z_left+Z_right)*e_1/2]/h.
+The three terms within each S_j have the same gain degree 2j+2. V has degree2.
+This preserves cancellation before calibration uncertainty is propagated.
+All estimates and confidence rules are predeclared; endpoint signs remain
+ordered. Conditional replica independence gives the moment identities even
+though all replicas are correlated after marginalizing the latent path.
+
+A controlled constant reference f=1 has binary mean kappa. A calibrated
+0-to-1 step leaving s units at1 inside the causal boxcar has mean kappa*s/tau
+when 0<s<tau. Both reference batches cost their own detector readings and
+controlled preparations, with independent fixed-quota records. They assume
+the same gain and width as the target detector and no unknown offset.
+The reference operations are additional apparatus access; they are not
+available automatically from stationary target observations.
+
+8. Deterministic prospective design, 2026-10-13
+population_pilot.py produces 27 exact enclosed laws for gamma=.5,1,2,
+omega=0,1,3, hierarchy m=0,1,2, h=.02, tau=1e-5 and kappa=.9.
+population_pilot.json includes means, variances, covariance and score ranges.
+exploratory_laws/ retains exact rational probability centers/radii, dyadic laws,
+and physical resource counts for every candidate, with SHA256 bindings.
+population_lag_sweep.py additionally examines h=.025,.03,.035,.04,.05 at the
+strong driven case gamma1,omega3. No random science or reference records were
+drawn for either exploration. At that stage the only sampling was the1000-record
+unit replay check, using a separate fixture and seed.
+
+The prospective calculation substitutes population means and second moments
+into the confidence code to diagnose likely cost bottlenecks. It is explicitly
+not a finite-sample confidence certificate, power calculation, coverage test,
+or claim of experimental success. It uses common bounds M1+=M1-=4 and
+M2+=M2-=13, lambda1, an exposure prior [0.5e-5,2e-5], a calibrated step duration
+2e-6, reference quotas100k or1M each, and a nominal joint failure budget.05.
+At that stage no benchmark was frozen; the choices were subject to review.
+
+At h=.02, S0 population standard deviation is2823 for the strong driven case.
+Its diagnostic geometry lower bound is zero at2M and10M target records,
+and .820 at50M with100k references each (true circle entropy9). Higher orders
+m1/m2 are zero at50M; conservative blur and sampling penalties exceed their
+population gain. Weak/equilibrium cases produce zero in this initial design.
+The lag grid identifies a less costly m0 candidate h=.035: its population
+plug-in value is .325 at10M target records and100k references each, versus
+.360 with1M references. The difference indicates that target noise, finite lag
+and supplied generator bounds are more limiting here than reference counts.
+These diagnostics are a reason to select an honest matched benchmark; they
+must not be relabeled as observed detection rates.
+
+The subsequent fixed-projection upgrade retains each raw S_j interval and
+additionally covers R_l=sum_(j<=l) S_j/(.9)^(2j+2). A fixed nominal gain .9
+preserves cross-covariance in this contrast; covered raw-score intervals bound
+the residual correction across the unknown common gain. Every prefix l<=m
+is evaluated under the same confidence event. R0 is an exact rescaling of S0
+and consumes no separate failure allocation. The original exploratory pilots
+explicitly retain the full-order-only result, preserving their recorded
+failures even after the API gained the optional prefix maximum.
+
+projected_pilot.py and projected_pilot_initial.json evaluate K=2,4,6 center
+replicas at h=.025,.035,.05, n10M and reference quotas100k each. At h=.035,
+these prospective diagnostics allocate.025 to target and.025 to calibration;
+the later frozen benchmark instead allocates.04 and.01. Both sum to.05, but
+the prospective values are not exact predictions for the final acquisition rule.
+At the prospective allocation,
+the initial hardware contract gives population plug-in values .3247,.4784,
+.5054; prefix0 wins in all three. The K6 prefix1 value is only .00862, and
+prefix2 remains zero. Thus more polynomial order does not automatically
+improve the finite-data result in this calibration regime.
+
+projected_pilot_refined.json records a DISTINCT hardware/bounds contract:
+tau1e-6, prior[0.5e-6,2e-6], step2e-7, bounds M1±16/5,M2±10. These bounds
+cover the circle test gamma1,omega3 but not all original gamma2 cases. At
+h=.035 it yields .8488,1.0221,1.0530 for K2,4,6, again selecting prefix0.
+The gains cannot be attributed solely to the projection: narrower exposure
+and stronger supplied generator bounds contribute substantially.
+
+Both projected reports also compare an80M target-readout ceiling, separately
+from the fixed preparation quota. The original contract at h=.035 yields
+approximately .542,.558,.505 for K2/4/6 at20M,13.333M,10M preparations.
+This prevents an apparent replica advantage from counting extra readings as
+free. All these entries remain prospective diagnostics, not sampled outcomes.
+
+9. Primary frozen virtual experiment
+Root selected the original hardware class, not the refined alternative.
+contract.json was frozen2026-10-13T01:45:27+00:00 with SHA256
+ f6d7583c18b7df76e5b9cbb865586511f2aa3e2408df9c1adc24d50f6aa9412d
+before the first benchmark draw. It binds all seeds and the simulator,
+certifier and benchmark source hashes. The fixed design uses mmax1,K4,
+h7/200,lambda1,nominal gain9/10,13,333,333 target records,100,000 constant
+and100,000 step references per dataset, and400 datasets per case.
+Target failure allocation is.04 and reference allocation.01. Bounds are
+M1+=M1-=4,M2+=M2-=13; width prior[1/200000,1/50000]; step duration1/500000.
+
+Cases are (gamma,omega,kappa,tau):
+ driven (1,3,.9,1e-5);
+ equilibrium (1,0,.9,1e-5);
+ weak driven (1,1,.9,1e-5);
+ changed calibration (.5,3,.8,1.5e-5).
+Their actual parameters generate data and evaluate simulator truth; they are
+not supplied as the inference gain/exposure/gamma estimates. The constant and
+step references supply the covered calibration region in every dataset.
+
+Each dataset consumes79,999,998 target readings and200,000 reference readings.
+It has13,333,333 independent stationary preparations and200,000 controlled
+reference preparations. Model evolution/window durations are stated per case.
+There is no claim that these many independent preparations are free or that
+this is a minimum-energy acquisition protocol.
+
+The benchmark compares every covered prefix, their covered maximum, the old
+termwise contrasts and fixed-projection contrasts on the same confidence
+event. The endpoint bridge uses the same S0 and gain/exposure intervals but
+has broader structural validity than the Gamma-closure certificate. Its
+internal fixed b=.965 satisfies the theorem's required0<=b<=1.
+The benchmark records calibration inclusion, gamma upper-bound coverage,
+entropy overshoot, positivity and bound distributions. An absent finite gamma
+upper bound counts as an unbounded abstention, not a successful finite estimate;
+finite-upper-bound counts must be displayed separately.
+
+Each target record is sampled from an enclosed dyadic law by an exact integer
+CDF; reference Bernoulli probabilities are rounded to the same63-bit grid.
+The per-dataset total-variation charge includes all target and reference
+records. Counts are sufficient for all fixed symmetric scores and are retained
+in deterministic gzip with mtime0 and no embedded original filename.
+First-generation clock times are stored separately and retained during replay.
+
+Generation completed2026-10-13T01:48:01+00:00 after starting01:45:40UTC.
+The driven case has400/400 positive geometry certificates, mean.577346655,
+range[.196834355,.934118913], versus true simulator entropy9 and mean endpoint
+bridge8.16405e-5. The equilibrium case has zero positive certificates from
+either method. Weak drive has zero positive geometry certificates, while the
+broader-class endpoint bridge is positive27/400 (mean6.82113e-9).
+The changed-calibration case has395/400 positive geometry certificates,
+mean.599052116, range[0,1.364037293], versus true simulator entropy18; its
+endpoint bridge is positive400/400 with mean6.96106e-5.
+
+All1600 calibration regions contain the generating gain and exposure. All1600
+gamma upper bounds are finite and contain the generating gamma. There are
+no entropy overshoots for either method. These observed counts do not prove
+coverage; the theorem supplies its stated per-dataset guarantee and the bank
+tests its implementation on these four model instances.
+
+Every dataset selects prefix0. The bank therefore supplies no observed
+higher-order advantage; its positive result concerns certification with
+unknown calibrated gain, exposure and local-geometry scale. The weak-drive
+and changed-calibration failures above prevent a universal sensitivity claim.
+Additional geometry assumptions are responsible for the stronger positive
+magnitudes; the endpoint comparator is valid on a broader structural class.
+
+Per-dataset simulator-law discrepancy ranges from1.06611e-11 to1.71698e-11.
+Summed across the entire bank it is at most2.09244e-8, conditional on the ideal
+independent-random-bit interpretation of PCG64. All1600 sufficient count vectors,
+reference counts, seeds and exact rational certificate summaries are retained
+in benchmark_counts.json.gz (2,316,420 bytes), with SHA256 in benchmark.json.
+
+10. Files and next gate
+exposure_moments.py: finite hierarchy, exact Taylor enclosure, dyadic event law,
+integer categorical sampler and resource accounting.
+test_exposure_moments.py: twelve checks against general complex exposure
+formulas, exact moments/parity, cone closure, Taylor error, dyadic TV, batching,
+gain powers, aggregation, symmetric scores, references and input/resource guards.
+exploratory_law.json: one numerical-enclosure fixture, not experiment data.
+
+benchmark.py and test_benchmark.py: frozen design, reference rounding, exact
+count inference, broad-class endpoint bridge, full acquisition accounting,
+six checks and reproducible four-process count-bank generation.
+Next: independently replay all certificates and selected seeds, inspect matched
+plots, integrate only verified output. No prior release
+is read as writable input or altered.

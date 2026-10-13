@@ -1,0 +1,104 @@
+TENTH EDITION — JOINT CALIBRATION AND HIDDEN STOCHASTIC DRIVE
+Abdinoor / 2D Labs / 13 October 2026
+
+This edition makes uncertain detector calibration part of a finite-data entropy
+certificate. It also proves an exact extension of the hidden-dynamics minimum:
+a completely time-reversible scalar signal can require positive ordinary-reversal
+entropy even when the hidden angular drive has zero mean.
+
+Begin the new layer with "Learning the calibration that an entropy certificate
+needs" in manuscript/reference.pdf. The cumulative reference still begins with
+basic access and develops the classical, quantum, statistical and physical
+framework before these extensions.
+
+The finite certificate assumes a bounded observable with the exact pointwise
+relation Gamma_f=gamma*(1-f^2). The positive constant gamma is unknown and is
+covered from temporal moments. The functional relation itself, and numerical
+supremum bounds on first and second forward/adjoint generator derivatives, are
+supplied model assumptions. They are not learned universally from the records.
+Distinct conditionally independent readouts of the same exposure estimate
+polynomial moments without inserting a known noise variance. Constant and timed
+step references cover a common gain and uniform shutter width. One simultaneous
+confidence event carries these uncertainties through the entropy calculation.
+
+The exact hidden-drive family has generator
+
+    L=gamma*partial_phi^2+c(z)*partial_phi+L_Z,
+
+where Z is a reversible smooth elliptic diffusion on a compact manifold and the
+detector is cos(phi). Its complete stationary scalar law is reversible, yet its
+minimum compatible ordinary-reversal entropy is exactly E[c(Z)^2]/gamma over the
+declared compact hidden-diffusion class, allowing arbitrary finite hidden
+dimension. The joint model attains this minimum. A second diffusing angle with
+c(z)=epsilon*cos(z) gives zero mean angular current and minimum
+epsilon^2/(2*gamma). This is a proved model-class result. Odd-variable reversal,
+jump models and arbitrary physical realizations are outside that minimum.
+
+A finite polynomial hierarchy approaches the minimum with increasing access.
+Its sufficient consistency schedule increases replicas, samples, reference
+measurements and arithmetic precision while shrinking lag and exposure. It is
+not a fixed-exposure or practical sample-efficiency theorem. The installed
+fixed-precision API certifies finite designs; the asymptotic theorem requires
+the separately specified increasing precision.
+
+The frozen virtual experiment retains substantial acquisition costs and failures.
+There are 400 datasets in each of four cases. Every dataset represents
+13,333,333 independent stationary target trials, four center replicas plus two
+endpoint readings per trial, and 100,000 readings for each of two reference
+experiments: 80,199,998 detector readings in total. Preparation, reset, clock,
+reference generation, replica construction and apparatus energy remain
+additional unmeasured costs. These counts are not a calibrated joule estimate.
+
+Positive geometry certificates versus the broader-class endpoint comparator:
+
+    strong drive          400/400 versus 400/400
+    equilibrium             0/400 versus   0/400
+    weak drive              0/400 versus  27/400
+    changed calibration   395/400 versus 400/400
+
+The mean geometry bounds are approximately 0.577 and 0.599 in the two stronger
+cases, whose simulator entropy rates are 9 and 18. Every selected polynomial
+prefix is order zero; the higher prefix does not win at this budget. The
+endpoint comparator requires less geometric structure, so larger geometry
+bounds do not demonstrate dominance under identical assumptions.
+
+The tutorial also exposes the maximum of the geometry and endpoint bounds.
+Both hold on the same event, so this combined output uses no extra failure
+allocation under the geometry model contract. It retains the endpoint detections
+in the weak and changed cases. This is a deterministic post-benchmark combination,
+not a change to the frozen per-method experiment.
+
+The independent audit finds the simultaneous target-moment event in 1,595 of
+1,600 datasets, with reference-calibration and gamma coverage in all 1,600.
+No reported entropy lower bound exceeds the simulator entropy. These are
+separate finite simulation diagnostics, not a proof of uniform coverage.
+The mathematical per-dataset failure budget is 0.05 under the detector contract;
+the enclosed simulator adds less than 1.8e-11 total-variation discrepancy per
+dataset under the ideal independent-random-bit sampling assumption. No Brownian
+path mesh is used: finite exposure moments have rational numerical enclosures.
+
+The complementary rare-region theorem explains why structural assumptions
+cannot simply be deleted. Even ideal continuous records, a common ellipticity
+lower bound and a common mixing gap cannot uniformly upper-calibrate arbitrary
+unseen global diffusivity or generator suprema over the stated smooth class.
+This does not prevent local volatility recovery along an ideal observed path.
+
+New installed API: constructive_access.detector_calibration.certification
+Additional installed modules: detector_calibration.exposure_moments and
+detector_calibration.rare_bump within constructive_access.
+
+    python examples/calibration_tutorial.py --output results/calibration_tutorial.json
+    python verify.py
+    python research/clean_reproduction.py
+
+The tutorial exactly replays one retained simulated dataset through the public
+API; it does not generate or present laboratory measurements. Proofs, the frozen
+contract, retained counts, source audit and independent internal review are in
+detector_calibration/. CLAIMS.json separates the new mathematical and synthetic
+evidence from the earlier cumulative work. The literature audit credits the
+established replica, deconvolution, concentration and diffusion-inference methods.
+No new laboratory validation, external peer-review decision, historical priority
+or universal physical law is claimed.
+
+The earlier nine editions and their scientific scope are retained below.
+-----------------------------------------------------------------------

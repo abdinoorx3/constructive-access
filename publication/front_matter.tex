@@ -1,0 +1,173 @@
+% First-public-launch fragment. Replace only the Purpose and use block
+% after the title page and before \tableofcontents. Retain the surrounding
+% title page, contents, notation, conventions and scientific chapters.
+\chapter*{Purpose and use}
+\addcontentsline{toc}{chapter}{Purpose and use}
+
+Scientific evidence limits the explanations a system can have. Those limits
+depend on how the system is prepared, which interventions are possible, what
+the detector retains, and how accurately the experiment is calibrated.
+\emph{Constructive Access} develops a common framework for turning these
+conditions into a checkable conclusion: a property that the evidence
+identifies, an experiment that separates alternatives, a resource that every
+compatible explanation requires, or a precise reason to withhold judgment.
+
+The central mathematical object is the probability law of the complete
+accessible record under a permitted experiment. An \emph{access contract}
+specifies the target, candidate physical models, preparation, controls,
+detector, timing, calibration, error objective and resource accounting.
+Models that give the same accessible laws cannot be separated within that
+contract. This familiar identification principle becomes constructive when
+one can compute an obstruction, synthesize an informative protocol, or bound
+the target over all compatible models.
+
+This is a unified monograph and accompanying research toolkit. It starts
+with a two-state example and develops the mathematical machinery, physical
+models, finite-data procedures and reproducible applications needed to use
+that principle. Three questions remain distinct throughout: whether a
+distinction exists in ideal evidence, whether a finite experiment can resolve
+it reliably, and what physical resources the experiment requires. Exact
+identification alone does not imply an efficient or realizable measurement.
+
+\section*{The main contributions}
+
+The general foundations draw on established system identification, automata
+and realization theory, quantum instruments, statistical decision theory,
+stochastic thermodynamics and concentration inequalities. Their attribution
+is part of the reference. The contributions developed here are particular
+proofs, constructions and their operational connection, with a claim ledger
+that separates these from the inherited mathematics.
+
+For finite classical and quantum instruments, accessible linear spaces
+support exact equivalence certificates and finite distinguishing sequences.
+Exported certificates permit a separate checker to verify the claimed
+obstruction or additive witness charge. Calibrated testing and bounded
+decision design then address the different problem of obtaining reliable
+evidence. Worked intervention models distinguish current magnitude from
+orientation, hidden states from hidden reaction channels, and a missing
+measurement from a missing physical assumption.
+
+The physical-resource results ask what every compatible explanation must
+contain. Finite temporal observations can impose classical state requirements
+under declared preparation and detector rules. Correlation evidence can
+require preparation resources or sustained dissipation under different
+contracts. Explicit equilibrium realizations and sampling aliases identify
+where those conclusions cease to follow. A state-count obstruction is
+therefore presented with its comparison class, rather than as a general
+test of quantumness.
+
+A central diffusion result goes further than detecting irreversibility in
+the recorded signal. Within a specified class of ordinary smooth compact
+hidden diffusions, some completely time-reversible scalar process laws have
+an attained positive minimum entropy production over every compatible
+realization, allowing arbitrary finite hidden dimension. For the family
+\[
+ L=\gamma\partial_\phi^2+c(z)\partial_\phi+L_Z,
+ \qquad Y=\cos\phi,
+\]
+where $Z$ is a reversible compact diffusion, that minimum is
+$\mathbb E[c(Z)^2]/\gamma$. It can remain positive when the mean angular
+current is zero. The claim concerns the complete ideal observation law and
+ordinary reversal of all hidden coordinates. Changing the admissible dynamics
+or the physical reversal convention changes the question.
+
+The detector and calibration results connect such population statements to
+finite observations. A replicated polynomial construction supplies an entropy
+lower confidence bound when the bounded observable has the pointwise geometry
+$\Gamma_f=\gamma(1-f^2)$ with an unknown scale $\gamma$. Temporal moments,
+constant references and timed-step references cover the scale, a common
+detector gain and a uniform exposure width. The geometric relation and the
+required generator bounds are explicit premises. A complementary rare-region
+theorem proves why finite passive records cannot uniformly establish
+unrestricted global bounds merely from individual-model smoothness, favorable
+ellipticity or a mixing gap.
+
+The sharp polynomial limit is constructive but requires increasing access,
+shrinking exposure and increasingly accurate arithmetic. Finite performance
+is reported separately. In the frozen calibration experiment, each dataset
+uses $13{,}333{,}333$ independent target trials and $200{,}000$ reference
+readings, totaling $80{,}199{,}998$ detector readings. Positive geometry
+certificates occur in the stronger-drive cases; the weak-drive case remains
+inconclusive, and the higher polynomial prefix never wins at that budget.
+The broader-class endpoint comparator performs better in some detection
+comparisons. These outcomes expose remaining acquisition costs rather than
+establishing universal efficiency. Detector counts and elapsed time are
+reported separately from energy whenever apparatus energy has not been
+calibrated.
+
+\section*{Reading and using the reference}
+
+The chapters are arranged by dependency, with several entry routes:
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{First reading.}
+Chapter~\ref{entry:start} introduces the access contract through a complete
+example. Chapters~\ref{foundations:chapter}, \ref{finite:chapter} and
+\ref{precision:chapter} develop identification, constructive certificates
+and finite-error inference. Chapter~\ref{workflow:suite} assembles these
+into an experimental workflow.
+\item \textbf{Controlled classical and quantum experiments.}
+Begin with Chapter~\ref{finite:chapter}, then use the response, preparation,
+dimension and application chapters for the appropriate physical contract.
+Check which controls and retained outcomes a proposed instrument permits
+before applying its certificate.
+\item \textbf{Dissipation and hidden diffusion.}
+Chapter~\ref{pa:entry} introduces correlation evidence for necessary
+dissipation. Chapters~\ref{og:entry}, \ref{ch:dg-entry} and
+\ref{ch:dc-entry} connect observed diffusion geometry to physical detectors
+and uncertain calibration. Read each constructive result together with its
+countermodels and acquisition assumptions.
+\item \textbf{Implementation and reproduction.}
+Chapter~\ref{toolkit:chapter} gives installation instructions and examples
+for the \texttt{constructive\_access} package. The archive provides
+proof sources, frozen designs, retained statistics, provenance and verification
+drivers. The calibration tutorial replays a retained simulated dataset through
+the public exact-arithmetic API. Chapter~\ref{vl:entry} explains what the
+virtual experiments establish.
+\end{itemize}
+
+A practical application begins by matching an apparatus to a contract, then
+choosing the target and the corresponding certificate. Inconclusive output is
+an informative outcome when the remaining models disagree or the confidence
+region is too wide. Additional sensing, intervention, preparation or calibration
+may resolve it; additional processing of the same indistinguishable evidence
+cannot. The software checks the stated calculation. Physical calibration and
+model adequacy must be justified in the application.
+
+\section*{Evidence and review}
+
+The evidential basis comprises mathematical arguments, internally checked
+software, synthetic experiments and an explicitly exploratory reanalysis of
+previously published optical-tweezer measurements. The latter identifies a
+calibration gap and supplies no empirical entropy certificate. This work
+reports no newly measured apparatus or experimental verification of a new
+physical law. The claim ledger records assumptions and evidence status, and
+the literature chapters distinguish established methods from the specific
+results presented here. Historical priority has not been established.
+
+The monograph has not undergone external peer review. The
+released proofs, sources and reproduction records are provided so that readers
+can inspect, challenge and extend the results under their stated assumptions.
+
+\section*{Availability and reuse}
+
+Project information and correspondence:
+\url{https://2dlabs.org} and
+\href{mailto:helloworld@2dai.org}{\nolinkurl{helloworld@2dai.org}}.
+Copyright \textcopyright{} 2026 Abdinoor (2D Labs), to the extent of rights
+owned or controlled by the licensor. The covered research text and software
+use the \emph{Constructive Access Research and Revenue-Threshold License},
+version~1.0. Its controlling terms accompany the research package as
+\texttt{LICENSE}, with a \texttt{COMMERCIAL\_USE.txt} guide; copies and
+commercial terms may be requested at the address above.
+
+Personal noncommercial use and qualifying academic research and teaching are
+free. Business use is free while worldwide Group Revenue, including controlled
+and common-control affiliates, is at or below US\$10 million over the preceding
+12 months, subject to the license's eligibility conditions. Above that
+threshold, covered business use outside the universally permitted scholarly
+activities requires a separate written commercial license. Reading, scientific
+review, reproduction of the published demonstrations and scholarly quotation
+remain permitted under the stated terms regardless of revenue. The license
+does not reserve mathematical truths, scientific ideas or independent
+implementations that copy no protected expression. Third-party material
+retains its own licenses.

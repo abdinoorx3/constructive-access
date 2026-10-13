@@ -1,0 +1,31 @@
+{
+  "dryad_switching_trap": {
+    "advertised_bytes": 285389783,
+    "advertised_sha256": "e63a021d4b6cbf3e362d5ed06e4f7502fa7c8628741aabe1c77cdd402a11d541",
+    "attempts": [
+      {
+        "http_status": 403,
+        "url": "https://datadryad.org/downloads/file_stream/2936856"
+      },
+      {
+        "http_status": 401,
+        "url": "https://datadryad.org/api/v2/files/2936856/download"
+      }
+    ],
+    "doi": "10.5061/dryad.h44j0zpsw",
+    "file_id": 2936856,
+    "interpretation": "Public metadata accessible; raw download denied to this environment. No login bypass attempted.",
+    "name": "SwitchingTrap.zip",
+    "raw_downloaded": false
+  },
+  "rejected_large_archive": {
+    "advertised_bytes": 9811911709,
+    "downloaded": false,
+    "file": "Supplementary_Material.zip",
+    "record": "https://zenodo.org/records/17015366"
+  },
+  "rejected_simulation": {
+    "reason": "Repository describes numerical simulations, not empirical trajectories.",
+    "record": "https://zenodo.org/records/17609030"
+  }
+}

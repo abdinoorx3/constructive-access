@@ -1,0 +1,46 @@
+Direct contrast and matched simulation record
+Abdinoor / 2D Labs / 12 October 2026
+
+The fixed-contrast theorem combines established Bernoulli Pinsker, weighted
+Cauchy, reversible spectral moments, the credited stationary quarter-factor
+path comparison, and conditional Hoeffding concentration. A positive lower
+contrast C implies sigma>=8 C^2/(sum |a_k| sqrt(t_k))^2. Time is full expected
+record duration. The comparison-mixture optimum and record-allocation optimum
+are different objectives, both standard inequalities/optimal allocation.
+The historical contribution investigated is the operational integration and
+its exact finite-data, apparatus-aware implementation, not novel Pinsker math.
+
+The first loop used a=(-1,2,-1), declared to the generator before its held-out
+production and stored in its frozen contract. Root's separate formal contract
+was recorded before root inspected individual held-out counts; the generator
+contract is the earlier design anchor. This is internal design freezing, not
+external preregistration. At150,000records, direct189/200 beats the old fixed
+score1/200 but loses to the existing optimized moment-box method200/200.
+The stronger comparator is retained throughout.
+
+The second loop was frozen before newly seeded production: a=(-4/9,4/3,-1),
+15,000records,400datasets percase,seed330174. It follows the known polynomial
+-x(x-2/3)^2 and Hankel moment log-convexity, chosen from theory after the earlier
+model study, not fitted to this holdout. Direct367/400 vsoptimizedbox0/400 on
+identical driven datasets; both0/400 on equilibrium. Exact two-state equilibrium
+points lie in329 of400 driven confidenceboxes,296 ofwhich nonetheless support
+the directcontrastconfidencebound. A regionwise uniform bound must respect
+those equilibrium points. This does not assert loss of the empirical counts
+or impossibility of another confidence construction using the same observations.
+
+The common-randomscaleclock case gives370/400 vs0/400; its box counterpoints
+are certified only as points in the outer moment cone, not automatically as
+realizations under that specific clock law. High independent readoutnoise is
+retained as a low-power regime. Positive inferred rates remain far below the
+model's true entropy rate: the result concerns detection, not full calorimetry.
+
+A separately frozen allocation comparison uses200independentdatasets,seed330173,
+quotas37500/75000/37500, same150000records and45000expectedtime.195/200detections
+vs189/200inoriginalcohort, withoverlappingMonteCarlointervals. Only theexact
+confidence-proxy improvement is claimed withoutqualification.
+
+Exact arithmetic checks logarithms, radicals, polynomial supports and feasible
+reversible box points. Numerical score search has no certification authority.
+The simulator uses Poisson path increments and independent conditional binary
+readouts, cross-checked against matrix exponentials. Independent tests challenge
+all interfaces. No measured physical data or external scientific review occurs.

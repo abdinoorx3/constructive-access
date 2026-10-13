@@ -1,0 +1,27 @@
+name: Reproducibility smoke checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the recorded numerical dependencies and package
+        run: |
+          python -m pip install -r requirements-reproduce.txt
+          python -m pip install --no-deps .
+      - name: Check the installed toolkit version
+        run: python -I -c "import constructive_access; assert constructive_access.__version__ == '0.10.0'"
+      - name: Run detector calibration producer tests
+        run: python detector_calibration/run_tests.py
+      - name: Replay the installed calibration tutorial
+        run: python -I examples/calibration_tutorial.py --output calibration_example.json

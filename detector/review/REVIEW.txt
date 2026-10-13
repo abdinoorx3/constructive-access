@@ -1,0 +1,298 @@
+INDEPENDENT INTERNAL REVIEW: CALIBRATED DETECTOR ACCESS
+Date: 2026-10-13 UTC
+Reviewer: /root/geometry_independent_review
+Scope: detector_geometry addition for the ninth cumulative edition candidate.
+The frozen eighth edition and its public release files were not modified.
+This is internal proof
+review and deterministic numerical verification, not external peer review or
+physical experimental evidence. No historical priority is certified.
+
+1. CURRENT VERDICT
+
+The population recovery theorem and exact fixed-grid Gaussian counterexample
+survive adversarial review under their stated, different access contracts.
+The finite Gaussian-noise obstruction, passive/prepared measurement-count
+comparison, and declared sensor-energy comparison have also been independently
+derived and checked against theory/finite_access.tex. Two requested integration
+edits are now verified in the source: the symmetry refinement used in the count
+table is explicit, and matching energy orders do not equate optimal constants.
+No unresolved mathematical blocker was found within the declared scope.
+The final source bindings record the specific files that were reviewed.
+
+The useful separation is precise: full continuous-law identifiability can
+coexist with fixed-grid ambiguity and arbitrarily expensive finite inference.
+Preparation can change the measurement-count exponent without necessarily
+changing the optimized detector-energy exponent. None of these statements is
+a general-purpose inversion algorithm, a new physical law, or a claim that
+real detectors supply infinitely dense independent readings for finite cost.
+
+2. POPULATION RECOVERY: ASSUMPTIONS AND PROOF CHECKS
+
+I reviewed theory/detector_recovery.tex directly. For a continuous stationary
+bounded Y and known boxcar width tau, Z_t=tau^-1 integral_[t-tau,t]Y_s ds is
+C1, even though Y may be a diffusion observation. Thus Z has zero ordinary
+quadratic variation, and the earlier local-geometry formula cannot be applied
+directly to Z as if it were Y.
+
+Known independent additive convolution is injective on compactly supported
+finite-dimensional latent laws: the noise characteristic function is nonzero
+near zero, and the latent characteristic functions are analytic. This proves
+uniqueness even when the known noise characteristic function has zeros or the
+noise has no moments. It does not provide stable analytic continuation. Known
+correlated noise is allowed only when its full joint law is specified and is
+independent of the signal; a one-time marginal is insufficient.
+
+The stronger iid dense-readout argument is sound. Conditional on the continuous
+Z path, averages of exp(iu B_tj) for distinct t_j -> t obey the independent
+bounded-variable strong law. Dividing their limit by the known noise
+characteristic function near zero recovers exp(iu Z_t). A countable sequence
+u -> 0 recovers the real Z_t without phase ambiguity; countable dense targets
+and continuity recover the path. This uses infinitely many fresh independent
+readouts within arbitrarily small neighborhoods. It does not apply to a
+continuous white-noise channel, reused photons, or general correlated noise.
+The argument does permit a square-integrable unbounded latent Y in the iid
+version of the later covariance-based theorem.
+
+The triangular inverse identity was checked algebraically:
+ R_N Z(t) = E Z_0 + tau sum_(k=0)^(N-1)(1-k/N)Z'_(t-k tau)
+          = Y_t - [(1/N)sum_(j=1)^N Y_(t-j tau)-E Y_0].
+Centered covariance decay makes the error tend to zero in L2. The finite-set
+L2 convergence identifies all ideal finite-dimensional distributions from the
+common exposure law, and continuity identifies the path law. For a covariance
+envelope C exp(-kappa |t|), the bound C coth(kappa tau/2)/N is correct.
+Derivative estimation error delta is amplified by at most tau(N+1)delta/2;
+the truncation bound alone therefore does not solve finite noisy inversion.
+
+The Landweber alternative is standard and correctly attributed. Its bias is
+the spectral integral of (1-|H_tau|^2)^(2N); its noise-amplification bound is
+sqrt(N). Recovery requires no spectral mass at the nonzero zeros 2pi k/tau.
+Covariance mixing is sufficient; ergodicity of the full continuous flow is
+not. A uniform-phase resonant harmonic is an explicit stationary, nonmixing
+counterexample erased by exposure.
+
+For compact connected uniformly elliptic diffusions and a nonconstant smooth
+detector, the generator-resolvent PSD identity and its strict positivity also
+check out. On the centered space the Poincare gap supplies the imaginary-axis
+resolvent. Its real quadratic form is the positive Dirichlet form, and zero
+would force the detector to be constant. Consequently a known boxcar shape's
+width is identified by the first positive spectral zero at population level.
+This needs calibrated physical time and the specified diffusion class; it is
+not a stable finite-sample spectral-zero estimator or unknown-kernel theorem.
+
+3. THE CORRECT ENTROPY TARGET
+
+The finite-access obstruction uses the compact circle family with fixed
+gamma>0 and frequency omega. Its ideal cosine observation law P_omega has
+the previously proved sharp compatible minimum M(P_omega)=omega^2/gamma.
+Thus the obstruction concerns an ideal-law invariant that changes across the
+family, or actual entropy when the circle architecture is known. It is not
+merely the familiar possibility of appending an invisible dissipative system.
+
+The detector recovery result preserves that attained minimum at the complete
+noisy dense-law level within the declared compatible compact diffusion class.
+It does not assign entropy to detector electronics or equate inference cost
+with the system's entropy-production rate.
+
+4. FINITE GAUSSIAN-NOISE ACCESS AND CONFIDENCE OBSTRUCTION
+
+For stationary exposed A in [-1,1], E A=0 and
+ V_omega=Re[tau/(gamma-i omega)
+       -(1-exp(-(gamma-i omega)tau))/(gamma-i omega)^2]/tau^2
+ <= [tau gamma+1+exp(-gamma tau)]/[tau^2(gamma^2+omega^2)].
+Independent quadrature verifies the expression. With n predetermined readings
+and independent Gaussian noise variance nu^2>0, convexity of KL gives
+ KL(P_omega^record || N(0,nu^2 I)) <= n V_omega/(2nu^2),
+even when latent exposure windows overlap or are correlated. Hence TV tends
+to zero at fixed n as |omega| tends to infinity, while M(P_omega) diverges.
+Adaptive timing/stopping does not follow automatically from this proof.
+
+If an upper confidence rule U has coverage at least 1-alpha for every omega,
+then under the pure-noise reference Q it must satisfy Q(U=+infinity)>=1-alpha.
+Indeed, for any fixed K choose omega with M(P_omega)>=K, transfer the coverage
+event to Q by TV convergence, then let K grow. Every finite-dimensional
+Gaussian location mixture has strictly positive density, so these laws are
+mutually absolutely continuous with Q. In particular, a rule uniformly valid
+over all omega cannot be almost surely finite under every family member.
+The Gaussian noise being strictly positive and a missing frequency envelope
+are essential; small latent variance alone does not imply TV convergence to
+a noiseless point mass.
+
+5. INDEPENDENT-TRIAL COUNTS: PASSIVE AND PREPARED
+
+The following are binary testing results for omega versus 2omega along
+omega=2pi m/tau as m -> infinity, with gamma,tau,nu>0 and target error below
+1/2 fixed. Each record is an independent exposure trial. Merely nonoverlapping
+windows of one stationary trajectory are not automatically independent.
+These results do not establish a minimax estimator over a continuous unknown
+frequency range.
+
+For stationary trials, symmetry makes all odd exposure moments vanish. The
+exact Gaussian-mixture identity is
+ chi^2(Law(A+N)||Law(N))
+   =sum_(k>=2)(E A^k)^2/(k!nu^(2k))
+   <= V_omega^2 [cosh(1/nu^2)-1].
+The looser exp(1/nu^2)-1-1/nu^2 constant is also valid. Tensorizing KL and
+using Pinsker implies n=Omega(omega^4) to distinguish omega from 2omega.
+The exact resonant variance satisfies
+ V_omega-V_(2omega) ~ 3[gamma tau+1-exp(-gamma tau)]/(4tau^2 omega^2).
+The sample mean of X^2 attains n=O(omega^4), because
+ E X^4<=1+6nu^2+3nu^4 and Chebyshev gives per-hypothesis error at most
+ 4[1+6nu^2+3nu^4]/[n(V_omega-V_(2omega))^2].
+The manuscript's sharper numerator also checks: Var(X^2) equals
+E A^4-V^2+4nu^2V+2nu^4 and is at most
+S_nu(V)=(1+4nu^2)V-V^2+2nu^4, since A^4<=A^2. The maximum of this
+quantity over the two hypotheses replaces the looser fourth-moment bound.
+
+For known oriented preparation phi_0=pi/2, the resonant mean is
+ mu_omega=-(1-exp(-gamma tau))omega/[tau(gamma^2+omega^2)].
+Writing c=(1-exp(-gamma tau))/tau, its absolute gap is
+ c|omega||2omega^2-gamma^2|/
+ [(gamma^2+omega^2)(gamma^2+4omega^2)] ~ c/(2|omega|).
+The gap is zero at omega=gamma/sqrt(2); the rate assertion is asymptotic and
+must not claim separation by this statistic at every frequency. Bounded
+exposure plus Gaussian read noise is sub-Gaussian with proxy 1+nu^2, yielding
+midpoint error <=exp[-n gap^2/(8(1+nu^2))] and n=O(omega^2).
+
+The matching lower bound follows from Ito's formula for sin(phi):
+ sqrt(E A^2) <= [2+gamma tau+sqrt(2gamma tau)]/(|omega|tau),
+uniformly in initial phase. Gaussian-mixture KL and triangle-Pinsker then
+require n=Omega(omega^2). The stationary ideal-law minimum remains the target;
+the prepared experiment itself is not stationary. Preparation and reset costs
+are separate. Measuring Y_0=0 alone does not select oriented phase: an equal
+mixture of pi/2 and 3pi/2 cancels the activated mean. Exact point preparation
+can be weakened to a known initial circular moment with E cos(phi_0)=0 and
+E sin(phi_0)=r!=0; the mean gap is then multiplied by r.
+
+6. DECLARED SENSOR-ENERGY MODEL
+
+If, as a separate calibrated detector assumption, Gaussian variance is
+nu_i^2=kappa/E_i, deterministic per-reading energies satisfy
+ KL(P_omega||Q)<=H2 sum_i E_i/(2kappa omega^2),
+where H2=[2+gamma tau+sqrt(2gamma tau)]^2/tau^2. Comparing omega and 2omega
+therefore requires total readout energy at least
+ 16kappa(1-2epsilon)^2 omega^2/(9H2).
+This is valid for a common predetermined energy schedule. Data-dependent
+energy allocation would need a separate sequential proof.
+
+The fourth-moment bound used for achievability is also valid. If
+M_t=integral_0^t cos(phi_s)dW_s, then Ito's formula gives
+ E M_tau^4=6 E integral_0^tau M_s^2 cos^2(phi_s)ds <=3tau^2.
+Applying |a+b|^4<=8(|a|^4+|b|^4) to the integrated sine identity yields
+ E A^4<=H4/omega^4,
+ H4=8[(2+gamma tau)^4+12gamma^2 tau^2]/tau^4.
+At E=c omega^2 per reading,
+ E X^4<=[H4+6kappa H2/c+3kappa^2/c^2]/omega^4.
+The stationary squared-reading test then needs only a bounded number of
+trials, attaining total readout energy O(omega^2). The fixed-noise count
+exponent difference therefore disappears for optimized readout energy under
+this declared sensor model. This is not a universal energy-information law,
+an experimental calibration of a sensor, or a bound on total physical cost.
+
+7. EXACT FIXED-GRID OU AMBIGUITY
+
+The countermodels proof was reviewed against independent double-integral
+calculations. It uses noncompact smooth elliptic OU dynamics and an unbounded
+linear detector, not the compact bounded-detector class of the earlier sharp
+minimum. With omega_m=2pi m, exposed variance V_m and off-diagonal coefficient
+F_m have the stated exact formulas. The ratio derivative is strictly negative,
+which makes the two oscillator weights strictly positive and matches both
+coefficients. Gaussianity then establishes equality of every sampled joint
+law on the entire integer grid, rather than a finite covariance checklist.
+Ordinary entropy differs as 8pi^2 versus 8pi^2 n^2.
+
+Both mixture components contribute to the detector. Still, the result as
+proved concerns compatible actual entropies in this noncompact class. The
+optional local Gaussian lower-bound algebra in the review tests is not a
+promotion of the earlier compact theorem to all noncompact diffusions; such
+an extension would require its own integrability proof. The compact-circle
+construction in section 4 is the primary ideal-minimum obstruction.
+
+8. A CERTIFIED FINITE COMPARISON AND DESIGN-TABLE REPLAY
+
+The six design-table rows were independently recalculated using the general
+complex exposure-moment formula, rather than the producer's resonant rational
+formula. All 24 count thresholds and numerical ceilings agree at 85-digit
+precision. The table remains a high-precision diagnostic, not certified
+interval arithmetic and not observed detection performance.
+
+A separate exact rational check supplies one certified finite separation.
+Set gamma=tau=1, nu=1/2, epsilon=1/10, omega=64pi (resonance m=32).
+Using Machin's identity and alternating arctan series gives
+157/50<pi<22/7. The exponential Taylor series gives 8/3<e<11/4 and
+exp(7/3)>10, hence log(10)<7/3. Put
+ wL=64(157/50), wU=64(22/7),
+ dL=(5/8)wL(2wL^2-1)/[(1+wU^2)(1+4wU^2)].
+Since 1-e^-1>5/8, the prepared mean gap is larger than dL. Its sufficient
+count threshold is therefore below 10(7/3)/dL^2<10,000,000, an exact
+rational inequality. Also cosh(4)-1<28, 2-e^-1<18/11 and
+V(w)<(18/11)/w^2. The passive necessary count exceeds
+ 2(4/5)^2 wL^4/[28((5/4)(18/11))^2]>17,000,000.
+All final comparisons use Python Fraction arithmetic. Thus 10,000,000
+prepared trials suffice under the stated test bound, whereas 17,000,000
+passive trials cannot attain the same equal-prior error. These are conservative
+mathematical trial counts, not fitted operating characteristics or claims of
+laboratory practicality; preparation and other excluded resources remain
+different. This finite certificate supplements, rather than proves anew, the
+asymptotic results.
+
+9. REPRODUCTION AND REMAINING GATES
+
+Run:
+ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python detector_geometry/review/test_review.py
+from /workspace/discovery_program. Eleven deterministic tests currently pass.
+They cover inverse telescoping, periodic loss, covariance and Landweber
+bounds, exact exposure integrals, Gaussian chi-square, passive/prepared
+constants, the exceptional prepared mean gap, an independent finite Fourier
+moment hierarchy through fourth order, sensor-energy constants, exact
+OU mixture moments, design-table replay, and the exact rational finite-count
+certificate. They contain no simulated laboratory data. Versions:
+Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0, mpmath 1.3.0. No random seed is needed.
+review/results.json stores source SHA-256 bindings and test status.
+
+The source literature audit supplies close established predecessors in
+motion-blur inference, deconvolution, spectral inversion and noisy entropy
+inference. I checked that the manuscript's positioning does not assert first
+discovery of those broad methods; I did not independently repeat every
+external primary-source retrieval. External peer review remains absent.
+For physical use, the largest remaining gap is a calibrated finite-record
+geometry estimator with explicit regularity and detector uncertainty, or a
+target-specific finite protocol justified within a bounded parameter class.
+
+10. CUMULATIVE-EDITION PRESENTATION AND PORTABILITY
+
+The new countermodel chapter was checked against the complete proof and
+implementation. It explicitly preserves the noncompact, unbounded-detector
+scope and does not promote actual-entropy ambiguity into a new claim about
+the earlier compact-class compatible minimum.
+
+The entry chapter was checked against the formal statements: its comparison
+table retains the complete-law versus finite-record distinction, the resonant
+known-pair scope and the difference between trial counts and detector energy.
+The detector recovery chapter now explicitly inherits the earlier smooth
+compact manifold without boundary and ordinary complete-state reversal class.
+The final design section includes the exact rational 10M/17M inequalities;
+their constants agree with the independent Fraction test.
+
+The literature chapter and bibliography were checked against the source
+ledger. I additionally inspected Cai--Wu's retained primary-text Lemma 3 and
+its attribution to Ingster--Suslina, and the cited Gingrich preprint passages
+on noisy-record memory and matrix-log inversion. Those checks support the
+chapter's attribution and positioning; they do not establish priority of the
+new combination or amount to a complete external literature audit.
+
+The design table, explanatory text and deterministic figure were checked
+against the proved count bounds. The figure was visually inspected. It
+labels the 10M/17M comparison as an exact rational certificate, the other
+curves as analytical bounds, and excludes preparation energy explicitly.
+Its shaded count brackets are not empirical confidence bands. Figure source
+is bound by the review report; generated PDF/PNG artifacts belong in the
+release manifest, avoiding a dependency cycle.
+
+All review paths are resolved from the script location. In the packaged
+R/detector layout the direct regeneration command is:
+ python detector/review/test_review.py
+from R. It writes detector/review/results.json. A standalone unittest
+discovery invocation runs tests but does not regenerate that JSON. The report
+contains relative source keys, no execution timestamps or absolute paths.
+Generate count and OU reports first, then the review report, then the figure:
+the figure consumes the verified finite-count certificate in the review.

@@ -1,0 +1,169 @@
+CONSTRUCTIVE ACCESS RESEARCH AND REVENUE-THRESHOLD LICENSE
+Version 1.0 — 13 October 2026
+
+Copyright 2026 Abdinoor (2D Labs), to the extent of rights owned or
+controlled by the licensor.
+Contact: helloworld@2dai.org
+Project: https://2dlabs.org
+
+1. Scope and definitions
+
+This is a source-available copyright license. It applies to the original
+software, research text, illustrations, documentation and other protected
+material expressly distributed under this license (the "Material"). It
+grants only rights the licensor owns or is authorized to grant. Separate
+third-party notices and licenses take precedence for their material,
+including the CC BY 4.0 experimental data and the embedded font software.
+See THIRD_PARTY_NOTICES.txt and the accompanying attribution inventory.
+
+"Company" includes a commercial enterprise, sole proprietorship or other
+entity when undertaking business activities. A Company's "Group" consists
+of it and all entities that directly or indirectly control it, that it
+controls, or that are under common control with it. "Control" means more
+than 50% of voting interests or the power to direct management, by ownership,
+contract or otherwise.
+
+"Group Revenue" is the Group's aggregate worldwide gross revenue over the
+12 months immediately preceding the use in question, eliminating internal
+transactions to avoid double counting, measured consistently under its
+ordinary applicable accounting standards. For a Group that has existed for
+less than 12 months, use actual revenue since formation, without annualizing.
+Include the relevant revenue of businesses acquired or reorganized into the
+Group during that period; restructuring does not reset this test. Convert
+non-US-dollar revenue using a documented, consistently applied published
+central-bank or equivalent independent exchange rate for the period.
+Revenue is not profit and is not limited to revenue attributable to this
+project. The threshold is US$10,000,000; there is no employee-count test.
+
+2. Permissions available to everyone
+
+Subject to section 5, anyone may, without charge and regardless of revenue:
+
+(a) read, inspect, download, retain, display and share unmodified public
+copies of the Material, including public repository forks and archival
+mirrors, for access, preservation, citation, education and scientific review;
+
+(b) run, test and modify the released demonstrations to reproduce, check,
+criticize or compare their published results, and publish the resulting
+scientific review and the modifications necessary to reproduce that review;
+
+(c) quote or reproduce attributed research text, figures and code excerpts
+in scholarly articles, theses, teaching materials and scientific reviews,
+and allow publishers and repositories to distribute those works, including
+through publications that charge subscription or publication fees.
+
+These permissions do not authorize incorporating the Material into a
+Company's product, proprietary research system, paid service, customer
+deliverable, commercial training corpus, marketing material or operational
+workflow. Such use requires permission under section 3 or a separate license.
+The exercise of rights already allowed by law is unaffected by this limit.
+
+3. Additional no-charge permissions
+
+For the following permitted purposes, the licensor grants a worldwide,
+nonexclusive, no-charge license to use, reproduce, execute, modify, create
+derivative works of, distribute, publicly display and perform the Material:
+
+(a) Personal study, experimentation and noncommercial projects undertaken
+in an individual capacity, rather than on behalf of a Company's business.
+
+(b) Academic research and teaching undertaken by individuals, educational
+institutions or nonprofit or public research institutions for scholarly
+purposes. Receiving salary, public grants, tuition or ordinary publication
+fees does not itself disqualify a use. Corporate sponsorship does not itself
+disqualify independent scholarly research, but this exception does not cover
+outsourced corporate development, proprietary customer analyses, commercial
+product development or services performed for a Company's business. Calling
+a project academic, placing it at a university or using an academic proxy
+does not create an exemption for such Company use.
+
+(c) A Company's business use while its Group Revenue is AT OR BELOW
+US$10,000,000. This includes internal use and commercial distribution within
+the limits of this license. A person or organization performing commissioned
+development, integration or hosted execution on behalf of another Company's
+business must also satisfy the revenue test for that Company's Group, or
+obtain a separate license covering that use. An eligible intermediary does
+not make an otherwise ineligible Company's use eligible.
+
+Eligibility is assessed when the use occurs. If Group Revenue becomes
+greater than US$10,000,000, further Company use outside section 2 requires
+a separate written commercial license from the relevant rights holder.
+Earlier eligible use remains authorized and does not create retroactive
+fees. The user may stop the ineligible use instead of purchasing a license.
+Retention of an inactive archival copy remains permitted under section 2.
+
+4. Commercial permission above the threshold
+
+Contact helloworld@2dai.org to request terms before commencing a use that
+requires a separate commercial license. No price, royalty, profit share,
+payment obligation, support obligation or commercial license is created by
+this document alone. Those matters require a separate agreement. Merely
+requesting terms does not authorize the requested use. This paragraph does
+not waive remedies otherwise available for an unauthorized exercise of
+rights actually controlled by the licensor.
+
+5. Conditions on licensed copying, modification and distribution
+
+Keep this license, applicable copyright and attribution notices, and the
+third-party notices with copies or substantial portions of the Material.
+Credit the original project as "Constructive Access — Abdinoor, 2D Labs"
+and include https://2dlabs.org in a reasonable location. Clearly identify
+substantive modifications and do not imply endorsement by the original
+author or third-party data creators. A scholarly quotation may satisfy
+these requirements through ordinary citation and a link to this license;
+it need not reproduce the full license beside each quotation.
+
+Distribute the original Material and modifications containing its protected
+expression subject to these conditions for that underlying expression.
+Recipients receive their permissions to that underlying Material directly
+under this license and must independently meet its eligibility conditions.
+Do not offer them broader commercial rights in that Material unless the
+relevant rights holder separately authorizes you to do so. You may license
+your own separable original contributions independently. This license does
+not transfer ownership of your contributions or of independently created
+software, writing or results to the licensor.
+
+6. Rights this license does not restrict or create
+
+No ownership or licensing restriction is asserted over facts, measurements,
+mathematical truths, scientific ideas, principles, methods, discoveries,
+algorithms as such, or material outside the licensor's applicable rights.
+Independent implementations that do not copy protected expression do not
+require permission under this license. Fair use, fair dealing, quotation
+rights, public-domain use and other statutory exceptions remain available.
+Outputs are not automatically subject to this license merely because the
+software produced them; any protected Material actually reproduced in an
+output remains subject to its applicable terms.
+
+Third-party material remains available under its original terms. In
+particular, this license does not restrict commercial reuse that the
+third-party experimental data's CC BY 4.0 license already permits.
+
+No patent or trademark license is granted, and no patent ownership or
+exclusive right in the science is asserted by this document. Use of names
+for the attribution required above is allowed; endorsement is not implied.
+
+Separate permissions and agreements, including rights granted by a rights
+holder to a hosting platform, are not revoked or overridden by this license.
+This sentence does not itself grant a platform any additional rights.
+
+7. Duration and noncompliance
+
+These permissions last for the duration of the applicable rights for uses
+that satisfy this license. Permissions for a particular use end when that
+use no longer meets its conditions; compliant uses and previous authorized
+acts are unaffected. If a first violation of the notice or modification
+conditions in section 5 is corrected within 30 days after written notice
+from the licensor, the affected permissions are reinstated prospectively.
+This cure provision does not authorize Company use above the revenue
+threshold or supply a missing separate commercial license.
+
+8. Warranty and liability
+
+To the extent permitted by applicable law, the Material is provided "as is",
+without warranties of any kind, including merchantability, fitness for a
+particular purpose, noninfringement, accuracy or experimental performance.
+To that same extent, the licensor is not liable for damages arising from
+use of the Material under this license. Nothing excludes liability or
+mandatory rights that applicable law does not allow to be excluded.
+

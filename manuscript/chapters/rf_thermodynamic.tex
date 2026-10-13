@@ -1,0 +1,304 @@
+\chapter{Dissipation and preparation from temporal records}
+\label{ch:rf-thermodynamic}
+
+The size of a classical explanation and its energy expenditure are different
+resources. A detailed-balanced network can produce a complicated transient
+after a costly preparation while producing no entropy in its stationary
+state. The next result identifies a stronger experimental contract under which
+a temporal record does constrain dissipation. Its measured input is a set of
+binary correlation probabilities, rather than a reconstructed generator.
+When initial stationarity is not guaranteed, the same construction yields a
+quantitative alternative: a compatible classical explanation must supply
+either a minimum departure from stationary preparation or a minimum
+housekeeping entropy budget. No hidden-state count needs to be specified.
+
+\section{Physical contract and normalization}
+
+Let $Q$ be a finite, homogeneous, row-generator Markov chain with stationary
+law $\pi_i>0$. States are even under physical time reversal. Observations are
+noninvasive: conditional on the physical states, the same fixed detector
+channel is applied at the beginning and end of each record, with independent
+readout noise. Write its binary output as $Y\in\{-1,1\}$ and its conditional
+mean as $f_i=\mathbb E[Y\mid X=i]\in[-1,1]$. Each record starts in $\pi$.
+Its independently selected lag $U$ equals $t_k>0$ with probability $w_k>0$,
+where $\sum_k w_k=1$. These choices are fixed before seeing the record.
+
+Define the dimensionless stationary entropy-production rate
+\begin{equation}
+ \sigma=\sum_{i<j}(a_{ij}-a_{ji})\log\frac{a_{ij}}{a_{ji}},
+ \qquad a_{ij}=\pi_iQ_{ij}.
+ \label{eq:rf-sigma}
+\end{equation}
+Zero fluxes are treated by limits; an unpaired positive flux gives infinite
+$\sigma$. With local detailed balance this is physical entropy production in
+units of $k_B$. For an isothermal stationary realization whose dissipated
+free energy is converted to heat at temperature $T_{\rm bath}$, the
+corresponding dissipated power is $k_BT_{\rm bath}\sigma$. A conversion to
+watts therefore needs a calibrated time unit and an appropriate thermal model.
+
+This is not a physical entropy formula for arbitrary hidden dynamics.
+In particular, equilibrium underdamped oscillators have odd momentum variables
+and can exhibit oscillating position correlations with zero physical entropy
+production. Quantum measurement backaction also lies outside this contract.
+
+\section{Comparison with a reversible process}
+
+The stationary adjoint and additive reversibilization are
+\begin{equation}
+ Q^*_{ij}=\frac{\pi_jQ_{ji}}{\pi_i},\qquad S=\frac{Q+Q^*}{2}.
+\end{equation}
+$S$ is a generator, has stationary law $\pi$, and obeys detailed balance.
+Both processes start in $\pi$. Their trajectory relative entropy on a
+fixed interval is
+\begin{align}
+ D(\mathbb P_Q^{[0,t]}\Vert\mathbb P_S^{[0,t]})
+ &=t\,d(Q,S),\\
+ d(Q,S)&=\sum_{i<j}\left[
+ a_{ij}\log\frac{2a_{ij}}{a_{ij}+a_{ji}}
+ +a_{ji}\log\frac{2a_{ji}}{a_{ij}+a_{ji}}\right]
+ \le \frac{\sigma}{4}.
+ \label{eq:rf-path-quarter}
+\end{align}
+The escape-rate terms cancel pointwise because stationarity implies
+$Q_{ii}=Q^*_{ii}=S_{ii}$. The last inequality is the standard Jensen--Shannon versus
+Jeffreys divergence comparison \cite{rfCrooks2011}; the reversible
+information projection is established prior work \cite{rfChoi2024}.
+
+For completeness, set $x=(a-b)/(a+b)$ for one unordered edge. The difference
+between one quarter of its entropy-production term and its contribution to
+$d$ is $(a+b)/2$ times
+\[
+ F(x)=x\operatorname{atanh}x
+ -(1+x)\log(1+x)-(1-x)\log(1-x).
+\]
+This function is even, $F(0)=0$, and
+$F'(x)=x/(1-x^2)-\operatorname{atanh}x\ge0$ for $0\le x<1$.
+The constant $1/4$ cannot be reduced uniformly: their ratio tends to $1/4$
+as $a/b\to1$. This does not imply that the final observed-data bound is tight.
+
+\section{A finite-lag entropy certificate}
+
+Let
+\begin{equation}
+ C_Q(t)=\mathbb E_Q[Y_0Y_t],\qquad
+ p_k=\Pr_Q(Y_0=Y_{t_k})=\frac{1+C_Q(t_k)}{2}.
+\end{equation}
+For $S$, the spectral theorem in $L^2(\pi)$ gives
+\begin{equation}
+ C_S(t)=m^2+\sum_\ell b_\ell e^{-\lambda_\ell t},\qquad
+ m=\sum_i\pi_if_i,\quad b_\ell\ge0,\quad \lambda_\ell\ge0,
+ \quad \sum_\ell b_\ell\le1-m^2.
+ \label{eq:rf-positive-spectrum}
+\end{equation}
+The inequality in the total mass allows a noisy detector. It follows that
+$q_k=\Pr_S(Y_0=Y_{t_k})$ is nonincreasing with lag and is at least
+$(1+m^2)/2$. At commensurate positive lags $t_k=n_k\Delta$, these
+probabilities lie in the closed moment set
+\begin{equation}
+ \mathcal M_m=\left\{
+ q_k=\frac{1+m^2}{2}+\frac{1-m^2}{2}
+ \int_0^1 x^{n_k}\,\mu(dx):\ \mu\text{ a probability measure}\right\}.
+ \label{eq:rf-moment-set}
+\end{equation}
+Unused spectral mass can be placed at $x=0$ because all $n_k$ are positive.
+This is a closure: an atom at $0$ can require an unbounded relaxation rate.
+
+Recording only $(U,\mathbf1\{Y_0=Y_U\})$ and applying data processing to
+\eqref{eq:rf-path-quarter} gives the inference theorem
+\begin{equation}
+ \boxed{\quad
+ \sigma\ge\frac{4}{\bar t}
+ \inf_{q\in\mathcal M_m}\sum_k w_k\,
+ d_{\rm B}(p_k\Vert q_k),\qquad
+ \bar t=\sum_kw_kt_k.
+ \quad}
+ \label{eq:rf-energy-cone}
+\end{equation}
+Here $d_{\rm B}$ is Bernoulli relative entropy in natural logarithms.
+The same conclusion holds with any certified outer approximation of
+$\mathcal M_m$. The proof uses a joint record with a common lag distribution;
+it does not assume that all lag experiments last $\bar t$ individually.
+
+If $m$ is unknown, $q_k\ge1/2$ remains valid. If the measured $p_k$ are
+known only through a simultaneous confidence region, minimize over that
+region as well. Choosing a best fitting curve without a certified lower
+bound on this minimization does not certify dissipation.
+
+\section{Preparation or sustained irreversibility}
+
+Initial stationarity can be removed if preparation is included as a resource.
+Let the same homogeneous $Q$ now start in an arbitrary distribution $\nu$,
+while the reference process $S$ starts in $\pi$. Define
+\begin{equation}
+ h_i=\sum_{j\ne i}Q_{ij}\log\frac{Q_{ij}}{Q^*_{ij}},\qquad
+ \sigma_{\rm hk}(\nu_s)=\sum_i(\nu e^{sQ})_i h_i.
+\end{equation}
+Because the exit rates of $Q$ and $Q^*$ agree for each state, $h_i$ is a
+nonnegative rate multiplied by a relative entropy of jump-destination
+distributions. This is the standard adiabatic or housekeeping
+entropy-production rate \cite{rfEsposito2010}. It is not the total transient
+entropy-production rate.
+
+The path relative-entropy chain rule and concavity of the logarithm give
+\begin{align}
+ D(\mathbb P_{Q,\nu}^{[0,t]}\Vert\mathbb P_{S,\pi}^{[0,t]})
+ &=D(\nu\Vert\pi)+\int_0^t\sum_i(\nu e^{sQ})_i
+     \sum_{j\ne i}Q_{ij}\log\frac{Q_{ij}}{S_{ij}}\,ds\\
+ &\le D(\nu\Vert\pi)+\frac12\int_0^t\sigma_{\rm hk}(\nu_s)\,ds.
+ \label{eq:rf-transient-resource}
+\end{align}
+The pointwise bound follows from
+$\log[(Q_{ij}+Q^*_{ij})/2]\ge
+(\log Q_{ij}+\log Q^*_{ij})/2$. Therefore any certified record separation
+$J$ from the stationary reversible reference set obeys
+\begin{equation}
+ \boxed{\quad D(\nu\Vert\pi)
+ +\frac12\mathbb E\!\left[\int_0^U\sigma_{\rm hk}(\nu_s)\,ds\right]
+ \ge J.\quad}
+ \label{eq:rf-preparation-housekeeping}
+\end{equation}
+For the endpoint record, $J$ can be the confidence-corrected moment-set
+separation in \eqref{eq:rf-energy-cone}. If the stationary detector mean has
+not been independently calibrated, the reference set must include every
+possible $m$; the measured transient mean cannot replace it. The monotonicity
+relaxation with floor $1/2$ safely avoids this issue.
+
+This is an explicit alternative between preparation and sustained
+irreversibility. A calibrated preparation budget
+$D(\nu\Vert\pi)\le D_{\max}$ implies
+\begin{equation}
+ \mathbb E\!\left[\int_0^U\sigma_{\rm hk}(\nu_s)\,ds\right]
+ \ge 2\max\{0,J-D_{\max}\}.
+\end{equation}
+For detailed-balanced $Q$, the housekeeping term vanishes and
+$D(\nu\Vert\pi)\ge J$. For stationary preparation $\nu=\pi$, the sharper
+factor $1/4$ in \eqref{eq:rf-path-quarter} applies instead. If $\pi$ is a
+calibrated isothermal Gibbs state, $k_BT_{\rm bath}D(\nu\Vert\pi)$ is
+nonequilibrium free energy relative to that equilibrium. For a general
+nonequilibrium stationary law it remains an information resource; no
+unqualified conversion to preparation work is made.
+
+The factor $1/2$ in the nonstationary path comparison is optimal uniformly.
+For jump-destination laws
+$p=(1-\varepsilon^2,\varepsilon^2)$ and
+$q=(1-\varepsilon,\varepsilon)$,
+$D(p\Vert(p+q)/2)/D(p\Vert q)\to1/2$ as $\varepsilon\downarrow0$.
+These can be the outgoing laws of $Q$ and $Q^*$ at state $0$ in a positive
+three-state generator: set
+\[
+ Q_{01}=1-\varepsilon^2,\quad Q_{02}=\varepsilon^2,\quad
+ Q_{10}=1-\varepsilon,\quad Q_{20}=\varepsilon,\quad
+ Q_{12}=1,\quad Q_{21}=1-\varepsilon+\varepsilon^2.
+\]
+Choose diagonal entries to give zero row sums. The stationary law is uniform.
+Preparation at state $0$ and a sufficiently short observation interval
+approach the rowwise ratio. This sharpness concerns the path comparison,
+not every observed-data certificate.
+
+\section{Two closed-form cases}
+
+For one lag, an upper confidence bound $p\le p^+<r$, where
+$r=(1+m^2)/2$, implies
+\begin{equation}
+ \sigma\ge \frac{4}{t}d_{\rm B}(p^+\Vert r).
+ \label{eq:rf-single-energy}
+\end{equation}
+Taking $r=1/2$ avoids the need to know $m$.
+
+Two lags reveal something this test can miss. Let $t_1<t_2$ and suppose
+simultaneous bounds give $p_1\le u<v\le p_2$. Define
+$\bar p=wu+(1-w)v$, with $0<w<1$. Then
+\begin{equation}
+ \sigma\ge
+ \frac{4\{w d_{\rm B}(u\Vert\bar p)
+ +(1-w)d_{\rm B}(v\Vert\bar p)\}}
+ {wt_1+(1-w)t_2}.
+ \label{eq:rf-revival-energy}
+\end{equation}
+Indeed, minimize the two Bernoulli divergences subject to the relaxed
+reversible constraint $q_1\ge q_2$. When $p_1<p_2$, convexity forces the
+optimum to $q_1=q_2=wp_1+(1-w)p_2$. The resulting weighted
+Jensen--Shannon divergence decreases when the smaller probability is
+increased, and increases when the larger is increased. Thus the least
+favorable pair in the stated confidence region is $(u,v)$.
+
+For more lags, the order relaxation
+$q_1\ge\cdots\ge q_K\ge1/2$ is solved exactly by weighted binomial
+isotonic regression: pool neighboring blocks whose weighted means increase,
+then raise block means below $1/2$ to that floor. This is a convenient lower
+bound. The full moment set can provide more information than monotonicity;
+the independently checked dual certificates developed alongside this chapter
+retain those constraints.
+
+There is a useful distinction from observable time-reversal tests. Every
+stationary binary process satisfies
+$\Pr(Y_0=1,Y_t=-1)=\Pr(Y_0=-1,Y_t=1)$, because its endpoint marginals agree.
+Consequently its binary two-time distribution equals its time reverse,
+even when \eqref{eq:rf-revival-energy} is strictly positive. The inference
+comes from the temporal restrictions on an even-state equilibrium Markov
+explanation, not from an asymmetry in this particular observed pair record.
+
+\section{A reproducible model and confidence calculation}
+
+Consider a 40-state ring with forward rate $20$ and backward rate $1$ in
+the stated time unit. Its stationary distribution is uniform. A deterministic
+detector reports $+1$ on 20 consecutive states and $-1$ on the others.
+At lags $t_1=8/5$ and $t_2=21/10$, rational uniformization certifies
+\begin{align*}
+ p_1&\in[0.511989466390,\ 0.511989466391],\\
+ p_2&\in[0.736044845959,\ 0.736044845960].
+\end{align*}
+Both single-lag tests with floor $1/2$ return zero. Equal lag weights in
+\eqref{eq:rf-revival-energy} certify
+\[
+ \sigma>0.058501035648.
+\]
+The model's true rate is $19\log20\simeq56.9189132$. The bound is therefore
+informative but loose; this example establishes a detection capability,
+not accurate reconstruction of the total dissipation.
+
+For a finite-record illustration, take \emph{synthetic} counts
+$2560/5000$ and $3680/5000$ of matching endpoints in two independent
+stationary-pair experiments. A one-sided Hoeffding radius $0.02$ in each
+group has combined failure probability at most
+$2e^{-2(5000)(0.02)^2}<0.05$. Thus
+$p_1\le0.532$ and $p_2\ge0.716$ simultaneously with confidence at least
+$95\%$. Equation~\eqref{eq:rf-revival-energy} gives
+\[
+ \sigma>0.039302147509
+\]
+at that confidence level. This is a worked inference from declared counts;
+no laboratory experiment generated them. Consecutive overlapping pairs
+cannot be inserted into this independent-sample calculation without a
+separate dependence analysis. A known bound on initial nonstationarity or
+detector drift must enlarge the probability confidence intervals.
+
+\section{What survives the counterexamples}
+
+The test implementation includes an irreducible four-state detailed-balanced
+chain whose two specially prepared transient populations reverse contrast.
+Every stationary current is zero. Hence the earlier preparation witness
+cannot be converted directly into a positive housekeeping-power bound.
+The reversible clock construction elsewhere in this reference extends this
+obstruction across arbitrary finite observation windows, while explicitly
+accounting for nonequilibrium preparation.
+
+An equilibrium underdamped oscillator provides a different control:
+its position autocorrelation can be negative without dissipation. It fails
+the even-state reversal assumption, not the spectral theorem for $S$.
+These controls identify the physical access needed for the inference:
+stationary records, a common noninvasive detector, independent clock choice,
+and the appropriate class of microscopic time reversal.
+
+Thermodynamic inference from time-symmetric fluctuations already has a
+substantial literature, including correlation-time bounds
+\cite{rfDechant2023}. Cross-correlation asymmetry bounds
+\cite{rfRaux2026} provide a different data reduction. Recent counterexamples
+to eigenvalue-only entropy bounds \cite{rfShiraishi2026} reinforce the need
+to keep observable amplitudes and preparation contracts. An anonymous,
+unrefereed October 2026 technical release \cite{rfHidden2026} also uses
+reversibilization and separation from reversible spectral mixtures for
+hidden-dissipation inference. The general bridge and its factor $4$ are
+therefore not claimed here as first discoveries. The deliverable is an
+explicit finite-lag endpoint-correlation inference procedure, with exact
+certificates, confidence regions, counterexamples and runnable comparisons.

@@ -1,0 +1,136 @@
+{
+  "schema": "constructive-access-contract-v1",
+  "name": "Active readout with explicit whole-record calibration",
+  "question": "Can the available controlled readout distinguish the two candidate response mechanisms?",
+  "target": {
+    "name": "response class",
+    "labels": [
+      "toward state 0",
+      "toward state 1"
+    ]
+  },
+  "models": [
+    {
+      "name": "mechanism A",
+      "initial": [
+        "1/2",
+        "1/2"
+      ],
+      "actions": {
+        "read": {
+          "0": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "1": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "drive": {
+          "done": [
+            [
+              "3/4",
+              "1/4"
+            ],
+            [
+              "3/4",
+              "1/4"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "mechanism B",
+      "initial": [
+        "1/2",
+        "1/2"
+      ],
+      "actions": {
+        "read": {
+          "0": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "1": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        "drive": {
+          "done": [
+            [
+              "1/4",
+              "3/4"
+            ],
+            [
+              "1/4",
+              "3/4"
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "resources": {
+    "charge_name": "operation count",
+    "unit": "operation",
+    "meaning": "operation_count",
+    "action_costs": {
+      "read": 1,
+      "drive": 2
+    },
+    "per_record_overhead": 1,
+    "calibration": "Each read is one counted operation, each drive two; fresh preparation is one additional operation. This is an operation model, not a measured energy model.",
+    "included": [
+      "read and drive calls",
+      "one preparation per complete record"
+    ],
+    "excluded": [
+      "apparatus heating",
+      "classical computation",
+      "storage"
+    ]
+  },
+  "preparation": {
+    "description": "Fresh independent preparation in the listed initial distribution before every complete action sequence; a single fixed hypothesis governs all records.",
+    "iid_records": true
+  },
+  "design": {
+    "target_average_error": "1/10"
+  },
+  "calibration": {
+    "record_tv_radii": [
+      "1/100",
+      "1/100"
+    ],
+    "scope": "whole_record_for_returned_protocol",
+    "justification": "Illustrative assumed complete-record TV bounds for drive then read, including preparation and readout. No laboratory calibration has been performed.",
+    "joint_failure_probability": "1/100"
+  }
+}

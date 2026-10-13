@@ -1,0 +1,49 @@
+% Bibliography entries used by precision_design.tex and adequacy_energy.tex.
+% Titles, authors and publication metadata identify established mathematical sources.
+
+\bibitem{caLeCamYang2000}
+L. Le Cam and G. L. Yang,
+\emph{Asymptotics in Statistics: Some Basic Concepts}, 2nd ed.
+Springer, 2000. doi:10.1007/978-1-4612-1166-2.
+
+\bibitem{caBoyd2004}
+S. Boyd and L. Vandenberghe,
+\emph{Convex Optimization}. Cambridge University Press, 2004,
+Chapter 5. doi:10.1017/CBO9780511804441.
+
+\bibitem{caBhattacharyya1943}
+A. Bhattacharyya,
+On a measure of divergence between two statistical populations defined by their
+probability distributions,
+\emph{Bulletin of the Calcutta Mathematical Society} \textbf{35}, 99--109 (1943).
+
+\bibitem{caHoeffding1963}
+W. Hoeffding,
+Probability inequalities for sums of bounded random variables,
+\emph{Journal of the American Statistical Association} \textbf{58}, 13--30 (1963).
+doi:10.1080/01621459.1963.10500830.
+
+\bibitem{caWatrous2018}
+J. Watrous,
+\emph{The Theory of Quantum Information}. Cambridge University Press, 2018.
+doi:10.1017/9781316848142.
+
+\bibitem{caBellman1957}
+R. Bellman,
+\emph{Dynamic Programming}. Princeton University Press, 1957.
+
+\bibitem{caVille1939}
+J. Ville,
+\emph{\'Etude critique de la notion de collectif}.
+Gauthier-Villars, Paris, 1939.
+
+\bibitem{caWaudbySmithRamdas2024}
+I. Waudby-Smith and A. Ramdas,
+Estimating means of bounded random variables by betting,
+\emph{Journal of the Royal Statistical Society, Series B}
+\textbf{86}, 1--27 (2024). doi:10.1093/jrsssb/qkad009.
+
+\bibitem{caBremaud1981}
+P. Br\'emaud,
+\emph{Point Processes and Queues: Martingale Dynamics}.
+Springer, 1981. ISBN 978-0-387-90536-5.

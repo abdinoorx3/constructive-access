@@ -1,0 +1,442 @@
+\chapter{A preparation and randomized-readout assay}
+\label{ch:rr-preparation}
+
+The previous finite-pulse result used a stationary preparation and a selective
+change to one physical transition channel.  Its positive first-hitting kernel
+also supports a different experiment: prepare a detected state, compare it with
+another preparation, and randomize the time of a single endpoint reading.  This
+removes the stationary-preparation and selective-control requirements.  It
+replaces them with a trusted reset and a common, time-homogeneous evolution.
+Neither access contract is automatically easier to establish in an apparatus.
+
+The mathematical result below is a Markov occupation maximum principle.
+Converting it into an operational assay is useful, but it does not establish the
+first test of arbitrary-size classical dynamics.  Established survival
+inequalities already address closely related questions
+\cite{rrLambert2010,rrLi2012,rrZhou2015}.  Section~\ref{sec:rr-comparison} compares
+the present assay with those alternatives and records a baseline that outperforms
+its simplest version.
+
+\section{The classical preparation inequality}
+\label{sec:rr-preparation-theorem}
+
+Let $Q$ be a finite, time-homogeneous row generator and $P(t)=e^{tQ}$.
+A reference arm prepares state $j$ exactly.  A comparison arm prepares a fixed
+probability distribution $\rho$ over the same states.  Both arms evolve under
+$Q$.  Independently of the trajectory and preparation arm, draw a readout time
+uniformly from $[0,T]$, measured from preparation.  Record whether the system
+occupies the singleton state $j$.
+
+\begin{theorem}[Integrated return maximum]
+\label{thm:rr-return}
+For $i\ne j$ and $T>0$,
+\begin{align}
+ K_{ij}(T)
+ &=\int_0^T\bigl(P_{jj}(t)-P_{ij}(t)\bigr)\,dt\nonumber\\
+ &=\int_0^T P_{jj}(s)\Pr_i(\tau_j>T-s)\,ds>0,
+ \label{eq:rr-hitting}
+\end{align}
+where $\tau_j$ is the first hitting time of $j$ from $i$.
+Consequently, for every initial distribution $\rho$,
+\begin{equation}
+ C_{\rho,j}(T)
+ =\frac1T\int_0^T\left(P_{jj}(t)-[\rho P(t)]_j\right)\,dt
+ \ge0.
+ \label{eq:rr-classical-null}
+\end{equation}
+The inequality is strict if $\rho_j<1$.  Irreducibility and a stationary
+preparation are unnecessary.  If the exit rates from $i,j$ are at most
+$\Lambda$, then $K_{ij}(T)/T\ge e^{-\Lambda T}$.
+\end{theorem}
+
+\begin{proof}
+The strong Markov property at $\tau_j$ gives
+\[
+ P_{ij}(t)=\int_{[0,t]}P_{jj}(t-u)\Pr_i(\tau_j\in du).
+\]
+Integrating this identity and interchanging nonnegative integrals gives
+\eqref{eq:rr-hitting}.  No departure from $j$ for $s$ time units has probability
+at least $e^{-\Lambda s}$, and no departure from $i$ for $T-s$ units has
+probability at least $e^{-\Lambda(T-s)}$.  These events give the claimed lower
+bound and strict positivity.  Finally,
+$T C_{\rho,j}=\sum_i\rho_iK_{ij}$, with $K_{jj}=0$.
+\end{proof}
+
+Only the reference preparation must be a trusted singleton.  The comparison
+preparation may be an unknown fixed distribution.  This distinction matters for
+calibration: uncertainty about that comparison distribution need not enlarge
+the classical null, although it affects predicted power against a specified
+alternative.  A computational-basis label in a quantum experiment does not by
+itself establish a singleton classical hidden state.
+
+A sufficient coarse-target extension is a genuine reset interface.  Let $B$ be
+the detected set, with reference preparation $\nu_B$ supported in $B$ and a
+comparison preparation outside $B$.  Suppose the conditional state at first
+entry into $B$ is $\nu_B$, independently of the entry time and previous history.
+The strong Markov argument then replaces $P_{jj}(s)$ by
+$\Pr_{\nu_B}(X_s\in B)$ and proves the same inequality.  Mixtures of an outside
+preparation with $\nu_B$ are also allowed.  Arbitrary states initially inside
+$B$ are not covered by this sufficient condition.
+
+\section{Protected clocks and failure controls}
+\label{sec:rr-clocks}
+
+\begin{theorem}[Decreasing readout densities]
+\label{thm:rr-decreasing}
+Let $w$ be a nonnegative, normalized, nonincreasing readout-time density on
+$[0,\infty)$, shared by both preparations and independent of the dynamics.
+Under Theorem~\ref{thm:rr-return},
+\[
+ \int_0^\infty w(t)
+ \left(P_{jj}(t)-[\rho P(t)]_j\right)\,dt\ge0.
+\]
+Every such density is, up to null sets, a mixture of uniform densities:
+\begin{equation}
+ w(t)=\int_{[t,\infty)}\frac{\mu(dT)}{T},
+ \qquad \mu(dT)=-T\,dw(T),
+ \label{eq:rr-mixture}
+\end{equation}
+where $\mu$ is a probability measure.
+\end{theorem}
+
+\begin{proof}
+For a decreasing integrable density, $t w(t)\to0$ at both endpoints.
+Stieltjes integration by parts therefore gives
+$\int\mu=\int_0^\infty w(t)\,dt=1$ and
+$\int_{[t,\infty)}\mu(dT)/T=w(t)$, with endpoint conventions irrelevant to
+probability densities.  Tonelli's theorem expresses the asserted contrast as
+$\int C_{\rho,j}(T)\mu(dT)$, which is nonnegative by
+Theorem~\ref{thm:rr-return}.  Equivalently, integration by parts against the
+nonnegative cumulative kernel $K$ proves the sign directly.
+\end{proof}
+
+The mixture representation is established mathematics
+\cite{rrPavlides2012}; its role here is to expose experimental timing choices.
+Randomizing a cutoff $T$ and then drawing time uniformly in $[0,T]$ preserves
+the inequality exactly.  For a specified alternative, no decreasing-density
+clock can beat the best uniform horizon unless an additional constraint changes
+the optimization problem.  Mean-time constraints, for example, lead to a
+standard convex design problem.
+
+The following controls show why the assumptions cannot be omitted.
+
+\begin{enumerate}
+\item \emph{A fixed or delayed readout can reverse the classical contrast.}
+A directed three-cycle has $P_{jj}(t)<P_{ij}(t)$ at some times.  Its uniform
+average over a delayed interval can also be negative.  Uniform sampling must
+start at preparation.  Increasing time densities have no general guarantee.
+\item \emph{A coarse detector can reverse the contrast.}
+Take four states $j,i,k,a$, with rates $j\to a$ and $i\to k$ both equal to $2$,
+and $a,k$ absorbing.  Detect $B=\{j,k\}$, prepare $j$ or $i$, and average over
+$[0,1]$.  The contrast is
+\[
+ \int_0^1\bigl(2e^{-2t}-1\bigr)\,dt=-e^{-2}<0.
+\]
+This wholly classical model violates the singleton conclusion because entry
+into $B$ does not reset to the reference state.
+\item \emph{Scheduled dynamics can reverse the contrast.}
+During $[0,1]$ allow only $j\to a$ at rate $4$; during $[1,2]$ allow only
+$i\to j$ at rate $4$.  Preparing $j$ or $i$ and averaging the singleton-$j$
+readout over $[0,2]$ gives
+\[
+ \frac12\left[\frac{2(1-e^{-4})}{4}+e^{-4}-1\right]<0.
+\]
+The generator is time dependent.  Augmenting the system with an internal clock
+does not restore the required singleton or reset observation contract.
+\end{enumerate}
+
+Nonincreasing density is a sufficient condition, not a necessary
+characterization of all safe clocks.  For example, placing at least half of the
+readout probability at time zero protects the sign against any remaining
+stochastic transition kernel.  The general clock cone is not characterized by
+this work.  A rejection of the declared classical contract is not a
+device-independent identification of quantum dynamics.
+
+\section{A damped quantum model and an exact threshold}
+\label{sec:rr-quantum}
+
+Consider the valid qubit Lindblad generator
+\begin{equation}
+ \mathcal L(\rho)=-i\frac{\omega}{2}[X,\rho]
+  +\gamma\left(\operatorname{Tr}(\rho)\frac I2-\rho\right),
+ \qquad \omega>0,\quad\gamma\ge0.
+ \label{eq:rr-qubit}
+\end{equation}
+The depolarizing term has Pauli jump operators
+$\sqrt{\gamma/4}\,X$, $\sqrt{\gamma/4}\,Y$, and
+$\sqrt{\gamma/4}\,Z$.
+Prepare $j=|0\rangle$ or $i=|1\rangle$ and detect
+$\Pi_j=|0\rangle\langle0|$.  The instantaneous contrast is
+$e^{-\gamma t}\cos(\omega t)$, so uniform timing yields
+\begin{equation}
+ C(T)=\frac{\gamma+e^{-\gamma T}
+       [-\gamma\cos(\omega T)+\omega\sin(\omega T)]}
+       {(\gamma^2+\omega^2)T}.
+ \label{eq:rr-qubit-contrast}
+\end{equation}
+For $\gamma=0$, this is $\sin(\omega T)/(\omega T)$.
+
+\begin{theorem}[Orthogonal-preparation damping threshold]
+\label{thm:rr-threshold}
+For $\gamma>0$, a horizon with $C(T)<0$ exists if and only if
+\begin{equation}
+ \frac{\omega}{\gamma}\log\frac{\omega}{\gamma}>\frac{3\pi}{2},
+ \quad\text{equivalently}\quad
+ \frac{\omega}{\gamma}>e^{W(3\pi/2)}
+ =3.644173671645632\ldots .
+ \label{eq:rr-threshold}
+\end{equation}
+Here $W$ is the principal real Lambert function.  This threshold concerns
+\eqref{eq:rr-qubit}, the stated orthogonal preparations, and the decreasing-clock
+class.  It is not a universal coherence threshold.
+\end{theorem}
+
+\begin{proof}
+Write $I(T)=T C(T)$.  Then $I'(T)=e^{-\gamma T}\cos(\omega T)$.
+Its first local minimum following the initial maximum occurs at
+$T_*=3\pi/(2\omega)$; subsequent minima occur one full period apart and have
+values
+\[
+ I(T_n)=\frac{\gamma-\omega
+ e^{-\gamma(3\pi/2+2\pi n)/\omega}}{\gamma^2+\omega^2},
+ \qquad n=0,1,\ldots .
+\]
+These values increase with $n$.  Since $I(0)=0$, a negative value exists exactly
+when $\omega e^{-3\pi\gamma/(2\omega)}>\gamma$.
+Setting $r=\omega/\gamma$ gives $r\log r>3\pi/2$, whose unique root above one
+is $e^{W(3\pi/2)}$.  The mixture theorem proves that decreasing clocks cannot
+produce a reversal when every uniform horizon is nonnegative.
+\end{proof}
+
+When reversal exists, the most negative uniform contrast occurs within
+$(\pi/\omega,3\pi/(2\omega))$.  Indeed
+$C'(T)=[T I'(T)-I(T)]/T^2$, and the numerator is strictly increasing throughout
+that interval because its derivative is $T I''(T)>0$.  It changes sign between
+the first zero of $I$ and its first negative minimum.  Later periods increase
+a negative numerator $I$ toward its positive limiting value while also increasing
+$T$, so they cannot improve the negative average.
+
+With $\gamma=1/10$, $\omega=2$, $T=9/4$, and a common affine detector of gain
+$9/10$, the observed contrast is
+\[
+ C_{\rm obs}=-0.1440713137250376\ldots<-\frac{18}{125}.
+\]
+The strict rational inequality is certified by an $80$-degree Taylor enclosure,
+independent of floating-point agreement.  Mean evolution time is $9/8$ per
+record.  Preparation, readout, reset, and control energy remain separate costs.
+An exponentially distributed readout with rate $\lambda$, by contrast, yields
+\[
+ C_{\exp}=\frac{\lambda(\lambda+\gamma)}
+                 {(\lambda+\gamma)^2+\omega^2}>0.
+\]
+It respects the classical protection but has no power against this alternative.
+
+\section{The best comparison preparation}
+\label{sec:rr-spectral-preparation}
+
+For a quantum channel semigroup $\Phi_t$ and a trusted reference state $|j\rangle$,
+define the averaged accessible effect
+\[
+ A_T=\frac1T\int_0^T\Phi_t^\dagger(\Pi_j)\,dt.
+\]
+The reference score is $\langle j|A_T|j\rangle$; arbitrary quantum state
+preparation attains the maximal score $\lambda_{\max}(A_T)$.  The Rayleigh
+variational principle therefore gives the optimal reversal gap
+\begin{equation}
+ V_T=\lambda_{\max}(A_T)-\langle j|A_T|j\rangle.
+ \label{eq:rr-spectral-gap}
+\end{equation}
+This is established spectral optimization applied to experimental design, not a
+new eigenvalue theorem.  A nonzero matrix element connecting $j$ to its
+orthogonal subspace guarantees $V_T>0$.
+
+For \eqref{eq:rr-qubit}, write
+\begin{align*}
+ C&=\frac1T\int_0^T e^{-\gamma t}\cos(\omega t)\,dt,\\
+ S&=\frac1T\int_0^T e^{-\gamma t}\sin(\omega t)\,dt
+ =\frac{\omega-e^{-\gamma T}
+ [\omega\cos(\omega T)+\gamma\sin(\omega T)]}
+ {(\gamma^2+\omega^2)T}.
+\end{align*}
+Then $A_T=(I+C Z+S Y)/2$ for the Hamiltonian convention in
+\eqref{eq:rr-qubit}, and
+\[
+ V_T=\frac{\sqrt{C^2+S^2}-C}{2}.
+\]
+For $\gamma>0$, the integrated sine $S$ is positive at every $T>0$: successive
+positive sine lobes precede their negative partners and carry larger exponential
+weight.  Within a negative lobe the smallest accumulated value is its endpoint,
+where that paired contribution remains positive.  Thus $V_T>0$ for every
+$\gamma,\omega,T>0$ when the comparison state can be coherently optimized.
+This does not promise useful precision under arbitrarily strong damping;
+for fixed $T$ and $\gamma\gg\omega$, the gap scales approximately as
+$\omega^2/(4\gamma^3T)$.
+
+A fixed $+Y$ eigenstate is often nearly optimal and avoids a model-dependent
+preparation angle.  Its gap is $(S-C)/2$.  At $\gamma=1/10$, $\omega=2$,
+$T=7/4$, and detector gain $9/10$, exact rational enclosures give
+\[
+ V_{+Y,\rm obs}=0.257271133487835\ldots>\frac{257}{1000}.
+\]
+Mean evolution time is $7/8$.  Coherent comparison preparation is an additional
+physical resource, and already presumes the relevant coherent controls; this
+example is not evidence for device-independent quantum certification.
+
+\section{Calibration and established experimental baselines}
+\label{sec:rr-comparison}
+
+A common fixed binary detector with response $m(p)=d_0+k p$, $k>0$, preserves
+the classical sign and cancels its offset.  Reference-preparation total-variation
+error $\epsilon_j$ weakens the classical null by at most $\epsilon_j$.
+Comparison-preparation error is unnecessary for that null when any initial
+distribution is allowed, but contributes to predicted alternative power.
+A common readout-law discrepancy of total variation $\delta$ changes a contrast
+by at most $2\delta$.  Separate detector probability errors add their two radii.
+A joint calibrated record-law bound should replace, rather than duplicate,
+errors already accounted for individually.  Statistical confidence cannot
+establish the reset or clock assumptions from the same test records.
+
+A close prior comparator is the survival inequality
+\cite{rrLambert2010}
+\[
+ |2P_{jj}(t)-P_{jj}(2t)|\le1.
+\]
+The classical semigroup actually gives the stronger relation
+\begin{equation}
+ P_{jj}(2t)=\sum_kP_{jk}(t)P_{kj}(t)\ge P_{jj}(t)^2.
+ \label{eq:rr-survival-product}
+\end{equation}
+The usual upper inequality follows from $2p-p^2\le1$.  To estimate
+\eqref{eq:rr-survival-product} directly, multiply the binary outcomes of two
+independent length-$t$ records and compare that product with a length-$2t$
+record.  The product is Bernoulli with mean $P_{jj}(t)^2$ and consumes two
+physical preparations.
+
+For a linear contrast $\sum_k a_k p_k$ with positive alternative gap $g$, a
+common sufficient Hoeffding design has resource proxy
+\begin{equation}
+ \mathcal B=\frac{\left(\sum_k |a_k|\sqrt{c_k}\right)^2}{g^2},
+ \label{eq:rr-hoeffding-proxy}
+\end{equation}
+where $c_k$ is the resource cost of one independent observation of arm $k$.
+The same confidence factor multiplies this proxy for all methods.  This is a
+comparison of sufficient concentration-bound designs, not their exact minimum
+sample complexities.  For randomized clocks, evolution-time cost below means
+\emph{expected} evolution time; it is not a hard bound on elapsed laboratory
+time or a measurement of energy.
+
+Table~\ref{tab:rr-baselines} fixes $\gamma=0.1$, $\omega=2$, ideal known readout,
+independent records, and zero preparation overhead.  Each column optimizes its
+own time parameter numerically on $[0.001,5]$.  Physical record costs for the
+product arm include both preparations.  The coherent-preparation variants use
+an additional control resource.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrr}
+\hline
+Method & Record proxy & Expected-time proxy\\
+\hline
+Uniform clock, orthogonal preparation &156.08&174.02\\
+Established linear survival inequality &219.68&133.64\\
+Classical survival-product inequality &75.84&58.02\\
+Uniform clock, fixed quadrature preparation &48.81&40.15\\
+Uniform clock, optimized preparation &48.39&40.02\\
+\hline
+\end{tabular}
+\caption{Matched sufficient-bound comparisons.  Lower is better.  These are
+numerical design results, not physical measurements or certified global
+statistical optima.  The survival-product baseline beats the simplest new
+assay; extra coherent preparation changes the available operations.}
+\label{tab:rr-baselines}
+\end{table}
+
+The comparison rejects a claim of universal superiority for the randomized
+assay.  Its contribution is a different exact access contract, protected timing
+families, and a route to calibrated design.  Which method is experimentally
+preferable depends on preparation access, detector errors, timing, and actual
+apparatus costs.  A framework becomes more useful when it selects among these
+methods and records their failure cases, not when it relabels every modeled
+quantum signal as a breakthrough.
+
+\section{Preparation design for a baseline-subtracted dimension witness}
+\label{sec:rr-baseline-preparation}
+
+The dimension result developed later, Proposition~\ref{rr:dimension-robust},
+changes the null assumptions again.  For a homogeneous CTMC with at most three
+hidden states, it permits arbitrary fixed preparations $\mu,\nu$ and an
+arbitrary fixed stochastic detector $f\in[0,1]$.  Writing
+\[
+ C_0=(\mu-\nu)f,\qquad
+ C_T=(\mu-\nu)\frac1T\int_0^T e^{tQ}f\,dt,
+\]
+its bound is $|C_0-C_T|\le1$.  Separately measuring the two preparations at
+baseline and at randomized time therefore removes the exact hidden-reset
+assumption of the earlier assay, at the price of a restriction on classical
+hidden-state dimension.  Section~\ref{rr:four-states} exhibits the importance
+of that restriction.  The quantum design calculation is independent of the
+proof of the classical bound.
+
+\begin{lemma}[Quantum preparation design for the dimension witness]
+\label{lem:rr-dimension-preparation}
+For a quantum averaged effect $A_T$ and the same baseline effect $\Pi_j$, let
+$D_T=\Pi_j-A_T$.  The largest value of
+\[
+ W=\operatorname{Tr}\!\left[D_T(\rho_+-\rho_-)\right]
+\]
+over two arbitrary quantum preparations is the spectral diameter
+$\lambda_{\max}(D_T)-\lambda_{\min}(D_T)$.
+For the qubit model \eqref{eq:rr-qubit}, it is
+\begin{equation}
+ W_{\max}(T)=\sqrt{(1-C)^2+S^2},
+ \label{eq:rr-dimension-optimum}
+\end{equation}
+attained by antipodal pure Bloch vectors parallel to $(0,-S,1-C)$.
+\end{lemma}
+
+\begin{proof}
+The maximum and minimum expectations of a Hermitian matrix are its largest and
+smallest eigenvalues, independently attainable by the two preparations.
+Here $D_T=[(1-C)Z-SY]/2$, whose eigenvalues are
+$\pm\sqrt{(1-C)^2+S^2}/2$.
+\end{proof}
+
+This is a standard spectral variational calculation used for experimental
+selection.  Orthogonal $Z$ preparations instead give $W=1-C$, whose optimal
+horizon is exactly the most negative uniform contrast studied above.  A common
+affine detector of gain $k$ multiplies these modeled quantum contrasts by $k$.
+For those orthogonal preparations, a predicted violation requires
+$k>1/(1-C)$.  The classical dimension bound itself does \emph{not} require this
+affine detector model or a known positive gain: it already permits any fixed
+stochastic $f$.  Gain enters prediction of experimental power, not validity
+of that null.
+
+A simple rational preparation gives a larger certified margin than the
+orthogonal pair.  Set
+\[
+ \gamma=\frac1{10},\quad\omega=2,\quad T=2,\quad k=\frac9{10},
+ \qquad n=\left(0,-\frac{12}{37},\frac{35}{37}\right).
+\]
+The vectors $n$ and $-n$ are pure because $12^2+35^2=37^2$.  Exact rational
+Taylor enclosures certify
+\begin{equation}
+ W=k\left[\frac{35}{37}(1-C)+\frac{12}{37}S\right]
+ =1.0806050936582667\ldots>\frac{27}{25}.
+ \label{eq:rr-rational-dimension-witness}
+\end{equation}
+Each randomized-time arm has mean evolution time $1$; each baseline arm has
+zero evolution time in the ideal timing convention.  Four equally sampled
+arms therefore have mean evolution time $1/2$ per physical record.  All four
+arms still incur preparation, measurement, and reset costs.  A common
+uncontrolled readout delay must be included consistently in the baseline and
+random-time effects; it is not automatically covered by the zero-delay
+alternative prediction above.
+
+Numerical optimization gives an ideal-state value about $1.20123$ at
+$T\simeq2.04524$ for this damping and frequency, or $1.08111$ after gain $0.9$.
+The rational design is close to that numerical value, but the reported search
+is not a certificate of a global optimum.  Established dimension witnesses and
+survival tests remain relevant comparators.  The present result is an explicit
+physical alternative and a reproducible preparation choice for the stated
+finite-dimension null, not an unrestricted exclusion of classical hidden
+mechanisms.

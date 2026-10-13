@@ -1,0 +1,38 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "finite_count_certificate": {
+    "arithmetic": "Exact Fraction inequalities with analytic bounds on pi, exp and log; separate from floating-point design displays",
+    "parameters": "gamma=tau=1, noise standard deviation=1/2, equal-prior error=1/10, omega=64*pi versus 128*pi",
+    "passive_insufficient_trials": 17000000,
+    "prepared_sufficient_trials": 10000000,
+    "scope": "Independent exposure trials, known hypotheses and calibration, stationary versus oriented preparation; not total resource cost",
+    "verified": true
+  },
+  "passed": true,
+  "source_sha256": {
+    "countermodels/COUNTERMODELS.txt": "67f669c9e05b2aaeb58057e806ff65ef30e344058708218449b0041ec36ecf3d",
+    "countermodels/exact_sampling.py": "d8939f2c50475d25aec4de4b945ca8e561a495a6c1da2ff8a9a68b70d3501cc1",
+    "countermodels/results.json": "59c9a76e79c3d347628c06208ecb3afb83354e25774a6a2418f526390e1e4475",
+    "design/DESIGN.txt": "239764e9060c7094d40d9ff7c32bf49c3dfff65f7e8dd8bb42c57e29a3d8f166",
+    "design/counts.py": "330ffdaddfec5330237349e8820ffbaed4a80babb46e3812e20066b69122347e",
+    "design/design.tex": "4bbf2904291c7b6f3e50693eb8d4ec70f3a1d41e09e9bc1c2813d2331f4b7c41",
+    "design/figure.py": "46bcdda21db6f6dd5b3141ac02dc6b7dd23680f253fe2af0e81d040fb8358897",
+    "design/results.json": "359aa77e59287f4c279f3dbfe82f582f124a54b36b76748e07f426d8999d4c91",
+    "design/test_counts.py": "7cd558478038e054c05fb479c88c3c71192337bf9019f03cef2a294b18dd5ac2",
+    "literature/audit.txt": "a8326ff543a9bc53019fb35177fb5d4c3cb400337f92d035dcdfd44112725707",
+    "literature/sources.json": "b7d877a9e5c555ee2a224b6a61b85bf25346a64eec882bc8166186958589142d",
+    "manuscript/bibitems.tex": "2daad4f807527a7d9a5902477619b19d9ab0c89c661c3cbcf9be9ce225966794",
+    "manuscript/countermodels.tex": "1262bcd55a379c7e70cfd3f876dde404a0703cde4e02e0400d19d84949d54ac6",
+    "manuscript/entry.tex": "a4e12b7e4ffe0052ab7c566b48a368eaadf6e90b95ae2d2312df4b7da0fc1c21",
+    "manuscript/literature.tex": "de6333e411d0096e15ffc65dfe9237d735ae98be748e401438c20a588f1fad5e",
+    "review/REVIEW.txt": "529404b0989287b05270a396462c59f98370d667ba7b0fc52bd42cfc76f2b573",
+    "review/test_review.py": "2c54b88e3b05864b56c2cce26ce1877b6724f13ba96bac3876a5aded3214e045",
+    "theory/detector_recovery.tex": "c95c02f5de9a179192605bbbab58e1a907c95590271fd3f53725176d4c8cad04",
+    "theory/detector_recovery.txt": "4489a93ed0bfbafbbafaf693659b555c5a4597f264d55869c41ee88d36b0f008",
+    "theory/finite_access.tex": "2aeb79b599fc431fbf9bf28f047ba8e27a594f88da49b8f95a59e60a74a1fc1b",
+    "theory/finite_access.txt": "b22c88949d1b38bbc438afd670e6cfcc7cd64d3ee92ea384cb437274b859af86"
+  },
+  "status": "Independent internal proof and deterministic computation review of the detector addition; no physical experiment, historical priority certification, or external peer review",
+  "tests_run": 11
+}

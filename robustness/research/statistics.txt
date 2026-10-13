@@ -1,0 +1,355 @@
+CALIBRATED RANDOMIZED CONTRAST TESTS
+Abdinoor / 2D Labs research program; mathematical and computational evidence.
+Agent: robust_statistics. Date: 2026-10-12 UTC.
+
+Scope and contribution
+----------------------
+This is an executable experimental-design layer for the preparation-and-
+integrated-occupation inequality. It applies established binomial testing,
+likelihood-ratio supermartingales, Chernoff bounds, and Ville's inequality.
+No new statistical principle or physical observation is claimed. The useful
+addition is a precisely calibrated experiment requiring one preparation and
+one endpoint readout per record, exact checkable finite-record certificates,
+and valid optional stopping without estimating a baseline nuisance parameter.
+
+The physical inequality must be established independently. In its simplest
+form, the uniform-time endpoint contrast satisfies p_j - p_i >= 0 for a
+time-homogeneous finite classical Markov process, a trusted singleton or
+regenerative reset preparation j, and the same protected endpoint detector.
+The comparison preparation can be arbitrary. The physical theorem does not
+give this inequality at every individual readout time.
+
+1. Record protocol and calibration
+---------------------------------
+Before record n, let F_(n-1) contain all completed experimental records,
+past clock and arm assignments, calibration information, and controller
+decisions. Choose the next admissible generator, reset/readout contract,
+clock distribution, null error radius b_n, and any betting parameters using
+only F_(n-1). The selection may adapt to completed records.
+
+Then draw a fresh fair arm A_n independently of the inaccessible system.
+Arm 0 prepares i; arm 1 prepares j. Independently draw the experiment's
+readout clock from its prescribed distribution, evolve under the common
+allowed dynamics, and obtain a binary endpoint detector outcome Y_n.
+Set R_n = Y_n for arm 0, and R_n = 1-Y_n for arm 1.
+
+If p_i,n and p_j,n denote probabilities averaged over the current clock and
+the record's other specified randomization, then
+
+  E[R_n | F_(n-1)] = (1 + p_i,n - p_j,n)/2.
+
+A setting-dependent contrast error bound b_n >= 0 gives the composite null
+
+  H0: p_i,n - p_j,n <= b_n conditionally for every record,
+      hence E[R_n | F_(n-1)] <= theta0,n = (1+b_n)/2.
+
+Under a declared ideal contrast lower bound g and the same conservative
+absolute contrast-error radius b, the actual alternative satisfies
+
+  E[R_n | F_(n-1)] >= theta1 = (1+g-b)/2.
+
+There is certified separation if g>2b. A common fixed positive affine
+detector gain is included in g; a common offset cancels. Distinct detector
+drifts belong in b. More refined nuisance accounting can use different
+null and alternative error bounds; the present API deliberately uses one
+conservative radius. An uncertain comparison preparation need not worsen
+the classical null when the physical theorem allows every comparison
+distribution, although it can reduce the alternative contrast.
+
+The calibration assumptions must hold jointly. If their event G fails with
+probability at most delta, and the conditional experiment on G retains the
+stated conditional success bounds, add delta once to the statistical error
+bound. A high-probability calibration assertion alone does not justify
+conditioning on G if G is selected using the same outcomes in a way that
+destroys the conditional experiment; independent calibration or a suitable
+joint sequential guarantee is needed.
+
+2. Filtration warning: current clock-dependent betting is invalid
+----------------------------------------------------------------
+The physical inequality holds only after averaging the current random
+clock. A bet selected after observing the current readout time can condition
+on a stratum where the classical pointwise contrast has the opposite sign.
+The relevant past ends before the current arm AND clock draws. Neither
+stratifying rejection after the fact nor selecting the current bet from
+the realized current time is covered. The clock can be retained as data,
+and completed clock data can inform later, separately valid experiments.
+
+A minimal counterexample at the probability-contract level has two equally
+likely clock strata with encoded success probabilities 1 and 0. Their
+average is 1/2. A likelihood bet with success multiplier 3/2 and failure
+multiplier 1/2 is fair if made beforehand. Betting only when the current
+stratum has success probability 1 yields mean multiplier
+  (3/2 + 1)/2 = 5/4 > 1,
+which destroys the supermartingale property. The accompanying tests retain
+this negative control. A generator that responds to the chosen observation
+time during the record can also invalidate the physical common-dynamics
+assumption, independently of statistical randomization.
+
+Unconditional averages alone are insufficient for optional stopping. Hidden
+shared drift can make a marginal contrast valid while conditional contrasts
+after some histories violate the bound. Reset and calibration claims must
+support the conditional statement above, or the experiment must use a fixed
+design justified under an appropriate different dependence model.
+
+3. Exact fixed-record test
+-------------------------
+Let b_n=b, theta0=(1+b)/2, theta1=(1+g-b)/2, N fixed in advance,
+and S_N=sum R_n. Reject H0 if S_N>=k. Write
+
+  B(N,k,p) = sum_(s=k)^N binom(N,s) p^s (1-p)^(N-s).
+
+Then
+  sup_H0 Pr(reject) <= B(N,k,theta0),
+  sup_H1 Pr(no rejection) <= 1-B(N,k,theta1).
+
+Proof. For adapted Bernoulli variables with conditional probabilities q_n
+bounded above by theta0, construct independent uniforms U_n and recursively
+represent R_n=1{U_n<=q_n(past)}. On this coupling R_n<=1{U_n<=theta0}
+coordinate by coordinate. Thus their sum is dominated by Bin(N,theta0).
+The same coupling with a lower conditional bound proves the alternative
+statement. The proof does not assume identically distributed trials or
+independence beyond the explicit conditional probability contract. For
+independent identically distributed trials these reduce to the ordinary
+exact binomial probabilities.
+
+The implementation computes these tails with integer arithmetic. For
+p=a/b, use unnormalized terms
+  T_s=binom(N,s) a^s (b-a)^(N-s),
+  T_(s+1)=T_s (N-s) a / ((s+1)(b-a)).
+The division is exact. Sum integers and divide by b^N, then round outward
+to a rational interval with denominator 2^70. The error certificates are
+therefore not floating-point CDF evaluations. An independent verifier
+reconstructs the certificate from the separately supplied contract.
+
+Concrete design. The separately derived quantum model has gamma=1/10,
+omega=2, uniform clock on [0,9/4], and detector gain 9/10. The independent
+80-term rational Taylor certificate proves g>=18/125. Take a contrast
+calibration radius b=1/1000, e.g. two setting-specific probability errors
+of at most 1/2000 each. Then theta0=1001/2000 and theta1=1143/2000.
+For N=600 and k=321, exact rational tails give
+  false rejection <= 0.04949789050389673,
+  missed detection <= 0.03260214328779952.
+The displayed decimals are summaries of outward rational certificates.
+No sample data, real or synthetic, are needed to establish these bounds.
+No universal claim that 600 records is minimum is made.
+
+The number of records is fixed; repeatedly applying this fixed-N threshold
+at earlier times is not licensed by this certificate. Use the sequential
+test below when early stopping or continuing beyond N is intended.
+
+4. Chernoff design and its exact checker
+---------------------------------------
+For any theta0<c<theta1, the binomial tail bounds also give
+  Pr_H0(S_N/N>=c) <= exp[-N KL(c||theta0)],
+  Pr_H1(S_N/N<c) <= exp[-N KL(c||theta1)].
+Thus it suffices that the two exponents exceed log(1/alpha) and
+log(1/beta). Rational logarithm enclosures give independently checkable
+inequalities. The implementation chooses a threshold near balancing these
+requirements on a rational grid, without claiming global record optimality.
+For the concrete design, alpha=beta=1/20 gives N=1181. Exact binomial
+certification improves this sufficient fixed-design requirement to 600,
+about a 49% reduction at the same contrast and calibration contract.
+
+5. Anytime validity
+--------------------
+Let 0<f<1 be a betting fraction chosen before the current randomization,
+and set q_n=theta0,n+f(1-theta0,n). Define
+
+  L_n = (q_n/theta0,n)^R_n
+        ((1-q_n)/(1-theta0,n))^(1-R_n),
+  M_N = product_(n=1)^N L_n, M_0=1.
+
+For a conditional success probability p<=theta0,n,
+
+  E[L_n | F_(n-1)]
+  = p q_n/theta0,n + (1-p)(1-q_n)/(1-theta0,n) <= 1.
+
+The expression is increasing in p and equals 1 at p=theta0,n. Therefore
+M_N is a nonnegative supermartingale. A fixed convex combination of such
+components is another nonnegative supermartingale. Ville's inequality gives
+
+  Pr_H0(ever M_N >= 1/alpha) <= alpha.
+
+Stop and reject when the threshold is first crossed, or continue gathering
+records after any inconclusive result. Optional stopping does not require
+an additional multiplicity correction. Calibration failures remain a
+separate addition. Other protocol choices can adapt across trials only
+when each chosen setup preserves its conditional null bound.
+
+The module keeps exact rational capital. It permits predictable changes in
+b_n, and fixed fractional bets map to the new null probability. A mixture
+of several bets accommodates unknown effect size. Mixture weights are
+declared in advance; retrospective selection of the most favorable
+component without its weight penalty would be invalid.
+
+6. Finite-horizon power for the anytime test
+------------------------------------------
+With constant theta0, theta1, and component q>theta0, terminal capital is
+  M_N(q)=(q/theta0)^S_N ((1-q)/(1-theta0))^(N-S_N).
+This increases with S_N. Let k be the least integer for which
+w M_N(q)>=1/alpha, where w is the component's mixture weight. Then terminal
+crossing, and hence crossing at or before N, has miss probability bounded
+by 1-B(N,k,theta1). The comparison uses exact rational powers and exact
+binomial tails.
+
+For the same quantum/calibration example, a single component q=theta1,
+weight 1, has a certified cap N=1100: at S_N>=601 its capital reaches the
+rejection threshold, and the miss probability is at most
+  0.04339424950444237.
+This is a sufficient cap, not an expected stopping-time estimate or a
+claim that the procedure always needs 1100 records. Some paths cross early.
+
+For large budgets a cheaper conservative bound avoids binomial sums. Put
+  l1=log(q/theta0), l0=log((1-q)/(1-theta0)),
+  K=theta1*l1+(1-theta1)*l0, D=l1-l0.
+If K>0, bounded-increment Hoeffding gives terminal crossing with miss at
+most beta whenever
+  N K - D sqrt[N log(1/beta)/2] >= log[1/(alpha w)].
+Our checker uses a rational lower bound on K and rational upper bounds on
+D and logarithms. It verifies the equivalent squared inequality together
+with the required positive sign, avoiding floating roots. The same example
+gives the more conservative cap N=1739. These guarantees allow conditional
+alternative probabilities >=theta1 without identical distributions.
+
+7. Resources and comparison discipline
+--------------------------------------
+The uniform [0,9/4] clock has expected evolution time 9/8 per record and
+worst-case evolution time 9/4 per record. Thus 600 records have expected
+evolution time 675 and deterministic upper bound 1350 in the model's time
+units. Add preparation, detector, reset, controller, and calibration costs.
+This time accounting is not automatically a joule count.
+
+The earlier stationary selective-pulse sign-crossing experiment used a
+different physical access contract and certified 330576 total records.
+Comparing it with 600 illustrates the gain from a much stronger accessible
+contrast and altered preparation requirements; it is not evidence of a
+551-fold statistical-method improvement or a universal energy advantage.
+The matched statistical improvement is 1181 versus 600 for the same new
+contract. Physical access costs must be priced before choosing protocols.
+
+8. Confidence inversion and inferred classical defects
+------------------------------------------------------
+At a fixed N with observed successes s, choose a rational theta_L such that
+  B(N,s,theta_L) <= alpha.
+Monotonicity of the binomial tail makes theta_L a conservative lower
+confidence bound on a stable common success probability. The code bisects
+using exact rational tail upper bounds. For adapted nonidentical records,
+the precise interpretation is exclusion of all models for which every
+conditional success probability is <=theta_L. Do not call it a confidence
+bound on an unidentified average across arbitrary changing trials.
+
+For a time-uniform bound, predeclare 0<f<1 and for every candidate theta
+define q(theta)=theta+f(1-theta). Its likelihood capital at N,s is
+  M_N(theta)=[1+f(1-theta)/theta]^s (1-f)^(N-s),
+which decreases with theta. Invert M_N(theta)>=1/alpha by rational
+bisection. At the true fixed mean theta*, or any valid uniform conditional
+upper bound theta*, Ville gives probability <=alpha that any inverted
+lower bound exceeds theta*. The predeclared f must not be selected after
+seeing current counts. A previously declared mixture admits analogous
+inversion; this API implements the single fixed-fraction case.
+
+Both return detector-contrast lower bound d_det,L=2theta_L-1. For a known
+common positive detector gain k and absolute contrast drift bound e,
+  d_ideal,L=(d_det,L-e)/k
+is a conservative bound on the physical contrast d=-H/T. This conversion
+requires its own calibrated gain and drift assumptions.
+
+The detector-boundary theorem gives H>=G-eta*K for bounded entrance and
+exit hazards a,b and reset defect eta, with
+  G=integral_0^T exp[-b s-a(T-s)] ds,
+  A_c=(1-exp[-cT])/c, with A_0=T,
+  K=T-A_a-A_b+G >=0.
+Thus for K>0 any compatible classical model must satisfy
+  eta >= (G+T*d_ideal,L)/K.
+Clip a negative lower bound at zero; a lower bound above one excludes this
+declared bounded-hazard class. If K=0, use the original bound H>=G rather
+than dividing. With a common hazard cap lambda and unrestricted defect,
+  H/T >= f(lambda*T), f(z)=2(1-exp[-z])/z-1.
+Therefore a negative occupation contrast confidence bound can require
+  lambda >= f^{-1}(-d_ideal,L)/T,
+when the inverse is within its physical range. This transforms a rejection
+into a quantitative lower bound on classical hidden activity or reset
+failure. It is a model-class inference, not a device-independent proof of
+quantumness. Bounds inferred from an ensemble of adaptive protocols need a
+common declared defect/hazard constraint; otherwise interpretation reverts
+to excluding a uniform contract rather than estimating one stationary
+apparatus parameter.
+
+9. Validation and references
+----------------------------
+code/statistics_design.py and tests/test_statistics_design.py.
+17 tests pass, including 1000+ exact small binomial comparisons, high-
+precision independent log checks, all 1024 length-10 null paths for optional
+crossing, adapted conditional-null policies, confidence-bound inversion,
+certificate tampering, strict
+input rejection, and the invalid current-clock-selection negative control.
+results/statistics.json records exact certificates and declared assumptions.
+Commands:
+  python -m unittest discover -s tests -p test_statistics_design.py -v
+  python code/statistics_design.py
+These are computational/mathematical tests; empirical physical data absent.
+
+Established statistical predecessors:
+  A. Wald, Sequential Tests of Statistical Hypotheses, Annals of
+  Mathematical Statistics 16(2), 117-186 (1945).
+  https://doi.org/10.1214/aoms/1177731118
+  S. R. Howard, A. Ramdas, J. McAuliffe, J. Sekhon, Time-uniform,
+  nonparametric, nonasymptotic confidence sequences, Annals of Statistics
+  49(2), 1055-1080 (2021). https://doi.org/10.1214/20-AOS1991
+  Open primary manuscript: https://arxiv.org/abs/1810.08240
+  Ville's nonnegative-supermartingale inequality and Chernoff/Hoeffding
+  inequalities are used as established results; no priority claim is made.
+
+10. Appended four-arm dimension witness, 2026-10-12
+-------------------------------------------------
+The detector-boundary and independent-redteam agents established the new
+physical null: for any <=3-state homogeneous CTMC, arbitrary fixed initial
+distributions mu,nu and a fixed stochastic binary detector f in [0,1],
+  |W|<=1,
+  W=C0-CT,
+  C0=mu*f-nu*f,
+  CT=(1/T) integral_0^T [mu*P_t*f-nu*P_t*f] dt.
+The physical proof is in the dimension-witness chapter. This statistical
+appendix accepts that theorem separately; it makes no priority claim for
+the physical or statistical components.
+
+Fresh equal-probability arms are mu0, nu0, muU, nuU. Encode success using
+Y on mu0 and nuU, and 1-Y on nu0 and muU. Then theta=(2+W)/4. The common
+physical model must be independent of current arm assignment. An arbitrary
+arm-independent model mixture per trial is permitted since each component
+satisfies the null; an arm-dependent generator need not. The same current-
+clock filtration restriction remains essential for the conditional null.
+
+If the total systematic W error has radius e, then nulltheta=(3+e)/4.
+If the ideal quantum witness has W>=w, alternative theta>=(2+w-e)/4.
+Four per-arm probability error bounds eta give e=4*eta by the triangle
+inequality. The full-W error radius is not a per-arm radius. Detector
+imperfections already included in a fixed f do not invalidate the physical
+null; setting-dependent changes are part of this error contract.
+
+Primary stronger quantum certificate: preparation.py independently proves
+W>27/25 with gamma1/10, omega2, horizon2, detectorgain9/10, and antipodal
+pure Bloch preparations on n=(0,-12/37,35/37). With e=1/500, choose
+  theta0=1501/2000, theta1=1539/2000,
+  N=6000, successes threshold k=4560.
+Exact integer binomial tails certify false rejection <.045483 and miss
+<.039465. Expected evolution time is T/4=1/2 per physical record, total
+3000, plus all preparation/readout/reset costs. The independent error
+scale per setting can be .0005, as in the earlier600-record test.
+
+Retained original benchmark: Wfloor261/250, full-Wradius1/1000,
+theta0=3001/4000, theta1=3043/4000, N20000,k15107. Exact tail summaries
+are false rejection .04841147778069104 and miss .03631507742379370.
+Expected evolution is9/16 perrecord, total11250, plus otherphysicalcosts.
+
+APIs appended without changing earlier interfaces:
+  bernoulli_exact_plan(null_upper,alternative_lower,N,k,alpha,beta)
+  verify_bernoulli_exact(candidate,null_upper,alternative_lower,alpha,beta)
+  encode_dimension(arm,outcome)
+  dimension_plan(witness_lower,radius,N,k,alpha,beta)
+  verify_dimension(candidate,witness_lower,radius,alpha,beta)
+No budget or threshold optimum is claimed. The record reduction20k to6k
+comes from a stronger designed physical contrast. The600-record two-arm
+test uses a stronger protected-preparation assumption and tests a different
+classical contract; the6k test trades records for preparation/detector
+generality while retaining a three-state dimension restriction.

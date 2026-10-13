@@ -1,0 +1,604 @@
+{
+  "contract_sha256": "f2b3cc1c1e0ca4c37cd050380a14794fdc880ff220a8200645faef40dda58ecf",
+  "evidence": "Second frozen simulated pilot/holdout loop; no physical calibration or measured data",
+  "heldout_seed": 610120712,
+  "limitations": [
+    "A model-based frequency fit proposes a common clock; it does not prove hardware stationarity or readout consistency.",
+    "Pilot cost is260000records per calibration; production-only comparisons are not total-resource comparisons.",
+    "Amortization assumes the calibrated drive remains sufficiently stable across subsequent experiments.",
+    "A common timing repair cannot undo arbitrary detector error, depolarization or setting-dependent drift.",
+    "All four declared cases and independent95percent Monte Carlo intervals are retained."
+  ],
+  "old_critical_counts_unchanged": [
+    313,
+    22,
+    22,
+    22,
+    22,
+    297,
+    48,
+    297,
+    22,
+    22,
+    22,
+    22,
+    282
+  ],
+  "pilot_seed": 610120711,
+  "scenarios": [
+    {
+      "amortized_pilot_overhead_if_calibration_remains_valid": [
+        {
+          "extra_channel_steps_per_experiment": 1820000.0,
+          "extra_records_per_experiment": 260000.0,
+          "fraction_of_production_record_budget": 14.207650273224044,
+          "production_experiments": 1
+        },
+        {
+          "extra_channel_steps_per_experiment": 182000.0,
+          "extra_records_per_experiment": 26000.0,
+          "fraction_of_production_record_budget": 1.4207650273224044,
+          "production_experiments": 10
+        },
+        {
+          "extra_channel_steps_per_experiment": 18200.0,
+          "extra_records_per_experiment": 2600.0,
+          "fraction_of_production_record_budget": 0.14207650273224043,
+          "production_experiments": 100
+        },
+        {
+          "extra_channel_steps_per_experiment": 1820.0,
+          "extra_records_per_experiment": 260.0,
+          "fraction_of_production_record_budget": 0.014207650273224045,
+          "production_experiments": 1000
+        }
+      ],
+      "bloch_lindblad_maximum_probability_difference": 1.1102230246251565e-15,
+      "fit": {
+        "amplitude_offset_estimate": 0.005476428375176637,
+        "common_clock_scale": 0.9945533995421191,
+        "fit_success": true,
+        "model_dependent_power_calibration_not_null_assumption": true,
+        "negative_log_likelihood": 109081.8499521005
+      },
+      "holdout": {
+        "original_clock": {
+          "clopper_pearson_interval": [
+            0.630692665488044,
+            0.6440673719705403
+          ],
+          "frequency": 0.6374,
+          "numerical_binomial_power_crosscheck": 0.6357871884066603,
+          "rejects": 12748,
+          "repetitions": 20000
+        },
+        "retimed_clock": {
+          "clopper_pearson_interval": [
+            0.9843798672225211,
+            0.9876765995814945
+          ],
+          "frequency": 0.9861,
+          "numerical_binomial_power_crosscheck": 0.9864599728107674,
+          "rejects": 19722,
+          "repetitions": 20000
+        }
+      },
+      "name": "coherent_amplitude_offset_0.005",
+      "original_nominal_evolution_duration": 113905.17364015566,
+      "original_parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.005,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      },
+      "original_probabilities": [
+        0.19029077765926505,
+        0.6154239976874524,
+        0.952145238653678,
+        0.944917226103812,
+        0.5998455948563319,
+        0.1795731770863801,
+        0.003376918178285282,
+        0.2046171161718237,
+        0.6298011329391737,
+        0.9556555211659303,
+        0.9349145449402629,
+        0.5839499179176094,
+        0.16986576661392955
+      ],
+      "pilot_counts": [
+        3767,
+        12384,
+        19047,
+        18871,
+        11951,
+        3587,
+        74,
+        4152,
+        12550,
+        19107,
+        18668,
+        11630,
+        3329
+      ],
+      "pilot_resources": {
+        "channel_applications": 1820000,
+        "nominal_evolution_duration": 1633628.1798666923,
+        "records": 260000
+      },
+      "power_improvement": {
+        "difference": 0.3487,
+        "hoeffding_interval": [
+          0.3277667092059708,
+          0.36963329079402923
+        ]
+      },
+      "production_records_each": 18300,
+      "production_steps_each": 126900,
+      "retimed_nominal_evolution_duration": 113284.77766925217,
+      "retimed_parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.005,
+        "clock_scale": 0.9945533995421191,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      },
+      "retimed_probabilities": [
+        0.1883671877887383,
+        0.6106480488246795,
+        0.9490031642385415,
+        0.9492458030042517,
+        0.6117967107676858,
+        0.19091366645984092,
+        0.0031169416709411757,
+        0.18915471832764164,
+        0.6085183486589292,
+        0.9455623007091628,
+        0.947082560244845,
+        0.6125348866996319,
+        0.1939932097386653
+      ]
+    },
+    {
+      "amortized_pilot_overhead_if_calibration_remains_valid": [
+        {
+          "extra_channel_steps_per_experiment": 1820000.0,
+          "extra_records_per_experiment": 260000.0,
+          "fraction_of_production_record_budget": 14.207650273224044,
+          "production_experiments": 1
+        },
+        {
+          "extra_channel_steps_per_experiment": 182000.0,
+          "extra_records_per_experiment": 26000.0,
+          "fraction_of_production_record_budget": 1.4207650273224044,
+          "production_experiments": 10
+        },
+        {
+          "extra_channel_steps_per_experiment": 18200.0,
+          "extra_records_per_experiment": 2600.0,
+          "fraction_of_production_record_budget": 0.14207650273224043,
+          "production_experiments": 100
+        },
+        {
+          "extra_channel_steps_per_experiment": 1820.0,
+          "extra_records_per_experiment": 260.0,
+          "fraction_of_production_record_budget": 0.014207650273224045,
+          "production_experiments": 1000
+        }
+      ],
+      "bloch_lindblad_maximum_probability_difference": 6.661338147750939e-16,
+      "fit": {
+        "amplitude_offset_estimate": 0.01040188216143965,
+        "common_clock_scale": 0.9897052031027614,
+        "fit_success": true,
+        "model_dependent_power_calibration_not_null_assumption": true,
+        "negative_log_likelihood": 108374.61743669066
+      },
+      "holdout": {
+        "original_clock": {
+          "clopper_pearson_interval": [
+            0.014070126703682557,
+            0.017572692259562785
+          ],
+          "frequency": 0.01575,
+          "numerical_binomial_power_crosscheck": 0.016594665338405593,
+          "rejects": 315,
+          "repetitions": 20000
+        },
+        "retimed_clock": {
+          "clopper_pearson_interval": [
+            0.9855442572373406,
+            0.9887117673665845
+          ],
+          "frequency": 0.9872,
+          "numerical_binomial_power_crosscheck": 0.9867202790532553,
+          "rejects": 19744,
+          "repetitions": 20000
+        }
+      },
+      "name": "coherent_amplitude_offset_0.01",
+      "original_nominal_evolution_duration": 113905.17364015566,
+      "original_parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.01,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      },
+      "original_probabilities": [
+        0.19205299839333628,
+        0.6197777841049255,
+        0.9549355102568399,
+        0.9408211528120797,
+        0.5888786644462418,
+        0.1694491704645406,
+        0.004112199692686336,
+        0.21912931344118258,
+        0.6490252401277441,
+        0.9639344244397989,
+        0.9227109091608572,
+        0.5575879096613536,
+        0.14898335539106322
+      ],
+      "pilot_counts": [
+        3822,
+        12300,
+        19121,
+        18878,
+        11752,
+        3404,
+        81,
+        4463,
+        12975,
+        19287,
+        18456,
+        11051,
+        2913
+      ],
+      "pilot_resources": {
+        "channel_applications": 1820000,
+        "nominal_evolution_duration": 1633628.1798666923,
+        "records": 260000
+      },
+      "power_improvement": {
+        "difference": 0.9714499999999999,
+        "hoeffding_interval": [
+          0.9505167092059708,
+          0.9923832907940291
+        ]
+      },
+      "production_records_each": 18300,
+      "production_steps_each": 126900,
+      "retimed_nominal_evolution_duration": 112732.54301198556,
+      "retimed_parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.01,
+        "clock_scale": 0.9897052031027614,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      },
+      "retimed_probabilities": [
+        0.18839249797109792,
+        0.6107154901158331,
+        0.9490534652029817,
+        0.9491947593468918,
+        0.6116334938473795,
+        0.1907459596238889,
+        0.0031011548648461895,
+        0.18935544044947833,
+        0.6088200806275017,
+        0.9457297368156956,
+        0.9469440094225868,
+        0.6121459199143358,
+        0.19363141738506395
+      ]
+    },
+    {
+      "amortized_pilot_overhead_if_calibration_remains_valid": [
+        {
+          "extra_channel_steps_per_experiment": 1820000.0,
+          "extra_records_per_experiment": 260000.0,
+          "fraction_of_production_record_budget": 14.207650273224044,
+          "production_experiments": 1
+        },
+        {
+          "extra_channel_steps_per_experiment": 182000.0,
+          "extra_records_per_experiment": 26000.0,
+          "fraction_of_production_record_budget": 1.4207650273224044,
+          "production_experiments": 10
+        },
+        {
+          "extra_channel_steps_per_experiment": 18200.0,
+          "extra_records_per_experiment": 2600.0,
+          "fraction_of_production_record_budget": 0.14207650273224043,
+          "production_experiments": 100
+        },
+        {
+          "extra_channel_steps_per_experiment": 1820.0,
+          "extra_records_per_experiment": 260.0,
+          "fraction_of_production_record_budget": 0.014207650273224045,
+          "production_experiments": 1000
+        }
+      ],
+      "bloch_lindblad_maximum_probability_difference": 1.7208456881689926e-15,
+      "fit": {
+        "amplitude_offset_estimate": 0.020324586580379316,
+        "common_clock_scale": 0.9800802736230269,
+        "fit_success": true,
+        "model_dependent_power_calibration_not_null_assumption": true,
+        "negative_log_likelihood": 107783.75825826694
+      },
+      "holdout": {
+        "original_clock": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "numerical_binomial_power_crosscheck": 3.6220054061028597e-16,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "retimed_clock": {
+          "clopper_pearson_interval": [
+            0.9842212954204742,
+            0.9875352305699651
+          ],
+          "frequency": 0.98595,
+          "numerical_binomial_power_crosscheck": 0.9871208978715753,
+          "rejects": 19719,
+          "repetitions": 20000
+        }
+      },
+      "name": "coherent_amplitude_offset_0.02",
+      "original_nominal_evolution_duration": 113905.17364015566,
+      "original_parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.02,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      },
+      "original_probabilities": [
+        0.19559601226215678,
+        0.6284560562962596,
+        0.9602681563317981,
+        0.932204189475673,
+        0.5668160890879343,
+        0.1499273415028558,
+        0.00704969829598856,
+        0.24922062290617286,
+        0.686713183519933,
+        0.9776745333707624,
+        0.8952458337158596,
+        0.5044398483786424,
+        0.11086910364728475
+      ],
+      "pilot_counts": [
+        3886,
+        12595,
+        19205,
+        18614,
+        11357,
+        2991,
+        149,
+        4954,
+        13843,
+        19573,
+        17875,
+        9966,
+        2297
+      ],
+      "pilot_resources": {
+        "channel_applications": 1820000,
+        "nominal_evolution_duration": 1633628.1798666923,
+        "records": 260000
+      },
+      "power_improvement": {
+        "difference": 0.98595,
+        "hoeffding_interval": [
+          0.9650167092059708,
+          1.0
+        ]
+      },
+      "production_records_each": 18300,
+      "production_steps_each": 126900,
+      "retimed_nominal_evolution_duration": 111636.21374832214,
+      "retimed_parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.02,
+        "clock_scale": 0.9800802736230269,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      },
+      "retimed_probabilities": [
+        0.18841771302834265,
+        0.6107869692356812,
+        0.9491115888323503,
+        0.9491486457845884,
+        0.6114649485062171,
+        0.19056292201183223,
+        0.003070544777462214,
+        0.18955545743661312,
+        0.6091398261542645,
+        0.9459229620194559,
+        0.946818814832505,
+        0.6117442338415864,
+        0.19323673883354492
+      ]
+    },
+    {
+      "amortized_pilot_overhead_if_calibration_remains_valid": [
+        {
+          "extra_channel_steps_per_experiment": 1820000.0,
+          "extra_records_per_experiment": 260000.0,
+          "fraction_of_production_record_budget": 14.207650273224044,
+          "production_experiments": 1
+        },
+        {
+          "extra_channel_steps_per_experiment": 182000.0,
+          "extra_records_per_experiment": 26000.0,
+          "fraction_of_production_record_budget": 1.4207650273224044,
+          "production_experiments": 10
+        },
+        {
+          "extra_channel_steps_per_experiment": 18200.0,
+          "extra_records_per_experiment": 2600.0,
+          "fraction_of_production_record_budget": 0.14207650273224043,
+          "production_experiments": 100
+        },
+        {
+          "extra_channel_steps_per_experiment": 1820.0,
+          "extra_records_per_experiment": 260.0,
+          "fraction_of_production_record_budget": 0.014207650273224045,
+          "production_experiments": 1000
+        }
+      ],
+      "bloch_lindblad_maximum_probability_difference": 1.6653345369377348e-16,
+      "fit": {
+        "amplitude_offset_estimate": 0.0030313508531999217,
+        "common_clock_scale": 0.9969778104636298,
+        "fit_success": true,
+        "model_dependent_power_calibration_not_null_assumption": true,
+        "negative_log_likelihood": 109926.13514670344
+      },
+      "holdout": {
+        "original_clock": {
+          "clopper_pearson_interval": [
+            0.6720267660699308,
+            0.6850212954593073
+          ],
+          "frequency": 0.67855,
+          "numerical_binomial_power_crosscheck": 0.6783270504034126,
+          "rejects": 13571,
+          "repetitions": 20000
+        },
+        "retimed_clock": {
+          "clopper_pearson_interval": [
+            0.7982272830860649,
+            0.8092842654550019
+          ],
+          "frequency": 0.8038,
+          "numerical_binomial_power_crosscheck": 0.8049503595651305,
+          "rejects": 16076,
+          "repetitions": 20000
+        }
+      },
+      "name": "combined_design",
+      "original_nominal_evolution_duration": 113905.17364015566,
+      "original_parameters": {
+        "amplitude_jitter": 0.005,
+        "amplitude_offset": 0.003,
+        "depolarization": 0.001,
+        "detuning": 0.02,
+        "false_negative": 0.003,
+        "false_positive": 0.0005,
+        "omega": 1.0,
+        "preparation_error": 0.0005,
+        "timing_jitter": 0.002
+      },
+      "original_probabilities": [
+        0.1897318885347085,
+        0.6118466816726772,
+        0.947450294265235,
+        0.9427057234548075,
+        0.6018223157657645,
+        0.1834011636737242,
+        0.004256262382237089,
+        0.19953493486502233,
+        0.6207645839160425,
+        0.9487362757385417,
+        0.9354013188603492,
+        0.5914722479565999,
+        0.177845124522361
+      ],
+      "pilot_counts": [
+        3801,
+        12166,
+        18984,
+        18924,
+        11984,
+        3705,
+        85,
+        4027,
+        12325,
+        18997,
+        18726,
+        11857,
+        3576
+      ],
+      "pilot_resources": {
+        "channel_applications": 1820000,
+        "nominal_evolution_duration": 1633628.1798666923,
+        "records": 260000
+      },
+      "power_improvement": {
+        "difference": 0.12524999999999997,
+        "hoeffding_interval": [
+          0.10431670920597076,
+          0.1461832907940292
+        ]
+      },
+      "production_records_each": 18300,
+      "production_steps_each": 126900,
+      "retimed_nominal_evolution_duration": 113560.93061624194,
+      "retimed_parameters": {
+        "amplitude_jitter": 0.005,
+        "amplitude_offset": 0.003,
+        "clock_scale": 0.9969778104636298,
+        "depolarization": 0.001,
+        "detuning": 0.02,
+        "false_negative": 0.003,
+        "false_positive": 0.0005,
+        "omega": 1.0,
+        "preparation_error": 0.0005,
+        "timing_jitter": 0.002
+      },
+      "retimed_probabilities": [
+        0.18867208496228244,
+        0.6092137473782036,
+        0.9457129104830939,
+        0.9450814744125653,
+        0.6084054418512193,
+        0.1896672179767979,
+        0.004147010022085311,
+        0.19104016062768564,
+        0.6090213299118092,
+        0.9431103742961398,
+        0.9420327129842642,
+        0.6072066079373325,
+        0.19121809728787167
+      ]
+    }
+  ],
+  "settings_are_not_individually_retimed": true,
+  "shared_channel_argument": "A pilot-selected common step defines one fixed P; conditioning on the independent pilot leaves the old dimension theorem and exact tail guarantees unchanged."
+}

@@ -1,0 +1,133 @@
+\chapter{Positioning the observed-geometry result}
+\label{ch:og-literature}
+
+The new access contract belongs to kinetic inference and the variance-sum-rule
+line of work. Symmetric fluctuations can already reveal dissipation under
+appropriate overdamped assumptions. Minimum dissipation among compatible
+hidden models is also an established inference objective. The contribution
+to assess here is a conditional diffusion-geometry bound and its sharp
+compatible-realization consequence for a specified complete observed law.
+
+\section{The closest curvature identity}
+Di Terlizzi's force-free kinetic formula expresses stationary entropy in
+Cartesian overdamped coordinates with constant diffusion through covariance
+curvature and the score of the stationary density
+\cite{ogDiTerlizzi2025}. For diagonal diffusion, its component identity is
+\begin{equation}
+ \sigma_i=-\frac{C_i''(0)}{D_i}
+       +D_i\,\mathbb E[(\partial_i\log\pi(X))^2].
+ \label{eq:og-prior-traffic}
+\end{equation}
+The paper's Eqs.~(15)--(18) derive partial-observation bounds from positive
+traffic components. Its full-state identity also gives a useful marginal
+corollary. When differentiation under the hidden-coordinate integral is
+valid and boundary terms vanish,
+\[
+ \mathbb E[\partial_i\log\pi(X)\mid X_i=y]
+       =\partial_y\log p_i(y).
+\]
+Conditional Jensen therefore yields
+\begin{equation}
+ \sigma_i\ge -\frac{C_i''(0)}{D_i}
+       +D_i\,\mathbb E[(\partial_y\log p_i(X_i))^2].
+ \label{eq:og-marginal-prior-corollary}
+\end{equation}
+This is a direct corollary of an established identity. It is the signed,
+constant-diffusion specialization of the present conditional argument, before
+taking a positive part locally. We do not claim a new underlying
+curvature--score identity.
+
+The present result retains more local information: a nonlinear detector
+$f$, its instantaneous quadratic variation $V=\Gamma_f(X)$, and the
+conditional combination $g^2-K$ before averaging. On the cosine circle,
+$g^2/V$ and $K/V$ have divergent separate averages near the endpoints,
+whereas $(g^2-K)/V$ is finite. Truncation and cancellation before integration
+are essential. Treating this as the subtraction of two finite global
+averages would be incorrect. The transformation $\arccos Y$ also produces
+folding endpoints; a globally smooth constant-diffusion coordinate formula
+does not automatically apply to it.
+
+The earlier variance sum rule relates displacement curvature, force variance
+and dissipation \cite{ciVSR2024,ciVSRProofs2024}; the latter reference gives
+the entropy identity explicitly in Sec.~3.3, Eq.~(30). Harada--Sasa instead
+relates dissipation to correlation and response spectra
+\cite{ogHaradaSasa2005}. Its perturbation-response access differs from the
+passive conditional statistics used here. These established methods remain
+appropriate when their respective measurements and physical assumptions
+are available.
+
+\section{Standard ingredients and the extra information retained}
+The drift decomposition, generator adjoint and stationary diffusion entropy
+are standard. Da Costa and Pavliotis give these explicitly in
+Propositions~3.7 and~3.12 and Theorem~4.1; their Sec.~6.2 distinguishes
+ordinary reversal from reversal with a phase-space involution
+\cite{ogDaCosta2023}. That distinction is required here. Observing an even
+scalar does not prove that all hidden degrees of freedom have even parity.
+
+Short-time current optimization already attains diffusion entropy when the
+appropriate current is available \cite{ogOtsubo2020}. Stochastic force
+inference already uses finite-basis regression, estimates spatially varying
+diffusion, and handles hidden variables through conditional projection
+\cite{ogFrishman2020}. Its Appendix~E expressly limits the projected entropy
+to observable currents. The present conditional past--future product retains
+information that is absent from the mean projected current of a reversible
+scalar law.
+
+There is a related access distinction. Regression of squared increments on
+$Y$ estimates a conditional average of the hidden local diffusivity.
+It need not recover the pathwise coordinate $V=\Gamma_f(X)$ used in the
+weighted theorem. Replacing one by the other without a pointwise bound is
+not justified by a successful regression fit.
+
+The completed-square inequality $2qg-q^2\le g^2$ is elementary
+least-squares duality. Density-score matching has a long history, including
+Hyv\"arinen's integration-by-parts formulation
+\cite{ogHyvarinen2005}. The regression test function for a conditional drift
+is not automatically a density score. Neither duality nor the use of an
+independent training sample is claimed as a new mathematical principle.
+
+\section{The compatible-model minimum}
+Ehrich minimizes entropy over hidden Markov transition matrices reproducing
+observable jump statistics, with an explicit minimum in Eq.~(51) and a
+comparison to reversed-record information in Eq.~(52)
+\cite{ciEhrich2021}. His discussion identifies the dependence on the assumed
+number of hidden states. Nitzan, Ghosal and Bisker formulate full
+waiting-time-law compatibility and a moment hierarchy in Eqs.~(16)--(18),
+assuming a specified underlying topology \cite{ciNitzan2023}. Their
+topology-reduction extension is tested numerically and retained as an open
+universal question.
+
+The cosine-law theorem addresses a different instance: every compatible
+finite-dimensional smooth ordinary-reversal hidden diffusion in the stated
+class must obey the same local observed-path identities, and the circle
+attains the resulting lower bound. Its force is the absence of a prescribed
+hidden dimension or architecture within that class. It does not enlarge the
+claim to jumps, generalized reversal, noisy detectors or equality of a few
+covariance values.
+
+The scalar Gaussian reversal obstruction discussed by Lucente and colleagues
+\cite{physics-lucente} concerns what a scalar record and broader equilibrium
+realizations can establish. The cosine law is non-Gaussian, and the current
+minimum explicitly restricts the realization class. A reversible observed
+law need not have a reversible generator within every chosen class of hidden
+models. Reversed-record KL and minimum compatible physical dissipation are
+therefore different quantities.
+
+\section{What finite-resolution validation adds}
+Di Terlizzi's numerical procedure fits sums of exponentials to correlations
+and studies exclusion of noise-contaminated small lags; stochastic force
+inference also treats sampling and localization errors
+\cite{ogDiTerlizzi2025,ogFrishman2020}. Those are useful practical precedents.
+A uniform finite-lag remainder and a lower confidence guarantee for a frozen
+triple statistic are separate obligations. Generator-derivative envelopes,
+sensor calibration and independent acquisitions must be stated explicitly;
+they are not automatically learned from a coarse trace. A successful
+simulation using known calibration constants demonstrates a conditional
+procedure, not universal data-only recovery.
+
+The audit consulted primary equations and supplements. Inspection notes and
+source locations are retained in \path{geometry/research/sources.json}.
+The audit does not certify historical priority.
+External review and physical experiments remain independent steps. The
+claim advanced here is a specific mathematical and computational extension
+with an explicit access contract, not a new universal law of matter.

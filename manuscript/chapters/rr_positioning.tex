@@ -1,0 +1,96 @@
+\section{Positioning and physical interpretation}
+
+The principal extension in this phase is a quantitative treatment of a
+coarse detector whose natural entrance distribution need not coincide with the
+reference preparation. A departure from ideal occupation ordering then has a
+measurable consequence: any admissible classical explanation must provide enough
+entrance mismatch, sufficiently rapid crossings of the observed boundary, or
+both. The comparison is against a specified set of physical capabilities, rather
+than against a fitted list of hidden networks.
+
+Let $B$ be the detected region, let the reference preparation lie in $B$, and let
+the comparison preparation lie outside it. Write $H(T)$ for the difference of
+their expected cumulative occupations in $B$. In the reset-conditioned theorem,
+$\eta$ bounds the total-variation mismatch between the first-entrance law and
+the reference reset law, conditional on the entrance time. With the stated
+uniform entry and exit intensity bounds $a,b$, define
+\[
+ A_c(T)=\int_0^T e^{-ct}\,dt,\qquad
+ G_{a,b}(T)=\int_0^T e^{-bs-a(T-s)}\,ds.
+\]
+The sharp envelope is
+\[
+ H(T)\ge G_{a,b}(T)
+ -\eta\{T-A_a(T)-A_b(T)+G_{a,b}(T)\}.
+\]
+Sharpness means attainability within the declared mathematical class; it does
+not imply that an arbitrary apparatus realizes an extremizer. If the braces
+are positive, a calibrated upper confidence bound on $H(T)$ gives a necessary
+lower bound on $\eta$ for any classical explanation satisfying the chosen rate
+caps. It gives neither an upper bound on the actual mismatch nor a unique hidden
+mechanism.
+
+At $\eta=1$, the envelope reduces to
+$H(T)\ge A_a(T)+A_b(T)-T$. This endpoint requires only the relevant survival
+envelopes and remains valid for history-dependent and time-dependent classical
+processes satisfying the conditional hazard bounds. The intermediate
+$0\le\eta<1$ theorem additionally uses its stated reset and continuation
+conditions; the broader endpoint scope must not be transferred to it without
+those conditions. Here $a$ and $b$ are caps on crossing intensities. They are not
+the average total jump activity, heat production, or energy expenditure.
+
+Classical speed and no-jump bounds are established. Shiraishi, Funo and Saito
+relate distributional motion to dissipation and dynamical activity
+\cite{rrShiraishi2018}; Hasegawa and Nishiyama derive concentration and response
+bounds using no-jump probabilities \cite{rrHasegawa2024}. The present inverse
+problem concerns a difference between two occupation experiments, with an
+explicit reset-defect parameter and a saturating construction. Coarse-grained
+memory and its effect on inference are also established concerns
+\cite{rrBlom2024}. No claim of historical priority follows from these
+comparisons. The contribution offered for review is this particular sharp
+envelope, its operational interpretation, and the calibrated implementation.
+
+Physical use requires evidence for the caps over the histories and preparations
+covered by the test. An observed mean switching rate is insufficient. A hidden
+entrance distribution cannot generally be certified from a binary detector
+alone; when independent reset information is unavailable, the $\eta=1$ envelope
+is the applicable conservative alternative. Preparation errors, detector drift,
+timing discretization and finite-sample uncertainty must be included before
+inverting the bound. A violation excludes the calibrated class. It does not by
+itself establish quantum dynamics or identify the failed assumption. No
+apparatus-specific validation of these requirements has yet been performed.
+
+\subsection{Dimension rather than an assumed reset interface}
+
+A complementary interpretation replaces reset and rate information with a
+bound on hidden state count. Let $C_0$ denote the contrast between two arbitrary
+preparations measured immediately, and $C_T$ their contrast with the same binary
+detector at an independent uniform time in $[0,T]$. Every common homogeneous
+classical Markov realization with at most three states obeys
+\[
+ |C_0-C_T|\leq1.
+\]
+The detector may have any fixed state-dependent response probability in $[0,1]$.
+Measuring the immediate contrast removes the need to assume perfect extremal
+preparations. The protected-sign rule follows when $C_0=1$. A violating qubit
+example and a four-state classical construction distinguish quantum
+attainability from the minimum classical realization size at this scalar
+statistic. They do not characterize the full quantum record or exclude
+classical explanations of unrestricted size.
+
+Dynamical dimension inference already has a substantial literature. In
+particular, delayed-data and spectral methods establish classical/quantum
+dimension separations \cite{rrWolf2009}, while repeated-operation null tests
+provide experimentally implemented alternatives \cite{rrBialecki2024}.
+Temporal memory witnesses also predate this work
+\cite{rrBudroni2019,rrVieira2022}. The proposed distinction is a finite-window
+integrated inequality with an exact three-state threshold and a four-state
+construction, under its stated preparation and evolution assumptions. Historical
+priority and an experimental advantage over these methods remain unresolved.
+
+Those assumptions supply real information. With two unrestricted preparations,
+general prepare-and-measure data can always use two classical messages
+\cite{rrGallego2010}; the stronger state count here depends on requiring a
+single homogeneous continuous-time evolution and a common detector. Hidden
+controller or environmental states that affect the evolution belong in the
+classical realization being counted.

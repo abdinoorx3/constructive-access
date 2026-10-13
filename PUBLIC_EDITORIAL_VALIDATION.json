@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "validation_scope": "Publication presentation edits over supplied research release; full research simulation banks were not rerun.",
+  "scientific_mainmatter_unchanged": true,
+  "scientific_toolkit_source_unchanged": true,
+  "toolkit_tests_passed": 52,
+  "detector_calibration_tests_passed": 53,
+  "pdf_pages": 368,
+  "pdf_sha256": "1486be4d61321ba3395d4c80bd7b7f30d28f6c32069012c1fe2525d584388bbc",
+  "nested_documents_rebuilt": 3,
+  "external_peer_review": false,
+  "current_binding_manifest": "MANIFEST.json",
+  "historical_reports": "Retained validation reports refer to their original input snapshots. PUBLIC_EDITORIAL_DELTA.json records changed public files."
+}

@@ -1,0 +1,316 @@
+{
+  "evidence": "proved sufficient designs; example gaps are declared contracts, not measured data",
+  "main": {
+    "gap": "18/125",
+    "radius": "1/1000",
+    "fixed_chernoff": {
+      "status": "certified_sufficient_design",
+      "contract": {
+        "gap": "18/125",
+        "radius": "1/1000",
+        "alpha": "1/20",
+        "beta": "1/20",
+        "null_success_upper": "1001/2000",
+        "alternative_success_lower": "1143/2000"
+      },
+      "records": 1181,
+      "success_fraction_threshold": "274503/512000",
+      "null_kl_lower": "153685226841660601781147/60446290980731458735308800",
+      "alternative_kl_lower": "1533997068001859076874869/604462909807314587353088000",
+      "threshold_grid": 1024,
+      "null_log_upper": "3536736420070561579487/1180591620717411303424",
+      "power_log_upper": "3536736420070561579487/1180591620717411303424"
+    },
+    "fixed_exact": {
+      "status": "certified_sufficient_design",
+      "contract": {
+        "gap": "18/125",
+        "radius": "1/1000",
+        "alpha": "1/20",
+        "beta": "1/20",
+        "null_success_upper": "1001/2000",
+        "alternative_success_lower": "1143/2000"
+      },
+      "records": 600,
+      "successes_threshold": 321,
+      "false_rejection_interval": [
+        "14609198693022100305/295147905179352825856",
+        "58436794772088401221/1180591620717411303424"
+      ],
+      "miss_interval": [
+        "19244908591502247805/590295810358705651712",
+        "38489817183004495611/1180591620717411303424"
+      ],
+      "method": "exact integer binomial tails with outward rational rounding"
+    },
+    "anytime": {
+      "status": "certified_sufficient_horizon",
+      "contract": {
+        "gap": "18/125",
+        "radius": "1/1000",
+        "alpha": "1/20",
+        "beta": "1/20",
+        "null_success_upper": "1001/2000",
+        "alternative_success_lower": "1143/2000"
+      },
+      "records": 1739,
+      "betting_fraction": "142/999",
+      "component_weight": "1",
+      "log_drift_lower": "23888409491329425463481/2361183241434822606848000",
+      "log_increment_width_upper": "10550568954304035449/36893488147419103232",
+      "null_log_upper": "3536736420070561579487/1180591620717411303424",
+      "power_log_upper": "3536736420070561579487/1180591620717411303424"
+    },
+    "anytime_exact": {
+      "status": "certified_sufficient_horizon",
+      "contract": {
+        "gap": "18/125",
+        "radius": "1/1000",
+        "alpha": "1/20",
+        "beta": "1/20",
+        "null_success_upper": "1001/2000",
+        "alternative_success_lower": "1143/2000"
+      },
+      "records": 1100,
+      "terminal_successes_threshold": 601,
+      "betting_fraction": "142/999",
+      "component_weight": "1",
+      "miss_interval": [
+        "51230887352265332207/1180591620717411303424",
+        "3201930459516583263/73786976294838206464"
+      ],
+      "anytime_false_rejection_bound": "1/20",
+      "method": "Ville validity and exact binomial terminal-power certificate"
+    },
+    "expected_evolution_time_per_record": "9/8",
+    "quantum_note": "gap requires the independent physical contrast certificate and common detector gain 9/10"
+  },
+  "dimension": {
+    "plan": {
+      "status": "certified_sufficient_design",
+      "contract": {
+        "null_success_upper": "3001/4000",
+        "alternative_success_lower": "3043/4000",
+        "alpha": "1/20",
+        "beta": "1/20"
+      },
+      "records": 20000,
+      "successes_threshold": 15107,
+      "false_rejection_interval": [
+        "28577092507215492257/590295810358705651712",
+        "57154185014430984515/1180591620717411303424"
+      ],
+      "miss_interval": [
+        "42873276112234880509/1180591620717411303424",
+        "21436638056117440255/590295810358705651712"
+      ],
+      "method": "exact integer binomial tails with outward rational rounding",
+      "witness_lower": "261/250",
+      "witness_radius": "1/1000",
+      "physical_null": "common homogeneous CTMC with at most three states, arbitrary fixed preparations, fixed stochastic binary detector"
+    },
+    "expected_evolution_time_per_record": "9/16",
+    "expected_total_evolution_time": "11250",
+    "calibration_note": "radius .001 is the full four-term witness error; four independent per-arm bounds .00025 suffice",
+    "comparison_note": "broader preparation/readout contract than the600-record test; smaller signal and larger record budget"
+  },
+  "dimension_tilted": {
+    "plan": {
+      "status": "certified_sufficient_design",
+      "contract": {
+        "null_success_upper": "1501/2000",
+        "alternative_success_lower": "1539/2000",
+        "alpha": "1/20",
+        "beta": "1/20"
+      },
+      "records": 6000,
+      "successes_threshold": 4560,
+      "false_rejection_interval": [
+        "26848309841838320947/590295810358705651712",
+        "53696619683676641895/1180591620717411303424"
+      ],
+      "miss_interval": [
+        "5823959253760873429/147573952589676412928",
+        "46591674030086987433/1180591620717411303424"
+      ],
+      "method": "exact integer binomial tails with outward rational rounding",
+      "witness_lower": "27/25",
+      "witness_radius": "1/500",
+      "physical_null": "common homogeneous CTMC with at most three states, arbitrary fixed preparations, fixed stochastic binary detector"
+    },
+    "expected_evolution_time_per_record": "1/2",
+    "expected_total_evolution_time": "3000",
+    "horizon": "2",
+    "quantum_bloch_axis": [
+      "0",
+      "-12/37",
+      "35/37"
+    ],
+    "calibration_note": "full witness radius .002; four per-arm probability errors .0005 suffice",
+    "physical_note": "independent quantum certificate establishes W>=1.08; no exact preparation support required by the classical null"
+  },
+  "examples": [
+    {
+      "gap": "1/100",
+      "calibration_radius": "1/1000",
+      "fixed": {
+        "status": "certified_sufficient_design",
+        "contract": {
+          "gap": "1/100",
+          "radius": "1/1000",
+          "alpha": "1/20",
+          "beta": "1/20",
+          "null_success_upper": "1001/2000",
+          "alternative_success_lower": "1009/2000"
+        },
+        "records": 374465,
+        "success_fraction_threshold": "201/400",
+        "null_kl_lower": "151116684527925151/18889465931478580854784",
+        "alternative_kl_lower": "151124744591144139/18889465931478580854784",
+        "threshold_grid": 1024,
+        "null_log_upper": "3536736420070561579487/1180591620717411303424",
+        "power_log_upper": "3536736420070561579487/1180591620717411303424"
+      },
+      "anytime": {
+        "status": "certified_sufficient_horizon",
+        "contract": {
+          "gap": "1/100",
+          "radius": "1/1000",
+          "alpha": "1/20",
+          "beta": "1/20",
+          "null_success_upper": "1001/2000",
+          "alternative_success_lower": "1009/2000"
+        },
+        "records": 545646,
+        "betting_fraction": "8/999",
+        "component_weight": "1",
+        "log_drift_lower": "755591482514232749/23611832414348226068480",
+        "log_increment_width_upper": "18890038939831412101/1180591620717411303424",
+        "null_log_upper": "3536736420070561579487/1180591620717411303424",
+        "power_log_upper": "3536736420070561579487/1180591620717411303424"
+      }
+    },
+    {
+      "gap": "1/20",
+      "calibration_radius": "1/1000",
+      "fixed": {
+        "status": "certified_sufficient_design",
+        "contract": {
+          "gap": "1/20",
+          "radius": "1/1000",
+          "alpha": "1/20",
+          "beta": "1/20",
+          "null_success_upper": "1001/2000",
+          "alternative_success_lower": "1049/2000"
+        },
+        "records": 10401,
+        "success_fraction_threshold": "41/80",
+        "null_kl_lower": "1700244087756053449/5902958103587056517120",
+        "alternative_kl_lower": "13623755690553685703/47223664828696452136960",
+        "threshold_grid": 1024,
+        "null_log_upper": "3536736420070561579487/1180591620717411303424",
+        "power_log_upper": "3536736420070561579487/1180591620717411303424"
+      },
+      "anytime": {
+        "status": "certified_sufficient_horizon",
+        "contract": {
+          "gap": "1/20",
+          "radius": "1/1000",
+          "alpha": "1/20",
+          "beta": "1/20",
+          "null_success_upper": "1001/2000",
+          "alternative_success_lower": "1049/2000"
+        },
+        "records": 15164,
+        "betting_fraction": "16/333",
+        "component_weight": "1",
+        "log_drift_lower": "1360609229790160965641/1180591620717411303424000",
+        "log_increment_width_upper": "113429525375232701619/1180591620717411303424",
+        "null_log_upper": "3536736420070561579487/1180591620717411303424",
+        "power_log_upper": "3536736420070561579487/1180591620717411303424"
+      }
+    },
+    {
+      "gap": "1/10",
+      "calibration_radius": "1/1000",
+      "fixed": {
+        "status": "certified_sufficient_design",
+        "contract": {
+          "gap": "1/10",
+          "radius": "1/1000",
+          "alpha": "1/20",
+          "beta": "1/20",
+          "null_success_upper": "1001/2000",
+          "alternative_success_lower": "1099/2000"
+        },
+        "records": 2488,
+        "success_fraction_threshold": "537649/1024000",
+        "null_kl_lower": "728812642549146349223613/604462909807314587353088000",
+        "alternative_kl_lower": "1455806492005669701270361/1208925819614629174706176000",
+        "threshold_grid": 1024,
+        "null_log_upper": "3536736420070561579487/1180591620717411303424",
+        "power_log_upper": "3536736420070561579487/1180591620717411303424"
+      },
+      "anytime": {
+        "status": "certified_sufficient_horizon",
+        "contract": {
+          "gap": "1/10",
+          "radius": "1/1000",
+          "alpha": "1/20",
+          "beta": "1/20",
+          "null_success_upper": "1001/2000",
+          "alternative_success_lower": "1099/2000"
+        },
+        "records": 3643,
+        "betting_fraction": "98/999",
+        "component_weight": "1",
+        "log_drift_lower": "5678688766536261993107/1180591620717411303424000",
+        "log_increment_width_upper": "232164164057690374387/1180591620717411303424",
+        "null_log_upper": "3536736420070561579487/1180591620717411303424",
+        "power_log_upper": "3536736420070561579487/1180591620717411303424"
+      }
+    },
+    {
+      "gap": "3/20",
+      "calibration_radius": "1/1000",
+      "fixed": {
+        "status": "certified_sufficient_design",
+        "contract": {
+          "gap": "3/20",
+          "radius": "1/1000",
+          "alpha": "1/20",
+          "beta": "1/20",
+          "null_success_upper": "1001/2000",
+          "alternative_success_lower": "1149/2000"
+        },
+        "records": 1086,
+        "success_fraction_threshold": "137637/256000",
+        "null_kl_lower": "208699589773152507079401/75557863725914323419136000",
+        "alternative_kl_lower": "834240258238038722933649/302231454903657293676544000",
+        "threshold_grid": 1024,
+        "null_log_upper": "3536736420070561579487/1180591620717411303424",
+        "power_log_upper": "3536736420070561579487/1180591620717411303424"
+      },
+      "anytime": {
+        "status": "certified_sufficient_horizon",
+        "contract": {
+          "gap": "3/20",
+          "radius": "1/1000",
+          "alpha": "1/20",
+          "beta": "1/20",
+          "null_success_upper": "1001/2000",
+          "alternative_success_lower": "1149/2000"
+        },
+        "records": 1601,
+        "betting_fraction": "4/27",
+        "component_weight": "1",
+        "log_drift_lower": "5191506581255371361807/472236648286964521369600",
+        "log_increment_width_upper": "44011739681357530027/147573952589676412928",
+        "null_log_upper": "3536736420070561579487/1180591620717411303424",
+        "power_log_upper": "3536736420070561579487/1180591620717411303424"
+      }
+    }
+  ],
+  "physical_note": "one independently randomized preparation and one endpoint readout per record; add preparation/readout energy and sampled evolution time",
+  "validity": "calibration failure probability is added once; no claim of quantumness without the physical null contract"
+}

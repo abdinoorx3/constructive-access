@@ -1,0 +1,214 @@
+\chapter[Published optical-trap measurements]{An exploratory analysis of published optical-trap measurements}
+\label{ch:ci-empirical}
+
+\section{The experimental question}
+
+Published measurements allow a practical test of the distinction between
+observing correlations and having enough calibration to certify dissipation.
+We analyze three records from Bryan and colleagues' optical-trap study
+\cite{ciBryan2022,ciBryanData2022}. Two records measure the same particle
+simultaneously through detectors with different noise levels. The third is
+a separate harmonic-well record. The source describes harmonic confinement
+without feedback, while feedback creates other potentials in the study.
+
+The useful result is a detector-calibration diagnostic. The simultaneous
+records support a conditional decomposition of position and measurement
+variance, and show why the lower-noise channel cannot simply be treated as
+exact position. They also provide an empirical example in which small
+correlation-moment departures do not justify a thermodynamic certificate.
+No entropy-production confidence bound is issued for these data.
+
+The repository is distributed under CC-BY-4.0 and credits J.~S.~Bryan~IV,
+P.~Basak, J.~Bechhoefer and S.~Press\'e. We preserve the original files and
+verify their published checksums. The source filename
+\texttt{harmwell\_n1\_groundtruth.h5} denotes the simultaneous lower-noise
+measurement. It does not provide exact latent positions. Serialized force
+functions in that file are also distinct from measured force trajectories;
+the loader never executes them.
+
+\section{Fixed processing and its limits}
+
+Each file contains $49\,999$ positions. The authors' code documents a nominal
+sampling interval of $10\,\mu\mathrm{s}$. Individual timestamps are absent.
+We use the first $10\,000$ points for centering, scale selection and a simple
+covariance fit, and the remaining $39\,999$ for evaluation. The fixed lag menu,
+in sample intervals, is
+\[
+  0,1,2,4,8,16,32,64,128,256.
+\]
+These choices preceded the new correlation calculations, but an earlier audit
+had inspected the sources and whole-file descriptive statistics. This is an
+exploratory reanalysis, not a prospectively blinded experiment.
+
+For the simultaneous detectors, each training mean supplies its center and
+twice the square root of the average training variance supplies a common
+scale. For the separate record, we use its own training mean and twice its
+training standard deviation. The bounded observation is
+\[
+  Z_i=\tanh\!\left(\frac{X_i-c_{\mathrm{train}}}
+                                  {s_{\mathrm{train}}}\right).
+\]
+Neither center nor scale is refitted on the evaluation segment. The common
+scale for the simultaneous detectors is $29.0285\,\mathrm{nm}$; the scale for
+the separate record is $30.9707\,\mathrm{nm}$.
+
+Every reported covariance uses the mean of its complete evaluation segment
+and averages the $N-k$ available ordered pairs at lag $k$. We repeat the
+calculation in eight contiguous blocks, using each block's own mean and
+excluding pairs that cross a block boundary. These block ranges measure
+sensitivity to the selected segment. They are not confidence intervals,
+independent replications, or a calibration of hidden-state mixing. Mean
+estimation itself can bias finite-trajectory covariances.
+
+The evaluation span is nominally $0.39998\,\mathrm{s}$ per record, with an
+additional $0.09999\,\mathrm{s}$ training span. The two simultaneous detectors
+share the same physical exposure. Adding their sample counts would not double
+that exposure. Overlapping lag pairs share observations and remain dependent;
+the separate record's alignment relative to the first experiment is unknown.
+
+\section{What two detectors can and cannot calibrate}
+
+Consider the explicitly conditional model
+\[
+ X_t=S_t+\epsilon_t,\qquad Y_t=S_t+\eta_t,
+\]
+with unit gains and zero-mean errors independent of each other and of the
+particle. Under these assumptions,
+\begin{align}
+ \operatorname{Var}(S)&=\operatorname{Cov}(X,Y),\\
+ \operatorname{Var}(\epsilon)&=\operatorname{Var}(X)-\operatorname{Cov}(X,Y),\\
+ \operatorname{Var}(\eta)&=\operatorname{Var}(Y)-\operatorname{Cov}(X,Y).
+\end{align}
+The evaluation data give the following plug-in decomposition. These values
+are conditional model diagnostics, not independently calibrated variances.
+
+\begin{center}
+\begin{tabular}{lr}
+\hline
+Quantity & Estimate ($\mathrm{nm}^2$)\\
+\hline
+Variance of detector $X$ &234.411\\
+Variance of lower-noise detector $Y$ &226.424\\
+Same-time covariance &218.387\\
+Candidate noise variance of $X$ &16.024\\
+Candidate noise variance of $Y$ &8.037\\
+Variance of $X-Y$ &24.061\\
+\hline
+\end{tabular}
+\end{center}
+
+Treating $Y$ as exact position would assign the entire difference variance
+$24.061$ to the first detector. Under the stated independent-error model,
+that is about $50.2\%$ larger than its candidate variance $16.024$. The
+repository's distinction between a lower-noise reference and latent truth
+therefore has a measurable consequence for this analysis. Correlated errors,
+unequal gains or detector memory could change the interpretation; the
+decomposition does not establish their absence.
+
+Adding temporal whiteness to the model predicts zero positive-lag covariance
+of $X-Y$ and equality of the two auto-covariances and two ordered
+cross-covariances. The table reports the difference-record autocorrelation
+and the difference of ordered cross-covariances at every declared positive
+lag. The latter is $\widehat{\operatorname{Cov}}(X_t,Y_{t+k})-
+\widehat{\operatorname{Cov}}(Y_t,X_{t+k})$.
+
+\begin{center}
+\begin{tabular}{rrrr}
+\hline
+Lag ($\mu\mathrm{s}$)&Difference correlation&Block range&Cross difference ($\mathrm{nm}^2$)\\
+\hline
+10   &0.0092&$[-0.0151,\phantom{-}0.0259]$& 0.195\\
+20   &0.0214&$[-0.0064,\phantom{-}0.0541]$& 0.096\\
+40   &0.0101&$[-0.0162,\phantom{-}0.0288]$& 0.160\\
+80   &0.0150&$[-0.0063,\phantom{-}0.0319]$&-0.052\\
+160  &0.0190&$[\phantom{-}0.0030,\phantom{-}0.0364]$&-0.168\\
+320  &0.0076&$[-0.0147,\phantom{-}0.0270]$& 0.174\\
+640  &0.0010&$[-0.0295,\phantom{-}0.0310]$& 0.146\\
+1280 &0.0127&$[-0.0115,\phantom{-}0.0401]$&-0.155\\
+2560 &-0.0009&$[-0.0105,\phantom{-}0.0078]$&0.410\\
+\hline
+\end{tabular}
+\end{center}
+
+The residual correlation at $160\,\mu\mathrm{s}$ is positive in all eight
+blocks, so exact white measurement error should remain an assumption to
+check. These descriptive signs do not constitute a statistical rejection:
+block dependence and selection across the lag menu are uncalibrated. The
+auto-covariance difference at the shortest lag is $3.881\,\mathrm{nm}^2$,
+with a block range $[-0.692,7.712]$. Ordered cross-covariance differences
+also have block ranges spanning zero at each tested positive lag.
+
+There is a separate limitation for bounded observations. Even conditional
+independence of the two channels would make their same-time product estimate
+$\mathbb E[f_X(S)f_Y(S)]$, where $f_X,f_Y$ are their conditional means.
+Different noise levels generally make these functions different after the
+nonlinear transform. Consequently, this product is not automatically the
+replicate calibration $A=\mathbb E[f_X(S)^2]$ used elsewhere in this work.
+Matching detector responses is an additional requirement.
+
+\section{A relaxation model and reversible moment checks}
+
+A naive Ornstein--Uhlenbeck covariance model,
+$C(t)=a\exp(-\lambda t)$, was fitted only to the symmetrized training
+cross-covariances at lags $1,2,4,8,16$, using least squares on their logarithms.
+It gives $a=198.967\,\mathrm{nm}^2$ and
+$\lambda=1536.63\,\mathrm{s}^{-1}$, a relaxation time of
+$0.6508\,\mathrm{ms}$. On evaluation data its shortest-lag prediction is
+$195.933\,\mathrm{nm}^2$, compared with $215.798\,\mathrm{nm}^2$ observed.
+The discrepancy is $9.10\%$ of the evaluation zero-lag cross-covariance.
+This out-of-segment discrepancy matters if a fitted relaxation model is used
+as calibration. It can reflect finite-trajectory fluctuation, drift or model
+mismatch; these records alone do not distinguish them. In particular, the
+fitted relaxation rate is not a bound on all hidden modes.
+
+For each bounded detector, let $g(t)$ denote its centered positive-lag
+covariance and $v$ its observed variance. A stationary reversible Markov
+model with a memoryless detector gives a positive spectral mixture for $g$.
+The detector's conditional variance contribution is at most $v$. The tested
+necessary population inequalities are
+\begin{align}
+ g(t)&\geq0, & g(t)-g(2t)&\geq0,\\
+ g(t)-g(2t)&\leq v/4, & g(2t)^3&\leq g(t)^2g(4t).
+\end{align}
+The last inequality uses the weights $2/3$ and $1/3$ in H\"older's
+inequality, because $2t=(2/3)t+(1/3)4t$. It is not the equal-weight
+midpoint inequality. The pure-exponential and spectral-mixture tests check
+this convention explicitly.
+
+All three full evaluation segments satisfy the first three checks at every
+applicable declared lag. The smallest upper-drop margins are $0.00466$,
+$0.00119$ and $0.00293$ for the first detector, reference and separate record,
+respectively. Some empirical weighted log-convexity margins are negative,
+but every such negative full-segment margin has a block range spanning zero.
+Individual blocks also give negative values for some of the simpler checks.
+These small-sample sensitivity results provide no certified violation of
+the reversible class. Passing a finite menu would not establish equilibrium
+or identify total dissipation either.
+
+\section{What would enable a physical certificate}
+
+The executable analysis returns \texttt{abstain} for thermodynamic inference.
+Converting this workflow into a valid lower bound requires a physical and
+statistical contract beyond a good fitted covariance:
+\begin{enumerate}
+\item Calibrate detector gain, temporal response and error uniformly over the
+      working position range. For same-state replicate calibration, match
+      conditional mean responses and justify conditional independence.
+\item Supply actual timestamps or a verified timing-error bound, including
+      channel synchronization and exposure averaging.
+\item Establish stationary preparation and an independently justified
+      dependence bound, or collect genuinely independent reset trials with
+      their preparation cost included. Fitting the observed correlation does
+      not establish hidden-state contraction.
+\item Specify the physical state, time-reversal parity and relevant dynamical
+      approximation. For a driven comparison, separate particle-bath entropy
+      from the unrecorded energy of the detector, laser and controller.
+\item Freeze the calibrated lag menu and statistical procedure before the
+      next evaluation record. Then apply the dependence-aware finite-record
+      confidence procedure to the bounded outputs.
+\end{enumerate}
+
+These requirements specify measurements that would make the theoretical
+certificate usable. The present reanalysis already prevents two concrete
+errors: treating a measured reference as exact latent position, and treating
+small empirical moment departures as thermodynamic discoveries.

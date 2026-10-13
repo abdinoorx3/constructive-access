@@ -1,0 +1,83 @@
+CONSTRUCTIVE ACCESS — THIRD-PARTY NOTICES
+13 October 2026
+
+The project's revenue-threshold license does not replace the terms below.
+Retain the original attribution notices when redistributing these items.
+
+1. Original experimental data: CC BY 4.0
+
+The three files under calibrated/data/source_audit/ are unchanged originals:
+  harmwell_n1.h5
+  harmwell_n1_groundtruth.h5
+  harmwell_n2.h5
+
+J. Shepard Bryan IV, Prithviraj Basak, John Bechhoefer and Steve Pressé,
+Data for "Inferring potential landscapes from noisy particle trajectories
+within an optical feedback trap" (22 June 2022).
+DOI: https://doi.org/10.5281/zenodo.6680673
+Repository: https://zenodo.org/records/6680673
+License: Creative Commons Attribution 4.0 International.
+Terms: https://creativecommons.org/licenses/by/4.0/legalcode
+
+The original authors do not endorse this project or its conclusions.
+The complete original attribution, hashes and provenance are preserved in
+calibrated/data/source_audit/ATTRIBUTION.txt. No raw data bytes were modified.
+Separate transformations and analyses are identified as such. The filename
+"groundtruth" denotes a lower-noise measurement, not exact latent positions.
+The data's existing CC BY permission includes commercial use; this project
+does not impose its revenue threshold on those original files.
+
+2. Fonts embedded in documents and figures
+
+Figures and PDFs contain subsets of the following font families, as
+applicable. No standalone font binaries are distributed by this package.
+
+DejaVu: Bitstream Vera fonts, copyright 2003 Bitstream, Inc.; DejaVu changes
+are in the public domain. Imported Arev glyphs are copyright 2006 Tavmjong
+Bah. The complete supplied permission notices are in
+font_licenses/DEJAVU-LICENSE.txt.
+Source: https://dejavu-fonts.github.io/License.html
+
+Latin Modern: copyright 2003–2021 B. Jackowski and J. M. Nowacki on behalf
+of TeX Users Groups. Latin Modern Math extensions: copyright 2012–2014
+B. Jackowski, P. Strzelczyk and P. Pianowski on behalf of TeX Users Groups.
+The GUST Font License applies; its text and referenced LaTeX Project Public
+License are in font_licenses/GUST-FONT-LICENSE.txt and
+font_licenses/LPPL-1.3c.txt.
+Sources: https://ctan.org/pkg/lm and https://ctan.org/pkg/lm-math
+
+Computer Modern and AMS Type 1 subsets supplied by AMSFonts: copyright
+1997, 2009 American Mathematical Society; Euler's EUFM10 also identifies
+2011. These installed Type 1 font files identify SIL Open Font License 1.1,
+with their original font names reserved. See font_licenses/AMS-OFL.txt.
+Sources: https://ctan.org/pkg/amsfonts and https://openfontlicense.org/
+The font license does not require the document's scientific text to use
+the font license. Older archived PDFs may also reference standard PDF
+base fonts without embedding their software.
+
+3. Separately installed dependencies
+
+Third-party implementations of SymPy, mpmath, NumPy, SciPy, Matplotlib,
+h5py and PyMuPDF are not bundled in the project's wheel or source archive.
+Their own package distributions supply their licenses and notices. The
+reproduction environment installs them separately; the project license
+does not relicense them.
+
+SymPy, mpmath, NumPy, SciPy and h5py use BSD-family licenses, with additional
+notices applying to any components bundled by those packages. Matplotlib
+uses its own PSF-based license and separately licensed fonts. PyMuPDF is
+offered under AGPL-3.0 or an Artifex commercial license; this project uses
+it as an optional document-validation tool, not as a bundled runtime
+implementation. Its license must be assessed if redistributing or
+deploying that tool. A generated research PDF is not automatically
+AGPL-licensed merely because such tooling inspected it.
+
+4. Project-local provenance
+
+The source directory named src/constructive_access/_vendor contains copies
+of this project's earlier research modules, with hash-linked provenance;
+it is not a bundled distribution of the external dependencies above.
+The literature bibliography identifies intellectual sources. Citation of
+a paper does not make that paper part of this distribution or transfer
+rights in its text to this project.
+

@@ -1,0 +1,280 @@
+\chapter{Continuous records without repeated long reset gaps}
+\label{ch:ci-dependence}
+
+A long blind interval before every measurement makes conditional means nearly
+stationary, but can waste most of the physical evolution time. We replace that
+acquisition rule by equally spaced blocks and use a calibrated mixing envelope
+to control their dependence. The improvement concerns declared evolution time;
+it does not make readout energy or mixing calibration free. The concentration
+ingredient is established Markov-chain theory, combined here with a whole-record
+martingale bound and the continuous reversible comparison class.
+
+\section{An apparatus contract for a dependent record}
+Let $X_t$ be a finite stationary continuous-time Markov chain with law $\pi$ and
+generator $Q$. Write $Q^\dagger$ for its adjoint in $L^2(\pi)$. Suppose an
+\emph{externally justified} lower bound $\lambda>0$ on the spectral gap of
+$-(Q+Q^\dagger)/2$ is available. No complete generator need be supplied.
+The bound is required for every model to which the confidence claim applies;
+fitting it to the same coarse record does not establish this contract.
+
+Divide acquisition into deterministic blocks of duration $H$. The hidden
+block starts $X_i=X_{(i-1)H}$ have transition $P=e^{HQ}$. In block $i$, a fixed
+setting produces a statistic $Z_i\in[0,1]$ from a noninvasive record contained
+in that block. Unobserved padding is physical evolution and counts in $H$.
+The record kernel depends on the current hidden start and its predetermined
+setting, with fresh conditional detector noise. A detector with memory must
+instead be included in the state for which the mixing guarantee holds.
+
+For an agreement pair at lag $t_i\leq H$, two fresh detector readings may occur
+at a shared boundary between blocks. Reusing the same noisy detector bit as
+both the previous terminal and next initial reading generally violates the
+contract. A deterministic state readout has no such extra random memory.
+Settings, quotas and contrast coefficients are fixed before the inference
+data, or using an independent pilot. The result below does not cover adaptive
+routing of settings based on earlier outcomes.
+
+\begin{theorem}[Whole-block concentration under calibrated contraction]
+Define
+\begin{equation}
+ \rho=e^{-\lambda H},\qquad
+ A_H=\frac{1+\rho}{1-\rho},\qquad
+ K_H=(\sqrt{A_H}+1)^2.
+ \label{eq:ci-dependent-proxy}
+\end{equation}
+For deterministic real weights $c_i$, let
+$\mu_i=\mathbb E_\pi Z_i$. Then
+\begin{equation}
+ \mathbb E_\pi\exp\!\left(\theta\sum_i c_i(Z_i-\mu_i)\right)
+ \leq\exp\!\left(\frac{\theta^2K_H}{8}\sum_i c_i^2\right).
+ \label{eq:ci-dependent-mgf}
+\end{equation}
+Consequently, for $\alpha\in(0,1)$,
+\begin{equation}
+ \Pr_\pi\!\left\{\sum_i c_i(Z_i-\mu_i)>
+ \sqrt{\frac{K_H\log(1/\alpha)}2\sum_i c_i^2}\right\}
+ \leq\alpha.
+ \label{eq:ci-dependent-tail}
+\end{equation}
+If the initial hidden law has total variation distance at most $\beta$ from
+$\pi$, the same tail event has probability at most $\alpha+\beta$.
+\end{theorem}
+\begin{proof}
+For centered $f$, dissipativity gives
+\[
+ \frac{d}{dt}\|e^{tQ}f\|_\pi^2
+ =2\langle e^{tQ}f,\tfrac12(Q+Q^\dagger)e^{tQ}f\rangle_\pi
+ \leq-2\lambda\|e^{tQ}f\|_\pi^2.
+\]
+Thus $\|P-\Pi\|_{L^2(\pi)}\leq\rho$, also for nonreversible $Q$.
+Set $g_i(x)=\mathbb E[Z_i\mid X_i=x]$ and
+$D_i=Z_i-g_i(X_i)$. Relative to the filtration containing the past blocks and
+the current hidden start, $D_i$ is conditionally centered with range length
+at most one. Conditional Hoeffding therefore bounds the moment generating
+function of $\sum c_iD_i$ by $\exp(\theta^2\sum c_i^2/8)$.
+
+The stationary absolute-contraction result of Fan, Jiang and Sun,
+Theorem~1~\cite{ciFan2021}, applies to the deterministic, possibly
+time-dependent state functions $c_i g_i$. It bounds the moment generating
+function of $\sum c_i(g_i(X_i)-\pi g_i)$ by
+$\exp(\theta^2 A_H\sum c_i^2/8)$. The two sums need not be independent.
+Apply H\"older with conjugate exponents
+$p=1+A_H^{-1/2}$ and $q=1+A_H^{1/2}$. The resulting coefficient is
+$pA_H+q=(\sqrt{A_H}+1)^2$, proving the moment bound. Chernoff optimization
+gives the one-sided tail.
+
+Finally, the entire future observed path is a Markov kernel of the initial
+state. Total variation contraction transfers initial distance $\beta$ to
+the full path law. It is paid once, not once per record.
+\end{proof}
+
+This is a conservative bound for a statistic of an entire block. In particular,
+$K_H\to4$ as $\rho\to0$; it does not recover the sharp independent-record
+constant. Shared hidden endpoints can create dependence even with fresh
+detector noise. Exact independent preparations retain their separate,
+stronger concentration guarantee.
+
+\section{From counts to physical inference}
+For $m$ fixed settings with quotas $n_k$, probabilities $p_k$ and coefficients
+$a_k$, apply the theorem with $c_i=a_k/n_k$ in setting $k$. If
+$\widehat p_k=S_k/n_k$, a valid stationary contrast lower bound is
+\begin{equation}
+ L_a=\sum_k a_k\widehat p_k-
+ \sqrt{\frac{K_H\log(1/\alpha)}2\sum_k\frac{a_k^2}{n_k}}
+ -\sum_k|a_k|\delta_k,
+ \label{eq:ci-dependent-contrast}
+\end{equation}
+where $\delta_k$ are separately valid whole-record calibration radii.
+Subtracting the continuous reversible support $h_{\mathcal M}(a)$ gives
+$g=[L_a-h_{\mathcal M}(a)]_+$. Under the stationary ordinary-time-reversal
+and physical entropy assumptions of the preceding construction, this yields
+\begin{equation}
+ \sigma\geq\frac{8g^2}{(\sum_k|a_k|\sqrt{t_k})^2}.
+ \label{eq:ci-dependent-entropy}
+\end{equation}
+Here $t_k$ is the observed path duration; the sampling cost uses the complete
+block duration $H$, including padding. The mixing assumption licenses a
+confidence calculation. It does not itself establish the thermodynamic
+interpretation or local detailed balance.
+
+Alternatively, a simultaneous probability box uses radii
+$\sqrt{K_H\log(2m/\alpha)/(2n_k)}+\delta_k$. A score or contrast may be
+selected after seeing that jointly valid box. The smaller fixed-contrast
+radius in~\eqref{eq:ci-dependent-contrast} does not permit such reuse.
+The code evaluates exponentials, logarithms and square roots with outward
+rational bounds inherited from the certified arithmetic layer.
+
+A single initial blind interval $G$ suffices if a stationary mass lower bound
+$\pi_{\min}\geq p_*>0$ is available. The contraction estimate implies
+\begin{equation}
+ \sup_x\|\delta_xe^{GQ}-\pi\|_{\mathrm{TV}}
+ \leq\min\left\{1,\frac12\sqrt{\frac{1-p_*}{p_*}}e^{-\lambda G}\right\}.
+ \label{eq:ci-one-burn}
+\end{equation}
+This is an initial-law distance, not a record-by-record conditional bias and
+not an observed event that a reset succeeded. A separate, externally valid
+calibration failure allowance $\gamma$ increases total failure to
+$\alpha+\beta+\gamma$. A postselected claim that calibration looked adequate
+cannot replace this requirement.
+
+\section{A frozen comparison at equal evolution time}
+The initial evaluation fixes $\lambda=1/500$, $p_*=1/8$, lags $1,2$,
+$a=(-1,1)$, and $H=2$. New acquisition pays $G=4000$ once, with
+$\alpha=0.049$ and $\beta=0.001$. Its total failure allowance is $0.05$.
+The old conditional-mean method pays a blind gap before every pair. To avoid
+a weak baseline, its gap is optimized before any data over
+$\{0,50,\ldots,10000\}$, minimizing its certified contrast halfwidth at the
+same total evolution time. Both methods count padding and every blind gap.
+
+The valid equilibrium model has four states $(s,b)$. The sector flips at
+$10^{-3}$; the observed bit flips at rates $0.02$ and $2$ in the two sectors.
+Its uniform stationary law is reversible and its additive gap is $0.002$.
+The driven alternative is an eight-state ring with clockwise rate $4$,
+counterclockwise rate $0.1$, and a detector separating the two half-rings.
+Its true agreement contrast is $0.1469539766$. Both start at a fixed hidden
+state before acquisition. A third equilibrium model has a sector rate
+$10^{-5}$, violating the advertised gap by a factor of $100$; it starts
+stationary to isolate the incorrect mixing calibration.
+
+\begin{center}
+\begin{tabular}{r|rr|rr|rr}
+Evolution & \multicolumn{2}{c|}{Halfwidth} &
+\multicolumn{2}{c|}{Endpoint readouts} &
+\multicolumn{2}{c}{Driven exclusions /1000}\\
+budget & New & Old & New & Old & New & Old\\\hline
+$200000$ & $.18327$ & $.29032$ & $196000$ & $176$ & $0$ & $84$\\
+$400000$ & $.12894$ & $.21176$ & $396000$ & $332$ & $1000$ & $212$\\
+$800000$ & $.09094$ & $.15422$ & $796000$ & $592$ & $1000$ & $465$
+\end{tabular}
+\end{center}
+
+The new method gains substantial power at the two larger budgets but does
+not dominate every operating point: at the smallest budget its certified
+threshold exceeds the true contrast and all runs fail to certify. On the
+valid equilibrium model, new false exclusions are $0/1000$ at each budget;
+the old counts are $1,0,1$. Treating exactly the same new dependent counts
+as independent gives $271,217,131$ false exclusions. Correct stationary
+marginals alone therefore do not justify the independent analysis.
+
+The wrong-envelope control produces $173,256,258$ false exclusions under the
+new calculation, and $97,131,132$ under the old one. Neither method repairs
+an invalid external mixing guarantee. These controls are outside the theorem,
+not failures of its stated guarantee.
+
+Reported Monte Carlo intervals are approximate 95\% Wilson intervals,
+separate from the rigorous statistical confidence guarantee. For example,
+$1000/1000$ corresponds to $[0.99617,1]$ and $0/1000$ to $[0,0.00383]$.
+The old driven powers at the larger budgets are $0.212$ and $0.465$, with
+intervals $[0.18779,0.23841]$ and $[0.43428,0.49599]$.
+These simulations are not physical experimental validation.
+
+\section{Trading readouts against waiting}
+The dense-block improvement requires many more readouts. A second evaluation,
+frozen separately after the first and using independent seeds, varies $H$
+while leaving the observed lags and confidence contract unchanged. For total
+evolution budget $T$, equal quotas are
+\[
+ n=\left\lfloor\frac{T-G}{2H}\right\rfloor,
+ \qquad r_H=\sqrt{K_H\log(1/\alpha)/n}.
+\]
+Increasing $H$ reduces the retained data and weakens this bound, but can leave
+enough margin for a useful test. It also reduces the number of detector
+operations. All settings in the frozen menu are retained, including
+underpowered choices; no score is selected using its own inference data.
+
+\begin{center}
+\begin{tabular}{r|r|r|r|r}
+Evolution budget & $H$ & Endpoint readouts & Halfwidth & Driven exclusions /1000\\\hline
+$400000$ & $10$ & $79200$ & $.13576$ & $983$\\
+$400000$ & $20$ & $39600$ & $.14088$ & $816$\\
+$400000$ & $50$ & $15840$ & $.15107$ & $339$\\
+$800000$ & $20$ & $79600$ & $.09937$ & $1000$\\
+$800000$ & $50$ & $31840$ & $.10655$ & $1000$\\
+$800000$ & $100$ & $15920$ & $.11472$ & $994$\\
+$800000$ & $200$ & $7960$ & $.12656$ & $892$\\
+$800000$ & $500$ & $3184$ & $.15210$ & $394$
+\end{tabular}
+\end{center}
+
+At budget $400000$, $H=10$ retains $98.3\%$ observed power with five times
+fewer endpoint readouts than the original $H=2$ acquisition. At budget
+$800000$, $H=100$ retains $99.4\%$ with fifty times fewer readouts. Their
+approximate Wilson intervals are $[0.97294,0.98936]$ and
+$[0.98697,0.99725]$. Every valid equilibrium refinement row has zero false
+exclusions in $1000$ trials. The wrong-mixing control still fails; for example,
+$H=100$ at budget $800000$ produces $198/1000$ false exclusions. Sparse
+acquisition reduces detector operations without eliminating the external
+mixing assumption. Nor does it guarantee high power: the last row retains
+only $39.4\%$ observed power.
+
+For apparatus design, suppose a constant waiting power $P_{\rm wait}$ and
+energy per endpoint readout $E_{\rm read}$ have been measured. Relative to
+one lag-unit $t_0$, define
+$\zeta=E_{\rm read}/(P_{\rm wait}t_0)$. In units of $P_{\rm wait}t_0$,
+the accounting model is
+\begin{equation}
+ C=T+\zeta R,\qquad
+ n=\left\lfloor\frac{C-G}{2(H+2\zeta)}\right\rfloor,
+ \qquad R=4n.
+ \label{eq:ci-readout-cost}
+\end{equation}
+The code minimizes the outward-certified radius over the predeclared finite
+grid $H=2,3,\ldots,1000$. Without integer quotas the objective is proportional
+to $(H+2\zeta)K_H$. This supplies a reproducible tradeoff once costs are
+calibrated, not a globally optimal protocol or a measured energy advantage.
+Detector duration, preparation overhead and external calibration must also
+be included when they are material. The current simulation records those
+quantities as unmeasured rather than zero.
+
+For example, at normalized budget $800000$, the finite-grid choices for
+$\zeta=0,1,10,100$ are respectively $H=2,16,74,307$, with certified
+halfwidths $0.09094,0.10401,0.12489,0.17558$. The $\zeta=10$ plan uses
+$16936$ endpoint readouts and evolution time $630632$, consuming normalized
+cost $799992$. These are prospective design calculations, not additional
+held-out power estimates at those settings.
+
+\section{Why some mixing cost cannot be removed}
+A simple experiment-independent obstruction complements the usable bound.
+Consider two fully observed stationary two-state chains. Both have rate
+$0\to1$ equal to $\kappa$; their rates $1\to0$ are $3\kappa$ and
+$\kappa/3$. Their stationary probabilities of state $1$ are $1/4$ and $3/4$.
+Even a detector retaining every transition for duration $T$ sees the identical
+constant-zero path under both models with common mass
+$\tfrac14 e^{-\kappa T}$, and the identical constant-one path with common
+mass $\tfrac14 e^{-3\kappa T}$. Hence equal-prior classification error obeys
+\begin{equation}
+ \varepsilon^*(T)\geq\frac18
+ \left(e^{-\kappa T}+e^{-3\kappa T}\right).
+ \label{eq:ci-slow-mixing-lower}
+\end{equation}
+An estimator of stationary occupation with error strictly below $1/4$ under
+both hypotheses would also classify them by thresholding at $1/2$. Thus
+uniformly small failure requires time of order $1/\kappa$ in this class, even
+with full continuous observation. This overlap argument does not prove the
+present bound optimal, but rules out a universal removal of slow-mixing cost
+by simply sampling one trajectory more frequently.
+
+The contribution of this chapter is the integrated acquisition and inference
+contract: whole-record dependence, one initial calibration payment, exact
+continuous-class support, explicit physical time, and a readout-cost design
+frontier. Markov concentration, conditional Hoeffding and the overlap argument
+are established tools rather than new physical laws.

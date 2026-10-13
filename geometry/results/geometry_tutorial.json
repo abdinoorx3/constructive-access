@@ -1,0 +1,38 @@
+{
+  "common_calibration": "Pointwise Gamma envelope and generator derivative caps are supplied assumptions; no hidden drift is fitted.",
+  "contract_sha256": "7aedd529884f112867dfb45e645e85760f5a33af2057fa8acae63115828cef0a",
+  "evidence": "Frozen synthetic sufficient statistics; conditional mathematical coverage, not laboratory validation.",
+  "excluded_resources": "Calibration, preparation/reset duration, exposure and energy remain unmeasured.",
+  "records": {
+    "driven": {
+      "confidence_failure_upper": "1/20",
+      "detector_readouts": 600000,
+      "entropy_rate_lower": "11997706251765550440549686197605008941355999/4107167408799739563533014138826312908800000",
+      "entropy_rate_lower_decimal": 2.9211631904898923,
+      "evolution_time": "16000",
+      "independent_preparations": 200000,
+      "sampling_radius_upper": "836635816657038228208462737171456124349/1314293570815916660330564524424420130816",
+      "status": "positive_certificate"
+    },
+    "equilibrium": {
+      "confidence_failure_upper": "1/20",
+      "detector_readouts": 600000,
+      "entropy_rate_lower": "0",
+      "entropy_rate_lower_decimal": 0.0,
+      "evolution_time": "16000",
+      "independent_preparations": 200000,
+      "sampling_radius_upper": "793276391800337228640182534244191430077/1314293570815916660330564524424420130816",
+      "status": "no_positive_certificate"
+    },
+    "weak_driven": {
+      "confidence_failure_upper": "1/20",
+      "detector_readouts": 600000,
+      "entropy_rate_lower": "0",
+      "entropy_rate_lower_decimal": 0.0,
+      "evolution_time": "16000",
+      "independent_preparations": 200000,
+      "sampling_radius_upper": "796108471101671043738315754564187186621/1314293570815916660330564524424420130816",
+      "status": "no_positive_certificate"
+    }
+  }
+}

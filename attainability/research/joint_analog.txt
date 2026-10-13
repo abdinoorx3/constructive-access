@@ -1,0 +1,101 @@
+2026-10-12T22:39:57Z — Joint bounded-analog calibration branch completed production and manuscript.
+
+Owned files: code/joint_analog.py, tests/test_joint_analog.py,
+contracts/joint_analog.json, manuscript/joint_analog.tex,
+results/joint_analog.json and joint_analog_raw.npz. Sixth edition source is
+immutable imported baseline at calibrated_inference/release/src.
+
+Claim: one stationary analog reading supplies W0=(1+Z²)/2 in [1/2,1], whose
+population mean uses B=EZ² >= A=E(E[Z|X]²). For a_s=(-s²,2s,-1), the negative
+zero-lag coefficient makes the observed B a conservative replacement of A.
+Reversible gap = -[||(P-sI)f||²+s²(B-A)]/2 <=0. Same-state twins are not
+required. Noise weakens the population signal; it is not magically removed.
+One fixed-contrast Hoeffding radius includes s⁴/(4n0)+4s²/n1+1/n2.
+
+Implementation uses exact rational means, directed log/square-root bounds,
+declared rounding/conditional-mean radii, positive fixed quotas and explicit
+selection and detector contracts. Lag zero costs one detector reading. Same
+stationary channel implies invariant squared-reading law under additive
+reversibilization. The new spectral_dynamics.from_gap API consumes the same
+covered gap without extra alpha and supplies direct linear/nonlinear bounds.
+The old quadratic bound is retained separately to isolate statistical changes.
+
+Frozen design before held-out generation:
+Seed 120731449; 400 datasets each of driven rates 20/1, equilibrium 10.5/10.5,
+noisy driven 20/1, invalid detector gain equilibrium 70/70.
+Detector: 20-state cosine rounded to denominator 4096.
+Noisy: half cosine plus half independent fair noise.
+Mismatch: calibration zero gain, science cosine; explicitly invalid contract.
+4,000 singles + 3,000 pairs at 0.1 + 3,000 pairs at 0.2 = 10,000 acquisitions,
+16,000 detector readouts, 900 evolution time per method and dataset.
+Preparations/resets/calibration/readout energy overhead unmeasured, not zero.
+Predeclared s=1/2 and 3/4; each joint alpha .05; split alpha .025 + .025.
+Actual sixth analog/calibration APIs used, no reconstructed straw baseline.
+Contract SHA256 27d4ca888813e916017405e201f33b0c4b8a9030ad2484a18ecd1761e41fd50b.
+
+Production command:
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+PYTHONPATH=/workspace/discovery_program/calibrated_inference/release/src \
+python /workspace/discovery_program/physical_attainability/code/joint_analog.py \
+--root /workspace/discovery_program/physical_attainability
+
+Results: driven positives joint analog 399/400 for both s values; old split
+analog 377/400, tuned split 379/400; split coin 293/400; tuned joint coin
+361/400. Equilibrium analog all zero; joint coin 1/400. Noisy all zero.
+Invalid calibration: joint analog/split analog 400/400 false; split coin
+395/400. Declared zero-lag discrepancy radius 1/2 repairs to zero in all cases.
+Driven tuned joint mean old quadratic .004942567898359178;
+direct linear .8703759024652052; direct nonlinear .8848242404613987;
+nonlinear/old mean 179.02116. Actual sigma 56.918913197525825;
+nonlinear mean 1.55453467% of true. No physical tightness claim.
+Important negative comparison: coin old quadratic mean .006392166230674521
+is higher than analog mean despite lower detection; clipping and squaring
+can reward variability in this aggregate. No universal power or average-bound
+dominance is claimed.
+
+Producer tests: 11 pass including exact reversible mixture support, noise
+penalty, zero-lag uncertainty counterexample, single-read resource count,
+rounding enclosure, error bookkeeping, 25 random reversible generators,
+contract rejection and actual baseline API replay.
+Command:
+OPENBLAS_NUM_THREADS=1 PYTHONPATH=/workspace/discovery_program/calibrated_inference/release/src \
+python -m unittest discover -s /workspace/discovery_program/physical_attainability/tests \
+-p test_joint_analog.py -v
+
+Closest ingredients: established reversible Hankel positivity, conditional
+Jensen/Rao-Blackwell, Hoeffding and the sixth invariant-coordinate principle.
+This branch proves and tests their useful integration; it makes no historical
+priority claim. Independent_review has received files and production output;
+external review and new experimental validation remain absent.
+
+Result SHA256 b722676dda6cab0aa3b0cef1f093df3b9445e7c095e769bfc55afe53c82960a4.
+Raw archive SHA256 62e4a15ed2981aa3747caafa71d5fbd40f18841695f753f20a85d3114edc2161.
+
+2026-10-12T22:43:04Z — Independent review and final production refresh.
+Independent reviewer reconstructed all 1,600 datasets and six methods,
+checked direct bridges to 1e-12, all four raw exemplars, hashes, moment
+oracles, costs, invalid-contract failures and repairs. No blocker reported.
+
+Added exact retrospective population audit without changing the frozen
+inference design: completing the square gives sup over all real s of
+population gap (C1²/B-C2)/2. Rational uniformization of the exact rounded
+noisy detector encloses this supremum below -0.007 (approximately
+-0.00789686257850539). The first/second correlation interval widths are
+4.44e-49 and 2.70e-35. Thus the entire chosen two-lag quadratic family has
+no population witness for this noisy model. More samples at the same
+settings cannot fix this; other lags/observables/calibration remain open.
+Producer tests now 12 pass. The reviewer has the additional audit for review.
+
+Production was regenerated solely to bind the final implementation hash
+(after adding the unused audit helper/CLI). Decisions, all data statistics,
+summary values and raw archive hash are unchanged. The older result hash
+above documents the earlier metadata state; final result SHA256 is
+ a74991c949090956731f83f093a177e89165e3bd5c04ab717e0f11f1e998cd66.
+Code SHA256:
+ 5f480384d52a4f4ded52310564bd7974a2e2a602b7b8a7ef424035b7cfac7027.
+Population audit SHA256:
+ 70564361096a11d50c77c4788a10235e5a4391ba484eb78daf3175c18b49d31b.
+Audit command: same script and --root as above, plus --population-audit.
+
+Acquisition resources are matched. Analysis computation time and energy
+are unmeasured and not asserted equal; chapter states this distinction.

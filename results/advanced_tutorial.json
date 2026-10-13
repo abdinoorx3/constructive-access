@@ -1,0 +1,126 @@
+{
+  "evidence_type": "Exact analytic examples with declared inputs; no physical measurements.",
+  "linear_target": {
+    "fingerprint": [
+      [
+        1,
+        1
+      ],
+      [
+        "1/2",
+        1
+      ]
+    ],
+    "target": [
+      1,
+      0
+    ],
+    "measurement_error_box": [
+      "1/100",
+      "1/100"
+    ],
+    "certificate": {
+      "finite": true,
+      "weights": [
+        "2",
+        "-2"
+      ],
+      "dual_direction": [
+        "1/25",
+        "-3/100"
+      ],
+      "absolute_error": "1/25",
+      "verification": {
+        "verified": true,
+        "minimax_absolute_error": "1/25",
+        "shared_observation": [
+          "207/100",
+          "31/20"
+        ],
+        "least_favorable_positive_parameters": [
+          [
+            "1",
+            "53/50"
+          ],
+          [
+            "27/25",
+            "1"
+          ]
+        ],
+        "scope": "Global deterministic minimax over the full positive orthant and the full coordinatewise error box"
+      }
+    },
+    "independent_check": {
+      "verified": true,
+      "minimax_absolute_error": "1/25",
+      "shared_observation": [
+        "207/100",
+        "31/20"
+      ],
+      "least_favorable_positive_parameters": [
+        [
+          "1",
+          "53/50"
+        ],
+        [
+          "27/25",
+          "1"
+        ]
+      ],
+      "scope": "Global deterministic minimax over the full positive orthant and the full coordinatewise error box"
+    },
+    "example_observation": [
+      "4",
+      "5/2"
+    ],
+    "target_estimate": "3",
+    "deterministic_interval": [
+      "74/25",
+      "76/25"
+    ],
+    "condition": "The full positive parameter orthant, known response matrix, actual fingerprint access and full coordinatewise error box."
+  },
+  "unidentifiable_before_selective_probe": {
+    "rank": 1,
+    "parameter_dimension": 2,
+    "identifiable": false,
+    "indistinguishable_positive_parameters": [
+      [
+        "3",
+        "1"
+      ],
+      [
+        "1",
+        "3"
+      ]
+    ],
+    "kernel_direction": [
+      "-1",
+      "1"
+    ],
+    "target_difference": "-2"
+  },
+  "unidentified_parameters_but_identified_sum": {
+    "rank": 1,
+    "parameter_dimension": 2,
+    "identifiable": true,
+    "reconstruction_weights": [
+      "1"
+    ]
+  },
+  "declared_resource": {
+    "count_certificate": {
+      "count_cap": 22,
+      "mu": "10",
+      "beta": "1/100",
+      "chernoff_exponent_lower": "447598121506324702715662377554118092016255137856304521104586693567235947244523518934469506216581853061200252683230700362221618561673757386758793030099129941325367323122689340336932249298159055886783002774437229993145805346516184196093173741486529795823269246554410168709612773307862544373311443176940349984448825752430942028472052/83724829142150795238417870210612983022754666712558718459380207703602204143328678218393133398012292811280285441529848847487588445465746761660538674144029426805602209386042104184364880842736619618187899775092041959416944575585933423383047761614387643424400332888053618229658762558034916326009015227056422788465820059657462650802625",
+      "log_inverse_beta_upper": "409160341501624812973644322514602440392738774937927815083508405250451623161310607478269741391872345015229627681185328331673689850124949253645977864794164304001530967506975373063123689415709020497826872200580696097885316900039810599454175985174945688553181158310222236615362210275985466810738999362778613421123507311737835121730730304359333460957417540679184397925238507542653716313659823943375591067510740397562003195267115323333421857032682391033840563727299977046851687073283/88848039263902867535406797168777663569185797695022571085975276547008342557816878716984761714394084938279101692003334081848685113066713064452188513398434603103513892098225835311303437280973440337929737675953108549315172852369689956444361993770891988374373335336838669207098595399353520988994338189464786201114660410124427527383546827736984334918515698047060558163731887258253499354377716661516670642788603405098189869926825501538944941300668246418648381050583425463801377948000",
+      "proof": "n*lower(log(n/mu))-n+mu >= upper(log(1/beta))"
+    },
+    "work_per_event_upper": "3/2",
+    "apparatus_upper": "4",
+    "gross_work_cap": "37",
+    "unit": "one consistently calibrated physical work unit, supplied by user",
+    "condition": "Nonexplosive unit-jump counting process; actual predictable compensator <=10, gross work <=3/2 per event plus apparatus <=4. These premises are not inferred from the observed state law."
+  }
+}

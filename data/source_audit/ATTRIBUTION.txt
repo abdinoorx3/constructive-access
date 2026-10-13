@@ -1,0 +1,59 @@
+THIRD-PARTY EXPERIMENTAL DATA ATTRIBUTION
+
+The following three HDF5 files are unchanged originals from:
+  J. Shepard Bryan IV, Prithviraj Basak, John Bechhoefer and Steve Presse,
+  Data for "Inferring potential landscapes from noisy particle trajectories
+  within an optical feedback trap" (2022-06-22).
+  Zenodo DOI: https://doi.org/10.5281/zenodo.6680673
+  Repository: https://zenodo.org/records/6680673
+
+License: Creative Commons Attribution 4.0 International (CC BY 4.0).
+License terms: https://creativecommons.org/licenses/by/4.0/
+Legal code: https://creativecommons.org/licenses/by/4.0/legalcode
+The repository's metadata specifies this license. Retain this attribution
+and license reference when redistributing the included data. The original
+authors do not endorse this reanalysis or its conclusions.
+
+Unmodified files and SHA-256 hashes:
+harmwell_n1.h5
+  ffa81dda2576934bd51cf544199a12da7d5568806883401a08848ad215c1286c
+harmwell_n1_groundtruth.h5
+  ef390252ce9730b53c688958cad5fa4ff2379800f09ccc13ac2d6e90bb0e413b
+harmwell_n2.h5
+  38efb704da6fb86a9da49938d3e84ff4c3d1e4c56588768cbdf37149f28b4a2e
+
+Direct original downloads:
+https://zenodo.org/api/records/6680673/files/harmwell_n1.h5/content
+https://zenodo.org/api/records/6680673/files/harmwell_n1_groundtruth.h5/content
+https://zenodo.org/api/records/6680673/files/harmwell_n2.h5/content
+Publisher-provided MD5 checksums also match; see download_manifest.json.
+
+Associated primary article:
+J. S. Bryan IV, P. Basak, J. Bechhoefer and S. Presse,
+"Inferring potential landscapes from noisy trajectories of particles within
+an optical feedback trap," iScience25,104731(2022).
+https://doi.org/10.1016/j.isci.2022.104731
+
+IMPORTANT INTERPRETATION
+These selected files are experimental measurements, not the repository's
+separate simulated data. The file named groundtruth contains a simultaneous
+LOWER-NOISE MEASUREMENT, not exact latent positions. Its original filename
+and every original byte remain unchanged. Serialized force functions in the
+file are not measured force trajectories and are not executed by our loader.
+Nominal units and sampling interval are documented in the authors' source;
+the selected files do not contain individual timestamps or an independently
+validated clock/mixing/detector error contract.
+
+Changes made by this research release: NONE to the three HDF5 originals.
+Training/evaluation splits, bounded transformations, covariance tables and
+other derived results are separate files produced by Abdinoor / 2D Labs.
+Those derived analyses are exploratory and are not thermodynamic confidence
+certificates or new physical measurements.
+
+REDISTRIBUTION SCOPE
+This release redistributes only these three licensed raw HDF5 originals and
+the accompanying attribution/provenance needed to identify them. Other source
+PDFs, paper XML, third-party notebooks and scripts downloaded during the
+literature audit are NOT redistributed as part of the experimental data
+bundle. Their original source links remain in the source audit. The separate
+Dryad switching-trap archive was not retrieved and is not included.

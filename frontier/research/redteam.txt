@@ -1,0 +1,219 @@
+INDEPENDENT ADVERSARIAL REVIEW — REALIZATION FRONTIER
+Abdinoor / 2D Labs. Internal mathematical review, 12 October 2026.
+
+Review status
+
+The principal candidate statements survive this independent derivation within
+their explicit contracts. This review is not external peer review, a proof of
+historical originality, or physical experimental validation. Closest prior art
+is separately recorded in literature.txt. Tests use independently written
+formulas rather than calling the producer implementations unless a test
+explicitly identifies a cross-check.
+
+1. Robust positive-factorization hierarchy
+
+Let M_ij = alpha_i b_j, with alpha_i nonnegative normalized row vectors on n
+states and b_j in [0,1]^n. Assume M_ii <= epsilon and M_ij >= beta for i != j.
+For 0<tau<1 set S_i={k:b_i(k)<tau}, the strict sublevel set of the ith
+detector column. Markov's inequality yields
+alpha_i(S_i complement)<=epsilon/tau. If S_i is contained in S_j, then
+M_ij <= tau+(1-tau)epsilon/tau. Therefore beta exceeding this expression
+forces all S_i to be an antichain. Sperner's theorem gives
+N <= binomial(n,floor(n/2)). The optimal real threshold tau=sqrt(epsilon)
+gives 2sqrt(epsilon)-epsilon. Strict inequality matters at the boundary.
+For epsilon=0, exact zero supports give the corresponding exact-support proof.
+
+This support argument is established at zero noise. The analytic nonzero
+margin, one-common-semigroup temporal implementation, and finite-count
+inference are the narrowly scoped contributions to assess. Exact same
+sin-squared quantum probability matrices occur in prior work; there is no
+first ideal quantum/classical separation claim.
+
+Sharpness in the general factorization class: take all floor(n/2)-element
+subsets S_i, alpha_i uniform on S_i, b_j the indicator of its complement.
+Then M_ii=0 and every offdiagonal entry is at least 1/floor(n/2), attaining the
+central-binomial count. This does not prove attainability under a single
+common homogeneous generator.
+
+Temporal use requires M_ij=alpha exp(Q t_i) exp(Q s_j)f with t_i,s_j>=0.
+Unknown fixed preparation and stochastic fixed readout are allowed; arbitrary
+time-dependent dynamics, detector drift, or hidden external control memory
+are not covered. Calibration bias must be paid on both null and alternative.
+The intersection-union test has type-I error bounded by the maximum component
+type-I error because every classical null violates at least one component.
+Alternative missed detections use a union bound across settings. This is not
+an omitted multiple-comparison correction.
+
+2. Finite Erlang-clock spectral certificate
+
+For R=s(sI-Q)^(-1), R is stochastic. A fixed preparation/readout produces
+m_k=alpha R^k f. The characteristic polynomial P of an n-dimensional R
+annihilates two consecutive length-(n+1) windows and has root 1 and coefficient
+L1 norm at most 2^n. The target moments are (1+Re(mu^k))/2. If every moment
+differs by at most epsilon, then |Re P(mu)| and |Re(mu P(mu))| are both at
+most 2 epsilon ||P||_1. Writing mu=u+iv recovers
+|P(mu)| <= 2 epsilon ||P||_1 sqrt(1+(1+|u|)^2/v^2).
+
+The established n-state generator sector maps into the intersection of two
+disks described by |z|^2-Re z+tan(pi/n)|Im z|<=0. A rational lower bound on
+tan(pi/n) gives a valid larger disk. If mu lies outside it, the radial disk
+distance is a rigorous lower bound d on the distance to every allowable
+resolvent eigenvalue; replace d by min(d,v). Of the n-1 roots other than a
+selected root 1, real roots are at distance at least v. Each conjugate pair
+contributes at least d*v because its lower-half-plane member is at distance
+at least v. At most floor((n-1)/2) pairs therefore give the producer's bound
+|P(mu)| >= |1-mu| d^floor((n-1)/2) v^(n-1-floor((n-1)/2)).
+The denominator and strict finite-error exclusion criterion are correct.
+Models of dimension smaller than n can be padded by inaccessible absorbing
+states, so the theorem really excludes every dimension at most n.
+
+The final producer implements a stronger normalization. Every resolvent root
+has positive real part. Its real-linear and conjugate-quadratic characteristic
+factors therefore have alternating coefficients, as does their product, so
+||P||_1=|P(-1)|. Under w=(1-z)/(1+z), eigenvalues become 1 minus eigenvalues
+of R(2s); the spectral lens is invariant under z -> 1-z. For target
+nu=(1-mu)/(1+mu)=a-ib, the exact normalized factor is
+|mu-z|/|1+z|=|1+mu| |nu-w|/2. Real roots contribute at least
+r=v/|1+mu|. If d<=b bounds the target-to-lens distance, a conjugate pair
+contributes at least h=|1+mu|^2 d(2b-d)/4. Indeed, for Im(w)=y>=0, either
+y>=b-d and the two factors are at least d and 2b-d, or y<b-d and their
+product is at least b^2-y^2>d(2b-d). Since h<=r^2, the worst case uses
+q=floor((n-1)/2) pairs. The selected root 1 contributes |1-mu|/2.
+After normalizing the two residual equations this yields
+epsilon >= |1-mu| r^(n-1-2q) h^q/(4 sqrt(1+(1+u)^2/v^2)).
+This improvement has been independently algebraically reviewed and tested;
+the preceding unnormalized argument remains a valid weaker baseline.
+
+Clocks must be independent of current hidden evolution. Erlang trials are
+fresh prepare/wait/read experiments. Encoding the outcome as zero when the
+independent clock exceeds L changes its Bernoulli mean by at most the clock
+tail; this is safe without a hidden rate cap. The Hoeffding plan is highly
+conservative and can demand billions of records even for exclusion of four
+states. A finite certificate is not necessarily an efficient experiment.
+
+Exact classical counterexample to broad quantumness claims: an even-N cycle
+with clockwise/counterclockwise rates a,b satisfying
+(a+b)(1-cos(2pi/N))=gamma and (a-b)sin(2pi/N)=omega has nonnegative rates iff
+gamma/omega>=tan(pi/N). Detector f_k=(1+cos(2pi k/N))/2 and preparations 0,N/2
+realize the complementary damped-qubit population traces exactly. This
+construction was independently checked. Finite damping does not exclude all
+finite classical models; exact spectral separation bounds dimension.
+
+3. Finite-window reversible approximation and the unrestricted null
+
+The Poisson clock construction is a physical state-space realization of the
+established Szasz-Mirakjan approximation operator. For a trace p with Lipschitz
+constant L on [0,T], a Poisson clock of rate r with clipped/frozen phase gives
+|E p(clip(N_rt/r,0,T))-p(t)| <= L sqrt(t/r). Its finite state count must include
+preparation sectors and detector-bit states. The smooth O(1/r) variant needs a
+global second-derivative bound on t>=0 because it uses samples beyond T.
+
+For any at-most-N adaptive fresh trials with waits in [0,T], a uniform
+per-trial Bernoulli error epsilon gives transcript TV at most
+1-(1-epsilon)^N, including retained timestamps. This follows by a sequential
+coupling along coincident histories; adaptation to previous records causes no
+problem. Continuous observation, invasive intermediate instruments, or one
+fixed simulator valid at arbitrarily long times are different claims.
+
+A small reverse phase rate d makes the phase process reversible. The lifted
+deterministic binary readout has exact weights pi_(a,k,y) proportional to
+(r/d)^k times the sampled Bernoulli probability of y. Every forward/backward
+edge satisfies detailed balance exactly, including deleted zero-weight states.
+Before the first backward event, the forward and reversible clocks agree, so
+the added readout error is at most 1-exp(-dT)<=dT. Zero stationary entropy
+production does not mean a free experiment: the initial phase preparation has
+large relative entropy from equilibrium and can dissipate during relaxation.
+
+Additional independent strengthening: disconnected sectors are unnecessary.
+Given any stationary pi with all retained state weights positive, add
+lambda(1*pi-I) to Q. This preserves detailed balance and makes the complete
+chain irreducible. The transition law is exactly
+exp(-lambda t) exp(Qt)+(1-exp(-lambda t)) 1*pi,
+so each binary readout changes by at most 1-exp(-lambda T). Irreducibility
+alone does not rescue finite-record transient identifiability.
+
+Consequently, for this restricted finite fresh-trial observation class, a test
+uniformly level alpha over all finite reversible transient classical models
+cannot have rejection probability above alpha for a continuous target trace
+in their operational closure. One must state a resource, stationarity,
+preparation, instrument, or other substantive restriction before claiming an
+unrestricted classical exclusion. This is an operational no-go, not a
+universal classical simulation of quantum mechanics.
+
+4. Stationary correlation and entropy-production certificates
+
+For an ordinary even-state finite CTMC, stationary pi, and stationary reversal
+Q*, the row escape rates of Q,Q*,S=(Q+Q*)/2 agree. Pairing stationary edge
+flows a=pi_i q_ij,b=pi_j q_ji gives
+D(path Q || path S)/t = sum_edges[a log(2a/(a+b))+b log(2b/(a+b))]
+                         <= sigma/4,
+where sigma=sum_edges(a-b)log(a/b). The constant is sharp near equilibrium.
+This comparison and its underlying divergence inequality have prior art.
+
+For the same fixed noninvasive binary detector, write f_i=E[Y|i] in [-1,1].
+Independent endpoint detector noise gives C_S(t)=<f,exp(tS)f>_pi. Reversibility
+implies a nonnegative spectral mixture of decaying real exponentials. At
+positive integer lags k Delta, the same-outcome probabilities are
+q_k=r+(1-r) integral_[0,1] x^k dmu(x), r=(1+(pi f)^2)/2. Missing spectral mass
+for a noisy detector may be placed at x=0. The closure includes x=0 and is a
+safe comparison class; no infinite exit rate needs to be physically attained.
+
+For a randomized lag law w and positive scores h_k(y), the variational KL
+bound is E_P log h - log(E_R h). Supremizing E_R h over the entire reversible
+moment cone reduces to the maximum of one polynomial in x and, if r is
+uncertain, its two endpoint values. Rational Bernstein upper bounds therefore
+give a checkable lower bound J on record KL. Data processing implies
+sigma E[lag]>=4J. Simultaneous probability intervals allow scores and weights
+to be chosen after constructing those intervals, because the deterministic
+certificate minimizes over the whole confidence box. Pointwise confidence
+intervals selected after looking at data are not interchangeable with this.
+
+The moment cone is stronger than nonnegative/monotone autocorrelation: it
+also enforces complete monotonicity and Hausdorff moment constraints. A
+positive decreasing but locally concave correlation can therefore yield a
+positive certificate missed by a negative-correlation or monotonicity check.
+
+Essential physical exclusions: equilibrium underdamped systems with odd
+time-reversal variables can oscillate at zero dissipation; ordinary even-state
+reversal cannot be silently imposed on them. Quantum coherent dynamics also
+need not obey the classical reversible spectral cone. The certificate is a
+cost of an admissible classical explanation, not unconditional measured heat.
+Conversion to heat or power requires appropriate local detailed balance and
+thermal accounting. Stationarity and noninvasive fixed observation are
+substantive physical assumptions, not supplied by a fitted correlation curve.
+
+5. Nonstationary resource alternative
+
+For initial nu and full-support stationary pi, compare Q started at nu with S
+started at pi. The path KL chain rule and equal row escapes give
+D(path Q_nu || path S_pi)=D(nu||pi)+integral nu_s(i) sum_j q_ij log(q_ij/S_ij) ds.
+Log concavity yields rowwise
+sum_j q_ij log(q_ij/S_ij)<=1/2 sum_j q_ij log(q_ij/q*_ij).
+The latter is a nonnegative equal-total-rate relative entropy in each row.
+It is the ordinary-reversal housekeeping entropy rate sigma_hk(nu_s).
+Therefore the same reversible record separation J implies
+J<=D(nu||pi)+(1/2) E_lag integral_0^lag sigma_hk(nu_s) ds.
+Under stationary initialization the sharper coefficient 1/4 applies. Under
+detailed balance, housekeeping cost vanishes and J<=D(nu||pi).
+
+Critical calibration issue identified in review: a transient observed mean
+does not determine pi f. The nonstationary frontier must allow the complete
+r interval [1/2,1], unless the reference stationary mean is independently
+calibrated. The root implementation explicitly guards this distinction.
+
+This creates a coherent preparation-versus-maintenance resource statement,
+not a universal conservation law. The reversible clock no-go and positive
+stationary dissipation certificate are consistent because they pay for the
+observed behavior through different initial-state and sustained resources.
+
+Remaining limitations and release recommendations
+
+- Retain exact null classes in every abstract, figure caption, and example.
+- Do not equate a dimension witness with all-classical exclusion or heat.
+- Do not call inherited spectral/nonnegative-rank facts novel.
+- The endpoint finite-count dual and positive-noise hierarchy are candidate
+  methodological extensions; priority and external review remain unresolved.
+- Synthetic confidence boxes and quantum models are not laboratory evidence.
+- Report large sufficient state/sample costs and matched baseline failures.
+- Preserve the transient reference-mean guard and negative controls for odd
+  variables, time-varying dynamics, and missing stationarity.

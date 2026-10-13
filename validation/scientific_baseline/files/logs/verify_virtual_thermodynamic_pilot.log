@@ -1,0 +1,11 @@
+pilot: curvature__driven: negative=0/20, revival=0/20, full_cone=0/20
+pilot: curvature__equilibrium: negative=0/20, revival=0/20, full_cone=0/20
+pilot: curvature__high_readout_noise: negative=0/20, revival=0/20, full_cone=0/20
+pilot: curvature__independent_clock_jitter: negative=0/20, revival=0/20, full_cone=0/20
+pilot: curvature__detector_memory: negative=0/20, revival=0/20, full_cone=0/20
+pilot: revival__driven: negative=0/20, revival=20/20, full_cone=20/20
+pilot: revival__equilibrium: negative=0/20, revival=0/20, full_cone=0/20
+pilot: revival__high_readout_noise: negative=0/20, revival=0/20, full_cone=0/20
+pilot: revival__independent_clock_jitter: negative=1/20, revival=20/20, full_cone=0/20
+pilot: revival__detector_memory: negative=0/20, revival=20/20, full_cone=20/20
+pilot: revival__prepared_equilibrium: negative=20/20, revival=0/20, full_cone=0/20

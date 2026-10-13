@@ -1,0 +1,1540 @@
+{
+  "activity_bridge": {
+    "activity_cap": {
+      "lower": "1",
+      "upper": "1"
+    },
+    "asymmetry_lower": {
+      "lower": "9036225083127921/10000000000000000",
+      "upper": "4518112541563961/5000000000000000"
+    },
+    "asymmetry_upper": {
+      "lower": "9036225083127921/10000000000000000",
+      "upper": "4518112541563961/5000000000000000"
+    },
+    "bits": 75,
+    "contract": "stationary ordinary-reversal CTMC; separately calibrated upper bound on total microscopic jump activity; no inference of activity from detector changes",
+    "entropy_production_rate_lower": {
+      "lower": "26957239390784653/10000000000000000",
+      "upper": "13478619695392327/5000000000000000"
+    },
+    "expected_duration": {
+      "lower": "1",
+      "upper": "1"
+    },
+    "kl_per_activity": {
+      "lower": "1/2",
+      "upper": "1/2"
+    },
+    "linear_bridge_lower": {
+      "lower": "2",
+      "upper": "2"
+    },
+    "record_kl_lower": {
+      "lower": "1/2",
+      "upper": "1/2"
+    },
+    "status": "certified_activity_bridge"
+  },
+  "bounded_analog": {
+    "mathematical_variance_comparison": {
+      "coin_contrast_variance": {
+        "lower": "3/12500",
+        "upper": "3/12500"
+      },
+      "direct_contrast_variance": {
+        "lower": "1/25000",
+        "upper": "1/25000"
+      },
+      "removed_conditional_coin_variance": {
+        "lower": "1/5000",
+        "upper": "1/5000"
+      }
+    },
+    "quantized_summary": {
+      "mean": {
+        "lower": "43/80",
+        "upper": "43/80"
+      },
+      "mean_quantization_radius": {
+        "lower": "1/2000",
+        "upper": "1/2000"
+      },
+      "quantized_empirical_variance": {
+        "lower": "49/6400",
+        "upper": "49/6400"
+      },
+      "quantized_sample_variance": {
+        "lower": "49/3200",
+        "upper": "49/3200"
+      },
+      "quantizer_denominator": 1000,
+      "records": 2,
+      "score_sum": {
+        "lower": "43/40",
+        "upper": "43/40"
+      },
+      "status": "descriptive_only; inference requires additional contracts"
+    },
+    "synthetic_mean_certificate": {
+      "calibration_failure_upper": {
+        "lower": "1/40",
+        "upper": "1/40"
+      },
+      "coefficients": [
+        {
+          "lower": "1",
+          "upper": "1"
+        },
+        {
+          "lower": "-1",
+          "upper": "-1"
+        }
+      ],
+      "concentration_variance_proxy": {
+        "lower": "1/5000",
+        "upper": "1/5000"
+      },
+      "conditional_mean_penalty": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "confidence_failure_upper": {
+        "lower": "1/20",
+        "upper": "1/20"
+      },
+      "contrast_lower": {
+        "lower": "36583088347203/2000000000000000",
+        "upper": "11432215108501/625000000000000"
+      },
+      "durations": [
+        {
+          "lower": "1",
+          "upper": "1"
+        },
+        {
+          "lower": "2",
+          "upper": "2"
+        }
+      ],
+      "empirical_contrast": {
+        "lower": "1/10",
+        "upper": "1/10"
+      },
+      "entropy_denominator_upper": {
+        "lower": "582842712474619/100000000000000",
+        "upper": "58284271247461901/10000000000000000"
+      },
+      "entropy_production_rate_lower": {
+        "lower": "4592396282479/10000000000000000",
+        "upper": "57404953531/125000000000000"
+      },
+      "lags": [
+        1,
+        2
+      ],
+      "means": [
+        {
+          "lower": "69/100",
+          "upper": "69/100"
+        },
+        {
+          "lower": "59/100",
+          "upper": "59/100"
+        }
+      ],
+      "physical_contract": "stationary even-state homogeneous CTMC; fixed noninvasive detector with independent conditional endpoint noise; valid clock and calibrated moment comparison; full-duration accounting",
+      "quantization_penalty": {
+        "lower": "1/500000",
+        "upper": "1/500000"
+      },
+      "records": [
+        10000,
+        10000
+      ],
+      "sampling_contract": "fixed quotas; bounded observations with declared conditional means; valid external calibration region",
+      "sampling_radius_upper": {
+        "lower": "12004034891499/625000000000000",
+        "upper": "38412911652797/2000000000000000"
+      },
+      "science_failure_upper": {
+        "lower": "1/40",
+        "upper": "1/40"
+      },
+      "score_bounds": [
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "1",
+            "upper": "1"
+          }
+        ],
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "1",
+            "upper": "1"
+          }
+        ]
+      ],
+      "selection": "predeclared",
+      "signed_contrast_lower": {
+        "lower": "36583088347203/2000000000000000",
+        "upper": "11432215108501/625000000000000"
+      },
+      "status": "positive_certificate",
+      "support": {
+        "calibration_vertices": [
+          [
+            {
+              "lower": "0",
+              "upper": "0"
+            },
+            {
+              "lower": "1/2",
+              "upper": "1/2"
+            }
+          ]
+        ],
+        "coefficients": [
+          {
+            "lower": "1",
+            "upper": "1"
+          },
+          {
+            "lower": "-1",
+            "upper": "-1"
+          }
+        ],
+        "depth": 6,
+        "lags": [
+          1,
+          2
+        ],
+        "polynomial_upper_bounds": [
+          {
+            "lower": "1/16",
+            "upper": "1/16"
+          }
+        ],
+        "polynomials": [
+          [
+            {
+              "lower": "0",
+              "upper": "0"
+            },
+            {
+              "lower": "1/4",
+              "upper": "1/4"
+            },
+            {
+              "lower": "-1/4",
+              "upper": "-1/4"
+            }
+          ]
+        ],
+        "reversible_support_lower": {
+          "lower": "1/16",
+          "upper": "1/16"
+        },
+        "reversible_support_upper": {
+          "lower": "1/16",
+          "upper": "1/16"
+        },
+        "support_enclosure_width": {
+          "lower": "0",
+          "upper": "0"
+        }
+      }
+    },
+    "upper_only_calibration": {
+      "confidence_failure_upper": {
+        "lower": "1/20",
+        "upper": "1/20"
+      },
+      "contract": "iid stationary bounded analog records; fixed noninvasive memoryless detector; second moment transfers only as an upper bound on A",
+      "mean_estimate": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "mean_interval": [
+        {
+          "lower": "-925129492063/31250000000000",
+          "upper": "-296041437460159/10000000000000000"
+        },
+        {
+          "lower": "296041437460159/10000000000000000",
+          "upper": "925129492063/31250000000000"
+        }
+      ],
+      "mean_radius_upper": {
+        "lower": "296041437460159/10000000000000000",
+        "upper": "925129492063/31250000000000"
+      },
+      "observed_second_moment_estimate": {
+        "lower": "5/16",
+        "upper": "5/16"
+      },
+      "observed_second_moment_radius_upper": {
+        "lower": "135810151574061/10000000000000000",
+        "upper": "67905075787031/5000000000000000"
+      },
+      "observed_second_moment_upper": {
+        "lower": "3260810151574061/10000000000000000",
+        "upper": "1630405075787031/5000000000000000"
+      },
+      "records": 10000,
+      "second_moment_interval": [
+        {
+          "lower": "0",
+          "upper": "0"
+        },
+        {
+          "lower": "3260810151574061/10000000000000000",
+          "upper": "1630405075787031/5000000000000000"
+        }
+      ],
+      "vertices": [
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "0",
+            "upper": "0"
+          }
+        ],
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "3260810151574061/10000000000000000",
+            "upper": "1630405075787031/5000000000000000"
+          }
+        ],
+        [
+          {
+            "lower": "8764053269347/10000000000000000",
+            "upper": "2191013317337/2500000000000000"
+          },
+          {
+            "lower": "8764053269347/10000000000000000",
+            "upper": "2191013317337/2500000000000000"
+          }
+        ],
+        [
+          {
+            "lower": "8764053269347/10000000000000000",
+            "upper": "2191013317337/2500000000000000"
+          },
+          {
+            "lower": "3260810151574061/10000000000000000",
+            "upper": "1630405075787031/5000000000000000"
+          }
+        ]
+      ]
+    }
+  },
+  "calibration": {
+    "calibrated_steep_decay": {
+      "A": {
+        "lower": "1/4",
+        "upper": "1/4"
+      },
+      "agreement_drop_lower": {
+        "lower": "347338653379829/10000000000000000",
+        "upper": "34733865337983/1000000000000000"
+      },
+      "backward_rate": {
+        "lower": "1",
+        "upper": "1"
+      },
+      "calibrated_reversible_upper": {
+        "lower": "1/32",
+        "upper": "1/32"
+      },
+      "correlation_intervals": [
+        [
+          {
+            "lower": "116619670995669/1000000000000000",
+            "upper": "1166196709956691/10000000000000000"
+          },
+          {
+            "lower": "116619670995669/1000000000000000",
+            "upper": "1166196709956691/10000000000000000"
+          }
+        ],
+        [
+          {
+            "lower": "471519403197031/10000000000000000",
+            "upper": "58939925399629/1250000000000000"
+          },
+          {
+            "lower": "471519403197031/10000000000000000",
+            "upper": "58939925399629/1250000000000000"
+          }
+        ]
+      ],
+      "detector": [
+        {
+          "lower": "1/2",
+          "upper": "1/2"
+        },
+        {
+          "lower": "1/2",
+          "upper": "1/2"
+        },
+        {
+          "lower": "-1/2",
+          "upper": "-1/2"
+        },
+        {
+          "lower": "-1/2",
+          "upper": "-1/2"
+        }
+      ],
+      "forward_rate": {
+        "lower": "3",
+        "upper": "3"
+      },
+      "lags": [
+        {
+          "lower": "7/40",
+          "upper": "7/40"
+        },
+        {
+          "lower": "7/20",
+          "upper": "7/20"
+        }
+      ],
+      "mean": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "scope": "exact synthetic population certificate; no sampled data or optimality claim",
+      "true_model_entropy_rate_lower": {
+        "lower": "21972245773362193/10000000000000000",
+        "upper": "10986122886681097/5000000000000000"
+      },
+      "uncalibrated_reversible_upper": {
+        "lower": "1/8",
+        "upper": "1/8"
+      },
+      "violation_lower": {
+        "lower": "34838653379829/10000000000000000",
+        "upper": "3483865337983/1000000000000000"
+      }
+    },
+    "finite_positive_lag_ambiguity": {
+      "coefficient_scale": {
+        "lower": "11111111111111/2500000000000000",
+        "upper": "8888888888889/2000000000000000"
+      },
+      "irreducible_product_state_counts": [
+        4,
+        4
+      ],
+      "lags": [
+        1,
+        2,
+        3
+      ],
+      "matched_correlations": [
+        {
+          "lower": "71111111111111/5000000000000000",
+          "upper": "142222222222223/10000000000000000"
+        },
+        {
+          "lower": "71111111111111/10000000000000000",
+          "upper": "8888888888889/1250000000000000"
+        },
+        {
+          "lower": "19911111111111/5000000000000000",
+          "upper": "39822222222223/10000000000000000"
+        }
+      ],
+      "mean": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "negative_A": {
+        "lower": "71111111111111/2000000000000000",
+        "upper": "88888888888889/2500000000000000"
+      },
+      "negative_spectrum": [
+        [
+          {
+            "lower": "1/5",
+            "upper": "1/5"
+          },
+          {
+            "lower": "177777777777777/10000000000000000",
+            "upper": "88888888888889/5000000000000000"
+          }
+        ],
+        [
+          {
+            "lower": "3/5",
+            "upper": "3/5"
+          },
+          {
+            "lower": "177777777777777/10000000000000000",
+            "upper": "88888888888889/5000000000000000"
+          }
+        ]
+      ],
+      "positive_A": {
+        "lower": "311111111111111/10000000000000000",
+        "upper": "38888888888889/1250000000000000"
+      },
+      "positive_spectrum": [
+        [
+          {
+            "lower": "2/5",
+            "upper": "2/5"
+          },
+          {
+            "lower": "133333333333333/5000000000000000",
+            "upper": "266666666666667/10000000000000000"
+          }
+        ],
+        [
+          {
+            "lower": "4/5",
+            "upper": "4/5"
+          },
+          {
+            "lower": "11111111111111/2500000000000000",
+            "upper": "8888888888889/2000000000000000"
+          }
+        ]
+      ],
+      "second_moment_difference": {
+        "lower": "11111111111111/2500000000000000",
+        "upper": "8888888888889/2000000000000000"
+      }
+    },
+    "synthetic_paired_counts": {
+      "conditional_second_moment_estimate": {
+        "lower": "1/4",
+        "upper": "1/4"
+      },
+      "confidence_failure_upper": {
+        "lower": "1/20",
+        "upper": "1/20"
+      },
+      "contract": "iid stationary records; two conditionally independent noninvasive readings at the same unchanged hidden state",
+      "counts": [
+        3125,
+        1875,
+        1875,
+        3125
+      ],
+      "mean_estimate": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "mean_interval": [
+        {
+          "lower": "-925129492063/31250000000000",
+          "upper": "-296041437460159/10000000000000000"
+        },
+        {
+          "lower": "296041437460159/10000000000000000",
+          "upper": "925129492063/31250000000000"
+        }
+      ],
+      "radius_upper": {
+        "lower": "296041437460159/10000000000000000",
+        "upper": "925129492063/31250000000000"
+      },
+      "records": 10000,
+      "same_probability_estimate": {
+        "lower": "5/8",
+        "upper": "5/8"
+      },
+      "second_moment_interval": [
+        {
+          "lower": "6887370507937/31250000000000",
+          "upper": "2203958562539841/10000000000000000"
+        },
+        {
+          "lower": "2796041437460159/10000000000000000",
+          "upper": "8737629492063/31250000000000"
+        }
+      ],
+      "status": "valid_calibration_region",
+      "vertices": [
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "6887370507937/31250000000000",
+            "upper": "2203958562539841/10000000000000000"
+          }
+        ],
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "2796041437460159/10000000000000000",
+            "upper": "8737629492063/31250000000000"
+          }
+        ],
+        [
+          {
+            "lower": "8764053269347/10000000000000000",
+            "upper": "2191013317337/2500000000000000"
+          },
+          {
+            "lower": "6887370507937/31250000000000",
+            "upper": "2203958562539841/10000000000000000"
+          }
+        ],
+        [
+          {
+            "lower": "8764053269347/10000000000000000",
+            "upper": "2191013317337/2500000000000000"
+          },
+          {
+            "lower": "2796041437460159/10000000000000000",
+            "upper": "8737629492063/31250000000000"
+          }
+        ]
+      ]
+    }
+  },
+  "dependent_block_certificate": {
+    "block_duration": {
+      "lower": "2",
+      "upper": "2"
+    },
+    "coefficients": [
+      {
+        "lower": "-1",
+        "upper": "-1"
+      },
+      {
+        "lower": "1",
+        "upper": "1"
+      }
+    ],
+    "contract": "Stationary common-block hidden Markov reference; externally calibrated absolute L2 contraction; fixed schedule; bounded noninvasive records; initial TV transferred once; physical entropy assumptions remain separate",
+    "contrast_lower": {
+      "lower": "5427209364711/250000000000000",
+      "upper": "217088374588441/10000000000000000"
+    },
+    "durations": [
+      {
+        "lower": "1",
+        "upper": "1"
+      },
+      {
+        "lower": "2",
+        "upper": "2"
+      }
+    ],
+    "empirical_contrast": {
+      "lower": "3/20",
+      "upper": "3/20"
+    },
+    "entropy_production_rate_lower": {
+      "lower": "6468621653531/10000000000000000",
+      "upper": "1617155413383/2500000000000000"
+    },
+    "external_contract_failure_upper": {
+      "lower": "0",
+      "upper": "0"
+    },
+    "initial_path_tv_upper": {
+      "lower": "1/1000",
+      "upper": "1/1000"
+    },
+    "lags": [
+      1,
+      2
+    ],
+    "proxy": {
+      "calibrated_gap_lower": {
+        "lower": "1/500",
+        "upper": "1/500"
+      },
+      "common_block_duration": {
+        "lower": "2",
+        "upper": "2"
+      },
+      "contraction_upper": {
+        "lower": "4980039946719957/5000000000000000",
+        "upper": "1992015978687983/2000000000000000"
+      },
+      "state_function_proxy": {
+        "lower": "5000006666664888889/10000000000000000",
+        "upper": "500000666666488889/1000000000000000"
+      },
+      "whole_record_proxy_upper": {
+        "lower": "5457220560307064943/10000000000000000",
+        "upper": "341076285019191559/625000000000000"
+      }
+    },
+    "records": [
+      100000,
+      100000
+    ],
+    "reversible_gap_lower": {
+      "lower": "5427209364711/250000000000000",
+      "upper": "217088374588441/10000000000000000"
+    },
+    "sampling_radius_upper": {
+      "lower": "1282911625411559/10000000000000000",
+      "upper": "32072790635289/250000000000000"
+    },
+    "schedule": "fixed_common_blocks",
+    "selection": "predeclared",
+    "stationary_statistical_failure": {
+      "lower": "49/1000",
+      "upper": "49/1000"
+    },
+    "status": "positive_certificate",
+    "successes": [
+      38000,
+      53000
+    ],
+    "support": {
+      "coefficients": [
+        {
+          "lower": "-1",
+          "upper": "-1"
+        },
+        {
+          "lower": "1",
+          "upper": "1"
+        }
+      ],
+      "depth": 6,
+      "lags": [
+        1,
+        2
+      ],
+      "mean_interval": [
+        {
+          "lower": "-1",
+          "upper": "-1"
+        },
+        {
+          "lower": "1",
+          "upper": "1"
+        }
+      ],
+      "polynomial_bounds": [
+        {
+          "lower": "0",
+          "upper": "0"
+        },
+        {
+          "lower": "0",
+          "upper": "0"
+        }
+      ],
+      "polynomials": [
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "-1/2",
+            "upper": "-1/2"
+          },
+          {
+            "lower": "1/2",
+            "upper": "1/2"
+          }
+        ],
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "0",
+            "upper": "0"
+          }
+        ]
+      ],
+      "reversible_support_upper": {
+        "lower": "0",
+        "upper": "0"
+      }
+    },
+    "total_failure_upper": {
+      "lower": "1/20",
+      "upper": "1/20"
+    },
+    "whole_record_calibration_penalty": {
+      "lower": "0",
+      "upper": "0"
+    }
+  },
+  "dissipation_limits": {
+    "equal_exit_entropy_intervals": [
+      [
+        {
+          "lower": "0",
+          "upper": "0"
+        },
+        {
+          "lower": "0",
+          "upper": "0"
+        }
+      ],
+      [
+        {
+          "lower": "17232353172728141/2500000000000000",
+          "upper": "13785882538182513/2000000000000000"
+        },
+        {
+          "lower": "17232353172728141/2500000000000000",
+          "upper": "13785882538182513/2000000000000000"
+        }
+      ]
+    ],
+    "finite_budget_pair": {
+      "both_models_have_positive_reverse_rates": true,
+      "entropy_gap_lower": {
+        "lower": "104902913309113579/500000000000000",
+        "upper": "2098058266182271581/10000000000000000"
+      },
+      "exposure": {
+        "lower": "10",
+        "upper": "10"
+      },
+      "full_record_tv_upper": {
+        "lower": "49999999999999/10000000000000000",
+        "upper": "1/200"
+      },
+      "high_entropy_interval": [
+        {
+          "lower": "2174304880493379247/10000000000000000",
+          "upper": "135894055030836203/625000000000000"
+        },
+        {
+          "lower": "2174304880493379247/10000000000000000",
+          "upper": "135894055030836203/625000000000000"
+        }
+      ],
+      "high_entropy_reverse_probability": {
+        "exact_small_value": "1/33374797436264220037422214158899251790667258161822699530422525122222183215322508594108782608384",
+        "lower": "0",
+        "upper": "1/10000000000000000"
+      },
+      "minimax_large_error_probability_lower": {
+        "lower": "199/400",
+        "upper": "4975000000000001/10000000000000000"
+      },
+      "rates_are_identical": [
+        {
+          "lower": "51/50",
+          "upper": "51/50"
+        },
+        {
+          "lower": "26/25",
+          "upper": "26/25"
+        },
+        {
+          "lower": "49/50",
+          "upper": "49/50"
+        },
+        {
+          "lower": "24/25",
+          "upper": "24/25"
+        }
+      ],
+      "reference_entropy_interval": [
+        {
+          "lower": "76246614311107667/10000000000000000",
+          "upper": "19061653577776917/2500000000000000"
+        },
+        {
+          "lower": "76246614311107667/10000000000000000",
+          "upper": "19061653577776917/2500000000000000"
+        }
+      ],
+      "reference_reverse_probability": {
+        "lower": "1201923076923/2500000000000000",
+        "upper": "4807692307693/10000000000000000"
+      },
+      "state_count": 4
+    },
+    "null_entropy_upper_endpoint_means": "positive infinity",
+    "positive_reverse_evidence_without_prior_floor": {
+      "calibrated_reverse_floor": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "confidence_failure_upper": {
+        "lower": "1/20",
+        "upper": "1/20"
+      },
+      "entropy_production_interval": [
+        {
+          "lower": "19159833549657839/5000000000000000",
+          "upper": "38319667099315679/10000000000000000"
+        },
+        {
+          "lower": "52766738636352339/10000000000000000",
+          "upper": "2638336931817617/500000000000000"
+        }
+      ],
+      "expected_duration_upper": {
+        "lower": "5208333333333333333/5000000000000000",
+        "upper": "10416666666666666667/10000000000000000"
+      },
+      "optional_timeout_duration": {
+        "lower": "20833333333333333333/10000000000000000",
+        "upper": "10416666666666666667/5000000000000000"
+      },
+      "prior_entropy_interval": [
+        {
+          "lower": "0",
+          "upper": "0"
+        },
+        null
+      ],
+      "records": 1000,
+      "reverse_count": 10,
+      "reverse_interval": [
+        {
+          "lower": "48053264617919/10000000000000000",
+          "upper": "150166451931/31250000000000"
+        },
+        {
+          "lower": "45783519744873/2500000000000000",
+          "upper": "183134078979493/10000000000000000"
+        }
+      ],
+      "status": "finite_interval",
+      "timeout_probability_upper": {
+        "exact_small_value": "1322070819480806636890455259752144365965422032752148167664920368226828597346704899540778313850608061963909777696872582355950954582100618911865342725257953674027620225198320803878014774228964841274390400117588618041128947815623094438061566173054086674490506178125480344405547054397038895817465368254916136220830268563778582290228416398307887896918556404084898937609373242171846359938695516765018940588109060426089671438864102814350385648747165832010614366132173102768902855220001/114813069527425452423283320117768198402231770208869520047764273682576626139237031385665948631650626991844596463898746277344711896086305533142593135616665318539129989145312280000688779148240044871428926990063486244781615463646388363947317026040466353970904996558162398808944629605623311649536164221970332681344168908984458505602379484807914058900934776500429002716706625830522008132236281291761267883317206598995396418127021779858404042159853183251540889433902091920554957783589672039160081957216630582755380425583726015528348786419432054508915275783882625175435528800822842770817965453762184851149029376",
+        "lower": "0",
+        "upper": "1/10000000000000000"
+      },
+      "timeout_rule": "Return the prior entropy interval; never treat completed-only quotas as an unbiased conditional sample."
+    },
+    "resolved_fixed_quota_repair": {
+      "calibrated_reverse_floor": {
+        "lower": "1/1000",
+        "upper": "1/1000"
+      },
+      "confidence_failure_upper": {
+        "lower": "1/20",
+        "upper": "1/20"
+      },
+      "entropy_production_interval": [
+        {
+          "lower": "19159833549657839/5000000000000000",
+          "upper": "38319667099315679/10000000000000000"
+        },
+        {
+          "lower": "52766738636352339/10000000000000000",
+          "upper": "2638336931817617/500000000000000"
+        }
+      ],
+      "expected_duration_upper": {
+        "lower": "5208333333333333333/5000000000000000",
+        "upper": "10416666666666666667/10000000000000000"
+      },
+      "optional_timeout_duration": {
+        "lower": "20833333333333333333/10000000000000000",
+        "upper": "10416666666666666667/5000000000000000"
+      },
+      "prior_entropy_interval": [
+        {
+          "lower": "0",
+          "upper": "0"
+        },
+        {
+          "lower": "34430229219396827/5000000000000000",
+          "upper": "13772091687758731/2000000000000000"
+        }
+      ],
+      "records": 1000,
+      "reverse_count": 10,
+      "reverse_interval": [
+        {
+          "lower": "48053264617919/10000000000000000",
+          "upper": "150166451931/31250000000000"
+        },
+        {
+          "lower": "45783519744873/2500000000000000",
+          "upper": "183134078979493/10000000000000000"
+        }
+      ],
+      "status": "finite_interval",
+      "timeout_probability_upper": {
+        "exact_small_value": "1322070819480806636890455259752144365965422032752148167664920368226828597346704899540778313850608061963909777696872582355950954582100618911865342725257953674027620225198320803878014774228964841274390400117588618041128947815623094438061566173054086674490506178125480344405547054397038895817465368254916136220830268563778582290228416398307887896918556404084898937609373242171846359938695516765018940588109060426089671438864102814350385648747165832010614366132173102768902855220001/114813069527425452423283320117768198402231770208869520047764273682576626139237031385665948631650626991844596463898746277344711896086305533142593135616665318539129989145312280000688779148240044871428926990063486244781615463646388363947317026040466353970904996558162398808944629605623311649536164221970332681344168908984458505602379484807914058900934776500429002716706625830522008132236281291761267883317206598995396418127021779858404042159853183251540889433902091920554957783589672039160081957216630582755380425583726015528348786419432054508915275783882625175435528800822842770817965453762184851149029376",
+        "lower": "0",
+        "upper": "1/10000000000000000"
+      },
+      "timeout_rule": "Return the prior entropy interval; never treat completed-only quotas as an unbiased conditional sample."
+    },
+    "same_parity_path_log_likelihood": -0.6000000000000001,
+    "unavoidable_infinite_upper_probability": {
+      "lower": "189/200",
+      "upper": "189/200"
+    },
+    "zero_reverse_evidence_without_prior_floor": {
+      "calibrated_reverse_floor": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "confidence_failure_upper": {
+        "lower": "1/20",
+        "upper": "1/20"
+      },
+      "entropy_production_interval": [
+        {
+          "lower": "27768838499901491/5000000000000000",
+          "upper": "55537676999802983/10000000000000000"
+        },
+        null
+      ],
+      "expected_duration_upper": {
+        "lower": "5208333333333333333/5000000000000000",
+        "upper": "10416666666666666667/10000000000000000"
+      },
+      "optional_timeout_duration": {
+        "lower": "20833333333333333333/10000000000000000",
+        "upper": "10416666666666666667/5000000000000000"
+      },
+      "prior_entropy_interval": [
+        {
+          "lower": "0",
+          "upper": "0"
+        },
+        null
+      ],
+      "records": 1000,
+      "reverse_count": 0,
+      "reverse_interval": [
+        {
+          "lower": "0",
+          "upper": "0"
+        },
+        {
+          "lower": "7364273071289/2000000000000000",
+          "upper": "18410682678223/5000000000000000"
+        }
+      ],
+      "status": "unbounded_upper",
+      "timeout_probability_upper": {
+        "exact_small_value": "1322070819480806636890455259752144365965422032752148167664920368226828597346704899540778313850608061963909777696872582355950954582100618911865342725257953674027620225198320803878014774228964841274390400117588618041128947815623094438061566173054086674490506178125480344405547054397038895817465368254916136220830268563778582290228416398307887896918556404084898937609373242171846359938695516765018940588109060426089671438864102814350385648747165832010614366132173102768902855220001/114813069527425452423283320117768198402231770208869520047764273682576626139237031385665948631650626991844596463898746277344711896086305533142593135616665318539129989145312280000688779148240044871428926990063486244781615463646388363947317026040466353970904996558162398808944629605623311649536164221970332681344168908984458505602379484807914058900934776500429002716706625830522008132236281291761267883317206598995396418127021779858404042159853183251540889433902091920554957783589672039160081957216630582755380425583726015528348786419432054508915275783882625175435528800822842770817965453762184851149029376",
+        "lower": "0",
+        "upper": "1/10000000000000000"
+      },
+      "timeout_rule": "Return the prior entropy interval; never treat completed-only quotas as an unbiased conditional sample."
+    }
+  },
+  "evidence": "Exact mathematical certificates and synthetic records; no empirical data",
+  "joint_lag_zero_inference": {
+    "synthetic_fixed_quota_certificate": {
+      "comparison_time_denominator_upper": {
+        "lower": "86096092296142089/10000000000000000",
+        "upper": "8609609229614209/1000000000000000"
+      },
+      "confidence_region": {
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20"
+        },
+        "coefficients": [
+          {
+            "lower": "-361/625",
+            "upper": "-361/625"
+          },
+          {
+            "lower": "38/25",
+            "upper": "38/25"
+          },
+          {
+            "lower": "-1",
+            "upper": "-1"
+          }
+        ],
+        "conditional_bias_penalty": {
+          "lower": "0",
+          "upper": "0"
+        },
+        "conditional_radii": [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "0",
+            "upper": "0"
+          }
+        ],
+        "empirical_contrast": {
+          "lower": "16/625",
+          "upper": "16/625"
+        },
+        "interpretation": "coverage conditional on declared record means; calibration-region failure must be added separately",
+        "lower": {
+          "lower": "-16900566433511/10000000000000000",
+          "upper": "-1690056643351/1000000000000000"
+        },
+        "records": [
+          4000,
+          8000,
+          8000
+        ],
+        "sampling_radius_upper": {
+          "lower": "27290056643351/1000000000000000",
+          "upper": "272900566433511/10000000000000000"
+        },
+        "selection": "predeclared",
+        "successes": [
+          3000,
+          5520,
+          4720
+        ]
+      },
+      "declared_evolution_time": {
+        "lower": "24000",
+        "upper": "24000"
+      },
+      "endpoint_readouts": 40000,
+      "entropy_production_rate_lower": {
+        "lower": "3414552317997/5000000000000000",
+        "upper": "1365820927199/2000000000000000"
+      },
+      "external_contract_failure_upper": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "failure_upper": {
+        "lower": "1/20",
+        "upper": "1/20"
+      },
+      "interpretation": "Lag0 contributes finite-data variance and detector operations; its Q-versus-additive-reversible divergence is exactly zero only under the common ideal twin contract. Entropy interpretation requires the ordinary stationary Markov thermodynamic assumptions.",
+      "lags": [
+        {
+          "lower": "0",
+          "upper": "0"
+        },
+        {
+          "lower": "1",
+          "upper": "1"
+        },
+        {
+          "lower": "2",
+          "upper": "2"
+        }
+      ],
+      "pair_records": 20000,
+      "record_contract": "independent_stationary_pairs",
+      "reversible_gap_lower": {
+        "lower": "271099433566489/10000000000000000",
+        "upper": "27109943356649/1000000000000000"
+      },
+      "status": "positive_certificate",
+      "support": {
+        "coefficients": [
+          {
+            "lower": "-361/625",
+            "upper": "-361/625"
+          },
+          {
+            "lower": "38/25",
+            "upper": "38/25"
+          },
+          {
+            "lower": "-1",
+            "upper": "-1"
+          }
+        ],
+        "equality_example": "Mean-zero reversible one-mode detector with decay x=s; fair state-independent detector also attains equality",
+        "parameter": {
+          "lower": "19/25",
+          "upper": "19/25"
+        },
+        "reversible_support": {
+          "lower": "-18/625",
+          "upper": "-18/625"
+        },
+        "squared_polynomial": [
+          {
+            "lower": "361/625",
+            "upper": "361/625"
+          },
+          {
+            "lower": "-38/25",
+            "upper": "-38/25"
+          },
+          {
+            "lower": "1",
+            "upper": "1"
+          }
+        ]
+      },
+      "twin_contract": "independent_same_state_same_detector"
+    },
+    "why_lag_zero_sampling_uncertainty_cannot_be_dropped": {
+      "explanation": "With one lag0 pair, agreement is zero with probability1/4. Treating that estimate as exact produces false gap3/16 despite a reversible model. Lag0 uncertainty must be retained.",
+      "false_gap_with_exact_science_and_zero_lag_success_zero": {
+        "lower": "3/16",
+        "upper": "3/16"
+      },
+      "one_lag_zero_record_failure_probability": {
+        "lower": "1/4",
+        "upper": "1/4"
+      },
+      "parameter": {
+        "lower": "1/2",
+        "upper": "1/2"
+      },
+      "true_population_gap": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "true_reversible_probabilities": [
+        {
+          "lower": "3/4",
+          "upper": "3/4"
+        },
+        {
+          "lower": "5/8",
+          "upper": "5/8"
+        },
+        {
+          "lower": "9/16",
+          "upper": "9/16"
+        }
+      ]
+    }
+  },
+  "limitations": [
+    "Model certificates do not validate stationarity, memoryless detectors, noninvasiveness, clocks or mixing for an apparatus.",
+    "Each sampling design has its own contract; fixed jump quotas, common blocks, independent pairs and predictable batches are not interchangeable.",
+    "Entropy is in natural units per declared model time; no heat value follows without reservoir and unit calibration.",
+    "Calibration, reset, preparation and readout overheads are additional resources unless explicitly measured.",
+    "Historical novelty, external peer review and laboratory validation are not established by this tutorial."
+  ],
+  "nonlinear_relaxation": {
+    "certified_bracket_gap_upper": {
+      "lower": "9206154309/2000000000000000",
+      "upper": "23015385773/5000000000000000"
+    },
+    "feasible_upper": {
+      "atoms": [
+        [
+          0,
+          {
+            "lower": "29/40",
+            "upper": "29/40"
+          },
+          {
+            "lower": "1",
+            "upper": "1"
+          }
+        ]
+      ],
+      "bernoulli_kl_intervals": [
+        [
+          {
+            "lower": "14310046447639/10000000000000000",
+            "upper": "357751161191/250000000000000"
+          },
+          {
+            "lower": "14310046447639/10000000000000000",
+            "upper": "357751161191/250000000000000"
+          }
+        ],
+        [
+          {
+            "lower": "1246667439021/2000000000000000",
+            "upper": "3116668597553/5000000000000000"
+          },
+          {
+            "lower": "1246667439021/2000000000000000",
+            "upper": "3116668597553/5000000000000000"
+          }
+        ]
+      ],
+      "comparison_probabilities": [
+        {
+          "lower": "109/160",
+          "upper": "109/160"
+        },
+        {
+          "lower": "4041/6400",
+          "upper": "4041/6400"
+        }
+      ],
+      "interpretation": "upper bound on convex record-KL relaxation only; not an upper bound on physical entropy production",
+      "probabilities": [
+        {
+          "lower": "353/500",
+          "upper": "353/500"
+        },
+        {
+          "lower": "7679/12500",
+          "upper": "7679/12500"
+        }
+      ],
+      "record_kl_relaxation_upper": {
+        "lower": "2567922955343/2500000000000000",
+        "upper": "10271691821373/10000000000000000"
+      }
+    },
+    "lower_certificate": {
+      "boxes": [
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "1",
+            "upper": "1"
+          }
+        ],
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "1",
+            "upper": "1"
+          }
+        ]
+      ],
+      "coefficients": [
+        {
+          "lower": "38/25",
+          "upper": "38/25"
+        },
+        {
+          "lower": "-1",
+          "upper": "-1"
+        }
+      ],
+      "contract": "conditional record-KL relaxation; stationary ordinary-reversal CTMC and calibrated full duration needed for entropy rate; no physical optimality claim",
+      "depth": 7,
+      "durations": [
+        {
+          "lower": "1",
+          "upper": "1"
+        },
+        {
+          "lower": "2",
+          "upper": "2"
+        }
+      ],
+      "entropy_production_rate_lower": {
+        "lower": "5453685893241/2000000000000000",
+        "upper": "13634214733103/5000000000000000"
+      },
+      "expectation_minimizer": [
+        {
+          "lower": "9597368421052631/10000000000000000",
+          "upper": "1199671052631579/1250000000000000"
+        },
+        {
+          "lower": "1",
+          "upper": "1"
+        }
+      ],
+      "expected_duration": {
+        "lower": "3/2",
+        "upper": "3/2"
+      },
+      "lags": [
+        1,
+        2
+      ],
+      "log_expectation_lower": {
+        "lower": "11805736406657/10000000000000000",
+        "upper": "5902868203329/5000000000000000"
+      },
+      "lower": {
+        "lower": "1147/2500",
+        "upper": "1147/2500"
+      },
+      "normalizer": {
+        "normalizer_upper": {
+          "lower": "625098762512207/625000000000000",
+          "upper": "10001580200195313/10000000000000000"
+        },
+        "polynomial_bounds": [
+          {
+            "lower": "625098762512207/625000000000000",
+            "upper": "10001580200195313/10000000000000000"
+          }
+        ],
+        "polynomials": [
+          [
+            {
+              "lower": "199/200",
+              "upper": "199/200"
+            },
+            {
+              "lower": "7/500",
+              "upper": "7/500"
+            },
+            {
+              "lower": "-19/2000",
+              "upper": "-19/2000"
+            }
+          ]
+        ]
+      },
+      "record_kl_lower": {
+        "lower": "5112830524913/5000000000000000",
+        "upper": "10225661049827/10000000000000000"
+      },
+      "scores": [
+        [
+          {
+            "lower": "231/250",
+            "upper": "231/250"
+          },
+          {
+            "lower": "259/250",
+            "upper": "259/250"
+          }
+        ],
+        [
+          {
+            "lower": "131/125",
+            "upper": "131/125"
+          },
+          {
+            "lower": "243/250",
+            "upper": "243/250"
+          }
+        ]
+      ],
+      "status": "positive_certificate",
+      "vertices": [
+        [
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "1/2",
+            "upper": "1/2"
+          }
+        ]
+      ],
+      "weights": [
+        {
+          "lower": "1/2",
+          "upper": "1/2"
+        },
+        {
+          "lower": "1/2",
+          "upper": "1/2"
+        }
+      ]
+    },
+    "upper_is_not_physical_entropy_upper": true
+  },
+  "predictable_prefix_replay": [
+    {
+      "batches": 10,
+      "counts": [
+        10,
+        10,
+        0
+      ],
+      "entropy_production_rate_lower": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "guarantee": "anytime over completed batches under the declared conditional-mean and stationary physical contract; no assertion of optimal policy",
+      "predictable_log_score": {
+        "lower": "42389/16384",
+        "upper": "42389/16384"
+      },
+      "records": 30,
+      "records_sha256": "8bcb5dd97a5d1ea5730e540591b5a98b3d19ee106c1e82356dc935c237901c9b",
+      "rejection_threshold_upper": {
+        "lower": "29957322735539909/10000000000000000",
+        "upper": "2995732273553991/1000000000000000"
+      },
+      "status": "no_positive_certificate"
+    },
+    {
+      "batches": 30,
+      "counts": [
+        30,
+        30,
+        0
+      ],
+      "entropy_production_rate_lower": {
+        "lower": "323724364243979/1250000000000000",
+        "upper": "2589794913951833/10000000000000000"
+      },
+      "guarantee": "anytime over completed batches under the declared conditional-mean and stationary physical contract; no assertion of optimal policy",
+      "predictable_log_score": {
+        "lower": "601635/65536",
+        "upper": "601635/65536"
+      },
+      "records": 90,
+      "records_sha256": "25b720ad18adb3d91906d6df8c65142dbcfadb53568a6bc84a04b882db551b9c",
+      "rejection_threshold_upper": {
+        "lower": "29957322735539909/10000000000000000",
+        "upper": "2995732273553991/1000000000000000"
+      },
+      "status": "positive_certificate"
+    },
+    {
+      "batches": 100,
+      "counts": [
+        100,
+        100,
+        0
+      ],
+      "entropy_production_rate_lower": {
+        "lower": "804735389404877/2000000000000000",
+        "upper": "2011838473512193/5000000000000000"
+      },
+      "guarantee": "anytime over completed batches under the declared conditional-mean and stationary physical contract; no assertion of optimal policy",
+      "predictable_log_score": {
+        "lower": "2128845/65536",
+        "upper": "2128845/65536"
+      },
+      "records": 300,
+      "records_sha256": "7f538fac4207169e7e585e52bf048f3699ec3a2780d8096e6e45db4d378c2206",
+      "rejection_threshold_upper": {
+        "lower": "29957322735539909/10000000000000000",
+        "upper": "2995732273553991/1000000000000000"
+      },
+      "status": "positive_certificate"
+    }
+  ]
+}

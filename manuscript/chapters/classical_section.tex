@@ -1,0 +1,288 @@
+\chapter{A finite-time physical access theorem}
+\label{sec:physical-pulse}
+
+An intervention library is scientifically useful only when its operations have
+a physical realization.  The following result gives one such realization:
+native probability current becomes an endpoint population response under a
+selective kinetic intervention.  The result concerns finite-state classical
+Markov dynamics.  It does not require reconstruction of the surrounding
+network, infinitesimal perturbations, or an infinitesimal observation time.
+
+Throughout this section, distributions are row vectors.  A finite row
+generator $Q$ has nonnegative off-diagonal entries and $Q\mathbf 1=0$.
+Let $\pi Q=0$, with $\pi$ a probability distribution, and let $i\ne j$.
+Write $P'(t)=e^{tQ'}$ for the semigroup after a fixed intervention.  The
+intervention remains in place until readout at the predetermined time $t$.
+
+\begin{theorem}[Finite-amplitude endpoint response]
+\label{thm:physical-endpoint-response}
+Suppose $Q'$ is another valid finite generator and differs from $Q$ only in
+the directed rates $i\to j$, $j\to i$, and their compensating diagonal
+entries.  Define
+\[
+ \gamma=\pi_i(Q'_{ij}-Q_{ij})-\pi_j(Q'_{ji}-Q_{ji}).
+\]
+For every finite $t>0$,
+\begin{align}
+ [\pi P'(t)]_j-\pi_j&=\gamma H_{ij}'(t),\label{eq:physical-response}\\
+ H_{ij}'(t)&=\int_0^t\bigl(P'_{jj}(s)-P'_{ij}(s)\bigr)\,ds\nonumber\\
+ &=\int_0^t P'_{jj}(s)\,
+       \Pr_i^{Q'}(\tau_j>t-s)\,ds>0,\label{eq:physical-hitting}
+\end{align}
+where $\tau_j$ is the first hitting time of $j$, starting at $i$.
+Consequently the endpoint displacement has the sign of $\gamma$ for
+every positive time, and vanishes at one such time if and only if
+$\gamma=0$.  Irreducibility of either generator is unnecessary.
+\end{theorem}
+
+\begin{proof}
+The assumptions give $\pi Q'=\gamma(e_j-e_i)$, where $e_k$ denotes the
+row point mass at $k$.  Integrating
+$\frac{d}{ds}\pi P'(s)=\pi Q'P'(s)$ proves
+\eqref{eq:physical-response} and the first expression for $H$.
+Let $F_j(t)=\int_0^tP'_{jj}(s)\,ds$.  Before $\tau_j$, a path starting
+at $i$ spends no time in $j$.  The strong Markov property gives
+\[
+ \int_0^tP'_{ij}(s)\,ds
+ =\mathbb E_i\!\left[
+       \mathbf 1_{\{\tau_j\le t\}}F_j(t-\tau_j)\right].
+\]
+Interchanging nonnegative integrals yields
+\eqref{eq:physical-hitting}.  Set $\lambda_k=-Q'_{kk}$.  A path
+remaining in its initial state gives
+$P'_{jj}(s)\ge e^{-\lambda_j s}$ and
+$\Pr_i(\tau_j>u)\ge e^{-\lambda_i u}$.
+Both factors are strictly positive at finite times, including when
+$\tau_j=\infty$ has positive probability.  Their integral is positive.
+\end{proof}
+
+The integrand $P'_{jj}(s)-P'_{ij}(s)$ in the first line need not be
+positive.  For example, a directed three-cycle has negative instantaneous
+contrast at some times.  The sign theorem follows from the integrated
+first-hitting representation, not from pointwise transition ordering.
+It forbids crossing the \emph{native baseline}; it does not assert that
+the displacement magnitude is monotone or cannot overshoot its eventual
+stationary value.
+
+\begin{corollary}[Local quantitative bounds]
+\label{cor:physical-local-bounds}
+If the perturbed exit rates of $i,j$ have upper bounds
+$\Lambda_i,\Lambda_j$, then
+\[
+ 0<L(t):=\int_0^t
+ e^{-\Lambda_j s-\Lambda_i(t-s)}\,ds
+ \le H'_{ij}(t)\le t.
+\]
+For a common upper bound $\Lambda$, this gives
+$t e^{-\Lambda t}\le H'_{ij}(t)\le t$.
+For unequal bounds,
+$L(t)=(e^{-\Lambda_i t}-e^{-\Lambda_j t})/(\Lambda_j-\Lambda_i)$.
+No rate bound on other states appears.
+\end{corollary}
+
+\section{Selective channels and native current}
+
+A physical channel $e$ between $i$ and $j$ has forward and reverse rates
+$a_e,b_e$.  Several physical channels may share the same state pair.
+The native channel current is
+$J_e=\pi_i a_e-\pi_j b_e$.  Suppose a calibrated intervention multiplies
+\emph{both} rates of this channel by $r\in(0,1)$, leaving all other
+channels unchanged.  Then $\gamma=-(1-r)J_e$, so that
+\begin{equation}
+ D_e(t):=\mathbb E_\pi[
+ \mathbf 1_{\{X_0=j\}}-\mathbf 1_{\{X_t=j\}}]
+ =(1-r)J_e H'_{ij}(t).
+ \label{eq:physical-current-response}
+\end{equation}
+Thus one resolved endpoint population, compared before and after a
+fixed kinetic step, identifies the orientation of the native channel
+current in the ideal exact-law limit.  The stationary distribution
+\emph{after} intervention generally changes and must not be substituted
+for $\pi$ when defining that native current.
+
+This access genuinely separates some passively indistinguishable
+mechanisms.  On two observed states, the two-channel rate assignments
+$(a_1,b_1,a_2,b_2)=(3,1,1,3)$, $(2,2,2,2)$, and $(1,3,3,1)$ all give
+the same aggregate generator with rates $4$ in each direction.  Their
+first-channel native currents are $1,0,-1$.  A factor-$1/2$ selective
+intervention produces negative, zero, and positive endpoint displacements
+according to \eqref{eq:physical-current-response}.  A common additive
+state-level control applied to their identical aggregate generators
+cannot make that distinction.
+
+In an Arrhenius model a barrier increase can scale the two rates by
+the same factor while preserving their ratio.  Whether a particular
+chemical, transport, or electronic device provides this selective
+control is an empirical calibration question.  A binding reporter,
+an arbitrary inhibitor, or a change of a shared reservoir does not
+automatically implement the required operation.
+
+\section{Which coarse detectors preserve the theorem?}
+
+\begin{corollary}[A sufficient entrance-gateway condition]
+\label{cor:physical-gateway}
+Let $B$ contain $j$ but not $i$.  If every directed path from $i$ into
+$B$ under $Q'$ first visits $j$, then
+\[
+ H'_{i,j;B}(t):=\int_0^t
+     \bigl(P'_j(X_s\in B)-P'_i(X_s\in B)\bigr)\,ds
+ =\int_0^tP'_j(X_s\in B)\Pr_i(\tau_j>t-s)\,ds>0.
+\]
+Theorem~\ref{thm:physical-endpoint-response} therefore also holds for
+the $B$-occupancy displacement, with this kernel.  The same local
+lower bound applies since $P'_j(X_s\in B)\ge P'_{jj}(s)$.
+\end{corollary}
+
+The proof is the same first-hitting decomposition: occupation in $B$
+before $\tau_j$ is zero.  The gateway property is checkable by removing
+$j$ and testing whether $i$ can still reach any state in $B$.
+
+A more general sufficient condition is a regenerative entrance law.
+Let $\nu_A$ be supported outside $B$, let $\nu_B$ be supported inside
+$B$, and suppose
+$\pi Q'=\gamma(\nu_B-\nu_A)$.
+If, starting from $\nu_A$, the entrance state at $\tau_B$ has law
+$\nu_B$ independent of the entrance time, then the response of
+$B$-occupancy is $\gamma$ times
+\[
+ \int_0^t\Pr_{\nu_B}^{Q'}(X_s\in B)
+             \Pr_{\nu_A}^{Q'}(\tau_B>t-s)\,ds>0.
+\]
+Independence here means the joint entrance law factors, including
+conditioning on any set of finite entrance times.  It does not follow
+from generic coarse graining.  The strong Markov property after
+entrance and this stated factorization prove the claim.
+
+Without such an interface condition the sign can reverse classically.
+Consider the four bidirectional channels
+\[
+ (i,j,a,b)=(0,1,2,1),\ (0,2,10,1),\ (1,3,10,1),\ (2,3,1,3).
+\]
+The native law is $(7,4,80,30)/121$.  Suppressing channel $0\leftrightarrow1$
+by $1/2$ gives stationary law $(13,6,140,50)/209$.
+For the coarse detector $B=\{1,2\}$, the initial displacement derivative
+is $-5/121$ but the stationary displacement is $10/2299>0$.
+Continuity therefore forces a finite-time crossing.  The resolved
+singleton $\{1\}$ retains the sign theorem.  A measured crossing alone
+is consequently not a device-independent witness of quantum dynamics.
+
+\section{Calibration and finite independent records}
+
+For classical noninvasive paired readout, define
+$Z=\mathbf 1_{\{X_0=j\}}-\mathbf 1_{\{X_t=j\}}\in[-1,1]$.
+From $N$ independently prepared records, Hoeffding's inequality gives
+\[
+ \Pr(|\overline Z-\mathbb EZ|\ge s)\le
+           2\exp(-Ns^2/2).
+\]
+This classical paired observation is an additional access assumption;
+an initial quantum measurement can disturb the prepared state.
+
+Suppose the inferred response lies in $[d_-,d_+]$, a calibrated factor
+lies in $[r_-,r_+]\subset(0,1)$, and both endpoint exit rates are at most
+$\Lambda$.  If preparation is within total variation $\eta$ of native
+stationarity, its contribution to paired-response bias is at most
+$2\eta$.  Let $b$ bound this and all other propagated response biases.
+Set
+\[
+ I_D=[d_--b,d_++b]\cap[-1,1],\qquad
+ I_G=[(1-r_+)t e^{-\Lambda t},\ (1-r_-)t].
+\]
+An enclosing native-current interval is
+\begin{equation}
+ I_J=\left[
+ \min_{d\in\partial I_D,\ g\in\partial I_G}\frac d g,
+ \max_{d\in\partial I_D,\ g\in\partial I_G}\frac d g
+ \right].\label{eq:physical-current-interval}
+\end{equation}
+The denominator is strictly positive.  The implementation replaces
+the exponential by a rational Taylor-series enclosure.  If $I_J$
+contains zero, the orientation is unresolved.  A joint calibration
+failure allowance is added to the sampling allowance once; calibration
+and sampling need not be independent for that union bound.
+
+The fixed-pulse kernel interval generally leaves a nonzero magnitude
+uncertainty even with infinitely many records.  One can calibrate the
+kernel separately or shorten the pulse while increasing sample size.
+The next bound makes the latter option explicit.
+
+\begin{proposition}[A constructive magnitude-precision bound]
+\label{prop:physical-magnitude}
+Assume exact native-stationary preparation, an exactly calibrated
+$a=1-r>0$, endpoint exit bound $\Lambda>0$, and
+$|J_e|\le J_{\max}>0$.  If $\pi_j\le p_{\max}\le1$, then
+\[
+ \left|\frac{\mathbb EZ}{at}-J_e\right|
+ \le J_{\max}\Lambda t,\qquad
+ \operatorname{Var}(Z)\le
+ V(t):=\min\{1,(2p_{\max}\Lambda+aJ_{\max})t\}.
+\]
+For target absolute error $\varepsilon>0$, choose
+$t=\varepsilon/(2J_{\max}\Lambda)$ and
+$s=at\varepsilon/2$.  The estimator $\overline Z/(at)$ has error at
+most $\varepsilon$ with probability at least $1-\alpha$ whenever
+\[
+ N\ge\frac{2\log(2/\alpha)}{s^2}
+       \left(V(t)+\frac{2s}{3}\right).
+\]
+For fixed nonzero model bounds this is a sufficient
+$N=O(\varepsilon^{-3})$ record count.  It is not a minimax lower bound.
+\end{proposition}
+
+\begin{proof}
+The response identity and $e^{-\Lambda t}\le H(t)/t\le1$ give the
+bias bound, using $1-e^{-x}\le x$.  Since
+$Z^2=\mathbf 1_{\{X_0=j\}}+\mathbf 1_{\{X_t=j\}}
+       -2\mathbf 1_{\{X_0=j,X_t=j\}}$,
+\[
+ \mathbb EZ^2=2\pi_j(1-P'_{jj}(t))-D_e(t)
+ \le2p_{\max}\Lambda t+aJ_{\max}t.
+\]
+Also $Z^2\le1$ and $|Z-\mathbb EZ|\le2$.
+Bernstein's inequality bounds the sampling error by $s$ at the stated
+count.  Dividing by $at$ contributes $\varepsilon/2$, and the
+deterministic bias contributes the remaining $\varepsilon/2$.
+\end{proof}
+
+The precision bound is conditional.  A fixed unmodeled response bias
+is amplified by $1/(at)$ as pulses shorten.  The appropriate finite
+error method must retain this bias or abstain.  No rate of convergence
+is claimed for arbitrary imperfect hardware.
+If no tighter current cap is available, the same local calibration
+supplies $J_{\max}=\Lambda/r$: the perturbed exit rates bound
+$ra_e$ and $rb_e$, and
+$|\pi_i a_e-\pi_j b_e|\le\max(a_e,b_e)$.  This bound can be
+conservative but requires no reconstruction of the surrounding network.
+
+\section{Physical resources and experimental acceptance}
+
+Neither a kinetic suppression factor nor an equilibrium-preserving
+rate ratio is a complete energy account.  An applied experiment must
+include native fuel consumption, stationary preparation, resets,
+selective control, detector operation, recording, and calibration.
+If independent calibration supplies a per-record upper energy bound
+$E_0+P_{\max}t$, Proposition~\ref{prop:physical-magnitude} implies
+the corresponding \emph{sufficient} bound
+$N(E_0+P_{\max}t)$.  For small $\varepsilon$, its preparation term
+scales as $O(\varepsilon^{-3})$ and its active-pulse term as
+$O(\varepsilon^{-2})$.  These conditional engineering bounds are not
+universal thermodynamic precision laws.
+
+The physical acceptance conditions are native stationary preparation;
+a stable, time-homogeneous generator during each record; selective
+two-endpoint control with independently bounded cross-effects; a
+resolved endpoint or certified gateway detector; predetermined pulse
+duration; and readout while the perturbed generator is still applied.
+State-dependent stopping, feedback, releasing the perturbation before
+readout, uncalibrated detector latency, and arbitrary hidden-state
+aggregation require their own analysis.  Violating any of these
+conditions can explain an observed failure of the sign law.
+
+The implementation also supplies a stronger-access route based on
+local transition counts.  Stopping at a fixed accumulated source-state
+exposure makes a specified transition count Poisson with parameter
+equal to rate times exposure.  It does not make counts conditionally
+Poisson at fixed elapsed time.  Source exposure can take arbitrarily
+long wall time; a deadline-limited acquisition must report incomplete
+exposure rather than silently condition its statistical guarantee on
+completion.

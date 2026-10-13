@@ -1,0 +1,148 @@
+THERMODYNAMIC BRIDGE — 2026-10-12
+Owner: thermodynamic_bridge. Author attribution remains Abdinoor / 2D Labs.
+
+SURVIVING RESULT
+For a stationary finite homogeneous even-state CTMC Q, common noninvasive
+binary detector with independent readout noise, and independently chosen
+positive lag U, the dimensionless stationary entropy production obeys
+
+  sigma E[U] >= 4 inf_{q in reversible correlation moment set}
+                         sum_k w_k KL_Ber(p_k || q_k).
+
+p_k is the probability of matching binary endpoints at lag t_k. The complete
+proof and assumptions are in manuscript/thermodynamic.tex. This is a physical
+entropy bound only with the corresponding even-state local-detailed-balance
+contract. It is not a bound on quantum entropy production or on equilibrium
+underdamped systems with odd variables. Physical entropy rate is k_B sigma;
+under an isothermal steady dissipative realization power is k_B T sigma.
+
+PROOF CHECKPOINT
+1. Q* is the pi-adjoint; S=(Q+Q*)/2 is a reversible generator with same pi.
+2. Stationary trajectory KL(Q||S)=t d(Q,S). Pair flux a,b contributes
+   a log(2a/(a+b))+b log(2b/(a+b)) <= (a-b)log(a/b)/4.
+   Factor1/4 is sharp near a=b. It is an established JS/Jeffreys inequality.
+3. The S correlation is m^2+sum b_l exp(-lambda_l t), b_l>=0,
+   sum b_l<=1-m^2. Independent detector noise allows f_i in [-1,1].
+4. At positive commensurate lags missing spectral mass can be padded by
+   an atom x=0 in the Hausdorff moment set. This is a closure; x=0 need
+   not correspond to a finite relaxation rate.
+5. Random lag has the same distribution under Q and S, so path KL is
+   E[U] d(Q,S). Data processing to (lag, matching endpoint bit) gives result.
+6. A convex outer relaxation of the reversible moment set keeps validity.
+   Relaxation q1>=...>=qK>=1/2 is exact weighted binomial PAVA.
+7. For two lags, if simultaneous confidence bounds p1<=u<v<=p2 hold,
+   rate lower bound is 4 JS_w(Ber(u),Ber(v))/(w t1+(1-w)t2).
+   This can be positive when both p1,p2>=1/2 and when observed two-time
+   time-reversal KL is identically zero. All stationary binary pair laws
+   have equal off-diagonal probabilities, so this latter zero is exact.
+
+PRACTICAL EXAMPLE
+40-state biased ring: forward20, backward1, uniform stationary law.
+Detector +1 on first20 states, -1 on other20. Lags8/5 and21/10.
+Rational uniformization yields
+  p1 in [.511989466390,.511989466391]
+  p2 in [.736044845959,.736044845960].
+Both individual negative-correlation bounds zero; equal-weight two-lag bound
+sigma>=.058501035648. Actual sigma=19 log20≈56.9189131975, so inference is
+qualitative/low-efficiency, not near-tight reconstruction.
+Synthetic independent counts2560/5000 and3680/5000 with Hoeffding radius.02:
+combined failure <=2exp(-4)<.05 and bound sigma>.039302147509.
+These are mathematical/synthetic records, not new experimental evidence.
+
+OBSTRUCTIONS
+An irreducible reversible four-state model gives negative transient
+preparation contrast with zero stationary entropy production. A separate
+root/realization_limits construction extends reversible finite-window
+approximation using a prepared biased clock, at nonzero initial free energy.
+Dimension, oscillation frequency and rate are not interchangeable with heat.
+Equilibrium underdamped oscillation defeats any interpretation that omits
+odd physical variables. Unknown correlated detector noise or invasive
+measurement can defeat the endpoint correlation contract. Exact stationarity
+needs external control or conservative calibration error, not a finite-data
+assertion that all hidden states have equilibrated.
+
+IMPLEMENTATION
+code/thermodynamic.py: standard-library Fraction certificate routines;
+atanh log intervals; finite Bernoulli KL; single-lag bound; robust two-lag
+bound; weighted PAVA; finite independent-count validation; exact rational
+uniformization for stationary ring. Real-valued inputs reject binary floats.
+Tests use independent NumPy/SciPy/mpmath comparisons and explicit controls.
+Commands:
+  python code/thermodynamic.py
+  python -m unittest discover -s tests -p test_thermodynamic.py -v
+Run from realization_frontier. Fourteen tests passed 2026-10-12. Seed78231:
+60 random CTMCs of3..8 states, path bound, stationarity and endpoint DPI;
+seed182:30 five-lag isotonic comparisons against independent SLSQP.
+Exact ring probabilities cross-checked against SciPy expm. Stable output
+results/thermodynamic.json includes scope and synthetic-label metadata.
+
+PRIMARY LITERATURE / POSITION
+- Crooks and Sivak2011, J Stat Mech P06003, DOI10.1088/1742-5468/2011/06/P06003,
+  https://threeplusone.com/pubs/Crooks2011a.pdf . Eq14 gives the underlying
+  Jensen-Shannon <= Jeffreys/8 normalized inequality. Established ingredient.
+- Choi and Wolfer2024, IEEE Trans Information Theory70, DOI10.1109/TIT.2023.3304685,
+  arXiv2303.03650. Reversible generator f-divergence projections are established.
+- Dechant, Garnier-Brun and Sasa2023, PRL131167101,
+  DOI10.1103/PhysRevLett.131.167101; arXiv2303.13038. Uses correlation times to
+  infer dissipation even without detectable time-reversal asymmetry.
+- Raux, Maier and Seifert2026, arXiv2608.03619. Finite-lag crosscorrelation
+  asymmetry bounds; their asymmetry is zero for the same scalar observable.
+- Shiraishi2026, arXiv2609.34352. Counterexamples to a proposed eigenvalue-only
+  EPR bound. Amplitude-sensitive stationary data avoids that false route.
+- Anonymous Evidence Press technical release Oct3,2026,
+  https://evidencepress.org/releases/hidden-dissipation-floor/ . Closely related
+  sigma/4 reversibilization plus reversible spectral-mixture separation;
+  unrefereed/low provenance, but cannot assert broad novelty while ignoring it.
+  Literature agent is independently checking linked PDF and metadata.
+
+HISTORICAL STATUS
+The general reversibilization bridge, its divergence constant and spectral
+positivity are not new claims. Specific finite-lag binary correlation
+confidence/certificate composition may be a useful contribution; priority
+remains unestablished. Root owns the stronger full moment-cone dual compiler
+in a separate module. No external review or laboratory validation performed.
+
+ADDED PREPARATION / HOUSEKEEPING FRONTIER
+Root proposed and thermodynamic_bridge and frontier_redteam independently
+checked the nonstationary extension. Q retains a positive stationary law pi,
+but actual initial law nu is arbitrary. Reference S starts in pi. Exit rates
+of Q,Q*,S agree POINTWISE, hence the path chain rule is
+  KL(Q_nu || S_pi) = D(nu||pi) + integral nu_s rowKL(Q||S) ds
+                  <= D(nu||pi) + (1/2) integral sigma_hk(nu_s) ds.
+Here sigma_hk(nu)=sum_i nu_i sum_j qij log(qij/q*ij) is the standard
+housekeeping/adiabatic rate. Each row is nonnegative because equal exit rates
+turn it into exit_rate times a KL between jump-destination probabilities.
+Random independent lag averages the integrated term. Thus any valid record
+separation J from the stationary reversible reference cone obeys
+  D(nu||pi) + (1/2) E integral_0^U sigma_hk(nu_s) ds >= J.
+A known upper bound Dmax on initial divergence gives integrated housekeeping
+>=2 max(0,J-Dmax). If Q detailed-balanced, D(nu||pi)>=J. If nu=pi the earlier
+factor1/4 gives the stronger stationary result. The unknown stationary mean
+cannot be replaced by the actual transient mean; use full mean range or
+independent calibration. Root's dual compiler handles that constraint.
+
+Factor1/2 is sharp uniformly: use outgoing distributions
+p=(1-eps^2,eps^2), q=(1-eps,eps), whose ratio KL(p||mean)/KL(p||q) tends1/2.
+Realize this as row0 of a positive 3-state generator with offdiagonals
+q01=1-eps^2,q02=eps^2,q10=1-eps,q20=eps,q12=1,q21=1-eps+eps^2.
+Its stationary law is uniform. A sufficiently short interval starting at0
+approaches the rowwise sharpness. Tests check positivity, stationary law,
+factor ratio, integrated chain-rule bound and endpoint data processing.
+This does not assert final observed bounds always attain their lower limit.
+
+Physical interpretation: D(nu||pi) is initial information relative to the
+stationary law. It becomes beta times nonequilibrium free energy only with a
+calibrated equilibrium Gibbs reference. The standard decomposition is
+sigma_total = sigma_hk - dD(nu_t||pi)/dt for homogeneous Q, not sigma_hk alone.
+Primary source: Esposito and Van den Broeck, PRE82,011143(2010),
+DOI10.1103/PhysRevE.82.011143, arxiv1005.1683, Eqs32,33,37-41. The decomposition
+is established prior work; the operational record-separation budget is a
+candidate synthesis. Inspected anonymous2026 source excludes nonstationarity.
+
+UPDATED IMPLEMENTATION
+two_lag_resource_frontier returns J, preparation budget, and housekeeping
+lower bound. ring_same_bounds accepts optional rational detector means f_i
+in[-1,1], with independent readout interpretation and initial coefficient
+mean(f_i^2). This supports root's full-moment curvature example: positive,
+decreasing correlations whose second difference is negative, where negative
+correlation and revival tests both fail. Full moment dual is root-owned.

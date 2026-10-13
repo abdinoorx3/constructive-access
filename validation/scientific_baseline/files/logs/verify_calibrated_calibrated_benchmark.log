@@ -1,0 +1,28 @@
+driven: 100/400
+driven: 200/400
+driven: 300/400
+driven: 400/400
+driven: calibrated_pinsker=350/400, calibrated_nonlinear=348/400, uncalibrated_extra_lag=400/400, legacy_extra_lag=392/400
+equilibrium: 100/400
+equilibrium: 200/400
+equilibrium: 300/400
+equilibrium: 400/400
+equilibrium: calibrated_pinsker=0/400, calibrated_nonlinear=0/400, uncalibrated_extra_lag=0/400, legacy_extra_lag=0/400
+high_readout_noise: 100/400
+high_readout_noise: 200/400
+high_readout_noise: 300/400
+high_readout_noise: 400/400
+high_readout_noise: calibrated_pinsker=0/400, calibrated_nonlinear=0/400, uncalibrated_extra_lag=5/400, legacy_extra_lag=5/400
+invalid_calibration: 100/400
+invalid_calibration: 200/400
+invalid_calibration: 300/400
+invalid_calibration: 400/400
+invalid_calibration: calibrated_pinsker=400/400, calibrated_nonlinear=400/400, uncalibrated_extra_lag=0/400, legacy_extra_lag=0/400
+counts-only audit: 200/1600
+counts-only audit: 400/1600
+counts-only audit: 600/1600
+counts-only audit: 800/1600
+counts-only audit: 1000/1600
+counts-only audit: 1200/1600
+counts-only audit: 1400/1600
+counts-only audit: 1600/1600

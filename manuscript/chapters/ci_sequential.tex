@@ -1,0 +1,127 @@
+\chapter{Learning an experiment without discarding its past}
+\label{ci:sequential}
+
+A fixed contrast is valid when selected before its evaluation records. An
+independent pilot permits selection, but its measurements have a physical cost.
+There is a third option: use past records to choose the next contrast and bet,
+and charge every choice to a single sequential evidence process. This chapter
+applies established predictable betting and conditional Hoeffding concentration
+to the thermodynamic contrast \cite{caHoeffding1963,caVille1939,vlHoward2021}.
+It does not claim a new concentration inequality.
+
+\section{The acquisition contract}
+At batch $j$, select coefficients $a_{jk}$, a valid reversible support $b_j$,
+nonnegative bet $\lambda_j$, and positive full-path duration bounds $t_{jk}$,
+using only completed past batches. Collect one binary agreement record $Y_{jk}$
+at each selected setting. Given all earlier readouts, including those already
+collected in the same batch, its conditional mean lies within $\delta_{jk}$ of
+the corresponding target law $p_{jk}$. All target laws concern the same
+stationary physical mechanism and entropy rate $\sigma$. Each menu satisfies
+the earlier clock and detector contract.
+
+This conditional-mean premise permits the exponential bound below; stationary
+marginals alone do not. Independent stationary preparations are one way to
+satisfy it. The coefficients, support, bet and radii are held fixed throughout
+the current batch. Physical calibration is independently justified before the
+run; uncertainty in that justification adds its failure allowance. Selecting
+favorable calibration after observing the current data is unsupported.
+
+Write
+\[
+ K_j=\sum_k |a_{jk}|\sqrt{t_{jk}},\qquad
+ B_j=\sum_k |a_{jk}|\delta_{jk}.
+\]
+The physical contrast bound gives
+$a_j\cdot p_j-b_j\le K_j\sqrt{\sigma/8}$. Define
+\[
+ S_n=\sum_{j\le n}\lambda_j(a_j\cdot Y_j-b_j-B_j)
+       -\frac18\sum_{j\le n}\lambda_j^2\|a_j\|_2^2,
+ \qquad H_n=\sum_{j\le n}\lambda_jK_j.
+\]
+
+\begin{theorem}[Anytime physical lower bound]
+Under this contract, for $0<\alpha<1$, with probability at least $1-\alpha$,
+simultaneously at every completed batch with $H_n>0$,
+\[
+ \sigma\ge L_n:=8\left(
+ \frac{[S_n-\log(1/\alpha)]_+}{H_n}\right)^2.
+\]
+When $H_n=0$, set $L_n=0$. Stopping at a data-dependent completed batch
+preserves the statement. The theorem does not make an arbitrary learned
+contrast or stopping rule valid outside the specified evidence process.
+\end{theorem}
+\begin{proof}
+For a candidate upper entropy value $s$, consider
+$M_n(s)=\exp\{S_n-H_n\sqrt{s/8}\}$. Conditional Hoeffding bounds can be
+applied successively to the bounded binary readouts of a batch. Their variance
+proxies add because each centered increment obeys its own conditional
+moment-generating bound; unconditional independence is not invoked.
+The conditional bias costs at most $B_j$. If the physical entropy is at most
+$s$, the contrast bridge bounds the remaining conditional drift by
+$K_j\sqrt{s/8}$. Thus $M_n(s)$ is a nonnegative supermartingale starting at
+one. Apply Ville's inequality at the true value $s=\sigma$ and rearrange its
+simultaneous upper bound $M_n(\sigma)<1/\alpha$. No union bound over candidate
+$s$ is needed: coverage is proved at the single true physical value.
+If all bets vanish, the convention returns no positive information.
+\end{proof}
+
+The denominator is a mathematical comparison-weight quantity, not the total
+experimental expenditure. Actual observation time sums every acquired path;
+preparation, calibration and detector costs remain additional. The same applies
+when a stopping rule reduces the number of records acquired.
+
+\section{A replayable policy}
+For three lag indices, the implementation uses
+$a_s=(-s^2,2s,-1)$ and $b_s=-(1-s)^2/2$. It estimates the useful location
+$s\simeq C_2/C_1$ from completed past counts, rounds to a fixed rational grid
+and clips to $[0,1]$. A nonnegative, bounded plug-in bet uses those same past
+counts. The first batch has zero bet. This is one transparent policy, not an
+optimal adaptive controller. A fixed-$s$ policy supplies a matched sequential
+comparison, and the earlier fixed-horizon contrast remains another baseline.
+
+The exact replay checker recomputes every decision before reading the current
+batch. Exported lower bounds use outward rational logarithm and square-root
+enclosures. Replaying the code checks arithmetic and decision dependence; it
+does not verify the provenance or physical timing of an externally supplied
+record. Those belong to the acquisition contract.
+
+\section{A held-out test of adaptation and stopping}
+The frozen experiment uses 400 independent datasets in each of four specified
+40-state ring scenarios. A batch acquires three independent stationary pairs,
+at times $0.15,0.30,0.45$. Each method receives the same bank, but sequential
+decisions can access only completed prefixes. The maximum is 5,000 batches,
+or 15,000 pairs and 4,500 units of evolution time. No separate pilot is used.
+Preparation and readout energy remain uncalibrated.
+
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule
+Scenario & Learned sequential & Fixed sequential & Fixed horizon\\
+\midrule
+Original drive & $301/400$ & $311/400$ & $369/400$\\
+Changed drive & $400/400$ & $399/400$ & $399/400$\\
+Equilibrium & $4/400$ & $0/400$ & $0/400$\\
+High readout noise & $10/400$ & $17/400$ & $5/400$\\
+\bottomrule
+\end{tabular}\end{center}
+
+In the changed-drive model, the learned policy uses a mean of 869.175 pairs,
+including the full cost of any non-detection. The fixed sequential policy uses
+3,471.3525 pairs and the fixed-horizon test 15,000. Their corresponding mean
+evolution times are 260.7525, 1,041.40575 and 4,500. The pointwise 95\%
+Monte Carlo interval for the learned detection probability is
+$[99.082\%,100\%]$; 400 successes do not prove certain detection.
+
+The fixed contrast is the previously selected $s=2/3$, and the fixed sequential
+policy learns only its bet. This comparison demonstrates adaptation to the
+changed mechanism without receiving its parameters. It does not compare
+against every possible fixed contrast or an oracle supplied with the true
+mechanism. In the original drive regime the fixed-horizon method has higher
+power. The adaptive equilibrium false-exclusion estimate is $1\%$, with a
+pointwise 95\% interval of approximately $[0.273\%,2.540\%]$, consistent with
+the $5\%$ guarantee. Strong readout noise remains a low-power regime.
+
+The retained bank and exported prefix certificates bind every reported stopping
+decision to its preceding observations. Independent checks compare vectorized
+integer scores with exact rational replay. These numerical results establish
+neither universal policy optimality nor an empirical hardware advantage.

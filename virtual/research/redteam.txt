@@ -1,0 +1,232 @@
+INDEPENDENT REVIEW — VIRTUAL LABORATORY
+Abdinoor / 2D Labs, 12 October 2026.
+
+Status
+
+The apparatus, conditional-sampling and fixed-contrast statements below survive
+independent derivation under their declared contracts. Simulations test those
+contracts and implementations; they are not laboratory validation. Independent
+test outputs are in results/independent.json. Historical originality is a
+separate question; conditional Hoeffding, positive spectral calculus, Pinsker
+and Cauchy-Schwarz are established ingredients.
+
+1. Independent timing and exposure audit
+
+For reversible stationary Q, an endpoint correlation is a nonnegative mixture
+of exp(-lambda t), with spectral mass at most one. Thus the stated universal
+clock criterion is correct: for every lambda>=0 the sampled Laplace profile
+must be a probability moment vector on[0,1]. Sufficiency is closure under
+positive mixtures, padded at0; necessity follows from a symmetric two-state
+chain with that single relaxation rate. Testing a finite rate grid does not
+establish this universal premise.
+
+Common IID nonnegative increments imply one effective channel
+P=E exp(QX), with E exp(Q sum_{j=1}^k X_j)=P^k. They preserve both reversible
+correlation structure and finite-state common-channel factorization. A random
+scale held for an entire waiting period instead gives E exp(Q kV). It preserves
+the thermodynamic moment cone but can increase the minimum common-channel
+dimension. The independently checked two-state example has occupation
+p_k=1/2+(2^-k+4^-k)/4 and a strictly positive3x3 Hankel determinant. The
+controller's persistent scale variable cannot be omitted from a memory claim.
+
+Mean timing does not suffice. For equilibrium correlation exp(-t), let T1=1
+and T2 be .1 or3.9 with equal probability. Mean times are1 and2, but the
+averaged correlation increases. The timing module additionally shows that even
+stochastically ordered clocks can violate higher moment constraints.
+
+For identical disjoint length-L detector blocks with reversal-invariant bounded
+path functional F, conditional expectation at the left block's final state
+equals the expectation at the right block's initial state. Reversibility is
+needed for that equality. Therefore the gap-T correlation is <g,exp(ST)g>_pi
+with |g|<=1. The full compared path lasts2L+T, not T. Independent detector
+noise conditional on physical paths and noninvasiveness remain essential.
+
+An important new adversarial control was contributed during this review.
+Take an equilibrium two-state correlation exp(-lambda t); each block reports
+a fair random choice of its two endpoint signs. With center/start separation
+kDelta>=L, the correlation is A x^k, where
+A=cosh(lambda L/2)^2>1 and x=exp(-lambda Delta).
+Then C2<C1^2, violating the normalized Hausdorff moment condition even though
+blocks are disjoint and the physical process is equilibrium. In terms of the
+actual inter-block gap, the amplitude is instead
+((1+exp(-lambda L))/2)^2<=1 and the theorem is restored. Consequently finite
+exposure is not automatically a harmless timing error, and the time coordinate
+must be correct. The timing chapter now includes an exact rational instance.
+
+The independently checked antisymmetric-block example also yields negative
+equilibrium correlation. This is outside the reversal-symmetric block contract.
+For nonlinear block functionals the stationary detector mean under the actual
+process need not equal its mean under the reversible reference. The safe
+comparison is the mean-unrestricted cone unless a reference mean is justified.
+
+2. Conditional means, overlap and mixing
+
+Fixed quotas with predictable setting routing admit the stated concentration
+bound. If each current record has conditional mean in p_k+/-delta_k given the
+entire past and the selected setting, center each increment at that conditional
+mean and apply the conditional Hoeffding lemma. The predictable indicator of
+setting k gives exactly n_k increments at termination. Adding n_k delta_k
+controls deviation from the fixed target p_k; a union bound supplies the joint
+box. No independence assumption is needed under this stronger conditional
+premise. Data-dependent stopping or selective record inclusion is not covered.
+
+Marginal stationarity is not that premise. The extreme control Z_i=B for one
+fair bit B has Bernoulli(.5) marginals but a sample mean always0 or1. A
+four-state stationary equilibrium process in the production simulation gives
+a less artificial version: shared endpoints retain a slowly changing sector,
+causing severe undercoverage and false equilibrium exclusions if declared IID.
+
+A uniform hidden-state total-variation mixing envelope controls the complete
+next pair record by Markov-kernel contraction. The additive-reversibilization
+spectral gap gives the stated L2 contraction and uniform TV upper bound
+(1/2)sqrt((1-pi_min)/pi_min) exp(-gap*blind_time). It is valid for nonreversible
+Q as well, provided the gap is that of its stationary symmetrization. This is
+an externally justified contract, not something established by fitting the
+unknown target data. Detector/controller memory must be included in the mixed
+state or separately reset. Calibration failure allowances must refer to valid
+external/pretest contract events, not postselected favorable observations.
+
+The blind-gap correction has a major real cost. The frozen example compares
+approximately3.6million model-time units with1800 units of pair evolution.
+Fresh stationary preparations have their own unmodeled cost. These outcomes
+do not support a claim that waiting is universally efficient.
+
+3. Fixed-contrast inference and time optimization
+
+For a fixed coefficient vector a and rigorous reversible support b, write
+C=a dot p-b>0. For every reversible q, a dot(p-q)>=C. Bernoulli Pinsker and
+weighted Cauchy-Schwarz imply
+  J_w >= 2 C^2 / sum_k(a_k^2/w_k).
+The stationary path comparison therefore gives
+  sigma >= 8 C^2 /[(sum_k w_k t_k)(sum_k a_k^2/w_k)].
+The denominator is minimized by w_k proportional to |a_k|/sqrt(t_k), with
+minimum (sum_k |a_k|sqrt(t_k))^2. Zero coefficients can be omitted. This is an
+optimization of a mathematical mixture; it is not a claim that the existing
+physical sample allocation had those proportions.
+
+For fixed quotas n_k, the one-sided contrast radius is
+sqrt[.5 log(1/alpha) sum_k a_k^2/n_k]. A conditional-mean or calibration radius
+delta_k costs sum_k |a_k|delta_k. This proof also works with predictable
+fixed-quota routing. The contrast, support and quotas must be fixed before
+held-out data; choosing them from an independent pilot is valid. Optimizing
+the virtual mixture after this one simultaneous contrast event is harmless.
+Optimizing the coefficient vector after looking at those same outcomes is not.
+
+Durations must bound the expected full compared path for the target record
+laws, including exposure blocks. Blind mixing before a stationary pair is an
+additional experimental cost, even if it is not part of the path used for the
+stationary endpoint divergence comparison.
+
+The strongest time-independent Pinsker-derived record-KL bound uses rational
+weights |a_k|/sum|a| and denominator(sum|a|)^2. This improvement was requested
+and incorporated. Review also identified a narrowed-reference-mean issue in
+the first contrast API: its preparation/housekeeping interpretation needed
+the same explicit stationary-reference calibration guard as the fourth
+edition. That guard is now present; default mean-unrestricted outputs were
+valid throughout.
+
+The refined cubic contrast has a useful exact meaning. For0<=s<=1,
+  a_s=(-s^2,2s,-1), b_s=-(1-s)^2/2
+is a tight reversible support certificate because -x(x-s)^2<=0 on[0,1].
+Writing C_k=2p_k-1, its violation is
+  .5(-s^2 C1+2s C2-C3).
+Its unconstrained optimum is s=C2/C1 when C1>0, giving
+.5(C2^2/C1-C3), a Hankel log-convexity violation. An independent pilot may
+propose that location and then freeze a rational contrast. The second-loop
+contract instead freezes the particular rational s=2/3 before fresh outcomes;
+knowledge of first-loop outcomes is appropriately disclosed.
+
+4. Simulator independence and interpretation
+
+The thermodynamic laboratory generates ring states from independent forward
+and backward Poisson jump counts, then generates readouts from physical
+endpoint states. The inference receives agreement counts, not true currents
+or hidden states. Independent tests compare its probabilities with matrix
+exponentials, and compare its prepared-equilibrium direct Gillespie paths
+with an independently evaluated two-state transition law. This avoids using
+the inference's certificate formula to manufacture its observations.
+
+The dimension laboratory uses Bloch evolution and separately checks a full
+Lindblad representation. Independent review supplies a third calculation via
+Rodrigues rotations with depolarization. Its ordinary-noise engine averages
+the one-step channel and raises that common channel to successive powers;
+its retained shots draw a fresh error label at each step. Quasi-static labels
+are explicitly separated as controller memory. Fixed errors can reduce power
+without invalidating the common-channel theorem; setting-dependent detector
+response can manufacture the witness on a one-state object and is retained
+as an outside-contract control.
+
+The saved dimension shot stream is an independently generated stream, not the
+aggregate binomial Monte Carlo data. Its post-generation random permutation
+of independent shots does not establish drift-robust physical acquisition.
+Record counts and physical evolution durations are reconstructed in the
+independent tests. Shape/integer checks were requested for plan certification,
+classification and numerical power; missing settings can no longer be silently
+truncated by zip. Explicit grid-size propagation was also corrected.
+
+5. Comparison quality and unresolved empirical work
+
+The old frozen full-cone score is not the best prior-framework baseline.
+The root added numerically proposed optimized scores with exact continuous
+checking. The fixed-contrast procedure sacrifices unrestricted post-data
+contrast selection for better targeted concentration; it is not universally
+superior. Records, timing and access are matched within each held-out dataset.
+
+The dimension pilot costs260,000 records in addition to18,300 production
+records. Review requested an equal-total-budget comparator, now implemented.
+It shows ordinary extra averaging wins some regimes, while common-step
+retiming repairs phase-offset failures that the original fixed region cannot
+handle well. There is no universal total-cost optimization win. Reuse of a
+pilot over future batches additionally assumes stable apparatus behavior.
+
+Monte Carlo intervals quantify uncertainty in simulated rejection frequencies.
+Dimension and thermodynamic laboratories report marginal Clopper-Pearson
+intervals; the dependence demonstration explicitly labels Wilson intervals.
+Zero simulated rejections are not zero false-positive risk. These numerical
+intervals and solver checks are distinct from the exact rational certificates.
+
+The remaining physical bottlenecks are genuine experimental justification of
+stationarity or preparation budgets, noninvasive fixed observation, detector
+memory control, timing compatibility and physical reversal parity. None is
+established merely by a successful virtual experiment or a fitted Markov model.
+
+6. Exact confidence-box countermodels and a remaining calibration lever
+
+The new reversible_box_witness API constructs rational x in(0,1) and A in[0,1]
+such that q_k=(1+A*x^k)/2 lies in every reported interval. Independent review
+verifies the asserted probabilities using matrix exponentiation of the symmetric
+two-state generator with rate -log(x)/(2*Delta), stationary weights(1/2,1/2),
+and independent stochastic detector means(+sqrt(A),-sqrt(A)). This is a genuine
+zero-stationary-dissipation model at deterministic indexed lags. Tests also bind
+the exact witness to its lag/interval contract and reject altered probabilities,
+amplitude, decay and incomplete settings. An unsuccessful rational-grid search
+is correctly reported as inconclusive, never as proof of infeasibility.
+
+The consequence must remain precise: a positive bound cannot hold uniformly
+over every process represented by that whole rectangular admissible set when
+it contains this countermodel. This does not prove that the numerical box has
+destroyed the counts or that every inference receiving the box must fail. A
+different simultaneous confidence construction, including the fixed-contrast
+method, can use the same data differently. The midpoint can retain essentially
+the original count information. The obstruction concerns the use of the entire
+box as the asserted confidence set, not an information-theoretic loss from its
+file representation.
+
+For a known nondegenerate clock distribution, the same q_k is always a point
+in the outer reversible moment cone, but need not be realized by this two-state
+generator under that exact clock law. In particular a common random scale
+produces E[x^(kV)], not x^k. The API correctly distinguishes comparison-cone
+membership from the deterministic-clock physical countermodel. A calibrated
+detector restriction can also exclude the proposed stochastic detector; no
+additional detector calibration is assumed silently.
+
+A promising next experiment, not implemented in this release, is independent
+zero-lag paired-readout calibration of the stationary detector second moment
+E_pi[g^2]. It constrains the total decaying spectral mass and may exclude some
+low-amplitude two-state countermodels that the present mean-unrestricted cone
+allows. For fixed noninvasive endpoint observations, Q and its additive
+reversibilization share pi and g, so this calibration transfers to the comparison
+model. Independent uncertainty must be carried into the inference. For nonlinear
+finite-exposure observations the analogous block statistic does not automatically
+transfer and needs a new argument. This is an additional access/calibration
+assumption, not an improvement obtainable from the current three counts alone.

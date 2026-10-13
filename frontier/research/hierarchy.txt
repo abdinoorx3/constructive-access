@@ -1,0 +1,93 @@
+FINITE-RECORD CLASSICAL REALIZATION HIERARCHY
+Abdinoor / 2D Labs
+Research phase: realization_frontier. Recorded 2026-10-12 UTC.
+
+STATUS
+Proved scoped theorem, exact-arithmetic implementation, 11 passing producer
+checks, independent redteam review requested. Calculated quantum examples, no
+laboratory data. Historical priority remains unestablished.
+
+NEW ROUTE RELATIVE TO THIRD EDITION
+The previous one-window bound excludes <=3 hidden states but a four-state
+classical model can match its integrated scalar contrast. Keep 2N-1 observation
+times instead. A single fixed preparation/readout and repeated homogeneous
+Markov channel gives p_k=alpha P^k f. The matrix M_ij=p_(N+i-j), i,j=0,...,N-1,
+factors through the n hidden states with stochastic left factors and right
+factors in [0,1]. This holds for arbitrary stochastic P, thus includes CTMCs and
+IID random timing increments. No hidden preparation support or rate bound is
+needed; the same channel/readout/preparation must actually be used.
+
+ROBUST ANTICHAIN PROOF
+Suppose M_ii<=epsilon and M_ij>=beta for i!=j. At response threshold tau, define
+S_i={k:B_ki<tau}. The diagonal bound gives alpha_i(S_i^c)<=epsilon/tau. Inclusion
+S_i subset S_j implies M_ij<=tau+(1-tau)epsilon/tau. Therefore strict beta above
+that value makes all subsets incomparable. Sperner gives
+N <= choose(n,floor(n/2)). Choosing tau=sqrt(epsilon) gives the sufficient
+condition beta>2sqrt(epsilon)-epsilon. Exact zero epsilon uses zero supports.
+The cardinality bound is sharp for arbitrary stochastic factors but no claim
+of sharpness for homogeneous Hankel realizations is made.
+
+EXPLICIT QUBIT
+L(rho)=-i(omega/2)[X,rho]+gamma(Tr(rho)I/2-rho), preparation|0>, detector|1>.
+Delta=2pi/(N omega), r=omega/gamma.
+p_k=(1-exp(-2pi k/(rN))*cos(2pi k/N))/2.
+Diagonal p_N=(1-exp(-2pi/r))/2. For N>=4 all offdiag >=sin^2(pi/N).
+Sufficient coherence threshold: p_N<(1-cos(pi/N))^2.
+This scales as N^-4. Inverse central-binomial(N) grows only logarithmically in
+N. Thus arbitrary finite state exclusions exist at finite coherence/precision,
+but this transparent hierarchy is inefficient at high dimension.
+
+VERIFIED FIXED EXPERIMENT
+N7 =>13 settings; r1000. Forbidden classical region epsilon0=.006,beta0=.15,
+tau=.08, comparison bound .149. Count design in results/hierarchy.json and
+manuscript/hierarchy.tex totals18300 independent records /126900 repeated
+channel applications. Exact rational geometric binomial tail certificates give
+false rejection <=.0490476235097, miss <=.0157068771259. This excludes all <=4
+state homogeneous Markov explanations under the common-interface contract.
+Quantum diagonal <=.003131743688, smallest offdiag >=.188534795093.
+No sample or elapsed-energy optimality claim. Coherence1000 and very low
+diagonal leakage are material experimental demands; fixed detector noise is
+included in the observed means and can erase the witness.
+
+STATISTICAL DESIGN
+Intersection-union test: reject if diagonal count is low AND every offdiag
+count is high. A classical null violates at least one inequality. Hence type I
+is bounded by the largest individual tail, not the sum. Power is bounded by
+the sum of alternative misses. IID within settings is required for supplied
+binomial calculations; independence across different settings is not needed
+for this union/intersection argument. Parameter search uses floating proposals
+but every reported comparison is rational/integer. Record calibration bias can
+be included as null +/-delta and alternative adverse +/-delta.
+
+PRIOR ART / LIMITS
+Sperner, nonnegative-factorization support bounds, and quantum realization-size
+separation are established. Literature agent identified:
+- Gillis, Nonnegative Matrix Factorization (SIAM2020), Theorem3.20, citing
+  de Caen1981 for zero-diagonal Boolean-rank antichain result.
+- Shahandeh/Yianni/Doosti arXiv2406.19382, Theorem1(a), quantum antichain dimension.
+- Heinosaari/Kerppo/Leppajarvi/Plavala PhysRevA109032627(2024), arXiv2308.07727v4:
+  exact same sin^2[(i-j)pi/N] matrix up to2/N scale; exact A7 nonnegative rank6,
+  stronger than generic Sperner5 in zero-noise case.
+The candidate contribution is the nonzero-noise threshold and its one-channel,
+finite-observation, finite-record operational certificate. Exact match and
+historical priority assessment remain open. Do not rename the established
+zero-noise separation as a discovery. Do not equate nonnegative rank, bounded
+stochastic factor rank, and homogeneous realization dimension.
+
+FAILURE CONTROLS
+Changing readout with observation step lets one hidden state mimic any curve.
+Nonhomogeneous dynamics/history-dependent preparation can defeat the shared
+factorization. Arbitrary total-time jitter cannot be bounded without rate or
+record calibration; IID timing increments can be absorbed into one channel.
+An N-state deterministic discrete cycle exactly reproduces ideal qubit p_k.
+No thermodynamic cost follows from hidden state count alone. Finite-data
+realization bounds do not exclude all classical explanations or prove a new
+physical law.
+
+REPRODUCTION
+python -m unittest discover -s discovery_program/realization_frontier/tests -p test_hierarchy.py -v
+python discovery_program/realization_frontier/code/hierarchy.py
+11 tests pass (2.528 seconds in this run), including exact small binomial tails,
+70-digit independent mpmath checks,75 random CTMCs across dimensions1..5,
+sharp abstract antichain examples, classical larger-cycle realization, and
+frozen18300-record exact certificate.

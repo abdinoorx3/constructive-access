@@ -1,0 +1,435 @@
+\chapter{Precision, calibration, and experimental design}
+\label{precision:chapter}
+
+Exact identifiability asks whether some accessible record law changes when the
+scientific target changes. Precision asks how much evidence is needed to resolve
+that change. These questions have different answers. A nonzero rational contrast
+can be arbitrarily small, an invertible response matrix can be arbitrarily poorly
+conditioned, and a short distinguishing experiment can require many repetitions.
+This chapter supplies upper and lower guarantees that connect the exact access
+layer to decisions a scientist can use.
+
+Throughout, $\theta$ denotes a fixed physical model, $g(\theta)$ the target, and
+$P_\theta^\pi$ the law of the complete accessible record under a common permitted
+protocol $\pi$. A resource contract specifies preparation, actions, stopping,
+and the meaning of every budget. The general statistical ingredients below are
+established: binary testing, optimal recovery, concentration, and belief-state
+dynamic programming. Their role here is to make the interfaces explicit.
+
+\section{What the best possible precision means}
+
+For probability laws $P,Q$ on a common record space, use the convention
+\[
+ \operatorname{TV}(P,Q)=\sup_A|P(A)-Q(A)|
+ =\tfrac12\int|p-q|\,d\mu,
+\]
+where $\mu$ dominates both laws. If the two models are known and equally likely,
+the smallest average probability of choosing the wrong model is
+\begin{equation}
+ r^*(P,Q)=\frac{1-\operatorname{TV}(P,Q)}2.
+ \label{precision:tv-risk}
+\end{equation}
+Indeed, choose the first model on $\{p\geq q\}$; the resulting error is
+$\frac12\int\min(p,q)\,d\mu$, and pointwise minimization shows that no other
+decision rule has smaller error. This is an average error for specified priors.
+It is not automatically a bound on each of the two conditional errors.
+
+Let $\Pi_C$ be the declared class of protocols admissible at resource budget $C$.
+With the access setting fixed, abbreviate the frontier of
+Equation~\eqref{foundations:frontier} by
+\begin{equation}
+ D_C(\theta_0,\theta_1)=
+ \sup_{\pi\in\Pi_C}\operatorname{TV}(P_{\theta_0}^\pi,P_{\theta_1}^\pi).
+ \label{precision:resource-discrimination}
+\end{equation}
+For known equal-prior alternatives, the infimum achievable average error is
+$(1-D_C)/2$. A supremum need not be attained by a protocol. If the budget classes
+are nested, $D_C$ is nondecreasing. No shape, universal energy scale, or efficient
+algorithm for this function follows from its definition.
+
+\begin{proposition}[A resource-dependent lower bound for real targets]
+\label{precision:two-point}
+Let $g$ be real valued, and let an estimator $T$ use the record of any
+$\pi\in\Pi_C$. The policy, its randomization rule, and the estimator must be the
+same under both alternatives. Then
+\begin{equation}
+ \max_{j=0,1}\mathbb E_{\theta_j}^{\pi}|T-g(\theta_j)|
+ \geq \frac{|g(\theta_0)-g(\theta_1)|}{2}
+ \bigl[1-\operatorname{TV}(P_{\theta_0}^\pi,P_{\theta_1}^\pi)\bigr].
+ \label{precision:two-point-fixed}
+\end{equation}
+Consequently, for any parameter family $\Theta$,
+\begin{equation}
+ \inf_{\pi\in\Pi_C,\,T}\sup_{\theta\in\Theta}
+ \mathbb E_\theta^\pi|T-g(\theta)|
+ \geq \sup_{\theta_0,\theta_1\in\Theta}
+ \frac{|g(\theta_0)-g(\theta_1)|}{2}
+ [1-D_C(\theta_0,\theta_1)].
+ \label{precision:two-point-resource}
+\end{equation}
+Expectations may be infinite. The bound is not asserted to be attainable.
+\end{proposition}
+\begin{proof}
+Write $g_j=g(\theta_j)$ and $p_j=dP_{\theta_j}^\pi/d\mu$. The triangle inequality
+gives, pointwise,
+\[
+ p_0|T-g_0|+p_1|T-g_1|
+ \geq\min(p_0,p_1)(|T-g_0|+|T-g_1|)
+ \geq |g_0-g_1|\min(p_0,p_1).
+\]
+Integration and $\int\min(p_0,p_1)=1-\operatorname{TV}(P_0,P_1)$ prove
+\eqref{precision:two-point-fixed}. Independent estimator randomization is a
+common probability kernel and the same argument applies after adjoining its
+random seed. For every fixed pair, replacing the policy's total variation by
+its supremum over $\Pi_C$ weakens the bound uniformly in $\pi$. Taking the
+infimum on the left and then the supremum over pairs proves
+\eqref{precision:two-point-resource}; no minimax interchange is used.
+\end{proof}
+
+This is the standard two-point method associated with Le Cam
+\cite{caLeCamYang2000}. It identifies an important failure case: an invisible
+target difference has $D_C=0$ at every allowed budget, so more computation on
+the same records cannot remove its ambiguity. If invisible pairs have arbitrarily
+large finite target separation, the worst absolute-error risk is infinite.
+The conclusion follows by taking those finite pairs, without undefined products
+involving infinity. A lower bound caused by restricted access is different from
+a claim that all information about the system has a universal cap.
+
+\section{Linear intervention responses: from rank to stable recovery}
+
+Suppose $\theta\in\Theta\subset\mathbb R^p$ and a known matrix
+$F\in\mathbb R^{m\times p}$ represents intervention responses. Two physical
+assumptions are needed before its algebra describes the apparatus:
+\begin{enumerate}
+ \item If $F\theta=F\theta'$, every permitted complete record law agrees.
+ \item If every permitted complete record law agrees, then $F\theta=F\theta'$.
+\end{enumerate}
+The first is law factorization; the second is access sufficiency. A hidden
+generator's dependence on $F\theta$ may establish the first while leaving the
+second unproved for a coarse detector. Unknown preparation or a
+parameter-dependent detector can invalidate either identification argument.
+
+For example, controlled continuous-time generators with known entries
+$q_0+F\theta$ give factorization when preparations and readout are known and
+parameter independent. Access sufficiency follows in an idealized setting where
+every state is preparable and resolved, and transition laws are accessible at
+arbitrarily short times: the derivative at zero identifies each generator entry.
+Finite bandwidth and finite data require additional bounds; that idealization
+does not provide them.
+
+\begin{proposition}[A target-specific row-space criterion]
+\label{precision:row-space}
+Assume both conditions above and a nonempty open domain $\Theta$. The linear
+target $g(\theta)=b^{\mathsf T}\theta$ is identifiable if and only if
+$b\in\operatorname{row}(F)$, equivalently $F^{\mathsf T}w=b$ for some $w$.
+\end{proposition}
+\begin{proof}
+Such a $w$ yields $g(\theta)=w^{\mathsf T}F\theta$, so access sufficiency proves
+the claim. Conversely, if $b$ is outside the row space, there is
+$h\in\ker(F)$ with $b^{\mathsf T}h\ne0$. At an interior point $\theta_*$,
+both $\theta_*+th$ and $\theta_*-th$ are allowed for sufficiently small $t>0$.
+Factorization makes their laws identical, while their targets differ.
+\end{proof}
+
+On a relatively open affine parameter domain $\theta_*+V$, the correct condition
+is that $b$ annihilate $V\cap\ker F$. Known constraints can therefore resolve
+ambiguities that remain on the full open domain. Full parameter reconstruction
+requires more than reconstruction of a particular scientific target.
+
+Now suppose the measured or statistically estimated response satisfies
+\begin{equation}
+ \widehat y=F\theta+e,\qquad |e_i|\leq\epsilon_i,
+ \label{precision:response-error}
+\end{equation}
+where every $\epsilon_i$ is known and nonnegative. Any $F^{\mathsf T}w=b$ gives
+\begin{equation}
+ |w^{\mathsf T}\widehat y-b^{\mathsf T}\theta|
+ \leq \sum_i\epsilon_i|w_i|.
+ \label{precision:linear-upper}
+\end{equation}
+No independence of coordinate errors is needed. If the entire box is certified
+with probability at least $1-\delta$, this deterministic conclusion has at least
+that coverage. How the box is obtained remains a separate experimental question.
+
+\begin{theorem}[Global deterministic minimax recovery]
+\label{precision:linear-minimax}
+Assume the parameter domain is the entire positive orthant
+$\mathbb R^p_{>0}$, $F$ is known, and every error vector in the full Cartesian
+box $[-\epsilon,\epsilon]$ is admissible. If $b\in\operatorname{row}(F)$, then
+\begin{align}
+ &\inf_T\sup_{\theta>0,\,|e|\leq\epsilon}
+       |T(F\theta+e)-b^{\mathsf T}\theta| \nonumber\\
+ &\hspace{8mm}=\min_{F^{\mathsf T}w=b}\sum_i\epsilon_i|w_i|
+   =\max_{|Fh|\leq\epsilon}b^{\mathsf T}h.
+ \label{precision:linear-duality}
+\end{align}
+The extrema on the right exist, including when some error radii vanish.
+If $b\notin\operatorname{row}(F)$, the recovery risk is infinite, the middle
+problem is infeasible, and the dual supremum is unbounded.
+\end{theorem}
+\begin{proof}
+Equation~\eqref{precision:linear-upper} proves the upper bound. For any dual-feasible
+$h$, choose a componentwise center $\theta_*>|h|$. The two positive parameters
+$\theta_*\pm h$, with errors $\mp Fh$, produce the same observation
+$\widehat y=F\theta_*$. Their target separation is $2|b^{\mathsf T}h|$.
+Every estimate at that common observation errs by at least $|b^{\mathsf T}h|$
+on one of them. The feasible set for $h$ is symmetric, giving the displayed
+dual lower bound.
+
+Write $w=u-v$, $u,v\geq0$. The middle value equals the linear program
+\[
+ \min_{u,v\geq0}\epsilon^{\mathsf T}(u+v)
+ \quad\hbox{subject to }F^{\mathsf T}u-F^{\mathsf T}v=b.
+\]
+Its dual is exactly $\max b^{\mathsf T}h$ subject to
+$Fh\leq\epsilon$ and $-Fh\leq\epsilon$. The primal is feasible with a finite
+nonnegative infimum, and the dual is feasible at zero. Finite-dimensional linear
+programming duality supplies attainment and equality \cite{caBoyd2004}.
+If $b$ is outside the row space, scale an $h\in\ker F$ with
+$b^{\mathsf T}h>0$ and repeat the common-observation construction to obtain
+arbitrarily large error lower bounds.
+\end{proof}
+
+An independently checkable certificate consists of $w,h$ satisfying
+$F^{\mathsf T}w=b$, $|Fh|\leq\epsilon$, and
+$\sum_i\epsilon_i|w_i|=b^{\mathsf T}h$. The checker need not trust the optimizer.
+This is a structured, globally worst-case specialization of the compatible-set
+geometry in Proposition~\ref{foundations:radius}. A particular observed
+$\widehat y$ may give a smaller feasible target interval. Bounded parameter
+domains or correlated error constraints can also lower the minimax value;
+their replacement by the full positive orthant or full error box changes the
+problem being solved.
+
+\subsection{A calibrated intervention example}
+
+Two unresolved positive channel rates have baseline response
+$y_0=\theta_1+\theta_2$. A calibrated intervention produces
+$y_1=r\theta_1+\theta_2$, with known $r\geq0$. Thus
+\[
+ F_r=\begin{pmatrix}1&1\\r&1\end{pmatrix},\qquad
+ \theta_1=\frac{y_1-y_0}{r-1}\quad(r\ne1).
+\]
+At equal response-error radius $\epsilon$, the exact global minimax error for
+$\theta_1$ is $2\epsilon/|r-1|$. For the primal choose
+$w=(-1,1)/(r-1)$; a matching dual is
+$h=\epsilon(2,-r-1)/|r-1|$. Its two response coordinates have magnitudes
+$\epsilon$, and its first component equals the claimed error.
+At $\epsilon=0.01$, responses $r=1/2,0.9,0.99,0.999$ give errors
+$0.04,0.2,2,20$. At $r=1$ the channel is unidentifiable. Exact full rank near
+$r=1$ does not establish useful precision.
+
+Adding a third response with $r=2$ to the baseline and $r=1/2$ gives, at the
+same three error radii $0.01$, optimal weights $(0,-2/3,2/3)$ and error $1/75$.
+The dual $h=(1/75,-1/60)$ proves optimality. This improvement presumes that
+the extra measurement does not worsen the existing error bounds; a fixed
+physical budget may require a different comparison.
+
+Unknown selectivity is a decisive control: $(\theta_1,\theta_2,r)=(3,1,1/2)$
+and $(2,2,1/4)$ both give $(y_0,y_1)=(4,5/2)$. Inserting a nominal $r$ into a
+known-matrix certificate does not validate it when $r$ is unknown.
+
+\section{From one record to a finite-error experiment}
+
+\subsection{Known laws and affinity}
+
+For known finite record laws define their Bhattacharyya affinity
+\cite{caBhattacharyya1943}
+\[
+ \rho(P_0,P_1)=\sum_z\sqrt{P_0(z)P_1(z)}.
+\]
+Cauchy--Schwarz gives $0\leq\rho\leq1$, with equality at one exactly when the
+two laws agree. For $M$ independent records under the same fixed model,
+the likelihood-ratio decision rule has equal-prior average error at most
+\begin{equation}
+ r_M^*\leq\tfrac12\rho(P_0,P_1)^M.
+ \label{precision:affinity}
+\end{equation}
+To prove this, use $\min(p,q)\leq\sqrt{pq}$ in
+Equation~\eqref{precision:tv-risk}; affinity multiplies over product laws.
+An outward rational upper bound $\overline\rho<1$ therefore certifies a
+sufficient record count. An upper enclosure at least one certifies no such
+count at that precision. It need not mean that the actual laws are equal.
+
+The product-law premise requires independent preparations or a justified
+independent-record construction. If a nuisance parameter is fixed but unknown,
+it stays fixed in every factor. Averaging its law independently at every record
+models a different experiment. Full common support also prevents perfect
+finite-record classification, even when the affinity bound becomes very small.
+
+\subsection{A robust bounded-score witness}
+
+Let $f(z)\in[0,1]$ be chosen before acquisition. It may be an event indicator.
+Suppose all nominal models in target class $+$ satisfy
+$\mathbb E f\geq a_0$, and all in class $-$ satisfy $\mathbb E f\leq b_0$.
+Suppose actual one-record laws are within total variation $\eta_+$ or $\eta_-$
+of their respective nominal laws. Since bounded-score expectations change by
+at most total variation, define
+\begin{equation}
+ a=\max(0,a_0-\eta_+),\quad
+ b=\min(1,b_0+\eta_-),\quad \gamma=a-b.
+ \label{precision:robust-gap}
+\end{equation}
+
+\begin{proposition}[A uniform finite-record guarantee]
+\label{precision:score-test}
+If $\gamma>0$, classify as $+$ when the mean of $M$ scores exceeds
+$(a+b)/2$, and as $-$ otherwise. For independent records under each fixed
+actual model, each conditional error probability is at most
+\[
+ \exp(-M\gamma^2/2).
+\]
+In particular, $M\geq2\log(1/\alpha)/\gamma^2$ gives each error at most
+$\alpha$. The same bound holds for a dependent sequence of scores in $[0,1]$
+if every full-history conditional mean is at least $a$ under class $+$ or at
+most $b$ under class $-$.
+\end{proposition}
+\begin{proof}
+Under $+$, the rejection threshold is at least $\gamma/2$ below the mean.
+Hoeffding's inequality gives the result, and the argument for $-$ is symmetric
+\cite{caHoeffding1963}. For the conditional version, Hoeffding's bounded-variable
+moment-generating-function lemma gives, under $+$,
+\[
+ \mathbb E[\exp(-t(X_i-a))\mid\mathcal F_{i-1}]
+ \leq\exp(t^2/8),\qquad t\geq0.
+\]
+Iterate conditional expectations, apply Markov's inequality to the sum, and
+minimize
+\[
+ \exp(-tM\gamma/2+Mt^2/8)
+\]
+at $t=2\gamma$.
+\end{proof}
+
+A nonpositive robust gap means that this certificate fails. It does not prove
+that every possible protocol fails. A one-record separating score can also fail
+for composite hypotheses even when repeated records identify them: a fixed
+Bernoulli parameter in $\{0.2,0.8\}$ cannot be separated by a single bounded
+score from parameter $0.5$, because the latter law is the average of the first
+two. Repeated independent observations of the same fixed parameter separate
+the classes through the sample mean.
+
+The inverse-square bound is sufficient, not a universal sample-complexity law.
+For Bernoulli probabilities $0$ and $\varepsilon$, deciding for the second
+model after the first success has zero error under the first and error
+$(1-\varepsilon)^M$ under the second. A fixed error then needs order
+$\varepsilon^{-1}$ records. Interior alternatives such as
+$1/2\pm\varepsilon$ behave differently.
+
+\section{Calibration must cover the experiment that is executed}
+
+For a classical hidden-state instrument, calibration concerns the joint
+distribution of the next hidden state and observed outcome. Suppose the initial
+state laws differ by at most $\eta_0$ in total variation and, at step $k$, every
+admissible state, retained history and selected action has joint-kernel error
+at most $\eta_k$. Require $0\leq\eta_k\leq1$, including $k=0$; any looser
+total-variation bound can first be truncated at one. Under a common causal policy,
+\begin{equation}
+ \operatorname{TV}(P_{\mathrm{actual}}^\pi,P_{\mathrm{nominal}}^\pi)
+ \leq 1-(1-\eta_0)\prod_{k=1}^H(1-\eta_k)
+ \leq\eta_0+\sum_{k=1}^H\eta_k.
+ \label{precision:kernel-calibration}
+\end{equation}
+Couple the initial states maximally and use the same policy randomization. As
+long as the histories and hidden states agree, the next coupled state/outcome
+agrees with conditional probability at least $1-\eta_k$. Multiplication gives
+the first bound; a union bound gives the second. Stopping can be padded with an
+identical absorbing action. Bounds on detector marginals alone are insufficient:
+two instruments can give the same immediate output while placing the hidden
+state in different conditions for the next experiment.
+
+For quantum instruments, represent each entire outcome-retaining operation as a
+completely positive trace-preserving map to a classical--quantum output. An
+initial trace-distance bound $\eta_0$ and half-diamond-norm bounds $\eta_k$
+give the additive analogue of \eqref{precision:kernel-calibration}. A telescoping
+hybrid argument inserts one actual operation at a time; trace-distance
+contractivity, including ancillas and later feedback channels, bounds its
+contribution by $\eta_k$ \cite{caWatrous2018}. The classical multiplicative
+coupling bound is not asserted for arbitrary quantum channels. A norm on an
+unconstrained signed matrix representation is not by itself a physical channel
+calibration certificate.
+
+There are two distinct routes for propagating repeated-record errors. A uniform
+one-record radius can be incorporated into the score gap before amplification.
+Alternatively, an independently justified whole-dataset total-variation bound
+$\Delta$ changes any nominal decision error by at most $\Delta$.
+It is incorrect to add a one-record radius only once to a many-record decision
+error. Under independent product-law models a radius $\eta$ yields the dataset
+bound $1-(1-\eta)^M\leq M\eta$, which may be too loose to be useful.
+
+\section{Choosing a protocol for the stated decision}
+
+The shortest or lowest-charge exact witness minimizes a qualitative objective:
+it obtains any nonzero distinction. It need not minimize the resources needed
+for a prescribed error. A deeper single record may improve its contrast enough
+to reduce total repetitions, or its extra control and reset costs may outweigh
+that improvement. An experiment report should compare the full decision at
+matched resource budgets.
+
+For a finite candidate family $j=1,\ldots,K$, let $x_j$ be the unnormalized
+hidden-state row vector whose mass $m_j=x_j\mathbf1$ includes the candidate's
+prior and the probability of the observed history. Each candidate has a target
+label $g_j$. If an action $a$ yields outcome $y$, the update is
+$x_j'=x_jM_{j,a,y}$. A fixed nuisance value is represented within the index $j$;
+it is never resampled between updates. Let
+\[
+ L(x)=\sum_jm_j-\max_v\sum_{j:g_j=v}m_j
+\]
+be the Bayes error mass incurred by stopping and choosing a target label. For
+two single-model target classes this is $\min(m_0,m_1)$.
+
+\begin{proposition}[Finite-horizon Bayes design]
+\label{precision:bellman}
+Fix finite classical instruments with nonnegative kernels satisfying
+$\sum_y M_{j,a,y}\mathbf1=\mathbf1$, a common finite action/outcome library,
+nonnegative integer charges $c(a)$, remaining budget $B$, and a finite remaining
+action horizon $h$. A finite grammar state
+$q$ determines legal actions, a transition $q'=\Phi(q,a)$, and whether stopping
+is permitted. Assign every candidate a strictly positive prior, so zero-mass
+branches are impossible under every candidate and may safely be ignored when
+enforcing feasibility. The minimum Bayes error mass satisfies
+\begin{equation}
+ V_{h,B,q}(x)=\min\left\{
+ \begin{array}{l}
+ L(x)\quad\hbox{if stopping is permitted},\\[1mm]
+ \displaystyle\min_{\substack{a\ \mathrm{legal},\ c(a)\leq B\\h>0}}
+       \sum_y V_{h-1,B-c(a),\Phi(q,a)}
+       ((x_jM_{j,a,y})_{j=1}^K)
+ \end{array}\right\}.
+ \label{precision:bellman-equation}
+\end{equation}
+An unavailable alternative has value $+\infty$; a zero-mass branch has value
+zero. The initial vectors are the supplied prior-weighted initial states.
+\end{proposition}
+\begin{proof}
+At horizon zero only permitted stopping is possible. At a positive horizon, a
+causal policy first stops or selects an available action. Conditional histories
+of distinct outcomes are disjoint, so their unnormalized error masses add.
+By induction, each continuation has risk at least the corresponding displayed
+value. Selecting minimizing continuations attains that value. Randomizing the
+first action forms a convex combination and cannot lower the minimum.
+\end{proof}
+
+This is standard belief-state dynamic programming \cite{caBellman1957}.
+Rational probabilities and charges allow exact finite arithmetic. Finite horizon
+is essential even with zero-charge actions. Search can still grow exponentially;
+an implementation reaching its declared state limit has not certified an
+optimum. This result optimizes the given priors, model library, target loss,
+grammar and budget. Robust minimax design, unknown nuisance priors, new physical
+controls and different energy accounting are different optimization problems.
+An unmodeled candidate is not repaired by solving this recurrence more exactly.
+
+\subsection{Fisher information answers a different question}
+
+For a regular scalar Bernoulli model, local Fisher information is
+$I(\theta)=[p'(\theta)]^2/[p(\theta)(1-p(\theta))]$. Consider two equally costly
+probes, $p_A(\theta)=\theta^2$ and $p_B(\theta)=(1+\theta/2)/2$, at the target
+alternatives $\theta=\pm1/2$. Probe $A$ has Fisher information $16/3$ at either
+point, while probe $B$ has $4/15$. Yet $A$ is exactly blind to the sign, whereas
+$B$ distinguishes it. Probe $A$ resolves a local change of magnitude, so there
+is no contradiction. The example explains why maximizing local information,
+minimizing Bayes classification risk, and minimizing energy for target precision
+must be stated as separate objectives.
+
+The next chapter adds two requirements for use outside a closed model exercise:
+the option to withhold a target when the candidate predictions fail, and a
+physical resource ledger whose uncertainty composes with the inference guarantee.

@@ -1,0 +1,26 @@
+{
+  "study": "direct_analog_scores_vs_virtual_coin_encoding",
+  "frozen_before_production": true,
+  "evidence": "synthetic independent stationary pair experiments; not laboratory validation",
+  "replicates_per_case": 400,
+  "seed": 606251,
+  "cycle_states": 20,
+  "science_lags": ["1/10", "1/5"],
+  "science_records_per_lag": 3000,
+  "independent_calibration_records": 4000,
+  "physical_records_per_replicate": 10000,
+  "declared_science_evolution_time": "900",
+  "preparation_and_calibration_overhead": "unmeasured, not asserted zero",
+  "contrast": [1, -1],
+  "confidence_science": "1/40",
+  "confidence_calibration": "1/40",
+  "sensor_grid_denominator": 4096,
+  "cases": [
+    {"name": "driven", "forward_rate": 20, "backward_rate": 1, "sensor": "cosine rounded to grid"},
+    {"name": "equilibrium", "forward_rate": "21/2", "backward_rate": "21/2", "sensor": "cosine rounded to grid"},
+    {"name": "noisy_driven", "forward_rate": 20, "backward_rate": 1, "sensor": "one half grid cosine plus independent fair noise of amplitude one half"}
+  ],
+  "comparison": "Both analyses receive the same calibration and exact same analog science bank. One uses W=(1+Z0 Zt)/2; the other draws independent B~Bernoulli(W) and retains only B. Both use the same universal [0,1] Hoeffding bound and calibrated support.",
+  "outputs": "rejection rates with Wilson Monte Carlo intervals, paired rejection differences, empirical estimator MSE, within-bank variance reduction, declared physical record and time accounting",
+  "selection": "all models, sample sizes, contrast, seeds and decision rules fixed before production; no postselection"
+}

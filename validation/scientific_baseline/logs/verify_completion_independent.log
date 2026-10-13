@@ -1,0 +1,19 @@
+test_classical_postpulse_readout_delay_can_reverse_sign (__main__.IndependentReview.test_classical_postpulse_readout_delay_can_reverse_sign) ... ok
+test_coarse_classical_detector_can_cross_baseline (__main__.IndependentReview.test_coarse_classical_detector_can_cross_baseline) ... ok
+test_completion_against_exhaustive_sensor_subsets (__main__.IndependentReview.test_completion_against_exhaustive_sensor_subsets) ... ok
+test_correlated_preparations_defeat_marginal_composition (__main__.IndependentReview.test_correlated_preparations_defeat_marginal_composition) ... ok
+test_cut_against_exhaustive_partitions_and_tampering (__main__.IndependentReview.test_cut_against_exhaustive_partitions_and_tampering) ... ok
+test_energy_support_bounds_against_exhaustive_cuts (__main__.IndependentReview.test_energy_support_bounds_against_exhaustive_cuts) ... ok
+test_floor_energy_partition_reduction (__main__.IndependentReview.test_floor_energy_partition_reduction) ... ok
+test_interface_completion_against_all_partitions (__main__.IndependentReview.test_interface_completion_against_all_partitions) ... ok
+test_mixed_graph_against_exact_ranks (__main__.IndependentReview.test_mixed_graph_against_exact_ranks) ... ok
+test_nonstationary_and_global_pulse_counterexamples (__main__.IndependentReview.test_nonstationary_and_global_pulse_counterexamples) ... ok
+test_physical_quantum_sign_reversal_exact_enclosure (__main__.IndependentReview.test_physical_quantum_sign_reversal_exact_enclosure) ... ok
+test_physical_realization_and_hidden_parallel_failure (__main__.IndependentReview.test_physical_realization_and_hidden_parallel_failure) ... ok
+test_short_pulse_bias_and_variance_against_exact_ctmc (__main__.IndependentReview.test_short_pulse_bias_and_variance_against_exact_ctmc) ... ok
+test_three_arm_pulse_test_exact_binomial_laws (__main__.IndependentReview.test_three_arm_pulse_test_exact_binomial_laws) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 5.689s
+
+OK

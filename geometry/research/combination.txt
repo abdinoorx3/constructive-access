@@ -1,0 +1,55 @@
+SHARED-RECORD COVERED COMBINATION
+Status: application of the established union bound; retrospective bank reanalysis.
+
+Purpose
+The finite-step geometry penalty hides weak drive in the primary benchmark,
+while the endpoint score remains sensitive. Combine the two on the same records
+using alpha_G=alpha_E=1/40, max(L_G,L_E), total statistical failure<=1/20.
+No independence between the scores is required. The complete component rules
+and allocation must be fixed for prospective test data.
+
+This analysis was selected after the original primary results. It is not a
+separately frozen confirmatory experiment. No frozen experiment, contract, raw
+record or primary result was modified. The original individual-.05 methods
+retain their original interpretation; their unadjusted max is not asserted
+to have .05 coverage. This new rule recomputes both radii at .025.
+
+Mathematical/statistical bridge
+Geometry uses the exact finite_resolution.certify_totals implementation.
+Endpoint uses Z_s=-(sY0-Ypast)(sY0-Yfuture), E Z_s=Delta_s and
+Z_s in[-(1+s)^2,1]. The bounded stored score range includes its uniform
+error; Maurer--Pontil2009 Thm4 is applied to the reflected score, then
+score error is subtracted. The positive defect d transfers through the
+seventh-edition range-two bound sigma>=Phi(d)/h. The shared API checks the
+common normalized readout contract and calibrated time. A shared pre-test
+joint calibration failure is counted once; otherwise caller may sum budgets.
+
+Results from all1200 stored exact sufficient-statistic rows
+Strong drive:400/400 combined, mean2.8876453933012542, all geometry winners.
+Weak drive:383/400 combined, mean.00880994438584348, all positive winners endpoint.
+Equilibrium:0/400. No simulated over-truth event.
+Original individual-.05 geometry mean2.9823292086556505 under strong drive;
+original endpoint396/400 and mean.011962951839865964 under weak drive.
+The simultaneous failure allocation has a real, retained power penalty.
+Shared physical record accounting remains600000 readouts,200000 independent
+preparations and16000 units modeled evolution per dataset, counted once.
+No claim of equal laboratory elapsed time, measured joules or empirical support.
+
+Deliverables
+code/combination.py -- generic exact aggregate API and portable replay CLI
+tests/test_combination.py --7 passing producer tests
+results/combination.json --all1200 rows, summaries, input/source hash bindings
+manuscript/combination.tex --proof, scope, practical result
+
+Validation
+7 tests include exact failure allocation, shared and extra-coordinate costs,
+independent endpoint radius/bridge evaluation, invalid inputs, stricter-budget
+penalty, and byte-identical full replay while preserving frozen input hashes.
+Independent reviewer received final source/results and is extending the
+separate adversarial review suite.
+
+Record timestamp: 2026-10-12T23:54:22.353691+00:00
+code/combination.py SHA256 5266b6daa30e3c002d1f8953b28e993c2fe3d3bc349fce2fcc0afbaf1718af94
+results/combination.json SHA256 8aaeca3a917a7b5f7e835959ab3b65aac9b2e96def5e6a69b5f9d4a50dffeec1
+results/experiment.json SHA256 330750785ea2a7ba429a97231f95f36551988f5c16495e1932afa80111b4b522
+contracts/experiment.json SHA256 7aedd529884f112867dfb45e645e85760f5a33af2057fa8acae63115828cef0a

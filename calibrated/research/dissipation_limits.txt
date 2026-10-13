@@ -1,0 +1,196 @@
+Recorded at 2026-10-12T21:20:43.168324+00:00
+DISSIPATION LIMITS: OBSTRUCTION, NEAR-IRREVERSIBILITY, AND REPAIR
+Owner: access_hierarchy. Abdinoor / 2D Labs.
+Status: proved conditional statements; exact arithmetic certificates and synthetic
+validation. Internal adversarial mathematical review received. External review,
+physical calibration and laboratory validation are absent. No historical-priority
+claim and no claim of a new universal physical law.
+
+1. QUESTION AND RESULT
+Can calibrated partial observations upper-bound total physical dissipation without
+a calibrated reverse-rate or affinity restriction? Even fixed graph, four states,
+known positive exit rates, known stationary distribution, known activity and
+observation of every jump time do not suffice in general. A simple four-cycle
+exhibits exact coarse-record equivalence with entropy spanning [0,infinity).
+Distinct known exit-rate tags restore structural identification from the same
+binary detector, yet finite physical exposure cannot uniformly resolve the
+singular entropy near zero reverse rates. This second obstruction survives
+complete microscopic observation and is therefore not merely coarse-graining.
+
+2. MODEL AND EXACT CALCULATIONS
+States i=0,1,2,3 modulo four; exit rates r_i>0; 0<q<=1/2.
+Q(i,i+1)=r_i(1-q), Q(i,i-1)=r_i q, Q(i,i)=-r_i.
+Define Z=sum_i 1/r_i. Then pi_i=1/(Z r_i), K=4/Z, and
+sigma=K(1-2q) log((1-q)/q).
+Stationary edge fluxes are (1-q)/Z and q/Z. The graph is simple, connected and
+irreducible. Every transition flips the detector parity. There is no independent
+spectator, no parallel edge and no missed jump time.
+
+If r_i=s, parity is exactly the symmetric rate-s two-state CTMC, independent q.
+Its complete timed paths and e^(-2st) binary autocorrelation agree for all q.
+Stationary zero-lag amplitude is exactly 1. Bounded observed-history feedback
+multiplying both exit directions equally preserves equivalence. Knowing exit
+rates does not mean knowing the microscopic forward/reverse split.
+
+3. KINETIC TAGS AND THE ACCESS REPAIR
+Write f_i(t)=r_i exp(-r_i t). At a typical stationary even jump entry (Palm law),
+state 0/2 is uniform and two successive holding times have density
+  g_q(u,v)=(f0+f2)(u)(f1+f3)(v)/4
+           +(1-2q)(f0-f2)(u)(f1-f3)(v)/4.
+Therefore
+  TV(g_q,g_q')=|q-q'| TV(Exp(r0),Exp(r2)) TV(Exp(r1),Exp(r3)).
+Both within-parity rate contrasts nonzero imply structural identification of q
+within this calibrated family. The Palm law is not automatically the first even
+entry after an arbitrary clock origin; successive pairs are not declared IID.
+
+For r=(1+eta,1+2eta,1-eta,1-2eta), 0<eta<1/2, pair TV is order eta^2.
+For the binary event u<=1,v<=1 the absolute probability derivative is
+2 exp(-2) sinh(eta)sinh(2eta) = 4 exp(-2) eta^2+O(eta^4).
+An independently sampled version has conservative Hoeffding record demand
+eta^-4 at fixed bias separation. Preparing independent Palm samples is additional
+access, with reset/time costs not supplied by this algebra.
+
+For total exposure L, the complete coarse record obeys
+TV(P_q^parity,P_q'^parity) <= min(1,L max(|r0-r2|,|r1-r3|)).
+Each filtered parity jump intensity lies within the two corresponding exit rates.
+Couple these intensities while observed histories agree. Initial parity laws
+coincide because the stationary law is independent q. This quantitative bound
+shows why weak tags do not automatically provide affordable inference.
+
+4. FINITE-EXPOSURE NO-GO WITH FULL MICROSCOPIC RECORDS
+Let R=max r_i. Uniformize both models with one rate-R Poisson clock, common
+acceptance uniforms, and common direction uniforms. Until a mismatch, directions
+differ with probability |q-q'| at an accepted transition. Therefore
+  TV(P_q,P_q') <= min(1,R L |q-q'|).
+This bounds full state/direction/time records and thus any coarsening. Independent
+resets with a common initial law and a pathwise total exposure bound are allowed.
+Bounded controls preserving the direction parameter and exit cap also fit.
+
+For any L>0, epsilon in (0,1), and M>0 choose
+q0=min(1/4,epsilon/(2RL)); then choose q1>0 sufficiently small. Both finite models
+have the same known graph, state count, activity, exit rates and stationary law,
+record TV <=epsilon/2, yet |sigma(q1)-sigma(q0)|>M. Thus no estimator has uniform
+finite additive error over this family. A two-point argument gives error
+probability >=(1-epsilon)/2 at absolute-error threshold half the entropy gap for
+at least one of the models. This concerns finite experimental resources, not
+failure of structural identifiability for all observation times.
+
+A uniformly valid upper confidence bound U, with coverage 1-alpha for every
+positive q, must satisfy
+  P_q(U=infinity) >= max(0,1-alpha-RLq).
+Proof: introduce the q=0 law only as a limit. TV(Pq,P0)<=RLq. Along q_j down to0,
+coverage and sigma(q_j) up to infinity imply P0(U=infinity)>=1-alpha by continuity
+from above. Transfer that event to the finite-q law. No infinite-affinity model is
+used as either physical member of the finite-gap construction.
+
+This does NOT imply every data-dependent upper is always infinite. Observed
+reverse events can exclude small q. It rules out uniformly finite guaranteed
+upper bounds across the unrestricted positive-q family.
+
+5. REPAIRS AND PHYSICAL ACCOUNTING
+One binary edge-identity tag on a known physical edge repairs structural
+identifiability: parity before/after identifies its direction, and stationary
+edge fluxes give sigma=4(Fplus-Fminus)log(Fplus/Fminus). This is established
+unicyclic inference, not a new theorem of visible-edge reconstruction. Counts on
+that selected edge are dependent; no finite-time binomial law is asserted.
+
+With every direction resolved, a fixed quota of n jump marks gives IID
+Bernoulli(q). Exact two-sided binomial inversion yields [qminus,qplus]; intersect
+with q<=1/2 and an optional calibrated floor q>=delta. Monotonicity gives entropy
+interval [sigma(qU),sigma(qL)], with infinity when qL=0. A positive qL from
+observed reverse events can make this finite even if delta=0. Empty intersection
+is returned as model incompatibility, not as a certified physical interval.
+Conditioning on N jumps by a fixed time is NOT interchangeable when exit rates
+vary with visited state. Fixed jump quota has random duration.
+
+With rmin=min r_i, E(T_n)<=n/rmin. Timeout2n/rmin has probability at most
+(2/e)^n <=(3/4)^n, by exponential holding-time domination and Chernoff. A timeout
+returns the full prior interval. Completed-only selection cannot be treated as
+an unbiased conditional binomial sample. Detector/reset/preparation costs remain
+unmeasured additional overhead.
+
+For a known stationary edge-flux affinity cap |log(F_e/B_e)|<=A, the sharp bound
+sigma<=K A tanh(A/2) follows by writing each contribution as
+(F_e+B_e) a_e tanh(a_e/2). The homogeneous-flux ring attains it. This is a flux
+ratio, not automatically a bare kinetic rate ratio. If only
+|log(Qij/Qji)|<=B is known, stationarity cancels the population potential and the
+safe general bound is sigma<=KB. Individual rate bounds m<=Qij<=M imply
+sigma<=K log(M/m); total exit-rate bounds alone do not.
+
+All entropy is natural entropy per declared model time. Conversion to heat or
+work requires an appropriate physical reservoir/local-detailed-balance model.
+One compatible embedding has dimensionless E_i=log r_i and clockwise driving
+work log((1-q)/q). The large ambiguity corresponds to unbounded uncalibrated
+affinity, not a source of thermodynamic energy from nothing.
+
+6. FROZEN VALIDATION AND OUTPUT
+Contract contracts/dissipation_limits.json was frozen before simulation at
+2026-10-12T21:09:31.872265+00:00. Seed 611200801, 20,000 coupled trajectories per
+control, exposure 10. Equal exits (1,1,1,1), tagged exits (1.02,1.04,.98,.96).
+The certified finite pair has entropy-rate gap >209.80582661822714 and
+full-record TV <=.005. At alpha=.05 the forced-infinite-upper probability is
+at least.945.
+
+Uniformization mismatch counts (chosen coupling, NOT estimators of TV):
+- Equal exits: full 19856/20000, parity 0/20000.
+- Weak tags: full 19857/20000, parity 4638/20000.
+- Near-irreversible pair: full 98/20000, parity 23/20000.
+The latter full mismatch interval is [.0039798,.0059683], consistent with the
+proved coupling bound. These are checks of a construction, not empirical
+measurement of indistinguishability.
+
+Exact synthetic fixed-quota input n=1000, reverse_count=10, floor=.001, alpha=.05
+produces q interval[.00480532646,.01831340790] and entropy interval contained in
+[3.83196670993,5.27667386364]. The floor-only upper is6.88604584388.
+Expected duration<=1041.6667, timeout2083.3333, timeout bound1.15149854e-125.
+The positive-count interval is finite also without a prior floor; zero reverse
+counts without a floor return an infinite upper. Tiny finite q values and exact
+rational entropy endpoints are retained in machine-readable results; decimal
+summaries are outward rounded.
+
+7. CHALLENGES AND CORRECTIONS
+Independent frontier_redteam reviewed the four-state construction, full-record
+coupling, Palm density and exact TV factor, and fixed-quota/timeout repair.
+The final full chapter additionally passed independent proof review of the
+infinite-upper probability theorem and the bare-rate versus flux-affinity caps.
+Two important potential mistakes were excluded before finalization:
+- A fixed-time direction count is not automatically binomial after conditioning
+  on the random total count when exit rates vary.
+- First entry after an arbitrary clock origin is not necessarily the stationary
+  Palm entry law.
+The no-prior-floor qualification was made explicit in API, tests and manuscript.
+Source code uses exact fractions/logarithm bounds for mathematical certificates;
+SciPy numeric computations only display coupling intervals and independent checks.
+No Monte Carlo result replaces the mathematical proof.
+
+8. PRIOR ART AND PRECISE CLAIM STATUS
+Established ingredients: strong lumpability (Buchholz1994), hidden coarse-grained
+entropy (Busiello/Hidalgo/Maritan2019), compatible-mechanism lower inference
+(Ehrich2021; Nitzan/Ghosal/Bisker2023), visible-edge unicyclic reconstruction
+(Harunari/Dutta/Polettini/Roldan2022), coupling, two-point inference, binomial
+inversion, and exponential-tail control. The cited visible-edge work explicitly
+relates one-resolved-edge sequence entropy to total entropy in unicyclic networks.
+
+The scoped addition is the explicit fixed-four-state obstruction/repair package:
+all jumps observed, no spectator or parallel edge; weak kinetic tags and their
+quantitative signal; a full-record finite-exposure ambiguity at fixed graph/rates;
+a forced-infinite-upper inequality; and exact count/time repair. The literature
+search has not found this complete precise statement, but that is not a priority
+certificate. Related molecular-motor parity-lumping examples should remain part
+of any deeper novelty review. The package supplies a limitation and a usable
+conditional repair, not a universally complete dissipation inference method.
+
+9. REPRODUCTION
+From /workspace:
+PYTHONPATH=discovery_program/virtual_laboratory/release/src python discovery_program/calibrated_inference/code/dissipation_limits.py
+PYTHONPATH=discovery_program/virtual_laboratory/release/src python -m unittest discover -s discovery_program/calibrated_inference/tests -p test_dissipation_limits.py -v
+
+Thirteen tests pass: exact stationarity/flux, entropy against an independent edge
+sum, complete equal-rate parity likelihoods, unequal-rate discrimination, pair TV
+by independent quadrature, binary-window coefficients, weak-tag scaling, finite
+budget/infinite-upper bounds, exact quota interval versus SciPy beta endpoints,
+no-floor boundary behavior, coupling controls, input contracts, and frozen output
+provenance. Final source and proofs are ready for parent integration; prior
+releases were not modified.
+
+Runtime: Python 3.12.14, NumPy 2.3.5, SciPy 1.17.0

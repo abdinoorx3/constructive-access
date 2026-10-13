@@ -1,0 +1,217 @@
+FINITE-WINDOW REALIZATION LIMITS
+Abdinoor / 2D Labs. 2026-10-12.
+Status: proved within the stated model/access class; producer code checked.
+Historical priority and external peer review not established.
+
+1. QUESTION AND ACCESS CONTRACT
+
+Can increasingly accurate prepare-wait-read data exclude every finite classical
+Markov explanation, without an independent state-size, rate, or preparation
+restriction? The answer is no. This remains true when precise timestamps are
+retained and waiting schedules adapt to previous records. It also remains true
+when the classical explanation must obey detailed balance at stationarity.
+
+The experimental contract consists of finitely many preparations a=1,...,m;
+one common time-homogeneous evolution between preparation and readout; one fixed
+binary detector; and a fresh preparation/reset before each record. In a record,
+the arm and waiting time are chosen before that record's hidden evolution and
+independently of its subsequent noise. The schedule can depend on all earlier
+records. Intermediate interventions, continuous monitoring, known microscopic
+preparation relations beyond the listed distributions, and independently
+measured energy/resource observables are not included.
+
+2. CONSTRUCTIVE LIPSCHITZ APPROXIMATION
+
+Let p_a:[0,T]->[0,1] have a common Lipschitz constant L. Fix r>0 and K=ceil(rT).
+Define f_a(k)=p_a(min(k/r,T)). A pure-birth phase process k=0,...,K starts at0,
+jumps k->k+1 at rate r, and freezes at K. Its random phase is min(Poisson(rt),K).
+
+A stochastic detector of mean f_a(k) would suffice. To obtain a deterministic
+detector, lift the state to (a,k,y), y in{0,1}, set detector value y, and at each
+phase jump draw y' according to Bernoulli(f_a(k+1)). The initial distribution
+draws y according to Bernoulli(f_a(0)). Every preparation uses its own counted
+branch, while the block-diagonal generator and detector are common. The state
+bound is 2m(K+1), including all clock and preparation-label memory. Zero-weight
+bit states may be deleted.
+
+The measured mean is q_a(t)=E[p_a(min(N_rt/r,T))]. Projection onto [0,T] is
+nonexpansive and t lies in that interval. Therefore
+  |q_a(t)-p_a(t)| <= L E|N_rt/r-t| <= L sqrt(t/r) <= L sqrt(T/r).
+For a target error epsilon, r=L^2 T/epsilon^2 and K=ceil(rT) suffice. Sampling
+the p_a values with uniform error eta adds at most eta to the output error.
+The construction accommodates arbitrary endpoints and ideal separated-support
+preparations when p_a(0) equals0 or1.
+
+3. SMOOTH IMPROVEMENT AND EXACT TRUNCATION CERTIFICATES
+
+If p_a:[0,infinity)->[0,1] is twice differentiable with global |p_a''|<=M, then
+the untruncated Poisson operator has error <=M t/(2r). Taylor's linear term
+cancels because E[N_rt/r]=t and its variance is t/r. Freezing at K changes the
+mean by at most Pr(Poisson(rT)>=K). Hence
+  sup_{a,t<=T}|q_a(t)-p_a(t)| <= M T/(2r)+Poisson_tail(rT,K).
+The global bound and the extra sample times beyond T matter here. A merely
+local second-derivative bound cannot justify the untruncated Taylor argument.
+For any finite-dimensional Lindblad semigroup with a fixed binary effect E,
+p_a(t)=Tr[E exp(t L)(rho_a)] satisfies the all-time bounds
+Lipschitz<=||L^*(E)||_infinity and curvature<=||(L^*)^2(E)||_infinity,
+because the evolved density matrix remains positive of trace one. Thus the
+construction covers every finite set of preparations of such a semigroup.
+No classical generator parameters are identified with the Lindblad damping
+rates; the constructed classical clock generally uses additional resources.
+
+For N~Poisson(mu), any integer s<=K gives
+  Pr(N>=K) <= mu^s/(K)_s.
+The implementation multiplies factors mu/(K-j+1) only while they are <=1,
+which gives the best bound in this factorial-moment family using exact
+rational arithmetic. For enormous clock dimensions, a cheaper Cantelli bound
+  Pr(N>=K) <= mu/[mu+(K-mu)^2], K>mu,
+has an exact rational certificate and sufficient K found by integer square
+root. Neither tail bound is asserted to be optimal.
+
+4. DETAILED-BALANCE REALIZATION AND PREPARATION COST
+
+Replace the one-way clock by a birth-death chain with forward rate r and
+backward rate d>0. Its stationary phase distribution is pi_k=R^k/Z, R=r/d,
+Z=sum_{k=0}^K R^k. At either direction of a phase jump, resample the detector
+bit from its destination-phase law. Its unnormalized stationary weights are
+  pi(a,k,y)=(1/m) (R^k/Z) Bernoulli_{f_a(k)}(y).
+For neighboring phases k,l,
+  pi(a,k,y) q_kl f_a(l,y') = pi(a,l,y') q_lk f_a(k,y),
+so the deterministic-detector lift satisfies detailed balance exactly.
+Stationary entropy production is zero. Actual transient entropy production
+can be positive: the initial state is far from stationary equilibrium.
+
+Couple its forward jumps with the one-way process until the first backward
+jump. The latter event has probability <=1-exp(-dT)<=dT. Thus the reversible
+model adds at most dT to the uniform output error. Initial preparation in
+branch a and phase0 has exactly
+  D(nu_a || pi)=log(mZ).
+For an isothermal detailed-balance physical realization, k_B Theta times this
+quantity is the nonequilibrium free-energy difference from the specified
+equilibrium reference; under suitable reversible preparation controls it is
+the associated lower work cost from equilibrium. It is not an unavoidable
+cost assigned to every already-given initial state. If the preparation label
+is conditioned on rather than included in an equilibrium reference, the
+within-branch divergence is log Z.
+
+The construction above has m disconnected reversible components. If a single
+irreducible classical generator is required, add c(1 pi-I), c>0, on the retained
+positive-weight states. This connects all states, preserves the same detailed
+balance law and adds at most cT to the output error by a reset-event coupling.
+Thus the closure conclusion is not an artifact of absorbing states or
+reducibility. All dimension counts include clock states. Small backward rates
+can require steep equilibrium energy differences; zero stationary EPR does
+not imply a free measurement device or free repeated reset.
+
+5. FINITE TRANSCRIPTS AND A UNIFORM-TEST NO-GO
+
+For a protocol using at most n fresh records, maximal coupling of each next
+Bernoulli outcome conditional on an as-yet identical history gives
+  TV(P_quantum, P_classical) <= 1-(1-epsilon)^n <= n epsilon.
+The arm/time-selection randomness can be shared; timestamps remain in the
+joint transcript. Adaptive schedules and bounded stopping do not change this
+argument. Detector-bit samples on a persistent trajectory, however, are not
+fresh-reset records and need not have the reproduced joint law.
+
+Let C be the union of all finite detailed-balance CTMC models with arbitrary
+allowed finite preparation distributions, deterministic binary readout, and
+no dimension/rate/preparation-energy cap. Every smooth quantum prepare-wait-
+read experiment in this access contract lies in the total-variation closure
+of C at every finite horizon and finite record count. Consequently any test
+phi taking values in[0,1] and satisfying sup_{Q in C}E_Q phi<=alpha also obeys
+E_P phi<=alpha for every such quantum law P. Proof: approximate P arbitrarily
+closely in TV; expectation differences of phi are bounded by TV; take limits.
+
+The same conclusion holds for eventual finite-time rejection by a sequential
+test, including protocols without a fixed record/time horizon, provided every
+individual wait is finite and the target functions are regular on each compact
+window. Apply the finite theorem to the event of rejection in at most n records
+with every wait <=T, then let n,T increase. The events exhaust finite rejection;
+the type-I guarantee holds for each constructed classical model uniformly.
+This does not assert that a single fixed countermodel mimics infinitely many
+records. Models are allowed to grow along the approximating sequence, precisely
+because the null imposed no resource restriction.
+
+6. REPRODUCIBLE BENCHMARK AND WHAT IT SHOWS
+
+Synthetic target: damped qubit p_0(t)=[1+exp(-0.1t)cos(2t)]/2, p_1=1-p_0,
+T=9/4. A global curvature bound is M=(0.1^2+2^2)/2=401/200.
+Reversible epsilon=1/20 certificate chooses r=10827/80, d=1/135, K=356,
+at most1428 deterministic states (1426 after zero-weight deletion).
+Exact total uniform error bound: 0.04824915253547323.
+A101-point numerical grid finds error0.009874339231836005; that grid is an
+illustration, not the continuum certificate. Exact detailed-balance checks
+cover2848 neighboring-bit flow equalities. Preparation KL=3494.137733513769
+nats relative to the specified equally weighted equilibrium component mixture.
+Stationary EPR=0; preparation and transient dissipation are not zero claims.
+
+For6000 records, choose epsilon=1/120000. A Cantelli-based reversible certificate
+uses r=812025, d=1/810000, K=2638068, at most10552276 deterministic states and
+uniform error <=8.333326425463528e-6. The resulting complete-transcript TV bound
+is <=0.05. This is a sufficient upper resource cost, not a minimum, an efficient
+simulator, or a hardware design. The example shows why a6000-record violation
+can reject a3-state null but cannot simultaneously reject every finite-state
+classical explanation. Counts and rate units are explicit.
+
+7. A MATCHED EXACT CYCLIC REALIZATION
+
+For p_+(t)=[1+exp(-gamma t)cos(omega t)]/2, gamma,omega>0, an n-state biased
+cycle with theta=2pi/n and rates
+  r+d=gamma/(1-cos theta), r-d=omega/sin theta
+has Fourier eigenvalue -gamma+i omega. The detector
+f(k)=[1+cos(k theta)]/2 is a fixed stochastic binary readout, and preparation
+delta_0 realizes p_+ exactly for all t>=0. Both rates are nonnegative exactly
+when n atan(gamma/omega)>=pi. For an even cycle, delta_{n/2} realizes1-p_+.
+The detector can be lifted to a deterministic bit by the same destination
+resampling construction, now on cyclic phases. This uses2n-1 states for an
+odd cycle and2n-2 for an even cycle, after deleting zero-bit weights.
+
+Combining the established generator-sector eigenvalue bound with this cyclic
+upper construction gives exact minimum63 classical states for the single
+trace gamma=.1,omega=2, when fixed stochastic readout is allowed. A62-state
+model cannot contain the required complex poles, and63 states suffice.
+This is an exact continuum statement, not a63-state lower bound inferred from
+ordinary finite experimental samples. The related spectral chapter separately
+quantifies the finite-error gap, which can be impractically small. For the
+pair of complementary traces,64 cycle states suffice; no proof that a
+different63-state model cannot realize the pair is claimed here.
+
+Rational Machin-formula pi and alternating arctan bounds certify that
+62 atan(.05)-pi<0 while63 atan(.05)-pi>0. At n63 the numerical rates are
+r=20.10533483389629, d=.018529018774543715, and the101-point trace check has
+maximum numerical error1.11e-15. At n64 they are r=20.585923793175958,
+d=.18132931841930322, with both complementary trace errors below8e-15.
+These are checks of a proved exact-form construction, not interval certificates
+for the numerical matrices. Preparation KL relative to the uniform phase law
+is log n. Stationary EPR in units of k_B per unit time is(r-d)log(r/d): about
+140.395 for63 and96.556 for64. No minimum-dissipation claim follows.
+
+Every finite detailed-balance generator has real eigenvalues. Consequently
+it cannot exactly realize the nonzero complex poles of this damped oscillation.
+Exact agreement on an open time interval would imply agreement for all time
+by analyticity. Yet reversible models approximate it arbitrarily closely on
+every finite interval. Thus exact continuum exclusion of detailed balance is
+not a robust finite-precision inference without additional restrictions.
+
+8. PRIOR ART AND POSITIONING
+
+The Poisson approximation is the established Szasz--Mirakjan operator, not a
+new approximation principle. Original source: Otto Szasz, Generalization of
+S. Bernstein's Polynomials to the Infinite Interval, Journal of Research of
+the National Bureau of Standards45(1950),239--245,
+DOI10.6028/jres.045.024, https://nvlpubs.nist.gov/nistpubs/jres/045/3/v45.n03.a09.pdf.
+Taylor/variance and coupling estimates, birth-death detailed balance, and
+closure obstructions in statistical testing are established tools. The present
+work assembles them into a constructive access boundary with explicit counted
+hidden clock states, retained timestamps, reversible alternatives, preparation
+free energy and finite-record certificates. Historical novelty of this exact
+combination remains unestablished; the valid scientific function is to delimit
+what the framework's dimension/energy witnesses can and cannot establish.
+
+Reproduction:
+  python code/limits.py
+  python -m unittest discover -s tests -p test_limits.py -v
+Producer result:12 tests passed, including rational tails, exact CTMC/readout
+lift, detailed balance, nonsmooth approximation, backward coupling, adaptive
+transcript coupling, a repeated-measurement counterexample, rational cyclic
+admissibility, and the exact-form63/64-state cyclic realization.

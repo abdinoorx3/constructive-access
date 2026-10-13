@@ -1,0 +1,89 @@
+\chapter{A covered fallback on the same physical records}
+\label{ch:og-combination}
+
+The local-geometry certificate improves the strong-drive benchmark, but its
+finite-step penalty removes all positive certificates in the weak-drive case.
+The endpoint certificate retains sensitivity there. These complementary
+responses suggest a practical composite inference rule. Its justification is
+the established union bound; this composition introduces no new statistical
+principle and requires no additional acquisition.
+
+\section{Two certificates, one failure budget}
+Let $L_G$ and $L_E$ be geometry and endpoint lower bounds computed on the
+same fixed independent stationary triples, with component statistical failure
+probabilities $\alpha_G$ and $\alpha_E$. Assume the two physical/calibration
+contracts hold jointly. Then
+\begin{equation}
+ \mathbb P\{\max(L_G,L_E)>\sigma\}
+ \le \mathbb P\{L_G>\sigma\}+\mathbb P\{L_E>\sigma\}
+ \le \alpha_G+\alpha_E.
+ \label{eq:og-combined-union}
+\end{equation}
+The scores may be arbitrarily dependent. The failure allocation and the two
+component rules must be fixed for prospective use, or supplied by a separately
+justified simultaneous procedure. Here $\alpha_G=\alpha_E=1/40$, so the covered
+maximum has statistical failure probability at most $1/20$. A shared pre-test
+calibration failure probability is counted once when one joint event validates
+both contracts; independent calibration failures can instead be conservatively
+summed before adding them. A same-test-data calibration event does not inherit
+this guarantee automatically.
+
+The geometry component uses the corrected score of
+Chapter~\ref{ch:og-finite}, including the calibrated reading error and score
+rounding. The endpoint component uses
+\begin{equation}
+ Z_s=-(sY_0-Y_{-h})(sY_0-Y_h),\qquad 0\le s\le1,
+ \qquad Y_t\in[-1,1].
+\end{equation}
+Stationarity gives
+$\mathbb E Z_s=-s^2 C(0)+2sC(h)-C(2h)$, with
+$Z_s\in[-(1+s)^2,1]$. The same empirical-Bernstein construction, with its
+uniform score-error correction, supplies a covered lower bound $d$ on the
+positive endpoint defect. The seventh-edition physical bridge then yields
+\begin{equation}
+ L_E=\frac{\Phi(d)}h,\quad 0\le d<1,\qquad
+ \Phi(u)=2\sqrt u\operatorname{atanh}\sqrt u,
+\end{equation}
+with the implementation retaining the existing rational outward enclosure and
+its finite-entropy incompatibility handling. The constant follows from the
+observable range $R=2$. The implementation requires the common normalized
+readout contract; it does not silently use the same constants for a wider
+sensor range.
+
+\section{Retrospective reanalysis of the frozen bank}
+The equal allocation was introduced after inspecting the primary benchmark.
+The following is therefore a retrospective evaluation of a fixed composite
+rule, not a new frozen confirmatory experiment. No timing, physical parameter,
+record, generator cap or original result was changed. The newly computed
+bounds use the exact stored sums and sums of squares from all $1{,}200$
+datasets. The original individually valid $\alpha=0.05$ bounds remain in the
+primary report; maximizing those original bounds would not by itself retain
+a $0.05$ failure guarantee.
+
+\begin{center}
+\begin{tabular}{lrrr}
+Scenario & Geometry at $0.025$ & Endpoint at $0.025$ & Covered maximum\\
+\hline
+Strong drive, $\sigma=9$ & $400/400$ & $400/400$ & $400/400$\\
+Weak drive, $\sigma=1$ & $0/400$ & $383/400$ & $383/400$\\
+Equilibrium, $\sigma=0$ & $0/400$ & $0/400$ & $0/400$\\
+\end{tabular}
+\end{center}
+The geometry component wins every strong-drive dataset; its mean certified
+lower bound is $2.887645$, compared with $2.982329$ at its original individual
+$0.05$ allocation. The endpoint component supplies every positive weak-drive
+result. Its mean bound is $0.00880994$, compared with $0.01196295$ at its
+original allocation; detections fall from $396$ to $383$ out of $400$. This is
+the observed cost of simultaneous coverage. No reported lower bound exceeds
+the known generating entropy in these simulations, which is a numerical
+check rather than a proof of coverage beyond the theorem's assumptions.
+
+Every dataset still uses $200{,}000$ independent stationary triples,
+$600{,}000$ endpoint readings and $16{,}000$ units of modeled evolution time.
+Both scores reuse these same records, so those resources are counted once.
+The physical cost of preparation, geometry and clock calibration, exposure,
+resetting and energy remains additional. The combined result preserves the
+strong-drive benefit while recovering much of the weak-drive endpoint
+sensitivity. It does not dominate an individually allocated endpoint test at
+every operating point, and it does not justify optimizing the allocation on
+the same data without further simultaneous coverage.

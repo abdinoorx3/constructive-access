@@ -1,0 +1,751 @@
+{
+  "title": "Constructive Access",
+  "author": "Abdinoor",
+  "organization": "2D Labs",
+  "date": "2026-10-13",
+  "reference_edition": "10.0",
+  "toolkit_version": "0.10.0",
+  "external_peer_review": false,
+  "new_empirical_data": false,
+  "historical_priority_established": false,
+  "claims": [
+    {
+      "id": "U01",
+      "statement": "Target properties factor through accessible-law equivalence classes.",
+      "status": "Established decision/identification structure; complete proof.",
+      "primary_proof": "manuscript/chapters/foundations.tex",
+      "scope": [
+        "Declared model family, permitted protocols, complete record laws."
+      ]
+    },
+    {
+      "id": "U02",
+      "statement": "Finite linear instruments admit an exact equivalence certificate or finite witness.",
+      "status": "Established finite-span theory; executable exact rational implementation.",
+      "primary_proof": "manuscript/chapters/finite_access.tex",
+      "scope": [
+        "Finite dimension and alphabet; separately justified physical admissibility."
+      ]
+    },
+    {
+      "id": "U03",
+      "statement": "Filtered exact algebra certifies minimum nonnegative additive word charge.",
+      "status": "Scoped proved specialization and independent verifier; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/finite_access.tex",
+      "scope": [
+        "Charge is additive and nonnegative; word objective distinct from repetition or total energy."
+      ]
+    },
+    {
+      "id": "U04",
+      "statement": "Linear target precision has a sharp primal/dual deterministic minimax certificate.",
+      "status": "Established linear recovery geometry with exact reusable checker.",
+      "primary_proof": "manuscript/chapters/precision_design.tex",
+      "scope": [
+        "Known response matrix, full positive parameter orthant and full Cartesian deterministic error box."
+      ]
+    },
+    {
+      "id": "U05",
+      "statement": "Target-set coverage and physical resource bounds compose with one joint calibration error.",
+      "status": "Elementary guarantee-composition synthesis with complete proof.",
+      "primary_proof": "manuscript/chapters/workflow.tex",
+      "scope": [
+        "True mechanism represented; valid intersection bounds on calibration event; empty set triggers abstention."
+      ]
+    },
+    {
+      "id": "U06",
+      "statement": "A finite-menu suite can identify a shared target without identifying every mechanism.",
+      "status": "New integrated workflow using established weighted cover and concentration; no historical novelty claim.",
+      "primary_proof": "manuscript/chapters/workflow.tex",
+      "scope": [
+        "Finite candidate family/menu, pre-acquisition laws/events, whole-record TV envelopes, fixed iid law within each experiment."
+      ]
+    },
+    {
+      "id": "U07",
+      "statement": "Specified reversible gates and switched controls reveal hidden current contrasts.",
+      "status": "Exact model-specific identities with independent symbolic checks.",
+      "primary_proof": "manuscript/chapters/continuous_thermodynamics.tex",
+      "scope": [
+        "Defined CTMC channels and preparation; calibrated detector/controller; zero gate entropy does not mean free apparatus."
+      ]
+    },
+    {
+      "id": "U08",
+      "statement": "Local XX-chain access distinguishes bias magnitude and orientation under different conditions.",
+      "status": "Exact model-specific symmetry, closure and intervention results.",
+      "primary_proof": "manuscript/chapters/applications.tex",
+      "scope": [
+        "Three-site boundary-driven model, stated stationary preparation, specified controls and couplings."
+      ]
+    },
+    {
+      "id": "U09",
+      "statement": "Chemical, qubit, Ramsey and hidden-power examples provide executable transfer tests.",
+      "status": "Analytical and computational examples, with explicit negative controls; no engineering grand challenge solved.",
+      "primary_proof": "manuscript/chapters/applications.tex",
+      "scope": [
+        "Domain-specific apparatus mapping and empirical validation remain necessary."
+      ]
+    },
+    {
+      "id": "U10",
+      "statement": "A standalone package implements bounded contracts and independently checks exported exact reports.",
+      "status": "Software release verified by tests and clean installation; guarantees remain model-bound.",
+      "primary_proof": "manuscript/chapters/toolkit.tex",
+      "scope": [
+        "Python dependencies and declared computational caps; source correctness is not physical calibration."
+      ]
+    },
+    {
+      "id": "A01",
+      "statement": "A two-endpoint perturbation of a finite classical stationary Markov generator has a strictly positive integrated endpoint response kernel for every finite positive time.",
+      "status": "Complete proof; independent internal review; exact and numerical controls; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/classical_section.tex",
+      "scope": [
+        "Native stationary preparation; valid fixed finite generator; perturbation restricted to two endpoints; control held until readout."
+      ]
+    },
+    {
+      "id": "A02",
+      "statement": "Selective bidirectional channel suppression identifies native current sign from protected endpoint response; local exit bounds give calibrated intervals and sufficient short-pulse magnitude recovery.",
+      "status": "Scoped analytical result and exact certificate implementation.",
+      "primary_proof": "manuscript/chapters/classical_section.tex",
+      "scope": [
+        "Singleton or justified gateway/reset entrance detector; independently calibrated selectivity and rate bounds; classical paired readout for Bernstein magnitude bound."
+      ]
+    },
+    {
+      "id": "A03",
+      "statement": "A unital driven qubit reverses its selective-channel population response iff its no-extra-dephasing coupling/damping ratio exceeds an exactly characterized threshold; dephasing has an explicit criterion.",
+      "status": "Complete model proof; exact rational threshold and pulse certificates; physical GKSL simulation check.",
+      "primary_proof": "manuscript/chapters/quantum_section.tex",
+      "scope": [
+        "Engineered jump channels; stationary I/2 preparation; no unproved thermal interpretation; conditional classical-contract exclusion, not device-independent quantumness."
+      ]
+    },
+    {
+      "id": "A04",
+      "statement": "A predeclared three-setting intersection-union test controls false rejection and has a sufficient calibrated power/record guarantee.",
+      "status": "Established statistical inequalities integrated with the physical response null; independently checked exact binomial controls.",
+      "primary_proof": "manuscript/chapters/statistical_section.tex",
+      "scope": [
+        "Independent Bernoulli records in each setting; fixed orientation; independently justified complete-setting calibration envelopes; no optional stopping."
+      ]
+    },
+    {
+      "id": "A05",
+      "statement": "Sparse current identifiability and sharp box-error radius reduce to measured separating cuts; mixed channel/aggregate access separates internal channel ambiguity from network cycles.",
+      "status": "Established graph and linear-recovery foundations with exact constructive integration and independent exhaustive tests.",
+      "primary_proof": "manuscript/chapters/graph_section.tex",
+      "scope": [
+        "Known finite channel multigraph; signed currents in full conservation subspace; declared retained records; full-state trajectories are richer access."
+      ]
+    },
+    {
+      "id": "A06",
+      "statement": "Under epsilon=delta+sqrt(q^3/E), zero-floor global design is a minimum cut; calibration-floor rational design is NP-complete; supporting cuts certify global energy brackets.",
+      "status": "Complete scoped proofs and PARTITION reduction; independently checked solver certificates; no priority claim for generic cut/design/convex principles.",
+      "primary_proof": "manuscript/chapters/resource_section.tex",
+      "scope": [
+        "Fixed designs; valid joint box envelope; calibrated acquisition energy; no unspecified activation/preparation overhead; not a universal physical energy law."
+      ]
+    },
+    {
+      "id": "A07",
+      "statement": "Joint outcome/interface defects bound adaptive record error; exact partition refinement constructs the coarsest deterministic Markov interface refining a given observation partition.",
+      "status": "Established lumpability/intertwining/refinement methods integrated with explicit failure controls.",
+      "primary_proof": "manuscript/chapters/composition_section.tex",
+      "scope": [
+        "Finite classical instruments; complete joint preparations; declared couplings; not arbitrary quantum composition or minimum physical sensor architecture."
+      ]
+    },
+    {
+      "id": "R01",
+      "statement": "Sharp integrated occupation lower bound G-eta K under conditional entrance-reset defect and macro crossing caps; four-state attainment and mixed-preparation extension.",
+      "status": "Scoped proved candidate extension; independent internal review; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/rr_reset_boundary.tex",
+      "scope": [
+        "Finite homogeneous Markov/regenerative reset model for eta<1; conditional entrance law and uniform all-state crossing caps; no energy/activity equivalence."
+      ]
+    },
+    {
+      "id": "R02",
+      "statement": "At unrestricted reset, sharp survival bound covers arbitrary history-dependent classical processes with bounded conditional entry and exit intensities; inversion gives required peak crossing intensity.",
+      "status": "Established survival-envelope methods specialized into tight two-preparation explanation bounds.",
+      "primary_proof": "manuscript/chapters/rr_reset_boundary.tex",
+      "scope": [
+        "Reference inside detector; comparison outside or declared initial occupancy; finite conditional crossing intensity; not a device-independent quantum witness."
+      ]
+    },
+    {
+      "id": "R03",
+      "statement": "Trusted reset and independent decreasing-density readout clocks yield a protected occupation ordering; damped qubits and prepared coherences violate the corresponding declared classical class.",
+      "status": "Established first-passage foundation with exact scoped quantum and calibration calculations.",
+      "primary_proof": "manuscript/chapters/rr_preparation.tex",
+      "scope": [
+        "Time-homogeneous common dynamics; trusted reference singleton/reset; clock independence; no universal superiority over existing survival witnesses."
+      ]
+    },
+    {
+      "id": "R04",
+      "statement": "Matched preparation and shared drift cancel leading current-assay errors; local bounds certify readout delay and stationarity-free short-pulse current estimation.",
+      "status": "Complete scoped perturbation/coupling proofs and exact helpers; independent review.",
+      "primary_proof": "manuscript/chapters/rr_robust_physics.tex",
+      "scope": [
+        "Valid supplied generators, local caps and genuinely shared preparation/drift where used; physical calibration remains external."
+      ]
+    },
+    {
+      "id": "R05",
+      "statement": "Decreasing clocks admit uniform-horizon mixture design with exact finite-menu LP certificates, and clock error propagates to contrast error.",
+      "status": "Established uniform-mixture and linear programming geometry with exact implementation.",
+      "primary_proof": "manuscript/chapters/rr_clock_design.tex",
+      "scope": [
+        "Finite supplied horizon menu, certified contrast intervals, expected calibrated cost; no pathwise energy guarantee."
+      ]
+    },
+    {
+      "id": "R06",
+      "statement": "Randomized-arm encoding supports exact fixed and anytime tests; confidence inversion yields quantitative required reset mismatch and peak crossing intensity.",
+      "status": "Established binomial/LR/test-inversion methods applied to the declared physical contract; independent coverage checks.",
+      "primary_proof": "manuscript/chapters/rr_statistics.tex",
+      "scope": [
+        "Fair fresh arm draw; bets chosen before current arm and clock; conditional calibration envelopes; fixed stopping for fixed-horizon inversion."
+      ]
+    },
+    {
+      "id": "R07",
+      "statement": "Every homogeneous classical CTMC with at most three states, arbitrary preparations and a fixed stochastic binary detector obeys |C0-Cw|<=1 for independent decreasing-density clocks. Four states suffice for every negative uniform occupation contrast with separated preparations.",
+      "status": "Complete scoped proofs, exact quantum counterexample and independent internal review; precise historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/rr_reset_boundary.tex",
+      "scope": [
+        "Common homogeneous dynamics and stable detector/preparations across arms; hidden environment/controller states count in the realization; no unrestricted classical exclusion or complete-transcript simulation claim."
+      ]
+    },
+    {
+      "id": "RF01",
+      "statement": "Finite temporal tables certify classical state requirements under a robust antichain inequality.",
+      "status": "Complete scoped proof and independently checked implementation; candidate historical originality unresolved.",
+      "primary_proof": "manuscript/chapters/rf_hierarchy.tex",
+      "scope": [
+        "Fixed preparation, fixed detector and common repeated homogeneous stochastic channel; 13-setting 18,300-record model design."
+      ]
+    },
+    {
+      "id": "RF02",
+      "statement": "Finite Erlang-clock measurements certify a classical dimension obstruction without hidden-rate upper bounds.",
+      "status": "Complete scoped proof and independently checked implementation; candidate historical originality unresolved.",
+      "primary_proof": "manuscript/chapters/rf_spectral.tex",
+      "scope": [
+        "Finite homogeneous CTMC; fixed stochastic detector; independent specified clocks; conservative sample counts; established spectral sector credited."
+      ]
+    },
+    {
+      "id": "RF03",
+      "statement": "Finite fresh-reset endpoint record laws are approximable by finite irreducible detailed-balance classical models with explicit resource bounds.",
+      "status": "Complete scoped proof and independently checked implementation; candidate historical originality unresolved.",
+      "primary_proof": "manuscript/chapters/rf_limits.tex",
+      "scope": [
+        "Bounded observation horizon and finite resets; timestamps and between-trial adaptation allowed; unrestricted hidden dimension, rates and preparation; excludes interventions inside a persistent record."
+      ]
+    },
+    {
+      "id": "RF04",
+      "statement": "Correlation evidence bounds preparation divergence plus integrated housekeeping entropy, and yields a stronger stationary dissipation certificate.",
+      "status": "Complete scoped proof and independently checked implementation; candidate historical originality unresolved.",
+      "primary_proof": "manuscript/chapters/rf_thermodynamic.tex",
+      "scope": [
+        "Finite homogeneous CTMC with positive stationary law, noninvasive fixed detector and ordinary reversal; heat interpretation requires physical embedding; closest quarter-factor prior credited."
+      ]
+    },
+    {
+      "id": "RF05",
+      "statement": "Exact polynomial dual certificates convert simultaneous uncertain correlation observations into classical resource requirements.",
+      "status": "Complete scoped proof and independently checked implementation; candidate historical originality unresolved.",
+      "primary_proof": "manuscript/chapters/rf_energy_certificate.tex",
+      "scope": [
+        "Positive integer lag menu, fixed noninvasive detector, independent detector noise, valid joint coverage; stationary-reference mean separately calibrated or unrestricted; numerical score search is only a proposal."
+      ]
+    },
+    {
+      "id": "VL01",
+      "statement": "A clock-law criterion and disjoint symmetric exposure theorem preserve reversible correlation comparison classes.",
+      "status": "Scoped theorem or simulation result with reproducible checks; historical novelty and empirical validation unresolved.",
+      "primary_proof": "manuscript/chapters/vl_timing.tex",
+      "scope": [
+        "Independent known clocks, bounded noninvasive reversal-symmetric block channels, full path-duration accounting; stronger common-increment assumption for finite-dimensional factorization."
+      ]
+    },
+    {
+      "id": "VL02",
+      "statement": "Conditional-mean envelopes give exact fixed-quota confidence boxes for dependent records.",
+      "status": "Scoped theorem or simulation result with reproducible checks; historical novelty and empirical validation unresolved.",
+      "primary_proof": "manuscript/chapters/vl_sampling.tex",
+      "scope": [
+        "Predetermined quotas and predictable routing, fixed target probabilities, externally justified conditional bias/calibration; standard martingale concentration explicitly credited."
+      ]
+    },
+    {
+      "id": "VL03",
+      "statement": "A predeclared polynomial contrast gives an exact finite-record entropy certificate and a closed-form optimum for its comparison-weight bound.",
+      "status": "Scoped theorem or simulation result with reproducible checks; historical novelty and empirical validation unresolved.",
+      "primary_proof": "manuscript/chapters/vl_contrast.tex",
+      "scope": [
+        "Stationary ordinary-reversal Markov dynamics or separately declared preparation-resource interpretation; fixed contrast or independent pilot; complete duration; established Pinsker/Cauchy/statistical ingredients."
+      ]
+    },
+    {
+      "id": "VL04",
+      "statement": "Independent simulated laboratories expose apparatus failure modes and assess corrected protocols at matched acquisition cost.",
+      "status": "Scoped theorem or simulation result with reproducible checks; historical novelty and empirical validation unresolved.",
+      "primary_proof": "manuscript/chapters/vl_benchmark.tex",
+      "scope": [
+        "Synthetic records only, specified scenarios and frozen seeds; simulator truth excluded from inference; Monte Carlo intervals; no global design optimality or empirical hardware validation."
+      ]
+    },
+    {
+      "id": "CI01",
+      "statement": "Calibrated detector moments restrict reversible pair laws; positive-lag ambiguity and fast-mode constructions identify the need for additional access.",
+      "status": "Scoped proof and reproducible computational evidence with internal independent review; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/ci_calibration.tex",
+      "scope": [
+        "Finite stationary CTMC, fixed noninvasive memoryless detector; same-state independent twins or justified analog upper moment; historical priority unresolved."
+      ]
+    },
+    {
+      "id": "CI02",
+      "statement": "Exact dual and feasible primal bounds bracket a nonlinear observational relaxation; a calibrated microscopic activity cap strengthens its entropy conversion.",
+      "status": "Scoped proof and reproducible computational evidence with internal independent review; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/ci_nonlinear.tex",
+      "scope": [
+        "Ordinary stationary reversal, valid joint confidence region, physical activity upper bound when used; primal upper is not a physical entropy upper."
+      ]
+    },
+    {
+      "id": "CI03",
+      "statement": "Connected irreducible models hide unbounded dissipation in identical jump-time records; finite precision and rare reverse events obstruct uniformly finite upper inference.",
+      "status": "Scoped proof and reproducible computational evidence with internal independent review; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/ci_dissipation_limits.tex",
+      "scope": [
+        "Specified parity observation or bounded full-record exposure; countermodels and explicit directional/affinity repairs; established lumpability and transition-based inference credited."
+      ]
+    },
+    {
+      "id": "CI04",
+      "statement": "Past-dependent contrast learning and betting yield an anytime entropy lower confidence process.",
+      "status": "Scoped proof and reproducible computational evidence with internal independent review; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/ci_sequential.tex",
+      "scope": [
+        "Conditional mean bounds given the complete acquisition history, predictable choices, full physical durations; established concentration and test-martingale ingredients."
+      ]
+    },
+    {
+      "id": "CI05",
+      "statement": "Whole-record common-block concentration replaces repeated blind gaps; predeclared sparse acquisition trades readouts against statistical precision.",
+      "status": "Scoped proof and reproducible computational evidence with internal independent review; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/ci_dependence.tex",
+      "scope": [
+        "Externally valid hidden-process L2 mixing bound, one controlled initial error, fixed block schedule and quotas; simulation gains do not calibrate hardware energy."
+      ]
+    },
+    {
+      "id": "CI06",
+      "statement": "Direct bounded analog pair scores share the physical certificate of binary encoding while avoiding its added randomization variance.",
+      "status": "Scoped proof and reproducible computational evidence with internal independent review; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/ci_analog.tex",
+      "scope": [
+        "Bounded memoryless noninvasive readouts, exact quantization accounting and valid variance calibration; Rao-Blackwell improvement does not imply universal test-power dominance."
+      ]
+    },
+    {
+      "id": "CI07",
+      "statement": "Frozen matched comparisons quantify calibrated and nonlinear gains, losses, and alternative measurement costs.",
+      "status": "Scoped proof and reproducible computational evidence with internal independent review; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/ci_calibrated_benchmark.tex",
+      "scope": [
+        "Synthetic data only, fixed seeds/designs, same counts or explicitly unequal evolution times; raw numerical dual failures retained."
+      ]
+    },
+    {
+      "id": "CI08",
+      "statement": "A joint same-state and positive-lag contrast includes calibration uncertainty in one confidence event and omits only the identical-law component from the physical comparison duration.",
+      "status": "Scoped proof and reproducible computational evidence with internal independent review; historical priority unresolved.",
+      "primary_proof": "manuscript/chapters/ci_joint_calibration.tex",
+      "scope": [
+        "Fresh independent same-state readouts, common stationary preparation/detector, fixed contrast, fully charged readout counts; zero hidden evolution does not imply free calibration."
+      ]
+    },
+    {
+      "id": "CI09",
+      "statement": "A provenance-checked reanalysis of public optical-tweezer measurements demonstrates detector-reference and dependence calibration gaps.",
+      "status": "Exploratory public-measurement reanalysis; no thermodynamic validation.",
+      "primary_proof": "manuscript/chapters/ci_empirical.tex",
+      "scope": [
+        "Exploratory descriptive reanalysis of existing laboratory measurements; conditional noise decomposition; no valid entropy confidence statement or new physical measurement claimed."
+      ]
+    },
+    {
+      "id": "CI10",
+      "statement": "The stationary record-information and calibrated spectral certificates transfer to a scoped class of overdamped diffusions through the exact Girsanov path-divergence identity.",
+      "status": "Established stochastic-calculus and spectral ingredients composed in a proved scoped corollary, with independent model checks; no claim of a new diffusion law.",
+      "primary_proof": "manuscript/chapters/ci_nonlinear.tex",
+      "scope": [
+        "Constant positive diffusion matrix, smooth stationary law, ordinary even-variable reversal, nonexplosive dynamics and valid likelihood martingales with suitable domain/boundary conditions; bounded noninvasive detector. Finite-jump activity refinement and finite-CTMC realization sharpness do not automatically transfer."
+      ]
+    },
+    {
+      "id": "PA01",
+      "statement": "A three-lag scalar or Hilbert-valued correlation defect implies a direct nonlinear entropy lower bound.",
+      "status": "Scoped mathematical result, reproducible implementation and independent internal review; historical priority not established.",
+      "primary_proof": "manuscript/chapters/pa_spectral_dynamics.tex",
+      "scope": [
+        "Stationary homogeneous Markov dynamics; ordinary reversal of full hidden state; bounded observable; finite path-entropy contract.",
+        "Endpoint-kernel sharpness does not establish CTMC embedding sharpness."
+      ]
+    },
+    {
+      "id": "PA02",
+      "statement": "Joint squared-readout analog calibration and lag products yield a covered finite-record physical certificate.",
+      "status": "Scoped mathematical result, reproducible implementation and independent internal review; historical priority not established.",
+      "primary_proof": "manuscript/chapters/pa_joint_analog.tex",
+      "scope": [
+        "Independent stationary acquisitions or explicit conditional-mean control; same memoryless noninvasive bounded detector.",
+        "Frozen synthetic cost-matched study; no empirical entropy certification."
+      ]
+    },
+    {
+      "id": "PA03",
+      "statement": "A predeclared finite contrast library permits same-data selection with simultaneous coverage.",
+      "status": "Scoped mathematical result, reproducible implementation and independent internal review; historical priority not established.",
+      "primary_proof": "manuscript/chapters/pa_design.tex",
+      "scope": [
+        "Bonferroni allocation across library; external failure counted once.",
+        "Established simultaneous-inference principle; loss of power retained."
+      ]
+    },
+    {
+      "id": "PA04",
+      "statement": "Nearest-neighbor rings attain the minimum entropy for a fixed first Fourier eigenvalue among circulant n-state CTMCs.",
+      "status": "Scoped mathematical result, reproducible implementation and independent internal review; historical priority not established.",
+      "primary_proof": "manuscript/chapters/pa_physical_minimum.tex",
+      "scope": [
+        "Declared architecture, uniform stationary distribution, ordinary reversal.",
+        "Continuum lower bound and circle saturation credited to prior art; unrestricted physical minimum remains open."
+      ]
+    },
+    {
+      "id": "PA07",
+      "statement": "A predeclared later-lag experiment repairs the noisy example at equal declared evolution time with fewer detector readings.",
+      "status": "Scoped mathematical result, reproducible implementation and independent internal review; historical priority not established.",
+      "primary_proof": "manuscript/chapters/pa_retiming.tex",
+      "scope": [
+        "Model-assisted choice frozen before fresh records; independent stationary pairs and the same detector contract.",
+        "386/400 noisy-driven certificates versus0/400 at the earlier settings; simulated acquisition comparison, not calibrated joule savings or a universal design."
+      ]
+    },
+    {
+      "id": "PA06",
+      "statement": "The noisy benchmark has a strictly negative population gap for every real contrast parameter at its two lags.",
+      "status": "Scoped mathematical result, reproducible implementation and independent internal review; historical priority not established.",
+      "primary_proof": "manuscript/chapters/pa_joint_analog.tex",
+      "scope": [
+        "Exact rational uniformization for the declared finite model and noisy detector.",
+        "More samples at these settings cannot create population identification; different access or calibration is required."
+      ]
+    },
+    {
+      "id": "PA05",
+      "statement": "Finite-menu bounded sampling admits arbitrarily high-dissipation near-aliases even with full spatial observation.",
+      "status": "Scoped mathematical result, reproducible implementation and independent internal review; historical priority not established.",
+      "primary_proof": "manuscript/chapters/pa_physical_minimum.tex",
+      "scope": [
+        "Circle drift diffusion with unrestricted drift and fixed positive diffusion.",
+        "Finite gap menu and bounded record length; continuous randomized timing is outside the theorem."
+      ]
+    },
+    {
+      "id": "OG01",
+      "statement": "The conditional local diffusion-geometry defect is an observed-law invariant lower bound on stationary entropy production.",
+      "status": "Scoped proof or reproducible simulation; internal review recorded separately; historical priority not established.",
+      "primary_proof": "manuscript/chapters/og_population_theory.tex",
+      "scope": [
+        "Compact smooth uniformly elliptic ordinary-reversal hidden diffusions; smooth deterministic detector; ideal noiseless continuous-path observation.",
+        "Quadratic variation and conditional derivative access are stronger than finite endpoint moments; prior curvature/force-free identities are credited."
+      ]
+    },
+    {
+      "id": "OG02",
+      "statement": "A reflection-symmetric family of reversible scalar observed laws has an attained positive minimum entropy over all compatible admissible hidden diffusions of arbitrary finite dimension.",
+      "status": "Scoped proof or reproducible simulation; internal review recorded separately; historical priority not established.",
+      "primary_proof": "manuscript/chapters/og_population_theory.tex",
+      "scope": [
+        "Ordinary smooth overdamped diffusion model class, calibrated clock and complete observed law or the stated local population summary.",
+        "Not a minimum over generalized-reversal, non-Markovian, jump, noisy-detector or arbitrary physical realizations."
+      ]
+    },
+    {
+      "id": "OG03",
+      "statement": "Frozen weighted triple scores give finite-resolution and finite-record confidence bounds after explicit generator-remainder and calibrated reading-error penalties.",
+      "status": "Scoped proof or reproducible simulation; internal review recorded separately; historical priority not established.",
+      "primary_proof": "manuscript/chapters/og_finite_resolution.tex",
+      "scope": [
+        "Predeclared instantaneous-state rules; pointwise local-volatility envelope; calibrated derivative bounds; independent stationary triples for empirical Bernstein.",
+        "Exact arithmetic verifies the statistical transformation, not the physical calibration premises."
+      ]
+    },
+    {
+      "id": "OG04",
+      "statement": "Connected smooth countermodels refute averaged-volatility substitution and uncorrected finite-lag extensions, including an invertible detector recalibration.",
+      "status": "Scoped proof or reproducible simulation; internal review recorded separately; historical priority not established.",
+      "primary_proof": "manuscript/chapters/og_countermodels.tex",
+      "scope": [
+        "Exact analytic rejection certificates with numerical and independent checks.",
+        "The population theorem and bias-corrected finite-resolution construction retain their stated assumptions."
+      ]
+    },
+    {
+      "id": "OG05",
+      "statement": "A frozen simulation compares geometry and endpoint certificates on identical acquisition records, retaining weak-drive and equilibrium controls.",
+      "status": "Scoped proof or reproducible simulation; internal review recorded separately; historical priority not established.",
+      "primary_proof": "manuscript/chapters/og_experiment.tex",
+      "scope": [
+        "Synthetic stationary diffusion triples; same observations, confidence allocation and declared acquisition counts.",
+        "Geometry and generator calibration are additional assumptions; calibration, preparation and joule costs are not set to zero."
+      ]
+    },
+    {
+      "id": "OG06",
+      "statement": "A calibrated sequence of finite-record certificates converges to the sharp cosine-circle minimum with an explicit conservative sufficient rate.",
+      "status": "Scoped proof or reproducible simulation; internal review recorded separately; historical priority not established.",
+      "primary_proof": "manuscript/chapters/og_consistency.tex",
+      "scope": [
+        "Known local geometry and generator envelopes, independent stationary triples and ideal readings or the stated controlled score perturbation.",
+        "A constructive consistency result, not a minimax rate, noise-robust laboratory estimator or universal access-cost law."
+      ]
+    },
+    {
+      "id": "OG07",
+      "statement": "A shared-budget maximum of the geometry and endpoint certificates restores a covered fallback on the same records.",
+      "status": "Scoped proof or reproducible simulation; internal review recorded separately; historical priority not established.",
+      "primary_proof": "manuscript/chapters/og_combination.tex",
+      "scope": [
+        "Established union-bound composition; each component is recomputed at its allocated failure budget.",
+        "Retrospective reanalysis of the frozen bank; no new acquisition or claim of universal dominance."
+      ]
+    },
+    {
+      "id": "DG01",
+      "statement": "Known boxcar exposure and calibrated independent additive noise preserve the ideal continuous law under the specified dense-access and mixing assumptions.",
+      "status": "Scoped mathematical result with independent internal review and deterministic checks; historical priority and external review remain open.",
+      "primary_proof": "manuscript/chapters/dg_recovery.tex",
+      "scope": [
+        "Population/infinite-access injectivity; finite-window inverse error is controlled separately from detector-noise amplification.",
+        "Fixed finite exposure destroys direct ordinary quadratic variation; fixed sampling and finite data are different contracts."
+      ]
+    },
+    {
+      "id": "DG02",
+      "statement": "The sharp ideal-law circle minimum has no uniformly finite upper confidence bound from a fixed finite noisy-exposure record over an unbounded frequency class.",
+      "status": "Scoped mathematical result with independent internal review and deterministic checks; historical priority and external review remain open.",
+      "primary_proof": "manuscript/chapters/dg_finite_access.tex",
+      "scope": [
+        "Known gamma, positive fixed exposure and Gaussian read noise; predeclared finite records and the stated coverage target.",
+        "Targets the ideal-law minimum, not arbitrary invisible dissipative subsystems."
+      ]
+    },
+    {
+      "id": "DG03",
+      "statement": "Independent stationary and oriented-phase trials have matching quartic and quadratic sample orders for a known resonant frequency pair at fixed read precision.",
+      "status": "Scoped mathematical result with independent internal review and deterministic checks; historical priority and external review remain open.",
+      "primary_proof": "manuscript/chapters/dg_finite_access.tex",
+      "scope": [
+        "Simple hypotheses omega versus twice omega; fixed positive gamma, exposure, noise and error; separate preparation access.",
+        "Not a minimax estimation theorem over unknown frequency intervals or a claim of optimal constants."
+      ]
+    },
+    {
+      "id": "DG04",
+      "statement": "Optimized passive and prepared measurement energies have matching quadratic orders under the declared inverse-energy Gaussian-noise law.",
+      "status": "Scoped mathematical result with independent internal review and deterministic checks; historical priority and external review remain open.",
+      "primary_proof": "manuscript/chapters/dg_finite_access.tex",
+      "scope": [
+        "Noise variance=kappa/energy; deterministic hypothesis-independent energy allocation; fixed simple hypotheses and the stated trial classes.",
+        "Preparation, drive, reset, time, computation and total apparatus energy are additional; no universal thermodynamic law."
+      ]
+    },
+    {
+      "id": "DG05",
+      "statement": "Known finite exposure followed by fixed-grid sampling admits an exact mixing Gaussian diffusion alias family with unbounded actual entropy.",
+      "status": "Scoped mathematical result with independent internal review and deterministic checks; historical priority and external review remain open.",
+      "primary_proof": "manuscript/chapters/dg_countermodels.tex",
+      "scope": [
+        "Noncompact uniformly elliptic OU processes and linear unbounded detector; analytic positive weights give identical full sampled Gaussian laws.",
+        "Does not import the compact minimum theorem or infer a changing minimum from changing actual hidden entropy."
+      ]
+    },
+    {
+      "id": "DC01",
+      "statement": "Finite jointly covered detector and temporal moments yield an entropy lower confidence bound with unknown diffusion scale, common gain and uniform shutter width under a specified pointwise diffusion geometry.",
+      "status": "Scoped mathematical result with an exact-arithmetic finite-design implementation; independent internal review recorded separately; external review and historical priority not established.",
+      "primary_proof": "manuscript/chapters/dc_calibration_theory.tex",
+      "supporting_artifacts": [
+        "src/constructive_access/detector_calibration/certification.py",
+        "detector_calibration/code/API.txt",
+        "examples/calibration_tutorial.py",
+        "detector_calibration/review/results.json"
+      ],
+      "scope": [
+        "Stationary compact smooth uniformly elliptic ordinary-reversal hidden diffusion, smooth |f|<=1, exact pointwise Gamma_f=gamma*(1-f^2) for an unknown positive constant gamma; numerical bounds on Lf, Ldagger f, L^2 f and (Ldagger)^2 f are externally justified premises.",
+        "Independent stationary target trials; bounded detector randomizations independent conditional on the complete latent path; common conditional mean equal to gain times a common causal uniform exposure of width at most the lag.",
+        "Constant and timed-step reference records require known waveforms and time origin, a valid width bracket, common response between target and reference, and the stated fixed-quota sampling rules. They do not validate the structural geometry or generator caps.",
+        "One simultaneous event covers fixed moments, covered prefix selection and gain projection. A nominal projection is predeclared or selected independently of the target inference records; no unrestricted adaptive score fitting or stopping is authorized.",
+        "A zero certificate is inconclusive, not evidence of zero dissipation. Replication, confidence projection and concentration ingredients are established methods; no new statistical inequality is claimed."
+      ]
+    },
+    {
+      "id": "DC02",
+      "statement": "A reversible hidden stochastic drive generates a reversible scalar observed law whose attained minimum compatible ordinary-reversal entropy is exactly its mean-square angular drive divided by angular diffusivity, including positive minima at zero mean angular current.",
+      "status": "Scoped exact theorem and analytic checks, with independent internal review recorded separately; no additional simulation or physical measurement claimed.",
+      "primary_proof": "manuscript/chapters/dc_calibration_theory.tex",
+      "primary_section": "Sharpness with an unobserved stochastic drive",
+      "formula": "L=gamma*partial_phi^2+c(z)*partial_phi+L_Z; Y=cos(phi); sigma_min(law(Y))=E_piZ[c^2]/gamma",
+      "example": "L_Z=eta*partial_z^2, c(z)=epsilon*cos(z): E[c]=0 and sigma_min=epsilon^2/(2*gamma).",
+      "scope": [
+        "Z is a reversible smooth uniformly elliptic diffusion on a compact connected manifold without boundary, with positive smooth stationary density; c is smooth, gamma>0, and the joint process is stationary.",
+        "The compatible-law minimum ranges over the prior ordinary compact smooth hidden-diffusion class of arbitrary finite hidden dimension reproducing the complete ideal continuous scalar law with calibrated time.",
+        "All hidden coordinates have ordinary even-variable reversal. Generalized or odd-variable physical reversal, jump processes, non-Markovian realizations and arbitrary physical implementations are outside this minimum.",
+        "Finite-record certification additionally requires the stated structural, generator and detector calibration contract; the ideal-law equality is not a finite-data identification guarantee."
+      ]
+    },
+    {
+      "id": "DC03",
+      "statement": "A replicated polynomial hierarchy has the exact circle and hidden-stochastic-drive entropy limit, and a constructive increasing-access sequence approaches that minimum while covering the unknown diffusion scale and detector calibration.",
+      "status": "Scoped mathematical consistency result; conservative sufficient rate, not a minimax or practical-efficiency claim; internal review recorded separately.",
+      "primary_proof": "manuscript/chapters/dc_calibration_theory.tex",
+      "formula": "w_m(f)=sum_{j=0}^m f^(2j); w_m*Gamma_f=gamma*(1-f^(2m+2))<=gamma",
+      "scope": [
+        "Order m uses 2m+2 distinct center replicas and two endpoint readouts. In the sharp families with lambda=gamma, its ideal fraction of the minimum is 1-binomial(2m+2,m+1)/4^(m+1).",
+        "The sufficient schedule increases moment degree, genuine replica access, independent target and reference samples, a covered lambda grid and certified arithmetic precision; it shrinks lag and shutter width under valid model and gain envelopes.",
+        "The proved sufficient signed error order is O_P((log n)^(-1/2)); no consistency at fixed positive exposure or optimal acquisition rate is claimed.",
+        "The unchanged installed finite API has a fixed numerical enclosure floor and is not itself asserted to realize the infinite increasing-precision limit. Higher degree can perform worse at a fixed finite budget."
+      ]
+    },
+    {
+      "id": "DC04",
+      "statement": "Smooth rare-region diffusion constructions rule out uniformly finite upper confidence bounds for unrestricted global diffusivity and generator suprema from finite passive records, despite favorable ellipticity and mixing.",
+      "status": "Scoped impossibility theorem using explicit constructions and standard total-variation confidence transfer; independent internal review recorded separately; historical priority not established.",
+      "primary_proof": "manuscript/chapters/dc_calibration_limits.tex",
+      "supporting_artifacts": [
+        "detector_calibration/countermodels/RARE_BUMP_PROOF.txt",
+        "src/constructive_access/detector_calibration/rare_bump.py"
+      ],
+      "scope": [
+        "Smooth reversible diffusions on a fixed four-dimensional compact torus, bounded detector, uniform stationary density, common lower ellipticity and common spectral gap; each model is smooth but there is no common derivative or global diffusivity envelope.",
+        "A rare hidden region leaves finite-duration full continuous path laws arbitrarily close while the targeted global or stationary essential supremum diverges; the declared nonanticipating almost-surely finite stopping extension has its own conditions.",
+        "Separate constructions keep diffusivity bounded while the first generator norm diverges, and keep diffusivity and the first norm bounded while the second norm diverges.",
+        "All countermodels have zero ordinary entropy. This concerns global calibration extrapolation, not failure of pathwise local volatility recovery, the impossibility of all structured calibration, or a change to an ideal-law entropy minimum."
+      ]
+    },
+    {
+      "id": "DC05",
+      "statement": "A closed finite Fourier and additive-functional moment system produces enclosed finite-exposure binary-record laws for the circle simulator without a Brownian path discretization, with explicit probability-law discrepancy accounting.",
+      "status": "Analytic moment closure with rational numerical enclosures and independent checks; a simulated model and implementation result, not a physical experiment.",
+      "primary_proof": "manuscript/chapters/dc_calibration_experiment.tex",
+      "supporting_artifacts": [
+        "src/constructive_access/detector_calibration/exposure_moments.py",
+        "detector_calibration/experiment/benchmark_laws",
+        "detector_calibration/review/results.json"
+      ],
+      "scope": [
+        "Stationary circle diffusion, declared rational parameters and exposure durations, common gain and conditionally independent binary readouts; finite-degree polynomial targets close in a finite Fourier cone.",
+        "Rational Taylor remainders propagate through moment normalization and record probabilities. Conversion to a nonnegative dyadic law is charged in total variation and then at the product-law dataset level.",
+        "Uniform independent random bits are a sampling idealization; NumPy PCG64 is the implementation. Numerical enclosures do not prove ideal randomness or validate apparatus behavior."
+      ]
+    },
+    {
+      "id": "DC06",
+      "statement": "A frozen four-case virtual experiment demonstrates positive calibrated geometry certificates in stronger-drive cases and retains weak-signal failures and cases where the broader-class endpoint comparator detects more often.",
+      "status": "Frozen reproducible synthetic evidence with independent audit recorded separately; simulation diagnostics are not a proof of uniform coverage or laboratory validation.",
+      "primary_proof": "manuscript/chapters/dc_calibration_experiment.tex",
+      "supporting_artifacts": [
+        "detector_calibration/experiment/contract.json",
+        "detector_calibration/experiment/benchmark.json",
+        "detector_calibration/experiment/benchmark_counts.json.gz",
+        "detector_calibration/review/results.json",
+        "examples/calibration_counts.json",
+        "examples/calibration_tutorial.py"
+      ],
+      "benchmark": {
+        "data_origin": "simulated",
+        "datasets": 1600,
+        "datasets_per_case": 400,
+        "independent_target_trials_per_dataset": 13333333,
+        "center_replicas_per_trial": 4,
+        "endpoint_readouts_per_trial": 2,
+        "target_readouts_per_dataset": 79999998,
+        "gain_reference_readouts_per_dataset": 100000,
+        "step_reference_readouts_per_dataset": 100000,
+        "total_detector_readouts_per_dataset": 80199998,
+        "theorem_failure_budget_per_dataset": "1/20",
+        "simulator_total_variation_upper_per_dataset_strictly_less_than": "18/1000000000000",
+        "simultaneous_target_moment_event_covered": 1595,
+        "reference_calibration_covered": 1600,
+        "finite_gamma_upper_bound_covered": 1600,
+        "entropy_lower_bound_overshoots": 0,
+        "all_selected_prefixes": 0,
+        "cases": [
+          {
+            "name": "driven",
+            "simulator_entropy": "9",
+            "geometry_positive": 400,
+            "endpoint_positive": 400,
+            "target_moment_event_covered": 400,
+            "geometry_bound_mean_rounded": "0.577347",
+            "endpoint_bound_mean_rounded": "0.0000816405"
+          },
+          {
+            "name": "equilibrium",
+            "simulator_entropy": "0",
+            "geometry_positive": 0,
+            "endpoint_positive": 0,
+            "target_moment_event_covered": 399,
+            "geometry_bound_mean_rounded": "0",
+            "endpoint_bound_mean_rounded": "0"
+          },
+          {
+            "name": "weak_driven",
+            "simulator_entropy": "1",
+            "geometry_positive": 0,
+            "endpoint_positive": 27,
+            "target_moment_event_covered": 399,
+            "geometry_bound_mean_rounded": "0",
+            "endpoint_bound_mean_rounded": "0.00000000682113"
+          },
+          {
+            "name": "changed_calibration",
+            "simulator_entropy": "18",
+            "geometry_positive": 395,
+            "endpoint_positive": 400,
+            "target_moment_event_covered": 397,
+            "geometry_bound_mean_rounded": "0.599052",
+            "endpoint_bound_mean_rounded": "0.0000696106"
+          }
+        ]
+      },
+      "scope": [
+        "Exact frozen design and seeds, synthetic stationary circle records, supplied generator caps, simultaneous calibration and target confidence allocation. Simulator truth is for evaluation, not an inference input.",
+        "The geometry certificate uses the pointwise Gamma identity; the endpoint comparator has broader structural scope. Bound size and observed positive fractions do not establish universal dominance or a matched-assumption optimality result.",
+        "The higher polynomial prefix never wins in this bank. Weak-drive geometry detection is zero and changed-calibration geometry detection is lower than the endpoint comparator; these outcomes are retained.",
+        "Observed confidence-event frequencies, nuisance coverage and absence of entropy overshoots are separate diagnostics. The per-dataset theorem budget and simulator discrepancy are separately stated; no zero-failure or exact-power conclusion follows from this bank.",
+        "Target and reference readouts and modeled durations are counted. Preparation, reset, clock, reference waveform, replica hardware and energy costs remain additional and unmeasured. No calibrated joule savings or new empirical entropy validation is claimed.",
+        "The tutorial may report the maximum of the geometry and endpoint bounds on their shared simultaneous event, under the narrower geometry model contract. This deterministic post-benchmark combination has no additional failure allocation; the frozen per-method results remain unchanged."
+      ]
+    }
+  ],
+  "interpretation": "A unified model-bound reference and executable research milestone; not evidence that a new universal law, scientific field, or historical breakthrough has been externally established.",
+  "published_empirical_data_reanalysis": true,
+  "empirical_entropy_validation": false
+}

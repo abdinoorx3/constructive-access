@@ -1,0 +1,2858 @@
+{
+  "schema": "constructive-access-bibliography-review-v1",
+  "recorded_utc": "2026-10-12T15:59:21.895718+00:00",
+  "owner": "unified_provenance",
+  "status": "PASS_with_two_minor_root_bibliography_edits",
+  "scope": "Bibliographic identity, key coverage, duplicates, and selected claim-source scope; not independent proof review of every cited theorem.",
+  "input_hashes": {
+    "research/foundations_bibliography.txt": "0a9fb3724671089face118b363a96fc6e7cd9c669061daf60bbafe585e343e4a",
+    "research/statistics_bibliography.txt": "21939727b7856490c48d86c43854563a75f1e3cb1284ba8d4fe7cb21c37fea05",
+    "research/physics_bibliography.txt": "9f9bca0e96b5248cf3a8ba41425546f849a965812f7e1beb32cd2a9407cc53b3",
+    "manuscript/chapters/provenance_bibitems.tex": "e1d8e7e1c0d1ca8a149f49bfafab461cb11e40692e0978e90dbfcdaf900f9b24"
+  },
+  "chapter_hashes_at_scan": {
+    "manuscript/chapters/adequacy_energy.tex": "0448bc1a8e9d6eddf3f82b72c7d255b53eec6dab26bc5415ad5e2160f64d8959",
+    "manuscript/chapters/applications.tex": "60e1cd50b21d219b745bd83fd447a1099adedab4b4c8e044050c3d057ba2fbc8",
+    "manuscript/chapters/continuous_thermodynamics.tex": "9e1940d863689f72a95e0b37e78aae6d8ef200b9503c618cc645976192166bf6",
+    "manuscript/chapters/entry.tex": "ded75f97bdca214e93b4dc944b4aaa3ff4c65147228689c33b2c95b44de5e331",
+    "manuscript/chapters/finite_access.tex": "39e4290f070f7ff8e5c7a6b1c3120ce75d49c6f3ef2618c0b726824f60c82913",
+    "manuscript/chapters/foundations.tex": "24fb1d5944c6433023c09c18230d345daa299084d7b5239b0f7cae97e09ae2de",
+    "manuscript/chapters/precision_design.tex": "5171efcac4c2a22ffea55a9d115463639bfbb312118dc3e714f3583c15e39ec1",
+    "manuscript/chapters/research_map.tex": "73ee921a404aeee414d76855815344b4b6042f5b598fc86cdd6309246698dc14",
+    "manuscript/chapters/toolkit.tex": "72abcfe98ae3ffd2523e811b3f2d07333d1470b325bbc71d76e661cb8ef4e848",
+    "manuscript/chapters/workflow.tex": "ec944916a430dd9cc25c9e5f1be93c94410e865de52104c614e14864439ef2c3"
+  },
+  "counts": {
+    "input_entries": 58,
+    "cited_keys": 58,
+    "duplicate_aliases": 10,
+    "canonical_sources": 48,
+    "unique_dois": 40,
+    "crossref_successful": 35,
+    "publisher_fallbacks": 5
+  },
+  "missing_cited_keys": [],
+  "uncited_keys": [],
+  "alias_map": {
+    "p_blackwell": "f_blackwell",
+    "p_tzeng": "f_tzeng",
+    "p_kiefer": "f_kiefer",
+    "p_thon": "f_thon",
+    "p_jaeger": "f_jaeger",
+    "p_littman": "f_littman",
+    "p_wang": "f_wang",
+    "p_qian": "physics-qian",
+    "p_bonato": "physics-bonato",
+    "p_betting": "caWaudbySmithRamdas2024"
+  },
+  "alias_rule": "Replace citation keys with their canonical value before retaining only canonical bibliography entries. Alternatively write bibcite aliases to the same number without duplicating entries. No chapter file was modified by this reviewer.",
+  "source_corrections": [
+    {
+      "key": "f_petreczky",
+      "kind": "title_exactness",
+      "severity": "minor_metadata_correction",
+      "status": "root_integration_requested",
+      "old": "Realization theory for linear and bilinear switched systems: a formal power series approach. Part I: realization theory of linear switched systems",
+      "new": "Realization theory for linear and bilinear switched systems: A formal power series approach",
+      "reason": "Publisher archival title ends after approach; Part I is contextual description in abstract, not title. Correct DOI and source were already selected.",
+      "source": "https://numdam.org/articles/10.1051/cocv/2010014/"
+    },
+    {
+      "key": "p_maier",
+      "kind": "article_number",
+      "severity": "minor_metadata_completion",
+      "status": "root_integration_requested",
+      "old": "\\emph{J. Stat. Phys.} \\textbf{191} (2024)",
+      "new": "\\emph{J. Stat. Phys.} \\textbf{191}, 104 (2024)",
+      "reason": "Crossref and published article metadata identify article104, issue8.",
+      "source": "https://doi.org/10.1007/s10955-024-03315-7"
+    },
+    {
+      "key": "caBremaud1981",
+      "kind": "unverified_doi",
+      "severity": "resolved_metadata_error",
+      "status": "already_corrected_in_current_source",
+      "old": "doi:10.1007/978-1-4615-9851-2",
+      "new": "ISBN 978-0-387-90536-5",
+      "reason": "Earlier DOI was unverified and exact registry query returned404; current statistics bibliography has removed it. Book title/author/year/ISBN verified.",
+      "source": "https://books.google.com/books/about/Point_Processes_and_Queues.html?id=Pk0_AQAAIAAJ"
+    }
+  ],
+  "all_existing_doi_identities_corroborated": true,
+  "crossref_metadata": {
+    "10.1007/3-540-33099-2": {
+      "title": [
+        "Algorithms in Real Algebraic Geometry"
+      ],
+      "DOI": "10.1007/3-540-33099-2",
+      "author": [
+        {
+          "given": "Saugata",
+          "family": "Basu",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Richard",
+          "family": "Pollack",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Marie-Françoise",
+          "family": "Roy",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2006
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2006
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "Algorithms and Computation in Mathematics"
+      ],
+      "volume": null,
+      "issue": null,
+      "page": null,
+      "article-number": null,
+      "type": "book"
+    },
+    "10.1007/978-1-4612-1166-2": {
+      "title": [
+        "Asymptotics in Statistics"
+      ],
+      "DOI": "10.1007/978-1-4612-1166-2",
+      "author": [
+        {
+          "given": "Lucien",
+          "family": "Le Cam",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Grace",
+          "family": "Lo Yang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2000
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2000
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "Springer Series in Statistics"
+      ],
+      "volume": null,
+      "issue": null,
+      "page": null,
+      "article-number": null,
+      "type": "book"
+    },
+    "10.1007/s00220-014-2253-0": {
+      "title": [
+        "Equivalence Classes and Local Asymptotic Normality in System Identification for Quantum Markov Chains"
+      ],
+      "DOI": "10.1007/s00220-014-2253-0",
+      "author": [
+        {
+          "given": "Madalin",
+          "family": "Guta",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jukka",
+          "family": "Kiukas",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2014,
+            11,
+            26
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2015,
+            5
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2014,
+            11,
+            26
+          ]
+        ]
+      },
+      "container-title": [
+        "Communications in Mathematical Physics"
+      ],
+      "volume": "335",
+      "issue": "3",
+      "page": "1397-1428",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1007/s10955-024-03315-7": {
+      "title": [
+        "Inferring Kinetics and Entropy Production from Observable Transitions in Partially Accessible, Periodically Driven Markov Networks"
+      ],
+      "DOI": "10.1007/s10955-024-03315-7",
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0009-0001-5665-2716",
+          "authenticated-orcid": false,
+          "given": "Alexander M.",
+          "family": "Maier",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-4868-6959",
+          "authenticated-orcid": false,
+          "given": "Julius",
+          "family": "Degünther",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-3619-6653",
+          "authenticated-orcid": false,
+          "given": "Jann",
+          "family": "van der Meer",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-9271-6190",
+          "authenticated-orcid": false,
+          "given": "Udo",
+          "family": "Seifert",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            8,
+            14
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2024,
+            8,
+            14
+          ]
+        ]
+      },
+      "container-title": [
+        "Journal of Statistical Physics"
+      ],
+      "volume": "191",
+      "issue": "8",
+      "page": null,
+      "article-number": "104",
+      "type": "journal-article"
+    },
+    "10.1016/j.automatica.2016.08.002": {
+      "title": [
+        "Reachability and observability reduction for linear switched systems with constrained switching"
+      ],
+      "DOI": "10.1016/j.automatica.2016.08.002",
+      "author": [
+        {
+          "given": "Mert",
+          "family": "Baştuğ",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Mihály",
+          "family": "Petreczky",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Rafael",
+          "family": "Wisniewski",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "John",
+          "family": "Leth",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2016,
+            12
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2016,
+            12
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "Automatica"
+      ],
+      "volume": "74",
+      "issue": null,
+      "page": "162-170",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1016/j.jcss.2020.08.004": {
+      "title": [
+        "Equivalence checking of quantum finite-state machines"
+      ],
+      "DOI": "10.1016/j.jcss.2020.08.004",
+      "author": [
+        {
+          "given": "Qisheng",
+          "family": "Wang",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Junyi",
+          "family": "Liu",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Mingsheng",
+          "family": "Ying",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2021,
+            3
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2021,
+            3
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "Journal of Computer and System Sciences"
+      ],
+      "volume": "116",
+      "issue": null,
+      "page": "1-21",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1016/j.mbs.2009.11.002": {
+      "title": [
+        "Structural identifiability of polynomial and rational systems"
+      ],
+      "DOI": "10.1016/j.mbs.2009.11.002",
+      "author": [
+        {
+          "given": "Jana",
+          "family": "Němcová",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2010,
+            2
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2010,
+            2
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "Mathematical Biosciences"
+      ],
+      "volume": "223",
+      "issue": "2",
+      "page": "83-96",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1016/j.peva.2017.09.008": {
+      "title": [
+        "Uniformization: Basics, extensions and applications"
+      ],
+      "DOI": "10.1016/j.peva.2017.09.008",
+      "author": [
+        {
+          "given": "N.M.",
+          "family": "van Dijk",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "S.P.J.",
+          "family": "van Brummelen",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "R.J.",
+          "family": "Boucherie",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2018,
+            2
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2018,
+            2
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "Performance Evaluation"
+      ],
+      "volume": "118",
+      "issue": null,
+      "page": "8-32",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1017/9781316848142": {
+      "title": [
+        "The Theory of Quantum Information"
+      ],
+      "DOI": "10.1017/9781316848142",
+      "author": [
+        {
+          "given": "John",
+          "family": "Watrous",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2018,
+            4,
+            26
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2018,
+            4,
+            26
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2018,
+            5,
+            17
+          ]
+        ]
+      },
+      "container-title": [],
+      "volume": null,
+      "issue": null,
+      "page": null,
+      "article-number": null,
+      "type": "monograph"
+    },
+    "10.1017/CBO9780511804441": {
+      "title": [
+        "Convex Optimization"
+      ],
+      "DOI": "10.1017/cbo9780511804441",
+      "author": [
+        {
+          "given": "Stephen",
+          "family": "Boyd",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Lieven",
+          "family": "Vandenberghe",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2004,
+            3,
+            8
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2004,
+            3,
+            8
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2013,
+            8,
+            5
+          ]
+        ]
+      },
+      "container-title": [],
+      "volume": null,
+      "issue": null,
+      "page": null,
+      "article-number": null,
+      "type": "monograph"
+    },
+    "10.1038/nnano.2015.261": {
+      "title": [
+        "Optimized quantum sensing with a single electron spin using real-time adaptive measurements"
+      ],
+      "DOI": "10.1038/nnano.2015.261",
+      "author": [
+        {
+          "given": "C.",
+          "family": "Bonato",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "M. S.",
+          "family": "Blok",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "H. T.",
+          "family": "Dinani",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "D. W.",
+          "family": "Berry",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "M. L.",
+          "family": "Markham",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "D. J.",
+          "family": "Twitchen",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "R.",
+          "family": "Hanson",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2015,
+            11,
+            16
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2016,
+            3
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2015,
+            11,
+            16
+          ]
+        ]
+      },
+      "container-title": [
+        "Nature Nanotechnology"
+      ],
+      "volume": "11",
+      "issue": "3",
+      "page": "247-252",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1051/cocv/2010014": {
+      "title": [
+        "Realization theory for linear and bilinear switched systems: A formal power series approach"
+      ],
+      "DOI": "10.1051/cocv/2010014",
+      "author": [
+        {
+          "given": "Mihály",
+          "family": "Petreczky",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2010,
+            3,
+            31
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2011,
+            4
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2010,
+            3,
+            31
+          ]
+        ]
+      },
+      "container-title": [
+        "ESAIM: Control, Optimisation and Calculus of Variations"
+      ],
+      "volume": "17",
+      "issue": "2",
+      "page": "410-445",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1063/5.0251089": {
+      "title": [
+        "Perspective: Time irreversibility in systems observed at coarse resolution"
+      ],
+      "DOI": "10.1063/5.0251089",
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-0011-2358",
+          "authenticated-orcid": false,
+          "given": "Cai",
+          "family": "Dieball",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Mathematical bioPhysics Group, Max Planck Institute for Multidisciplinary Sciences , 37077 Göttingen,",
+              "place": [
+                "Germany"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-1888-6666",
+          "authenticated-orcid": false,
+          "given": "Aljaž",
+          "family": "Godec",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Mathematical bioPhysics Group, Max Planck Institute for Multidisciplinary Sciences , 37077 Göttingen,",
+              "place": [
+                "Germany"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2025,
+            3,
+            3
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2025,
+            3,
+            7
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2025,
+            3,
+            3
+          ]
+        ]
+      },
+      "container-title": [
+        "The Journal of Chemical Physics"
+      ],
+      "volume": "162",
+      "issue": "9",
+      "page": null,
+      "article-number": "090901",
+      "type": "journal-article"
+    },
+    "10.1073/pnas.0305962101": {
+      "title": [
+        "Fluorescence correlation spectroscopy with high-order and dual-color correlation to probe nonequilibrium steady states"
+      ],
+      "DOI": "10.1073/pnas.0305962101",
+      "author": [
+        {
+          "given": "Hong",
+          "family": "Qian",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Applied Mathematics, University of Washington, Seattle, WA 98195; and Department of Biochemistry and Molecular Biophysics, Washington University School of Medicine, St. Louis, MO 63110"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Elliot L.",
+          "family": "Elson",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Applied Mathematics, University of Washington, Seattle, WA 98195; and Department of Biochemistry and Molecular Biophysics, Washington University School of Medicine, St. Louis, MO 63110"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2004,
+            2,
+            17
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2004,
+            3,
+            2
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2004,
+            2,
+            17
+          ]
+        ]
+      },
+      "container-title": [
+        "Proceedings of the National Academy of Sciences"
+      ],
+      "volume": "101",
+      "issue": "9",
+      "page": "2828-2833",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1080/01621459.1963.10500830": {
+      "title": [
+        "Probability Inequalities for Sums of Bounded Random Variables"
+      ],
+      "DOI": "10.1080/01621459.1963.10500830",
+      "author": [
+        {
+          "given": "Wassily",
+          "family": "Hoeffding",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "University of North Carolina",
+              "place": [
+                "USA"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1963,
+            3
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1963,
+            3
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2012,
+            4,
+            10
+          ]
+        ]
+      },
+      "container-title": [
+        "Journal of the American Statistical Association"
+      ],
+      "volume": "58",
+      "issue": "301",
+      "page": "13-30",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1088/1367-2630/17/11/113020": {
+      "title": [
+        "Estimating the coherence of noise"
+      ],
+      "DOI": "10.1088/1367-2630/17/11/113020",
+      "author": [
+        {
+          "given": "Joel",
+          "family": "Wallman",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Chris",
+          "family": "Granade",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Robin",
+          "family": "Harper",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Steven T",
+          "family": "Flammia",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2015,
+            11,
+            6
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2015,
+            11,
+            6
+          ]
+        ]
+      },
+      "container-title": [
+        "New Journal of Physics"
+      ],
+      "volume": "17",
+      "issue": "11",
+      "page": "113020",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1093/bioinformatics/btu015": {
+      "title": [
+        "INCA: a computational platform for isotopically non-stationary metabolic flux analysis"
+      ],
+      "DOI": "10.1093/bioinformatics/btu015",
+      "author": [
+        {
+          "given": "Jamey D.",
+          "family": "Young",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "1 Department of Chemical and Biomolecular Engineering and 2Department of Molecular Physiology and Biophysics, Vanderbilt University, Nashville, TN 37235-1604, USA"
+            },
+            {
+              "name": "1 Department of Chemical and Biomolecular Engineering and 2Department of Molecular Physiology and Biophysics, Vanderbilt University, Nashville, TN 37235-1604, USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2014,
+            1,
+            11
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2014,
+            5,
+            1
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2014,
+            1,
+            11
+          ]
+        ]
+      },
+      "container-title": [
+        "Bioinformatics"
+      ],
+      "volume": "30",
+      "issue": "9",
+      "page": "1333-1335",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1093/biomet/asae049": {
+      "title": [
+        "Testing the mean and variance by <i>e</i>-processes"
+      ],
+      "DOI": "10.1093/biomet/asae049",
+      "author": [
+        {
+          "given": "Yixuan",
+          "family": "Fan",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Centre for Applied Mathematics, Tianjin University , 92 Weijin Road , Tianjin 300072, , yxfanjlu@gmail.com",
+              "place": [
+                "China"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-2410-490X",
+          "authenticated-orcid": false,
+          "given": "Zhanyi",
+          "family": "Jiao",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Mathematics, Illinois State University , 300 S. School Street , Normal, Illinois 61761, U.S.A"
+            }
+          ],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-3849-4555",
+          "authenticated-orcid": false,
+          "given": "Ruodu",
+          "family": "Wang",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Statistics and Actuarial Science, University of Waterloo , 200 University Avenue West , Waterloo, Ontario N2L 3G1, , wang@uwaterloo.ca",
+              "place": [
+                "Canada"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            9,
+            30
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2025,
+            1,
+            16
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2024,
+            9,
+            30
+          ]
+        ]
+      },
+      "container-title": [
+        "Biometrika"
+      ],
+      "volume": "112",
+      "issue": "1",
+      "page": null,
+      "article-number": "asae049",
+      "type": "journal-article"
+    },
+    "10.1093/jrsssb/qkad009": {
+      "title": [
+        "Estimating means of bounded random variables by betting"
+      ],
+      "DOI": "10.1093/jrsssb/qkad009",
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-4471-1405",
+          "authenticated-orcid": false,
+          "given": "Ian",
+          "family": "Waudby-Smith",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Statistics & Data Science, Carnegie Mellon University , Pittsburgh, PA , USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-0497-311X",
+          "authenticated-orcid": false,
+          "given": "Aaditya",
+          "family": "Ramdas",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Statistics & Data Science, Carnegie Mellon University , Pittsburgh, PA , USA"
+            },
+            {
+              "name": "Machine Learning Department, Carnegie Mellon University , Pittsburgh, PA , USA"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2023,
+            2,
+            16
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2024,
+            2,
+            8
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2023,
+            2,
+            16
+          ]
+        ]
+      },
+      "container-title": [
+        "Journal of the Royal Statistical Society Series B: Statistical Methodology"
+      ],
+      "volume": "86",
+      "issue": "1",
+      "page": "1-27",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1098/rspb.1989.0024": {
+      "title": [
+        "Equivalence of aggregated Markov models of ion-channel gating"
+      ],
+      "DOI": "10.1098/rspb.1989.0024",
+      "author": [
+        {
+          "given": "P.",
+          "family": "Kienker",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Biophysics, Johns Hopkins University, Baltimore, Maryland 21218, U. S. A."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1989,
+            4,
+            22
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1989,
+            4,
+            22
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "Proceedings of the Royal Society of London. B. Biological Sciences"
+      ],
+      "volume": "236",
+      "issue": "1284",
+      "page": "269-309",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1103/PhysRevA.89.030302": {
+      "title": [
+        "Identifiability of open quantum systems"
+      ],
+      "DOI": "10.1103/physreva.89.030302",
+      "author": [
+        {
+          "given": "Daniel",
+          "family": "Burgarth",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Kazuya",
+          "family": "Yuasa",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2014,
+            3,
+            12
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2014,
+            3,
+            12
+          ]
+        ]
+      },
+      "container-title": [
+        "Physical Review A"
+      ],
+      "volume": "89",
+      "issue": "3",
+      "page": null,
+      "article-number": "030302",
+      "type": "journal-article"
+    },
+    "10.1103/PhysRevApplied.21.014012": {
+      "title": [
+        "Optimized Bayesian system identification in quantum devices"
+      ],
+      "DOI": "10.1103/physrevapplied.21.014012",
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-2300-1394",
+          "authenticated-orcid": true,
+          "given": "Thomas M.",
+          "family": "Stace",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Q-CTRL, Sydney, NSW 2000, Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jiayin",
+          "family": "Chen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Q-CTRL, Sydney, NSW 2000, Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-5163-1852",
+          "authenticated-orcid": true,
+          "given": "Li",
+          "family": "Li",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Q-CTRL, Sydney, NSW 2000, Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Viktor S.",
+          "family": "Perunicic",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Q-CTRL, Sydney, NSW 2000, Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Andre R. R.",
+          "family": "Carvalho",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Q-CTRL, Sydney, NSW 2000, Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Michael",
+          "family": "Hush",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Q-CTRL, Sydney, NSW 2000, Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-6763-7132",
+          "authenticated-orcid": true,
+          "given": "Christophe H.",
+          "family": "Valahu",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "School of Physics, University of Sydney, Sydney, NSW 2006, Australia"
+            },
+            {
+              "name": "ARC Centre of Excellence for Engineered Quantum Systems, University of Sydney, Sydney, NSW 2006, Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-4520-6419",
+          "authenticated-orcid": true,
+          "given": "Ting Rei",
+          "family": "Tan",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "School of Physics, University of Sydney, Sydney, NSW 2006, Australia"
+            },
+            {
+              "name": "ARC Centre of Excellence for Engineered Quantum Systems, University of Sydney, Sydney, NSW 2006, Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Michael J.",
+          "family": "Biercuk",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Q-CTRL, Sydney, NSW 2000, Australia"
+            },
+            {
+              "name": "School of Physics, University of Sydney, Sydney, NSW 2006, Australia"
+            },
+            {
+              "name": "ARC Centre of Excellence for Engineered Quantum Systems, University of Sydney, Sydney, NSW 2006, Australia"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2024,
+            1,
+            9
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2024,
+            1,
+            9
+          ]
+        ]
+      },
+      "container-title": [
+        "Physical Review Applied"
+      ],
+      "volume": "21",
+      "issue": "1",
+      "page": null,
+      "article-number": "014012",
+      "type": "journal-article"
+    },
+    "10.1103/PhysRevE.87.042104": {
+      "title": [
+        "Information-theoretic versus thermodynamic entropy production in autonomous sensory networks"
+      ],
+      "DOI": "10.1103/physreve.87.042104",
+      "author": [
+        {
+          "given": "A. C.",
+          "family": "Barato",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "D.",
+          "family": "Hartich",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "U.",
+          "family": "Seifert",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2013,
+            4,
+            5
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2013,
+            4,
+            5
+          ]
+        ]
+      },
+      "container-title": [
+        "Physical Review E"
+      ],
+      "volume": "87",
+      "issue": "4",
+      "page": null,
+      "article-number": "042104",
+      "type": "journal-article"
+    },
+    "10.1103/PhysRevLett.105.150607": {
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    "10.1103/PhysRevLett.106.080802": {
+      "title": [
+        "Single-Spin Magnetometry with Multipulse Sensing Sequences"
+      ],
+      "DOI": "10.1103/physrevlett.106.080802",
+      "author": [
+        {
+          "given": "G.",
+          "family": "de Lange",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "D.",
+          "family": "Ristè",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "V. V.",
+          "family": "Dobrovitski",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "R.",
+          "family": "Hanson",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2011,
+            2,
+            24
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2011,
+            2,
+            24
+          ]
+        ]
+      },
+      "container-title": [
+        "Physical Review Letters"
+      ],
+      "volume": "106",
+      "issue": "8",
+      "page": null,
+      "article-number": "080802",
+      "type": "journal-article"
+    },
+    "10.1103/PhysRevResearch.4.043103": {
+      "title": [
+        "Inference of time irreversibility from incomplete information: Linear systems and its pitfalls"
+      ],
+      "DOI": "10.1103/physrevresearch.4.043103",
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-9070-2326",
+          "authenticated-orcid": true,
+          "given": "D.",
+          "family": "Lucente",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-1921-1196",
+          "authenticated-orcid": true,
+          "given": "A.",
+          "family": "Baldassarri",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-7229-9457",
+          "authenticated-orcid": true,
+          "given": "A.",
+          "family": "Puglisi",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "given": "A.",
+          "family": "Vulpiani",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-4808-4103",
+          "authenticated-orcid": true,
+          "given": "M.",
+          "family": "Viale",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2022,
+            11,
+            14
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2022,
+            11,
+            14
+          ]
+        ]
+      },
+      "container-title": [
+        "Physical Review Research"
+      ],
+      "volume": "4",
+      "issue": "4",
+      "page": null,
+      "article-number": "043103",
+      "type": "journal-article"
+    },
+    "10.1103/PhysRevX.12.031025": {
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    "10.1103/PhysRevX.6.041064": {
+      "title": [
+        "Nonequilibrium Thermodynamics of Chemical Reaction Networks: Wisdom from Stochastic Thermodynamics"
+      ],
+      "DOI": "10.1103/physrevx.6.041064",
+      "author": [
+        {
+          "given": "Riccardo",
+          "family": "Rao",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Massimiliano",
+          "family": "Esposito",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2016,
+            12,
+            22
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2016,
+            12,
+            22
+          ]
+        ]
+      },
+      "container-title": [
+        "Physical Review X"
+      ],
+      "volume": "6",
+      "issue": "4",
+      "page": null,
+      "article-number": "041064",
+      "type": "journal-article"
+    },
+    "10.1103/RevModPhys.48.571": {
+      "title": [
+        "Network theory of microscopic and macroscopic behavior of master equation systems"
+      ],
+      "DOI": "10.1103/revmodphys.48.571",
+      "author": [
+        {
+          "given": "J.",
+          "family": "Schnakenberg",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1976,
+            10,
+            1
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            1976,
+            10,
+            1
+          ]
+        ]
+      },
+      "container-title": [
+        "Reviews of Modern Physics"
+      ],
+      "volume": "48",
+      "issue": "4",
+      "page": "571-585",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1103/RevModPhys.89.035002": {
+      "title": [
+        "Quantum sensing"
+      ],
+      "DOI": "10.1103/revmodphys.89.035002",
+      "author": [
+        {
+          "given": "C. L.",
+          "family": "Degen",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "F.",
+          "family": "Reinhard",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "P.",
+          "family": "Cappellaro",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2017,
+            7,
+            25
+          ]
+        ]
+      },
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2017,
+            7,
+            25
+          ]
+        ]
+      },
+      "container-title": [
+        "Reviews of Modern Physics"
+      ],
+      "volume": "89",
+      "issue": "3",
+      "page": null,
+      "article-number": "035002",
+      "type": "journal-article"
+    },
+    "10.1109/TIT.2011.2104511": {
+      "title": [
+        "Efficient Tests for Equivalence of Hidden Markov Processes and Quantum Random Walks"
+      ],
+      "DOI": "10.1109/tit.2011.2104511",
+      "author": [
+        {
+          "given": "Ulrich",
+          "family": "Faigle",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        },
+        {
+          "given": "Alexander",
+          "family": "Schonhuth",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2011,
+            3
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2011,
+            3
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "IEEE Transactions on Information Theory"
+      ],
+      "volume": "57",
+      "issue": "3",
+      "page": "1746-1753",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1137/0221017": {
+      "title": [
+        "A Polynomial-Time Algorithm for the Equivalence of Probabilistic Automata"
+      ],
+      "DOI": "10.1137/0221017",
+      "author": [
+        {
+          "given": "Wen-Guey",
+          "family": "Tzeng",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1992,
+            4
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1992,
+            4
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2006,
+            7,
+            13
+          ]
+        ]
+      },
+      "container-title": [
+        "SIAM Journal on Computing"
+      ],
+      "volume": "21",
+      "issue": "2",
+      "page": "216-227",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1147/rd.53.0183": {
+      "title": [
+        "Irreversibility and Heat Generation in the Computing Process"
+      ],
+      "DOI": "10.1147/rd.53.0183",
+      "author": [
+        {
+          "given": "R.",
+          "family": "Landauer",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1961,
+            7
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1961,
+            7
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "IBM Journal of Research and Development"
+      ],
+      "volume": "5",
+      "issue": "3",
+      "page": "183-191",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1162/089976600300015411": {
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    "10.1209/0295-5075/97/30003": {
+      "title": [
+        "Nonequilibrium thermodynamics as a gauge theory"
+      ],
+      "DOI": "10.1209/0295-5075/97/30003",
+      "author": [
+        {
+          "given": "M.",
+          "family": "Polettini",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            2012,
+            1,
+            31
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            2012,
+            2,
+            1
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2012,
+            1,
+            31
+          ]
+        ]
+      },
+      "container-title": [
+        "EPL (Europhysics Letters)"
+      ],
+      "volume": "97",
+      "issue": "3",
+      "page": "30003",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1214/aoms/1177729032": {
+      "title": [
+        "Equivalent Comparisons of Experiments"
+      ],
+      "DOI": "10.1214/aoms/1177729032",
+      "author": [
+        {
+          "given": "David",
+          "family": "Blackwell",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1953,
+            6
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1953,
+            6
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "The Annals of Mathematical Statistics"
+      ],
+      "volume": "24",
+      "issue": "2",
+      "page": "265-272",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1214/aos/1176325367": {
+      "title": [
+        "Statistical Estimation and Optimal Recovery"
+      ],
+      "DOI": "10.1214/aos/1176325367",
+      "author": [
+        {
+          "given": "David L.",
+          "family": "Donoho",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1994,
+            3,
+            1
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1994,
+            3,
+            1
+          ]
+        ]
+      },
+      "published-online": null,
+      "container-title": [
+        "The Annals of Statistics"
+      ],
+      "volume": "22",
+      "issue": "1",
+      "page": null,
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.1239/jap/1032192850": {
+      "title": [
+        "A canonical representation for aggregated Markov processes"
+      ],
+      "DOI": "10.1239/jap/1032192850",
+      "author": [
+        {
+          "given": "Bret",
+          "family": "Larget",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "role": "author",
+              "vocabulary": "crossref"
+            }
+          ]
+        }
+      ],
+      "published": {
+        "date-parts": [
+          [
+            1998,
+            6
+          ]
+        ]
+      },
+      "published-print": {
+        "date-parts": [
+          [
+            1998,
+            6
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2016,
+            7,
+            14
+          ]
+        ]
+      },
+      "container-title": [
+        "Journal of Applied Probability"
+      ],
+      "volume": "35",
+      "issue": "2",
+      "page": "313-324",
+      "article-number": null,
+      "type": "journal-article"
+    },
+    "10.2168/LMCS-9(1:8)2013": {
+      "error": "HTTPError: HTTP Error 429: Too Many Requests"
+    },
+    "10.4230/LIPIcs.MFCS.2025.86": {
+      "error": "HTTPError: HTTP Error 404: Not Found"
+    }
+  },
+  "publisher_fallbacks": {
+    "10.4230/LIPIcs.MFCS.2025.86": {
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2025.86",
+      "status": "confirmed_publisher_metadata",
+      "note": "Crossref 404 reflects a non-Crossref registry; Dagstuhl explicitly supplies DOI, title, author, 2025, volume345, pages86:1-86:18."
+    },
+    "10.2168/LMCS-9(1:8)2013": {
+      "url": "https://lmcs.episciences.org/908",
+      "status": "confirmed_publisher_metadata",
+      "note": "Crossref request rate limited; publisher directly confirms DOI/title/authors/year."
+    },
+    "10.1162/089976600300015411": {
+      "url": "https://doi.org/10.1162/089976600300015411",
+      "status": "confirmed_publisher_and_pubmed_metadata",
+      "additional_url": "https://pubmed.ncbi.nlm.nih.gov/10935718/",
+      "note": "Crossref rate limited; MIT primary metadata and PubMed match."
+    },
+    "10.1103/PhysRevLett.105.150607": {
+      "url": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.105.150607",
+      "status": "confirmed_publisher_metadata",
+      "note": "Crossref rate limited; APS title, authors, year, volume and article number match."
+    },
+    "10.1103/PhysRevX.12.031025": {
+      "url": "https://journals.aps.org/prx/abstract/10.1103/PhysRevX.12.031025",
+      "status": "confirmed_publisher_metadata",
+      "note": "Crossref rate limited; APS title, authors, year, volume and article number match."
+    }
+  },
+  "citation_usage": {
+    "caVille1939": [
+      "manuscript/chapters/adequacy_energy.tex"
+    ],
+    "caWaudbySmithRamdas2024": [
+      "manuscript/chapters/adequacy_energy.tex"
+    ],
+    "caBremaud1981": [
+      "manuscript/chapters/adequacy_energy.tex"
+    ],
+    "physics-rao": [
+      "manuscript/chapters/applications.tex",
+      "manuscript/chapters/continuous_thermodynamics.tex"
+    ],
+    "physics-qian": [
+      "manuscript/chapters/applications.tex",
+      "manuscript/chapters/continuous_thermodynamics.tex"
+    ],
+    "physics-young": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-burgarth": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-guta": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-wallman": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-degen": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-bonato": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-delange": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-roldan": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-vandermeer": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-landauer": [
+      "manuscript/chapters/applications.tex"
+    ],
+    "physics-schnakenberg": [
+      "manuscript/chapters/continuous_thermodynamics.tex"
+    ],
+    "physics-polettini": [
+      "manuscript/chapters/continuous_thermodynamics.tex"
+    ],
+    "physics-uniformization": [
+      "manuscript/chapters/continuous_thermodynamics.tex"
+    ],
+    "physics-lucente": [
+      "manuscript/chapters/continuous_thermodynamics.tex"
+    ],
+    "f_tzeng": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_kiefer": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_notes": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_thon": [
+      "manuscript/chapters/finite_access.tex",
+      "manuscript/chapters/foundations.tex"
+    ],
+    "f_jaeger": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_littman": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_wang": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_petreczky": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_bastug": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_basu": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_nemcova": [
+      "manuscript/chapters/finite_access.tex",
+      "manuscript/chapters/foundations.tex"
+    ],
+    "f_rote": [
+      "manuscript/chapters/finite_access.tex"
+    ],
+    "f_blackwell": [
+      "manuscript/chapters/foundations.tex"
+    ],
+    "caLeCamYang2000": [
+      "manuscript/chapters/precision_design.tex"
+    ],
+    "caBoyd2004": [
+      "manuscript/chapters/precision_design.tex"
+    ],
+    "caBhattacharyya1943": [
+      "manuscript/chapters/precision_design.tex"
+    ],
+    "caHoeffding1963": [
+      "manuscript/chapters/precision_design.tex"
+    ],
+    "caWatrous2018": [
+      "manuscript/chapters/precision_design.tex"
+    ],
+    "caBellman1957": [
+      "manuscript/chapters/precision_design.tex"
+    ],
+    "p_kienker": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_larget": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_tzeng": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_kiefer": [
+      "manuscript/chapters/research_map.tex",
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_thon": [
+      "manuscript/chapters/research_map.tex",
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_jaeger": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_littman": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_wang": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_faigle": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_riechers": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_blackwell": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_donoho": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_qian": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_barato": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_betting": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_intervals": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_maier": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_dieball": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_stace": [
+      "manuscript/chapters/research_map.tex"
+    ],
+    "p_bonato": [
+      "manuscript/chapters/research_map.tex"
+    ]
+  },
+  "recent_and_scope_checks": [
+    {
+      "keys": [
+        "p_riechers"
+      ],
+      "status": "preprint_correctly_labeled",
+      "note": "arXiv:2509.03004v1 submitted3Sep2025, no journal metadata; body-render date discrepancy must not silently change citation year."
+    },
+    {
+      "keys": [
+        "p_maier"
+      ],
+      "status": "source_entails_limited_partial_observation_precedent",
+      "note": "2024 article includes a proved bound and a distinct conjectured estimator; chapter cites the established inference precedent without asserting the conjecture as proved."
+    },
+    {
+      "keys": [
+        "p_dieball"
+      ],
+      "status": "perspective_correctly_labeled",
+      "note": "2025 perspective supports explicit observation/reversal assumptions; it does not prove this release's gate theorem."
+    },
+    {
+      "keys": [
+        "p_stace",
+        "physics-bonato"
+      ],
+      "status": "prior_experimental_adaptive_identification_supported",
+      "note": "These sources establish experimental precedents, not this release's device performance."
+    },
+    {
+      "keys": [
+        "p_intervals",
+        "caWaudbySmithRamdas2024",
+        "p_betting"
+      ],
+      "status": "established_statistical_foundation_supported",
+      "note": "2025 and2024 publication metadata correct; not cited as proving all physical calibration envelopes."
+    },
+    {
+      "keys": [
+        "f_rote"
+      ],
+      "status": "published_2025_identity_confirmed",
+      "note": "General finite-instrument threshold reduction retains discrete rational scope and stated grammar."
+    }
+  ],
+  "non_doi_metadata_notes": {
+    "f_notes": "ArXiv2009.01217,2020; established notes, inherited primary audit.",
+    "f_thon": "JMLR16,103-147,2015; primaryURL identifies article.",
+    "f_littman": "NIPS14 conference2001/proceedings2002; reference uses proceedings year2002.",
+    "caBhattacharyya1943": "Bull.CalcuttaMath.Soc35,99-109,1943; no DOI invented.",
+    "caBellman1957": "Princeton1957 book; no DOI invented.",
+    "caVille1939": "Gauthier-Villars1939 monograph; no DOI invented.",
+    "caBremaud1981": "Corrected ISBN-only1981 book.",
+    "p_riechers": "Explicit arXivv1 preprint citation."
+  },
+  "recommended_positioning_paragraphs": [
+    "Constructive Access is a unified reference and executable workflow for identifying target properties of hidden dynamics under specified physical access. It connects exact obstructions and distinguishing experiments to independently checkable certificates, calibrated statistical decisions, and declared physical resource budgets. The practical contribution is that a scientist can follow one argument from apparatus assumptions to a defensible conclusion, including an explicit reason to change the experiment or abstain.",
+    "The strongest specific mathematical candidates remain the reversible-gate current coefficient and its scoped activation and information-order results, together with the prescribed-cost filtered certificate and the worked model classifications. Finite linear equivalence, predictive representations, adaptive design, optimal recovery, and testing by betting already have substantial prior literature. The unified release makes those foundations and the specific results usable together; historical priority and physical validation of the proposed constructions remain questions for specialist review and experiment."
+  ],
+  "manuscript_edits_performed": false
+}

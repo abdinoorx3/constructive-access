@@ -1,0 +1,201 @@
+\chapter{Sampling dependent records without inventing independent trials}
+\label{vl:sampling}
+
+Stationary marginal probabilities do not justify treating consecutive records
+as independent. This matters physically: an otherwise valid entropy-production
+certificate can falsely reject an equilibrium process when its input probability
+box has been computed from strongly dependent counts. The virtual laboratory
+below exhibits that failure and tests a correction with an explicit time cost.
+The concentration tools are established conditional Hoeffding and martingale
+methods\cite{caHoeffding1963,vlHoward2021}; the work here connects their
+assumptions to a usable sampling chronology and the continuous moment
+certificate.
+
+\section{A conditional-mean contract}
+
+There are $m$ settings with deterministic record quotas $n_k>0$. Before each
+outcome, choose a setting whose quota is unfinished. This choice may depend on
+earlier records or fresh randomization, but precedes the current outcome.
+After $N=\sum_k n_k$ records every quota is filled. Let $Z_i\in[0,1]$ denote
+the whole-record statistic; for same-outcome pairs it is binary. Write $K_i$
+for the selected setting and $\mu_i$ for its conditional mean given all
+previous information and the selected setting.
+
+\begin{theorem}[A simultaneous box for dependent records]
+\label{vl:conditional-box}
+Suppose fixed target probabilities $p_k$ satisfy
+\begin{equation}
+ |\mu_i-p_{K_i}|\le\delta_{K_i}
+ \quad\text{almost surely}.
+ \label{vl:conditional-bias}
+\end{equation}
+Let $\widehat p_k$ be the average of the $n_k$ records assigned to setting $k$.
+For positive statistical radii $r_k$ satisfying
+\begin{equation}
+ 2n_k r_k^2\ge\log\frac{2m}{\alpha},
+ \label{vl:radius-check}
+\end{equation}
+the simultaneous coverage statement is
+\begin{equation}
+ \Pr\!\left\{\forall k:
+ |\widehat p_k-p_k|\le r_k+\delta_k\right\}\ge1-\alpha.
+ \label{vl:dependent-box}
+\end{equation}
+No independence between records or settings is required.
+\end{theorem}
+
+\begin{proof}
+Conditional Hoeffding's lemma applies to $Z_i-\mu_i$, whose conditional range
+has length one. For each setting $k$ and real $\lambda$, the process
+\[
+ \exp\!\left[
+  \lambda\sum_{i\le j}\mathbf1_{\{K_i=k\}}(Z_i-\mu_i)
+  -\frac{\lambda^2}{8}\sum_{i\le j}\mathbf1_{\{K_i=k\}}
+ \right]
+\]
+is a nonnegative supermartingale. The setting indicator is known before its
+outcome. At the final record its count equals the deterministic $n_k$.
+Exponential Markov inequality, optimized at $\lambda=4r_k$, bounds either
+centered tail by $e^{-2n_k r_k^2}$. The accumulated drift in
+\eqref{vl:conditional-bias} is at most $n_k\delta_k$; dividing by $n_k$ adds
+$\delta_k$ to the radius. A union bound over both tails and all settings proves
+\eqref{vl:dependent-box}.
+\end{proof}
+
+The bias correction is $\delta_k$, not $n_k\delta_k$. This concerns an average
+of bounded conditional means. It differs from a total-variation comparison of
+entire transcripts, where per-record approximation errors can accumulate.
+Merely knowing that each record has unconditional mean $p_k$ does not establish
+\eqref{vl:conditional-bias}. Outcome-dependent acceptance of records and
+stopping when significance first appears are outside this fixed-quota theorem.
+
+A uniform whole-record calibration radius $\eta_k$ adds to the half-width.
+If an external pretest contract for the required envelope has failure
+probability at most $\beta$, a union bound gives total failure at most
+$\alpha+\beta$. A fitted favorable model or postselected subset does not
+establish that external guarantee.
+
+The implementation encloses $\log(2m/\alpha)$ with rational arithmetic and
+checks \eqref{vl:radius-check} exactly. A radius designer uses an outward
+dyadic square root. The resulting probability box can be passed directly to
+the continuous reversible-moment certificate. Its scores may be selected
+after constructing the simultaneous box, because the certificate minimizes
+over that entire box. A direct fixed-score test can be statistically tighter,
+but its score must be fixed before the held-out observations.
+
+\section{How a blind gap supplies the contract}
+
+Consider the following sequential apparatus protocol. Finish the previous
+pair; select the next setting and a blind gap from past information; evolve
+without observing during that gap; then read the starting detector, wait the
+selected lag, and read the ending detector. Retain the same/not-same pair
+indicator. Current-pair readings are not part of the history on which its
+pre-record conditional mean is conditioned.
+
+Suppose the hidden dynamics has stationary distribution $\pi$ and satisfies
+the uniform mixing envelope
+\begin{equation}
+ \sup_x\operatorname{TV}\!\left(\delta_x e^{GQ},\pi\right)\le\delta.
+ \label{vl:uniform-mixing}
+\end{equation}
+Conditioning on any past history leaves an arbitrary initial hidden-state
+distribution. After the blind gap it lies within $\delta$ of $\pi$. The
+complete ensuing pair is a stochastic channel of that state, so data processing
+for total variation bounds its probability shift by $\delta$. This proves the
+needed conditional-mean contract. Detector and controller memory must be
+included in the mixed state, reset, or separately bounded. Noninvasive readout
+is still required for the declared generator interpretation.
+
+Two established mixing forms give usable arithmetic certificates. A Doeblin
+minorization $P_h(x,\cdot)\ge\varepsilon\nu(\cdot)$ for every hidden state
+implies a $j$-block bound $(1-\varepsilon)^j$. Alternatively, let
+$Q^\dagger$ denote the adjoint in $L^2(\pi)$ and set
+$S=(Q+Q^\dagger)/2$. If its spectral gap is at least $\lambda>0$ and
+$\pi_x\ge\pi_{\min}>0$, then
+\begin{equation}
+ \sup_x\operatorname{TV}\!\left(\delta_x e^{GQ},\pi\right)
+ \le\min\!\left\{1,
+ \frac12\sqrt{\frac{1-\pi_{\min}}{\pi_{\min}}}\,e^{-\lambda G}\right\}.
+ \label{vl:spectral-mixing}
+\end{equation}
+This does not assume that $Q$ itself is reversible. Differentiating the squared
+$L^2(\pi)$ norm of a mean-zero density perturbation yields the quadratic form
+of $S$, hence exponential contraction at rate $\lambda$; Cauchy--Schwarz
+converts it to total variation. A point mass has squared initial norm
+$1/\pi_x-1$. General concentration methods for Markov chains provide other
+possible designs\cite{vlPaulin2015}; the present blind-gap construction is
+sufficient, without a time-optimality claim.
+
+The code rounds the square root outward and bounds $e^{-\lambda G}$ by the
+reciprocal of a positive Taylor lower bound for $e^{\lambda G}$. It checks
+the stated numbers. It does not infer a uniform mixing rate for all hidden
+models from a good fit to one favored model.
+
+\section{An equilibrium apparatus that produces false discoveries}
+
+The frozen virtual-laboratory model has four states $(s,b)$, where $s$ is a
+slow hidden sector and $b$ is the observed bit. The sector flips at rate
+$1/1000$. The bit flips at rate $1/50$ in sector zero and rate $2$ in sector
+one. Every transition has the same rate as its reverse, so the uniform
+distribution is stationary and detailed balance holds exactly. The detector
+reads $b$ perfectly and noninvasively.
+
+The true same-outcome probabilities are approximately $0.74465056$ at lag one
+and $0.73051808$ at lag two. Shared-endpoint pairs initialized once in stationarity
+have these correct marginal means. Their conditional agreement probabilities
+remain strongly influenced by the slowly changing sector.
+
+Before generating data, the contract fixed seed 918273, 4,000 independent
+replicate trajectories, 600 records at each lag, the order of the settings,
+$\alpha=1/20$, and statistical radius $61/1000$. Three sampling chronologies
+were tested. The first reused each pair endpoint as the next pair start. The
+second inserted a blind gap of 3,000 time units before every pair. The third
+used ideal independent stationary preparations before each pair. No parameter
+was retuned after production.
+
+For the gap design, comparison of Dirichlet forms with independent bit flips
+at the minimum rate and sector flips proves a gap lower bound $1/500$.
+Equation~\eqref{vl:spectral-mixing}, with $\pi_{\min}=1/4$, gives a certified
+conditional bias below $0.002146663$, so the declared correction $1/400$ is
+valid. The unseparated records admit the much broader generic correction
+$3/4$, since every hidden-state distribution is within $3/4$ of the uniform
+four-state law.
+
+\begin{center}
+\begin{tabular}{lrr}
+\hline
+Sampling and analysis & Joint coverage & False equilibrium exclusion\\
+\hline
+Shared endpoints, unqualified iid box & $2.30\%$ & $24.70\%$\\
+Same counts, honest $\delta=3/4$ & $100\%$ & $0/4000$\\
+Blind gap, corrected $\delta=1/400$ & $99.90\%$ & $0/4000$\\
+Independent stationary pairs & $99.875\%$ & $0/4000$\\
+\hline
+\end{tabular}
+\end{center}
+
+The false-exclusion rule is that the lower confidence bound at lag two exceeds
+the upper bound at lag one. Such an increase is impossible for the complete
+stationary reversible autocorrelation class. The rule is valid only when its
+probability box has the advertised coverage. For the unqualified shared-endpoint
+analysis, the approximate 95\% Wilson Monte Carlo interval for its false
+exclusion rate is $[23.388\%,26.060\%]$. For zero exclusions in 4,000 replicates,
+the corresponding approximate upper limit is $0.095945\%$. These Monte Carlo
+intervals describe simulation uncertainty; the inference thresholds themselves
+are checked with exact rational arithmetic.
+
+The correction has a substantial time cost. Pair evolution takes 1,800 model
+time units per replicate; adding the blind gaps raises this to 3,601,800.
+The independent-preparation benchmark does not model the external reset's
+duration or energy, so its pair-evolution time is not a complete hardware-cost
+comparison. The broad no-gap correction is retained even though it is
+uninformative: honest uncertainty need not yield a positive certificate.
+
+Snapshot transitions were sampled from the CTMC transition semigroup. Pair
+semigroups were independently checked by uniformization, with maximum
+numerical discrepancy below $5.28\times10^{-15}$; the long-gap semigroup was
+cross-checked by symmetric eigendecomposition to $1.19\times10^{-13}$.
+The released results retain the frozen contract hash, count histograms with
+exact multiplicities, seeds, solver checks, mixing certificate, and model
+times. These are reproducible synthetic experiments, not measurements from a
+physical apparatus.

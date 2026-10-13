@@ -1,0 +1,98 @@
+\section{Relation to earlier work and the next physical test}
+\label{sec:completion-positioning}
+
+The contribution of access completion is a chain of usable certificates:
+identify an inaccessible target, specify the additional physical operation,
+bound what its data can establish, and expose the assumptions under which the
+conclusion fails. Several links in this chain are established mathematics.
+Separating those foundations from the results derived here makes the proposed
+physical test easier to assess and reproduce.
+
+\paragraph{Established foundations.}
+Conservation-law sensor placement, spanning-tree constructions, cost, and
+precision constraints have a substantial earlier
+literature~\cite{ac_bagajewicz,ac_he,ac_xu}. The cotree and target-cut results
+are explicit network-flow specializations. Perturbation design based on
+graph-theoretic identifiability also predates this work~\cite{ac_gross}.
+Target-specific allocation belongs to optimal experimental
+design~\cite{ac_elfving,ac_harman}; adding resource constraints to terminal cuts
+has established complexity consequences~\cite{ac_aissi}. The particular
+calibration-floor objective studied here therefore requires its stated error
+model and direct proof. It is not a universal thermodynamic energy law.
+Likewise, lumpability and approximate trace guarantees underpin the classical
+interface construction~\cite{ac_buchholz,ac_bian}. Quantum equivalence under
+composition has its own established theory~\cite{ac_lalire,ac_deng}.
+
+\paragraph{The precise response result.}
+Stationary barrier-response identities are
+established~\cite{ac_aslyamov_response,ac_aslyamov_static}.
+Finite-amplitude stationary formulas already include parallel physical
+channels~\cite{ac_bao_nonlinear}; transient response relations are also
+available~\cite{ac_zheng}. Monotonicity of a stationary response as a barrier
+strength varies~\cite{ac_floyd} concerns a different variable from the pulse
+duration used here. First-passage response theory supplies further close
+connections~\cite{ac_liang_budget,ac_bao_firstpassage}.
+
+The candidate extension is the following all-time statement. Starting from
+native stationarity, suppress one bidirectional physical channel by a fixed
+factor $r<1$ while holding the other rates fixed. For a singleton endpoint
+detector, the response factors as
+\begin{equation}
+ \Delta p_j(t)=-(1-r)J_e H_{ij}^{r}(t),
+ \qquad H_{ij}^{r}(t)>0\quad(t>0).
+\end{equation}
+The first-hit proof uses the strong Markov property and ordinary occupation
+potentials, within established Markov potential theory~\cite{ac_coolen}.
+Its useful consequence is a current-sign certificate at every positive pulse
+duration, with explicit bounds using only endpoint exit-rate ceilings.
+It does not require reconstructing the hidden network. A protected coarse
+detector also qualifies when a separately justified entrance-gateway condition
+holds; arbitrary aggregation does not preserve the conclusion.
+
+The driven-qubit calculation gives an exact parameter boundary at which this
+classical response restriction fails. Connections between coherent dynamics
+and failure of classical stochastic descriptions are already well
+developed~\cite{ac_smirne,ac_prech}. Here the distinguishing feature is the
+specified intervention and endpoint-response inequality. The result rejects
+the calibrated classical model class; its assumptions cannot be inferred
+from two response averages alone.
+
+\paragraph{Priority and evidence limits.}
+The proofs and computational certificates establish the stated mathematical
+claims within their models. They establish neither historical priority nor
+laboratory performance. The particularly close sensor-design article by
+Prakash~\cite{ac_prakash} was available only through primary metadata and
+indexed excerpts in this audit. The higher-cumulant response article of Bao
+and Liang~\cite{ac_bao_higher} was inspected at abstract level only. Their full
+texts remain necessary overlap checks. The search of older finite-time
+potential-kernel results is also incomplete. A detailed source map records
+which full texts, sections, or abstracts were inspected. These physical-response examples have no new empirical validation or external
+peer-review decision. Chapter~\ref{ch:ci-empirical} separately reports an
+exploratory reanalysis of published optical-tweezer measurements.
+
+\paragraph{The next validation gate.}
+The highest-leverage physical test is a controlled two-level platform with
+independently adjustable incoherent excitation and decay channels. It should
+first establish stationary preparation, population-readout calibration and
+leakage bounds; then independently verify that the pulse rescales both rates
+of the selected channel while leaving the Hamiltonian and other channels
+within declared tolerances. This calibration is part of the experiment,
+not an assumption justified by fitting the desired sign reversal.
+
+The measurement then compares native and pulsed endpoint populations at two
+prespecified durations, with randomized acquisition order and independent
+repreparation. The incoherent control should obey the classical sign
+restriction. Increasing the calibrated coherent-drive ratio across the
+derived threshold should produce the predicted reversed response. Sampling,
+preparation, drift, detector, and intervention error budgets must be small
+enough that the two response intervals exclude zero with opposite signs.
+Repeating the experiment with deliberately nonselective control or coarse
+readout tests the documented failure modes rather than merely reproducing
+the favorable case.
+
+Passing this gate would validate a practical way to test a structural model
+assumption using a small set of interventions. It would also determine which
+parts of the calibration dominate sensitivity. A failure would locate a
+specific mismatch between the physical platform and the model. Either
+outcome is more informative than projecting the framework directly onto
+unresolved problems of large-scale computing or biological flux.

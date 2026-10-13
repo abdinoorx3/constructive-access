@@ -1,0 +1,173 @@
+REPLICATED DETECTOR CERTIFICATION API
+Abdinoor / 2D Labs / 2026-10-13
+Implementation owner: /root/calibration_api
+
+Scope and implementation
+
+certification.py is self-contained Python using the standard library. It accepts
+only exact integers, rational strings and fractions.Fraction values for public
+numerical inputs. Generated intervals and certificates use rational outward
+enclosures of logarithms and square roots. Those helpers adapt the ninth
+edition's observed_geometry/finite_resolution.py; PROVENANCE.json pins that
+source and the current implementation/test source hashes. This is an executable
+application of standard concentration inequalities and the separately proved
+replicated-detector theorem, not a new concentration inequality.
+The public finite certificate uses a fixed 90-bit outward square-root grid.
+This remains a valid bound at every supported sample size but leaves an absolute
+rounding floor. It is not the increasing-precision algorithm needed to realize
+an infinite sharp-consistency theorem at arbitrarily fine lags.
+
+The acquisition contract is an ordinary stationary compact smooth elliptic
+diffusion and a smooth scalar |f|<=1 with the exact POINTWISE relation
+Gamma(f)=gamma*(1-f^2), gamma>0 an unknown constant. Supremum generator bounds
+(M1+,M1-,M2+,M2-) must be justified externally. They are not fitted from these
+records. Every science trial starts independently at stationarity; one trial
+has three nonoverlapping common causal-boxcar exposures of width tau<=h at
+fixed lag h. The center has K=2m+2 detector replicas, each endpoint one. All
+detector outputs are bounded in [-1,1], have the same conditional mean
+kappa*exposure, and are mutually independent CONDITIONAL ON THE COMPLETE LATENT
+PATH. Unconditional correlations caused by the latent path are allowed.
+Shared detector noise, measurement backaction, unequal gains, dependent trials,
+adaptive stopping and same-data choice of (m,h,lambda,nominal_gain) are not covered.
+Contract label validation cannot establish a physical premise experimentally.
+
+Binary data and sufficient summaries
+
+category_order(m) enumerates (left sign, center plus count, right sign), with
+signs ordered (-1,+1), center counts 0,...,K. A mapping from these categories to
+nonnegative integer counts is accepted by summarize_counts. Missing categories
+mean zero counts. At least two trials are required. aggregate_ordered_counts
+accepts the full lexicographic (-1,+1)^(K+2) counts instead. All center replicas
+are symmetrized, so the count of positive center bits suffices for the score.
+
+elementary_vertices(K,c)[j] is the normalized elementary symmetric product
+e_j=C(K,j)^(-1) sum_{subsets |A|=j} product_{a in A} Z_a.
+With b=1-lambda*h, the fixed statistics are
+ S_j=[-Z_-Z_+e_(2j)+b(Z_-+Z_+)e_(2j+1)-b^2 e_(2j+2)]/h^2,
+ U_j=e_(2j),
+ V=[e_2-(Z_-+Z_+)e_1/2]/h.
+S_j is computed for j=0,...,m; U_j for j=1,...,max(m,1); U_0=1 exactly.
+Summarization retains exact sums and sums of squares, not only rounded sample
+means. All terms of S_j have the same degree 2j+2; its cancellation is preserved
+before dividing by the uncertain common gain. This is tighter than independently
+bounding its constituent monomials before subtraction.
+
+Optional argument nominal_gain=kappa0 adds fixed raw linear projections
+ R_l=sum_{j=0}^l S_j/kappa0^(2j+2), l=0,...,m.
+Their exact vertex ranges and empirical variances preserve correlations between
+the S_j scores within each record. The nominal gain must be fixed in advance or
+chosen by a pilot independent of the science records. Choosing it from reference
+records that may be dependent on the science records is unsupported. It need not
+equal the true gain or lie within the eventual gain interval.
+
+score_ranges enumerates all binary categories to return the exact scalar range
+of each fixed statistic. Every statistic is multiaffine in the distinct
+readouts, so a scalar maximum and minimum over [-1,1]^(K+2) occur at vertices.
+The same ranges therefore hold for bounded continuous detectors. For such data,
+continuous_scores computes rational record scores; binary count aggregation is
+not a valid substitute. Exact score totals can be supplied through the same
+summary schema; roundoff or quantization corrections are not silently added.
+
+Simultaneous finite-sample coverage
+
+confidence_statistics(summary, alpha_data) allocates alpha_data/d to each of
+d scalar statistics. empirical_bernstein uses the unbiased sample variance v
+and range width R. Its two-sided radius is
+ sqrt_upper(2*v*log_upper(4/alpha_scalar)/n)
+     +7*R*log_upper(4/alpha_scalar)/(3*(n-1)).
+This applies Maurer--Pontil's fixed-function empirical Bernstein inequality to
+both tails. Union bounding the scalar events needs no independence between
+the different statistics within a record. The fixed trial observations must
+be independent and identically distributed. Clipping the intervals to their
+proved scalar support is valid.
+When nominal_gain is provided, R_0=S_0/kappa0^2 is an exact positive rescaling.
+Its interval is derived by scaling the covered S_0 interval, with no additional
+failure allocation. R_1,...,R_m participate in the same union allocation as
+S/U/V. Thus there are 3 confidence events for m=0 and 3m+2 for m>=1, with one
+extra derived interval in the output. No marginal interval or chosen prefix is
+added after the confidence budget has been spent.
+
+Reference calibration
+
+calibrate_references(n_gain, plus_gain, n_step, plus_step, s,
+                     (tau_prior_lower,tau_prior_upper), alpha_cal)
+uses two declared binary reference experiments with the same sensor gain and
+width as the science records:
+ 1. A known constant input 1, whose bit mean is kappa.
+ 2. An ideal known step from 0 to 1 at time zero, read at a calibrated time
+    0<s<=tau_prior_lower. Its causal boxcar bit mean is kappa*s/tau.
+The positive physical width prior is supplied, not learned without assumptions.
+It must be valid independently of these counts; waveform errors, shutter
+miscalibration and clock errors require additional bounds not implemented here.
+Within each reference batch, independent bits and fixed quotas are required.
+
+Each bit mean gets a two-sided Hoeffding interval with failure alpha_cal/2,
+radius sqrt_upper(2*log_upper(4/alpha_cal)/n). Intersecting the gain interval
+with [0,1] (or a valid physical gain prior), then the ratio kappa*s/step_mean
+with the width prior, produces a conservative jointly covered rectangle. The
+correlation between the inferred gain and width is discarded conservatively.
+No independence among the two batches and science records is required for the
+final union bound, but each batch must itself obey its iid law. The inference
+design may be chosen by an independent pilot or predeclared; a pilot must not
+reuse the science records whose fixed-function intervals it determines.
+An interval permitting zero gain causes calibration abstention. Inconsistent
+reference intervals also cause abstention; they are not proof of a sensor fault.
+
+Physical combination
+
+bias_bounds uses the general uniform-boxcar monomial bounds of the companion
+proof, with both cluster orientations when M1+ and M1- differ. It improves degree
+two same-window error to min(M1+,M1-)*tau/3, and separated-window error to
+min(M2+,M2-)*tau^2/12. It includes the exposure error of the beta*sum U_j term,
+not only the main contrast. The lag bias is beta=2|lambda|*beta_g+beta_K.
+
+certify(confidence,calibration,generator_bounds) takes sign-aware endpoint
+extrema of S_j/kappa^(2j+2), U_j/kappa^(2j) and V/kappa^2. It is a conservative
+termwise nuisance enclosure, not an optimal solution of a coupled polynomial
+optimization problem. With the notation of the proof, it returns lower p and a
+and upper u such that, on the joint covered event,
+ p<=gamma*sigma, a<=A_true=1-E[f^2], u>=gamma*A_true.
+For u>0 the certified rate is [p]_+*[a]_+/u; otherwise it returns zero. If a>0
+and u>0 it also returns gamma<=u/a. The total failure allocation is exactly
+alpha_data+alpha_cal. A zero lower bound says that this procedure did not certify
+positive dissipation. It does not establish reversibility or absence of currents.
+
+If a nominal projection is provided, its covered lower mean is corrected for
+the uncertain true gain. For each j, enclose
+ d_j=kappa^(-2j-2)-kappa0^(-2j-2)
+using the calibrated gain interval, then minimize d_j*E[S_j] over the four
+corners of that coefficient interval and the covered raw S_j mean interval.
+Add these minima to the covered R_l lower mean. Taking the larger of this
+contrast bound and the old termwise bound is valid on the same joint confidence
+event. The prefix's beta*U and exposure penalties are then subtracted.
+
+The implementation evaluates EVERY prefix l=0,...,m using all K=2m+2 center
+replicas to form each e_j. Every needed scalar interval is already jointly
+covered, so selecting the largest resulting certificate costs no unallocated
+failure probability. Fields order_results and order_selected expose the complete
+comparison. The fields P_lower, entropy_lower and biases correspond to the chosen
+prefix. This legitimate finite simultaneous comparison does not authorize tuning
+a fresh lag, nominal gain or additional unallocated score after seeing data.
+
+Costs and limitations
+
+One science record uses 2m+4 detector readouts and one independently stationary
+preparation, three exposures and physical evolution duration 2h+tau. Reference
+readouts, preparation/reset, the accurate physical clock, known waveforms,
+generator caps and the pointwise geometry are additional inputs or resources.
+The API does not turn readout count into a universal energy law. Neither the
+geometry nor an unknown pointwise diffusion envelope is inferred nonparametrically
+from a small calibration dataset. The theorem is conditional on that structure.
+
+Validation
+
+Command: python -m unittest discover -s tests -v
+24 tests cover outward arithmetic, exact elementary products, full binary vertex
+enumeration, bounded continuous vertices, conditional product expectations,
+ordered/collapsed count agreement, exact first and second moments, both confidence
+tails, exact binomial finite-coverage examples, simultaneous allocations,
+reference ratio inclusion/abstention, low-order blur identities, asymmetric
+orientation, zero-exposure limit, signed gain extrema, positive combination
+algebra, nominal-projection vertex ranges and correlation retention, gain-correction
+enclosures, joint prefix selection and unsupported-contract rejection. These internal code
+tests are neither external peer review nor a physical experiment.

@@ -1,0 +1,244 @@
+\chapter{Research lineage, scope, and routes to application}
+\label{researchmap:chapter}
+
+\section{The subject and its place in existing science}
+
+Constructive access concerns a concrete experimental question: given a target
+property, a class of possible mechanisms, and an apparatus, which conclusions
+can be justified, and what additional experiment would justify more?
+The apparatus includes preparation, interventions, timing, detection, retained
+records, and resource limits. Its mathematical object is the family of
+transcript laws produced by the permitted protocols. This formulation supplies
+a common language for systems whose underlying physics can be quite different.
+
+This subject lies at the intersection of system identification, statistical
+decision theory, controlled stochastic models, quantum characterization, and
+thermodynamic inference. Each has a substantial history. Aggregated Markov
+models and their indistinguishable realizations were studied in ion-channel
+kinetics \cite{p_kienker,p_larget}. Finite linear representations and equivalence
+algorithms originate in automata and realization theory
+\cite{f_tzeng,f_kiefer,f_thon}. Observable operator models and predictive state
+representations already replace inaccessible coordinates by predictions of
+future experiments \cite{f_jaeger,f_littman}. A predictive coordinate need not
+name a unique molecule, hidden conformation, or physical degree of freedom.
+
+The classical--quantum linear correspondence is also established. Quantum
+finite-state equivalence uses finite-dimensional operator spaces
+\cite{f_wang,p_faigle}; a recent unified treatment constructs canonical
+generalized hidden Markov representations for classical and quantum models
+\cite{p_riechers}. The present use of an accessible effect space inherits that
+lineage. Similarly, risk-based comparison of experiments and optimal recovery
+provide established foundations for deciding which distinctions matter and
+how errors limit recovery \cite{f_blackwell,p_donoho}.
+
+The contribution developed in this reference is an explicit chain from those
+foundations to a checkable experimental conclusion. A user specifies a
+physical access model and a target; obtains an obstruction or a distinguishing
+protocol; verifies its algebraic certificate; assigns calibration and sampling
+errors; and states the physical resource boundary under which the conclusion
+holds. The same chain includes abstention when the supplied model class fails
+or the remaining models disagree about the target. The particular model
+results and software artifacts are useful parts of that chain. Their status
+is recorded separately from the established general principles.
+
+\section{How the earlier results fit together}
+
+The initial boundary question asked when a local observation must display an
+arrow of time inherited from driving elsewhere. A finite ring made the
+boundary mechanism explicit: one connection carries the driving, while a
+binary detector reports a region. This separated three targets that an
+informal arrow-of-time argument can conflate: a driven hidden dynamics,
+irreversibility of the recorded process, and incompatibility of that recording
+with every equilibrium explanation.
+
+In the four-state adjacent-region example, the recording can be reversible
+even when the ring is driven; on the specified reciprocal branch an explicit
+equilibrium realization produces the same complete recording. Larger-ring
+classifications, detector placement, and weak-drive response orders then
+showed that access depends on geometry and acquisition. Retaining timestamps
+or changing readout spacing can change the leading information order without
+changing the hidden physical process. These are exact classifications of the
+stated models, rather than statements about the existence of time.
+
+The next step changed access through interventions. In the driven triangle,
+each constant-control singleton record is blind to current orientation,
+whereas a sequence of two controls produces a current-dependent return
+contrast. An autonomous reversible kinetic gate provides a second route: a
+binary three-time correlation acquires a leading term proportional to the
+controlled edge current and the gate profile's Dirichlet form. The gate's own
+steady channel entropy contribution can vanish while the source remains
+driven. Preparation, sensing, and control implementation still require their
+own accounting.
+
+The quantum branch showed why the target must remain explicit. For the
+specified three-site chain, one family of central instruments conceals the
+bias magnitude, while a larger family exposes it. Reflection symmetry still
+conceals the sign under every permitted central-only protocol. A calibrated
+spatial asymmetry changes that conclusion. Magnitude, orientation, and a
+complete microscopic model are different identification tasks.
+
+The finite-instrument formulation subsequently provided a common algebraic
+interface for these examples. Its cost certificates concern the cheapest
+nonzero witness under a prescribed additive charge. Robust testing and
+finite-budget decision design concern reliable inference. These objectives
+require separate calculations: a very cheap nonzero witness may have much
+worse reliable-decision cost than a more informative experiment.
+
+The channel-resolved application studies expose a further distinction between an
+inaccessible state and an inaccessible transition channel. Two reaction
+mechanisms can have the same full state generator yet different physical
+currents and dissipation. Adding the same state-level control preserves that
+equivalence. A calibrated channel-selective intervention can remove it in the
+worked two-channel model. This is a more precise rule for choosing access
+than the suggestion that any temporal modulation reveals hidden dynamics.
+
+Table~\ref{researchmap:lineage} summarizes the retained role of each stage.
+The machine-readable provenance record binds individual inherited claims to
+their source and result hashes; the table is a reading map, not a count of
+discoveries.
+
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{p{0.23\textwidth}p{0.67\textwidth}}
+\hline
+Stage & Retained contribution to the reference\\
+\hline
+Boundary and detector models & Explicit source, sensor, equilibrium mimics,
+sampling effects, and response-order examples.\\[2pt]
+Controlled hidden currents & Interventions that alter observable distinction;
+control placement and preparation failure cases.\\[2pt]
+Autonomous equilibrium gate & Current--correlation identity, triangle
+activation criterion, and the cost of hiding the controller record.\\[2pt]
+Finite instruments & A common exact representation, finite equivalence
+test, witness synthesis, and bounded decision design.\\[2pt]
+Certification and adequacy & Independently checked cost certificates,
+conditional prediction tests, calibrated abstention, and energy tails.\\[2pt]
+Physical diagnostic models & Selective channel identification, targeted
+quantum diagnosis, fixed-nuisance sensing, and hidden-energy obstructions.\\
+\hline
+\end{tabular}
+\caption{The dependency structure of the research. Each row supplies a
+different part of the experimental argument.}
+\label{researchmap:lineage}
+\end{table}
+
+The subsequent stages extend this chain in two directions. Compatible-model
+results turn evidence into requirements on hidden state count, preparation and
+sustained dissipation, with explicit equilibrium countermodels. The virtual
+laboratories establish how timing, detector exposure and serial dependence
+alter those certificates. The calibrated-inference chapters then improve
+statistical use of detector moments, analog records and sequential acquisition,
+while proving limits on total-dissipation reconstruction. Their joint
+calibration test treats the extra measurement directly as part of the final
+scientific contrast. The public-data chapter tests this chain against an
+actual observation format and records precisely where calibration remains
+insufficient.
+
+\section{What is established, and what is specific to this work}
+
+Three-time correlation tests of nonequilibrium and current inference predate
+this work \cite{physics-qian}. Equilibrium kinetic coupling can also carry trajectory
+information \cite{p_barato}. The specific gate result here is the factorized
+coefficient, its controlled assumptions, the triangle converse, and the stated
+information-order comparison. The general-network coefficient supplies a
+sufficient activation condition; a vanishing coefficient need not imply
+complete invisibility. Historical priority for this precise combination
+remains open.
+
+The independent cost checker verifies explicit filtered closure identities,
+including those needed to exclude every cheaper word. Its useful distinction
+is the exported proof obligation: a user can check the claimed objective
+without trusting the search history. Exact equivalence, invariant-space
+certificates, and weighted witness methods already exist
+\cite{f_kiefer,f_thon}. The implementation does not establish that its supplied
+matrices describe an apparatus, nor does it convert arbitrary charges into
+joules.
+
+The adequacy layer uses established nonnegative betting processes
+\cite{caWaudbySmithRamdas2024,p_intervals}. Its application obligation is to supply valid
+conditional prediction envelopes under the actual interventions and histories.
+That is stronger than supplying stationary averages. The selective-response
+criterion and its deterministic error bounds use linear identifiability and
+optimal-recovery geometry. Their exact certificates make the assumptions and
+the amplification of calibration error visible.
+
+Recent thermodynamic inference already extracts kinetic information from
+partially observed transitions, including periodically driven systems
+\cite{p_maier}. Care is needed when applying thermodynamic time reversal after
+coarse observation: a physically justified reversal operation and a defined
+observation map are part of the model \cite{p_dieball}. This reference's
+instantaneous finite-state detectors have an explicit reversal convention;
+extensions to milestoned, filtered, or history-dependent detector outputs
+must re-establish the relevant correspondence.
+
+Adaptive quantum design also has experimental precedents
+\cite{p_stace,physics-bonato}. The worked quantum and Ramsey calculations here
+provide transparent small models, explicit alternative hypotheses, and
+matched decision objectives. They are reference calculations against which
+an implementation can be checked. Demonstrating a hardware advantage
+requires comparison with appropriate existing methods on the same device.
+
+\section{A practical standard for extending the subject}
+
+A new application should identify the target before selecting its mathematics.
+For a current, the target must name the physical channel and its units. For a
+quantum fault, it must name a justified error dictionary and the operations
+permitted during diagnosis. For a sensor, it must specify whether the task is
+sign discrimination, local parameter precision, tracking, or a decision with
+unequal consequences. For energy inference, it must state whether the target
+is native-channel free-energy dissipation, gross supplied work, or total
+apparatus consumption.
+
+The minimum useful transfer includes a negative control. Examples are a
+channel decomposition that produces the same state record, a control family
+that preserves a quantum symmetry, an insufficiently selective intervention,
+or a missing candidate that forces abstention. A successful case should then
+change exactly the access assumption responsible for that failure and predict
+the resulting effect before evaluating new data.
+
+Four external milestones would establish practical maturity in a new setting:
+\begin{enumerate}
+\item An independent specialist checks the theorem, the software contract,
+and the closest prior methods for the stated model class.
+\item Independent calibration and physical measurements test the preparation,
+intervention, detector, memory, and resource assumptions.
+\item A comparison holds the scientific objective, error criterion, and full
+resource boundary fixed; an increase in contrast alone is insufficient.
+\item A second implementation or apparatus reproduces the prediction and
+tests at least one intended transfer beyond the development example.
+\end{enumerate}
+These are measurable acceptance conditions. The present release supplies
+mathematical derivations, executable models, and internal adversarial checks.
+It also includes the exploratory published-data reanalysis in
+Chapter~\ref{ch:ci-empirical}, which identifies concrete apparatus-calibration
+gaps. It contains no new laboratory measurements, empirical entropy
+validation or external peer-review decisions.
+
+\section{Extensions with a clear scientific payoff}
+
+Several extensions now have a precise starting point. A validated nonlinear
+response family can replace the linear selective-response model, provided
+identifiability and uncertainty propagation are proved for that family.
+Chapter~\ref{ch:continuous} supplies a finite CTMC adapter. Extensions
+beyond that finite-model, finite-menu contract to continuous controls or
+infinite-dimensional dynamics must also carry approximation error into
+the final decision bound, rather than report only solver tolerance. A structured many-body
+model can reduce computational burden, provided the structure is physically
+justified and the bound includes deviations from it. Detector memory, drift,
+and correlated preparation can be handled by enlarging the state or by
+conditional envelopes that actually cover those effects.
+
+Chapter~\ref{completion:composition} now supplies a finite classical composition contract and a constructive deterministic interface refinement. Beyond that scoped result, composition remains a concrete research direction. Individually
+uninformative components can become informative when the allowed coupling
+changes their transcript laws; combining records that remain jointly
+equivalent cannot do so. A useful composition theorem must specify the joint
+preparation, shared hidden variables, allowed couplings, and target. This
+distinguishes a real increase in experimental capability from merely adding
+more components or more processing.
+
+The broad claim is therefore an operational one: scientific conclusions can
+be organized around what specified experiments preserve, erase, and expose.
+The constructive finite theory makes a substantial part of that question
+computable and reviewable. Further generality is earned by extending those
+interfaces and proving their contracts, with the physical interpretation
+checked in each new setting.

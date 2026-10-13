@@ -1,0 +1,64 @@
+\chapter{What a virtual laboratory can establish}
+\label{vl:entry}
+
+A proof identifies what follows from an experimental contract. A virtual
+laboratory asks whether a proposed apparatus and analysis actually satisfy
+that contract, whether the signal survives realistic forms of imperfection,
+and what a failed experiment would look like. It cannot establish that an
+unmeasured physical apparatus follows the simulated equations.
+
+This extension supplies three connected laboratories. A driven-ring experiment
+generates individual physical jump counts and noisy endpoint readings. A qubit
+experiment propagates prepared states through independently implemented Bloch
+and Lindblad dynamics, with preparation, control and detector errors. A
+metastable classical experiment generates a chronological series of dependent
+pairs, exposing the difference between stationary marginal probabilities and
+independent records. The inference routines receive their declared counts and
+calibrations, not the hidden generator used to score performance.
+
+The simulations have already changed the theory and protocol design. Timing
+noise sometimes preserves the exact comparison structure, while an apparently
+innocent exposure convention can create false equilibrium violations. A
+conditional-mean envelope corrects dependent sampling without an unjustified
+effective sample size. A fixed polynomial contrast uses the sampling budget
+more effectively for a known target, while the general simultaneous-box
+procedure retains greater freedom to choose targets after acquisition.
+A common clock correction repairs phase mismatch in the dimension experiment;
+its calibration expense must be compared with simply collecting more records.
+
+\section{The evidence contract}
+Each study declares its data-generating model, target, acquisition procedure,
+inference rule, cost accounting and simulation repetitions. Frozen JSON files
+and seeded streams make the reported samples reproducible. Pilot and held-out
+experiments use separate streams. Refinement loops are identified explicitly:
+a revised protocol is frozen before its new evaluation data are generated.
+The simulations retain unfavorable regimes and competing explanations.
+
+The reported error guarantees and Monte Carlo intervals answer different
+questions. A theorem may guarantee at most $5\%$ erroneous inference under its
+premises. Repeated simulations estimate the actual operating probability in a
+specified model, with finite Monte Carlo uncertainty. Zero errors among a
+finite number of trials does not establish zero error probability. A numerical
+solver agreement checks implementation, while a mathematical confidence bound
+checks an inference rule; neither validates a real detector.
+
+All time units and physical rates in this extension are illustrative. Entropy
+rates are reported in natural units per model time. Converting them into watts
+requires the thermodynamic embedding, temperature and time calibration specified
+earlier. Evolution time, pilot measurements, reset and detector overhead are
+reported separately. Unmodeled overhead is not assigned zero physical cost.
+
+\section{How to use the extension}
+Begin with the timing chapter before applying a correlation test to finite
+exposures. Use the sampling chapter when records share a physical trajectory.
+For a predeclared target, the contrast chapter provides a direct finite-record
+certificate; for later exploratory selection, retain the simultaneous-box
+workflow. The two apparatus chapters report complete simulation designs and
+controls. The final comparison chapter separates practical gains from failures
+and connects them to the next independent physical validation.
+
+The software package includes exact certificates, numerical simulators,
+retained records, analysis code, independent checks and reproduction commands.
+It is intended to let another scientist replace a model or apparatus contract,
+rerun the same falsification tests and determine whether a claimed conclusion
+survives that change.

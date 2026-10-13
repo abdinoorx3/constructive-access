@@ -1,0 +1,96 @@
+EXPLORATORY EXPERIMENTAL REANALYSIS PLAN
+This plan is written before the new held-out correlation calculations. Earlier
+source and whole-file descriptive audits have already been performed, so this
+is explicitly exploratory, not a prospectively blinded physical experiment.
+
+Fixed split: first10000 samples for transform/OU design; remaining39999 for
+evaluation. Nominal dt=10microseconds. Fixed lag grid in sample units:
+0,1,2,4,8,16,32,64,128,256. No grid extension or lag selection from results.
+
+For the simultaneous n1 and lower-noise reference: subtract each channel's
+training mean and use a common scale equal to twice the square root of their
+average training variance. Bounded transform is tanh(centered_position/scale).
+For n2, use its own training mean and twice its training standard deviation.
+No fitted threshold, scale or center will use evaluation observations.
+
+Primary diagnostic model: both simultaneous channels equal the same physical
+position plus zero-mean, temporally white measurement errors independent of
+each other and the particle. Under this explicit unit-gain model, the channel
+difference has zero positive-lag covariance; nonzero-lag auto/cross covariances
+coincide; zero-lag cross covariance equals latent position variance. The source
+does not establish these assumptions. Quantify residual autocorrelation and
+cross-channel lag asymmetry, with eight contiguous evaluation blocks as a
+sensitivity analysis. Block ranges are not confidence intervals or independent
+replications. Blocks never contribute pairs spanning their boundaries.
+
+Fit one naive OU covariance to the symmetrized training cross covariance at
+lags1,2,4,8,16 by least squares of log covariance against nominal time, only if
+all are positive and fitted decay rate positive. Keep the fit regardless of
+evaluation performance. Evaluate at every declared positive lag; report errors
+normalized by evaluation cross covariance at zero. This is a model diagnostic,
+not a certified mixing bound or noise correction.
+
+At each fixed channel transform, compute positive-lag covariance using the
+evaluation-wide mean, and the observed zero-lag variance as an upper-only
+population surrogate for the hidden detector variance. Report finite-menu
+nonnegativity, monotonicity at doubling lags, upper drop g(k)-g(2k)<=v/4,
+and centered log-convexity g(k)g(4k)>=g(2k)^2, plus block sensitivity.
+These are plug-in descriptive checks under a stationary reversible overdamped
+Markov model and memoryless detector. No p-values, alpha levels, iid intervals,
+or dissipation confidence numbers will be manufactured from this trajectory.
+
+Exposure accounting:39999 evaluation samples span nominal.39998seconds;
+paired detectors observe the same exposure, not twice the physical duration.
+All overlapping lag pairs are statistically dependent. Training/calibration
+time is an additional nominal.1seconds. The n2 trajectory is a separate
+experimental record; its sampling offset relative to n1 is undocumented.
+
+The source data remain immutable and retain CC-BY-4.0 attribution to Bryan IV,
+Basak, Bechhoefer and Presse, Zenodo DOI10.5281/zenodo.6680673. Results will
+state the precise remaining requirements for valid thermodynamic inference.
+
+MATHEMATICAL CORRECTION BEFORE INTERPRETATION
+The originally written g(k)g(4k)>=g(2k)^2 line above is invalid for geometric
+lags, as a pure exponential immediately shows. It was caught during analytic
+review after the first calculations, before any empirical claim. The correct
+weighted Holder inequality is g(k)^2 g(4k)>=g(2k)^3, since2k=(2/3)k+(1/3)4k.
+Code and tests use only this corrected expression. No lag, transformation or
+data split changed. This correction is preserved here rather than concealed.
+
+OBSERVED RESULTS AFTER THE FIXED ANALYSIS
+The simultaneous evaluation cross covariance is218.387185nm². Under the stated
+unit-gain independent additive-error model, variance candidates are16.023965nm²
+for n1 and8.037169nm² for the reference. Their difference variance is24.061134nm²;
+assigning all of it to n1 would be50.16% larger than the conditional candidate.
+These are not independently calibrated noise values. In bounded coordinates,
+different channels have different conditional response functions, so a product
+estimates E[f1 f2], not the identical-response calibration E[f1²].
+
+The residual autocorrelation is .00922 at10us, .02142 at20us and .01904 at160us.
+The160us value is positive in all eight descriptive blocks (range.00297,.03642).
+Other fixed-lag ranges generally straddlezero. No statistical whiteness rejection
+is made; exact white error remains an assumption requiring external validation.
+All ordered cross-asymmetry block ranges straddlezero. The full n1/reference
+autocovariance difference at10us is3.880932nm² and its block range includeszero.
+
+Training-only OU fit: amplitude198.967221nm², relaxationrate1536.628437/s,
+relaxationtime.650775ms. Shortest-lag heldout prediction195.933205nm² versus
+215.797572 observed; discrepancy9.09594% ofheldoutzerolagcrosscovariance.
+Possible causes (finite fluctuations, drift, model mismatch) are unresolved.
+This fitted rate is not a calibrated hidden-state mixing bound.
+
+All three full bounded segments satisfy nonnegativecovariance, doubling-lag
+monotonicity and variance-upper-drop necessary conditions. Minimum upperdrop
+margins .00466456(n1), .00119168(reference), .00293221(n2). Some weighted
+logconvexity plug-in margins are negative; every negative fullsegment case has
+a block range includingzero. Individual block signs ofotherchecks also vary.
+No passing finite menu proves reversibility; no raw negative plug-in margin
+is a significance statement. Framework returns abstain with alpha=None and
+entropy_rate_lower_bound=None.
+
+VERIFICATION
+Five tests cover ordered covariance, valid reversible spectral mixtures and
+pure exponential equality, detectable violations of the population contrasts,
+training-only transform construction, and real-data split/provenance/abstention.
+All pass. Original SHA256 pins still match. Result JSON is deterministic and
+contains no absolutepaths or runtime timestamps. Source scripts never executed.

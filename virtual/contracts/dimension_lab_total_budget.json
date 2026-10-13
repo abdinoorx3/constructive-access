@@ -1,0 +1,19 @@
+{
+  "allocation": "Hamilton largest-remainder proportional to original13setting18300recordcounts",
+  "frozen_at_utc": "2026-10-12T20:27:07.366354+00:00",
+  "interpretation": "Allrecordsusedinproduction, originalclockandoriginalprobabilityregion. Comparatorcouldbeimprovedbyotherregionselection; notanoracleoroptimalbaseline. Physicaldurationalso reported.",
+  "monte_carlo_repetitions": 20000,
+  "null_region": "originalepsilon3/500 beta3/20 tau2/25; recalibrate criticalcounts usingexactrationaltail<=.05",
+  "parent_contract": "dimension_lab.json",
+  "retiming_contract": "dimension_lab_retiming.json",
+  "scenarios": [
+    "coherent_amplitude_offset_0.005",
+    "coherent_amplitude_offset_0.01",
+    "coherent_amplitude_offset_0.02",
+    "combined_design"
+  ],
+  "scope": "Ancillary equal-total-record comparison, frozen after common-clock repair results; no global optimality claim",
+  "seed": 610120713,
+  "total_records": 278300,
+  "version": 1
+}

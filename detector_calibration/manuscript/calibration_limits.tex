@@ -1,0 +1,380 @@
+\chapter[Limits of empirical calibration]{Why empirical averages cannot certify global calibration}
+\label{ch:dc-calibration-limits}
+
+A finite record can estimate the local fluctuations it samples without
+controlling fluctuations in every hidden state. The distinction matters
+when an entropy certificate requires a pointwise diffusivity envelope or
+a supremum bound on generator derivatives. Smoothness of each possible
+model, by itself, does not provide the common numerical constants needed
+for that extrapolation.
+
+This chapter proves a precise obstruction. Over a class of smooth compact
+diffusions, any uniformly covered upper confidence bound for global local
+diffusivity must be infinite with probability at least its nominal coverage,
+even under a benign reference process. The result holds with a bounded
+detector, known uniform stationary density, fixed hidden dimension, a common
+ellipticity lower bound, and a common mixing gap. It even holds when the
+complete hidden trajectory is observed continuously and without noise.
+Two further constructions separate the regularity assumptions: an upper
+bound on diffusivity does not bound $Lf$, and upper bounds on both
+diffusivity and $Lf$ do not bound $L^2f$.
+
+These are statements about global or stationary essential suprema.
+They do not deny that an ideal continuous path determines local volatility
+along that path. Every model constructed below is reversible and has zero
+ordinary entropy production; no change in an ideal-law entropy minimum
+is asserted.
+
+\section{A compact diffusion with an arbitrarily high rare bump}
+
+Let $(x,z)$ lie on the torus $\mathbb T^4=(\mathbb R/2\pi\mathbb Z)^4$,
+where $z$ has three coordinates. Near the origin in its fundamental cube
+$[-\pi,\pi]^3$, use the Euclidean norm $|z|$. Choose a smooth radial profile
+$b$ satisfying
+\[
+ 0\leq b\leq1,\qquad b(s)=1\ (0\leq s\leq\tfrac12),\qquad
+ b(s)=0\ (s\geq1).
+\]
+One explicit choice on $1/2<s<1$ is
+\begin{equation}
+ b(s)=\frac{h(1-s)}{h(1-s)+h(s-1/2)},\qquad
+ h(t)=\begin{cases}e^{-1/t},&t>0,\\0,&t\leq0.\end{cases}
+ \label{eq:dc-bump-profile}
+\end{equation}
+Together with its constant pieces this profile is $C^\infty$. Being
+constant near zero also makes $b(|z|/r)$ smooth at the origin.
+
+For $M\geq1$ and $0<r\leq1/2$, set
+\begin{equation}
+ \begin{split}
+ d_{M,r}(z)&=1+(M-1)b(|z|/r),\\
+ L_{M,r}&=d_{M,r}(z)\partial_x^2+\Delta_z,\qquad
+ D_{M,r}=\operatorname{diag}(d_{M,r},1,1,1),\\
+ f(x,z)&=\cos x.
+ \end{split}
+ \label{eq:dc-rare-model}
+\end{equation}
+The bump is supported strictly inside the fundamental cube, so it extends
+smoothly and periodically. In It\^o form the process satisfies
+\[
+ dx_t=\sqrt{2d_{M,r}(z_t)}\,dW_t^x,
+ \qquad dz_t=\sqrt2\,dW_t^z,
+\]
+with independent Brownian components and coordinates taken modulo $2\pi$.
+The detector lies in $[-1,1]$.
+
+The normalized uniform density $\pi=(2\pi)^{-4}$ is stationary. Although
+$d$ depends on $z$, its only nonconstant tensor entry is the $xx$ entry,
+so $L=\operatorname{div}(D\nabla)$ and $L$ is self-adjoint in $L^2(\pi)$.
+Each model is smooth, connected, compact and uniformly elliptic, with the
+common lower bound $D\succeq I$. Its stationary current vanishes, giving
+ordinary entropy rate $\sigma=0$.
+
+The mixing gap does not deteriorate with the bump. For every smooth
+mean-zero function $g$, the torus Poincar\'e inequality gives
+\begin{equation}
+ -\langle g,Lg\rangle_\pi
+ =\mathbb E_\pi[d|\partial_xg|^2+|\nabla_zg|^2]
+ \geq\mathbb E_\pi[|\nabla g|^2]
+ \geq\mathbb E_\pi[g^2].
+ \label{eq:dc-common-gap}
+\end{equation}
+Thus the $L^2$ spectral gap is at least one, and the mean-zero semigroup
+contracts at least as fast as $e^{-t}$. The construction does not rely on
+metastability or a disappearing lower ellipticity constant.
+
+For the detector in~\eqref{eq:dc-rare-model}, direct calculation yields
+\begin{align}
+ \Gamma_f&=\nabla f^{\mathsf T}D\nabla f=d_{M,r}\sin^2x,\\
+ Lf&=-d_{M,r}\cos x,\\
+ L^2f&=(d_{M,r}^2-\Delta_zd_{M,r})\cos x.
+ \label{eq:dc-rare-generator}
+\end{align}
+On the open plateau $|z|<r/2$, the coefficient is $M$ and all its
+derivatives vanish. Consequently,
+\begin{equation}
+ \sup\Gamma_f=M,\qquad \|Lf\|_\infty=M,\qquad
+ \|L^kf\|_\infty\geq M^k\quad(k\geq1).
+ \label{eq:dc-diverging-targets}
+\end{equation}
+These global suprema equal their stationary essential versions where
+appropriate: the coefficients are continuous and $\pi$ is positive on
+every open set.
+
+The mean local diffusivity can nevertheless remain close to its reference
+value. The volume of the enclosing three-dimensional ball gives
+\begin{equation}
+ \frac12\leq\mathbb E_\pi[\Gamma_f]
+ \leq\frac12+\frac{(M-1)r^3}{12\pi^2}.
+ \label{eq:dc-mean-gamma}
+\end{equation}
+Indeed, $\mathbb E[\sin^2x]=1/2$ and the stationary mass of the bump
+support is at most $(4\pi r^3/3)/(2\pi)^3$. With $r=M^{-2}$,
+the global targets diverge while the mean tends to $1/2$. This is an
+explicit reason that a sample average cannot substitute for a global
+envelope.
+
+\section{An explicit bound on encountering the rare region}
+
+\begin{lemma}[Stationary hitting bound]
+\label{lem:dc-hitting}
+Let $z_t$ be stationary Brownian motion with generator $\Delta$ on
+$\mathbb T^3$, and let
+$\tau_r=\inf\{t\geq0:|z_t|\leq r\}$. For $0<r\leq1/2$ and $T\geq0$,
+\begin{equation}
+ \mathbb P(\tau_r\leq T)
+ \leq\min\left\{1,\ r\left(\frac9{64}+6T\right)\right\}.
+ \label{eq:dc-hitting-bound}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Choose a smooth radial probability density $\rho_r$ supported on
+$|y|<r/2$. Its scaled Newtonian potential is
+\[
+ p_r(z)=r\int_{\mathbb R^3}\frac{\rho_r(y)}{|z-y|}\,dy.
+\]
+It is smooth and nonnegative, with
+$\Delta p_r=-4\pi r\rho_r\leq0$. The radial harmonic equation and unit
+total mass imply $p_r(z)=r/|z|$ for $|z|\geq r/2$.
+Inside that ball the radial potential is nonincreasing with radius, so
+$p_r\geq p_r(r/2)=2$. In particular, $p_r\geq1$ on $|z|\leq r$.
+
+Take $\chi(s)=1$ for $s\leq1$, $\chi(s)=0$ for $s\geq2$, and
+\[
+ \chi(s)=q(s-1)\quad(1<s<2),\qquad
+ q(t)=1-10t^3+15t^4-6t^5.
+\]
+The first two derivatives vanish at the joins, making $\chi$ a
+nonnegative $C^2$ cutoff. Differentiation gives
+$\max_{[0,1]}|q''|=10\sqrt3/3<6$.
+Define $u_r(z)=\chi(|z|)p_r(z)$ and extend it periodically.
+Its support is contained in the radius-two ball, strictly inside the
+fundamental cube. Thus $u_r$ is a nonnegative $C^2$ function on the torus
+and is at least one on the target ball.
+
+For $|z|\leq1$, its Laplacian is nonpositive. On $1<|z|<2$, the radial
+identity in dimension three gives
+\[
+ \Delta\left(\frac{\chi(s)}s\right)=\frac{\chi''(s)}s,
+ \qquad s=|z|.
+\]
+Hence $\Delta u_r\leq6r$ everywhere; outside radius two it is zero.
+The initial stationary expectation satisfies
+\begin{align*}
+ \mathbb E[u_r(z_0)]
+ &\leq\frac r{(2\pi)^3}
+   \int\rho_r(y)\int_{|z|\leq2}\frac{dz}{|z-y|}\,dy\\
+ &\leq\frac r{(2\pi)^3}
+      \int_{|w|\leq2+r/2}\frac{dw}{|w|}
+ =\frac{r(2+r/2)^2}{4\pi^2}
+ \leq\frac{81r}{64\pi^2}<\frac{9r}{64}.
+\end{align*}
+Here $r\leq1/2$ and $\pi>3$ supply the final constants.
+Dynkin's formula at the bounded stopping time $\tau_r\wedge T$ now gives
+\[
+ \mathbb P(\tau_r\leq T)
+ \leq\mathbb E[u_r(z_{\tau_r\wedge T})]
+ \leq\mathbb E[u_r(z_0)]+6rT
+ \leq r\left(\frac9{64}+6T\right).
+\]
+Capping by one proves~\eqref{eq:dc-hitting-bound}. The cutoff needs only
+$C^2$ regularity for this argument; the diffusion coefficients in the
+model remain $C^\infty$.
+\end{proof}
+
+Let $\mathbb P_0$ denote the reference model $d=1$. Couple it with
+\eqref{eq:dc-rare-model} using the same uniform initial state and Brownian
+drivers. Their $z$ paths agree at all times. Their $x$ coefficients agree
+outside the bump, so pathwise uniqueness gives identical full hidden
+trajectories until $\tau_r$. Therefore
+\begin{equation}
+ \operatorname{TV}\!\left(
+ \mathbb P_{M,r}^{\mathrm{full},[0,T]},
+ \mathbb P_0^{\mathrm{full},[0,T]}\right)
+ \leq\min\left\{1,r\left(\frac9{64}+6T\right)\right\}.
+ \label{eq:dc-full-path-tv}
+\end{equation}
+This bound is independent of the bump height $M$ and applies to complete
+continuous trajectories, not merely endpoint observations.
+
+Every common observation channel contracts total variation. Thus the same
+bound applies after retaining only $f$, integrating an exposure window,
+adding common independent detector noise, or applying a common randomized
+processing rule. For $N$ independent stationary records with durations
+summing to $T_{\rm total}$, a union coupling gives
+\begin{equation}
+ \operatorname{TV}(\mathbb P_{M,r}^{\rm record},\mathbb P_0^{\rm record})
+ \leq\min\left\{1,r\left(\frac{9N}{64}+6T_{\rm total}\right)\right\}.
+ \label{eq:dc-multiple-records}
+\end{equation}
+All latent intervals used by an exposure must be included in these
+durations. The access contract is passive stationary observation, not an
+intervention that prepares the hidden system inside a known bump.
+
+\section{The consequence for honest upper confidence bounds}
+
+\begin{theorem}[A global diffusivity bound cannot be learned uniformly]
+\label{thm:dc-upper-confidence}
+Fix a finite passive protocol covered by~\eqref{eq:dc-multiple-records}
+and $0<\alpha<1$. Let $U$ be a measurable statistic of its record, including
+any common external randomization, taking values in $[0,+\infty]$.
+If
+\begin{equation}
+ \mathbb P_{M,r}\{U\geq\sup\Gamma_f\}
+ =\mathbb P_{M,r}\{U\geq M\}\geq1-\alpha
+ \label{eq:dc-uniform-coverage}
+\end{equation}
+for every $M\geq1$ and $0<r\leq1/2$, then
+\begin{equation}
+ \mathbb P_0\{U=+\infty\}\geq1-\alpha.
+ \label{eq:dc-trivial-bound}
+\end{equation}
+The same conclusion holds for a uniformly covered upper bound on
+$\|Lf\|_\infty$ or $\|L^2f\|_\infty$ over this class.
+\end{theorem}
+
+\begin{proof}
+For each fixed $M$, total variation and
+\eqref{eq:dc-uniform-coverage} give
+\[
+ \mathbb P_0\{U\geq M\}\geq1-\alpha
+ -\min\left\{1,r\left(\frac{9N}{64}+6T_{\rm total}\right)\right\}.
+\]
+Let $r\downarrow0$. The resulting lower bound $1-\alpha$ holds for every
+$M$. Let integer $M$ increase without bound and apply continuity from above
+of probability to obtain~\eqref{eq:dc-trivial-bound}.
+For $\|Lf\|_\infty$ the target equals $M$; for $\|L^2f\|_\infty$ it is
+at least $M^2$. The same argument applies.
+\end{proof}
+
+In particular, a bound finite almost surely under the reference cannot
+have the stated uniform coverage. The obstruction concerns the breadth
+of the model class. It does not invalidate a confidence bound derived
+inside a separately justified parametric family.
+
+The theorem also applies to a claimed pointwise envelope
+$\widehat a(y)$ satisfying, with uniform confidence,
+\[
+ \Gamma_f(x,z)\leq\widehat a(f(x,z))\quad
+ \hbox{for every hidden state }(x,z).
+\]
+At $x=\pi/2$ and $z$ in the plateau, this condition requires
+$\widehat a(0)\geq M$. Thus a uniformly covered pointwise envelope must
+satisfy $\mathbb P_0\{\widehat a(0)=+\infty\}\geq1-\alpha$.
+If validity is asserted only stationary-almost-everywhere, the same
+conclusion holds for continuous envelopes, by continuity and positivity
+of the stationary density. For arbitrary measurable almost-everywhere
+envelopes, their value at the null level $y=0$ cannot be inferred this way;
+an integrated formulation would be needed.
+
+A finite stopping rule does not remove the obstruction. For a common
+nonanticipating passive rule with reference stopping time $S<\infty$
+almost surely, coupled stopped records agree unless $\tau_r\leq K$ or
+$S>K$. Their total variation is therefore bounded by
+\[
+ r\left(\frac9{64}+6K\right)+\mathbb P_0(S>K),\qquad K<\infty.
+\]
+First let $r\downarrow0$, then $K\to\infty$. The same reference convergence
+and confidence argument follow. Infinite-time observation is not included
+as a finite resource.
+
+\section{A hierarchy of missing regularity assumptions}
+
+The preceding family allows an unbounded diffusion coefficient. The next
+two variants show that supplying an upper diffusion bound still does not
+supply the generator bounds used to control finite-lag approximation.
+
+\subsection{Bounded diffusion does not bound the first generator}
+
+Let $N$ be a positive integer multiple of four, and define
+\begin{equation}
+ \begin{split}
+ d_{N,r}(x,z)&=1+b(|z|/r)\frac{1+\sin(Nx)}2,\\
+ L_{N,r}&=\partial_x(d_{N,r}\partial_x)+\Delta_z.
+ \end{split}
+ \label{eq:dc-bounded-first-generator}
+\end{equation}
+Now $I\preceq D\preceq2I$ uniformly. The divergence-form drift
+$\partial_xd_{N,r}$ is part of the generator and is essential to its
+uniform stationary density. The process remains reversible, and
+\eqref{eq:dc-common-gap} still proves a spectral gap at least one.
+The $z$ dynamics are unchanged; outside the same rare ball, both the
+$x$ drift and diffusion match the reference. Thus the full-path coupling
+bounds remain valid.
+
+For $f=\cos x$,
+\[
+ Lf=-d_{N,r}\cos x-\frac N2 b(|z|/r)\cos(Nx)\sin x.
+\]
+At $x=\pi/2$ and $z$ in the plateau, $\cos(Nx)=1$, giving $Lf=-N/2$.
+Consequently,
+\begin{equation}
+ \Gamma_f\leq2,\qquad \|Lf\|_\infty\geq N/2.
+ \label{eq:dc-bounded-first-target}
+\end{equation}
+Taking $N\to\infty$ and $r=N^{-2}$ makes the target diverge while the
+finite-record law converges to the reference. The confidence argument
+therefore remains valid for $\|Lf\|_\infty$ even when both lower and
+upper diffusion bounds are known.
+
+\subsection{Bounded diffusion and first generator do not bound the second}
+
+Return to~\eqref{eq:dc-rare-model} and fix $M=2$. Then
+$I\preceq D\preceq2I$ and
+$\sup\Gamma_f=\|Lf\|_\infty=2$ for every $r$.
+For the explicit profile~\eqref{eq:dc-bump-profile}, differentiating at
+$s=3/4$ gives
+\[
+ b(3/4)=\tfrac12,\qquad b'(3/4)=-8,\qquad b''(3/4)=0.
+\]
+The radial Laplacian in three dimensions therefore satisfies
+\[
+ \Delta_3b(3/4)=b''(3/4)+\frac{2b'(3/4)}{3/4}=-\frac{64}{3}.
+\]
+At $x=0$ and $|z|=3r/4$, equation~\eqref{eq:dc-rare-generator} gives
+\begin{equation}
+ L^2f=\frac94+\frac{64}{3r^2},\qquad
+ \|L^2f\|_\infty\geq\frac94+\frac{64}{3r^2}.
+ \label{eq:dc-bounded-second-target}
+\end{equation}
+This diverges as $r\downarrow0$, while the observation law still approaches
+the reference. Hence no useful uniformly finite upper confidence bound
+for $\|L^2f\|_\infty$ follows merely from known bounds on $D$ and $Lf$.
+Additional regularity constants are substantive assumptions, not
+consequences of individual smoothness.
+
+\section{Interpretation and reproducible checks}
+
+The obstruction is extrapolation to hidden regions that a finite passive
+record need not visit. If the bump is encountered, ideal continuous access
+can reveal its increased volatility. If it is not encountered, even the
+full hidden trajectory can agree exactly with the reference under the
+coupling. There is no conflict with quadratic-variation reconstruction of
+$\Gamma_f(X_t)$ at observed times.
+
+The examples also clarify what can change the conclusion: a bounded
+parametric family, known spatial derivative bounds, controlled preparation,
+or an independently justified envelope can exclude the alternatives.
+A common lower ellipticity bound, stationary density and mixing gap do
+not do so. The strengthened variants retain an upper diffusion bound as
+well and still separate the first and second generator requirements.
+All models have $\sigma=0$; the result concerns calibration assumptions,
+not hidden dissipation or a new entropy minimum.
+
+For scale, the main family at $T=1$ and $r=M^{-2}$ has the exact analytic
+record-distance upper bound $(393/64)M^{-2}$. At $M=10,100,1000$ this is
+approximately $0.06140625$, $0.0006140625$ and $0.000006140625$,
+respectively, while the global diffusivity supremum is $M$.
+These are evaluations of the proved formulas, not simulated experiments.
+
+The companion program implements the smooth profile and evaluates the
+coupling and mean-volatility formulas. Eleven checks cover the cutoff
+curvature, radial Laplacian identity, generator composition, independent
+radial integration, the strengthened variants and input contracts.
+Numerical outputs are non-outward-rounded diagnostics: a very small
+positive mean-volatility margin can disappear under floating-point
+rounding. The analytic formulas and proofs, rather than those rounded
+values or a finite collection of simulations, establish the claims.
+Internal independent review is distinct from external peer review or
+laboratory validation; no historical priority is asserted here.

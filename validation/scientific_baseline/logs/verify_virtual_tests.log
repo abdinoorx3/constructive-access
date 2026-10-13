@@ -1,0 +1,56 @@
+test_allocation_fixed_cost (test_contrast.ContrastTests.test_allocation_fixed_cost) ... ok
+test_box_search_failure_is_only_inconclusive (test_contrast.ContrastTests.test_box_search_failure_is_only_inconclusive) ... ok
+test_conditional_bias_can_close_gap (test_contrast.ContrastTests.test_conditional_bias_can_close_gap) ... ok
+test_continuous_support (test_contrast.ContrastTests.test_continuous_support) ... ok
+test_equilibrium_generators_obey (test_contrast.ContrastTests.test_equilibrium_generators_obey) ... ok
+test_exact_equilibrium_box_point (test_contrast.ContrastTests.test_exact_equilibrium_box_point) ... ok
+test_invalid_postselection_and_counts (test_contrast.ContrastTests.test_invalid_postselection_and_counts) ... ok
+test_path_duration_cost (test_contrast.ContrastTests.test_path_duration_cost) ... ok
+test_positive_certificate_and_tampering (test_contrast.ContrastTests.test_positive_certificate_and_tampering) ... ok
+test_square_root_directed (test_contrast.ContrastTests.test_square_root_directed) ... ok
+test_stationary_reference_mean_guard (test_contrast.ContrastTests.test_stationary_reference_mean_guard) ... ok
+test_weight_optimization_inequality (test_contrast.ContrastTests.test_weight_optimization_inequality) ... ok
+test_common_clock_fit_repairs_known_phase_error (test_dimension_lab.DimensionLaboratoryTests.test_common_clock_fit_repairs_known_phase_error) ... ok
+test_confidence_interval_endpoints (test_dimension_lab.DimensionLaboratoryTests.test_confidence_interval_endpoints) ... ok
+test_dimension_parameter_passed_to_classifier (test_dimension_lab.DimensionLaboratoryTests.test_dimension_parameter_passed_to_classifier) ... ok
+test_frozen_artifacts_consistent (test_dimension_lab.DimensionLaboratoryTests.test_frozen_artifacts_consistent) ... ok
+test_incomplete_or_noninteger_settings_rejected (test_dimension_lab.DimensionLaboratoryTests.test_incomplete_or_noninteger_settings_rejected) ... ok
+test_independent_bloch_lindblad_engines (test_dimension_lab.DimensionLaboratoryTests.test_independent_bloch_lindblad_engines) ... ok
+test_noise_history_changes_channel_closure (test_dimension_lab.DimensionLaboratoryTests.test_noise_history_changes_channel_closure) ... ok
+test_old_exact_type_i_certificate (test_dimension_lab.DimensionLaboratoryTests.test_old_exact_type_i_certificate) ... ok
+test_raw_shot_stream_reproduces_and_retains_sources (test_dimension_lab.DimensionLaboratoryTests.test_raw_shot_stream_reproduces_and_retains_sources) ... ok
+test_simple_classical_null (test_dimension_lab.DimensionLaboratoryTests.test_simple_classical_null) ... ok
+test_spam_affine_law (test_dimension_lab.DimensionLaboratoryTests.test_spam_affine_law) ... ok
+test_unitary_limit_from_density_dynamics (test_dimension_lab.DimensionLaboratoryTests.test_unitary_limit_from_density_dynamics) ... ok
+test_bias_is_added_once_not_multiplied_by_records (test_sampling.DependentSamplingTests.test_bias_is_added_once_not_multiplied_by_records) ... ok
+test_doeblin_and_exact_exponential_envelopes (test_sampling.DependentSamplingTests.test_doeblin_and_exact_exponential_envelopes) ... ok
+test_invalid_contracts_are_rejected (test_sampling.DependentSamplingTests.test_invalid_contracts_are_rejected) ... ok
+test_large_valid_bias_removes_unjustified_positive_bound (test_sampling.DependentSamplingTests.test_large_valid_bias_removes_unjustified_positive_bound) ... ok
+test_mixing_bound_for_irreversible_generator (test_sampling.DependentSamplingTests.test_mixing_bound_for_irreversible_generator) ... ok
+test_predictable_routing_conditional_mgf (test_sampling.DependentSamplingTests.test_predictable_routing_conditional_mgf) ... ok
+test_rational_confidence_radius_is_outward (test_sampling.DependentSamplingTests.test_rational_confidence_radius_is_outward) ... ok
+test_stationary_pair_mean_does_not_imply_conditional_mean (test_sampling.DependentSamplingTests.test_stationary_pair_mean_does_not_imply_conditional_mean) ... ok
+test_zero_bias_matches_previous_independent_certificate (test_sampling.DependentSamplingTests.test_zero_bias_matches_previous_independent_certificate) ... ok
+test_clock_jitter_exposure_and_equilibrium_control (test_thermodynamic_lab.ThermodynamicLabTests.test_clock_jitter_exposure_and_equilibrium_control) ... ok
+test_compiled_analysis_matches_exact_full_certificate (test_thermodynamic_lab.ThermodynamicLabTests.test_compiled_analysis_matches_exact_full_certificate) ... ok
+test_detector_independent_noise_gain_squared (test_thermodynamic_lab.ThermodynamicLabTests.test_detector_independent_noise_gain_squared) ... ok
+test_frozen_contract_and_deterministic_archive (test_thermodynamic_lab.ThermodynamicLabTests.test_frozen_contract_and_deterministic_archive) ... ok
+test_independent_oracle_matches_known_ring_values (test_thermodynamic_lab.ThermodynamicLabTests.test_independent_oracle_matches_known_ring_values) ... ok
+test_memory_control_is_explicitly_outside_channel (test_thermodynamic_lab.ThermodynamicLabTests.test_memory_control_is_explicitly_outside_channel) ... ok
+test_monte_carlo_intervals_and_invalid_inputs (test_thermodynamic_lab.ThermodynamicLabTests.test_monte_carlo_intervals_and_invalid_inputs) ... ok
+test_poisson_path_means_and_endpoint_law (test_thermodynamic_lab.ThermodynamicLabTests.test_poisson_path_means_and_endpoint_law) ... ok
+test_prepared_gillespie_law (test_thermodynamic_lab.ThermodynamicLabTests.test_prepared_gillespie_law) ... ok
+test_disjoint_block_formula_by_full_path_enumeration (test_timing.TimingTests.test_disjoint_block_formula_by_full_path_enumeration) ... ok
+test_full_duration_controls_entropy_rate_conversion (test_timing.TimingTests.test_full_duration_controls_entropy_rate_conversion) ... ok
+test_iid_increment_common_channel (test_timing.TimingTests.test_iid_increment_common_channel) ... ok
+test_invalid_clock_inputs (test_timing.TimingTests.test_invalid_clock_inputs) ... ok
+test_ordered_mean_does_not_preserve_monotonicity (test_timing.TimingTests.test_ordered_mean_does_not_preserve_monotonicity) ... ok
+test_overlap_and_antisymmetric_detector_false_witnesses (test_timing.TimingTests.test_overlap_and_antisymmetric_detector_false_witnesses) ... ok
+test_random_scale_positive_spectral_mixture (test_timing.TimingTests.test_random_scale_positive_spectral_mixture) ... ok
+test_stochastic_order_does_not_preserve_convexity (test_timing.TimingTests.test_stochastic_order_does_not_preserve_convexity) ... ok
+test_two_state_random_scale_can_increase_common_channel_dimension (test_timing.TimingTests.test_two_state_random_scale_can_increase_common_channel_dimension) ... ok
+
+----------------------------------------------------------------------
+Ran 51 tests in 0.322s
+
+OK

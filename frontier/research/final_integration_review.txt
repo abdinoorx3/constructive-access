@@ -1,0 +1,59 @@
+FINAL INTEGRATION REVIEW — 12 OCTOBER 2026
+Independent internal review for Abdinoor / 2D Labs.
+
+Files inspected: code/energy_certificate.py,
+tests/test_energy_certificate.py, manuscript/energy_certificate.tex,
+manuscript/frontier.tex, and the complete new test inventory.
+
+Outcome: no blocking mathematical, code/manuscript, or claim-status mismatch
+found. No frozen science files were edited during this integration review.
+
+The continuous-domain dual is valid independently of numerical optimizer or
+grid success. The grid proposes positive scores; exact rational score rounding,
+Bernstein polynomial upper bounds, logarithm enclosures, and confidence-box
+minimization establish the returned lower bound. The code never treats the
+finite-grid fit as a global certificate or claims global optimality.
+
+The fixed-count interface uses log(2M/alpha) for simultaneous two-sided
+Hoeffding coverage across M predeclared lag settings, adds whole-record
+calibration radii, and leaves calibration failure probability separate.
+The manuscript correctly permits post-box score and weight selection while
+requiring coverage for any additional lag search. Independent records remain
+an explicit assumption; overlapping trajectory pairs are not silently IID.
+
+The stationary interpretation is 4J/E[lag]. The nonstationary alternative is
+D(initial||stationary)+one-half expected integrated housekeeping entropy>=J.
+The stationary-reference mean calibration guard is present. The physical heat
+and free-energy interpretations are qualified by thermodynamic assumptions;
+odd variables and invasive measurement remain outside the null class.
+
+The curvature model uses an explicitly exported rational detector and exact
+uniformization. Its positive, decreasing yet concave correlation probabilities
+support the claimed advantage over negative-correlation and monotonicity-only
+checks. The manuscript labels uncertainty boxes as synthetic and the resulting
+bounds as loose, rather than implying experimental or sample-optimal results.
+
+Test inventory independently loaded by unittest:
+  test_energy_certificate.py   9
+  test_hierarchy.py           11
+  test_limits.py              12
+  test_spectral.py             9
+  test_thermodynamic.py       14
+  producer subtotal          55
+  test_independent.py         29
+  total                      84
+
+Full integrated command:
+python -m unittest discover -s
+/workspace/discovery_program/realization_frontier/tests -p 'test_*.py' -v
+
+Result: Ran 84 tests in 5.024 seconds. OK. Exit code 0.
+
+Nonblocking wording consideration: the entry chapter's finite-window
+approximation summary inherits continuity/regularity of the target probability
+curves from the detailed construction chapter. Adding 'continuous target
+probability curves' to that summary would make the scope self-contained, but
+the existing detailed theorem states the required Lipschitz/smooth contracts.
+
+Historical originality, external peer review, and empirical validation remain
+unresolved. This integration check does not upgrade those evidence categories.

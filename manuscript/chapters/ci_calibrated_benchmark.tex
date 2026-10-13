@@ -1,0 +1,166 @@
+\chapter{A matched virtual laboratory for calibrated inference}
+\label{chap:ci-calibrated-benchmark}
+
+This study asks two separate questions. Does genuine detector calibration
+expose a distinction hidden from a specified positive-lag menu? Once the same
+finite-data confidence region is available, does nonlinear inference give a
+stronger quantitative lower bound than the optimized quadratic calculation?
+A third-lag alternative tests whether calibration is the best use of the same
+number of additional pair records. Its result is retained even if it outperforms
+the calibrated arm. All evidence here comes from simulated trajectories and
+readouts, not a physical experiment.
+
+\section{Frozen model, records and comparisons}
+The model is the twenty-state ring from Chapter~\ref{chap:ci-nonlinear}, with
+$p(1)=0.69$, $p(2)=0.59$, $p(3)=0.485712$, mean zero and conditional detector
+second moment $A=1/2$. A record starts at an independently sampled uniform
+state. Independent Poisson forward and backward counts give its exact
+continuous-time random-walk displacement at the declared duration. The two
+binary readings are then drawn independently from their state-dependent
+probabilities. Thus the simulator generates hidden paths and detector outputs;
+it does not sample agreement bits from the analytic endpoint formula.
+Floating-point rates and random-number generation define the numerical
+simulation. An independent matrix-exponential calculation checks its endpoint
+laws and supplies known-truth coverage diagnostics; it is not supplied to
+inference as a measured calibration.
+
+The contract was frozen before production under seed $73024119$. It specifies
+$400$ independent datasets in each of four cases: the driven ring; a reversible
+ring with the same total jump activity; the driven ring with detector gain
+$0.2$; and a reversible ring whose calibration readouts have gain $0.2$ while
+its science readouts have gain one. The last case deliberately violates the
+fixed-detector contract. It tests whether an incorrect calibration premise can
+produce an apparently convincing certificate, not the advertised statistical
+coverage under valid premises.
+
+Each calibrated dataset contains $8000$ pairs at lag one, $8000$ at lag two,
+and $4000$ same-state calibration pairs. A calibration pair uses two genuinely
+independent noise draws conditioned on the same unchanged hidden state.
+The mean and second-moment intervals jointly fail with probability at most
+$0.025$; the predeclared science contrast $(38/25,-1)$ has one-sided failure
+probability $0.025$. Their union therefore gives a $0.05$ total bound.
+The nonlinear certificate and the optimized Pinsker certificate use the same
+covered halfspace, calibration polygon, counts and path durations. Nonlinear
+mixture weights are fixed rational approximations to the quadratic method's
+optimal time weights. Its continuous-domain dual check and feasible primal
+bracket remain authoritative if numerical score optimization is imperfect.
+
+The alternative arm keeps the same first two settings and spends its $4000$
+additional pair records at lag three. It receives the same analytical prior
+model knowledge used to choose the calibrated contrast. Before any production
+sample, the fixed grid $s=j/100$, $j=1,\ldots,99$ selected the contrast
+\[
+ a_s=(-s^2,2s,-1)
+\]
+maximizing its model-centered finite-data Pinsker lower rate at the actual
+quotas and durations. The support follows from
+$-x(x-s)^2\le0$, giving $-(1-s)^2/2$ for the uncalibrated class.
+The selected value is $s=17/50$, with coefficients
+$(-289/2500,17/25,-1)$. The inherited $s=2/3$ comparison is also reported.
+These are separate predeclared tests at level $0.05$, not an uncorrected
+data-selected union test.
+
+\section{Additional access and its cost}
+Both arms use $20000$ endpoint pairs and $40000$ readings. The calibrated
+arm's declared evolution time is $24000$ model units; the extra-lag arm's is
+$36000$. This matches pair/readout counts, not total experimental time.
+Ideal same-state calibration has zero intervening evolution in this simulator;
+its detector exposure, reset time, two-channel hardware and energy are not
+calibrated and cannot be treated as zero physical cost. Conversely, the
+extra-lag arm requires a longer evolution window. A hardware conclusion would
+require these overheads and access constraints to be measured.
+
+The missing distinction in the original two-lag menu is exact, independent of
+Monte Carlo power. A stationary symmetric two-state chain with jump rate
+$-\log(9/19)/2$ and detector means $\pm\sqrt{361/450}$ has zero entropy
+production and agreement probabilities
+\[
+ q_k={1+(361/450)(9/19)^k\over2}.
+\]
+It gives $q_1=0.69$, $q_2=0.59$, exactly matching both joint binary-pair laws
+because their means are zero. Its detector second moment is $361/450$, which
+differs from the driven model's $1/2$. Genuine same-state calibration can
+exclude it. A third positive lag can also distinguish these examples, so this
+construction proves a limitation of the stated two-lag access, not of every
+uncalibrated experiment.
+
+\section{Held-out findings, including the failed comparison}
+The following counts are positive certificates among $400$ independently
+generated datasets per case. ``Nonlinear'' means the raw frozen numerical
+proposal and exact dual checker, before any fallback to the quadratic result.
+\begin{center}
+\begin{tabular}{lrrrr}
+\hline
+Case & Cal. Pinsker & Cal. nonlinear & Extra lag & Legacy extra lag\\
+\hline
+Driven &350&348&400&392\\
+Equilibrium &0&0&0&0\\
+Readout gain $0.2$ &0&0&5&5\\
+Changed calibration channel &400&400&0&0\\
+\hline
+\end{tabular}
+\end{center}
+The last row is outside the fixed-detector contract: those calibrated outputs
+are apparent dissipation in a system whose true entropy rate is zero.
+They are not successful physical detections. The calibration region contains
+the science detector's true moments in none of those $400$ datasets. In the
+three valid cases it contains them in all $400$, and the joint science and
+calibration event covers in $399/400$ per case. Such Monte Carlo coverage is
+a check of these specified simulation laws, not validation of a laboratory's
+detector stability or the Markov assumption.
+
+For the driven case, Pinsker's detection rate is $87.5\%$ with pointwise
+$95\%$ Clopper--Pearson interval $[83.85\%,90.58\%]$; the raw nonlinear
+method gives $87.0\%$ with interval $[83.30\%,90.14\%]$.
+The designed extra-lag method detects in all $400$ datasets, with interval
+$[99.08\%,100\%]$, and the legacy version in $392/400$.
+A zero count in $400$ has upper interval endpoint $0.918\%$; it is not proof
+of zero false-positive probability. The comparison demonstrates that this
+two-stage calibration protocol is not the best of the tested uses of a fixed
+pair budget. The stronger extra-lag arm also consumes $50\%$ more declared
+evolution time. Neither comparison determines total energy or hardware cost.
+
+Despite losing two marginal positive decisions through numerical approximation,
+the raw nonlinear method raises the all-dataset mean entropy lower bound from
+$0.0002355009853$ to $0.0002716097823$, a $15.33\%$ increase in the ratio
+of means. This is a same-record quantitative improvement, not improved
+detection power in the frozen implementation. All $350$ driven numerical
+proposals report solver success, but success is not a proof of zero
+optimization error. Their certified relaxation-gap mean is
+$1.15\times10^{-7}$, with maximum $2.40\times10^{-6}$.
+When the conservative support check yields no positive gap, the implementation
+returns no certificate without solving the projection; such skipped cases are
+not reported as exact zero KL projections.
+
+The true driven entropy rate is approximately $3.55736$. The mean nonlinear
+bound certifies only $0.007635\%$ of that value. The designed extra-lag mean
+bound is larger, $0.0010998649243$, but still only about $0.03092\%$ of the
+true rate. Thus the study improves quantitative inference while exposing a
+substantial remaining loss of information. It does not reconstruct hidden
+dissipation.
+
+Because the calibrated quadratic and nonlinear bounds hold on the same
+covered event, their maximum is also a valid lower bound without another
+failure-probability allocation. A separately labeled audit supplement reports
+this practical fallback while preserving every frozen raw result. It replays
+the retained counts, stores each computed primal--dual gap, and uses a finer
+proposal grid only to diagnose the marginal numerical sign losses. These
+post-production diagnostics are not substituted into the frozen comparison.
+
+\section{Reproducibility and limits}
+The contract and seed are recorded in
+\path{contracts/calibrated_benchmark.json}. The count archive retains every
+dataset's science and calibration counts and every method's rate estimate.
+The first driven dataset additionally retains hidden endpoints, forward and
+backward Poisson counts, elapsed durations and both raw detector readings.
+The JSON report gives pointwise $95\%$ Clopper--Pearson Monte Carlo intervals
+for detection and coverage, representative exact certificates, all optimized
+relaxation gaps, and the simulator's true entropy rate.
+
+A confidence region that covers the observations under an assumed detector
+does not validate that detector contract. The gain-mismatch control makes this
+distinction explicit. Even a positive, accurately optimized nonlinear lower
+bound does not reconstruct the total dissipation of the driven ring. The
+quantitative report compares its magnitude with known simulated entropy and
+retains the gap. No result here establishes a new universal physical law,
+empirical heat dissipation, or a ranking across all sensing instruments.

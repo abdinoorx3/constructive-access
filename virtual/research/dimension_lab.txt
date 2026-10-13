@@ -1,0 +1,109 @@
+DIMENSION WITNESS VIRTUAL LABORATORY
+Abdinoor / 2D Labs. 2026-10-12 UTC.
+
+STATUS
+Independent physical simulation, frozen pilot/production contracts, raw synthetic
+records, exact statistical checks, and a common-clock practical repair. No
+laboratory data or device-calibration claim. Twelve producer tests pass. Internal
+redteam requested plan-shape validation, timing-memory caveat and total-budget
+comparison; all implemented or explicitly documented.
+
+FILES AND REPRODUCTION
+code/dimension_lab.py; tests/test_dimension_lab.py; manuscript/dimension_lab.tex.
+contracts/dimension_lab.json is the original frozen design/seed specification.
+contracts/dimension_lab_retiming.json was frozen before the second independent
+pilot/holdout run. contracts/dimension_lab_total_budget.json was frozen after
+retiming results and before its additional production comparison; it is not
+presented as prospectively chosen before the first results.
+
+Development commands (working directory /workspace):
+PYTHONPATH=discovery_program/realization_frontier/release/src python discovery_program/virtual_laboratory/code/dimension_lab.py
+PYTHONPATH=discovery_program/realization_frontier/release/src python discovery_program/virtual_laboratory/code/dimension_lab.py --retiming-contract discovery_program/virtual_laboratory/contracts/dimension_lab_retiming.json
+PYTHONPATH=discovery_program/realization_frontier/release/src python discovery_program/virtual_laboratory/code/dimension_lab.py --total-budget-contract discovery_program/virtual_laboratory/contracts/dimension_lab_total_budget.json
+PYTHONPATH=discovery_program/realization_frontier/release/src python -m unittest discover -s discovery_program/virtual_laboratory/tests -p test_dimension_lab.py -v
+
+All modules import installed constructive_access.frontier.hierarchy only for exact
+inference. The probability simulator does not call the prior quantum probability
+helper. Its 3x3 Bloch-generator exponentials are independently checked by a 4x4
+Lindblad implementation. Maximum difference over24 regimes1.4433e-15.
+
+PHYSICAL CONTRACT
+omega1,gamma.001,base step2pi/7. Fixed preparation bit error, fixed detector
+confusion, fixed detuning/drive bias, and independent four-point amplitude/time
+noise refreshed EACH repeated step. Averaging these IID channels gives one
+homogeneous channel, preserving the target-independent classical theorem.
+Quasi-static noise held for a run instead gives E[P(V)^k], not E[P(V)]^k; a
+retained controller label must be counted as memory. A declared control shows
+probability differences as large as.201639. A one-state setting-dependent
+readout fakes the target, intentionally violating the common-detector contract.
+
+DESIGN / DATA
+Old plan13 settings,18300 records,126900 steps, exact alpha<.049048. Production
+repetitions20000 per regime. There are24 declared noise regimes. Pilot seed
+610120701, independent holdout610120702, rawshots610120703, classical-library
+610120704, classical holdout610120705, readout-drift610120706. Additional clocks
+use separate610120711/12; total-budget comparator610120713. Original pilot costs
+20000shotsper13settings=260000 extra records and is not part of the production
+budget. All result files preserve original contract hashes.
+
+One raw18300-shot stream explicitly draws preparation, every amplitude/time
+choice, Born outcome and assignment error; compressed results/dimension_lab_shots.npz.
+It retains setting, initial/projective/final bits, all noisy step labels and a
+simulated randomized acquisition ordering. That ordering is a permutation of
+independent simulated records, not evidence of actual drift protection. Maximum
+marginal count residual is1.861standard deviations; exact seeded reproduction
+checked. No mean formula is used as the sole record-generation validation.
+
+FINDINGS
+Nominal power .98565. False-positive readout.0005 gives.95245,.001 gives.81260,
+.002 gives.28050,.005 gives0. Fixed prep error.001 gives.81330. IID amplitude
+jitter1percent gives.98145, IID timing jitter1percent gives.98190. Coherent
+amplitude offset.5percent gives.63920,1percent gives.01595. These are illustrative
+parameters, not calibrated hardware tolerances. All Monte Carlo results have
+marginal95percent Clopper-Pearson intervals. Numeric binomial power is an
+independent distributional cross-check, not a replacement for exact null bounds.
+
+Combined-noise primary regime: prep.0005,fp.0005,fn.003,amplitudeoffset.003,
+detuning.02,IIDampjitter.005,IIDtimejitter.002. Old power.67660. Pilot-selected
+null epsilon.0061,beta.1503,tau.0781 yields criticalcounts
+314,22,22,22,22,298,49,298,22,22,22,22,282. Exact alpha<.049144.
+New matched-production power.71280. Paired improvement.03620 with conservative
+Hoeffding95percent interval[.016994,.055406]. No universal improvement claim.
+
+The400candidate classical1..4state library contains CTMC and general stochastic
+channels. Three per dimension selected by highest rejection probability under
+either plan. No false rejection among20000repetitionsperselectedmodel. A single
+0/20000has95percentClopperPearson upper.000184427. The theorem/exact tails, not
+this finite library, supply full-null validity.
+
+COMMON CLOCK REPAIR
+Additional frozen pilot estimates one drive frequency using the nominal Bloch
+model. Production uses one common scale1/(1+fittedoffset) at every step. Original
+quotas/criticalcounts unchanged. Null validity is conditional on pilot outcome:
+whatever common step was selected, records retain alpha P_D^k f. Model accuracy
+only determines power; calibration cannot authorize changing individual settings
+or ignoring controller memory. Independent holdout20000percase:
+ offset.005: .63740 -> .98610 [CP .984380,.987677]
+ offset.010: .01575 -> .98720 [CP .985544,.988712]
+ offset.020: 0 -> .98595 [CP .984221,.987535]
+ combined: .67855 -> .80380 [CP .798227,.809284]
+Every improvement's conservative95percentHoeffding interval excludeszero.
+Production physicaltime shortens by.30to1.99percent, records unchanged.
+
+COST-MATCHED COUNTERPOINT
+Pilot costs260000records/1820000steps. Pilotplusproduction278300records.
+An additional frozen baseline spendsall278300records on originalclock/original
+forbiddenregion, with exact recheckedalpha. Its powers forfourcases above are
+1,.0131,0,1. Extra averaging wins mildnoise/combinedcases; commonretiming repairs
+two severephasefailures. This baseline is not an optimal region-selectionoracle.
+Recordbudgetmatched; totaldurations reported separately. No total-resource or
+universal superiority claim. Amortizedpilotrecordoverhead14.21percent across100
+futurebatches,1.42percent across1000, only if the same calibration remains valid.
+
+LIMITS
+Monte Carlo uncertainty is conditional on the simulator. Device drifts, colored
+noise, calibration failure and physical energy cost are not empirically bounded.
+A state-count exclusion is not a proof that every classical explanation fails.
+Same-record comparisons with an extra pilot are not free total-budget gains.
+This work identifies a practical failure mechanism and a valid adaptive repair;
+it is not a discovered physical law or claimed historical-first framework.

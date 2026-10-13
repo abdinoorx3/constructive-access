@@ -1,0 +1,79 @@
+{
+  "fixed_sampling": [
+    {
+      "all_sampled_finite_dimensional_laws_equal": true,
+      "exposed_mixture_lag_coefficient": -0.025507298420567325,
+      "exposed_mixture_variance": 0.07909835313558515,
+      "exposed_target_lag_coefficient": -0.02550729842056733,
+      "exposed_target_variance": 0.07909835313558516,
+      "known_exposure": 1,
+      "largest_covariance_numeric_residual_lags_0_to_20": 1.3877787807814457e-17,
+      "mixture_frequencies": [
+        0,
+        12.566370614359172
+      ],
+      "mixture_latent_variance": 3.853603802183548,
+      "mixture_ordinary_entropy": 315.82734083485946,
+      "mixture_variance_weights": [
+        0.0004577350936736899,
+        3.8531460670898743
+      ],
+      "model_class": "stationary smooth mixing uniformly elliptic Euclidean OU; not compact",
+      "sampling_interval": 1,
+      "status": "exact analytic equivalence; floating-point values are diagnostics",
+      "target_frequency": 6.283185307179586,
+      "target_latent_variance": 1,
+      "target_ordinary_entropy": 78.95683520871486
+    },
+    {
+      "all_sampled_finite_dimensional_laws_equal": true,
+      "exposed_mixture_lag_coefficient": -0.025507298420567325,
+      "exposed_mixture_variance": 0.07909835313558515,
+      "exposed_target_lag_coefficient": -0.02550729842056733,
+      "exposed_target_variance": 0.07909835313558516,
+      "known_exposure": 1,
+      "largest_covariance_numeric_residual_lags_0_to_20": 1.3877787807814457e-17,
+      "mixture_frequencies": [
+        0,
+        31.41592653589793
+      ],
+      "mixture_latent_variance": 23.828830417468385,
+      "mixture_ordinary_entropy": 1973.9208802178716,
+      "mixture_variance_weights": [
+        0.0005859009199023184,
+        23.828244516548484
+      ],
+      "model_class": "stationary smooth mixing uniformly elliptic Euclidean OU; not compact",
+      "sampling_interval": 1,
+      "status": "exact analytic equivalence; floating-point values are diagnostics",
+      "target_frequency": 6.283185307179586,
+      "target_latent_variance": 1,
+      "target_ordinary_entropy": 78.95683520871486
+    },
+    {
+      "all_sampled_finite_dimensional_laws_equal": true,
+      "exposed_mixture_lag_coefficient": -0.02550729842056733,
+      "exposed_mixture_variance": 0.07909835313558515,
+      "exposed_target_lag_coefficient": -0.02550729842056733,
+      "exposed_target_variance": 0.07909835313558516,
+      "known_exposure": 1,
+      "largest_covariance_numeric_residual_lags_0_to_20": 1.3877787807814457e-17,
+      "mixture_frequencies": [
+        0,
+        125.66370614359172
+      ],
+      "mixture_latent_variance": 380.5293056904119,
+      "mixture_ordinary_entropy": 31582.734083485946,
+      "mixture_variance_weights": [
+        0.0006087876745860078,
+        380.5286969027373
+      ],
+      "model_class": "stationary smooth mixing uniformly elliptic Euclidean OU; not compact",
+      "sampling_interval": 1,
+      "status": "exact analytic equivalence; floating-point values are diagnostics",
+      "target_frequency": 6.283185307179586,
+      "target_latent_variance": 1,
+      "target_ordinary_entropy": 78.95683520871486
+    }
+  ]
+}

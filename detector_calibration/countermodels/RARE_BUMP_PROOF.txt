@@ -1,0 +1,260 @@
+COMPACT RARE-REGION COUNTERMODEL TO UNSUPPORTED GLOBAL CALIBRATION
+Owner: /root/geometry_countermodels. Date: 2026-10-13 UTC.
+Status: analytic proof with deterministic implementation checks. No trajectory
+simulation, physical experiment, or historical-priority claim. All nine
+released editions are unchanged.
+
+MAIN CONCLUSION
+For passive stationary observation over any finite total horizon, there is no
+uniformly useful finite upper confidence bound on global local-diffusivity or
+generator suprema over smooth compact uniformly elliptic diffusions without
+additional structural bounds. This remains true with a bounded smooth detector,
+a known uniform stationary density, fixed dimension four, a common ellipticity
+lower bound, and a common L2 spectral-gap lower bound. It remains true even if
+the full continuous hidden trajectory is observed noiselessly. Finer temporal
+resolution or a noisier coarse detector cannot overcome this obstruction.
+
+This is a statement about GLOBAL or stationary ESSENTIAL SUPREMA, not about
+local volatility values already determined along an ideal observed path. It
+does not state a nonzero dissipation lower bound, change a sharp ideal-law
+minimum, or refute model-based calibration under additional verified structure.
+Every model in the construction is reversible and has entropy zero.
+
+1. EXACT MODEL CLASS
+Let (x,z) lie on the four-dimensional torus (R/2pi Z)^4, where z has three
+coordinates. Use the fundamental z cube [-pi,pi]^3 and the Euclidean norm near
+its origin. Fix 0<r<=1/2 and M>=1. Choose a nonnegative C-infinity radial profile
+b(s), equal to one for 0<=s<=1/2, equal to zero for s>=1, with 0<=b<=1.
+For example, with h(t)=exp(-1/t) for t>0 and h(t)=0 otherwise, take
+ b(s)=h(1-s)/[h(1-s)+h(s-1/2)] in 1/2<s<1,
+with the declared constant pieces outside. This is smooth at both joins and
+is constant near zero, so b(|z|/r) is a smooth function of z. Its support lies
+inside the fundamental cube and it extends smoothly and periodically.
+
+Define
+ d_M,r(z)=1+(M-1)b(|z|/r),
+ L_M,r=d_M,r(z) partial_xx + Delta_z,
+ D_M,r=diag(d_M,r(z),1,1,1),
+ f(x,z)=cos x.
+In Ito form,
+ dx_t=sqrt(2d_M,r(z_t)) dW_t^x mod 2pi,
+ dz_t=sqrt(2) dW_t^z mod 2pi,
+with independent Brownian components. The detector lies in [-1,1].
+
+The normalized uniform density pi=(2pi)^(-4) is invariant. Indeed,
+L=div(D grad) because d depends only on z, while its only nonconstant tensor
+entry is the xx entry. Thus L is self-adjoint in L2(pi). Each model is smooth,
+connected, compact, uniformly elliptic, and reversible under ordinary hidden-
+state reversal. Its current velocity and entropy production are identically
+zero. The common ellipticity lower bound is D>=I, independent of M and r.
+
+The mixing gap is controlled as well: for every mean-zero smooth g,
+ -<g,Lg>_pi=E_pi[d|partial_x g|^2+|grad_z g|^2]
+             >=E_pi[|grad g|^2]>=E_pi[g^2].
+The last inequality is the unit spectral-gap Poincare inequality on the
+2pi-periodic torus. Hence all these reversible models have L2 spectral gap
+at least one and mean-zero L2 semigroup contraction at most exp(-t).
+The construction does not rely on a deteriorating lower ellipticity constant,
+stationary density, or metastable mixing time.
+
+2. CALIBRATION TARGETS THAT DIVERGE
+For the bounded detector f=cos x,
+ Gamma_f=d_M,r(z) sin^2 x,
+ Lf=-d_M,r(z) cos x,
+ L^2f=[d_M,r(z)^2-Delta_z d_M,r(z)] cos x.
+Because d=M on the open inner ball |z|<r/2,
+ sup Gamma_f=M,
+ ||Lf||_infinity=M,
+ ||L^2f||_infinity>=M^2.
+More generally ||L^k f||_infinity>=M^k for every positive integer k, by
+calculating at a point inside the plateau, where all derivatives of d vanish.
+These are also stationary essential suprema: pi is positive everywhere and
+the relevant functions are continuous. The maximum of sin^2 x or cos x at an
+isolated x is no obstacle to an essential supremum, since every neighborhood
+has positive stationary measure.
+
+In contrast, the stationary mean local diffusivity remains close to baseline:
+ 1/2 <= E_pi[Gamma_f]
+     <= 1/2+(M-1)r^3/(12pi^2).
+The upper bound uses the volume 4pi r^3/3 of the bump's enclosing z ball and
+E[sin^2 x]=1/2. Thus the choice r=M^(-2), for M>=sqrt(2), makes global suprema
+diverge while this averaged quantity tends to 1/2. An average is not a global
+pointwise envelope.
+
+
+2b. BOUNDED DIFFUSIVITY DOES NOT BOUND THE FIRST GENERATOR
+For a separate family, let N be a positive integer multiple of four and set
+ d_N,r(x,z)=1+b(|z|/r)[1+sin(Nx)]/2,
+ L_N,r=partial_x(d_N,r partial_x)+Delta_z.
+This is again a smooth compact reversible diffusion with uniform stationary
+law and spectral gap at least one, but now I<=D<=2I uniformly. The drift in
+the x direction is partial_x d; retaining this divergence-form drift is
+essential to uniform stationarity. The z dynamics are unchanged. Outside the
+same rare z ball, both x drift and diffusion coincide with reference, so all
+the coupling bounds below still apply.
+For f=cos x,
+ Lf=-d cos x-(N/2)b(|z|/r)cos(Nx)sin x.
+At z in the plateau and x=pi/2, cos(Nx)=1, so Lf=-N/2. Thus
+ Gamma_f<=2 but ||Lf||_infinity>=N/2.
+Take N to infinity and r=N^-2. Known two-sided ellipticity, a global bound on
+local diffusivity, uniform stationary density and a common mixing gap do not
+supply a finite uniformly covered generator-first-derivative bound without
+further regularity structure. The total-variation distance to reference still
+tends to zero. Every model has entropy zero.
+
+2c. BOUNDED DIFFUSIVITY AND Lf DO NOT BOUND L^2f
+Return to the original radial family and fix M=2. Then I<=D<=2I and
+sup Gamma_f=||Lf||_infinity=2 for every radius. For the explicit smooth profile,
+at s=3/4 direct differentiation gives
+ b(s)=1/2, b'(s)=-8, b''(s)=0,
+ Delta_3 b=b''(s)+2b'(s)/s=-64/3.
+At x=0 and |z|=3r/4 this implies
+ L^2f=9/4+64/(3r^2).
+Therefore ||L^2f||_infinity diverges as r tends to zero, even with the known
+upper bounds D<=2I and ||Lf||<=2. The first and second generator regularity
+constants cannot be interchanged. Again all models are reversible, the same
+coupling bound applies, and the observed finite-record laws converge to the
+reference law.
+
+3. EXPLICIT HITTING-PROBABILITY BOUND IN THREE DIMENSIONS
+Let z_t be stationary Brownian motion with generator Delta on the three-torus,
+and let tau_r=inf{t>=0: |z_t|<=r}, with distance interpreted in the local ball.
+For every T>=0 and 0<r<=1/2,
+ P(tau_r<=T) <= r(9/64+6T).
+One can replace the right side by its minimum with one. The constants are
+convenient explicit bounds, not optimized capacity constants.
+
+Proof. Choose a smooth nonnegative radial probability density rho_r supported
+on the Euclidean ball |y|<r/2. Its Newtonian potential, scaled by r, is
+ p_r(z)=r integral rho_r(y)/|z-y| dy.
+It is smooth, nonnegative, and Delta p_r=-4pi r rho_r<=0. Outside |z|>=r/2,
+radial symmetry and the elementary radial harmonic equation imply
+p_r(z)=r/|z|. Inside the ball it is radially nonincreasing as radius increases,
+so it is at least its boundary value 2. Consequently p_r>=1 on |z|<=r.
+
+Let chi(s)=1 for s<=1, chi(s)=0 for s>=2, and on 1<s<2 set
+ chi(s)=q(s-1), q(t)=1-10t^3+15t^4-6t^5.
+This cutoff is C2, nonnegative, and has first and second derivatives zero at
+its joins. It satisfies max|q''|=10sqrt(3)/3<6. Define u_r(z)=chi(|z|)p_r(z)
+inside the fundamental cube and extend it periodically. Because its support
+is contained in the radius-two ball, u_r is a nonnegative C2 torus function.
+It is at least one on the target ball. Within |z|<=1 its Laplacian is
+nonpositive. In 1<|z|<2, p_r=r/|z|, and the three-dimensional radial identity
+ Delta[chi(s)/s]=chi''(s)/s
+shows Delta u_r<=6r. Outside radius two the Laplacian is zero. Thus
+ Delta u_r<=6r everywhere.
+
+Its stationary expectation has an explicit upper bound. Since 0<=chi<=1,
+Fubini's theorem and |y|<=r/2 give
+ E_pi_z[u_r]
+ <= r/(2pi)^3 integral rho_r(y) integral_{|z|<=2} |z-y|^-1 dz dy
+ <= r/(2pi)^3 integral_{|w|<=2+r/2} |w|^-1 dw
+ =r(2+r/2)^2/(4pi^2)
+ <=81r/(64pi^2)<9r/64.
+Dynkin's formula at the bounded stopping time tau_r wedge T now yields
+ P(tau_r<=T)
+ <=E[u_r(z_(tau_r wedge T))]
+ <=E[u_r(z_0)]+6rT
+ <=r(9/64+6T).
+This proves the bound. Smoothness of the cutoff beyond C2 is unnecessary for
+Dynkin's formula; all diffusion coefficients themselves remain C-infinity.
+
+4. COUPLING THE COMPLETE CONTINUOUS RECORDS
+Let the reference model be d=1, denoted P_0. Initialize it and a bumped model
+with the same uniform (x_0,z_0), and use the same Brownian drivers. Their z
+paths agree at every time, since the z dynamics do not depend on d. Their x
+coefficients agree outside the bump support, so pathwise uniqueness implies
+identical complete hidden trajectories until tau_r. The coupling inequality
+therefore gives, for a full record on [0,T],
+ TV(P_M,r^full[0,T],P_0^full[0,T])
+ <=P(tau_r<=T)<=min{1,r(9/64+6T)}.
+The bound is independent of the height M. It applies to the entire continuous
+hidden path, not merely finitely many endpoints. Every common detector map,
+exposure operation and randomized observation channel contracts total
+variation, so the same bound holds for the bounded cosine detector and for
+any common noisy readout obtained from it.
+
+For N independent stationary records with durations summing to T_total, a
+union coupling gives the bound
+ min{1,r(9N/64+6T_total)}.
+Every latent interval used by an exposure must be included in the duration
+accounting. This theorem assumes passive stationary observations; it does not
+cover an intervention that prepares the hidden system inside a known bump.
+
+5. A PRECISE UPPER-CONFIDENCE IMPOSSIBILITY THEOREM
+Fix any finite passive observation protocol covered above and 0<alpha<1.
+Let U be a measurable statistic of its retained record, with values in
+[0,+infinity], possibly including common external randomization. Suppose U is
+an honest upper confidence bound over the entire constructed class, meaning
+ P_M,r[U>=sup Gamma_f]=P_M,r[U>=M]>=1-alpha
+for every M>=1 and every 0<r<=1/2. Then under the reference d=1 law,
+ P_0[U=+infinity]>=1-alpha.
+
+Proof. For each fixed M, total variation implies
+ P_0[U>=M]>=1-alpha-min{1,r(9N/64+6T_total)}.
+Let r down to zero. This gives P_0[U>=M]>=1-alpha for every M. Let the integer
+M tend to infinity and use continuity from above of probability. The result
+follows. Thus a bound that is finite almost surely under the benign baseline
+cannot have the claimed uniform coverage. This is a nonparametric coverage
+obstruction, not a statement that all model-based confidence bounds fail.
+
+The same conclusion applies to an honest upper confidence bound on ||Lf||
+or ||L^2f||. For the latter use ||L^2f||>=M^2 and let M tend to infinity.
+The strengthened variants in Sections 2b and 2c give the same conclusion for
+||Lf|| even under I<=D<=2I, and for ||L^2f|| even under I<=D<=2I and ||Lf||<=2.
+In those variants take the displayed diverging target along r down to zero;
+the TV bound again tends to zero. Additional smoothness constants, rather than
+just an upper diffusion bound, are necessary to exclude these alternatives.
+A reported pointwise envelope a_hat(y) claimed to satisfy
+ Gamma_f(x,z)<=a_hat(f(x,z)) for EVERY hidden state
+must in particular satisfy a_hat(0)>=M. Therefore, with uniform coverage for
+that pointwise contract, a_hat(0) must be infinite with probability at least
+1-alpha under baseline. This statement uses a literal pointwise contract.
+If validity is instead only stationary-almost-everywhere, it still applies
+when a_hat is continuous, by continuity and positivity of the stationary
+density. Arbitrary measurable almost-everywhere envelopes require a separate
+integrated formulation; one cannot infer their value at the zero-probability
+level y=0 merely from an almost-everywhere assertion.
+
+The impossibility also extends to a single passive path observed until a
+common nonanticipating stopping rule that is finite almost surely under reference. Let S
+be that reference stopping time. For any K<infinity, coupled stopped records
+agree unless tau_r<=K or S>K, so their total-variation distance is bounded by
+ r(9/64+6K)+P_0(S>K).
+First let r down to zero and then K tend to infinity. This again gives
+reference convergence and the same confidence argument. This extension does
+not authorize infinite-time observation for finite cost.
+
+6. WHAT THIS DOES NOT SAY
+- Ideal continuous scalar paths do determine Gamma_f(X_t) along those paths
+  through quadratic variation. The obstruction concerns extrapolation to
+  unvisited hidden regions and a global supremum. If the bump is encountered,
+  exact path access may reveal its elevated diffusivity.
+- Every constructed model has entropy zero. There is no claimed change in a
+  sharp entropy minimum, hidden-current identifiability, or a lower bound on
+  physical dissipation. The target here is an assumption used by finite-error
+  inference, not entropy itself.
+- Extra structure can change the conclusion: known derivative bounds, a
+  bounded parametric family, spatial access and controlled preparation, or a
+  separately justified envelope can exclude these alternatives. The theorem
+  does not prohibit those routes.
+- The lower ellipticity bound and mixing gap alone are insufficient; the class
+  has no common upper diffusivity or higher-derivative bounds. Smoothness of
+  each individual model does not supply such common numerical constants.
+- Fixed observation dimension, positive stationary density and a bounded
+  detector do not by themselves justify replacing a global envelope by an
+  empirical average or a fitted conditional variance.
+
+7. IMPLEMENTATION AND REVIEW STATUS
+rare_bump.py implements the actual smooth plateau profile and evaluates the
+proved deterministic TV and mean-volatility bounds. results.json gives three
+examples (M=10,100,1000 with r=M^-2). test_rare_bump.py contains eleven checks:
+exact symbolic cutoff curvature and radial Laplacian identities, generator
+composition, plateau behavior, independent radial integration of the mean,
+confidence-obstruction scaling, potential expectation constants and input
+validation, plus exact transition-profile derivatives and the bounded-diffusion
+generator variants. The reported floating values are non-outward-rounded
+diagnostics, not numerical interval certificates; an extremely small positive
+mean-volatility margin can round to zero. The analytic formulas are authoritative.
+No discrete simulator is used as a substitute for a hitting-time proof.
+Independent mathematical review is requested separately.

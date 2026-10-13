@@ -1,0 +1,366 @@
+\chapter{A calibrated experiment with optional stopping}
+\label{rr:statistics}
+
+The occupation inequality becomes experimentally useful when a measured
+reversal can be separated from calibration error at a feasible record
+count. This chapter supplies fixed-record and sequential procedures that
+use one preparation and one endpoint readout per record. Binomial testing,
+likelihood-ratio betting, and confidence inversion are established
+statistical methods. The contribution here is their explicit connection
+to the protected physical contrast, with an exact computational certificate.
+
+\section{Randomizing preparations removes a baseline nuisance parameter}
+Let $p_i$ and $p_j$ be endpoint detection probabilities averaged over the
+same protected observation clock. The ideal classical contract implies
+$p_i-p_j\leq0$. A record begins by drawing a fresh fair preparation arm:
+$A=0$ prepares $i$, and $A=1$ prepares $j$. After evolution and binary
+readout $Y$, retain the encoded bit
+\[
+ R=\begin{cases}Y,&A=0,\\1-Y,&A=1.\end{cases}
+ \qquad \Pr(R=1)=\frac{1+p_i-p_j}{2}.
+\]
+Thus a population difference becomes a one-sided Bernoulli experiment
+without estimating either population separately. This does not supply a
+physical reset, a trusted detector, or the required clock; these remain
+independent experimental assumptions.
+
+Let $\mathcal F_{n-1}$ contain completed records and controller decisions
+before the current arm and clock draws. A contrast error envelope $b_n$
+gives the statistical null
+\begin{equation}\label{rr:conditional-null}
+ \mathbb E(R_n\mid\mathcal F_{n-1})
+ \leq\theta_{0,n}:=\frac{1+b_n}{2},\qquad 0\leq b_n<1.
+\end{equation}
+The next horizon, admissible generator, and calibration bound may depend
+on completed records if each chosen experiment preserves this conditional
+inequality. Marginal validity alone is insufficient under shared hidden
+drift.
+
+For a declared ideal reversal $p_i-p_j\geq g$ and a constant absolute
+contrast error radius $b$, the alternative has
+\[
+ \mathbb E(R_n\mid\mathcal F_{n-1})\geq
+ \theta_1:=\frac{1+g-b}{2},\qquad
+ \theta_0:=\frac{1+b}{2}.
+\]
+The sufficient separation condition is $g>2b$. A common positive affine
+detector gain belongs in $g$ and its common offset cancels. Setting-dependent
+detector changes and imperfect common control belong in the error envelope.
+A comparison preparation allowed to be arbitrary by the physical theorem
+need not contribute to the null error, although it can weaken predicted
+power. The implementation uses the same conservative envelope for null
+and alternative; this is sufficient rather than universally optimal.
+
+\section{An exact fixed-record certificate}
+Write
+\[
+ B(N,k,p)=\sum_{s=k}^N {N\choose s}p^s(1-p)^{N-s}.
+\]
+\begin{proposition}[Fixed-record validity and power]
+Choose $N$ in advance and reject when $S_N=\sum_{n=1}^N R_n\geq k$.
+Under the conditional null with constant $\theta_0$,
+\[
+ \Pr(\mathrm{reject})\leq B(N,k,\theta_0).
+\]
+If every conditional success probability is at least $\theta_1$, then
+\[
+ \Pr(\mathrm{no\ rejection})\leq1-B(N,k,\theta_1).
+\]
+\end{proposition}
+\begin{proof}
+For an adapted Bernoulli sequence with conditional probabilities $q_n$,
+use independent uniforms $U_n$ to represent recursively
+$R_n=\mathbf1\{U_n\leq q_n(\text{past})\}$. If $q_n\leq\theta_0$,
+then $R_n\leq\mathbf1\{U_n\leq\theta_0\}$ coordinate by coordinate.
+The sum on the right is binomial. The reverse coupling with
+$q_n\geq\theta_1$ proves the power bound. Identically distributed and
+independent records are sufficient, but the stated conditional bounds
+are enough.
+\end{proof}
+
+For rational $p=a/d$, the certificate evaluates the binomial polynomial
+using integers
+\[
+ T_s={N\choose s}a^s(d-a)^{N-s},\qquad
+ T_{s+1}=T_s\frac{(N-s)a}{(s+1)(d-a)}.
+\]
+The division is exact. Summing and dividing by $d^N$, followed by outward
+rational rounding, encloses the tail without a floating-point probability
+library. The verifier recomputes both tails against an independently
+supplied contract; changing a threshold, record count, or calibration
+bound requires a new certificate.
+
+The qubit example with $\gamma=1/10$, $\omega=2$, a uniform clock on
+$[0,9/4]$, and detector gain $9/10$ has independently certified reversal
+$g\geq18/125$. With contrast radius $b=1/1000$, take
+\[
+ \theta_0=\frac{1001}{2000},\qquad
+ \theta_1=\frac{1143}{2000},\qquad N=600,\qquad k=321.
+\]
+The exact rational tails imply
+\[
+ \Pr_{H_0}(\mathrm{reject})<0.049498,\qquad
+ \Pr_{H_1}(\mathrm{no\ rejection})<0.032603.
+\]
+These are prospective guarantees, not an experimental result. No physical
+data are supplied in this release. The design uses 600 endpoint records;
+it does not claim that 600 is globally minimal.
+
+A simpler Chernoff design chooses $\theta_0<c<\theta_1$ and verifies
+\[
+ N D_{\rm KL}(c\Vert\theta_0)\geq\log(1/\alpha),\qquad
+ N D_{\rm KL}(c\Vert\theta_1)\geq\log(1/\beta).
+\]
+Rational logarithm bounds certify both inequalities. At the same physical
+gap, radius, and $\alpha=\beta=1/20$, this sufficient design uses 1181
+records. Exact binomial evaluation reduces this requirement to 600.
+That is a comparison at matched inputs. The much larger reduction from
+the preceding three-arm pulse experiment comes principally from a stronger
+physical contrast and different preparation access, not from a comparable
+improvement in statistical methodology.
+
+\section{Safe optional stopping}
+For a previsible betting fraction $0<f<1$, put
+\[
+ q_n=\theta_{0,n}+f(1-\theta_{0,n}),\qquad
+ L_n=\left(\frac{q_n}{\theta_{0,n}}\right)^{R_n}
+     \left(\frac{1-q_n}{1-\theta_{0,n}}\right)^{1-R_n},
+ \qquad M_N=\prod_{n=1}^N L_n.
+\]
+\begin{proposition}[Anytime-valid rejection]
+Under~\eqref{rr:conditional-null}, $M_N$ is a nonnegative supermartingale
+starting at one. So is any fixed convex mixture of such processes.
+Rejecting on the first crossing of $1/\alpha$ has false-rejection
+probability at most $\alpha$, over all record counts.
+\end{proposition}
+\begin{proof}
+For a conditional success probability $p\leq\theta_{0,n}$,
+\[
+ \mathbb E(L_n\mid\mathcal F_{n-1})
+ =p\frac{q_n}{\theta_{0,n}}+
+ (1-p)\frac{1-q_n}{1-\theta_{0,n}}\leq1.
+\]
+The affine expression increases with $p$ and equals one at the null
+boundary. Products are therefore nonnegative supermartingales, and fixed
+convex mixing preserves this property. Ville's maximal inequality yields
+the crossing bound \cite{caVille1939,caWaudbySmithRamdas2024}.
+\end{proof}
+
+This construction permits optional stopping, continued acquisition after
+inconclusive results, and predictable adaptation of future valid protocols.
+It does not allow retrospective selection of the most favorable mixture
+component without its predeclared weight. The implementation maintains
+capital with exact rational arithmetic.
+
+\subsection{The current random clock cannot choose the current bet}
+For this experiment the null is protected after averaging the observation
+clock. A fixed-time contrast can reverse in a classical model. Betting
+parameters must therefore be chosen before the current arm \emph{and}
+current clock are drawn. The realized clock may be stored and may inform
+future experimental choices; it cannot select the current bet under the
+proof above.
+
+For example, two equally likely clock strata with encoded success
+probabilities one and zero have average success probability $1/2$.
+A likelihood bet with factors $3/2$ and $1/2$ is fair beforehand. Betting
+only in the current success-one stratum gives mean factor
+$(3/2+1)/2=5/4>1$. This negative control identifies a practical failure
+mode that a generic optional-stopping recipe would otherwise miss.
+Likewise, dynamics responding to the selected readout time within the
+record can violate the common physical evolution assumption.
+
+\section{A guaranteed stopping horizon}
+With constant $\theta_0$ and a single fixed alternative $q>\theta_0$,
+terminal capital is
+\[
+ M_N(q)=\left(\frac q{\theta_0}\right)^{S_N}
+        \left(\frac{1-q}{1-\theta_0}\right)^{N-S_N}.
+\]
+It increases with $S_N$. If this component has mixture weight $w$, find
+the least $k$ for which $wM_N(q)\geq1/\alpha$. Under the conditional
+alternative, the probability of failing to cross by $N$ is at most
+$1-B(N,k,\theta_1)$. Earlier crossing can only increase power.
+
+For the same calibrated qubit example, choose the single component
+$q=\theta_1$, $w=1$. At $N=1100$, $S_N\geq601$ suffices, and the exact
+miss probability is below $0.043395$. This is a sufficient horizon with
+anytime false-rejection control $0.05$; it is not an expected stopping
+time, and some paths stop earlier.
+
+For a less costly arithmetic certificate at large horizons, let
+\[
+ \ell_1=\log(q/\theta_0),\quad
+ \ell_0=\log((1-q)/(1-\theta_0)),\quad
+ K=\theta_1\ell_1+(1-\theta_1)\ell_0,\quad D=\ell_1-\ell_0.
+\]
+If $K>0$, conditional Hoeffding gives power at least $1-\beta$ whenever
+\[
+ NK-D\sqrt{\tfrac N2\log(1/\beta)}\geq\log[1/(\alpha w)].
+\]
+Rational lower bounds on $K$ and upper bounds on $D$ and the logarithms
+turn this into a checkable squared inequality, including its positive-sign
+condition. The example gives the more conservative horizon 1739.
+
+\section{From rejection to a bound on hidden classical explanations}
+At a fixed record count and observed successes $s$, choose a rational
+$\theta_L$ with $B(N,s,\theta_L)\leq\alpha$. Monotone binomial-tail
+inversion gives a conservative lower confidence bound on a stable common
+success probability. For nonidentical adapted trials, the exact statement
+is exclusion of models whose every conditional success probability lies
+below that bound. It is not automatically a confidence interval for an
+unspecified average of changing probabilities.
+
+A time-uniform version fixes $f$ before the experiment and inverts
+\[
+ M_N(\theta)=
+ \left[1+f\frac{1-\theta}{\theta}\right]^{S_N}
+ (1-f)^{N-S_N}\geq\frac1\alpha.
+\]
+This capital decreases with $\theta$. For a true stable mean, or any
+uniform conditional upper bound $\theta_*$, Ville's inequality controls
+the probability that an inverted lower bound ever exceeds $\theta_*$.
+Selecting $f$ after seeing the current counts is not covered. The module
+implements both inversions using rational bisection.
+
+Set $d_{{\rm det},L}=2\theta_L-1$. For known common positive detector
+gain $\kappa$ and contrast drift at most $e$, the physical reversal has
+lower bound
+\[
+ d_L=\frac{d_{{\rm det},L}-e}{\kappa},\qquad d=-H/T.
+\]
+Suppose the separately calibrated entrance and exit hazard caps are $a,b$,
+and the detector-boundary theorem gives
+\[
+ H\geq G-\eta K,\quad
+ G=\int_0^T e^{-bs-a(T-s)}ds,\quad
+ K=T-A_a-A_b+G,\quad
+ A_c=\frac{1-e^{-cT}}c,\quad A_0=T.
+\]
+For $K>0$, every compatible classical explanation must satisfy
+\begin{equation}\label{rr:defect-confidence}
+ \eta\geq\frac{G+Td_L}{K}.
+\end{equation}
+A negative lower bound is replaced by zero. A lower bound greater than
+one excludes the declared bounded-hazard class. When $K=0$, use the
+original inequality instead of dividing.
+
+With common cap $\lambda$ and unrestricted reset defect, write
+$F(z)=2(1-e^{-z})/z-1$. The classical bound $H/T\geq F(\lambda T)$
+implies, within the inverse's physical range,
+\[
+ \lambda\geq F^{-1}(-d_L)/T.
+\]
+Thus a contrast confidence bound can quantify the minimum hidden classical
+peak crossing intensity or reset defect needed to explain the record. This is a bound on
+a declared model class, not a device-independent proof of quantumness.
+Adaptive protocols need a common declared apparatus constraint for a
+single-parameter interpretation of these bounds.
+
+\section{Resource accounting and reproducibility}
+For the uniform clock on $[0,9/4]$, expected evolution time is $9/8$ per
+record and worst-case time is $9/4$. The 600-record design therefore has
+expected evolution time 675 and deterministic upper bound 1350 in model
+time units. Preparation, reset, readout, controller, and calibration costs
+must be added. Converting time into energy requires an apparatus model.
+
+Statistical validity is conditional on the calibration and physical
+contract. If an independently justified joint calibration event fails
+with probability at most $\delta$, add $\delta$ once. Conditioning on an
+event selected from the same outcomes must not destroy the conditional
+trial law; an unsupported high-probability calibration statement does
+not resolve this issue.
+
+The module \texttt{statistics\_design.py} exports exact design certificates,
+independent checkers, encoded-record handling, rational sequential capital,
+and fixed or time-uniform confidence inversion. Tests include independent
+small binomial sums, adapted conditional-null policies, exhaustive
+finite-path optional-stopping controls, calibration and certificate
+tampering, and the invalid clock-dependent-betting example. The evidence
+file records prospective mathematical guarantees; it contains no claimed
+empirical detection.
+
+\section{A four-arm test without trusted preparation support}
+The dimension theorem supplies a different physical null. For any common
+homogeneous CTMC with at most three states, arbitrary two fixed initial
+distributions $\mu,\nu$, and any fixed stochastic binary detector $f$,
+write
+\[
+ C_0=\mu f-\nu f,\qquad
+ C_T=\frac1T\int_0^T(\mu P_t f-\nu P_t f)\,dt,
+ \qquad W=C_0-C_T.
+\]
+The proved inequality is $|W|\leq1$. It imposes no exact initial support
+and no extremal detector calibration. Common homogeneous dynamics,
+preparation repeatability, and a fixed detector remain necessary. Rejection
+excludes this declared three-state class; it does not exclude arbitrary
+classical models with additional states or time-dependent dynamics.
+
+Choose each record's arm uniformly from
+\[
+  (\mu,0),\quad(\nu,0),\quad(\mu,U),\quad(\nu,U),
+  \qquad U\sim\operatorname{Unif}[0,T],
+\]
+independently of the current apparatus state. Encode $R=Y$ in the first
+and fourth arms, and $R=1-Y$ in the second and third. Then
+\[
+ \mathbb E R=\frac14
+ \left[\mu f+(1-\nu f)+(1-\overline{\mu P f})
+                   +\overline{\nu P f}\right]
+ =\frac{2+W}{4}.
+\]
+Consequently an absolute systematic error radius $e$ on the complete
+four-term witness gives
+\[
+ \theta_0=\frac{3+e}{4},\qquad
+ \theta_1=\frac{2+w-e}{4}
+\]
+when the ideal alternative is certified to have $W\geq w>1$.
+The same exact-binomial proposition applies, including its conditional
+version when the common arm-independent model changes across completed
+trials. The radius $e$ is the total error in $W$; it must not be mistaken
+for one arm's probability uncertainty. Fixed imperfections already covered
+by the theorem's arbitrary detector do not themselves violate the null.
+
+For the improved qubit design, take $\gamma=1/10$, $\omega=2$, $T=2$,
+gain $9/10$, and antipodal pure preparations along the Bloch direction
+\[
+ \boldsymbol n=(0,-12/37,35/37).
+\]
+An independent rational quantum certificate gives $W>27/25=1.08$.
+With full-witness radius $e=1/500$, the exact design is
+\[
+ \theta_0=\frac{1501}{2000},\qquad
+ \theta_1=\frac{1539}{2000},\qquad
+ N=6000,\qquad k=4560.
+\]
+Reject when at least 4560 of the 6000 encoded bits are successes. Integer
+binomial-tail evaluation certifies
+\[
+ \Pr_{H_0}(\mathrm{reject})<0.045483,\qquad
+ \Pr_{H_1}(\mathrm{no\ rejection})<0.039465.
+\]
+Four setting-specific probability errors bounded by $1/2000$ each suffice
+for this full-witness radius, matching the per-setting error scale of the
+earlier two-arm design. This four-arm experiment pays a larger record
+cost for a null that allows arbitrary preparations and a fixed imperfect
+detector.
+
+Half of the records have zero evolution duration and half have mean
+duration $T/2$. Expected evolution time is therefore $T/4=1/2$ per
+record, or 3000 for this design. Preparation and readout costs still apply
+to all 6000 records. There is no claim that total physical energy is less
+than the 600-record experiment, whose protected preparation requirements
+are stronger.
+
+The original untilted $T=9/4$ model remains a comparison: $w=261/250$,
+$e=1/1000$, $N=20000$, and $k=15107$ give false-rejection probability
+below $0.048412$ and miss probability below $0.036316$. The improvement
+to 6000 records comes from choosing preparations that expose a larger
+dimension-witness contrast, not from changing the exact-binomial method.
+
+The four-arm experiment uses the same statistical precautions as the
+two-arm experiment: current arm and clock randomization must precede the
+outcome, betting cannot depend on the current realized clock, and a fixed
+record certificate cannot be reused as an uncorrected stopping rule.
+The generic exact-binomial API verifies supplied thresholds and budgets;
+neither the 6000 nor 20000 record choice is asserted to be globally minimal.

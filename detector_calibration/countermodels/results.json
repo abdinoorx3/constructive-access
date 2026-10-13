@@ -1,0 +1,115 @@
+{
+  "bounded_diffusion_first_generator": [
+    {
+      "diffusion_lower_bound": 1.0,
+      "diffusion_upper_bound": 2.0,
+      "entropy_rate": 0.0,
+      "frequency": 4,
+      "full_continuous_record_tv_upper_formula_value": 0.3837890625,
+      "global_Gamma_upper_bound": 2.0,
+      "global_Lf_supremum_at_least": 2.0,
+      "radius": 0.0625
+    },
+    {
+      "diffusion_lower_bound": 1.0,
+      "diffusion_upper_bound": 2.0,
+      "entropy_rate": 0.0,
+      "frequency": 40,
+      "full_continuous_record_tv_upper_formula_value": 0.003837890625,
+      "global_Gamma_upper_bound": 2.0,
+      "global_Lf_supremum_at_least": 20.0,
+      "radius": 0.000625
+    },
+    {
+      "diffusion_lower_bound": 1.0,
+      "diffusion_upper_bound": 2.0,
+      "entropy_rate": 0.0,
+      "frequency": 400,
+      "full_continuous_record_tv_upper_formula_value": 3.837890625e-05,
+      "global_Gamma_upper_bound": 2.0,
+      "global_Lf_supremum_at_least": 200.0,
+      "radius": 6.25e-06
+    }
+  ],
+  "bounded_diffusion_second_generator": [
+    {
+      "diffusion_lower_bound": 1.0,
+      "diffusion_upper_bound": 2.0,
+      "entropy_rate": 0.0,
+      "full_continuous_record_tv_upper_formula_value": 0.6140625000000001,
+      "global_Gamma_supremum": 2.0,
+      "global_L2f_supremum_at_least": 2135.583333333333,
+      "global_Lf_supremum": 2.0,
+      "radius": 0.1
+    },
+    {
+      "diffusion_lower_bound": 1.0,
+      "diffusion_upper_bound": 2.0,
+      "entropy_rate": 0.0,
+      "full_continuous_record_tv_upper_formula_value": 0.06140625,
+      "global_Gamma_supremum": 2.0,
+      "global_L2f_supremum_at_least": 213335.58333333334,
+      "global_Lf_supremum": 2.0,
+      "radius": 0.01
+    },
+    {
+      "diffusion_lower_bound": 1.0,
+      "diffusion_upper_bound": 2.0,
+      "entropy_rate": 0.0,
+      "full_continuous_record_tv_upper_formula_value": 0.006140625,
+      "global_Gamma_supremum": 2.0,
+      "global_L2f_supremum_at_least": 21333335.583333332,
+      "global_Lf_supremum": 2.0,
+      "radius": 0.001
+    }
+  ],
+  "detector": "f(x,z)=cos(x), range [-1,1]",
+  "examples": [
+    {
+      "amplitude": 10.0,
+      "common_ellipticity_lower_bound": 1.0,
+      "entropy_rate": 0.0,
+      "full_continuous_record_tv_upper": 0.06140625,
+      "global_Gamma_supremum": 10.0,
+      "global_L2f_supremum_at_least": 100.0,
+      "global_Lf_supremum": 10.0,
+      "radius": 0.01,
+      "stationary_mean_Gamma_lower": 0.5,
+      "stationary_mean_Gamma_upper": 0.5000000759908877,
+      "stationary_records": 1,
+      "total_observation_time": 1.0
+    },
+    {
+      "amplitude": 100.0,
+      "common_ellipticity_lower_bound": 1.0,
+      "entropy_rate": 0.0,
+      "full_continuous_record_tv_upper": 0.0006140625,
+      "global_Gamma_supremum": 100.0,
+      "global_L2f_supremum_at_least": 10000.0,
+      "global_Lf_supremum": 100.0,
+      "radius": 0.0001,
+      "stationary_mean_Gamma_lower": 0.5,
+      "stationary_mean_Gamma_upper": 0.5000000000008359,
+      "stationary_records": 1,
+      "total_observation_time": 1.0
+    },
+    {
+      "amplitude": 1000.0,
+      "common_ellipticity_lower_bound": 1.0,
+      "entropy_rate": 0.0,
+      "full_continuous_record_tv_upper": 6.140624999999999e-06,
+      "global_Gamma_supremum": 1000.0,
+      "global_L2f_supremum_at_least": 1000000.0,
+      "global_Lf_supremum": 1000.0,
+      "radius": 1e-06,
+      "stationary_mean_Gamma_lower": 0.5,
+      "stationary_mean_Gamma_upper": 0.5,
+      "stationary_records": 1,
+      "total_observation_time": 1.0
+    }
+  ],
+  "model_class": "smooth compact T4, uniform stationary law, D>=I, ordinary reversal",
+  "numerical_caveat": "Values labelled upper/lower evaluate analytic bounds but are not interval certificates; rounding may erase tiny positive margins.",
+  "status": "non-outward-rounded floating diagnostics for proved analytic formulas; no trajectory simulation",
+  "target": "global or stationary essential suprema; not visited-path values"
+}

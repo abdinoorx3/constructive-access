@@ -1,0 +1,271 @@
+{
+  "analytic_covariance": [
+    0.5,
+    0.38,
+    0.17999999999999994,
+    -0.028576000000000084
+  ],
+  "direct_matrix_covariance": [
+    0.5,
+    0.3800000000000001,
+    0.18000000000000016,
+    -0.02857599999999989
+  ],
+  "evidence": "analytic model-class theorem plus floating-point checks; no universal physical minimum or measured-data certificate",
+  "exact_grid_aliases": [
+    {
+      "entropy": 2.644797825293866,
+      "k": 0,
+      "max_grid_covariance_error": 0.0,
+      "omega": 0.5504934894452805
+    },
+    {
+      "entropy": 407.5653257619465,
+      "k": 1,
+      "max_grid_covariance_error": 8.881784197001252e-16,
+      "omega": 6.833678796624866
+    },
+    {
+      "entropy": 1501.5788523834915,
+      "k": 2,
+      "max_grid_covariance_error": 1.8596235662471372e-15,
+      "omega": 13.116864103804453
+    },
+    {
+      "entropy": 35061.03501801198,
+      "k": 10,
+      "max_grid_covariance_error": 7.882583474838611e-15,
+      "omega": 63.38234656124114
+    }
+  ],
+  "max_matrix_covariance_error": 2.220446049250313e-16,
+  "model": {
+    "amplitude": 0.5,
+    "circle_entropy_minimum": 2.644797825293866,
+    "delta": 1.0,
+    "gamma": 0.11458081181988637,
+    "principal_omega": 0.5504934894452805,
+    "scope": "single-mode circulant/circle class, not an unrestricted physical minimum"
+  },
+  "noncirculant_countermodel": {
+    "amplitude": 0.1,
+    "analytic_covariance": [
+      0.1,
+      0.08146405095538069,
+      0.032284458245003304,
+      0.007312196559805965,
+      -0.0005398063220210943
+    ],
+    "circle_entropy": 0.25,
+    "detector": [
+      1.0,
+      1.0,
+      -1.0,
+      -1.0,
+      0.0
+    ],
+    "entropy": 0.055606300391741616,
+    "exit_rate": 0.01,
+    "gamma": 1.0,
+    "generator": [
+      [
+        -1.0000000000000002,
+        0.7450000000000001,
+        0.0,
+        0.2450000000000001,
+        0.01
+      ],
+      [
+        0.2450000000000001,
+        -1.0000000000000002,
+        0.7450000000000001,
+        0.0,
+        0.01
+      ],
+      [
+        0.0,
+        0.2450000000000001,
+        -1.0000000000000002,
+        0.7450000000000001,
+        0.01
+      ],
+      [
+        0.7450000000000001,
+        0.0,
+        0.2450000000000001,
+        -1.0000000000000002,
+        0.01
+      ],
+      [
+        0.0002777777777777778,
+        0.0002777777777777778,
+        0.0002777777777777778,
+        0.0002777777777777778,
+        -0.0011111111111111111
+      ]
+    ],
+    "matrix_covariance": [
+      0.1,
+      0.08146405095538067,
+      0.0322844582450033,
+      0.007312196559805889,
+      -0.000539806322021089
+    ],
+    "omega": 0.5,
+    "stationary": [
+      0.025,
+      0.025,
+      0.025,
+      0.025,
+      0.9
+    ],
+    "times": [
+      0,
+      0.2,
+      1,
+      2,
+      5
+    ]
+  },
+  "pell_near_aliases": [
+    {
+      "entropy": 170.7300410317889,
+      "omega": 13.066370614359172,
+      "p": 3,
+      "q": 2,
+      "second_gap_phase_error": 1.0780241689052945,
+      "two_interval_state_record_tv_upper": 0.25572080726564717
+    },
+    {
+      "entropy": 5760.540358713625,
+      "omega": 75.89822368615503,
+      "p": 17,
+      "q": 12,
+      "second_gap_phase_error": 0.18495970625218017,
+      "two_interval_state_record_tv_upper": 0.04387475416479244
+    },
+    {
+      "entropy": 193884.31923285397,
+      "omega": 440.322971502571,
+      "p": 99,
+      "q": 70,
+      "second_gap_phase_error": 0.03173406860778663,
+      "two_interval_state_record_tv_upper": 0.007527717723107509
+    },
+    {
+      "entropy": 6574299.097697085,
+      "omega": 2564.039605329271,
+      "p": 577,
+      "q": 408,
+      "second_gap_phase_error": 0.00544470539453962,
+      "two_interval_state_record_tv_upper": 0.0012915521738526183
+    },
+    {
+      "entropy": 223260813.72085965,
+      "omega": 14941.914660473056,
+      "p": 3363,
+      "q": 2378,
+      "second_gap_phase_error": 0.0009341637594510921,
+      "two_interval_state_record_tv_upper": 0.0002215953200082023
+    },
+    {
+      "entropy": 7583875315.628379,
+      "omega": 87085.44835750907,
+      "p": 19601,
+      "q": 13860,
+      "second_gap_phase_error": 0.0001602771621669323,
+      "two_interval_state_record_tv_upper": 3.801974619659538e-05
+    },
+    {
+      "entropy": 257626061846.91736,
+      "omega": 507568.77548458136,
+      "p": 114243,
+      "q": 80782,
+      "second_gap_phase_error": 2.7499213550501737e-05,
+      "two_interval_state_record_tv_upper": 6.523157171369973e-06
+    },
+    {
+      "entropy": 8751688015875.675,
+      "omega": 2958325.204549979,
+      "p": 665857,
+      "q": 470832,
+      "second_gap_phase_error": 4.718119136078114e-06,
+      "two_interval_state_record_tv_upper": 1.119196831624456e-06
+    }
+  ],
+  "physical_minimizers": [
+    {
+      "backward": 0.033373734915581155,
+      "circle_entropy": 2.644797825293866,
+      "entropy": 5.446954314738989,
+      "forward": 1.4718825463451173,
+      "gamma": 0.11458081181988637,
+      "model_class": "circulant CTMC; fixed first Fourier eigenvalue",
+      "n": 16,
+      "omega": 0.5504934894452805
+    },
+    {
+      "backward": 0.2798248767596643,
+      "circle_entropy": 2.644797825293866,
+      "entropy": 3.5573611955542606,
+      "forward": 2.061259229775655,
+      "gamma": 0.11458081181988637,
+      "model_class": "circulant CTMC; fixed first Fourier eigenvalue",
+      "n": 20,
+      "omega": 0.5504934894452805
+    },
+    {
+      "backward": 2.8938436429033034,
+      "circle_entropy": 2.644797825293866,
+      "entropy": 2.8001340428744004,
+      "forward": 6.412847522922378,
+      "gamma": 0.11458081181988637,
+      "model_class": "circulant CTMC; fixed first Fourier eigenvalue",
+      "n": 40,
+      "omega": 0.5504934894452805
+    },
+    {
+      "backward": 24.649637272237072,
+      "circle_entropy": 2.644797825293866,
+      "entropy": 2.6678067073286758,
+      "forward": 33.41678068133542,
+      "gamma": 0.11458081181988637,
+      "model_class": "circulant CTMC; fixed first Fourier eigenvalue",
+      "n": 100,
+      "omega": 0.5504934894452805
+    },
+    {
+      "backward": 2858.5682492609403,
+      "circle_entropy": 2.644797825293866,
+      "entropy": 2.645024799955551,
+      "forward": 2946.182585724152,
+      "gamma": 0.11458081181988637,
+      "model_class": "circulant CTMC; fixed first Fourier eigenvalue",
+      "n": 1000,
+      "omega": 0.5504934894452805
+    }
+  ],
+  "random_circulant_checks": {
+    "max_three_state_equality_error": 2.9842794901924208e-12,
+    "min_entropy_margin": -1.1368683772161603e-13,
+    "trials": 1000
+  },
+  "schema": "physical-attainability-circulant-v1",
+  "seed": 6121013,
+  "two_incommensurate_cosine_counterexample": {
+    "cosine1": [
+      0.2662553420414153,
+      -0.2662553420414158
+    ],
+    "cosine2": [
+      0.26625534204141577,
+      -0.2662553420414159
+    ],
+    "gaps": [
+      1,
+      1.4142135623730951
+    ],
+    "omega1": 1.3012902845685732,
+    "omega2": 7.584475591748159
+  }
+}

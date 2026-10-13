@@ -1,0 +1,13 @@
+{
+  "errors": 0,
+  "external_peer_review": false,
+  "failures": 0,
+  "float_precision": "NumPy float64 for independent numerical checks; Fraction for certificate comparisons",
+  "numpy_version": "2.3.5",
+  "passed": true,
+  "python_version": "3.12.14",
+  "reproduction": "PYTHONPATH=src python calibrated/tests/test_independent.py",
+  "reproduction_workdir": "release root",
+  "scope": "independent mathematics, simulated benchmark replay, and descriptive integrity checks of previously published measurements; no empirical entropy certificate",
+  "tests_run": 36
+}

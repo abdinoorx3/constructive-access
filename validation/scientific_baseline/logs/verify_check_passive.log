@@ -1,0 +1,8 @@
+{
+  "certificate_mode": "equivalent",
+  "contract_sha256": "d3eea590b109ebecd582cf47e69774e8edd413d345cc9604af5f677e837434d0",
+  "scope": "Mathematical report integrity under the independently supplied contract; empirical calibration is not checked",
+  "status": "equivalent_under_declared_access",
+  "synthesis_repeated": false,
+  "verified": true
+}

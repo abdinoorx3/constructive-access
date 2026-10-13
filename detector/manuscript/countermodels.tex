@@ -1,0 +1,201 @@
+\chapter[Exposure and fixed-rate sampling]{An exact ambiguity after exposure and fixed-rate sampling}
+\label{ch:dg-fixed-grid}
+
+A known exposure window does not remove the ambiguity caused by a fixed
+sampling interval. This chapter constructs mixing diffusion models whose
+complete exposed records agree at every integer time, although their
+continuous signal laws and ordinary hidden entropy rates differ. Equality
+holds for the entire sampled Gaussian law, so collecting more samples on
+the same grid cannot resolve it.
+
+The example uses smooth, uniformly elliptic Ornstein--Uhlenbeck diffusions
+on Euclidean space and an unbounded linear detector. Its state space is
+\emph{noncompact}. These assumptions differ from the compact, bounded-detector
+class used for the earlier sharp minimum theorem. The conclusion concerns
+an unbounded range of \emph{actual compatible hidden entropy rates}; no
+claim about a change in the minimum compatible entropy follows from this
+construction.
+
+\section{An exposed Gaussian oscillator}
+
+Choose units in which the decay rate, exposure width and sampling interval
+are all one. Let
+\[
+ J=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\qquad
+ \omega_m=2\pi m,\qquad m\in\{0,1,2,\ldots\}.
+\]
+For $a>0$, take the stationary Ornstein--Uhlenbeck diffusion in two dimensions
+\begin{equation}
+ dX_t=(-I+\omega_mJ)X_t\,dt+\sqrt{2a}\,dW_t,
+ \qquad X_0\sim N(0,aI).
+ \label{eq:dg-ou-model}
+\end{equation}
+Its diffusion matrix is $aI\succ0$. Its invariant density is Gaussian,
+its coefficients are smooth, and its dynamics mix exponentially. If
+$Y_t$ is the first coordinate, then
+\begin{equation}
+ \operatorname{Cov}(Y_0,Y_t)
+ =a e^{-|t|}\cos(\omega_mt).
+ \label{eq:dg-ou-covariance}
+\end{equation}
+The measured sequence consists only of the boxcar averages
+\begin{equation}
+ Z_k=\int_{k-1}^{k}Y_t\,dt,\qquad k\in\mathbb Z.
+ \label{eq:dg-ou-readout}
+\end{equation}
+Exposure is known exactly; no detector noise is needed for the ambiguity.
+
+For a unit-variance oscillator ($a=1$), set
+\[
+ x_m=(2\pi m)^2,\qquad r=e^{-1},\qquad c_*=2(\cosh1-1).
+\]
+Direct integration of~\eqref{eq:dg-ou-covariance} gives
+\begin{align}
+ V_m:=\operatorname{Var}(Z_0)
+ &=\frac{2[r+(2-r)x_m]}{(1+x_m)^2},\\
+ F_m&=\frac{c_*(1-x_m)}{(1+x_m)^2},\qquad
+ \operatorname{Cov}(Z_0,Z_k)=F_m e^{-|k|},\quad k\ne0.
+ \label{eq:dg-ou-exposed-moments}
+\end{align}
+To verify the integration explicitly, put $\lambda_m=-1+i\omega_m$.
+For $k\geq1$,
+\begin{align*}
+ V_m
+ &=2\operatorname{Re}
+    \frac{e^{\lambda_m}-1-\lambda_m}{\lambda_m^2},\\
+ \operatorname{Cov}(Z_0,Z_k)
+ &=\operatorname{Re}\left[
+ e^{\lambda_m k}
+ \frac{e^{\lambda_m}+e^{-\lambda_m}-2}{\lambda_m^2}\right].
+\end{align*}
+Since $e^{\lambda_m}=e^{-1}$ and
+$e^{\lambda_m k}=e^{-k}$ at integer $k$, every member has the same sampled
+exponential decay. The variance and its nonzero-lag coefficient retain the
+frequency dependence displayed in~\eqref{eq:dg-ou-exposed-moments}.
+For general $a$, both quantities are multiplied by $a$.
+
+\section{Matching complete sampled laws}
+
+\begin{theorem}[Known exposure does not identify a fixed-grid diffusion law]
+\label{thm:dg-ou-ambiguity}
+For every integer $n\geq2$, there are two stationary, exponentially mixing,
+smooth uniformly elliptic diffusion models with the following properties:
+\begin{enumerate}
+ \item their known unit-width boxcar averages have identical complete
+       probability laws on the integer grid;
+ \item their continuous latent scalar laws differ;
+ \item their ordinary hidden entropy rates are $8\pi^2$ and
+       $8\pi^2n^2$, respectively.
+\end{enumerate}
+The first model has two hidden coordinates; the second has four. Their
+state spaces are Euclidean and their scalar detectors are linear.
+\end{theorem}
+
+\begin{proof}
+Let Model A be the $m=1$, $a=1$ oscillator. To construct the second model,
+define $R_m=F_m/V_m$. As a function of $x\geq0$,
+\[
+ R(x)=\frac{c_*}{2}\frac{1-x}{r+(2-r)x},\qquad
+ R'(x)=-\frac{c_*}{[r+(2-r)x]^2}<0.
+\]
+Thus $R_0>R_1>R_n$ whenever $n\geq2$. The coefficients
+\begin{equation}
+ A_0=\frac{V_1(R_1-R_n)}{(R_0-R_n)V_0},\qquad
+ A_n=\frac{V_1(R_0-R_1)}{(R_0-R_n)V_n}
+ \label{eq:dg-ou-positive-weights}
+\end{equation}
+are strictly positive. Their definitions imply the exact identities
+\begin{equation}
+ A_0V_0+A_nV_n=V_1,\qquad
+ A_0F_0+A_nF_n=F_1.
+ \label{eq:dg-ou-matching}
+\end{equation}
+Indeed, the first is the sum of the two complementary interpolation
+weights multiplied by $V_1$; the second follows by multiplying them by
+$R_0$ and $R_n$.
+
+Let Model B$_n$ consist of two independent oscillators: an $m=0$
+oscillator with stationary coordinate variance $A_0$, and an $m=n$
+oscillator with stationary coordinate variance $A_n$. Observe the sum
+of their first coordinates. The hidden diffusion matrix is
+$\operatorname{diag}(A_0I_2,A_nI_2)\succ0$, so this is an admissible smooth
+uniformly elliptic Euclidean diffusion. Independence and
+\eqref{eq:dg-ou-matching} imply equality of the exposed variance and of
+every nonzero-lag covariance with Model A. Both sampled sequences are
+centered Gaussian. Every finite-dimensional Gaussian distribution is
+determined by its mean and covariance matrix, so \emph{all} finite-dimensional
+sampled laws agree, which establishes equality of the entire record laws.
+
+The latent continuous covariance of Model B$_n$ is
+\[
+ e^{-|t|}\bigl[A_0+A_n\cos(2\pi nt)\bigr],
+\]
+whereas Model A has covariance $e^{-|t|}\cos(2\pi t)$. These functions
+cannot agree: the trigonometric functions at frequencies $0$, $1$ and
+$n\geq2$ are linearly independent, and both mixture coefficients are
+positive. Hence the continuous scalar laws differ.
+
+Finally, specify ordinary reversal of both hidden coordinates in each
+oscillator. The Gaussian stationary density separates the drift in
+\eqref{eq:dg-ou-model} into the reversible part $-X$ and current velocity
+$v=\omega_mJX$. Therefore
+\begin{equation}
+ \sigma_m
+ =\mathbb E\bigl[(\omega_mJX)^{\mathsf T}(aI)^{-1}
+                         (\omega_mJX)\bigr]
+ =2\omega_m^2.
+ \label{eq:dg-ou-entropy}
+\end{equation}
+Model A has entropy $8\pi^2$. Entropy is additive for the independent
+components of Model B$_n$: the zero-frequency component contributes zero,
+and the $m=n$ component contributes $8\pi^2n^2$. This completes the proof.
+\end{proof}
+
+For $n=2$, the positive weights are approximately
+\[
+ A_0=0.0004577350937,\qquad A_2=3.8531460671.
+\]
+The latent variance is $1$ in Model A and approximately $3.8536038022$
+in Model B$_2$. Nevertheless, both exposed integer-grid records have
+variance approximately $0.07909835314$ and covariance
+$-0.02550729842\,e^{-|k|}$ at nonzero integer lag $k$.
+These decimal values illustrate the exact identities; they are not the
+basis of the proof.
+
+\section{What the ambiguity establishes}
+
+Letting $n$ increase leaves the complete sampled observation law fixed
+while the constructed compatible hidden entropy rates grow without bound.
+Every individual model remains finite dimensional and uniformly elliptic,
+but there is no common frequency or diffusion-coefficient bound across
+the sequence. Such additional prior restrictions would define a different
+identification problem. The entropy convention is also substantive:
+\eqref{eq:dg-ou-entropy} uses ordinary reversal, not a reversal declaring
+one oscillator coordinate odd.
+
+The equality survives every common processing rule for the sampled record.
+It also survives adding an independent detector-noise process having the
+same specified law under both models. Further samples on the same grid
+cannot distinguish the alternatives. Changing the observation times,
+retaining the continuous exposed trace, or applying a physical intervention
+changes the access contract and is not covered by the equivalence.
+
+There is no conflict with continuous-law recovery under mixing. The
+full continuously indexed exposed laws are more informative than their
+integer-grid restrictions. The recovery theorem concerns the former;
+Theorem~\ref{thm:dg-ou-ambiguity} concerns the latter. Nor does this
+construction establish that the compact-class minimum-entropy theorem
+extends to these noncompact OU models. Its conclusion is the stated
+fixed-grid ambiguity and the absence of a finite upper bound on actual
+compatible ordinary entropy within the declared OU family.
+
+The companion implementation evaluates
+\eqref{eq:dg-ou-exposed-moments}--\eqref{eq:dg-ou-positive-weights} and
+records numerical covariance residuals and entropy values. Five tests
+check the exposure formulas against independent integration, positivity
+of the mixture coefficients, covariance matching, and entropy scaling,
+and reject invalid indices. Those computations diagnose implementation
+errors. Exact Gaussian-law equivalence for arbitrarily long records follows
+from the analytic argument above; neither a finite covariance checklist
+nor simulated data alone would establish it. No laboratory validation or
+historical-priority claim is made for this construction.

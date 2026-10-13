@@ -1,0 +1,297 @@
+\chapter{What restricted access cannot upper-bound}
+\label{ch:dissipation-limits}
+
+Sharper lower certificates do not automatically make total dissipation
+identifiable. This chapter separates three obstructions: an exactly hidden
+current, an identifiable parameter with a singular thermodynamic dependence,
+and incomplete physical channel resolution. Its main construction uses one
+connected four-state cycle. Every microscopic jump changes the detector output.
+There is no independent hidden subsystem, no parallel microscopic edge, and no
+unobserved transition time.
+
+Strong lumpability and loss of entropy production under coarse-graining are
+established results~\cite{ac_buchholz,ciBusiello2019}. Optimizing over compatible
+hidden mechanisms is also an established approach to sharp lower
+bounds~\cite{ciEhrich2021,ciNitzan2023}. The contribution developed here is the
+explicit obstruction-and-repair chain: complete observed path equivalence at
+fixed dimension and activity, a quantitative finite-exposure impossibility that
+survives full microscopic observation, and calibrated routes to usable upper
+intervals. These proofs do not establish historical priority or a new physical
+law.
+
+\section{Four states, visible jumps, unbounded hidden dissipation}
+Number the states $0,1,2,3$ around a simple cycle. Let $r_i>0$ be known exit
+rates and $0<q\le1/2$ an unknown reverse probability. Set
+\begin{equation}
+ Q_{i,i+1}=r_i(1-q),\qquad Q_{i,i-1}=r_iq,\qquad Q_{ii}=-r_i,
+                                                        \label{eq:dl-cycle}
+\end{equation}
+with indices modulo four. The stationary law, mean jump activity, and total
+stationary entropy-production rate are
+\begin{align}
+ \pi_i&=\frac{r_i^{-1}}{\sum_j r_j^{-1}},\qquad
+ K=\frac4{\sum_j r_j^{-1}},\\
+ \sigma(q)&=K(1-2q)\log\frac{1-q}{q}.                    \label{eq:dl-entropy}
+\end{align}
+Indeed the stationary clockwise and counterclockwise fluxes across each
+undirected edge are respectively $(1-q)/\sum_jr_j^{-1}$ and
+$q/\sum_jr_j^{-1}$. Summing their current times flux affinity gives
+\eqref{eq:dl-entropy}. The chain is irreducible for every allowed $q$, and all
+four states participate in the observed dynamics.
+
+Let the detector report only the parity $Z=i\bmod2$. Every microscopic jump
+flips $Z$. If all $r_i=s$, the full observed process is exactly the symmetric
+two-state chain with jump rate $s$, independently of $q$. Its waiting times are
+independent exponentials of rate $s$, including the entire timed jump record.
+At stationarity its binary autocorrelation is $e^{-2st}$ and its zero-lag
+amplitude is exactly one. Thus even perfect calibration of that amplitude,
+activity, state count, and graph does not distinguish the models.
+
+Meanwhile $\sigma(1/2)=0$, and $\sigma(q)\to\infty$ as $q\downarrow0$.
+Every intermediate nonnegative entropy rate occurs. The obstruction persists
+under arbitrary feedback that multiplies both outgoing rates by a bounded
+factor chosen from the observed parity history: the observed jump intensity
+remains $s$ times that factor and still contains no $q$.
+
+This is an ordinary lumping obstruction, made explicit in a case where all
+jumps are visible. It does not say that the microscopic rates are all known:
+the exit rates are known, while their division between clockwise and
+counterclockwise motion is not. A known exit-rate floor is not a known
+reverse-transition floor.
+
+\section{Breaking exact blindness by kinetic tags}
+Distinct exit rates can encode microscopic state information in the waiting
+times without changing the binary detector. Write
+$f_i(t)=r_i e^{-r_i t}$. At a typical stationary jump into even parity, the
+microscopic entry state is uniform on $\{0,2\}$ because stationary jump fluxes
+are uniform. The next two holding times have joint density
+\begin{equation}
+ g_q(u,v)=\frac{(f_0+f_2)(u)(f_1+f_3)(v)}4
+       +\frac{1-2q}{4}(f_0-f_2)(u)(f_1-f_3)(v).
+                                                        \label{eq:dl-pair}
+\end{equation}
+Consequently
+\begin{equation}
+ \operatorname{TV}(g_q,g_{q'})
+ =|q-q'|\operatorname{TV}(\operatorname{Exp}r_0,\operatorname{Exp}r_2)
+          \operatorname{TV}(\operatorname{Exp}r_1,\operatorname{Exp}r_3).
+                                                        \label{eq:dl-pair-tv}
+\end{equation}
+This follows directly by subtracting the densities and factoring the absolute
+integral. The bias is therefore identifiable within this calibrated four-state
+family whenever both parity classes have distinct exit rates.
+
+The distribution in \eqref{eq:dl-pair} is a Palm distribution: a typical event
+sampled from the stationary jump process. It need not be the distribution of
+the first even entry after an arbitrary clock-time origin. Successive pairs
+in one trajectory are dependent. Neither event selection nor independence is
+silently granted by this identity.
+
+The repair has a quantitative weakness. For tags
+\[
+ (r_0,r_1,r_2,r_3)=(1+\eta,1+2\eta,1-\eta,1-2\eta),
+ \qquad0<\eta<1/2,
+\]
+both exponential-law distances are of order $\eta$, so pair-law separation is
+of order $\eta^2$. For the event $u\le1,v\le1$, the absolute derivative of its
+probability with respect to $q$ is exactly
+\begin{equation}
+ 2e^{-2}\sinh\eta\sinh(2\eta)
+   =4e^{-2}\eta^2+O(\eta^4).                            \label{eq:dl-tag-signal}
+\end{equation}
+An independently sampled binary-window experiment based on that difference
+would have a conservative Hoeffding record requirement of order $\eta^{-4}$
+at fixed parameter separation. Obtaining independent Palm pairs is an additional
+experimental requirement. No free reset or independent sampling assumption is
+included in this scaling statement.
+
+More generally, the conditional parity jump intensity always lies between the
+two exit rates of the current parity class. For any two biases with the same
+$r_i$, the entire coarse record over total exposure at most $L$ obeys
+\begin{equation}
+ \operatorname{TV}(P_q^Z,P_{q'}^Z)
+ \le\min\{1,L\max(|r_0-r_2|,|r_1-r_3|)\}.              \label{eq:dl-coarse-coupling}
+\end{equation}
+Couple the two predictable jump intensities while their observed histories
+agree. Their difference is bounded by the displayed rate spread; the probability
+of any unmatched jump is at most its integrated bound. Initial parity laws
+agree because $\pi$ does not depend on $q$. This shows explicitly how nearly
+lumpable connected models can remain close over a fixed experimental budget.
+
+\section{Full microscopic access does not remove a finite-budget singularity}
+Even after kinetic tags make the parameter identifiable, the entropy function
+is singular near a vanishing reverse rate. The following result concerns the
+\emph{complete microscopic record}, so every coarser observation inherits it.
+
+\begin{theorem}[Finite-exposure dissipation ambiguity]
+\label{thm:dl-budget}
+Fix any four positive exit rates $r_i$, a total pathwise exposure budget $L>0$,
+a tolerance $0<\varepsilon<1$, and any desired entropy gap $M>0$. There are two
+strictly positive reverse probabilities $q_0,q_1$ in \eqref{eq:dl-cycle}, with
+the same state count, graph, stationary law, exit rates, and activity, such that
+\[
+ |\sigma(q_1)-\sigma(q_0)|>M,
+ \qquad \operatorname{TV}(P_{q_0},P_{q_1})\le\varepsilon.
+\]
+The record may contain all microscopic states, directions and jump times,
+including multiple independent resets with the common initial law and total
+exposure at most $L$.
+\end{theorem}
+\begin{proof}
+Use one common uniformization clock of rate $R=\max_i r_i$. While the two
+microscopic paths agree, their holding and acceptance decisions can be identical.
+An accepted jump has different direction with probability $|q_0-q_1|$ under
+a common uniform direction draw. Hence
+\begin{equation}
+ \operatorname{TV}(P_q,P_{q'})\le\min\{1,RL|q-q'|\}.
+                                                        \label{eq:dl-full-coupling}
+\end{equation}
+Take $q_0=\min\{1/4,\varepsilon/(2RL)\}$ and then let $q_1>0$ approach zero.
+The record bound remains at most $\varepsilon/2$, whereas
+$\sigma(q_1)\to\infty$. All chosen finite models retain strictly positive
+reverse rates. Bounded controls that preserve this common direction parameter
+and a common total exit-rate cap admit the same coupling argument.
+\end{proof}
+
+A standard two-point testing argument now gives a minimax consequence. For any
+estimator and either member of a pair separated by $M$, at least one error
+probability for absolute error at least $M/2$ is at least
+$(1-\varepsilon)/2$. Finite dimension, a known graph, bounded activity and a
+positive exit-rate floor do not provide a uniform additive-error estimate of
+total dissipation.
+
+The exact executable example fixes
+\[
+ (r_0,r_1,r_2,r_3)=(1.02,1.04,0.98,0.96),\qquad L=10.
+\]
+Two finite models have a certified entropy-rate gap exceeding $209.8058$
+while their full-record total variation is at most $0.005$. The units are
+natural entropy per declared model time. Large entropy differences arise from
+an uncalibrated large affinity, not from a larger state space, faster activity,
+or an appended hidden subsystem.
+
+\section{Why a valid upper confidence bound must sometimes be infinite}
+\begin{theorem}[Unavoidable unbounded upper intervals]
+Suppose $U$ is an extended-real upper confidence bound computed from an allowed
+record with exposure at most $L$, and
+$\Pr_q[U\ge\sigma(q)]\ge1-\alpha$ for every $0<q\le1/2$.
+Then, for each such finite model,
+\begin{equation}
+ \Pr_q[U=\infty]\ge\max\{0,1-\alpha-RLq\}.            \label{eq:dl-infinity}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Introduce only as a mathematical limit the clockwise process at $q=0$.
+Equation~\eqref{eq:dl-full-coupling} gives
+$\operatorname{TV}(P_q,P_0)\le RLq$. Along $q_j\downarrow0$, coverage implies
+$\Pr_0[U\ge\sigma(q_j)]\ge1-\alpha-RLq_j$. Since
+$\sigma(q_j)\uparrow\infty$, continuity from above gives
+$\Pr_0[U=\infty]\ge1-\alpha$. Transfer this event back to a finite $q$ with
+the same total-variation bound.
+\end{proof}
+
+For the finite reference model in the example, every uniformly valid $95\%$
+upper-bound procedure must return infinity with probability at least $94.5\%$.
+This does \emph{not} mean that every data-dependent upper bound must always be
+infinite. Enough resolved reverse events can exclude very small $q$ and produce
+a finite upper interval. The obstruction is to uniformly finite guarantees
+without further restrictions on the admissible reverse rates.
+
+\section{Small access repairs and calibrated physical caps}
+One additional binary tag identifying a single physical edge already repairs
+structural identifiability within this ring. The existing parity before and
+after that tagged edge determines its direction. Its stationary fluxes
+$F_+,F_-$ give
+\begin{equation}
+ \sigma=4(F_+-F_-)\log(F_+/F_-).                        \label{eq:dl-one-edge}
+\end{equation}
+Every edge has the same stationary cycle current and flux ratio. This is an
+instance of established unicyclic inference from a resolved edge, closely related
+to visible-transition methods~\cite{ciHarunari2022}. Finite-time edge events
+remain dependent, and \eqref{eq:dl-one-edge} does not itself supply an independent
+binomial sampling law.
+
+A calibrated affinity cap provides a different repair. If every stationary
+undirected edge flux pair $F_e,B_e$ obeys
+$|\log(F_e/B_e)|\le A$, then
+\begin{equation}
+ \sigma\le K A\tanh(A/2).                              \label{eq:dl-affinity-cap}
+\end{equation}
+Indeed its contribution is
+$(F_e+B_e)a_e\tanh(a_e/2)$, where $a_e=\log(F_e/B_e)$, and this even function
+increases with $|a_e|$. Sum over edges. The four-cycle attains equality when
+all edge flux affinities have magnitude $A$, so this bound is sharp under the
+stated information.
+
+A stationary \emph{flux} affinity includes the stationary population ratio;
+it is not automatically a calibrated bound on $\log(Q_{ij}/Q_{ji})$.
+If instead the latter bare rate ratios have a known bound $B$, stationarity
+cancels the population-potential term and gives the safe, generally looser
+bound $\sigma\le KB$. In particular, known bounds on \emph{every individual
+forward and reverse rate}, $m\le Q_{ij}\le M$, imply
+$\sigma\le K\log(M/m)$. Merely knowing the exit rates $r_i$ does not supply
+such a reverse-rate floor.
+
+\section{A finite confidence interval with declared observation time}
+For an executable finite-count repair, suppose the direction of every jump is
+resolved. Collect a predetermined quota of $n$ jumps. Their reverse indicators
+are independent Bernoulli($q$) draws, even with unequal exit rates. This statement
+must not be transferred to the number of directions observed by a fixed time:
+conditioning on that random jump count can bias directions because rates depend
+on the visited states.
+
+Exact binomial inversion produces simultaneous bounds $q\in[q_-,q_+]$.
+Intersect these with any independently calibrated floor $q\ge\delta$ and with
+$q\le1/2$, giving $q_L=\max\{q_-,\delta\}$ and
+$q_U=\min\{q_+,1/2\}$. An empty intersection flags incompatibility of the
+record and the declared parameter class. Otherwise, since
+\eqref{eq:dl-entropy} decreases on $(0,1/2]$, the entropy interval is
+\[
+ [\sigma(q_U),\sigma(q_L)].
+\]
+If the lower endpoint for $q$ is zero, the upper entropy endpoint is infinity.
+With a positive floor it is finite for every dataset compatible with the model;
+without a floor, positive reverse evidence can still make it finite.
+
+For the tagged rates above, $n=1000$, ten reverse observations, and a calibrated
+floor $\delta=0.001$, exact rational binomial and logarithm bounds give a $95\%$
+interval contained in
+\[
+ [3.83196,\;5.27668]
+\]
+natural entropy units per model time. The prior floor alone only supplies the
+upper bound $6.88605$. These counts are an explicitly synthetic worked input.
+With the same positive reverse evidence the interval is also finite without a
+prior floor; with zero reverse counts and no floor it is unbounded above.
+
+Observation duration is a separate resource. If $r_{\min}=\min_i r_i$, the
+$n$ holding times are dominated by independent exponentials of rate
+$r_{\min}$, so $\mathbb E T_n\le n/r_{\min}$. A timeout at
+$2n/r_{\min}$ has failure probability at most
+\[
+ (2/e)^n\le(3/4)^n.
+\]
+For this example the expected-time bound is $1041.67$, the timeout is
+$2083.33$, and the timeout bound is below $1.16\times10^{-125}$. A timeout
+returns the full prior interval. Selecting only completed runs and calling the
+result an unbiased conditional binomial interval is not justified. Preparation,
+reset, detector and control overheads remain additional unmeasured costs.
+
+\section{Scope and reproducibility}
+The exact generator identities, entropy intervals, finite-budget pairs,
+count inversion, and timing bounds are reproduced by
+\texttt{dissipation\_limits.py}. Frozen-seed uniformization simulations check
+complete and parity record couplings. Their mismatch frequencies are properties
+of the chosen coupling, not estimates of total variation. Thirteen producer
+tests check exact stationarity, full parity-path likelihoods, independent
+waiting-density integrals, weak-tag scaling, finite-budget ambiguity, and
+resolved-count inference.
+
+The thermodynamic interpretation concerns a specified finite Markov jump
+network with physically resolved reverse transitions and the appropriate local
+detailed-balance accounting. A compatible embedding takes state-energy
+differences proportional to $\log r_i$ and a uniform clockwise driving work
+proportional to $\log[(1-q)/q]$. If additional channels or unresolved physical
+states exist, they introduce further ambiguities already discussed elsewhere
+in the reference. The present obstruction occurs before those complications
+are added.

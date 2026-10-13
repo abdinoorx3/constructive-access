@@ -1,0 +1,73 @@
+{
+  "alpha_calibration": "1/100",
+  "alpha_target": "1/25",
+  "cases": [
+    {
+      "exposure": "1/100000",
+      "gain": "9/10",
+      "gamma": "1",
+      "name": "driven",
+      "omega": "3"
+    },
+    {
+      "exposure": "1/100000",
+      "gain": "9/10",
+      "gamma": "1",
+      "name": "equilibrium",
+      "omega": "0"
+    },
+    {
+      "exposure": "1/100000",
+      "gain": "9/10",
+      "gamma": "1",
+      "name": "weak_driven",
+      "omega": "1"
+    },
+    {
+      "exposure": "3/200000",
+      "gain": "4/5",
+      "gamma": "1/2",
+      "name": "changed_calibration",
+      "omega": "3"
+    }
+  ],
+  "center_replicas": 4,
+  "comparison": "Geometry closure certificate and broader-class endpoint bridge use the same science and calibration confidence event.",
+  "design_selection": "Selected using recorded exact population design diagnostics; no stochastic pilot science records were used.",
+  "dyadic_bits": 63,
+  "frozen_at_utc": "2026-10-13T01:45:27+00:00",
+  "gain_prior": [
+    "0",
+    "1"
+  ],
+  "generator_bounds": [
+    "4",
+    "4",
+    "13",
+    "13"
+  ],
+  "h": "7/200",
+  "lambda_": "1",
+  "moment_tv_tolerance": "1/1237940039285380274899124224",
+  "nominal_gain": "9/10",
+  "order": 1,
+  "reference_records": 100000,
+  "repetitions": 400,
+  "schema_version": 1,
+  "science_records": 13333333,
+  "scope": "simulated_stationary_circle_with_declared_detector_contract",
+  "seed_base": 1032026400000,
+  "seed_rule": "seed_base+100000*case_index+10*replicate+stream; streams science0,gain1,step2",
+  "simulation_assumption": "Independent uniform random bits idealized; implementation is NumPy PCG64. No claim of true randomness or laboratory validation.",
+  "source_sha256": {
+    "code/certification.py": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3",
+    "experiment/benchmark.py": "093fd2556ee6d0c00b7055cfea6a09b6099ace9e196738cad52c42aa5e8d1abb",
+    "experiment/exposure_moments.py": "d6581978fd398fbed5a11962320f9a4211bcf6bb4b207adde3ef1b4cc5686cbb"
+  },
+  "step_time": "1/500000",
+  "uncalibrated_costs": "Energy, preparation/reset durations, replica construction and shutter-control energy are unmeasured; readout counts and modeled durations are reported.",
+  "width_prior": [
+    "1/200000",
+    "1/50000"
+  ]
+}

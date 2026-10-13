@@ -1,0 +1,320 @@
+ROBUST PHYSICAL ACCESS: MATCHED CONTROLS, DELAY, AND CURRENT INFERENCE
+Abdinoor / 2D Labs / 12 October 2026
+Authoring agent: /root/robust_physics
+
+STATUS
+
+The statements below are proved finite-state continuous-time Markov model
+results and conditional inference certificates. They are not laboratory
+observations or universal laws of energy expenditure. Their contribution is to
+replace brittle ideal preparation and immediate readout assumptions by explicit
+dimension-independent error bounds. Coupling, Duhamel identities, first-hitting
+arguments, and oscillation contraction are established mathematics. No claim
+of historical priority for those ingredients, or for the assembled bounds, is
+made here. Independent internal red-team review has accepted the main factors;
+external peer review and physical calibration are absent.
+
+FILES
+
+code/robust_physics.py
+tests/test_robust_physics.py
+results/robust_physics.json
+research/robust_physics.txt
+
+CONVENTIONS AND IDEAL THEOREM
+
+All generators act on probability rows from the right. Q is a finite native
+generator; pi Q=0. A separately selectable bidirectional physical channel has
+rates a from i to j and b from j to i, i!=j. Its generator L has offdiagonal
+entries L_ij=a,L_ji=b and diagonals -a,-b. Put s=1-r in (0,1], Qr=Q-sL,
+and require both Q and Qr to be generators. Let P(t)=exp(tQ), Pr(t)=exp(tQr).
+Native channel current is J=pi_i a-pi_j b. f=1_j is a singleton detector.
+
+The previous finite-pulse theorem proves
+
+  D_pi(t)=pi[P(t)-Pr(t)]f=s J H(t),
+  H(t)=int_0^t [Pr_jj(u)-Pr_ij(u)]du>0,
+  t exp(-Lambda_p t)<=H(t)<=t,
+
+where Lambda_p bounds the two controlled endpoint exit rates. It follows from
+pi Qr=-sJ(e_j-e_i) and the first hitting time of j under Qr. The integrated
+kernel is positive even when its integrand changes sign. No irreducibility or
+global exit-rate bound is required. Rates, current, and time must use a
+consistent unit system. Exact finite precision inputs represent calibrated
+envelopes, not literal claims that every physical rate is rational.
+
+1. SHARP GENERATOR COUPLING RATE
+
+For finite generators A(u),B(u), define
+
+ kappa(u)=max_x 1/2 sum_y |A_xy(u)-B_xy(u)|
+         =max_x max(sum_{y!=x}(A_xy-B_xy)_+,
+                     sum_{y!=x}(B_xy-A_xy)_+).
+
+The diagonal is included in the first sum. Measurable bounded time-dependent
+rates are allowed. With the same initial distribution,
+
+ TV(law(X_t),law(Y_t)) <= 1-exp[-int_0^t kappa(u)du].
+
+Proof. While the coupled processes agree at x, perform equal jumps x->y at
+rate min(A_xy,B_xy). Let U and V be the total leftover rates for A and B.
+Their leftover destinations are disjoint. Couple leftover jumps simultaneously
+to their distinct destinations at total rate min(U,V), and the remaining rate
+|U-V| unilaterally. Separation therefore has hazard max(U,V), bounded by
+kappa(u). The probability of any separation by t is at most the displayed
+quantity; terminal disagreement and total variation cannot exceed it. The
+coupling may be completed arbitrarily after separation. The same proof applies
+to piecewise deterministic intervention schedules, provided A and B describe
+the full actual and reference histories. For general measurable bounded rates,
+standard time-inhomogeneous jump construction gives the integrated-hazard
+bound. The implementation accepts an already calibrated rational upper bound
+on this integral.
+
+This improves the sufficient rate max_x sum_{y!=x}|A_xy-B_xy|, sometimes by a
+factor of two. Example rows (-3,2,1) and (-3,1,2) have exact coupling hazard1
+although their offdiagonal absolute difference sum is2. A one-way jump from a
+fixed initial state against a frozen process attains 1-exp(-kappa t), so the
+bound cannot be improved using kappa alone.
+
+2. MATCHED NATIVE CONTROLS CANCEL THE SMALL-TIME PREPARATION PENALTY
+
+Suppose both arms begin with the SAME preparation rho, with TV(rho,pi)<=eta.
+Define D_rho=rho[P(t)-Pr(t)]f. Then
+
+ |D_rho-D_pi| <= min{eta s(a+b)t,
+                     2eta[1-exp(-s max(a,b)t)], 2eta}.
+
+The same bound holds after any common stochastic postprocessing channel R,
+with f replaced by Rf. It therefore survives common readout delay.
+
+Proof. For a signed zero-mass row v, |vg|<=TV(v) osc(g), where
+osc(g)=max g-min g. Markov semigroups contract oscillation. Duhamel gives
+
+ P(t)-Pr(t)=s int_0^t Pr(u)L P(t-u)du.
+
+For any real g, Lg is a(g_j-g_i) at i, -b(g_j-g_i) at j, and zero elsewhere.
+Thus osc(Lg)=(a+b)|g_j-g_i| <=(a+b)osc(g). The integral consequently has
+oscillation at most s(a+b)t for osc(f)<=1. This proves the first bound.
+The coupling theorem gives |[P-Pr]f(x)|<=1-exp(-s max(a,b)t) for every x;
+its oscillation is at most twice that bound. Finally every stochastic
+expectation is in [0,1], giving oscillation at most2. Replacing f by Rf does
+not change osc(f)<=1.
+
+The linear coefficient eta s(a+b) is sharp at t=0. Take a positive two-state
+stationary pi and rho-pi=(eta,-eta); then the derivative error is exactly
+eta s(a+b). Parallel physical channels permit nonzero native selected-channel
+current despite the two-state stationary aggregate current being zero.
+
+After dividing by s t to estimate current, the first preparation penalty is
+eta(a+b). It stays finite as t shrinks, unlike the old response bound 2eta,
+which would give 2eta/(s t). This does not remove all preparation uncertainty:
+eta(a+b) is a genuine possible current bias. If the two arms have different
+preparations rho_c and rho_n, add TV(rho_c,rho_n) to the response error after
+using rho_n as the matched preparation. That unmatched term can again be
+amplified by 1/t. Random assignment to the same prepared ensemble supports the
+matching premise; it does not by itself establish stationarity or independence
+of records in the presence of uncontrolled temporal drift.
+
+3. DELAYED READOUT HAS A PROVABLE SAFE WINDOW
+
+After the pulse, apply common native evolution R(d)=exp(dQ). For singleton j,
+put omega(d)=osc((R(d)-I)f). If lambda_j bounds the native departure rate from j
+and beta_j bounds max_{x!=j}Q_xj, then
+
+ omega(d) <= [1-exp(-lambda_j d)]+[1-exp(-beta_j d)].
+
+Proof. At j, (R-I)f=P_jj(d)-1<=0 and its magnitude is at most the probability
+of at least one departure, 1-exp(-lambda_j d). At any x!=j, it equals
+P_xj(d)>=0, bounded by the probability of entering j. Until first entrance,
+the hazard of entrance is at most beta_j, so this probability is bounded by
+1-exp(-beta_j d). The range is bounded by the sum.
+
+The ideal delayed contrast is still linear in the native current:
+
+ D_pi(t,d)=s J K(t,d),
+ K(t,d)=int_0^t (e_j-e_i)Pr(u)R(d)f du.
+
+Its difference from the original kernel satisfies |K-H|<=t omega(d), since
+the difference of two stochastic expectations of (R-I)f is bounded by its
+oscillation. Also |K|<=t directly. Therefore
+
+ max{-t,t[exp(-Lambda_p t)-omega(d)]} <= K(t,d) <= t.
+
+If omega(d)<exp(-Lambda_p t), the native-current sign is protected despite
+the delay, for every hidden network satisfying the local rate caps. This is
+sufficient and generally conservative, not a necessary condition. When the
+condition fails the checker abstains; it does not assert that the sign flips.
+The prior release includes an actual classical delay-induced reversal, so an
+unrestricted-delay theorem would be false.
+
+4. CLOCK JITTER AND DETECTOR CONTRACT
+
+Let the duration T be independent of the hidden state and preparation, with
+T in [tlo,thi], tlo>0. It can have an arbitrary distribution and the same law
+must be used in matched arms. The ideal response is the average of kernels.
+For any fixed bound omega>=omega(d), a valid lower bound is
+
+ min_{u in {tlo,thi}} u[exp(-Lambda_p u)-omega],
+
+further maximized with -thi; the upper bound is thi. The endpoint minimum is
+valid because u(exp(-Lambda_p u)-omega) has at most one positive critical point
+at which it changes from increasing to decreasing. For Lambda_p>0 its derivative
+is exp(-Lambda_p u)(1-Lambda_p u)-omega. It is nonpositive beyond1/Lambda_p;
+before that point its positive part decreases strictly. For Lambda_p=0 the
+function is linear. Thus no interior minimum occurs. Matched preparation error
+is bounded using thi. If zero delay and tlo>0, arbitrary such duration jitter
+cannot cause a sign reversal. State-dependent stopping or clocks invalidate
+this argument; neither is included in the result.
+
+A common fixed binary detector has mean offset+gain*p_j. Its offset cancels
+in contrasts. Positive gain in [glo,ghi] rescales the positive kernel without
+changing sign. Negative known gain can be handled by swapping detector labels;
+unknown sign and zero gain do not allow current-orientation inference. Changes
+of detector response between settings require a separate contrast-error bound.
+An arbitrary coarse state partition is not such an affine singleton detector;
+the previous classical coarse-detector counterexample still applies.
+
+5. COMPLETE CONDITIONAL CURRENT CERTIFICATE
+
+Let eta bound common preparation TV from native stationarity, zeta bound the
+preparation mismatch between arms, K_n,K_c bound integrated row-TV generator
+discrepancy between each entire actual history and its declared ideal history,
+and epsilon_det bound remaining detector contrast error. Define
+
+ b_p = min{eta s(a_cap+b_cap)thi,
+           2eta[1-exp(-s max(a_cap,b_cap)thi)],2eta},
+ b = ghi[b_p+zeta+(1-exp(-K_n))+(1-exp(-K_c))]+epsilon_det.
+
+Suppose the sampling procedure provides a response interval [Dlo,Dhi] for the
+actual native-minus-controlled recorded mean. Widen it by b and intersect with
+[-ghi,ghi]. If the delayed/jittered kernel lower bound L is positive, the ideal
+mean equals c J for some
+
+ c in [glo*s*L, ghi*s*thi].
+
+Evaluating the four endpoint ratios gives a rigorous current interval; intersect
+also with [-b_cap,a_cap]. A strictly positive/negative interval certifies current
+orientation under the declared contract. Empty intervals indicate inconsistent
+data and contracts. Nonpositive L returns an unresolved delay contract. Joint
+calibration failure probability, if present, adds once to the sampling failure
+bound; software does not invent a confidence level for unvalidated calibration.
+
+All response uncertainties above concern expectations. Arbitrarily many records
+do not remove systematic mismatch. Generator error may be time dependent and
+may act on many channels; only its integrated discrepancy cap enters this
+robustness certificate. Perfect channel selectivity is therefore not required,
+but its violation must be bounded independently. Different clocks, preparations,
+or detector histories cannot be silently called shared nuisances.
+
+6. STATIONARITY-FREE DIFFERENTIAL CURRENT ASSAY
+
+For some applications a controlled preparation has an interesting instantaneous
+channel current even when no stationary pi is known. With an arbitrary common
+rho, set J_rho=rho_i a-rho_j b. The same matched experiment gives
+
+ D_rho(t)=s int_0^t J_{rho Pr(u)}
+                  [P_jj(t-u)-P_ij(t-u)]du.
+
+This identity follows directly from Duhamel and the two supported rows of L.
+It is exact and does not invoke stationarity. Let k_i',k_j' each bound both
+the controlled departure hazard from the named endpoint and its maximal
+controlled entrance hazard. Let lambda_j,beta_j bound native departure and
+entrance as above, and |J_rho|<=Jmax. Then
+
+ |D_rho(t)/(s t)-J_rho|
+ <= t/2 [a k_i'+b k_j'+Jmax(lambda_j+beta_j)].
+
+Proof. The membership indicator for state x can change only by a departure
+from x or entry to x. Starting from an arbitrary distribution, the probability
+of any membership change by u is at most 1-exp(-k_x' u)<=k_x'u. Hence
+|J_{rho Pr(u)}-J_rho|<=a k_i'u+b k_j'u. Put
+d(v)=P_jj(v)-P_ij(v), for which |d(v)|<=1 and
+|d(v)-1|<=1-exp(-lambda_j v)+1-exp(-beta_j v)
+           <=(lambda_j+beta_j)v.
+Subtract J_rho inside the integral, use these inequalities, and integrate u
+and t-u from0 to t. The displayed bound follows. Without a tighter current
+cap, Jmax=max(a,b) is valid. The inference target is the prepared ensemble's
+instantaneous physical channel current, not an unspecified steady-state flux.
+
+This result removes the stationarity requirement for short-pulse current
+measurement. It does not prove an all-time response sign law for arbitrary rho,
+and cannot replace the stationary premise of a classical-null exclusion test.
+Preparation matching, selective calibrated control, and sufficient rate bounds
+are still needed. This is a certified finite-difference method, not a new
+definition of current or an assertion that all latent mechanisms are observable.
+
+7. COMMON GENERATOR DRIFT ALSO CANCELS TO FIRST ORDER
+
+Suppose the same additive matrix E perturbs both pulse arms: actual native and
+controlled generators are Q+E and Qr+E. All four generators must be valid.
+Let max_x 1/2 sum_y |E_xy|<=kappa. With the same arbitrary initial rho and
+common terminal effect f in [0,1], write D^E and D for actual and reference
+matched contrasts. Then
+
+ |D^E-D| <= s[a+b+2max(a,b)] int_0^t [1-exp(-kappa u)]du
+          <= s[a+b+2max(a,b)] kappa t^2/2.
+
+Proof. Apply the response Duhamel formula to each contrast and subtract:
+
+ D^E-D=s int_0^t rho[(Pr^E(u)-Pr(u))L P^E(t-u)
+                          +Pr(u)L(P^E(t-u)-P(t-u))]f du.
+
+For the first term, the row difference has TV at most1-exp(-kappa u), and
+osc(L P^E f)<=(a+b). For the second term, rho Pr(u)L equals its instantaneous
+channel current, of absolute value at most max(a,b), times(e_j-e_i). The
+oscillation of(P^E-P)f is at most2[1-exp(-kappa(t-u))]. Integrating proves
+the first bound; 1-exp(-kappa u)<=kappa u proves the second. The exact integral
+is t-[1-exp(-kappa t)]/kappa for kappa>0 and zero at kappa=0.
+
+After division by s t, the drift-induced current error is at most
+[a+b+2max(a,b)]kappa t/2 and vanishes with t. This is stronger than treating
+the two arms' generator errors independently. It is valid only for a shared
+additive E, not merely two errors with the same norm or similar verbal origin.
+Common stochastic terminal processing is allowed. If the actual and reference
+postpulse delay semigroups also differ, their difference needs a separate
+bound; it is not silently included in this pulse-only helper.
+
+This distinction is experimentally useful. Shared drift preserves the leading
+channel-current response, while arm-specific intervention spillover can produce
+a first-order response error and a nonvanishing current-calibration floor.
+The existing complete current helper conservatively uses independent-arm
+error bounds; users can compose the shared-drift helper only when its stronger
+premise has been separately established.
+
+VALIDATION AND REPRODUCTION
+
+Run:
+ python -m unittest discover -s tests -p test_robust_physics.py -v
+ python code/robust_physics.py
+
+Fourteen tests cover exact rational exponential brackets, generator validation,
+the sharper coupling norm, sharp preparation derivative, bounded clock jitter,
+delay abstention, detector constraints, and exact current certificates. A seeded
+synthetic experiment checks180 positive random networks of dimensions2 through8
+against five analytically proved bounds: coupling, matched preparation, delayed
+response, stationarity-free short-pulse bias, and shared generator drift. It uses NumPy and SciPy expm;
+the observed ratios are numerical checks, not substitutes for the proofs.
+The public certificate code uses Fraction arithmetic and explicit positive
+Taylor remainder bounds; it never certifies a sign using floating arithmetic.
+
+One test was corrected during development: clipping a kernel bound below -thi
+is valid because |K|<=thi, but comparing that clipped bound against the unclipped
+auxiliary expression was an invalid test. The test now respects both proved
+bounds. The implementation and theorem did not need alteration.
+
+LIMITATIONS AND NEXT PHYSICAL GATE
+
+The retained endpoint is a singleton or a separately certified regenerative
+coarse interface. The model is a finite classical Markov process; instruments
+with memory require an enlarged hidden state space and a newly justified
+physical channel/readout contract. Common preparation TV from a hidden stationary
+distribution can be difficult to calibrate; it cannot be inferred from observing
+a single steady mean. The stationarity-free assay offers a meaningful alternate
+current target when that calibration is unavailable. None of these results
+makes a response crossing a device-independent witness of quantum coherence.
+
+The highest-value empirical gate is now a matched-control experiment that
+calibrates preparation matching, native endpoint hazards, unwanted intervention
+rates, detector gain/drift, and the full timing schedule. Given those inputs,
+the exact software can determine whether a finite response interval certifies a
+current sign or whether the experiment is limited by a named calibration floor.

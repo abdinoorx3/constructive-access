@@ -1,0 +1,141 @@
+2026-10-12T21:27:07Z — dependence branch completed
+
+Goal
+Replace a long blind mixing gap before every restricted pair measurement by
+a useful rigorously justified dependent-record confidence calculation. Account
+for physical evolution time, initial preparation/mixing, detector operations
+and the external status of all mixing calibration. A result is allowed to fail
+outside its resource or calibration regime.
+
+Established ingredients
+Fan, Jiang and Sun (2021), JMLR22(139), Theorem1, gives the stationary
+absolute-L2-contraction Hoeffding MGF for deterministic time-dependent bounded
+state functions. Conditional Hoeffding controls record noise as a martingale.
+Holder combines the two without an independence assumption. The integrated
+whole-record bound, contract, acquisition design and physical inference API are
+the contribution here; concentration itself is not claimed new.
+
+Proof and interpretation
+With externally calibrated gap lambda of -(Q+Qadjoint)/2, starts of common
+H-duration blocks have absolute L2 contraction rho<=exp(-lambda H). For a
+fixed setting in each block, g_i(x)=E[Z_i|X_i=x] is deterministic, Z_i in[0,1].
+The state-function proxy is A=(1+rho)/(1-rho), and the conditional martingale
+proxy is1. Holder yields K=(sqrt(A)+1)^2. For deterministic c_i,
+ E exp(theta sum c_i(Z_i-E Z_i)) <= exp(theta² K sum c_i²/8).
+One-sided radius sqrt(K log(1/alpha) sum c_i²/2). For fixed group quotas,
+sum c_i²=sum a_k²/n_k. Whole-record calibration errors add sum|a_k|delta_k.
+A probability box follows by two-sided union bound. Fixed-contrast selection
+must precede held-out outcomes; a valid joint box may support later selection.
+The theorem does not cover adaptive routing, irregular block durations, or
+unmodeled detector memory. Fresh conditional detector noise is required at a
+shared endpoint unless all detector memory is included in calibrated state.
+K tends4, not1, as rho tends0: no claim of recovering sharp iid concentration.
+
+Initial distance
+One blind initial interval G gives TV<=0.5sqrt((1-pmin)/pmin)exp(-lambda G).
+This is transferred once to the entire future law, giving failure alpha+beta.
+It is not an observed reset-success event, per-record drift or a calibration
+failure probability. A separate valid external calibration failure gamma can
+be added once. Coarse data alone do not establish lambda or pmin; all synthetic
+validity checks compare actual model gap against the externally declared one.
+
+Frozen initial evaluation
+contracts/dependence.json was frozen before held-out generation.
+SHA256 ad68a7a598e841c9041783142454d9493371e4fd4dd098714793c59c8d6f6c2a
+Seed731905; 1000 replicates per model/budget/protocol.
+lambda=.002; pmin=.125; H2; lags1,2; contrast[-1,1]. Initial gap4000;
+alpha=.049 beta=.001. Compare old conditional-mean bound optimized before data
+over gap grid0:50:10000 with all gaps, observed lags and padding paid. Every
+new record counts two detector operations. Exact count samplers retain hidden
+trajectory dependence; separate matrix-derivative moment oracles cross-check.
+
+Initial results (new vs old power; each1000 trials)
+T200000: 0 vs84; halfwidth .183273 vs .290322; readouts196000 vs176.
+T400000:1000 vs212; halfwidth .128937 vs .211756; readouts396000 vs332.
+T800000:1000 vs465; halfwidth .090943 vs .154222; readouts796000 vs592.
+The small-budget failure remains. Time efficiency is not readout/energy
+efficiency, and no uniform power domination is claimed. Old occasional large
+realizations can also yield greater mean entropy lower bounds at T400000;
+there is no claim of dominating all performance metrics.
+Valid equilibrium false exclusions new0,0,0; old1,0,1. Incorrect independent
+analysis of the identical new dependent counts gives271,217,131 false
+exclusions. A stationary wrong-mixing control with actual gap100times smaller
+than advertised gives new173,256,258; old97,131,132 false exclusions. This
+demonstrates the importance of the external envelope, not theorem violation.
+Driven true contrast=.1469539765674. Genuine stationary entropy production
+is about14.3866 for this synthetic ring; returned lower bounds remain loose.
+
+Second frozen refinement
+contracts/dependence_refinement.json frozen before new generation.
+SHA256 a5dd55183ae11206f2619828498fc005327fed29fdf0d7ebd29b71d3a0698137
+Seed918472; inherited assumptions; independent1000 replicates per model/menu.
+Original results preserved unchanged. Common H can exceed both observed lags;
+unobserved padding remains physical time and may change the next start.
+T400000: H10/20/50; H800000: H20/50/100/200/500. All evaluated models retained.
+
+Sparse driven results (H, readouts, halfwidth, detections/1000)
+T400000:
+10,79200,.135761822,983; 20,39600,.140880132,816;
+50,15840,.151066470,339.
+T800000:
+20,79600,.099366687,1000; 50,31840,.106551395,1000;
+100,15920,.114722672,994; 200,7960,.126557021,892;
+500,3184,.152101646,394.
+Every valid equilibrium row had0 false exclusions. Every valid-model row had
+1000/1000 one-sided coverage. Wrong mixing continues to fail (e.g198/1000 false
+exclusions at T800000,H100). Main practical point: at fixed evolution time,
+fivefold fewer readouts retain98.3% power at400000; fiftyfold fewer retain99.4%
+at800000. Approximate Wilson95% intervals are[.972944,.989359] and
+[.986972,.997247]. These are Monte Carlo intervals, not exact coverage bounds.
+
+Prospective parametric cost design
+If calibrated waiting power and readout energy exist, define dimensionless
+zeta=E_read/(P_wait*t0), normalize time by t0 and total resource byP_wait*t0.
+Then C=T+zeta R, R=4n, n=floor((C-G)/(2(H+2zeta))). Code minimizes certified
+radius over H2..1000 by exact rational comparison. No measured joules are
+claimed. This omits no measured cost; detector duration, preparation and
+external calibration remain explicitly unmeasured and must be added in a
+physical deployment. At C800000 and zeta0,1,10,100, selectedH2,16,74,307 with
+halfwidth .090943,.104014,.124890,.175585. zeta10 uses16936 reads and630632
+evolution units, normalized cost799992. These grids are prospective analytic
+designs, not additional held-out power evaluations or global protocol optima.
+
+Fundamental slow-mixing illustration
+Stationary2-state models with common0->1 ratekappa and1->0 rates3kappa or
+kappa/3 have stationary occupation1/4 or3/4. The full continuous record has
+overlapping constant-path masses >=(1/4)exp(-kappa T) and
+>=(1/4)exp(-3kappa T). Equal-prior Bayeserror >=(exp(-kappa T)+
+exp(-3kappa T))/8. Thus stationary occupation estimation with error<1/4 under
+both hypotheses cannot reach a fixed sufficiently small failure target
+without order1/kappa time, even with complete trajectory observation. This
+is a standard testing-overlap argument, not a proof current radius is optimal.
+
+Implementation and review
+Owned files: code/dependence.py, tests/test_dependence.py,
+manuscript/dependence.tex, this file, contracts/dependence*.json,
+results/dependence*.json. The original virtual_laboratory API is unchanged.
+10 producer tests pass, including padded-sector independent transfer matrix
+oracle, whole-record gap assumptions, exact cost-grid comparator, initial
+failure budget, malformed-contract rejection and dependent ring simulation.
+Independent reviewer first frontier_redteam, then independent_review, checked
+the proof and simulator and reports30-test independent suite passed including
+padded transfer-matrix MGFs, cost-grid checks and two-state lower bound.
+External peer review and physical empirical validation remain absent.
+
+Reproduce
+From calibrated_inference:
+ PYTHONPATH=../virtual_laboratory/release/src python -m unittest discover -s tests -p test_dependence.py -v
+ PYTHONPATH=../virtual_laboratory/release/src python code/dependence.py
+ PYTHONPATH=../virtual_laboratory/release/src python code/dependence.py --refinement
+Python3.12, NumPy/SciPy environment. Randomness uses NumPy default_rng with
+per-model/budget/replicate SeedSequence coordinates; exact certificates use
+fractions and rational outward enclosures. Full raw held-out counts, hashes,
+plans and approximate MC intervals are stored in both result JSON files.
+
+Open boundary
+A more efficient concentration bound might exploit known covariance or a
+detector-specific spectral structure. It must not silently use an unknown
+full generator. Current K is conservative; sparse acquisition trades margin
+for detector operations. Physical deployment requires credible whole-state
+mixing and detector calibration and a measured cost model. These conditions,
+not additional sampling of the same uncalibrated record, control transfer.

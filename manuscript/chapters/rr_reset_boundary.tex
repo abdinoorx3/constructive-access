@@ -1,0 +1,491 @@
+\chapter{A sharp boundary for hidden classical explanations}
+\label{rr:reset-boundary}
+
+A response reversal can establish that a declared experimental model is
+inadequate without identifying its replacement. Hidden detector states,
+imperfect preparation, and uncharacterized crossing rates can all matter.
+This chapter turns two of those alternatives into quantitative requirements.
+Its main result interpolates sharply between a protected regenerative interface
+and unrestricted coarse observation. It is a theorem about specified stochastic
+models, with no assumption of historical priority or empirical confirmation.
+
+\section{The measured quantity and the physical assumptions}
+
+Let $R$ be a finite continuous-time Markov generator and $B$ a detector region.
+An initial distribution $\nu_A$ is supported outside $B$ and $\nu_B$ inside $B$.
+For any initial distribution $\nu$, define
+\[
+ U_\nu(T)=\int_0^T\Pr_\nu(X_s\in B)\,ds,
+ \qquad H(T)=U_{\nu_B}(T)-U_{\nu_A}(T).
+\]
+The normalized contrast $H(T)/T$ is directly observable by preparing either
+initial distribution and reading the same binary detector at an independently
+chosen uniform time in $[0,T]$. This formulation requires neither stationary
+preparation nor a current measurement. Preparation errors and detector errors
+must still be propagated into the contrast interval.
+
+In the stationary selective-channel experiment developed earlier, the same
+quantity enters through
+\[
+ D_B(T)=[\pi e^{TR}](B)-\pi(B)=\gamma H(T),
+ \qquad \pi R=\gamma(\nu_B-\nu_A).
+\]
+Thus the present result can also interpret a finite-pulse response, provided the
+forcing identity and any division by $\gamma$ have been separately justified.
+The direct preparation experiment and this response-based experiment are
+separate access contracts.
+
+We assume uniform \emph{crossing-hazard} bounds
+\begin{equation}
+ \sum_{y\in B}R_{xy}\leq a\quad(x\notin B),\qquad
+ \sum_{y\notin B}R_{xy}\leq b\quad(x\in B).
+ \label{rr:hazards}
+\end{equation}
+These are bounds on every relevant hidden state, not averages inferred from
+steady occupancy. Rates of motion within either detector region need not be
+bounded. In particular, a proposed classical hidden-state model is not entitled
+to use only the dissipative jump rates of a Lindblad description as its hazard
+caps: that substitution would itself need physical justification.
+
+Let $\tau$ be the first entrance into $B$ starting from $\nu_A$. Write $\mu$ for
+the possibly defective distribution of $\tau$ and $\zeta_u$ for the entrance
+state distribution conditional on $\tau=u$. A reset-defect bound $\eta$ means
+\begin{equation}
+ \operatorname{TV}(\zeta_u,\nu_B)\leq\eta,
+ \qquad \mu\text{-almost every }u\leq T,
+ \qquad 0\leq\eta\leq1.
+ \label{rr:reset-defect}
+\end{equation}
+The conditioning on entrance time is substantive. An unconditional average
+entrance distribution does not establish this condition. When $\nu_B$ is the
+single state $j$, the defect at time $u$ is precisely the conditional probability
+of entering through a different hidden state. A nonzero defect can arise in a
+perfectly Markovian classical model; it is not synonymous with non-Markovianity.
+
+\section{A sharp hazard--reset tradeoff}
+
+For $c\geq0$ set
+\[
+ A_c(T)=\begin{cases}(1-e^{-cT})/c,&c>0,\\T,&c=0,\end{cases}
+\]
+and define
+\begin{align}
+ G_{a,b}(T)&=\int_0^T e^{-bs-a(T-s)}\,ds,\label{rr:G}\\
+ K_{a,b}(T)&=T-A_a(T)-A_b(T)+G_{a,b}(T).\label{rr:K}
+\end{align}
+Here $G_{a,a}(T)=Te^{-aT}$ and, for $a\ne b$,
+$G_{a,b}(T)=(e^{-aT}-e^{-bT})/(b-a)$.
+
+\begin{theorem}[Sharp coarse-detector response bound]
+\label{rr:sharp-reset}
+Under \eqref{rr:hazards} and \eqref{rr:reset-defect},
+\begin{equation}
+ H(T)\ \geq\ G_{a,b}(T)-\eta K_{a,b}(T)
+ =(1-\eta)G_{a,b}(T)+\eta\{A_a(T)+A_b(T)-T\}.
+ \label{rr:sharp-bound}
+\end{equation}
+The lower bound is attained by a finite classical Markov model for every
+$a,b>0$, $T>0$, and $\eta\in[0,1]$.
+\end{theorem}
+
+\begin{proof}
+Write $p_B(s)=\Pr_{\nu_B}(X_s\in B)$ and
+$S(u)=\Pr_{\nu_A}(\tau>u)$. The strong Markov property gives
+\[
+ U_{\nu_A}(T)=\int_{[0,T]}U_{\zeta_u}(T-u)\,\mu(du).
+\]
+Adding and subtracting the same expression with $\zeta_u$ replaced by $\nu_B$
+yields the exact decomposition
+\begin{align*}
+ H(T)&=G_{\rm actual}(T)-\mathcal R(T),\\
+ G_{\rm actual}(T)&=\int_0^T p_B(s)S(T-s)\,ds,\\
+ \mathcal R(T)&=\int_{[0,T]}
+       [U_{\zeta_u}(T-u)-U_{\nu_B}(T-u)]\,\mu(du).
+\end{align*}
+The hazard caps imply $p_B(s)\geq e^{-bs}$ and $S(u)\geq e^{-au}$ by
+considering trajectories that have not yet left their initial region.
+Consequently $G_{\rm actual}(T)\geq G_{a,b}(T)$.
+
+For every initial state $x\in B$,
+$A_b(v)\leq U_x(v)\leq v$. Total variation therefore bounds the reset term by
+\[
+ \mathcal R(T)\leq
+ \eta\,\mathbb E[(T-\tau)_+-A_b((T-\tau)_+)].
+\]
+The function $v-A_b(v)$ is nonnegative and increasing. Since the entrance
+hazard is at most $a$, $\tau$ stochastically dominates an exponential variable
+of rate $a$; mass at $\tau=\infty$ contributes zero. For $a>0$, the last
+expectation is at most
+\begin{align*}
+ \int_0^T ae^{-au}[T-u-A_b(T-u)]\,du
+ &=\int_0^T[1-e^{-a(T-s)}][1-e^{-bs}]\,ds\\
+ &=K_{a,b}(T).
+\end{align*}
+The formula extends continuously to $a=0$ or $b=0$, when $K=0$.
+These estimates prove the inequality.
+
+For attainment, use four states $i,j,k,\ell$, detector $B=\{j,k\}$,
+$\nu_A=\delta_i$, $\nu_B=\delta_j$, and the only transitions
+\[
+ i\longrightarrow j:\ a(1-\eta),\qquad
+ i\longrightarrow k:\ a\eta,\qquad
+ j\longrightarrow\ell:\ b.
+\]
+States $k$ and $\ell$ are absorbing. The entrance time is exponential with
+rate $a$ and its independent entrance law is
+$(1-\eta)\delta_j+\eta\delta_k$. Moreover,
+$U_j(v)=A_b(v)$ and $U_k(v)=v$. Every inequality above is an equality.
+\end{proof}
+
+The small-time defect penalty is
+$K_{a,b}(T)=abT^3/6+O(T^4)$, whereas
+$G_{a,b}(T)=T-(a+b)T^2/2+O(T^3)$.
+The bounds are therefore sensitive to the time available for both entrance and
+exit. The sharpness claim concerns the stated class, not the precision attainable
+at fixed energy on an unspecified apparatus.
+
+For $0<\eta<1$, the same bound is the infimum within irreducible models
+compatible with the stationary selective-channel experiment. To see this,
+add $j\to i$, $k\to j$, and $\ell\to i$ at rate $\varepsilon$, and replace
+$j\to\ell$ by $b-\varepsilon$. For sufficiently small positive $\varepsilon$,
+the chain is irreducible, both hazard caps and the entrance-reset law remain
+unchanged, and its kernel tends to the attaining kernel. Double the two
+$i\leftrightarrow j$ rates to define the native generator $Q$. It has a positive
+stationary law $\pi$, and suppressing that channel by one half returns $R$.
+The response identity is then exact. The native current tends to zero in this
+limit; approximate sharpness does not confer a finite-sample advantage for
+measuring a shrinking current.
+
+\section{Comparison preparations that already occupy the detector}
+
+The outside-support condition cannot be inferred from a preparation's name or
+from an analogy with a qubit basis. Suppose instead that the comparison state is
+\[
+ \rho=p\nu_{\rm in}+(1-p)\nu_{\rm out},\quad
+ \operatorname{supp}\nu_{\rm in}\subseteq B,\quad
+ \operatorname{supp}\nu_{\rm out}\subseteq B^c,
+\]
+with $\operatorname{TV}(\nu_{\rm in},\nu_B)\leq\eta_0$. Let the first-entrance
+reset defect from $\nu_{\rm out}$ be bounded by $\eta_1$.
+\begin{proposition}[Sharp mixed-preparation extension]
+Under the same hazard caps,
+\[
+ U_{\nu_B}(T)-U_\rho(T)\geq
+ (1-p)\{G_{a,b}(T)-\eta_1 K_{a,b}(T)\}
+ -p\eta_0\{T-A_b(T)\}.
+\]
+\end{proposition}
+\begin{proof}
+Decompose the contrast into its inside and outside contributions. Apply the
+previous theorem to the outside contribution and
+$U_{\nu_B}-U_{\nu_{\rm in}}\geq-\eta_0(T-A_b)$ to the inside contribution.
+The same four-state extremizer, with entrance mixture parameter $\eta_1$ and
+$\nu_{\rm in}=(1-\eta_0)\delta_j+\eta_0\delta_k$, attains the result.
+\end{proof}
+With no reset assumptions, $\eta_0=\eta_1=1$, the sharp bound simplifies to
+\[
+ U_{\nu_B}(T)-U_\rho(T)\geq A_b(T)+(1-p)A_a(T)-T.
+\]
+This expression also follows directly from conditional crossing-hazard survival
+and therefore has the broader classical-process scope described next. If only
+an upper bound on $p$ is known, use that upper bound. For $p=1$ there need not be
+any positive protection interval. A preparation with one-half detector
+occupancy must not be analyzed using the $p=0$ formula.
+
+\section{An explanation bound without a protected reset assumption}
+
+Setting $\eta=1$ removes the reset assumption entirely:
+\begin{equation}
+ H(T)\geq A_a(T)+A_b(T)-T.
+ \label{rr:unrestricted-coarse}
+\end{equation}
+This special case has a still broader interpretation. Consider any classical
+binary process with the stated initial detector value and with uniformly bounded
+conditional crossing intensities: at most $a$ from outside to inside and at most
+$b$ in the reverse direction, under every admissible history. Survival before
+the first crossing obeys the same exponential bounds. At each time $s$,
+\[
+ \Pr_{\nu_B}(B,s)\geq e^{-bs},\qquad
+ \Pr_{\nu_A}(B,s)\leq1-e^{-as}.
+\]
+Integration proves \eqref{rr:unrestricted-coarse}. No finite hidden dimension,
+Markov property, stationarity, or specified first-entrance reset is needed for
+this case. The hypothesis of finite uniformly bounded crossing intensities
+remains essential; deterministic jumps and unbounded boundary chatter do not
+satisfy it.
+
+With a common cap $a,b\leq\lambda$, define
+\[
+ F(z)=\frac{2(1-e^{-z})}{z}-1,\qquad F(0)=1.
+\]
+Then $H(T)/T\geq F(\lambda T)$. The function $F$ decreases strictly from $1$
+to $-1$. Its zero is $z_0=1.593624260\ldots$, defined exactly by
+$z_0=2(1-e^{-z_0})$. Hence an integrated contrast cannot become negative before
+$T=z_0/\lambda$, regardless of the number of hidden classical states. The
+supplied rational certificates place $z_0$ strictly between $1.593$ and $1.594$.
+
+This result can be used without pretending that a classical hazard cap has
+already been experimentally certified. If $c_U\in(-1,1)$ is a calibrated upper
+confidence bound on $H(T)/T$, every classical explanation with finite conditional
+crossing intensities must have
+\begin{equation}
+ \lambda\geq\frac{F^{-1}(c_U)}{T}.
+ \label{rr:activity-inverse}
+\end{equation}
+This is a lower bound on the peak crossing intensity required of that explanation.
+It becomes a rejection test only when an independently justified upper cap is
+smaller. Observing a negative contrast by itself neither excludes all classical
+models nor establishes a thermodynamic energy cost for their activity.
+
+\section{What finite data can establish}
+
+Under calibrated caps $a,b$ with $K_{a,b}(T)>0$, an upper confidence bound $H_U$
+on $H(T)$ implies
+\begin{equation}
+ \eta\geq\max\left\{0,
+       \frac{G_{a,b}(T)-H_U}{K_{a,b}(T)}\right\}.
+ \label{rr:defect-inverse}
+\end{equation}
+A value exceeding one is inconsistent with the declared bounded-hazard
+classical contract. A positive value below one states a minimum required reset
+defect. It does not identify which microscopic state or physical mechanism
+caused that defect. If $K=0$, the response bound is independent of $\eta$ and
+one must test that bound directly instead of dividing by zero.
+
+For a simple direct protocol, collect $N$ independent binary observations from
+each initial preparation, choosing the observation time independently and
+uniformly in $[0,T]$ for every record. Let $\widehat c$ be the difference of the
+two empirical means in the order $B$ minus $A$. Weighted Hoeffding gives
+\[
+ \Pr\{H(T)/T>\widehat c+u\}\leq e^{-Nu^2}
+\]
+under the ideal model. If separately calibrated per-arm record laws differ in
+total variation by at most $\epsilon_B$ and $\epsilon_A$, use
+$c_U=\widehat c+u+\epsilon_B+\epsilon_A$. A joint calibration failure allowance
+is added once. The bound assumes independent records and predetermined sample
+counts; adaptive stopping requires a valid sequential procedure. The exact
+binomial procedure in the statistical chapter offers a complementary encoded
+single-bit implementation.
+
+The software implements the sharp bound and its inversions with rational
+exponential enclosures. An output certificate establishes a conditional
+mathematical statement, not the correctness of the supplied hardware
+calibration. The hazard-inversion helper gives both endpoints of a certified
+root bracket. It does not report the numerical root as an exact physical rate.
+
+\section{A sharp four-state requirement without a hazard calibration}
+\label{rr:four-states}
+
+The geometry of a binary detector gives an additional explanation bound that
+does not require a kinetic cap or a protected reset interface.
+\begin{theorem}[Minimum classical state count for a negative integrated contrast]
+\label{rr:dimension}
+Consider a common finite, time-homogeneous classical Markov generator, a fixed
+binary detector region $B$, and initial distributions supported respectively
+inside and outside $B$. If the hidden state space has at most three states,
+then $H(T)>0$ for every finite $T>0$. Thus $H(T)<0$ requires at least four
+classical Markov states. Four states suffice to realize any prescribed value
+$H(T)/T\in(-1,0)$ at a prescribed positive $T$.
+\end{theorem}
+\begin{proof}
+Both detector regions are nonempty. With at most three states, one of them is a
+singleton. If $B=\{j\}$, the first-hitting return argument gives
+\[
+ U_j(T)-U_{\nu_A}(T)
+ =\int_0^T P_j(X_s=j)\Pr_{\nu_A}(\tau_j>T-s)\,ds>0.
+\]
+The inequality is strict because a finite generator permits positive no-jump
+probabilities at every finite time. If instead $B^c=\{i\}$, complement the
+detector:
+\[
+ U^B_{\nu_B}(T)-U^B_i(T)
+ =U^{B^c}_i(T)-U^{B^c}_{\nu_B}(T)>0,
+\]
+and apply the same argument. This covers arbitrary mixtures within the allowed
+initial supports.
+
+For sufficiency, use the four-state attaining model with $\eta=1$ and
+$a=b=\lambda$. Its contrast is $F(\lambda T)$, which decreases continuously
+from $1$ to $-1$. Every specified contrast in $(-1,0)$ therefore determines a
+unique positive $\lambda$ and is attained exactly.
+\end{proof}
+
+The matching claim concerns one integrated contrast. Four states need not
+reproduce the full time-resolved record, multiple intervention responses, or
+a complete quantum process. State count also does not determine stationary
+Shannon entropy, physical memory cost, or thermodynamic dissipation.
+
+A qubit supplies a direct mathematical comparison. Under unitary evolution
+with Hamiltonian $gX$, initial states $|1\rangle$ and $|0\rangle$, and detector
+$|1\rangle\langle1|$, the contrast is
+\[
+ \frac{H(T)}{T}=\frac{\sin(2gT)}{2gT}.
+\]
+At $T=3\pi/(4g)$ it equals $-2/(3\pi)$. A two-dimensional quantum system can
+therefore produce a contrast that requires at least four states in the stated
+classical Markov representation. This is a conditional state-count separation,
+not a device-independent proof of quantumness or a claim that classical
+four-state models are inadequate for that scalar observation.
+
+\begin{proposition}[A conservative preparation-robust state-count witness]
+\label{rr:dimension-robust}
+Allow a fixed stochastic binary detector with response $f(x)\in[0,1]$ and
+arbitrary initial preparations $\nu_B,\nu_A$. Write
+\[
+ m_B=\nu_B f,\quad m_A=\nu_A f,\quad
+ C_f(T)=\frac1T\int_0^T(\nu_B-\nu_A)e^{sR}f\,ds.
+\]
+Write $C_0=m_B-m_A$. Every homogeneous classical model with at most three
+states satisfies the directly observable bound
+\begin{equation}
+ \boxed{\left|C_0-C_f(T)\right|\leq1.}
+ \label{rr:dimension-drop}
+\end{equation}
+In particular,
+\begin{equation}
+ C_f(T)\geq m_B-m_A-1.
+ \label{rr:dimension-noise}
+\end{equation}
+\end{proposition}
+\begin{proof}
+First consider a deterministic detector region $D$. Conditional preparations
+inside and outside $D$ have nonnegative integrated contrast by the preceding
+theorem. Replacing the actual preparations by these conditional preparations
+changes a normalized occupation expectation by at most
+$\nu_B(D^c)+\nu_A(D)$ in total. If a conditional preparation is undefined, this
+sum is at least one and the bound follows from the range $[-1,1]$.
+Thus the normalized contrast for $D$ is at least
+$-\nu_B(D^c)-\nu_A(D)$.
+
+Use the layer-cake representation
+$f(x)=\int_0^1\mathbf1_{\{f(x)>u\}}\,du$ and integrate that bound over the
+threshold detector regions. The two integrated impurity terms are
+$1-\nu_B f$ and $\nu_A f$, proving \eqref{rr:dimension-noise}. Swapping the
+two preparations proves the opposite bound and hence
+\eqref{rr:dimension-drop}.
+\end{proof}
+
+The bound in \eqref{rr:dimension-drop} is sharp as a supremum for the
+three-state class. Let a reference state be absorbing with detector response
+$c\in[0,1]$. Let the comparison state have detector response zero and jump at
+rate $\lambda$ to a third absorbing state with detector response one. Then
+$C_0=c$, $C_f(T)=c-1+A_\lambda(T)/T$, and
+$C_0-C_f(T)=1-A_\lambda(T)/T\to1$ as $\lambda\to\infty$.
+The more specific impurity form is not claimed optimal for every separately
+specified pair of initial means.
+
+With simultaneous confidence
+bounds $C_U$, $m_{B,L}$, and $m_{A,U}$, the condition
+\[
+ C_U<m_{B,L}-m_{A,U}-1
+\]
+excludes every classical model with at most three homogeneous Markov states
+under the fixed-detector contract. It requires no statement that either
+preparation has exactly zero hidden impurity. The same observable bound applies to every independent nonincreasing
+observation-clock density starting at zero. The clock chapter represents such
+a density as a mixture of uniform clocks, so
+\[
+ C_w=\int C_f(T)\,\mu(dT),\qquad
+ |C_0-C_w|\leq\int|C_0-C_f(T)|\,\mu(dT)\leq1.
+\]
+A clock chosen using the evolving hidden trajectory is not covered by this
+argument.
+
+The directly observable score $C_0-C_f(T)$ needs no assumption of exactly
+pure hidden preparations. It requires the same detector response function at
+baseline and at the random observation time, and the same preparations in the
+corresponding arms. Common fixed readout noise is already covered by
+$f\in[0,1]$. If a detector is permitted to reverse its labels between baseline
+and readout, a motionless two-state system can give $C_0=1$ and $C_f(T)=-1$;
+readout stability is therefore essential.
+
+A common known delay $d$ before both baseline and random-time observations does
+not invalidate \eqref{rr:dimension-drop}. Replace the preparations by
+$\nu_B e^{dR}$ and $\nu_A e^{dR}$, which are allowed to be arbitrary. The same
+argument covers an independent common delay distribution used in every arm,
+by averaging these effective preparations; the delay must also be independent
+of the observation-clock draw. Different delay distributions,
+changed generators, or different detector calibrations require separate error
+bounds.
+
+The four-state equal-hazard construction can match both averaged arm
+probabilities of a unital qubit with orthogonal preparations and a projective
+binary detector: they are $A_\lambda(T)/T$ and $1-A_\lambda(T)/T$, equivalently
+$(1+C)/2$ and $(1-C)/2$ once $F(\lambda T)=C$. This statement applies when the
+random timestamps are discarded. Keeping the timestamp, intervening within
+records, or comparing several clocks yields additional data that the scalar
+matching argument does not reproduce.
+
+Time homogeneity is essential. A three-state classical counterexample starts
+in $j$ or $i$ with detector $\{j\}$. First allow $j\to k$ at rate ten for time
+$1/10$; next allow $i\to j$ at rate ten for time $1/10$; then freeze all rates
+for time one. The integrated contrast over the whole interval is
+\[
+ H(6/5)=\frac{19}{10e}-\frac9{10}<0.
+\]
+Thus an external control clock, unmodeled memory, or preparation-dependent
+kinetics can invalidate the state-count conclusion. The theorem compares
+common autonomous Markov representations; these restrictions must be checked
+before interpreting the result as a hidden-state requirement.
+
+\section{Protected graph interfaces beyond one entrance gateway}
+
+For a known directed support graph, additional protections are available without
+numerical rate identification. Write $U_x(T)$ for the occupation integral from
+state $x$. Two elementary first-hitting comparisons hold for every rate choice:
+\begin{enumerate}
+\item If $x\in B$ and every directed path from $x$ to $B^c$ visits $y$, then
+      $U_x(T)\geq U_y(T)$.
+\item If $y\notin B$ and every directed path from $y$ to $B$ visits $x$, then
+      $U_x(T)\geq U_y(T)$.
+\end{enumerate}
+For the first, all time before hitting $y$ is spent in $B$, and
+$U_y(T)-U_y(T-s)\leq s$. For the second, no time before hitting $x$ is spent in
+$B$, and $U_x$ is increasing. The strong Markov property gives each comparison,
+including trajectories that never reach the gateway.
+
+These inequalities compose transitively. A reachability test after deleting a
+candidate gateway checks every primitive, and transitive closure supplies a
+verifiable chain of comparisons. For example, on the graph
+$i\to k$, $k\to\ell$, $j\to k$, $\ell\to k$ with $B=\{j,k\}$,
+neither $j$ as the entrance gateway from $i$ nor $i$ as the exit gateway from
+$j$ is valid. Nevertheless $U_j\geq U_k\geq U_i$. A closed detector region is
+also protected by the exit condition. The implemented preorder is a sufficient
+certificate. A complete graph characterization of universal occupation order
+is not claimed, and failure to find a certificate is not evidence of a
+counterexample.
+
+\section{Why exact hidden structure cannot be certified by finite records}
+
+A finite calibration experiment cannot uniformly rule out arbitrarily weak
+unmodeled transitions. Suppose extra transitions have total intensity at most
+$\delta$ at every state and under every allowed control. Coupling the original
+and perturbed processes until the first extra jump gives, for records with total
+pathwise horizon at most $L$,
+\[
+ \operatorname{TV}(P_{\rm original},P_{\rm perturbed})
+ \leq1-e^{-\delta L}\leq\delta L.
+\]
+This statement includes adapted controls that obey the same intensity bound;
+any detector or downstream processing preserves the inequality. Consequently,
+a finite-record rule that accepts the original structural explanation with
+probability $p$ accepts a sufficiently small perturbation with probability at
+least $p-\delta L$.
+
+The issue can affect all-time protection, not merely exact graph labels. Take
+$i\to k$ at rate one and $j\to\ell$ at rate $\delta$, with
+$B=\{j,k\}$ and $k,\ell$ absorbing. At $\delta=0$,
+$H(T)=1-e^{-T}>0$ for every positive $T$. At every $\delta>0$,
+\[
+ H(T)=A_\delta(T)+A_1(T)-T
+\]
+eventually becomes negative, while finite-horizon records approach those of
+the protected model as $\delta\downarrow0$. Structural physical knowledge,
+a quantitative tolerance, or a positive separation assumption is therefore
+needed. Taking additional finite records alone cannot establish exact absence
+of all arbitrarily weak hidden alternatives.
+
+The practical output is an explicit choice: certify a physical interface,
+report a quantitative minimum reset defect, or report the hidden peak crossing
+intensity any competing classical explanation would require. Each result says
+what the evidence establishes and what remains open.

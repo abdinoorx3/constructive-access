@@ -1,0 +1,90 @@
+CALIBRATED INFERENCE: NEAREST-PRIOR AUDIT
+Audit date2026-10-12. Primary papers, source code and repository metadata.
+All exact links/DOIs and access levels are in sources.json. A source discovered
+by search but not read in full is not treated as proof of a precise theorem.
+
+ESTABLISHED INGREDIENTS
+1. Hidden-model-compatible entropy optimization: Ehrich2021 and Nitzan2023.
+   These precede the present program. Optimizing a selected hidden architecture
+   is not equivalent to solving every hidden realization. Busiello2019 explains
+   microscopic current loss under coarse graining; Buchholz1994 is the standard
+   exact/ordinary lumpability reference (metadata verified, full text not read).
+2. One resolved edge can recover entropy in a ring: Harunari et al2022 SecV.2,
+   Eqs57-58. Asymptotic identification does not give finite-sample robust upper
+   confidence bounds when reverse rates may approach zero. The fixed four-state
+   finite-budget quantitative obstruction here has not been located verbatim;
+   absence from this focused search is not a priority certification.
+3. Scalar reversible correlations have positive spectral measures. Calibration
+   of mean and same-hidden-state replicate response narrows this familiar class.
+   Dechant2023/Shiraishi2023 are broad correlation baselines; Raux2026 uses
+   cross-correlation asymmetry, so its numerator vanishes for one observable.
+   Its shift optimization already uses means and must not be claimed as new.
+4. Variance sum rule: DiTerlizzi et alScience2024 and NJP2024. NJP Sec4 Eq35
+   gives the switching-trap correlation. Their curvature criterion Eq15 already
+   diagnoses strong nonequilibrium. A finite-lag calibrated confidence procedure
+   may improve access/statistics but does not discover curvature detection.
+   Force-assisted VSR is a different-access benchmark, not a matched scalar test.
+5. Composite-null e-variable/RIPr duality: Larsson,Ramdas,Ruf2025 (Secs2-5);
+   constraint-generated hypotheses: sameauthors2026 Thm2.2,Thm3.1,Cor3.3,Sec7;
+   Safe testing Grunwald et al2024. Products require conditional null validity,
+   not stationarity alone. Finite-dimensional optimization is established.
+6. Markov Hoeffding: Fan,Jiang,Sun2021 Theorem1 Eqs3-4, stationary chain and
+   absolute mean-zero L2 contraction rho<1, bounded time-varying functions;
+   tail exp[-2n eps^2(1-rho)/(1+rho)] for range[0,1]. No reversibility needed.
+   Path-block observations require their own valid block-chain contraction.
+   Published PDF's common-function right-gap sharpening is labelled Theorem3;
+   the base theorem suffices. Paulin2015 is already in cumulative references.
+
+ACTIVITY-CALIBRATED DIVERGENCE BOUND
+Normalize stationary directed edge fluxes Pij=pi_i qij/A and R=Ptranspose.
+Then JS(P,R)=d/A and half-Jeffreys(P,R)=[KL(P||R)+KL(R||P)]/2=sigma/A.
+The sum convention would instead be2sigma/A; state the convention explicitly.
+Crooks2008 TechnicalNote004v2 Eq1 gives
+  JS <= min{halfJeffreys/4, log[2/(1+exp(-halfJeffreys))]}.
+Correct primary PDF is https://threeplusone.com/pubs/on_jensenshannon.pdf.
+The older /Crooks-inequality.pdf endpoint returned an HTML access challenge;
+that response is preserved and accurately labelled, not represented as a PDF.
+Falasco,Esposito,Delvenne2022 AppendixC Eqs97-100 recovers this nonlinear
+comparison within a thermodynamic-response/speed-limit treatment.
+Guntuboyina,Saha,Schiebinger2014 Theorem2.1 gives general sharp-f-divergence
+optimization using finite-support distributions; it is an important prior
+framework, but its inspected examples do not state the proposed exact
+JS-to-half-Jeffreys binary envelope. Sason2015 Props3-4 separately minimize
+JS and Jeffreys at fixed TV; two such lower bounds alone do NOT establish a
+sharp comparison between them. Yamano2014 conference abstract discusses
+Crooks/binary comparisons; full manuscript download failed. Do not use that
+abstract to assert either overlap or non-overlap of the exact formula.
+
+Current candidate sigma>=A e(jinverse(d/A)), with j=.5[(1+x)ln(1+x)+
+(1-x)ln(1-x)] and e=xln[(1+x)/(1-x)], is a symmetric-divergence specialization
+proved directly in this release. Literature search did not settle historical
+priority of this precise envelope. Operational use with a calibrated activity
+upper bound and certified record-KL lower bound must be presented separately.
+Uniform-bias-ring full-path equality does not imply endpoint-data tightness.
+
+PRACTICAL DATA TRANSFER
+Downloaded Bryan2022 harmonic-well measurements (CC-BY-4.0), nominal dt10us,
+49999 samples, plus simultaneously measured lower-noise detector record.
+Source describes these harmonic wells without feedback; double-well records
+in the same experiment use feedback. Lower-noise record is not latent truth.
+No independent calibration of hidden mixing/detector memory/clock error was
+found. Status is descriptive empirical audit, no entropy-production certificate.
+Dryad VSR raw ZIP is a stronger driven-experiment lead, but raw download was
+denied (403 public stream,401API). Metadata/PDF/notebook remain accessible.
+See data_audit.txt and results/data_audit.json for exact distinctions.
+
+POSITIONING
+Strongest defensible advance is an explicit chain from access and calibration
+to checkable finite-record certificates and equally explicit inference limits.
+Do not claim a new universal thermodynamic law, first correlation detector,
+first log-optimal test, universal total-dissipation reconstruction, or empirical
+validation from simulated models. New conditional theorems and implementations
+can be assessed on their own precise scope without those claims.
+
+
+OVERDAMPED DIFFUSION TRANSFER AUDIT (2026-10-12)
+Established ingredients, not a new entropy formula: Girsanov1960 (ciGirsanov1960; DOI10.1137/1105027) gives the drift-change exponential likelihood. Its primary publisher abstract was read and metadata verified; the complete paywalled article was not accessed. With equal stationary initial density and noise covariance 2D, the expected log likelihood to b_s=D grad log pi is t times integral pi v^T D^-1 v /4. Seifert2012 (ciSeifert2012; DOI10.1088/0034-4885/75/12/126001), author full text arXiv:1205.4176, Eq35 and Sec2.6.2 establish the entropy functional and multidimensional setting. The manuscript supplies its own regularity assumptions and deduction, restricted to even-variable overdamped diffusion; finite CTMC jump activity has no automatic continuum transfer.
+The Gaussian sign formula is classical: ciVanVleck1966, DOI10.1109/PROC.1966.4567, publisher metadata verified. Original full text not accessed. Formula was independently verified in Eq13 of the primary full-text XML for Sensors11,6066-6087(2011), DOI10.3390/s110606066; reference8 cites Van Vleck and Middleton. The resulting rotational Ornstein-Uhlenbeck example is an analytic illustration, not empirical validation.
+Three necessary citations were added to phase and current cumulative bibliography; archived editions were unchanged. No physical data contract is established by these citations.
+
+Final example refinement: the worked diffusion example uses a bounded sine observable and a Gaussian moment-generating-function identity. The unused Van Vleck bibliography entry was removed from phase and release; its verified source audit remains. Two diffusion references are included.

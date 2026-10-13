@@ -1,0 +1,219 @@
+{
+  "evidence": "exact illustrative summaries; no measured physical data",
+  "summary": {
+    "records": 3,
+    "score_sum": {
+      "fraction": "194/125",
+      "decimal": 1.552
+    },
+    "mean": {
+      "fraction": "194/375",
+      "decimal": 0.5173333333333333
+    },
+    "mean_quantization_radius": {
+      "fraction": "1/2000",
+      "decimal": 0.0005
+    },
+    "quantized_empirical_variance": {
+      "fraction": "26629/4500000",
+      "decimal": 0.005917555555555555
+    },
+    "quantized_sample_variance": {
+      "fraction": "26629/3000000",
+      "decimal": 0.008876333333333333
+    },
+    "quantizer_denominator": 1000,
+    "status": "descriptive_only; inference requires additional contracts"
+  },
+  "certificate_example": {
+    "status": "positive_certificate",
+    "records": [
+      10000,
+      10000
+    ],
+    "means": [
+      {
+        "fraction": "69/100",
+        "decimal": 0.69
+      },
+      {
+        "fraction": "59/100",
+        "decimal": 0.59
+      }
+    ],
+    "coefficients": [
+      {
+        "fraction": "1",
+        "decimal": 1.0
+      },
+      {
+        "fraction": "-1",
+        "decimal": -1.0
+      }
+    ],
+    "lags": [
+      1,
+      2
+    ],
+    "durations": [
+      {
+        "fraction": "1",
+        "decimal": 1.0
+      },
+      {
+        "fraction": "2",
+        "decimal": 2.0
+      }
+    ],
+    "support": {
+      "lags": [
+        1,
+        2
+      ],
+      "coefficients": [
+        {
+          "fraction": "1",
+          "decimal": 1.0
+        },
+        {
+          "fraction": "-1",
+          "decimal": -1.0
+        }
+      ],
+      "calibration_vertices": [
+        [
+          {
+            "fraction": "0",
+            "decimal": 0.0
+          },
+          {
+            "fraction": "1/2",
+            "decimal": 0.5
+          }
+        ]
+      ],
+      "depth": 6,
+      "polynomials": [
+        [
+          {
+            "fraction": "0",
+            "decimal": 0.0
+          },
+          {
+            "fraction": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "fraction": "-1/4",
+            "decimal": -0.25
+          }
+        ]
+      ],
+      "polynomial_upper_bounds": [
+        {
+          "fraction": "1/16",
+          "decimal": 0.0625
+        }
+      ],
+      "reversible_support_upper": {
+        "fraction": "1/16",
+        "decimal": 0.0625
+      },
+      "reversible_support_lower": {
+        "fraction": "1/16",
+        "decimal": 0.0625
+      },
+      "support_enclosure_width": {
+        "fraction": "0",
+        "decimal": 0.0
+      }
+    },
+    "empirical_contrast": {
+      "fraction": "1/10",
+      "decimal": 0.1
+    },
+    "sampling_radius_upper": {
+      "fraction": "1486027542516535936875805/77371252455336267181195264",
+      "decimal": 0.019206455826398416
+    },
+    "quantization_penalty": {
+      "fraction": "1/500000",
+      "decimal": 2e-06
+    },
+    "conditional_mean_penalty": {
+      "fraction": "0",
+      "decimal": 0.0
+    },
+    "concentration_variance_proxy": {
+      "fraction": "1/5000",
+      "decimal": 0.0002
+    },
+    "signed_contrast_lower": {
+      "fraction": "22113120032088490779447734523/1208925819614629174706176000000",
+      "decimal": 0.018291544173601584
+    },
+    "contrast_lower": {
+      "fraction": "22113120032088490779447734523/1208925819614629174706176000000",
+      "decimal": 0.018291544173601584
+    },
+    "entropy_production_rate_lower": {
+      "fraction": "250362919707419287285408673266271128098125513234988051214848/545168370296345829201699355930280785195207442650959621337890625",
+      "decimal": 0.0004592396282479219
+    },
+    "entropy_denominator_upper": {
+      "fraction": "2233009644733832516410160561890430096159569685098330609/383123885216472214589586756787577295904684780545900544",
+      "decimal": 5.82842712474619
+    },
+    "science_failure_upper": {
+      "fraction": "1/40",
+      "decimal": 0.025
+    },
+    "calibration_failure_upper": {
+      "fraction": "1/40",
+      "decimal": 0.025
+    },
+    "confidence_failure_upper": {
+      "fraction": "1/20",
+      "decimal": 0.05
+    },
+    "score_bounds": [
+      [
+        {
+          "fraction": "0",
+          "decimal": 0.0
+        },
+        {
+          "fraction": "1",
+          "decimal": 1.0
+        }
+      ],
+      [
+        {
+          "fraction": "0",
+          "decimal": 0.0
+        },
+        {
+          "fraction": "1",
+          "decimal": 1.0
+        }
+      ]
+    ],
+    "selection": "predeclared",
+    "physical_contract": "stationary even-state homogeneous CTMC; fixed noninvasive detector with independent conditional endpoint noise; valid clock and calibrated moment comparison; full-duration accounting",
+    "sampling_contract": "fixed quotas; bounded observations with declared conditional means; valid external calibration region"
+  },
+  "variance_example": {
+    "direct_contrast_variance": {
+      "fraction": "1/25000",
+      "decimal": 4e-05
+    },
+    "coin_contrast_variance": {
+      "fraction": "3/12500",
+      "decimal": 0.00024
+    },
+    "removed_conditional_coin_variance": {
+      "fraction": "1/5000",
+      "decimal": 0.0002
+    }
+  }
+}

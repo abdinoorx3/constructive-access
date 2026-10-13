@@ -1,0 +1,180 @@
+{
+  "certificate_eligibility": {
+    "decision": "abstain",
+    "prohibited_inferences": [
+      "Observed lag correlation alone does not calibrate hidden-state mixing.",
+      "A fitted force function in the reference HDF5 is not a measured force trajectory.",
+      "Finite descriptive stationarity checks cannot prove stationarity.",
+      "Particle bath dissipation does not include unmeasured laser, detector or controller expenditure."
+    ],
+    "unestablished_conditions": [
+      "stationary initialization or a controlled nonstationary correction",
+      "independently valid hidden-process dependence or mixing bound",
+      "uniform detector error, conditional independence and memory contract",
+      "actual clock jitter bound beyond nominal dt",
+      "validated Markov state, time-reversal parity and physical entropy accounting"
+    ]
+  },
+  "new_measurement": false,
+  "paper_doi": "10.1016/j.isci.2022.104731",
+  "records": [
+    {
+      "actual_timestamps_present": false,
+      "count": 49999,
+      "dt_provenance": "authors' code: dt in ns; stored scalar 10000; lower-noise file aligned to n1 by repository description",
+      "file": "harmwell_n1.h5",
+      "lag1_pearson_correlation": 0.9113967421093755,
+      "license": "CC-BY-4.0",
+      "max_nm": 58.5811772260659,
+      "mean_nm": -0.8768116713120472,
+      "min_nm": -67.5599427739341,
+      "nominal_dt_seconds": 1e-05,
+      "nominal_span_seconds": 0.49998000000000004,
+      "position_unit": "nm",
+      "role": "experimental detector trajectory",
+      "schema": {
+        "data": {
+          "dtype": "float64",
+          "shape": [
+            49999
+          ]
+        },
+        "dt": {
+          "dtype": "float64",
+          "shape": []
+        },
+        "kT": {
+          "dtype": "float64",
+          "shape": []
+        }
+      },
+      "sha256": "ffa81dda2576934bd51cf544199a12da7d5568806883401a08848ad215c1286c",
+      "source_doi": "10.5281/zenodo.6680673",
+      "standard_deviation_nm": 15.20774338229929,
+      "ten_contiguous_block_means_nm": [
+        -0.23505541393409946,
+        1.6300964580659005,
+        -4.2194457339341,
+        -0.388189621934099,
+        -2.2838437179341,
+        -0.9064826779340998,
+        -0.7840999739340998,
+        1.4520528420659005,
+        -1.1375853179340996,
+        -1.8957673468486824
+      ]
+    },
+    {
+      "actual_timestamps_present": false,
+      "count": 49999,
+      "dt_provenance": "authors' code: dt in ns; stored scalar 10000; lower-noise file aligned to n1 by repository description",
+      "file": "harmwell_n1_groundtruth.h5",
+      "lag1_pearson_correlation": 0.9617827693954105,
+      "license": "CC-BY-4.0",
+      "max_nm": 58.95180514644605,
+      "mean_nm": -0.6990089962368031,
+      "min_nm": -61.77115485355394,
+      "nominal_dt_seconds": 1e-05,
+      "nominal_span_seconds": 0.49998000000000004,
+      "position_unit": "nm",
+      "role": "simultaneous lower-noise measurement",
+      "schema": {
+        "force": {
+          "dtype": "object",
+          "shape": []
+        },
+        "force_sourcecode": {
+          "dtype": "object",
+          "shape": []
+        },
+        "potential": {
+          "dtype": "object",
+          "shape": []
+        },
+        "potential_sourcecode": {
+          "dtype": "object",
+          "shape": []
+        },
+        "x_data": {
+          "dtype": "float64",
+          "shape": [
+            49999
+          ]
+        }
+      },
+      "sha256": "ef390252ce9730b53c688958cad5fa4ff2379800f09ccc13ac2d6e90bb0e413b",
+      "source_doi": "10.5281/zenodo.6680673",
+      "standard_deviation_nm": 14.925511258888918,
+      "ten_contiguous_block_means_nm": [
+        -0.33140370155394905,
+        1.7419034504460509,
+        -4.438244917553949,
+        -0.02118699755394955,
+        -2.155810997553949,
+        -0.7305602295539491,
+        -0.2994754455539492,
+        1.4762376104460506,
+        -0.7818643415539497,
+        -1.449834557494737
+      ]
+    },
+    {
+      "actual_timestamps_present": false,
+      "count": 49999,
+      "dt_provenance": "authors' code: dt in ns; stored scalar 10000; lower-noise file aligned to n1 by repository description",
+      "file": "harmwell_n2.h5",
+      "lag1_pearson_correlation": 0.8761712839400926,
+      "license": "CC-BY-4.0",
+      "max_nm": 59.67908142315916,
+      "mean_nm": -2.085461174892803,
+      "min_nm": -66.58643857684085,
+      "nominal_dt_seconds": 1e-05,
+      "nominal_span_seconds": 0.49998000000000004,
+      "position_unit": "nm",
+      "role": "experimental detector trajectory",
+      "schema": {
+        "data": {
+          "dtype": "float64",
+          "shape": [
+            49999
+          ]
+        },
+        "dt": {
+          "dtype": "float64",
+          "shape": []
+        },
+        "kT": {
+          "dtype": "float64",
+          "shape": []
+        }
+      },
+      "sha256": "38efb704da6fb86a9da49938d3e84ff4c3d1e4c56588768cbdf37149f28b4a2e",
+      "source_doi": "10.5281/zenodo.6680673",
+      "standard_deviation_nm": 16.064763462356684,
+      "ten_contiguous_block_means_nm": [
+        -4.688068176840842,
+        -3.6824507848408414,
+        -3.3236475368408422,
+        0.47014577515915845,
+        -4.720813712840842,
+        -3.367131648840841,
+        -3.9733531688408417,
+        2.1414148311591585,
+        0.6338864951591586,
+        -0.34424557824112134
+      ]
+    }
+  ],
+  "simulation": false,
+  "simultaneous_detector_comparison": {
+    "aligned_samples": 49999,
+    "difference_lag1_correlation": 0.011398953499581865,
+    "difference_mean_nm": -0.17780267507524408,
+    "difference_rmse_nm": 4.907531056291424,
+    "interpretation": "Difference between two measurements, not an error series against exact latent positions; does not establish uniform detector calibration.",
+    "pearson_correlation": 0.947193058817121
+  },
+  "source_apparatus_statement": "Selected harmonic wells are described as optical tweezers without feedback; feedback produces other potentials in the study.",
+  "source_doi": "10.5281/zenodo.6680673",
+  "status": "descriptive empirical audit; no entropy-production certificate"
+}

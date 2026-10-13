@@ -1,0 +1,481 @@
+\chapter{Continuous dynamics, physical interfaces, and energy}
+\label{ch:continuous}
+
+The finite-instrument description is an interface to physical models. A waiting
+operation, a controlled transition channel, and a detector can be converted
+into instruments, but that conversion must preserve the distinction being
+tested and carry its approximation error. This chapter develops the conversion
+for finite continuous-time Markov chains. It then follows the original physical
+question from a driven interface to an observable arrow, showing exactly where
+preparation, observation, and control enter.
+
+\section{A source, a record, and a preparation are different objects}
+
+Let $Q$ be an irreducible finite row generator: $Q_{ij}\geq0$ for $i\ne j$,
+$Q\mathbf1=0$, and $\dot p=pQ$. Its unique positive stationary row distribution
+is denoted by $\varpi$. Assume bidirectional support and states even under
+physical time reversal. The stationary reverse is
+\begin{equation}
+ Q^\dagger=\operatorname{diag}(\varpi)^{-1}Q^{\mathsf T}
+                         \operatorname{diag}(\varpi).
+ \label{eq:continuous-reverse}
+\end{equation}
+This notation denotes a stationary reversal of a stochastic generator, not
+its Euclidean adjoint. Detailed balance means $Q=Q^\dagger$.
+
+For a deterministic detector with diagonal outcome projectors $D_y$, an
+observed word has probability
+\begin{equation}
+ \varpi D_{y_0}e^{t_1Q}D_{y_1}\cdots e^{t_mQ}D_{y_m}\mathbf1.
+ \label{eq:continuous-record}
+\end{equation}
+Physical reversal reverses both the labels and the gaps. Reversing labels alone
+on an unequal grid generally compares different experiments. An operational
+stationary arrow is a difference between the record law and its physical
+reverse. It can coexist with constant one-time Shannon entropy. Unitary quantum
+evolution likewise need not increase von Neumann entropy; the existence of time
+is not the proposition under study.
+
+The original interface question has an elementary source criterion. Let $G$
+be the connected undirected support graph. Partition its edges into bulk and
+interface edges, and suppose a positive reference weight $\rho$ balances every
+bulk edge. Write
+\begin{equation}
+ \mathcal A_{ij}=\log\frac{\rho_iQ_{ij}}{\rho_jQ_{ji}}.
+\end{equation}
+This antisymmetric edge function vanishes in the bulk. Its sum around a cycle
+is the corresponding affinity. The usual cycle criterion
+\cite{physics-schnakenberg,physics-polettini} states that $Q$ is reversible
+exactly when every such sum vanishes.
+
+\begin{proposition}[Interface source capacity]
+\label{prop:continuous-source}
+If the bulk graph, including all vertices, has $c$ connected components and
+there are $m$ interface edges, the space of independent interface-supported
+cycle affinities has dimension $m-c+1$. An interface-supported edge function
+has zero cycle affinities exactly when it is $df$, with
+$(df)_{ij}=f_j-f_i$ and $f$ constant on each bulk component.
+\end{proposition}
+\begin{proof}
+On a connected graph, zero cycle sums imply that the integral of $\mathcal A$
+along a path from a fixed root is path independent. It defines $f$ and gives
+$\mathcal A=df$. Vanishing bulk values force $f$ to be constant on each bulk
+component. The $m$ interface edge values form $\mathbb R^m$; gradients of those
+component constants have rank $c-1$, because an overall constant has zero
+gradient and the contracted graph is connected. The quotient has dimension
+$m-c+1$. If $\mathcal A=df$, then $\varpi_i\propto\rho_i e^{f_i}$ satisfies
+detailed balance; the converse follows by taking $f=\log(\varpi/\rho)$.
+\end{proof}
+
+This is a concrete use of graph cohomology: the relevant quotient is the
+interface contribution to $H^1(G;\mathbb R)$. It establishes where a stationary
+source can occur. It does not determine whether a particular detector sees
+it. If all bulk edges are balanced and the interface is the only possible
+drive, an observed stationary arrow requires an interface-supported cycle
+affinity. The converse can fail because observation discards distinctions.
+A driven seam on a ring is an interface in this sense; it is not a geometric
+outer boundary or a higher-dimensional manifold assumption.
+
+Preparation gives a separate failure mode. Consider a reversible $Q$ and
+state-dependent killing rates $k_i\geq0$. Conditioning a path on survival to
+$T$ multiplies its density by
+$w_T=\exp[-\int_0^T k_{X_s}\,ds]$, a reversal-invariant functional. With
+stationary preparation, the surviving-path law remains reversible. With a
+full-support initial law $\rho$, put $f_i=\rho_i/\varpi_i$. Its surviving law
+$P^{\rm surv}_{\rho,T}$ instead satisfies
+\begin{equation}
+ \log\frac{dP^{\rm surv}_{\rho,T}}
+               {d(\mathcal R_*P^{\rm surv}_{\rho,T})}
+   =\log\frac{f(X_0)}{f(X_T)},\qquad
+ D_{\rm KL}(P^{\rm surv}_{\rho,T}\Vert
+             \mathcal R_*P^{\rm surv}_{\rho,T})
+ \leq\log\frac{f_{\max}}{f_{\min}},
+ \label{eq:continuous-survival}
+\end{equation}
+where $\mathcal R$ reverses a path. Both expressions follow by comparing
+densities $f(X_0)w_T$ and $f(X_T)w_T$ relative to the reversible stationary
+path law; their normalization constants coincide. Any reversal information
+is then confined to the endpoints and its rate per unit time tends to zero.
+A finite-window arrow caused by selected preparation need not be sustained
+entropy production. Trials discarded during survival selection still count
+toward preparation and physical expenditure.
+
+\section{Certified finite-time instruments}
+
+For a rational generator $Q$, rational $t\geq0$, and rational
+$\lambda\geq\max_i(-Q_{ii})$, define $P=I+Q/\lambda$. If $\lambda>0$, $P$
+is stochastic and uniformization gives
+\begin{equation}
+ e^{tQ}=e^{-x}\sum_{k=0}^{\infty}\frac{x^k}{k!}P^k,
+ \qquad x=\lambda t.
+ \label{eq:continuous-uniformization}
+\end{equation}
+This established construction represents the waiting operation as a Poisson
+number of stochastic updates \cite{physics-uniformization}. To avoid replacing
+an irrational exponential by an untracked floating-point number, let
+\begin{equation}
+ S_N=\sum_{k=0}^N\frac{x^k}{k!},\qquad
+ \widehat E_N=S_N^{-1}\sum_{k=0}^N\frac{x^k}{k!}P^k.
+\end{equation}
+$\widehat E_N$ is an exactly rational stochastic matrix. If $x<N+2$, the
+omitted scalar series has the geometric bound
+\begin{equation}
+ B_N=\frac{x^{N+1}}{(N+1)!}\frac1{1-x/(N+2)},\qquad
+ \epsilon_N=\frac{B_N}{S_N+B_N}.
+ \label{eq:continuous-radius}
+\end{equation}
+The exact transition is a mixture of $\widehat E_N$ and a stochastic tail
+matrix. Its tail weight is at most $\epsilon_N$, so every row differs from
+the corresponding row of $\widehat E_N$ by total variation at most
+$\epsilon_N$. If $\lambda t=0$, use the identity matrix and zero error.
+
+For a fixed sequence of waiting operations, a coupling or telescoping argument
+adds their row errors; intervening stochastic observations and controls
+contract total variation. Thus, with preparation error $\epsilon_0$,
+\begin{equation}
+ \operatorname{TV}(P_{\rm actual},P_{\rm rational})
+ \leq \min\{1,\epsilon_0+\textstyle\sum_j\epsilon_j\}.
+ \label{eq:continuous-composition}
+\end{equation}
+Calibration errors in controls and detection require additional terms.
+For adaptive experiments the bound must hold conditionally for each history,
+including the updated hidden state; agreement of a single unconditional
+output marginal is insufficient.
+
+If a rational event witness has gap $g$ between two candidate laws and the
+two complete-record error radii are $e_0,e_1$, the physical gap is at least
+$\max(0,g-e_0-e_1)$. A positive lower bound certifies continuous-time
+non-equivalence. Equality of rational approximations does \emph{not} certify
+equality of the underlying continuous-time models. Exact symmetries or
+generator-level algebra are needed for that conclusion. Uniformization here
+is a classical CTMC construction; an arbitrary Lindblad generator cannot be
+treated as a nonnegative stochastic matrix in a Hermitian operator basis.
+
+\section{What a singleton detector hides}
+
+\begin{theorem}[Stationary singleton reversal obstruction]
+\label{thm:continuous-singleton}
+For an irreducible finite $Q$ started in $\varpi$, the complete path law of
+$Y_t=\mathbf1_{\{X_t=i\}}$ is identical under $Q$ and $Q^\dagger$.
+\end{theorem}
+\begin{proof}
+The one-state case has a constant detector and is immediate. Otherwise the
+escape rate from $i$ is positive by irreducibility.
+At every return to $i$, the strong Markov property restarts the process.
+The sojourn at $i$ is exponential. Its duration is independent of the
+departure destination, and therefore of the following excursion duration.
+Successive sojourns and excursions are independent draws from their respective
+laws. A stationary alternating renewal process with these independent
+durations is unchanged by reversal, including its stationary age distribution.
+The stationary reverse of $X$ is generated by $Q^\dagger$; applying the same
+detector therefore gives the same $Y$ law. Equivalently, partition
+$Q=\left(\begin{smallmatrix}-\lambda&a\\b&B\end{smallmatrix}\right)$ around
+$i$. The sojourn rate $\lambda$ and excursion-return density
+$a e^{tB}b/\lambda$ agree under stationary reversal. These quantities and
+stationary ages determine the binary law.
+\end{proof}
+
+This standard renewal obstruction concerns orientation
+\cite{physics-lucente}. Waiting-time distributions may still identify a drive
+magnitude or rule out some equilibrium models. Nor does a single scalar
+detector necessarily satisfy this theorem: a scalar count can distinguish
+several microscopic states. A binary aggregate containing multiple states in
+each block need not regenerate at an observed return.
+
+For an explicit failure of a broader ``all binary records are reversible''
+claim, take
+\begin{equation}
+ Q=\begin{pmatrix}-2&1&0&1\\1&-3&2&0\\0&1&-4&3\\4&0&1&-5\end{pmatrix},
+ \quad \varpi=\tfrac1{88}(41,18,13,16),\quad
+ D=\operatorname{diag}(1,0,1,0).
+\end{equation}
+For $H(t,s)=\varpi D e^{tQ}D e^{sQ}D\mathbf1$, direct multiplication gives
+\begin{equation}
+ H(t,s)-H(s,t)=-\frac{23}{44}ts(s-t)+O((t+s)^4).
+ \label{eq:continuous-aggregate}
+\end{equation}
+Thus the two-versus-two detector sees an arrow although every singleton
+detector in the same stationary chain obeys the theorem.
+
+\section{A switched reversible channel exposes a current}
+
+Let $L$ be a second generator reversible with respect to the \emph{same}
+$\varpi$. For a nonnegative control amplitude $\eta$,
+\begin{equation}
+ (Q+\eta L)^\dagger=Q^\dagger+\eta L,\qquad
+ \varpi_i(Q_{ij}+\eta L_{ij})-\varpi_j(Q_{ji}+\eta L_{ji})
+ =J_{ij},
+\end{equation}
+where $J_{ij}=\varpi_iQ_{ij}-\varpi_jQ_{ji}$. All settings preserve the
+stationary probabilities and net currents. Every frozen setting therefore
+retains singleton reversal blindness. Different independently prepared
+records can select frozen amplitudes adaptively without removing the
+obstruction: equal conditional record laws imply equal transcript laws.
+
+Within a record, apply $Q+\eta L$ for time $t$ followed by $Q$ for time $s$.
+Read the singleton only at the endpoints. Let $p_{AB}$ be the joint return
+probability, and let $p_{BA}$ reverse the order of these same two stages.
+
+\begin{proposition}[Protocol-order current witness]
+\label{prop:continuous-switch}
+With the common stationary preparation,
+\begin{align}
+ p_Q^{AB}-p_{Q^\dagger}^{AB}
+ &=p_Q^{AB}-p_Q^{BA}\nonumber\\
+ &=\varpi_i[e^{t(Q+\eta L)}e^{sQ}
+                    -e^{sQ}e^{t(Q+\eta L)}]_{ii}.
+ \label{eq:continuous-switch}
+\end{align}
+If $L$ acts only on $i\leftrightarrow j$, then
+\begin{equation}
+ \left.\partial_t\partial_s(p_{AB}-p_{BA})\right|_{0,0}
+       =-\eta L_{ji}J_{ij}.
+ \label{eq:continuous-current}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The $\varpi$-adjoint reverses product order and preserves diagonal entries.
+This proves the first identity. The mixed coefficient of the commutator is
+$\eta[L,Q]$. Detailed balance for $L$ then gives
+\[
+ \varpi_i[L,Q]_{ii}
+  =\varpi_i(L_{ij}Q_{ji}-Q_{ij}L_{ji})=-L_{ji}J_{ij}.
+\]
+\end{proof}
+
+Comparing protocol orders can be performed on one physical system; no
+apparatus that reverses its hidden drive is required. This is a specific way
+in which histories enlarge access. The observable diagonal commutator is
+essential: noncommutativity elsewhere need not reach the detector.
+Common stationarity is also essential. Two individually reversible generators
+with different equilibria may show an order contrast from preparation and
+relaxation alone. Adding a balanced \emph{parallel} channel is generally
+different from multiplying the rates of a driven channel by a common factor.
+
+The smallest driven cycle gives a reproducible example:
+\begin{equation}
+ Q_F=\begin{pmatrix}-2&1+F&1-F\\1-F&-2&1+F\\1+F&1-F&-2\end{pmatrix},
+ \quad L=\begin{pmatrix}-1&1&0\\1&-1&0\\0&0&0\end{pmatrix},
+ \quad |F|<1.
+ \label{eq:continuous-triangle}
+\end{equation}
+Here $\varpi=(1,1,1)/3$, $Q_F^\dagger=Q_{-F}$ and $J_{01}=2F/3$.
+For the detector at state zero, the exact contrast is
+\begin{equation}
+ \Delta=-\frac{2\eta}{3\sqrt3}e^{-3(t+s)-\eta t}
+    \frac{\sinh(\kappa t)}{\kappa}\sin(\sqrt3Fs),
+ \qquad \kappa^2=\eta^2-3F^2.
+ \label{eq:continuous-exact}
+\end{equation}
+The quotient has its entire continuation when $\kappa=0$ or is imaginary.
+To derive it, write $P=\mathbf1\mathbf1^{\mathsf T}/3$, $R_0=I-P$ and
+$C=(Q_F+3R_0)/F$, defined by continuation at $F=0$.
+On the zero-sum subspace, $C^2=-3R_0$, $(L+R_0)^2=R_0$, and
+$C(L+R_0)+(L+R_0)C=0$. Expanding the two matrix exponentials into their even
+and odd parts and using $[L,C]_{00}=-2$ gives
+Eq.~\eqref{eq:continuous-exact}. At fixed positive lags, jointly as
+$(F,\eta)\to(0,0)$,
+$\Delta=-(2/3)ts e^{-3(t+s)}F\eta+o(F\eta)$.
+Full-support endpoint probabilities in this local regime then yield divergence
+$\Theta(F^2\eta^2)$ and simple-hypothesis fixed-error record cost
+$\Theta((F\eta)^{-2})$.
+
+\section{An autonomous equilibrium gate}
+
+An external switch is not the only source of a history. Let a finite controller
+have reversible generator $R$, positive stationary distribution $\nu$, and
+nonnegative amplitude profile $u_c$. On joint states $(c,x)$ set
+\begin{equation}
+ G_Q=R\otimes I+I\otimes Q+U\otimes L,\qquad
+ U=\operatorname{diag}(u),\qquad
+ \Pi=\nu\otimes\varpi.
+ \label{eq:continuous-gate}
+\end{equation}
+Then $\Pi G_Q=0$ and $G_Q^\dagger=G_{Q^\dagger}$. The controller evolves
+independently of $x$, but its history modulates the system kinetics. Retaining
+or discarding the controller record gives different access contracts.
+
+Suppose $L$ acts on $i\leftrightarrow j$ with
+$p=L_{ij}>0$, $q=L_{ji}>0$, $\varpi_i p=\varpi_jq$. Define
+\begin{equation}
+ \mathcal D_R(u)=-\sum_c\nu_cu_c(Ru)_c
+ =\frac12\sum_{c,d}\nu_cR_{cd}(u_d-u_c)^2.
+ \label{eq:continuous-dirichlet}
+\end{equation}
+This nonnegative kinetic Dirichlet form has inverse-time units when $u$ is
+dimensionless. It is not an energy in joules. It vanishes exactly when $u$
+is constant on each communicating component with positive stationary weight.
+
+\begin{theorem}[Hidden-gate current coefficient]
+\label{thm:continuous-gate}
+For $Y=\mathbf1_{\{X=i\}}$ in the stationary joint process, let
+$H_Q(t,s)=\Pr(Y_0=Y_t=Y_{t+s}=1)$. Then
+\begin{equation}
+ H_Q(t,s)-H_Q(s,t)
+ =\frac{pqJ_{ij}}6\mathcal D_R(u)\,ts(s^2-t^2)+O((t+s)^5).
+ \label{eq:continuous-gate-coefficient}
+\end{equation}
+Consequently $J_{ij}\ne0$ and $\mathcal D_R(u)>0$ suffice for the hidden-gate
+binary record to distinguish $Q$ from its stationary reverse.
+\end{theorem}
+\begin{proof}
+Let $E_n(Q)$ be the controller matrix with entries
+$(G_Q^n)_{(c,i),(d,i)}$, and put $M=R+Q_{ii}I-pU$.
+Block multiplication gives $E_0=I$, $E_1=M$, and
+\begin{equation}
+ E_2(Q)=E_2(Q^\dagger),\qquad
+ E_3(Q)-E_3(Q^\dagger)=K:=\frac{qJ_{ij}}{\varpi_i}[R,U].
+\end{equation}
+For completeness, $E_2=M^2+\operatorname{diag}_c
+\sum_{k\ne i}(Q_{ik}+u_cL_{ik})(Q_{ki}+u_cL_{ki})$; each scalar product is
+unchanged by reversal. In the cubic expression, terms with no controller
+transition are diagonal entries of $(Q+u_cL)^3$ and agree under reversal.
+Terms with two or three controller factors depend only on the system
+diagonal. The remaining contrast comes from a controller transition between
+two system factors; its $cd$ entry is
+\[
+ R_{cd}[(Q+u_cL)(Q+u_dL)-(Q+u_dL)(Q+u_cL)]_{ii}
+ =\frac{qJ_{ij}}{\varpi_i}R_{cd}(u_d-u_c).
+\]
+Writing $E_Q(t)=\sum_n E_n(Q)t^n/n!$ gives
+$H_Q(t,s)=\varpi_i\nu E_Q(t)E_Q(s)\mathbf1$.
+Stationary reversal makes $H_{Q^\dagger}(t,s)=H_Q(s,t)$.
+Terms with one zero lag degree reduce to reversible stationary binary pairs;
+all other terms below total degree four vanish, as does the $(2,2)$ term.
+Finally, $R\mathbf1=0$, $\nu R=0$ and Eq.~\eqref{eq:continuous-dirichlet}
+imply
+\[
+ \varpi_i\nu MK\mathbf1=pqJ_{ij}\mathcal D_R(u),\qquad
+ \varpi_i\nu KM\mathbf1=-pqJ_{ij}\mathcal D_R(u).
+\]
+The $(1,3)$ and $(3,1)$ Taylor factors are $1/6$, proving the result.
+\end{proof}
+
+For the triangle in Eq.~\eqref{eq:continuous-triangle}, hidden-gate
+orientation is identifiable if and only if $F\ne0$ and
+$\mathcal D_R(u)>0$. Sufficiency follows from the theorem; if the form
+vanishes, conditioning on a stationary controller component reduces the
+system to a frozen setting, which is reversal blind. In a general network,
+the theorem is only a sufficient condition. A zero current on the controlled
+edge can coexist with higher-order signals from other cycles. With several
+controlled edges, different current contributions can also cancel.
+
+For $\mathcal D_R(u)>0$, the coefficient supplies a finite-lag estimator.
+With four readings separated
+by $\tau$, define $Z_\tau=Y_0Y_{3\tau}(Y_\tau-Y_{2\tau})\in[-1,1]$.
+For any $\Lambda\geq\|G_Q\|_\infty$, the induced matrix norm, Taylor's theorem
+and stochastic contraction give
+\begin{equation}
+ \left|\frac{\mathbb E Z_\tau}{pq\mathcal D_R(u)\tau^4}-J_{ij}\right|
+ \leq\frac{\varpi_i(3\Lambda)^5\tau}{60pq\mathcal D_R(u)}=:B_\tau.
+ \label{eq:continuous-gate-bias}
+\end{equation}
+Indeed each fifth derivative of a triple probability, viewed along
+$(t,s)=(\lambda\tau,2\lambda\tau)$, is at most
+$\varpi_i(3\Lambda\tau)^5$; the two Taylor remainders contribute a factor
+$2/5!$. For $M$ independent preparations, Hoeffding gives a valid radius
+\begin{equation}
+ B_\tau+\frac{\sqrt{2\log(2/\alpha)/M}}
+                   {pq\mathcal D_R(u)\tau^4}
+ \label{eq:continuous-gate-ci}
+\end{equation}
+at confidence $1-\alpha$. The coefficients, escape bound, and balance
+assumptions need calibration. Small lag reduces bias but sharply amplifies
+sampling noise. This conservative guarantee is not a claim of practical
+precision or minimax optimality; the archived benchmark's bias constant is
+$88473.6\tau$. Correlated windows from one trajectory need mixing or
+conditional-martingale bounds rather than the independent-record formula.
+Third-order time asymmetry itself has established spectroscopy precedents
+\cite{physics-qian}; the specific content here is the edge-current coefficient
+and its access conditions.
+
+\section{Assigning physical expenditure}
+
+An action charge becomes an energy only through an implementation. Preserve
+distinct physical reaction channels $r$ even if they connect the same states.
+Under channel-resolved local detailed balance, stationary entropy production
+is
+\begin{equation}
+ \frac{\dot S_{\rm tot}}{k_B}
+  =\sum_{i<j,r}(\varpi_iq^r_{ij}-\varpi_jq^r_{ji})
+       \log\frac{\varpi_iq^r_{ij}}{\varpi_jq^r_{ji}}.
+ \label{eq:continuous-entropy}
+\end{equation}
+Merging parallel channels can erase chemical cycles and lower this expression.
+Thermodynamic meaning requires specified reservoirs and local detailed
+balance; a statistically reversible fitted transition is not automatically a
+passive thermal device \cite{physics-rao}.
+
+For the triangle, one realization uses degenerate molecular conformations
+and fueled clockwise reactions with forward/backward rates $1+F$ and $1-F$.
+The chemical affinity per net forward event is
+$A_F=\log[(1+F)/(1-F)]$, and the added channel is a separate unfueled
+balanced pathway. A reversible autonomous gate can have energies
+$E_c=-k_BT_b\log\nu_c+\mathrm{constant}$ in a bath at $T_b$. In this channel
+assignment,
+\begin{equation}
+ \frac{\dot S_{\rm drive}}{k_B}=2F\log\frac{1+F}{1-F},\qquad
+ \dot S_{\rm gate}=\dot S_{\rm added}=0.
+ \label{eq:continuous-energy}
+\end{equation}
+The gate preserves the native mean drive entropy-production rate. This does
+not supply free preparation, detection, clocking, control, or memory reset.
+Nor do chemical rate ratios alone determine literal heat rather than chemical
+free-energy expenditure.
+
+For $M$ independently prepared stationary records of duration $T$, the mean
+drive free-energy loss is
+$E_{\rm drive}=Mk_BT_bT\,2F A_F$. In this particular model, the KL divergence
+between opposite-drive laws of the full channel-labelled trajectories is
+exactly $E_{\rm drive}/(k_BT_b)$. The log likelihood ratio is
+$A_F(N_{\rm cw}-N_{\rm ccw})$: initial laws and escape rates agree, while
+passive-channel jumps contribute zero. Its mean signed jump count is $2FMT$.
+Data processing and Pinsker consequently imply
+\begin{equation}
+ \operatorname{TV}(P_{\rm observed},P_{\rm reversed\ drive})
+ \leq\min\left\{1,\sqrt{\frac{E_{\rm drive}}{2k_BT_b}}\right\}.
+\end{equation}
+This is a model-specific inference--expenditure relation, not a universal
+replacement for Landauer's erasure bound or a guarantee that observed
+irreversibility equals total dissipation.
+
+Mean expenditure and a physical safety cap also differ. If fueled events form
+a nonexplosive simple counting process $N_t$, $N_0=0$, with actual predictable
+intensity $\lambda_t$ and compensator $A_t=\int_0^t\lambda_s\,ds$, then
+\begin{equation}
+ Z_t(\theta)=\exp\{\theta N_t-(e^\theta-1)A_t\},\qquad\theta>0,
+\end{equation}
+is a nonnegative local martingale and hence a supermartingale. For a bounded
+stopping time $\tau$,
+\begin{equation}
+ \Pr(N_\tau\geq n,\ A_\tau\leq\mu)
+ \leq\exp[-n\log(n/\mu)+n-\mu],\qquad n>\mu>0.
+ \label{eq:continuous-energy-tail}
+\end{equation}
+On the event in question, $Z_\tau$ is at least
+$\exp[\theta n-(e^\theta-1)\mu]$; optional stopping, Markov's inequality and
+$\theta=\log(n/\mu)$ prove the bound. If each supplied event costs at most
+$w_{\max}$, a gross-expenditure envelope
+$W\leq w_{\max}N_\tau+W_{\rm apparatus}$ converts it to an energy statement.
+The intensity bound and apparatus term must describe the actual experiment.
+A net dissipation formula cannot silently replace gross fuel supplied.
+
+\section{From a mathematical channel to an apparatus}
+
+The direct physical test of the gate construction has four requirements.
+First, measure the native and added channels separately, including their
+rate ratios, rather than fit only their sum. Second, verify that all gate
+settings share the required stationary distribution to within a declared
+calibration envelope. Third, measure the gate rates and profile, and test
+frozen-gate, constant-profile, and zero-current controls. Fourth, vary lag and
+controlled edge to test the predicted current coefficient and its remainder.
+Full expenditure must include rejected preparations, gaps between records,
+sensing, control, and data storage under the chosen resource boundary.
+
+Fast hidden intermediates introduce a measurement-resolution issue. An
+effective added edge can be obtained by eliminating short-lived states, but
+agreement on a fixed finite sampling grid does not automatically imply
+agreement of complete, arbitrarily high-bandwidth paths. The intervention
+and detector bandwidth must be calibrated together. These requirements are
+the bridge from a usable theorem to a physical claim; the present examples
+provide no new measured apparatus data.

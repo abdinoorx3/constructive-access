@@ -1,0 +1,219 @@
+CALIBRATED REVERSIBLE MOMENTS AND THE ZERO-LAG ACCESS BOUNDARY
+Abdinoor / 2D Labs — 2026-10-12 UTC
+
+Status: derivations, exact examples, API and twelve producer tests complete.
+Independent code/proof checks and full initial manuscript review passed.
+The additional analog upper-bound corollary was then requested, tested and
+independently reviewed. Its upper-only transfer, shared-noise distinction and
+joint confidence-budget calculation passed review. Files are frozen.
+The results concern a declared finite classical Markov class and restricted
+binary observations. They are not empirical physical validation or a priority
+claim for spectral moment theory.
+
+1. What is calibrated
+Let X have stationary law pi. A noninvasive binary reading Y in{-1,1} has fixed
+conditional mean f_i=E[Y|X=i]. Define
+  m=sum pi_i f_i, A=sum pi_i f_i^2, u=m^2, 0<=u<=A<=1.
+For two readings with conditionally independent noise at the SAME UNCHANGED
+hidden state, E[Y^(1)Y^(2)]=A, so their agreement probability is(1+A)/2.
+A is not E[Y^2], which is identically1. Within-pair readings are generally
+marginally dependent through X; treating them as2N independent observations is
+incorrect. Independent same-state pairs across records suffice for the API.
+
+For instantaneous detectors m and A agree under Q and its additive reversible
+reference S, since they use the same pi and f. They need not agree for nonlinear
+finite-exposure path functionals. The previous disjoint-block contract therefore
+requires separate reference calibration in that case. A deterministic binary
+state detector already has A=1. A trusted observation of f(X) gives A directly
+through f(X)^2; this is additional access and bypasses the binary-only obstruction.
+
+1a. Upper calibration from a noisy analog channel
+For bounded Z in[-1,1] produced by a fixed memoryless noninvasive channel,
+ f_i=E[Z|X=i], m=E Z, A=E f(X)^2 <= B=E Z^2,
+with B-A=E Var(Z|X). Distinct-time product correlations equal the desired hidden
+observable correlations when endpoint noise is conditionally independent.
+The same pi and detector channel under Q and S imply the same m and B.
+A valid upper bound B_U therefore supplies A<=B_U without same-state twins.
+A lower bound on B does NOT supply a lower bound on A. For binary Z, B=1 and
+this shortcut is vacuous. For Z=X/4+epsilon/2 with independent fair signs,
+A=1/16 but B=5/16. Two random binary encodings of the same noisy analog Z have
+product expectation B, not A, because they share epsilon.
+analog_vertices accepts any valid simultaneous mean/Bupper bounds, including
+ones obtained with a dependence-aware calibration. analog_calibration_summary
+is explicitly restricted to iid calibration records and uses separate Hoeffding
+radii for bounded[-1,1] means and bounded[0,1] squares. It must not be applied
+to an untreated dependent trajectory. This corollary does not transfer arbitrary
+nonlinear exposure second moments from Q to S.
+
+2. Exact calibrated comparison class
+For deterministic commensurate positive lags k Delta, the CLOSED correlation
+class of finite stationary reversible chains with fixed(m,A) is exactly
+  C_k = u+(A-u) integral_[0,1] x^k mu(dx),
+  q_k = (1+C_k)/2,
+where mu is a probability measure. The result includes all finite menus of
+positive integer k. Atom0 is a closure point corresponding to arbitrarily fast
+relaxation. Detector noise affects A but does not alter the positivity proof.
+
+Necessity is the established reversible spectral theorem. To prove sharpness,
+first take any finite atomic mu. If A=u, a constant detector f=m suffices.
+Otherwise m<1 and the two detector values
+  a=(m-A)/(1-m), 1
+lie in[-1,1]. Let r=(m-a)/(1-a). In every spectral block use stationary weights
+(r,1-r), detector(1,a), and generator
+  Q_x=(-log x / Delta)(1 pi-I).
+Its mean is m, its second moment A, and its correlation is
+m^2+(A-m^2)x^k. Mix blocks with the atomic weights. Positive atoms have finite
+rates; replace zero atoms by small positive atoms for arbitrary accuracy.
+Any finite moment vector has an atomic representation with at mostK+1 atoms,
+by the finite-dimensional convex hull theorem. Thus at most2(K+1) block states
+suffice before any simplification. Adding epsilon(1 pi-I) makes the full model
+irreducible without changing m,A,pi, and converges to the desired moments as
+epsilon goes to zero. The closed class is therefore sharp even if physical
+comparison models are required to be irreducible.
+
+Clock note: a compatible random-clock family preserves this calibrated cone as
+an outer class. It need not realize every point of the deterministic-lag cone;
+the sharpness statement is specifically for commensurate deterministic lags.
+
+3. Uncertain calibration and support certificates
+A simultaneous interval m in[mL,mU] maps exactly to u in[uL,uU], with uL=0 if
+the interval crosses zero and otherwise its smallest endpoint square; uU is the
+largest endpoint square. Together with A in[AL,AU], the feasible parameter set is
+that rectangle intersected with0<=u<=A<=1. calibration_vertices returns exact
+rational vertices. No physical model is inferred if the confidence region is
+empty; that is reported as an incompatible calibration region.
+
+For coefficients c_k and p_c(x)=sum c_k x^k, the support of the correlation class
+at fixed(u,A) is
+  u sum c_k+(A-u) max_{x in[0,1]} p_c(x).
+For agreement probabilities, add(sum c_k)/2 and divide the correlation support
+by2. Optimizing over the parameter polygon reduces to its vertices. Equivalently
+the full calibrated class is the convex hull of q(u,A,x) at polygon vertices and
+x in[0,1]: mixing vertices produces an effective(u,A), and its residual measure
+is reweighted by A-u. All weights are nonnegative. The API certifies the
+continuous polynomial maximum using rational Bernstein subdivision; a grid is
+used only for a lower comparison, not as the upper certificate.
+
+Without a relaxation-rate upper bound, fixed-A classes are nested in A at fixedu.
+Extra variance can be put at x=0. Therefore an upper A calibration sharpens
+positive-lag inference, while a lower A alone does not force more visible signal.
+A lower bound on spectral x (an upper relaxation-rate bound) changes this fact.
+
+For iid same-state pair records, counts(++,+-,-+,--) give
+ mhat=(n++-n--)/N,
+ Ahat=(n+++n---n+--n-+)/N.
+Each is an average of N bounded[-1,1] variables. A common radius
+ sqrt(2 log(4/alpha)/N)
+gives a simultaneous confidence rectangle by Hoeffding and a union bound, without
+assuming within-pair independence except where it identifies A. Calibration
+failure probability must be added once to the subsequent inference error.
+
+4. A test not requiring a negative correlation or revival
+At lags t,2t, x-x^2<=1/4 gives the sharp population bound
+  q(t)-q(2t) <= (A-m^2)/8.
+A single reversible two-state block with x=1/2 attains it. Calibrating A therefore
+can detect decay that is too steep even when both correlations stay positive and
+strictly decrease. This is a consequence of the calibrated spectral class, not
+a claim that monotone decay universally signifies dissipation.
+
+Synthetic finite-bias example: four-state cycle with clockwise rate3, reverse
+rate1, uniform stationary law and conditional detector means
+(1/2,1/2,-1/2,-1/2). Then m=0,A=1/4 and
+ C(t)=(1/4)e^(-4t)cos(2t).
+At t=7/40 and2t, exact series bounds certify q(t)-q(2t)>
+0.03473386533798, exceeding the calibrated reversible limit1/32 by more than
+0.00348386533798. Both correlations are positive. The uncalibrated contrast
+ceiling1/8 does not detect this example. The true model entropy rate is2 log3,
+which is not asserted to equal the record-inferred lower bound. All are population
+calculations; no fabricated samples or claimed experimental sensitivity.
+
+5. Exact finite-menu nonidentifiability of A
+For every K>=1 there are finite IRREDUCIBLE reversible models with identical
+binary-pair probability laws at every integer lag1,...,K and different A.
+Let x_j=j/(K+2), j=1,...,K+1, and signed coefficients
+ v_j=(-1)^j binom(K+1,j).
+For1<=k<=K, sum v_j x_j^k=0 by the vanishing(K+1)st finite difference of a
+degree-k polynomial. But sum v_j=-1. Split the positive and negative coefficients
+and multiply them by s=(2^(K+1)-1)^(-2). The resulting positive spectral measures
+have equal positive moments and different total masses.
+
+An explicit irreducible realization of each measure uses independent symmetric
+telegraph coordinates Z_j with decay x_j^t and the bounded stochastic detector
+ f(Z)=sum_j sqrt(s|v_j|) Z_j.
+The sum of absolute detector amplitudes is at most
+ sqrt(s) sum|v_j|<=1, so f lies in[-1,1]. Independent coordinates make the
+correlation exactly the desired spectral sum. All coordinate rates are positive
+and finite, hence their product chain is irreducible. Detector mean is zero.
+The full stationary binary-pair law is determined by C(t):
+ P(Y0=a,Yt=b)=(1+ab C(t))/4.
+Thus every amount of independent sampling at the unchanged finite pair menu is
+incapable of identifying A. Higher-order temporal records, known detector shape,
+true same-state replicate access, or further model restrictions can distinguish
+the models. The theorem does not equate their full output trajectories.
+
+A small stronger-scaled example has high spectrum weights3/16 atx=1/4 and1/16
+atx=3/4 (A=1/4), versus weight3/16 atx=1/2 (A=3/16). Both give C1=3/32 and
+C2=3/64. They require respectively4 and2 hidden states, are irreducible, and
+have all exit rates below1. Consequently even a finite rate cap does not imply
+exact identification from a fixed finite positive-lag menu.
+
+6. Uniform finite-precision obstruction, beyond a fixed menu
+Compare iid fair binary outputs with a reversible two-state chain having detector
+means +/-sqrt(A) and correlation A e^(-lambda t). Their binary-pair TV distance
+is A e^(-lambda t)/2. For N independent pair records, each at lag>=t_min>0,
+transcript TV is at most N A e^(-lambda t_min)/2. Thus fixed order-one differences
+in A can be hidden at arbitrary finite precision by increasing lambda, even
+though every model has zero stationary entropy production. With N=1000,t_min=.1,
+A=1,lambda=200, the exact upper bound is below1.031e-6.
+The statement extends to any finite independent clock menu with no atom at zero:
+E e^(-lambda T) tends to0 by dominated convergence. An atom at genuine same-state
+zero time is different. Exact noiseless knowledge of an entire analytic correlation
+function on an interval is also different; no finite-data claim is made for that
+idealized access.
+
+7. What a kinetic cap repairs
+For any stationary finite homogeneous CTMC, including nonreversible ones,
+  A-C(t) = E[(f(X_t)-f(X_0))^2]/2 >=0.
+If every exit rate is at most Lambda, a first-jump bound gives
+  0<=A-C(t)<=2(1-e^(-Lambda t)).
+This provides a rigorous interval for A from a short delayed-pair confidence
+interval, without assuming the reversible null that is later tested. An average
+stationary jump-rate bound J also gives A-C(t)<=2Jt. Rate information repairs
+uniform approximation as t approaches zero; it does not assert exact finite-menu
+identifiability. A bound on energy dissipation alone supplies neither kinetic
+cap: the arbitrarily fast reversible countermodels dissipate no stationary heat.
+Converting a separately measured activity bound into an energetic constraint
+requires a stated microscopic energy-per-event assumption.
+
+8. Calibration failures that can mislead inference
+If Y1=Y2 is the same noisy bit, the product is1 even when f=0 and A=0.
+More seriously, conditionally anti-correlated readout noise can underestimate A.
+For hidden means +/-1/2, use conditional joint laws(++, +-, -+, --)
+ (1/2,1/4,1/4,0) and(0,1/4,1/4,1/2).
+Both readers have the correct marginal mean, but their product expectation is0
+instead of A=1/4. Pooled calibration looks feasible and can incorrectly exclude
+an equilibrium positive correlation. Conditional independence is a physical
+premise, not something verified by the marginal count table alone. Sequential
+measurements with unbounded unknown hidden motion or measurement backaction do
+not implement the same-state protocol.
+
+9. Reproducibility and review
+contracts/calibration.json was saved before producing results. Twelve tests cover
+exact polygon geometry, continuous support bounds, balanced realizations, paired
+calibration, dependent sensor noise, exact positive-lag ambiguity, irreducible
+telegraph implementations, fast-mode TV, nonreversible kinetic calibration and
+steep-decay detection. Numerical seeds760381 and760382. One initial binary64
+comparison of two nearly equal TV bounds differed by one ulp; it was replaced
+by an independent100-digit mpmath comparison. All producer tests then passed.
+Independent redteam checks separately verified realizations, K1..9 moment
+countermodels, support bounds and a nonreversible delayed-calibration example.
+Commands:
+ PYTHONPATH=discovery_program/virtual_laboratory/release/src python discovery_program/calibrated_inference/code/calibration.py
+ PYTHONPATH=discovery_program/virtual_laboratory/release/src python -m unittest discover -s discovery_program/calibrated_inference/tests -p test_calibration.py -v
+
+Prior mathematics: reversible spectral decompositions, truncated moment problems,
+finite-difference identities, conditional replicate covariance and Hoeffding
+concentration are established. The scoped contribution is the integrated sharp
+calibrated comparison class, executable error accounting, and explicit physical
+access/countermodel boundary within this inference framework. Historical priority
+remains separately assessed.

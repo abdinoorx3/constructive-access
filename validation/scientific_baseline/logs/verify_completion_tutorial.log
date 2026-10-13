@@ -1,0 +1,1 @@
+{"output": "results/completion_tutorial.json", "records_per_arm": 110192, "energy_check": {"verified": true, "structurally_feasible": true, "lower_energy": "6400", "upper_energy": "6400", "absolute_gap": "0", "global_optimum_certified": true}}

@@ -1,0 +1,96 @@
+2026-10-12T22:52:32Z — Retiming repair completed and independently checked.
+
+Goal: turn the exact noisy-family population obstruction into a specific
+experimental repair, preserving the same bounded detector. This is a
+model-assisted timing change after the earlier failure, evaluated on new
+held-out records. It is not an automatic discovery of an optimal unknown lag.
+
+The earlier exact audit proved sup_s g_s< -0.007 at lags 0.1 and 0.2 for
+the noisy 20-state ring. New rational uniformization at lag tau=1/2 shows
+C(tau) approximately -0.0732037920436105. At s=0 and semigroup half-lag
+t=tau/2, the direct defect is -C(tau); coefficients on C0 and C(t) vanish.
+No dedicated zero-lag calibration or half-lag readings are required.
+Physical calibration of detector bounds/stability/memory, time and
+stationary preparation still is required.
+
+Finite-data certificate from W=(1+Z0 Ztau)/2 in [0,1]:
+g=[.5 - mean(W) - sqrt(log(1/alpha)/(2n)) - numerical_error
+   - conditional_mean_radius]+.
+Then sigma >= 2 Phi(2g)/tau >= 8g/tau, using spectral_dynamics.from_gap(g,
+lag_unit=tau/2). The same confidence event supplies both physical bounds.
+Concentration requires independent stationary pairs or explicit conditional
+mean control given the entire past; marginal stationarity is insufficient.
+
+New frozen contract created before production at 2026-10-12T22:50:14Z:
+seed 394817622; 400 datasets each of clean driven, clean equilibrium,
+noisy driven, noisy equilibrium. Driven rates 20 and 1; equilibrium rates
+10.5 and 10.5. Detector is the exact previously rounded cosine, denominator
+4096; noisy channel is half cosine plus independent fair noise of amplitude
+one half. New lag .5, 1,800 pairs, alpha .05. Baseline actual joint_analog
+API retains s=.5 and .75, with 4,000 calibration singles and 3,000 pairs
+at each lag .1 and .2, using the stronger direct bridge. Fresh baseline
+and retimed data are generated independently within each model.
+
+Declared resources: 900 evolution-time units for every design. New design
+has 1,800 stationary pair preparations, 1,800 acquisitions, 3,600 readings.
+Baseline has 10,000 stationary acquisitions, 16,000 readings. New design
+uses 22.5% as many readings. Preparation/reset/readout/processing overhead
+and energy are unmeasured, not zero. No equality of total wall time or
+calibrated joule saving is claimed.
+
+Held-out results:
+Clean driven: all three methods 400/400 positive. New mean lower bound
+2.0544955427224165; old .5 mean .6216398458096168; old .75 mean
+.9004106319069421. Actual sigma 56.918913197525825.
+Noisy driven: new 386/400 positive, old methods 0/400 each.
+New mean bound .124947263878041 (0.219518% of actual sigma).
+Nominal Wilson 95% Monte Carlo interval on positive fraction:
+[.9421148604670819, .9790387058020222].
+Clean and noisy equilibrium: all methods 0/400.
+No empirical bound exceeded true model sigma in these 1,600 datasets.
+This does not establish a zero statistical failure probability; proofs
+retain the stated 5% individual failure allowance.
+
+Exact population nonlinear bound .6005829183899982; linear
+.585630336348884. The larger remaining gap to microscopic entropy is
+reported. Model-assisted timing repairs detection, not dissipation recovery.
+
+Failure contract: a one-state equilibrium target plus a hidden driven
+sensor ring can produce the same output law as the noisy driven example.
+The full target-plus-sensor process dissipates, but target-only sigma is
+zero. The detector memory exclusion or enlarged system boundary is necessary.
+Odd-variable equilibrium also requires a different reversal argument.
+
+Reproduction:
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+PYTHONPATH=/workspace/discovery_program/calibrated_inference/release/src \
+python /workspace/discovery_program/physical_attainability/code/retiming.py \
+--root /workspace/discovery_program/physical_attainability
+
+Producer tests: eight pass via
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+PYTHONPATH=/workspace/discovery_program/calibrated_inference/release/src \
+python -m unittest discover \
+-s /workspace/discovery_program/physical_attainability/tests \
+-p test_retiming.py -v
+
+Independent reviewer added six checks: exact fair-coin null rejection bound,
+independent 100-digit Fourier enclosure, all fresh rates, raw exemplar and
+resource/hash reconstruction, error propagation and unsupported-contract
+refusals. Reviewer suite now 29/29 passing; no mathematical/computational
+blocker reported. Final chapter wording review requested separately.
+
+Contract SHA256:
+550f061648b48c37e2a0f84d21911fc5f8c17d44ad5ec863d42e9fbacd4abc8b
+Code SHA256:
+27c2d05eee70fce4243a03d14251c3bdaf2054151d6ea1fd2f6063287fa859e0
+Result SHA256:
+3cdffbebdfbb3dc5fe52f10045c66269b1e2d0ab0aa03a0d4e56681b8217bd80
+Raw archive SHA256:
+1bdf5aaaa903148b12a06f5eb75227c2b705ed4bf4e01a019561c7d955fa4d4d
+
+No old files were edited. All new results are synthetic or exact model
+calculations; external peer review and new physical experiments are absent.
+Closest prior ingredients include reversible semigroup positivity, negative
+correlation diagnostics, temporal-correlation entropy inference, Hoeffding
+concentration, and the direct bridge already developed in this phase.

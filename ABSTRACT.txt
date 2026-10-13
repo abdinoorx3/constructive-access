@@ -1,0 +1,29 @@
+Constructive Access: A Unified Reference for Inference under Restricted Physical Access
+Abdinoor / 2D Labs / 13 October 2026
+
+Scientific conclusions depend on the distinctions an apparatus preserves. This
+monograph and research toolkit organize inference around an access contract:
+the target, admissible mechanisms, preparation, interventions, detector,
+calibration, error criterion and physical resources. Accessible record laws
+provide a common language for classical and quantum instruments, statistical
+decisions and thermodynamic inference. Exact certificates, distinguishing
+protocols, finite-data confidence bounds and countermodels make the framework
+constructive.
+
+A central result concerns reversible scalar observations that nevertheless
+require positive entropy production from every compatible realization within
+a specified ordinary smooth compact hidden-diffusion class. The attained
+minimum extends to an unobserved stochastic drive with zero mean angular
+current. A replicated polynomial hierarchy connects these ideal-law results
+to finite detector records, propagating uncertainty in diffusion scale, gain
+and exposure under an explicit pointwise geometric relation and generator
+bounds. Rare-region constructions show why those global assumptions cannot
+be inferred without further structure.
+
+The reference develops these results alongside hidden-state requirements,
+intervention design, sampling ambiguities and resource tradeoffs. Reproducible
+simulations retain calibration costs and unsuccessful regimes; published
+measurement reanalysis remains exploratory. Established mathematical ingredients
+are attributed separately from the constructions presented here. External
+expert review, historical priority and new experimental validation
+remain open.

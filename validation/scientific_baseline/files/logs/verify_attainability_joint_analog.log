@@ -1,0 +1,21 @@
+driven: 100/400
+driven: 200/400
+driven: 300/400
+driven: 400/400
+{"case": "driven", "detections": {"joint_analog": 399, "joint_analog_tuned": 399, "joint_coin_tuned": 361, "split_analog": 377, "split_analog_tuned": 379, "split_coin": 293}}
+equilibrium: 100/400
+equilibrium: 200/400
+equilibrium: 300/400
+equilibrium: 400/400
+{"case": "equilibrium", "detections": {"joint_analog": 0, "joint_analog_tuned": 0, "joint_coin_tuned": 1, "split_analog": 0, "split_analog_tuned": 0, "split_coin": 0}}
+noisy_driven: 100/400
+noisy_driven: 200/400
+noisy_driven: 300/400
+noisy_driven: 400/400
+{"case": "noisy_driven", "detections": {"joint_analog": 0, "joint_analog_tuned": 0, "joint_coin_tuned": 0, "split_analog": 0, "split_analog_tuned": 0, "split_coin": 0}}
+invalid_detector_gain_equilibrium: 100/400
+invalid_detector_gain_equilibrium: 200/400
+invalid_detector_gain_equilibrium: 300/400
+invalid_detector_gain_equilibrium: 400/400
+{"case": "invalid_detector_gain_equilibrium", "detections": {"joint_analog": 400, "joint_analog_tuned": 400, "joint_coin_tuned": 400, "split_analog": 400, "split_analog_tuned": 400, "split_coin": 395}}
+/tmp/constructive-access-clean-u5dilc0q/reference/attainability/results/joint_analog.json

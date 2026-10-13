@@ -1,0 +1,166 @@
+FINITE RANDOM-CLOCK CERTIFICATES FOR CLASSICAL REALIZATION DIMENSION
+Abdinoor / 2D Labs — research record, 2026-10-12 UTC
+
+Status: complete producer proof and implementation; independent internal review
+completed for both analytic bounds. No laboratory data, historical priority claim, or new physical law.
+
+Question and pivot
+The exact CTMC spectral wedge and its application to observable quantum dynamics
+are established. Wolf and Pérez-García (2009) already obtain arbitrarily large
+classical/quantum realization gaps. An oscillatory fit to noisy finite data does
+not establish the existence of an exact pole, especially with unrestricted hidden
+rates and modes. This branch replaces a fitted pole by finitely many directly
+sampled bounded probabilities at independent Erlang clocks. The resulting bound
+has a small but strictly positive error tolerance, without an exit-rate cap.
+
+Classical contract
+A finite, time-homogeneous, conservative row generator Q has at most n states.
+Every trial has the same unknown initial probability row rho and fixed unknown
+binary response vector f in [0,1]^n. The random sampling time is independent of
+the physical process, and neither its choice nor its phase changes Q, rho, or f.
+The hypothesis includes reducibility, nonnormality, defective matrices and noisy
+fixed readout. It excludes uncontrolled time-dependent driving, correlated clock
+noise, drifting preparations/readout, and uncounted dynamical hidden states.
+The independent random clock is an experimental control and is not coupled to Q.
+
+Finite-moment theorem: elementary bound
+Fix s>0 and let T_k be Erlang(shape k, rate s), T_0=0. Define
+  m_k = E[rho exp(Q T_k) f] = rho R^k f,
+  R = s(sI-Q)^(-1).
+R is stochastic. Its characteristic polynomial P has real coefficients, degree
+n, P(1)=0, coefficient l1 norm <=2^n, and P(R)=0. Smaller models can be padded
+by unreachable absorbing states to use the same n.
+
+For a damped qubit, initialized +Z with fixed +Z readout and Hamiltonian omega X/2,
+with isotropic depolarization gamma,
+  m*_k = (1+Re(mu^k))/2,
+  mu=s/(s+gamma-i omega)=u+i v, v>0.
+Only settings k=0,...,n+1 are used. All target probabilities are rational when
+gamma, omega and s are rational.
+
+Established CTMC sector bound:
+  |Im lambda| <= -Re lambda cot(pi/n).
+Put t=tan(pi/n). Every resolvent eigenvalue z satisfies
+  |z|^2-Re z+t |Im z| <= 0.
+For any certified 0<t0<=t, all these z therefore lie in the disk with center
+1/2-i t0/2 and radius sqrt(1+t0^2)/2. If gamma/omega<t0, mu is outside this disk.
+Let d be any positive lower bound on its distance to that disk, reduced to at
+most v. Let k=floor((n-1)/2), and K=sqrt(1+(1+u)^2/v^2). Then
+  max_{0<=j<=n+1} |m_j-m*_j| >=
+  |1-mu| d^k v^(n-1-k) / [2^(n+1) K] =: Delta_n > 0.
+
+Proof
+For error epsilon=max_j|m_j-m*_j| and C=||coeff(P)||_1, Cayley-Hamilton at shifts
+0 and 1 gives |Re P(mu)|<=2 epsilon C and |Re(mu P(mu))|<=2 epsilon C.
+Writing P(mu)=A+iB implies |B|<=2 epsilon C(1+u)/v, hence |P(mu)|<=2 epsilon C K.
+The characteristic polynomial has a root at 1. Each other real eigenvalue is in
+(0,1], so its factor has modulus >=v. Nonreal eigenvalues occur in conjugate pairs:
+the upper root has distance >=d and its lower conjugate has distance >=v. Since
+d<=v, the smallest guaranteed product uses the maximum possible number k of
+pairs. Thus |P(mu)|>=|1-mu| d^k v^(n-1-k). Finally C<=product(1+|z_j|)<=2^n.
+Combining gives the theorem. Neither diagonalization nor exact rank estimation is
+used. The positive finite gap follows from a known spectral obstruction but does
+not assume observed finite data determine an exact spectrum.
+
+Normalized strengthening (independently reviewed)
+Every resolvent eigenvalue has positive real part. The real-linear characteristic
+factors and conjugate-quadratic factors therefore have alternating coefficients;
+products preserve their signs. Hence C=||coeff(P)||_1=|P(-1)| exactly.
+Set nu=(1-mu)/(1+mu)=a-i b, b>0. For each resolvent eigenvalue z,
+  w=(1-z)/(1+z)=1-2s/(2s-lambda)
+lies in the same lens, which is invariant under z -> 1-z. Let d_C<=b be a
+positive certified distance of nu from this lens (use the reflected bounding disk).
+The normalized factor satisfies
+  |mu-z|/|1+z| = |1+mu| |nu-w|/2.
+A real root gives factor at least r_0=v/|1+mu|. A conjugate pair gives at least
+  h = |1+mu|^2 d_C(2b-d_C)/4 <= r_0^2.
+To prove the pair inequality, write |Im w|=y. If y>=b-d_C, the near-root factor
+is >=d_C and the far-root factor >=b+y>=2b-d_C. If y<=b-d_C, their product is
+at least (b-y)(b+y)>=d_C(2b-d_C). The special root z=1 contributes |1-mu|/2.
+Using as many conjugate pairs q=floor((n-1)/2) as possible and dividing the two
+moment residuals by C yields the stronger explicit gap
+  Delta_n = |1-mu| r_0^(n-1-2q) h^q / (4K).
+The code computes both bounds and keeps the larger certified value. The new
+proof assumes no additional access or rate calibration. Directed rounding of
+r_0 and h is separate; the inequality h<=r_0^2 refers to their exact values.
+
+Exact arithmetic
+Machin's identity pi=16 atan(1/5)-4 atan(1/239), alternating-series enclosures,
+and tan x>=x+x^3/3 supply a rational lower t0. For n=4 use t0=1 exactly. The tan
+inequality follows from tan'>=1, then tan'>=1+x^2 for x>=0. Square-root bounds use
+integer square roots on a dyadic grid. If F=|mu-c|^2-radius^2>0, the circle distance
+is F/(|mu-c|+radius); upper bounds in the denominator give a certified lower bound.
+Internal downward rounding is explicit; no binary floating-point datum enters a
+certificate. Floating-point outputs are labelled decimal displays only.
+
+Bounded clocks and records
+An Erlang clock has infinite support. To obtain a genuinely bounded laboratory
+schedule, if T_k>L the experiment returns the artificial outcome zero and stops
+without waiting beyond L. The difference from the ideal moment is <=
+  Pr(T_k>L)=exp(-sL) sum_{j=0}^{k-1}(sL)^j/j!.
+The implementation bounds exp(-x) above by the reciprocal of a positive partial
+sum of exp(x). This changes no assumptions about hidden exit rates.
+For each setting use N independent Bernoulli trials. A simultaneous Hoeffding
+radius r has failure probability <=2(n+2)exp(-2Nr^2). For a predeclared nominal
+target, reject every <=n-state model only when
+  max_j |mhat_j-m*_j| + r + calibration_radius + tail_radius < Delta_n.
+Calibration and truncation errors belong in this inequality. Parameters fitted
+after seeing the same data require a separate uniform/held-out correction.
+
+For the supplied bounded_design, r=Delta_n/4 and tails <=Delta_n/8. With zero
+unmodelled calibration error, both false rejection of the classical null and
+missed detection of the nominal target are <=alpha. This follows because under
+the nominal target the observed deviation is <=r+tail on the concentration event,
+so the test's total distance <=2r+2tail<Delta_n. A common calibration bound c must
+satisfy 2c+2r+2tail<Delta_n for the same power guarantee.
+
+Numerical consequences, gamma=0.1, omega=2
+n  settings  certified moment gap        conservative total records (alpha=.05)
+4    6        >1.6816962795e-3                 135,780,096
+5    7        >3.2905352735e-4               4,654,761,517
+6    8        >8.2677897333e-5              84,264,303,856
+8   10        >2.7407114770e-6          95,853,033,013,980
+62  64        >1.1657896420e-117           not proposed as a practical experiment
+The n=4 rate is s=13/10 and maximum duration is 320/13=24.615384... in the same
+time units as omega. Rates for other n are in results/spectral.json and are
+rational design choices; no global optimality claim is made.
+These are constructive sufficient upper bounds on sample requirements, not
+optimal sample complexity or an estimate of what a lab would actually need.
+The bound becomes prohibitively weak at large dimension. The antichain witness
+owned by access_hierarchy is a more practical comparison in its useful regime.
+
+Controls and limitations
+A 4-state directed cycle at rate 2, with fixed stochastic detector
+f=(1,1/2,0,1/2), exactly realizes (1+exp(-2t)cos(2t))/2. The certificate correctly
+fails at gamma=omega. More generally finite classical cyclic realizations exist
+for every strictly damped sinusoid with sufficiently many states, so the result
+never establishes absolute classical impossibility. The γ=0 limit is different.
+Clock distribution, common generator, preparation consistency and readout
+consistency are essential. Probability-only observations exclude those clocks'
+full time-tagged records from this theorem; retaining more data can improve a
+test but is not assumed. Record cost is not a thermodynamic energy lower bound.
+
+Verification
+Producer suite: 9 tests, including 120 random CTMC lens/root-product checks,
+120 random-model probability separations, numerical integration of both CTMC and
+quantum Erlang moments, exact truncation/statistical certificates, cyclic negative
+control, invalid-input rejection and explicit error-budget tests. Seeds 310127
+and 921337. Python3.12, NumPy/SciPy from the shared environment.
+Commands:
+ python discovery_program/realization_frontier/code/spectral.py
+ python -m unittest discover -s discovery_program/realization_frontier/tests -p test_spectral.py -v
+
+Closest prior work
+Wolf and Pérez-García, Assessing Quantum Dimensionality from Observable Dynamics,
+Physical Review Letters 102,190504 (2009), arXiv:0901.2542. Their exact spectral
+classical-dimension obstruction is foundational here. Erlang/randomization,
+resolvent representations, Cayley-Hamilton and scalar linear-recurrence methods
+are established separately. The proposed contribution is their explicit robust,
+finite-setting, bounded-duration realization-size certificate, not those
+individual ingredients or the spectral wedge. Priority remains unestablished.
+
+Review checkpoint
+The independent frontier_redteam agent checked both the elementary and normalized
+proofs, including the alternating coefficient property, Cayley lens invariance,
+conjugate-pair inequality and finite probability error contract. Producer tests
+also compare normalized characteristic products for 120 random generators.

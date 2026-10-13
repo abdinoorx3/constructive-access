@@ -1,0 +1,22 @@
+{
+  "comparison_note": "Independent cohorts, not paired outcomes; fixed contrast(-1,2,-1) in both. Acquisition cost excludes uncalibrated reset/apparatus overhead. Integer allocation is exact optimum for this fixed-record continuous proxy and chosen divisible quotas, not a general optimal experiment.",
+  "contract_sha256": "84f8c333b15d7a8197386faccc186024d29db2c563b3c31f482d08151d6c5218",
+  "counts_sha256": "c74dd599b745741eed4d2c7ab71339c8cdb993b9e83ddf8616edec33ae5b6d12",
+  "datasets": 200,
+  "detections": 195,
+  "evidence": "independent simulated ring paths with equal total records and expected evolution time",
+  "mean_entropy_rate_lower": 0.00020220027332897722,
+  "monte_carlo_95_interval": [
+    0.9426256488731541,
+    0.9918338338091575
+  ],
+  "rate": 0.975,
+  "records_per_dataset": 150000,
+  "records_per_setting": [
+    37500,
+    75000,
+    37500
+  ],
+  "seed": 330173,
+  "total_evolution_time": "45000"
+}

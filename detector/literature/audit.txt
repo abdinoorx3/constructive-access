@@ -1,0 +1,119 @@
+DETECTOR GEOMETRY: PRIMARY LITERATURE AND NEXT CALIBRATION QUESTION
+Audit date: 2026-10-13 UTC. Exploratory dependency; not a release or novelty certification.
+Owner: geometry_literature. Original fulltexts retained only under /tmp/detector_geometry_literature.
+
+ASSESSMENT
+
+A known finite exposure can preserve the ideal continuous observed law and still make practical inference unstable. These are different claims. The closest prior work already supplies shutter-corrected diffusion estimation, exact confidence calculations in a Gaussian free-diffusion model, nonparametric recovery of noisy stochastic volatility, estimation of an unknown shrinking shutter width, and entropy bounds under detector noise. The useful next contribution would combine explicit detector calibration with the specific pathwise diffusion geometry needed by the conditional entropy certificate, with honest finite-data errors. It should not be described as the first recovery of diffusion from blurred/noisy measurements or the first noise-robust thermodynamic inference.
+
+Six focused comparisons are below, followed by three supporting fulltext checks. Results are paraphrased and equation locations refer to the inspected versions recorded in sources.json. No third-party fulltexts are redistributed.
+
+1. VESTERGAARD, BLAINEY, FLYVBJERG (2014)
+Optimal estimation of diffusion coefficients from single-particle trajectories.
+Physical Review E 89, 022726. DOI: 10.1103/PhysRevE.89.022726.
+Fulltext: DTU institutional PDF; inspected through web PDF reader, not locally downloaded.
+
+Sec III A, Eqs (1)-(5), models a shutter-weighted free Brownian trajectory plus independent Gaussian localization noise. For frame interval Delta, diffusion D, localization variance sigma_e^2 and blur coefficient R,
+ E[(Delta x)^2]=2D Delta+2(sigma_e^2-2DR Delta),
+ E[Delta x_n Delta x_(n+1)]=-(sigma_e^2-2DR Delta).
+Uniform illumination throughout a frame gives R=1/6. Sec III C, Eq (14), gives an unbiased covariance estimator combining squared increments and adjacent increment products. Eqs (15)-(18) cover localization variance, independently known variance, and calibration uncertainty. Sec III C2 and Appendix C, especially Eq (C10), give the estimator's finite-sample characteristic function and confidence calculations, not merely an asymptotic error bar.
+Constraint: free Gaussian diffusion is the exact baseline; those confidence formulas do not automatically apply to nonlinear observations of hidden state-dependent diffusion. Any new simulation benchmark should include this corrected covariance estimator, rather than only naive realized variance.
+
+2. GLOTER (2000)
+Discrete sampling of an integrated diffusion process and parameter estimation of the diffusion coefficient.
+ESAIM: Probability and Statistics 4, 205-227. DOI: 10.1051/ps:2000105.
+Fulltext: Numdam published PDF.
+
+For a scalar diffusion dX=a(X)dB+b(X)dt, observations are integrals J_i over successive shrinking windows Delta_n. Theorem 2.3, Eq (17), gives a local expansion of J_(i+1)/Delta_n-J_i/Delta_n with correlated Gaussian leading innovations and controlled remainder. Theorem 3.1, Sec 3.1, proves a weighted quadratic-variation limit with factor 2/3. Remark 3.2 explicitly identifies the resulting underestimate when averages are substituted for point samples. Sec 3.2 constructs diffusion-parameter estimators under regularity and pathwise identifiability assumptions; Sec 4 extends the observation weights.
+Constraint: Delta_n=1/n tends to zero in the fixed-horizon inference considered here. This does not prove recovery at fixed positive exposure. The theorem also needs boundary, growth, moment and differentiability conditions (A1-A4); it is not a distribution-free correction for every detector.
+
+3. HOFFMANN, MUNK, SCHMIDT-HIEBER (2012)
+Adaptive wavelet estimation of the diffusion coefficient under additive error measurements.
+Annales de l'Institut Henri Poincare, Probabilites et Statistiques 48(4), 1186-1216.
+DOI: 10.1214/11-AIHP472. Inspected version: arXiv:1007.4622v2 (29 December 2011).
+
+Eqs (1.1)-(1.2) and Sec 2 observe a continuous Ito semimartingale at dense point times with additive noise over a fixed horizon. Assumption 2.2 permits bounded continuous state-dependent noise amplitude multiplying independent standardized innovations with all moments. The target is the entire possibly random volatility path sigma_t^2, not merely integrated volatility. Theorem 2.9 establishes adaptive pre-averaging/wavelet rates over Besov classes; Theorem 2.12 gives a corresponding lower bound under additional smoothness. Theorem 3.3 supplies deviation inequalities for wavelet functionals.
+Constraint: a new method cannot claim first recovery of latent local volatility from noisy data. These are point-observation, smoothness-class asymptotic results. Turning them into an explicit simultaneous finite-sample upper envelope under finite shutter exposure, and propagating that event into the entropy score, remains a separate derivation.
+
+4. NAKAKITA AND UCHIDA (2020)
+Inference for Convolutionally Observed Diffusion Processes.
+Entropy 22(9), 1031. DOI: 10.3390/e22091031.
+Fulltext: published Europe PMC XML, PMC7597089.
+
+Sec 1 defines coordinatewise boxcar observations over windows rho_i h_n, with h_n tending to zero and n h_n tending to infinity. The unknown rho_i is a bounded exposure-to-frame ratio. Sec 3.1 estimates rho using the ratio of full and subsampled quadratic variations, which cancels the common stationary diffusion magnitude. Theorem 1 proves consistency under (A1). Theorems 2-3 give an asymptotic normal null test and a consistent alternative test for smoothing. Theorem 4 estimates diffusion and drift parameters consistently under (A1)-(A3), including explicit parametric identifiability conditions.
+Constraint: unknown smoothing calibration is established prior work. This paper's shrinking-width, increasing-duration regime differs from fixed-width full-law inversion. Its detector model does not simultaneously include arbitrary independent additive localization noise. Its unknown-kernel discussion is not a universal identification theorem for arbitrary kernels and hidden diffusions.
+
+5. HALL AND MEISTER (2007)
+A ridge-parameter approach to deconvolution.
+Annals of Statistics 35(4), 1535-1558. DOI: 10.1214/009053607000000028.
+Fulltext: arXiv:0710.3491 PDF.
+
+Eq (2.1) observes iid X_j plus independent errors of known law. The ridge Fourier estimator in Sec 2 allows error characteristic functions with zeros, including oscillatory characteristic functions. Theorems 4.2 and 4.3 give upper and lower rates under specified Fourier smoothness and zero-structure assumptions. Thus isolated or infinitely many zeros do not alone establish nonidentifiability. Rates can nonetheless be severely affected.
+Constraint: here the Fourier variable is dual to measurement amplitude; a camera shutter transfer function is Fourier-dual to time. This paper does not prove temporal process-filter invertibility. Its lesson is the need to state signal class, zero set, and error criterion. Compact support of latent finite-dimensional laws gives an additional analytic-continuation uniqueness route, but practical stability does not follow from that uniqueness.
+
+6. GINGRICH, IGOSHIN, KOLOMEISKY, MAKAROV (2026)
+Thermodynamic inference from noisy single-molecule time series.
+Journal of Chemical Physics 165(12), 124124 (28 September 2026).
+DOI: 10.1063/5.0354355. Inspected fulltext: arXiv:2606.23619 (June preprint).
+
+Sec II assumes a hidden Markov process sampled at fixed times, with memoryless measurement kernel R(Y|X). Eq (13) transforms the two-point distribution as rho_tilde=R rho R^T. Eq (15) inverts it when R is known and invertible. Eq (19) forms finite-block forward/reverse KL estimates; Eq (21), proved via Eq (22), gives a data-processing lower bound. Independent observation errors induce memory in the measured process; increasing frame rate alone can worsen particular finite-block estimates.
+Constraint: no shutter convolution or local quadratic-variation calibration is supplied. This work is direct prior art for noisy thermodynamic inference and must be cited before making broad claims. The inspected preprint's Eq (18) prints a minus sign inconsistent with its Eq (3), T=exp(Kt); its matrix-log recovery discussion also does not settle all generator aliases. Do not adopt that step as proof of general fixed-grid identifiability.
+
+SUPPORTING PRIMARY FULLTEXTS
+
+A. Berglund (2010), Statistics of camera-based single-particle tracking,
+Physical Review E 82, 011917, DOI 10.1103/PhysRevE.82.011917.
+NIST author PDF inspected. Eq (5) gives the blur/noise-corrected MSD; Secs III-V derive Gaussian displacement statistics, likelihood/Fisher information, and shutter-design effects. This supplies the physical camera model behind source 1. Its free-diffusion setting does not resolve general hidden geometry. Shutter shape and localization uncertainty must be included in resource-matched benchmarks.
+
+B. Jacod, Li, Mykland, Podolskij, Vetter (2009), Microstructure noise in the continuous case: The pre-averaging approach,
+Stochastic Processes and their Applications 119(7), 2249-2276,
+DOI 10.1016/j.spa.2008.11.004.
+Inspected author manuscript marked December 1, 2007 (JLMPV-9 cover; JLMPV-8 interior).
+Eq (3.6) defines a bias-corrected pre-averaging estimator. Theorem 3.1 gives stable convergence at rate Delta_n^(1/4) for integrated volatility and a feasible variance estimate. Assumptions (H),(K) include cadlag drift/volatility, conditionally independent unbiased observations, cadlag conditional noise variance and locally bounded eighth moments. Fixed nonzero shutter averaging is not the observation model. Noise treatment here cannot simply be appended to Gloter's exposure correction without checking cross terms and limiting regime.
+
+C. Gupta and Khammash (2022), Frequency spectra and the color of cellular noise,
+Nature Communications 13, 4305, DOI 10.1038/s41467-022-31263-x.
+Published main text (Europe PMC XML) inspected; supplement not audited here.
+Eqs (6),(8),(9) connect a Markov generator resolvent to the output PSD:
+ S_f(omega)=2 Re E_pi[f R(i omega)f].
+The source develops this for biochemical CTMCs. It establishes close prior art for resolvent/PSD reasoning, not the specific proposed elliptic strict-positivity and boxcar-width corollary. Only the main-text identity is relied upon in this audit.
+
+FOUNDATIONAL METHOD ATTRIBUTION (METADATA CHECK, NOT A FULLTEXT AUDIT)
+
+Landweber (1951), An iteration formula for Fredholm integral equations of the first kind,
+American Journal of Mathematics 73(3), 615-624, DOI 10.2307/2372313.
+The detector-theory branch uses established Landweber iteration/spectral regularization; it should not introduce it as a new operator. Metadata is verified through primary-bibliography references; the original 1951 fulltext has not been inspected in this audit.
+
+OPERATOR SEPARATIONS REQUIRED IN THE THEORY
+
+1. Known exposure versus fixed sampling.
+For a centered second-order stationary signal with mean-square continuous shifts,
+ H_tau(omega)=exp(i omega tau/2) sinc(omega tau/2)
+is the boxcar transfer function, up to phase convention. Its zeros are the nonzero multiples of 2 pi/tau. If the signal's spectral measure assigns zero mass to that discrete set, spectral regularization recovers the signal in L2 from the complete two-sided continuous averaged record. Mixing is sufficient to exclude the relevant spectral atoms; ergodicity alone is not. This is an application of standard spectral filtering. Finite observation, causal reconstruction, and fixed-grid sampling are additional restrictions. Sampling aliases frequencies after filtering; no unrestricted anti-aliasing theorem follows from filter injectivity.
+
+2. Law deconvolution versus reconstruction of one realization.
+Known independent noise gives a finite-dimensional characteristic-function convolution. A nonvanishing noise characteristic function permits ordinary deconvolution. For bounded latent vectors, local nonvanishing near zero plus analyticity can establish injectivity even when the noise characteristic function has zeros elsewhere. This is exact-law uniqueness, not recovery of latent points from one noisy sample or a uniform error rate. Independent noise indexed by arbitrarily dense times is an observation-law idealization; physical photon counts, overlap-induced correlations and digitization need separate models.
+
+3. Fixed exposure versus shrinking exposure.
+For continuous X and fixed tau>0, the running average is continuously differentiable, with derivative (X_(t+tau)-X_t)/tau. Its ordinary quadratic variation is zero. Dense sampling of that averaged record therefore does not make naive realized variance converge to the latent diffusion geometry. If exposure shrinks with frame interval, Gloter-type nonzero limits apply instead. With independent fixed-variance localization errors, naive realized variance can diverge. The interplay is a detector effect, not evidence of changed physical diffusion or dissipation.
+
+4. Local geometry versus a conditional mean diffusion coefficient.
+The entropy branch conditions on U_t=(Y_t,V_t), with V_t the pathwise instantaneous quadratic-variation coefficient. A regression estimate of E[V_t|Y_t] does not supply V_t. Bounds requiring 1/V_t or conditioning on V_t cannot silently substitute its conditional mean. Any proposed upper envelope must be checked against the exact algebra of the entropy score; an envelope sufficient for a denominator need not justify the conditioning variables.
+
+5. Unknown width and spectral zeros.
+The population-theory agent proposes strict positive PSD for nonconstant smooth observables of compact uniformly elliptic diffusions, followed by width recovery from the first boxcar spectral zero. The resolvent identity is established, and unknown shrinking-width calibration is already handled by Nakakita-Uchida. A fixed-width elliptic zero-location argument is a narrower possible corollary requiring independent proof. Finite samples, additive-noise floors, nonuniform shutters and temporal aliases can erase or move observable minima. Ideal identification from a spectral zero is not a calibrated finite-data width estimator.
+
+PRIORITIZED PRACTICAL QUESTION
+
+Given a specified shutter shape and width tau, frame interval Delta, calibrated independent noise law (with calibration uncertainty), and an independently justified regularity class for drift and instantaneous volatility, can one obtain a finite-sample joint confidence event for the local geometry and short-time conditional statistics that leaves a strictly positive dissipation lower bound?
+
+The first version should use shrinking exposure tau=rho Delta, an explicit regularity envelope, and independent training/calibration/evaluation records, or a proof that handles their dependence. It should be tested first against the exact free-diffusion estimator/confidence baseline in source 1, then against a nonlinear circle observation with state-dependent projected volatility and reversible negative controls. Compare at the same duration, frame count, illumination/photon budget and noise calibration. The output must include the event's coverage, detector misspecification tolerances, and a rule that returns inconclusive when uncertainty exceeds the witness.
+
+For fixed tau, tackle stability before claiming application: quantify regularization bias near shutter zeros and high temporal frequencies under a stated spectral/smoothness envelope, or derive an explicitly weaker finite-resolution entropy statement. Increasing frame rate alone is not a sufficient remedy. This is the highest-leverage bridge from ideal law identifiability to a usable detector-aware certificate.
+
+NOVELTY AND COMPLETENESS LIMITS
+
+This targeted audit does not establish priority or exhaust the motion-blur, stochastic-volatility, deconvolution, or thermodynamic-inference literature. More recent noise/entropy work was found during the audit and is included above. No physical experiment was conducted; no evidence of detector performance beyond published models and internal mathematical analysis is asserted. The principal unresolved deliverable is stable, finite-data geometry calibration under a specified detector, not an unrestricted universal detector inversion claim.
+
+INTEGRATION ADDENDUM (2026-10-13 UTC)
+Cai and Wu, Annals of Statistics48(3),1593-1614(2020), DOI10.1214/19-AOS1860: arXiv1801.00518v1 Lemma3 was inspected directly. It states the Gaussian location-mixture chi-square identity used in the detector count lower bound and attributes it to Ingster and Suslina. The zero-mean removal of its first moment term is an elementary corollary. This standard mechanism is credited in manuscript/literature.tex; only its binding to the declared exposure family and sharp entropy target is advanced here.

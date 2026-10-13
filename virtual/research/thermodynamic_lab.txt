@@ -1,0 +1,115 @@
+THERMODYNAMIC VIRTUAL LABORATORY — 2026-10-12
+Owner: thermodynamic_bridge; Abdinoor / 2D Labs.
+
+GOAL
+Generate independent hidden physical paths and readout noise, then evaluate
+prior temporal entropy certificates from observed counts alone. Determine
+which mathematical certificates remain useful at declared sample budgets,
+and retain failure cases rather than substituting an idealized probability
+formula for a simulated experiment.
+
+FROZEN DESIGN
+contracts/thermodynamic_lab.json was written before pilot/heldout production.
+SHA256:5340939a64336a09f5e429e4d3270c7a1b22843418a498559efb4b93b36599e3.
+Pilot seed94170011,20datasets/case; heldout seed94170029,200datasets/case.
+Each dataset/setting has a distinct SeedSequence stream; no reuse.
+Revival menu:1.6,2.1;5000records/setting;half-ring deterministic detector.
+Curvature menu:.15,.30,.45;50000records/setting;fixed rationalcos detector.
+Rates20forward/1backward;equilibrium10.5/10.5;noisegain.2;independent
+randomscale clock V~Uniform[.7,1.3]. Detector-memory and nonequilibrium
+preparation controls explicitly marked outside original stationary contract.
+Per-menu comparisons share identical samples and observation exposure.
+Point observations and stationary reinitializations are idealized; no actual
+hardware rates, reset work, detector energy or physical temperature calibrated.
+
+SIMULATOR
+X0uniform40states; independent N+~Poisson(aU),N−~Poisson(bU);
+XU=(X0+N+−N−)mod40. This exact path-increment representation differs from
+sampling a Bernoulli outcome at an analytically supplied matching probability.
+At each endpoint sample actual detector bit using conditionalmean g f(X).
+Noise independent across endpoints and records, except deliberate memorycase.
+Preparedtwo-statecontrol uses direct Gillespie trajectory simulation.
+Independent expm oracle is diagnostic only, never supplies simulated bits.
+Common randomscale jitter preserves reversible moments by x=exp(−λΔV).
+
+ANALYSIS
+Counts-only input. Alloriginalmethods use same simultaneous Hoeffding box:
+revival radius.021;curvature.007; exact rational log checks2K exp(−2nr²)<=.05.
+Methods:negative correlation;positive revival;original fixed dual scores
+whose polynomialnormalizer is checked by fourth-edition exact module.
+The fixed dual is a selected witness from the full cone, not exhaustive
+optimization over every cone witness. Compiledfractionevaluation matched
+originalcertify exactly in testcases. MonteCarlo95% intervals use standard
+ClopperPearson betaquantiles; numericalintervals rather than newexacttheorem.
+
+HELDOUT FIRST COMPLETE RUN — confirmed2026-10-12 20:23:54UTC
+Allcounts below are among200 independentdatasets.
+Curvature driven:negative0,revival0,fixeddual1.
+Curvature equilibrium:0,0,0.
+Curvature highnoise:0,0,0.
+Curvature commonrandomscalejitter:0,0,0.
+Curvature detectormemory:0,0,1.
+Revival driven:0,200,200.
+Revival equilibrium:0,0,0.
+Revival highnoise:1,0,0.
+Revival commonrandomscalejitter:2,200,0.
+Revival detectormemory:0,200,200.
+Revival prepared equilibrium:200,0,0.
+Root receives unchangedheldoutcounts for predeclared directcontrast comparison.
+Rootdeclared curvaturecoefficients(-1,2,-1),alpha.05 beforeheldoutgeneration.
+No tuningofthese coefficients onproductiondata.
+
+WHAT FAILED AND WHY
+Curvature structure exists butcoordinateconfidencebox is too wasteful at
+N50k/setting for the fixed dual:1/200 rejection. Root's directcontrast
+inference is the planned corrected comparison on the exactsame observations.
+Scalejitter preservescone butchanges alternativebaseline; fixeddual0/200
+whilebroadrevival200/200. This is loss of power, not invalidity of coneclosure.
+Noisegain.2 multipliescorrelationby.04; hidden sample sigma unchanged but
+recordinformation diminished. Detector-memorycase has correctprobability
+statistics yet cannot justify a sampleentropy claim. Preparedequilibrium
+case has sigma_ss0 butD(initial||pi)=log10; the resourcefrontier allows it.
+
+FILES
+code/thermodynamic_lab.py:simulator,freeze/checkcontract,countsinference,
+independentexpmoracle,deterministiccompressedarchivesandreport.
+results/thermodynamic_lab_counts.npz:allheldoutcountandexposurearrays.
+results/thermodynamic_lab_counts_pilot.npz:independentpilotarrays.
+results/thermodynamic_lab_raw.npz:firstheldoutcurvature/driven dataset,
+150000complete simulatedrecords, includinghidden auditfields andreadoutbits.
+JSONreportslabel everyoutput synthetic andcarrycontract/archivehashes.
+tests/test_thermodynamic_lab.py:nine tests; initialeight passed beforeproduction;
+independentexpmoracle testadded aspost-generationvalidation.
+
+REPRODUCTION
+PYTHONPATH=../realization_frontier/release/src python code/thermodynamic_lab.py --freeze
+PYTHONPATH=../realization_frontier/release/src python code/thermodynamic_lab.py --pilot-only
+PYTHONPATH=../realization_frontier/release/src python code/thermodynamic_lab.py
+PYTHONPATH=../realization_frontier/release/src python -m unittest discover -s tests -p test_thermodynamic_lab.py -v
+Commands assume virtual_laboratory cwd. Installedpackage import path supported;
+no absolutepriorreleasepath embedded in code. Existingcontractneveroverwritten.
+
+SCOPE / PRIOR ART
+No empiricalphysicsclaim, calibratedenergyclaim, universalquantumnessclaim,
+or detectorvalidation follows. Samebinaryendpoints do not supply currents or
+transitionwaitingtime data, so TUR/waitingtime methods are notfairinferiority
+baselines here. Relevantprimarywork:SkinnerDunkel2021 time-symmetric entropy
+inference;FritzErtelSeifertPRE111044106(2025) finiteresolution/statistics;
+ClopperPearson1934 exactbinomial confidence;MorrisWhiteCrowther2019 simulation
+design andMonteCarlo uncertainty. Bibliography maintained by literatureagent.
+
+FINAL VALIDATION AND ARTIFACTS
+Nine producer tests passed after the independent oracle diagnostic was added.
+Pilot and held-out production were rerun with unchanged contract, streams,
+sample sizes and original scores. The reported rejection counts are unchanged.
+Joint probability-box coverage ranges from198/200 to200/200 across all11cases;
+this includes invalid physical-interpretation controls, whose probability
+confidence coverage cannot repair detector memory or lack of stationarity.
+Held-out count/exposure archive SHA256:
+bfcd14aa9db6d49fb10e9fc132eb6eda59bcfc821b1354097041240ca5c2f1dd
+Raw150000-record archive SHA256:
+97f0d3ea2f6ab07b3fea094de87e6b66e1b905be4393d9f527fe2ef1a9a752b8
+Raw archive475018bytes; all held-out count/exposure arrays22881bytes.
+Manuscript explicitly distinguishes the failed original fixed dual from
+optimized moment-cone inference. Root includes optimized-box comparison;
+there is no superiority claim against only a weak frozen-score baseline.

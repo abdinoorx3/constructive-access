@@ -1,0 +1,70 @@
+FOUNDATIONS AND FINITE ACCESS CHAPTER REVIEW
+
+Authoring/review agent: /root/unified_foundations
+Recorded UTC: 2026-10-12T15:53:45.015527+00:00
+
+Scope
+Two self-contained chapters, from scientific target and access specification
+through finite instruments, exact equivalence, minimum-charge synthesis,
+independent filtered certificates, and the strict-cutpoint limit.
+
+Dependencies read
+../AGENTS.md; unified/AGENTS.md and SWARM.md;
+access_theory/manuscript/constructive_access.tex;
+access_theory/research/access_prior_art.txt;
+hardening/manuscript/certified_inference.tex;
+hardening/code/cost_certificate.py and test_cost_certificate.py.
+
+Proof and scope checks
+1. Target factorization is explicitly set-theoretic: no measurable inverse,
+   stability, or efficient computation inferred.
+2. Access refinement uses a candidate-independent simulation kernel. Resource
+   frontiers are ordered only when simulation preserves the declared budget.
+3. Compatible-target half-diameter is a data-local deterministic minimax
+   statement for real estimates. Coverage is a separate premise; empty and
+   unbounded target sets are handled explicitly.
+4. Finite target suites assume finite candidates, finite alphabets, allowed
+   fresh preparations, and conditional independence under a fixed candidate.
+   Finite-error implementation is delegated to workflow:suite.
+5. Finite effect-span proof handles beta=0 separately and makes the d-1
+   bound conditional on beta nonzero. Quantum signed representations are
+   not treated as classically stochastic.
+6. Grammar lift masks inadmissible strings and is not a normalized physical
+   instrument. Actual experiments stop only in accepting grammar states.
+7. Priority closure has explicit rank termination and lexicographic cost
+   filtration, including zero-cost actions. Certificate checking does not
+   require a span solver or linear independence.
+8. Strict-cutpoint reduction is for an unbounded one-terminal-readout grammar
+   without repeated reset access. Its source is established undecidability,
+   not a new physics theorem. No CTMC embeddability claim is made.
+9. Finite-dimensional algorithmic bounds are stated in representation size,
+   not qubit count or record count. Rational parameter-family quantifier
+   elimination is an in-principle route, not an implemented general solver.
+
+Internal independent review
+/root/unified_redteam read both chapters and reported no substantive
+correction. The reviewer identified a trace-display TeX typo already fixed
+during standalone compilation. Internal review is not external peer review.
+
+Executed checks
+python discovery_program/hardening/code/test_cost_certificate.py
+Outcome: all 20 existing adversarial certificate tests passed, including
+64 seeded small-model exhaustive comparisons and independent checker tests.
+No historical source or release was changed by this test execution.
+
+Standalone TeX build
+Two pdflatex passes with halt-on-error succeeded after fixing the trace
+delimiter typo. Result: /tmp/unified_foundations_check.pdf, 13 pages including
+bibliography. No overfull boxes or compile errors. Only the expected external
+reference workflow:suite remains undefined in the standalone two-chapter
+build; root will supply it in the integrated reference.
+
+Bibliography
+13 entries supplied in research/foundations_bibliography.txt using f_* keys.
+Existing finite-access prior-art references are retained. Blackwell 1953 is
+the added comparison-of-experiments reference; provenance agent notified.
+
+Final source hashes
+manuscript/chapters/foundations.tex  24fb1d5944c6433023c09c18230d345daa299084d7b5239b0f7cae97e09ae2de
+manuscript/chapters/finite_access.tex  39e4290f070f7ff8e5c7a6b1c3120ce75d49c6f3ef2618c0b726824f60c82913
+research/foundations_bibliography.txt  0a9fb3724671089face118b363a96fc6e7cd9c669061daf60bbafe585e343e4a

@@ -1,0 +1,116 @@
+FINITE-OBSERVATION CONSISTENCY TO THE SHARP CIRCLE MINIMUM
+Owner: /root/population_theory
+Date: 2026-10-12 UTC
+Status: complete derivation for independent review. No new Monte Carlo run.
+No frozen finite-resolution source modified.
+
+Reference: manuscript/consistency.tex and existing code/finite_resolution.py.
+
+1. Scope and design
+Fixed calibrated gamma>0, Omega>=|omega|, physical reference time h0>0.
+Target stationary observed law Y=cos(phi), dphi=omega dt+sqrt(2gamma)dW.
+Exact noiseless readings first; independent stationary triples; ordinary
+hidden reversal; calibrated clock/geometry. Unknown omega not used by score.
+M=gamma+Omega, R=gamma²+Omega², C=R(2gamma+Omega) are valid constants for
+M1plus/minus=M, M2plus/minus=R, Q=gamma, globalGamma=gamma.
+
+For integer m>=1, predeclare n=m^12, h=h0*m^-3,
+epsilon=gamma*m^-2, q=-gammaY, a=Gamma=gamma(1-Y²), retain a>=epsilon.
+Dimensionally scaled epsilon and h have the same exponents as root's proposal
+while retaining physical units. No score or concentration code changed.
+
+2. Population error
+J_m=sigma*Pr(Gamma>=epsilon), sigma=omega²/gamma.
+Uniform phase gives sigma-J_m=sigma*(2/pi)asin(1/m)<=sigma/m.
+Finite module beta_g=hR/2, beta_K=hMR,
+beta(U)=2|q|beta_g+beta_K<=Ch.
+Exact ideal variational target q=g is d=omega²(1-Y²).
+Corrected conditional numerator lies [d-2beta(U),d]. Thus
+ J_m-2Ch/epsilon <= mu_m=E[corrected score] <= J_m <=sigma,
+ 0<=sigma-mu_m<=(sigma+2Ch0/gamma)/m.
+
+3. Explicit score bounds
+H=((2gamma+Omega+sqrt(2gamma/h0))²+Ch0)/gamma.
+B0=(h0^-2+(2/h0+gamma)²+Ch0)/gamma.
+Existing known-variance bound has second moment<=H²*m10;
+existing score range has width<=B0*m8.
+The actual protocol takes the minimum of the second-moment envelope and
+range-squared bound, so these remain valid upper estimates.
+
+4. Confidence and consistency
+ell=log(2/alpha), n=m12. Use existing known-variance Bernstein with alpha/2.
+rho=B*ell/(3n)+sqrt(2V*ell/n+(B*ell/(3n))²)
+ <=Hsqrt(2ell)/m+2B0ell/(3m4).
+Both tails each alpha/2 give |mean-mu|<=rho with probability>=1-alpha.
+Lhat=max(0,mean-rho). On this event,
+ 0<=sigma-Lhat<=
+ (sigma+2Ch0/gamma+2Hsqrt(2ell))/m+4B0ell/(3m4).
+Replace sigma by Omega²/gamma for known uniform constant.
+
+Fixed confidence alone is NOT a proof of convergence in probability.
+Separate argument: Var(samplemean)<=H²/m² ->0; mu_m->sigma and rho_m->0.
+Chebyshev plus continuity of positive part gives Lhat->sigma in probability
+even at fixed alpha. Optional summable alpha_m=m^-2 (m>=2) gives error
+O(sqrt(logm)/m) eventually almost surely by Borel-Cantelli. No independence
+between successive m experiments needed; records within each must be iid.
+
+5. Generic perturbation, not unproved noisy-center selection
+If iid stored score differs from ideal score by <=eta_m uniformly, with the
+same fixed rule, range expands2eta_m, sqrtsecondmoment expands eta_m, and
+output loses eta_m. Two-sided concentration implies gap<=populationloss+
+2rho_tilde+2eta_m. eta_m=O(1/m) preserves rate. Do NOT assert a bare detector
+rounding delta_m is sufficient without controlling its effect on selection,
+envelope, and q. A proved score perturbation is the necessary contract.
+
+6. Physical costs and limitations
+One level m: n=m12 preparations,3m12 readings,2h0m9 declared evolution.
+Accuracy O(n^-1/12)=O((T/(2h0))^-1/9), fixed confidence constants.
+Sufficient conservative exponents, not minimax or a claimed apparatus optimum.
+Preparations/resets/timing bandwidth/sensor precision/calibration/energy
+are NOT included in evolution time. Running all levels incurs their sum.
+Known gamma and |omega| envelope are not silently learned from inference data.
+Independent stationary preparations remain a potentially expensive premise.
+No new numerical benchmark or experiment accompanies this existence theorem.
+
+7. Checks to perform
+Review semigroup two-sided population loss and variance constants against
+unchanged finite module; verify dimensional scaling and both-tail allocation;
+challenge fixed-alpha convergence reasoning separately; compare to known
+short-time consistent entropy estimators without claiming optimality/priority.
+
+8. Executed consistency checks, 2026-10-12T23:56:09Z
+Imported the unchanged finite_resolution.make_protocol and compared exact
+rational returned score ranges and maximum weighted bias with the constants
+above. Used (gamma,Omega,h0)=(1,2,1),(3/10,7/10,1/4),(5,0,2), each at
+m=1,2,5,20: all 12 comparisons passed. No protocol source was modified.
+
+9. Numerical precision issue identified and repaired in the construction
+The finite module rounds square roots outward on a fixed 90-bit grid.
+A literal final radius computed this way has a nonzero absolute numerical
+floor and is not an asymptotically consistent procedure as m tends infinity.
+The proof concerns exact Bernstein radii; a new small wrapper obtains an
+executable consistent certificate without altering frozen finite code:
+enclose fixed H,B0,ell=log(2/alpha),sqrt(2ell) once by rational constants,
+then form rho_bar=Hbar*kbar/m+2Bbar*ellbar/(3m4) with exact rational division.
+All enclosure errors are multiplied by vanishing powers of 1/m. This radius
+dominates the mathematical Bernstein radius and converges to zero exactly.
+The manuscript now distinguishes this wrapper from fixed absolute rounding.
+Generic deterministic stored-mean error eta_m can be subtracted using the
+ideal-score concentration event directly, giving gap<=populationloss+2rho+2eta.
+
+10. Implemented and checked, 2026-10-13T00:00:22Z
+code/consistency.py encloses fixed constants once, computes exact rational
+vanishing radii, and certifies a supplied mean with a proved deterministic
+error. Eight tests in tests/test_consistency.py pass. They include 180-digit
+comparison with mathematical Bernstein radii for extreme diffusivity/time
+scales; exact range/resource checks against the unchanged finite module;
+floor detection and a wrapper radius below2^-90 at m=2^120; tampering/error
+allocation checks. Deterministic design output results/consistency.json has
+no fabricated sampled records or empirical detection claims.
+Commands:
+ python -m unittest discover -s tests -p 'test_consistency.py' -v
+ python code/consistency.py --output results/consistency.json
+SHA256:
+ code/consistency.py 53c570a9efebc4a4836818c196036719ad75e77319d3f1a32bdd5a5931c958fe
+ tests/test_consistency.py d3120b337551d9af16d576ab573aba0d9f61cead41a5ad2747effab1a62fdefa
+ results/consistency.json 1e3f1b8286f68583bdecbf46a4fbca41c61886acbf35a9f73b706dcd87f73469

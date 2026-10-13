@@ -1,0 +1,24 @@
+{
+  "schema": "predictable-contrast-benchmark-v1",
+  "design_status": "frozen before generating evaluation records",
+  "seed": 83140721,
+  "replicates": 400,
+  "maximum_batches": 5000,
+  "lags": ["3/20", "3/10", "9/20"],
+  "ring_states": 40,
+  "detector": "cos(2*pi*j/40), with independent Bernoulli endpoint readings",
+  "cases": [
+    {"name": "driven", "forward": 20, "backward": 1, "gain": 1},
+    {"name": "changed_drive", "forward": 30, "backward": 1, "gain": 1},
+    {"name": "equilibrium", "forward": 10.5, "backward": 10.5, "gain": 1},
+    {"name": "high_readout_noise", "forward": 20, "backward": 1, "gain": 0.2}
+  ],
+  "methods": ["learned predictable cubic and bet", "fixed s=2/3 with predictable bet", "fixed-horizon s=2/3 Hoeffding contrast"],
+  "grid": 48,
+  "bet_grid": 128,
+  "alpha": "1/20",
+  "learning_rule": "Only prior complete batches enter cubic location and bet; no independent pilot, no use of true mechanism or future records by either sequential policy",
+  "acquisition": "one independently reset stationary pair per lag per batch; same pre-generated bank for all methods; stopping evaluated on each prefix without exposing future bits",
+  "cost": "Each complete batch uses3 pairs,6 endpoint readouts,and9/10 expected model-time. Preparation/reset and detector energy are uncalibrated and are not assigned zero cost.",
+  "reporting": "power/false exclusion with Clopper-Pearson Monte Carlo intervals, capped stopping records and evolution time including non-detections, exact replay checks, failed regimes"
+}

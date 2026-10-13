@@ -1,0 +1,393 @@
+JOINT DETECTOR CALIBRATION FOR A DIFFUSION ENTROPY CERTIFICATE
+Research proof record, 2026-10-13 UTC. Abdinoor, 2D Labs.
+Status: analytic proofs checked by independent internal review. No external
+review or physical experiment. This is a model-class theorem, not a new law.
+
+1. CONTRACT AND TARGET
+
+The hidden process is a stationary smooth uniformly elliptic ordinary-reversal
+diffusion on a smooth compact connected manifold without boundary. Its stationary
+law pi has positive smooth density. Write L=S+A, L^dagger=S-A, Af=v.grad f,
+Gamma(f,g)=grad f . D grad g, e=v.D^{-1}v, and sigma=E_pi e. Thus the convention
+is d[f(X)]_t=2 Gamma_f(X_t)dt. Let f be smooth real, |f|<=1. The essential extra
+structural premise is the exact POINTWISE identity
+
+    Gamma_f(x)=gamma*(1-f(x)^2),   gamma>0 unknown and constant.
+
+This identity is not inferred from a stationary marginal, observed covariance,
+or an average volatility estimate. Hidden dimension and drift are otherwise
+unrestricted within the class. Known physical bounds are
+||L f||inf<=M1+, ||L^dagger f||inf<=M1-,
+||L^2 f||inf<=M2+, ||(L^dagger)^2 f||inf<=M2-.
+Set M*=min(M1+,M1-), M2*=min(M2+,M2-).
+
+Each target trial is an independent stationary record with nominal centers
+-h,0,h. At each center t the common causal boxcar exposes
+A_t=tau^{-1} integral[t-tau,t] f(X_s)ds, 0<=tau<=tau_U<=h. At tau=0 use f(X_t).
+K=2m+2 center replicas and one readout at each endpoint are obtained. Conditional
+on the entire hidden path, all detector randomizations within a trial are
+independent, and each bounded readout Z has conditional mean A_t. Independence
+of noises does NOT imply independence of hidden states or exposures. A shot
+readout in {-1,1} with mean A_t is admissible. No variance calibration is needed.
+Unknown common multiplicative gain is handled in Section 7, not silently set1.
+
+Independent stationary trials are an acquisition assumption. Overlapping triples
+from one path are not independent trials. Preparation, replica channels, exposure,
+reference signals, elapsed time and energy must be accounted for separately.
+
+2. REPLICA SCORE AND IDEAL PHYSICAL INEQUALITY
+
+For the K center readouts define e_k as the normalized elementary symmetric
+polynomial (average over all distinct k-subsets), with e_0=1. Conditional on the
+hidden path, E[e_k]=A_0^k. Distinct replicas are essential: Z_0^k is generally
+biased for A_0^k. Fix m>=0 and lambda real; b=1-lambda*h,
+
+ beta_g=h*(M2+ +M2-)/4,
+ beta_K=h*(M1-*M2+ +M1+*M2-)/2,
+ beta=2*|lambda|*beta_g+beta_K.
+
+The finite polynomial score is
+
+ T_m=h^{-2} sum[j=0..m] {-Z_- Z_+ e_2j
+          +b*(Z_-+Z_+)*e_(2j+1)-b^2*e_(2j+2)}
+          -beta*sum[j=0..m] e_2j.
+
+Its expectation equals the same polynomial in the exposed latent values. Let
+T_m^ideal denote that polynomial at Y_-,Y_0,Y_+. Then
+
+    E T_m^ideal <= gamma*sigma.                       (2.1)
+
+Proof. Write w_m(y)=sum[j=0..m]y^(2j), q(y)=-lambda*y.
+For the ideal triple the uncorrected score is
+w_m(Y0)*[-(q-(Y_+-Y0)/h)*(q-(Y_--Y0)/h)].
+The earlier finite-time semigroup proof gives conditional bias at most
+2|q| beta_g+beta_K<=beta. Conditional on the full center state, the corrected
+ideal expectation is at most
+w_m(f)*[2q Sf-q^2-(Sf)^2+(Af)^2]
+ =w_m(f)*[(Af)^2-(q-Sf)^2] <=w_m(f)*(Af)^2.
+The pointwise Cauchy inequality (Af)^2<=Gamma_f*e and structural identity give
+w_m(f)*Gamma_f=gamma*(1-f^(2m+2))<=gamma. Integrate. This also proves
+the inequality if individual corrected records or expectations are negative.
+Only the final covered lower bound may be clipped to zero.
+
+3. A GENERAL MULTITIME BLUR LEMMA
+
+Let F(t_1,...,t_d)=E prod_i f(X_ti), times ordered with nonnegative gaps.
+The derivative in the jth gap obeys
+
+ |partial_gap_j F| <= a_(d,j)
+ :=min(j^2*M1-, (d-j)^2*M1+),       1<=j<d.        (3.1)
+
+Proof of the word bound. A backward semigroup word g with k factors f has
+||g||inf<=1 and ||Lg||L1(pi)<=k^2 M1+. For k=1 this is immediate. Markov
+semigroups commute with L on these smooth domains and contract stationary L1.
+For multiplication by f, use
+L(fg)=f Lg+g Lf+2Gamma(f,g), E Gamma_f=-E fLf<=M1+,
+E Gamma_g=-E gLg<=||Lg||1, and pointwise Cauchy for Gamma. Thus the next
+bound is B+M1+ +2sqrt(M1+ B), at most k^2 M1+ by induction. At a gap,
+the past conditional product is signed but bounded in absolute value by1;
+differentiate the suffix and integrate its absolute generator. This gives the
+suffix bound. Reverse stationary time and use L^dagger for the prefix bound.
+Smooth compactness justifies differentiation also by limits at repeated times.
+
+For any exposure supported within [t_i-tau,t_i], sorted displacements from
+ordered nominal times lie in [-tau,0]. Each gap changes by at most tau. Therefore
+any d-fold exposed product differs from its ideal moment by at most
+
+    tau * sum[j=1..d-1] a_(d,j).                     (3.2)
+
+Products of exposure averages are integrals over independent AUXILIARY sampling
+times. This mathematical integration does not assert independent signal values.
+
+For common UNIFORM boxcars and nonoverlapping nominal clusters, obtain a sharper
+explicit coefficient B(p_1,...,p_r), where p_i is the number of factors in each
+chronological exposure window. Delete zero clusters and set d=sum p_i. For
+every within-cluster gap at global prefix k in a cluster with p factors add
+
+    a_(d,k)/(p+1).
+
+For every cross-cluster gap between p and q factors, at prefix k, add
+
+    a_(d,k)*[1-1/(p+1)-1/(q+1)+2*p!*q!/(p+q+1)!].  (3.3)
+
+Then blur <=tau*B(p_1,...,p_r). For d<=1 the coefficient is0.
+Proof: ordered uniform internal gaps have mean1/(p+1). A cross gap's change is
+tau*(U_min(q)-U_max(p)); its expected absolute value is the bracket in (3.3).
+Use E(U_max)=p/(p+1), E(U_min)=1/(q+1), and
+E[(U_min(q)-U_max(p))_+]=integral_0^1 t^p(1-t)^q dt=p!q!/(p+q+1)!.
+Apply (3.1), integrate along the straight line between gap vectors, then average.
+
+4. SHARPER SECOND-MOMENT BLUR AND GEOMETRY CALIBRATION
+
+Write C(t)=E[Y0 Yt], D0=E[A0^2], Dh=E[A0 Ah], q0=E Gamma_f.
+Stationarity gives C(-t)=C(t), C'(0+)=-q0, q0<=M*, and
+|C''(t)|<=M2* for t>=0 (right derivative at0). Hence
+
+ 0<=C0-D0<=delta0:=M* tau_U/3,
+ |Dh-C(h)|<=deltah:=M2* tau_U^2/12.                (4.1)
+
+The first follows from C(t)<=C0, |C(t)-C0|<=M*|t|, and E|U-V|=tau/3.
+The second uses h>=tau and the centered exposure-offset difference, whose
+variance is tau^2/6, in the second-order Taylor remainder. It also holds at2h.
+More precisely D0=C0-q0*tau/3+R0, |R0|<=M2*tau^2/12, but (4.1) avoids an
+unknown q0 inside the calibration envelope.
+
+For any monomial in Section3, use its uniform coefficient or support bound.
+For degree2 replace the bound by delta0 for a repeated window, and deltah for
+different windows separated by at least h. Denote resulting certified blur
+radii for cluster patterns by D(pattern). With zeros deleted, set
+
+ deltaN=h^{-2} sum[j=0..m] {D(1,2j,1)
+       +|b|*[D(1,2j+1)+D(2j+1,1)]+b^2*D(2j+2)}
+       +beta*sum[j=0..m]D(2j).                    (4.2)
+
+Do not omit the last term: the bias correction's own moment is blurred.
+Adjoint bounds need not coincide, so the two B patterns are written separately.
+
+Define population quantities
+
+ P=E T_m-deltaN,
+ Abar=1-D0-delta0,
+ Hbar=(D0-Dh+delta0+deltah)/h+M2* h/2.
+
+Then P<=gamma*sigma, Abar<=Atrue:=1-C0, and Hbar>=gamma*Atrue.
+The last statement follows from
+|C0-C(h)-h*q0|<=M2*h^2/2 and q0=gamma*(1-C0).
+No local-volatility measurement or stationary arcsine law is used.
+
+5. FINITE CONFIDENCE AND SAME-RECORD CALIBRATION
+
+Suppose simultaneous confidence bounds from the actual acquisition satisfy
+p<=P, a<=Abar and u>=Hbar with probability at least1-alpha. If u>0 define
+
+    L=[p]_+*[a]_+/u;                              (5.1)
+
+otherwise return0 with an inconclusive flag. Then P(sigma>=L)>=1-alpha.
+On the confidence event, if p and a are positive, gamma*Atrue<=u and
+p<=gamma*sigma imply p*a/u<=sigma*a/Atrue<=sigma. Otherwise L=0.
+For a>0 the covered geometry bound gamma<=u/a also follows. It is possible
+for the procedure to be inconclusive even though the model is true.
+
+One exact construction uses mean intervals for T_m, e2, and
+(Z_-+Z_+)*e1/2 from the same independent trials. Form P,Abar,Hbar by interval
+arithmetic, selecting the lower endpoint for p,a and upper endpoint for u.
+Individual bounded-mean inequalities are unconditional; a union bound gives
+their simultaneous coverage regardless of within-trial correlations.
+Do not apply an ordinary iid score inequality AFTER selecting its coefficients
+from those same data, unless the moment-region or finite-family argument covers
+that selection. Data splitting is not necessary when simultaneous coverage is
+proved. Data splitting is also not forbidden if chosen and charged.
+
+For bounded records in [-B,B], e_k lies in [-B^k,B^k]. Conservative exact score
+range and variance bounds can therefore be obtained algebraically. Either
+Hoeffding or a valid empirical-Bernstein theorem may supply the simultaneous
+intervals. A sample variance must not be inserted into a known-variance bound.
+All numerical endpoints must be outward enclosures; uncertainty is not zero
+because a numerical solver terminates.
+
+6. FINITE POLYNOMIAL HIERARCHY AND ITS SHARP CIRCLE LIMIT
+
+For the stationary circle dphi=omega dt+sqrt(2gamma)dW, f=cosphi,
+Sf=-gamma*f and (Af)^2=omega^2*(1-f^2). Its entropy is sigma=omega^2/gamma.
+The ideal zero-step uncorrected weighted expectation divided by gamma is
+
+ J_m(lambda)=sigma*(1-E[Y^(2m+2)])
+       -(lambda-gamma)^2*E[w_m(Y)Y^2]/gamma.        (6.1)
+
+For lambda=gamma, this increases to sigma because
+E Y^(2m+2)=binom(2m+2,m+1)/4^(m+1)=O(m^{-1/2}).
+For a grid point with |lambda-gamma|<=eta, the extra loss is at most
+(m+1)*eta^2/gamma. Thus a finite dense grid and simultaneous confidence, with
+selection of the largest covered L, remove the need to know gamma beforehand.
+The gamma upper bound in Section5 also converges to gamma when moment error,
+blur/h and h vanish and C0<1. This is actual parameter calibration, not an
+oracle gamma silently inserted into the score.
+
+A conservative geometric-stage construction improves on the initial
+superexponential sample schedule. Use raw target and reference readouts bounded
+by1, as in the binary detector example. Fix positive parameter envelopes and valid
+generator caps, and a known integer B>=0 with kappa>=kappa_min>=2^(-B).
+At stage k take m=k, h=2^(-k), tau<=2^(-4k), K=2k+2,
+n=n_ref=2^((8B+16)k), and the lambda grid [0,k] with mesh2^(-k).
+Bounded references use a known coarse shutter bracket at the same shrinking
+scale. Eventually the lambda grid contains a point within2^(-k) of true gamma.
+Allocate fixed total alpha over the finite family (or use summable stage alpha).
+
+Raw score ranges are poly(k)*2^(2k), and degree normalization is at most
+2^(2B(k+1)). Hoeffding radii after normalization are thus bounded by
+poly(k)*2^(-(2B+6)k). The logarithm of the grid/mean family is O(k).
+Differentiating kappa^(-d) gives the same negligible order for reference gain
+uncertainty, up to fixed/polynomial factors. Statistical and gain calibration
+errors therefore vanish. Generic summed blur is O(k^4*2^(-2k)); finite-step
+bias uniformly on the lambda grid is O(k^2*2^(-k)); the nearest grid point's
+misspecification is O(k*4^(-k)). The geometry upper bound u/a converges to
+gamma. Circle hierarchy residual is O(k^(-1/2)), so the maximum covered
+certificate converges in probability to sigma, with signed error
+sigma-max L=O_P(k^(-1/2))=O_P((log n)^(-1/2)). This is a sufficient rate,
+not an optimal or minimax claim. Direct uniform concentration gives convergence
+at fixed advertised confidence; coverage alone would not imply it.
+
+Certified numerical precision must increase too. For example k^2+(4B+12)k
+binary digits suffice to make elementary enclosure errors negligible after
+degree/time amplification. Log-series truncation and square-root enclosure
+must actually refine; printing a fixed approximation to more digits is not
+the required refinement. The current fixed-90-bit API remains valid for
+each finite design, but its unchanged output has not been claimed to satisfy
+the asymptotic limit. Increasing replica access, shrinking exposure and
+reference trials are substantive acquisition resources. Neither fixed positive
+exposure consistency nor free preparation/reference/measurement energy follows.
+
+7. UNKNOWN GAIN AND EXPOSURE: CONCRETE REFERENCE CALIBRATION
+
+If raw bounded detector R has conditional mean kappa*A (unknown constant
+kappa>0), the preceding unbiased Z is R/kappa. The gain is not an additive
+zero-mean noise variance. A degree-d raw product has mean kappa^d times the
+corresponding blurred moment. Keep degrees separate, cover their raw means,
+and project their intervals over a simultaneously covered positive kappa region.
+For the raw degree-(2j+2) contrast
+S_j=h^(-2)*[-R_-R_+e_2j+b(R_-+R_+)e_(2j+1)-b^2 e_(2j+2)],
+the entire contrast may first receive a mean interval and then be divided by
+kappa^(2j+2); this retains its covariance cancellations. The bias correction
+uses separate degree-2j means. Signed endpoints must be minimized/maximized
+over kappa; division of every endpoint by kappa_L is wrong for negative means.
+After these projected bounds, Sections4-5 apply conservatively. A joint region
+can retain the common kappa rather than rectangularizing, improving precision.
+
+A sufficient physical reference protocol: the same detector reads a known
+constant signal1, with mean kappa, and a known step from0 to1 at time0. If a
+coarse metrological exposure bracket obeys0<s<tau_min<=tau<=tau_U, a step
+reading centered at time s has mean p_step=kappa*s/tau. Simultaneous bounded
+reference-mean intervals give the joint restrictions
+
+ kappa in[kappa_L,kappa_U], p_step in[p_L,p_U],
+ p_step*tau=kappa*s.
+
+When p_L>0, a conservative exposure interval is
+[kappa_L*s/p_U, kappa_U*s/p_L], intersected with the coarse bracket. If p_L<=0
+the upper bound may be inconclusive. Without s<tau_min the correct response is
+kappa*min(1,s/tau); retain that exact relation instead of claiming a ramp.
+Multiple reference times can be treated through their simultaneous region.
+An empty confidence region produces an inconclusive/model-check flag, not a
+claim that the physical model has zero uncertainty. Common response between
+reference and target, known time origin, known step shape and independent
+detector randomizations are premises requiring actual calibration access.
+
+Cover every raw target and reference mean with one declared error allocation.
+The union event is valid even when target moments share records. References
+may be separate trials; adaptive design requires a separate valid confidence
+argument. Optimization over the region is safe because the true parameters
+are simultaneously included, not because conditional independence magically
+survives an estimated plug-in. The structural Gamma identity and generator
+caps remain physical assumptions; these references do not validate them.
+
+8. FIXED RAW CONTRASTS PRESERVE COVARIANCE BEFORE GAIN PROJECTION
+
+Choose nominal kappa0>0 as a predeclared fixed design constant, or using a pilot
+independent of the inference records. Include in the original jointly
+covered mean vector all S_j, required raw elementary means U_j=e_2j, the
+calibration contrast V=(e2-(R_-+R_+)e1/2)/h, and
+R_l=sum[j=0..l] S_j/kappa0^(2j+2), for every prefix l<=m to be reported.
+Here S_j includes h^(-2), and all e_k are polynomials of raw R readouts.
+The actual sample variance of R_l preserves covariances before concentration.
+
+On the event E S_j in[L_j,U_j], E R_l>=L_Rl, define
+I_j=[kappa_U^(-d_j)-kappa0^(-d_j),
+     kappa_L^(-d_j)-kappa0^(-d_j)], d_j=2j+2,
+c_j=min of the four products of interval endpoints I_j and[L_j,U_j].
+The exact identity
+sum E S_j/kappa^d_j = E R_l +sum(kappa^(-d_j)-kappa0^(-d_j))*E S_j
+shows the left side is at least L_Rl+sum c_j for every covered kappa.
+Subtract beta times the covered upper weighted U_j sum and deltaN_l to bound
+P_l. Maximize with the old componentwise bound and over all covered prefixes.
+No further alpha is required AFTER the common vector (including R_l) has been
+covered. One cannot add an uncovered R_l after looking at the data for free.
+Each prefix remains unbiased using the full K=2m+2 replica elementary average.
+This is standard fixed-contrast concentration plus interval projection, not a
+new confidence inequality.
+
+9. ENDPOINT ENTROPY BASELINE UNDER IDENTICAL DETECTOR ACCESS
+
+Assume 0<=b<=1 and let s be a covered lower bound on
+N0=[2b C(h)-C(2h)-b^2 C0]/h^2, after gain correction and RAW order-zero blur
+correction, without the derivative-score beta penalty. Then
+
+    sigma >= 2*h^3*[s]_+^2/(2b+sqrt(2))^2.
+
+This baseline needs ordinary stationary diffusion and the calibrated detector,
+but not the pointwise Gamma shape. Proof: compare L to its reversible part S,
+with identical stationary pi, diffusionD and f. Girsanov gives path KL on[0,t]
+=sigma*t/4. Pinsker plus bounded endpoint product f0*ft gives
+|C_L(t)-C_S(t)|<=sqrt(sigma*t/2). Zero-lag C0 is identical, and
+2b C_S(h)-C_S(2h)-b^2 C0 =-||(exp(hS)-bI)f||_pi^2<=0.
+Therefore h^2[N0]+ <=(2b+sqrt2)*sqrt(sigma*h/2), giving the claim. This is
+the prior ci_joint_calibration reversible-support/entropy-bridge construction
+in C rather than binary-agreement normalization. The denominator requires an
+upper outward enclosure if computed finitely. Exposure must be corrected
+before claiming the common ideal zero-lag cancellation.
+
+10. SHARP HIDDEN STOCHASTIC-DRIVE FAMILY
+
+Let Z be any reversible smooth elliptic diffusion on a compact connected
+manifold without boundary, generator L_Z, positive stationary density pi_Z.
+On circle x Z let
+L=gamma*partial_phi^2+c(z)*partial_phi+L_Z, gamma>0, c smooth real.
+The stationary law is uniform_phi x pi_Z. ALL coordinates are subject to
+ordinary/even hidden-state reversal. D is block diagonal, so
+S=gamma*partial_phi^2+L_Z, A=c(z)*partial_phi,
+v=(c(z),0), sigma=E_piZ[c^2]/gamma.
+
+For f=cos(phi): Gamma_f=gamma*(1-f^2), Sf=-gamma*f,
+Af=-c(z)*sin(phi). At stationarity phi andZ are independent, U=(f,Gamma_f)
+is a function of Y=f, and the population conditional quantities are
+g(Y)=-gamma*Y,
+K(Y)=gamma^2*Y^2-E[c^2]*(1-Y^2).
+Hence the observed-geometry lower functional is exactly E[c^2]/gamma;
+the endpoints Y=+-1 have zero stationary mass. Because that functional is
+fixed by the ideal continuous Y law, it lower-bounds every compatible model
+in the prior ordinary compact hidden-diffusion class. This joint diffusion
+attains it. Thus the global compatible-law minimum is exactly E[c^2]/gamma,
+not only a lower bound under a circle-fit parameterization.
+
+The full Y law is reversible: reflection R(phi,z)=(-phi,z) preserves the
+stationary law, fixes f, and conjugates L to L^dagger. Reflection of the
+stationary reversed hidden process has the forward hidden law and the same
+detector values, proving equality of all forward/reversed Y distributions.
+
+The ideal hierarchy formula is exactly(6.1) with omega^2 replaced by E c^2.
+Thus the finite consistency construction extends provided the same valid
+generator caps and detector-access assumptions are supplied. The same
+sufficient acquisition and precision schedule applies under valid uniform
+generator and positive-gain envelopes: the stationary arcsine marginal and
+ideal hierarchy formula are unchanged, while the finite-lag and exposure
+bounds already hold for the general hidden class. Explicitly,
+Lf=-gamma cosphi-c sinphi,
+L^2f=(gamma^2-c^2)cosphi+(2gamma*c-L_Zc)sinphi;
+adjoint formulas reverse the sine term. With C=||c||inf andG=||L_Zc||inf,
+both M1 norms equal sqrt(gamma^2+C^2), both M2 norms equal
+sup_z sqrt((gamma^2-c(z)^2)^2+(2gamma*c(z)-L_Zc(z))^2).
+Simple safe choices are M1=gamma+C, M2=(gamma+C)^2+G. Parameter uncertainty
+requires valid upper envelopes, not substitution of fitted hidden parameters.
+
+Example: Z is a second circle, L_Z=eta*partial_z^2, eta>0,
+c(z)=epsilon*cosz. Then E c=0, E c^2=epsilon^2/2, and exact sigma is
+epsilon^2/(2gamma). Both first caps equal sqrt(gamma^2+epsilon^2);
+both second caps equal sqrt((gamma^2-epsilon^2)^2+(2gamma+eta)^2*epsilon^2).
+The second expression maximizes at c^2=epsilon^2 because its square is
+gamma^4+(2gamma^2+4gamma*eta+eta^2)c^2+c^4, increasing on c^2>=0.
+There is no mean angular current, but nonzero conditional currents and a
+positive ordinary-reversal entropy minimum remain for epsilon!=0. This is
+an analytically validated family, not another numerical or physical experiment.
+An odd-variable physical reversal changes the target and is excluded.
+
+11. FAILURE CASES AND POSITIONING
+
+Unknown unrestricted hidden diffusivity cannot be calibrated by this theorem.
+Rare-state countermodels can preserve almost all finite records while making
+global generator and diffusivity suprema arbitrarily large. The calibration
+step does not turn E[Gamma|Y] into a pointwise upper envelope. A false structural
+identity, uncalibrated memory/correlated shot noise, a changed reference response,
+nonstationary target preparation, or uncharged dependence invalidates the
+certificate. Replica inference, bounded-mean confidence, moment-region inversion,
+and semigroup/Dirichlet identities are established methods. The narrower result
+here is their explicit propagation through the structural diffusion entropy
+score with a simultaneous nuisance guarantee and a sharp limiting hierarchy.

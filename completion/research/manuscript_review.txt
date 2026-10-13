@@ -1,0 +1,145 @@
+INTERNAL CROSS-CHAPTER MANUSCRIPT REVIEW
+Abdinoor / 2D Labs / 12 October 2026
+
+Reviewer role: composition/quantum branch author reviewing root's integration.
+This is an internal integration review, not external peer review or a second
+independent derivation of the reviewer's own quantum theorem. Separate red-team
+mathematical checks are recorded in research/redteam.txt.
+
+Verdict: accepted within the declared physical and statistical contracts.
+No blocking mathematical correction was found in composition_section.tex or
+in the cross-chapter physical interpretation of statistical_section.tex.
+The statistical theorem itself is also under separate red-team review.
+
+Files reviewed, SHA256:
+
+manuscript/composition_section.tex
+8a5f971bfa60cc953b9a6e0c65585c2fdae607f3fa66962cc40a9972eba5aa0e
+manuscript/statistical_section.tex
+5c4156e535e0f5d282f362351b3403e685b940720dda08c1ab053f5a1d0a4f13
+manuscript/classical_section.tex
+81953786da2f34daa2c56766009b6471923ac7b510cc9ac2caf3d86d513fb5af
+manuscript/quantum_section.tex
+21807b662b050b7cdf94748bc9bb0c0732c0537b4b979c110fdc75dd9af7342f
+manuscript/positioning_section.tex
+b608da0d04cda8fd332ab1dbb4daf8e4dbc13e1d98d0b0b8d433872ed18e2248
+results/pulse_test.json
+4debf5b845f9629d1c281517e8fefe086ed3715b9373d733ce76454559868e4f
+code/pulse_test.py
+79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828
+
+1. Composition chapter
+
+The joint outcome/interface defect has the correct 1/2 factor. The adaptive
+bound uses unnormalized concrete branch probabilities, includes stopped leaves
+and all outcomes, and propagates both output and hidden-update errors. Its
+preparation term TV(mu C,nu) is necessary and present. The proof is a valid
+branchwise telescoping/contraction argument. The source correctly presents
+intertwining as sufficient rather than a characterization of all trace
+equivalence.
+
+The tensor defect epsilon1+epsilon2-epsilon1*epsilon2 is valid for product
+instruments and product interfaces, via independent maximal local couplings.
+Arbitrary added couplings require a separately checked joint defect. The
+correlated-preparation warning is correct: matching local marginals alone
+does not imply matching joint interface preparations.
+
+The refinement algorithm and forced-split proof correctly establish the
+coarsest DETERMINISTIC Markov interface refining the supplied partition, for
+all declared instruments and all initial preparations. The text appropriately
+avoids identifying this with the smallest linear realization, physical access
+to hidden blocks, or a globally cheapest sensor. The CNOT example changes
+permitted operations and therefore does not contradict passive equivalence.
+
+2. Classical/quantum signs and protected coarse detectors
+
+The classical convention is consistent: gamma_cl=-(1-r)J, so the endpoint
+displacement Delta p_j has sign -J under suppression, while the separately
+defined baseline-minus-endpoint response D_e has sign +J. The quantum section
+uses Delta_B=p_B(t)-1/2 and Delta_B'(0)=-(1-r)J. Thus its short negative and
+late positive responses genuinely violate the classical same-sign consequence
+under the stated contract; there is no sign-convention mismatch.
+
+The gateway corollary requires every post-intervention path from i into B to
+first visit j. Its first-hit proof and strict positivity follow because there
+is no occupation of B before that hitting time. This is a sufficient condition,
+not a characterization of every coarse detector retaining positivity.
+
+The explicit four-state counterexample is consistent: native selected-edge
+current is 10/121, the half-suppression initial B displacement derivative is
+-5/121, and the stationary B displacement is 10/2299>0. It violates the gateway
+condition. The manuscript correctly warns that a coarse classical detector can
+reverse and that the response crossing alone is not device-independent
+quantumness. Delayed readout after release likewise needs a separate contract.
+
+3. Calibrated quantum benchmark and experimental interpretation
+
+The common gain 9/10 multiplies the certified ideal responses at t1=1/2 and
+t2=9/4. Exact Taylor certificates establish
+
+ - (9/10) Delta_B(t1) > 3/100,
+   (9/10) Delta_B(t2) > 13/1000.
+
+These are the gaps used by the statistical design. With all setting radii
+1/2000, the smaller robust power margin is 13/1000-2(1/1000)=11/1000,
+as stated. The exported count is 110192 per arm, 330576 total; active pulse
+exposure is 110192*(1/2+9/4)=303028 time units. Preparation, detector and other
+apparatus costs are explicitly additional. No energy optimum or measured
+energy advantage is claimed.
+
+The independent three-arm design avoids assuming a non-disturbing initial
+quantum measurement. A shared affine detector maps both contrasts by the same
+gain, preserving their sign product even for negative gain; the benchmark power
+calculation specifically uses positive gain. A fixed shared offset cancels.
+The actual records are assumed independent Bernoulli samples with fixed
+probabilities under valid setting-level calibration envelopes. This is narrower
+than arbitrary drifting/memory-bearing data and is correctly disclosed.
+
+The rejection conclusion is rejection of the declared classical contract.
+The text does not infer the singleton/gateway structure, physical channel
+selectivity or preparation stationarity from the same two response means.
+Inconclusive data do not establish classicality, and coherent below-threshold
+models supply a relevant negative control. The matched incoherent example
+shares stationary populations/current inventory, not full temporal records;
+the quantum section explicitly preserves that distinction.
+
+4. Nonblocking editorial suggestions
+
+(a) Resolved: classical_section.tex now says 'negative, zero, and positive
+endpoint displacements' for the currents 1,0,-1. The order is correct.
+
+(b) The symbol gamma denotes a signed population-injection rate in the
+classical section but a positive damping rate Gamma/4 in the quantum section.
+Both are explicitly defined and the mathematics is consistent. A one-line
+notation note, or gamma_cl for the former, would ease cross-chapter reading.
+
+(c) Resolved in source: the synthetic count example's baseline p0=1/2 together
+with gain9/10 corresponds to affine detector offset d0=1/20. This is now stated
+in pulse_test.example and statistical_section.tex. It cancels from both test
+contrasts and does not change any design or synthetic count. Regenerating the
+JSON will add the declared offset without changing numerical conclusions.
+
+5. Final scope amendments
+
+The quantum setup now explicitly assumes g>=0 without loss of generality.
+Conjugation by Z sends X to -X, leaves Z populations invariant, and multiplies
+each jump operator by -1 without changing its dissipator. The stated threshold
+q=g/gamma is therefore valid for the declared convention. This fixes the
+missing hypothesis identified by the independent red-team review; no physical
+parameter family is lost and the already nonnegative-g code is unchanged.
+
+The classical same-sign null also holds when arm s uses a different constant
+retention factor 0<=r_s<1, as long as both arms suppress the same native
+physical channel and satisfy the protected detector condition. Each underlying
+endpoint population displacement is -(1-r_s)J_e H_s with H_s>0, so their
+product is nonnegative. Native preparation and other dynamics must still agree.
+Random positive timings independent of the process preserve this conclusion
+by averaging fixed-time same-sign responses. Quantitative power needs a bound
+on the actual contrast and does not follow from qualitative sign invariance.
+
+Resolved: the new statistical paragraph calls each endpoint population
+displacement a positive multiple of -J_e. The null inequality and all
+statistical calculations are unchanged. This amended source is accepted.
+
+No code files were changed by this reviewer. The sole theorem-source edit was
+the explicit g>=0 convention described above.

@@ -1,0 +1,118 @@
+FINITE DETECTOR ACCESS TO THE SHARP IDEAL-LAW MINIMUM
+Owner: /root/population_theory
+Date: 2026-10-13 UTC
+Status: consolidated proof for independent review; outside frozen eighth release.
+Source: theory/finite_access.tex. No Monte Carlo or physical measurements here.
+
+TARGET AND COMMON ASSUMPTIONS
+Circle dphi=omega dt+sqrt(2gamma)dW, gamma>0 fixed. Exposure duration tau>0.
+A=tau^-1 integral_0^tau cosphi dt; observed X=A+N(0,nu²), nu>0 fixed initially.
+Read noise independent of target and other read errors. Target M(omega)=
+omega²/gamma is the sharp minimum compatible with the ideal observed law,
+not an upper bound on arbitrary extra hidden entropy. The latter is already
+unbounded by appending invisible dissipative subsystems.
+
+EXACT MOMENTS
+Stationary phase uniform: EA=0 and
+V(omega)=tau^-2 Re[tau/z-(1-exp(-z tau))/z²], z=gamma-iomega.
+At omega=2pi m/tau, a0=1-exp(-gamma tau),
+V=[(gamma tau+a0)omega²+(gamma tau-a0)gamma²]/[tau²(gamma²+omega²)²].
+Thus V~(gamma tau+a0)/(tau²omega²), and
+|V(omega)-V(2omega)|~3(gamma tau+a0)/(4tau²omega²).
+
+Uniformly in the initial phase law, Ito's formula gives
+omega tau A=sinphi_tau-sinphi_0+gamma integral sinphi dt
+             -sqrt(2gamma) integral cosphi dW.
+Therefore EA²<=H2/omega²,
+ H2=[2+gamma tau+sqrt(2gamma tau)]²/tau².
+Also EA4<=H4/omega4,
+ H4=8[(2+gamma tau)^4+12gamma²tau²]/tau4.
+Fourth bound uses E[(integral cosphi dW)^4]<=3tau², proved from Ito's
+fourth-moment identity, not an unjustified conditional Gaussian assumption.
+
+UNIFORM FINITE UPPER-CONFIDENCE OBSTRUCTION
+For any n predetermined stationary exposure windows, even correlated or
+overlapping, Gaussian-mixture KL to pure-noise Q=N(0,nu²I) is at most
+nV/(2nu²), hence tends0 while M(omega)->infinity.
+If U is an extended upper confidence bound uniformly covered at1-alpha over
+all omega>0, then Q(U=infinity)>=1-alpha. Every finite-omega noisy law has
+positive density everywhere and is equivalent to Q. Thus U cannot be finite
+almost surely under any finite-omega model. The stronger claim of infinity
+probability>=1-alpha at every fixed model is NOT made; valid lower bound is
+1-alpha-TV(Pomega,Q). No adaptive timing/precision protocol covered here.
+
+PASSIVE IID TRIALS: MATCHING FIXED-PRECISION COUNTS
+Fresh stationary preparation per trial, known pair omega versus2omega,
+equal-prior target error epsilon in(0,1/2). For bounded zero-mean exposure:
+chi²(P||Q)=E exp(AA'/nu²)-1
+          =sum[k>=2](EA^k)²/(k!nu^(2k)) <=Cnu0 V²,
+Cnu0=exp(1/nu²)-1-1/nu² for any bounded zero-mean exposure. In the stationary
+circle, phase shift by pi preserves the path law and maps A to -A. Its odd
+moments vanish; hence the stronger Cnu=cosh(1/nu²)-1 applies. The count bounds
+use this symmetry-tightened constant. Tensorized KL and Pinsker triangle yield
+necessary n>=2(1-2epsilon)²/[Cnu(Vomega+V2omega)²].
+
+For sample-X² midpoint test, Var(X²)<=Snu(V),
+Snu(V)=(1+4nu²)V-V²+2nu4. Sufficient for BOTH conditional errors<=epsilon:
+n>=ceil[4 max(Snu(Vomega),Snu(V2omega))/(epsilon DeltaV²)].
+Simpler valid sufficient numerator4(1+6nu²+3nu4) is retained as fallback.
+Along the resonant sequence, optimal passive count is Theta(omega4)=Theta(M²).
+Bounds may have loose constants or vacuous necessary counts below1.
+
+PREPARED IID TRIALS: MATCHING FIXED-PRECISION COUNTS
+Actual known phase phi0=pi/2 under both hypotheses. At resonance,
+mu(omega)=-a0 omega/[tau(gamma²+omega²)].
+DeltaMu=a0 |omega| |2omega²-gamma²|/
+        [tau(gamma²+omega²)(gamma²+4omega²)] ~a0/(2tau|omega|).
+Centered X is sub-Gaussian with proxy1+nu². Mean midpoint test sufficient:
+n>=ceil[8(1+nu²)log(1/epsilon)/DeltaMu²], for nonzero gap.
+Ito H2 plus Gaussian-mixture KL gives necessary:
+n>=16nu²(1-2epsilon)²omega²/(9H2).
+Thus prepared count is Theta(omega²)=Theta(M).
+Known initial E cosphi0=0, E sinphi0=r!=0 also works, multiplying mean by r
+and sufficient constant by r^-2. Merely preparing Y0=0 with symmetric phases
+does NOT establish the needed orientation. Prepared records are not inserted
+into a stationary entropy score; they discriminate generators' stationary
+ideal-law minimum values. Preparation energy is not assumed zero.
+
+DECLARED PRECISION-ENERGY LAW: THE MEASUREMENT EXPONENTS MATCH
+Assume (do not derive as universal physics) read variance nu_i²=kappa/E_i,
+kappa>0, fixed predetermined finite energy schedule, independent read errors.
+For either stationary or fixed phase preparation,
+KL(Pomega||Q)<=H2 sum(E_i)/(2kappa omega²).
+Pinsker triangle for omega versus2omega yields necessary measurement energy
+sum E_i>=16kappa(1-2epsilon)²omega²/(9H2).
+Correlated latent exposures allowed in this lower bound; adaptive energy
+schedules and changes to the generator during exposure are not covered.
+
+For passive independent trials choose per-read E=c omega² under BOTH
+alternatives, c>0 fixed. Then EX4<=[H4+6kappa H2/c+3kappa²/c²]/omega4
+=Bc/omega4. Sample-X² midpoint test sufficient:
+n>=ceil[4Bc/(epsilon omega4 DeltaV²)], bounded as omega grows along resonance.
+Total measurement energy therefore O(omega²), matching the universal bound.
+Prepared trials at fixed nu already use Theta(omega²) readings at fixed
+per-read energy, also Theta(omega²) measurement energy. These are the same
+asymptotic order, not equal constants or equal optimal procedures.
+
+RESOURCES AND LIMITS
+Fixed-precision trial experiment: n preparations, n exposed readouts, n tau
+declared evolution time. Sensor-energy law counts only readout measurement
+energy. Phase preparation, reset, control, timing and exposure energy require
+additional calibration. There is NO proved active total-energy advantage.
+Counts concern a known binary pair along a resonant sequence, not arbitrary
+frequency estimation. Generator and clock calibration are explicit. A fixed
+frequency envelope removes the unbounded class driving the upper-CI theorem.
+The mathematical ingredients are standard; historical priority of the closed
+operational comparison remains unestablished. Independent reviewer notified.
+
+INTERNAL REVIEW CHECKPOINT — 2026-10-13T00:22:55Z
+Independent reviewer checked the actual manuscript and found the proofs sound,
+including the refined squared-readout variance, absolute-continuity upper-CI
+argument, phase-moment weakening, and sensor-energy constants. Two requested
+presentation refinements were then made: the count bounds explicitly use the
+circle's symmetry-tightened cosh constant, and the two optimal energy orders
+are stated separately without asserting equality of their actual values.
+No further scientific extensions are planned before this phase freezes.
+Current proof SHA256:
+ 2aeb79b599fc431fbf9bf28f047ba8e27a594f88da49b8f95a59e60a74a1fc1b
+External peer review and laboratory validation remain absent.

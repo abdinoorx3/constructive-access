@@ -1,0 +1,604 @@
+{
+  "status": "Mathematical results and constructed numerical demonstrations; no laboratory measurements",
+  "row_generator_convention": true,
+  "general_two_endpoint_theorem": {
+    "coefficient": "gamma=pi_i*(qprime_ij-q_ij)-pi_j*(qprime_ji-q_ji)",
+    "response": "pprime_j(t)-pi_j=gamma*H_ij^prime(t), with H>0 for all finite t>0",
+    "scope": "Any finite valid row generators differing only on the two directed rates and compensating diagonals, with native stationary pi; irreducibility is unnecessary",
+    "testable_constraint": "A nonzero response cannot cross the native baseline as pulse duration varies while the same step perturbation is held fixed",
+    "not_claimed": "The response magnitude need not be monotone; arbitrary coarse endpoint sets need not preserve the sign"
+  },
+  "finite_pulse_theorem": {
+    "response": "E_pi[1{X0=j}-1{Xt=j}]=(1-r) J_e H_ij^r(t)",
+    "kernel": "H_ij^r(t)=integral_0^t P_jj^r(s) Pr_i^r(tau_j>t-s) ds > 0 for every t>0",
+    "bound": "t exp(-Lambda*t) <= H_ij^r(t) <= t; only endpoint exit caps are needed",
+    "meaning": "Sign of a single physical-channel current from singleton endpoint occupancy response, conditional on selective kinetic control and native stationarity",
+    "priority": "Finite-amplitude static response and linear transient response have close published precedents; priority of this exact packaged theorem unresolved"
+  },
+  "same_passive_generator_opposite_currents": [
+    {
+      "label": "positive",
+      "native_current": "1",
+      "stationary": [
+        "1/2",
+        "1/2"
+      ],
+      "perturbed_stationary": [
+        "7/12",
+        "5/12"
+      ],
+      "initial_destination_slope": "-1/2",
+      "algebraic_response_certificate": {
+        "coefficient": "-1/2",
+        "source": 0,
+        "target": 1,
+        "initial_response": [
+          "1/2",
+          "-1/2"
+        ],
+        "endpoint_exit_rates": [
+          "5/2",
+          "7/2"
+        ],
+        "conclusion": "Destination occupancy displacement has the coefficient's sign for every finite t>0; it vanishes identically iff the coefficient is zero",
+        "proof": "Stationarity gives pi*qp=coefficient*(e_target-e_source); first-hitting survival convolution makes the integrated response kernel strictly positive",
+        "irreducibility_required": false
+      },
+      "paired_response_at_t_1_4_numerical": 0.06473915332096425
+    },
+    {
+      "label": "zero",
+      "native_current": "0",
+      "stationary": [
+        "1/2",
+        "1/2"
+      ],
+      "perturbed_stationary": [
+        "1/2",
+        "1/2"
+      ],
+      "initial_destination_slope": "0",
+      "algebraic_response_certificate": {
+        "coefficient": "0",
+        "source": 0,
+        "target": 1,
+        "initial_response": [
+          "0",
+          "0"
+        ],
+        "endpoint_exit_rates": [
+          "3",
+          "3"
+        ],
+        "conclusion": "Destination occupancy displacement has the coefficient's sign for every finite t>0; it vanishes identically iff the coefficient is zero",
+        "proof": "Stationarity gives pi*qp=coefficient*(e_target-e_source); first-hitting survival convolution makes the integrated response kernel strictly positive",
+        "irreducibility_required": false
+      },
+      "paired_response_at_t_1_4_numerical": 0.0
+    },
+    {
+      "label": "negative",
+      "native_current": "-1",
+      "stationary": [
+        "1/2",
+        "1/2"
+      ],
+      "perturbed_stationary": [
+        "5/12",
+        "7/12"
+      ],
+      "initial_destination_slope": "1/2",
+      "algebraic_response_certificate": {
+        "coefficient": "1/2",
+        "source": 0,
+        "target": 1,
+        "initial_response": [
+          "-1/2",
+          "1/2"
+        ],
+        "endpoint_exit_rates": [
+          "7/2",
+          "5/2"
+        ],
+        "conclusion": "Destination occupancy displacement has the coefficient's sign for every finite t>0; it vanishes identically iff the coefficient is zero",
+        "proof": "Stationarity gives pi*qp=coefficient*(e_target-e_source); first-hitting survival convolution makes the integrated response kernel strictly positive",
+        "irreducibility_required": false
+      },
+      "paired_response_at_t_1_4_numerical": -0.06473915332096425
+    }
+  ],
+  "instantaneous_kernel_counterexample": {
+    "generator": [
+      [
+        -1.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        -1.0,
+        1.0
+      ],
+      [
+        1.0,
+        0.0,
+        -1.0
+      ]
+    ],
+    "duration": 2,
+    "P_jj_minus_P_ij": -0.036365303081044686,
+    "integrated_kernel": 0.364369543505758,
+    "meaning": "The proof must use the positive first-hitting convolution; instantaneous transition contrast can be negative"
+  },
+  "coarse_detector_counterexample": {
+    "channels_source_target_forward_reverse": [
+      [
+        0,
+        1,
+        "2",
+        "1"
+      ],
+      [
+        0,
+        2,
+        "10",
+        "1"
+      ],
+      [
+        1,
+        3,
+        "10",
+        "1"
+      ],
+      [
+        2,
+        3,
+        "1",
+        "3"
+      ]
+    ],
+    "native_stationary": [
+      "7/121",
+      "4/121",
+      "80/121",
+      "30/121"
+    ],
+    "perturbed_stationary": [
+      "13/209",
+      "6/209",
+      "140/209",
+      "50/209"
+    ],
+    "suppressed_channel": 0,
+    "factor": "1/2",
+    "detector_states": [
+      1,
+      2
+    ],
+    "initial_coarse_response_derivative": "-5/121",
+    "stationary_coarse_response": "10/2299",
+    "crossing_proof": "Negative initial derivative and strictly positive stationary limit imply a finite-time baseline crossing by continuity",
+    "gateway_check": {
+      "certified": false,
+      "source": 0,
+      "gateway": 1,
+      "observed_states": [
+        1,
+        2
+      ],
+      "reachable_without_gateway": [
+        0,
+        2,
+        3
+      ],
+      "counterexample_reachable_observed_states": [
+        2
+      ],
+      "conclusion": "If certified, the coarse response kernel is strictly positive by first hitting the gateway; if false, this sufficient certificate makes no sign claim"
+    },
+    "implication": "Classical hidden-state coarse readout can cross; crossing alone is not a device-independent quantum-coherence witness"
+  },
+  "increasing_state_family": [
+    {
+      "states": 4,
+      "channels": 4,
+      "native_current": "1/8",
+      "endpoint_exit_cap": "27/16",
+      "numerical_pulses": [
+        {
+          "duration": "1/100",
+          "paired_response": 0.0006191799801410769,
+          "kernel_from_response": 0.00990687968225723,
+          "local_cap_kernel_lower": 0.00983266585276619
+        },
+        {
+          "duration": "1/4",
+          "paired_response": 0.012510909951870403,
+          "kernel_from_response": 0.20017455922992644,
+          "local_cap_kernel_lower": 0.1639540028178754
+        },
+        {
+          "duration": "1",
+          "paired_response": 0.029485995531656095,
+          "kernel_from_response": 0.4717759285064975,
+          "local_cap_kernel_lower": 0.18498139990730428
+        },
+        {
+          "duration": "4",
+          "paired_response": 0.04347079098146017,
+          "kernel_from_response": 0.6955326557033628,
+          "local_cap_kernel_lower": 0.004683518483164698
+        },
+        {
+          "duration": "16",
+          "paired_response": 0.04799551628369207,
+          "kernel_from_response": 0.7679282605390731,
+          "local_cap_kernel_lower": 3.007246106462533e-11
+        }
+      ]
+    },
+    {
+      "states": 5,
+      "channels": 5,
+      "native_current": "1/8",
+      "endpoint_exit_cap": "15/8",
+      "numerical_pulses": [
+        {
+          "duration": "1/100",
+          "paired_response": 0.0006191810639456785,
+          "kernel_from_response": 0.009906897023130856,
+          "local_cap_kernel_lower": 0.009814246877477771
+        },
+        {
+          "duration": "1/4",
+          "paired_response": 0.012523168806710144,
+          "kernel_from_response": 0.2003707009073623,
+          "local_cap_kernel_lower": 0.15644600240114778
+        },
+        {
+          "duration": "1",
+          "paired_response": 0.029784011768587193,
+          "kernel_from_response": 0.4765441882973951,
+          "local_cap_kernel_lower": 0.15335496684492847
+        },
+        {
+          "duration": "4",
+          "paired_response": 0.04424349288875791,
+          "kernel_from_response": 0.7078958862201266,
+          "local_cap_kernel_lower": 0.0022123374805913345
+        },
+        {
+          "duration": "16",
+          "paired_response": 0.04799750549471732,
+          "kernel_from_response": 0.7679600879154771,
+          "local_cap_kernel_lower": 1.497219675014428e-12
+        }
+      ]
+    },
+    {
+      "states": 8,
+      "channels": 8,
+      "native_current": "1/8",
+      "endpoint_exit_cap": "39/16",
+      "numerical_pulses": [
+        {
+          "duration": "1/100",
+          "paired_response": 0.0006191843065777858,
+          "kernel_from_response": 0.009906948905244573,
+          "local_cap_kernel_lower": 0.009759196712532591
+        },
+        {
+          "duration": "1/4",
+          "paired_response": 0.012557616948354278,
+          "kernel_from_response": 0.20092187117366844,
+          "local_cap_kernel_lower": 0.1359226423782501
+        },
+        {
+          "duration": "1",
+          "paired_response": 0.030489468038429807,
+          "kernel_from_response": 0.4878314886148769,
+          "local_cap_kernel_lower": 0.08737902619542039
+        },
+        {
+          "duration": "4",
+          "paired_response": 0.04539891121053899,
+          "kernel_from_response": 0.7263825793686238,
+          "local_cap_kernel_lower": 0.00023317865492347524
+        },
+        {
+          "duration": "16",
+          "paired_response": 0.04800200331108928,
+          "kernel_from_response": 0.7680320529774285,
+          "local_cap_kernel_lower": 1.8477158676825258e-16
+        }
+      ]
+    },
+    {
+      "states": 16,
+      "channels": 16,
+      "native_current": "1/8",
+      "endpoint_exit_cap": "489/208",
+      "numerical_pulses": [
+        {
+          "duration": "1/100",
+          "paired_response": 0.0006191838084070034,
+          "kernel_from_response": 0.009906940934512054,
+          "local_cap_kernel_lower": 0.009767645826565492
+        },
+        {
+          "duration": "1/4",
+          "paired_response": 0.012552490517569515,
+          "kernel_from_response": 0.20083984828111223,
+          "local_cap_kernel_lower": 0.13889531685523382
+        },
+        {
+          "duration": "1",
+          "paired_response": 0.03039249491438789,
+          "kernel_from_response": 0.48627991863020625,
+          "local_cap_kernel_lower": 0.09527750517098334
+        },
+        {
+          "duration": "4",
+          "paired_response": 0.045255750801923206,
+          "kernel_from_response": 0.7240920128307713,
+          "local_cap_kernel_lower": 0.00032962602861769824
+        },
+        {
+          "duration": "16",
+          "paired_response": 0.04800066975905269,
+          "kernel_from_response": 0.7680107161448431,
+          "local_cap_kernel_lower": 7.378464796069089e-16
+        }
+      ]
+    },
+    {
+      "states": 32,
+      "channels": 32,
+      "native_current": "1/8",
+      "endpoint_exit_cap": "1119/464",
+      "numerical_pulses": [
+        {
+          "duration": "1/100",
+          "paired_response": 0.0006191841577527779,
+          "kernel_from_response": 0.009906946524044447,
+          "local_cap_kernel_lower": 0.009761720969115288
+        },
+        {
+          "duration": "1/4",
+          "paired_response": 0.012556098652299896,
+          "kernel_from_response": 0.20089757843679834,
+          "local_cap_kernel_lower": 0.13680429967996496
+        },
+        {
+          "duration": "1",
+          "paired_response": 0.03046152028891025,
+          "kernel_from_response": 0.487384324622564,
+          "local_cap_kernel_lower": 0.08966830372719248
+        },
+        {
+          "duration": "4",
+          "paired_response": 0.04536202854281042,
+          "kernel_from_response": 0.7257924566849667,
+          "local_cap_kernel_lower": 0.0002585924305289372
+        },
+        {
+          "duration": "16",
+          "paired_response": 0.04800172208590997,
+          "kernel_from_response": 0.7680275533745595,
+          "local_cap_kernel_lower": 2.7947518345429503e-16
+        }
+      ]
+    },
+    {
+      "states": 64,
+      "channels": 64,
+      "native_current": "1/8",
+      "endpoint_exit_cap": "2367/976",
+      "numerical_pulses": [
+        {
+          "duration": "1/100",
+          "paired_response": 0.0006191842357829991,
+          "kernel_from_response": 0.009906947772527985,
+          "local_cap_kernel_lower": 0.009760396687535184
+        },
+        {
+          "duration": "1/4",
+          "paired_response": 0.012556883589131596,
+          "kernel_from_response": 0.20091013742610553,
+          "local_cap_kernel_lower": 0.1363410801469411
+        },
+        {
+          "duration": "1",
+          "paired_response": 0.03047512256126461,
+          "kernel_from_response": 0.4876019609802338,
+          "local_cap_kernel_lower": 0.08845999013752166
+        },
+        {
+          "duration": "4",
+          "paired_response": 0.045371189117642,
+          "kernel_from_response": 0.725939025882272,
+          "local_cap_kernel_lower": 0.00024493313304656803
+        },
+        {
+          "duration": "16",
+          "paired_response": 0.048001116762881435,
+          "kernel_from_response": 0.768017868206103,
+          "local_cap_kernel_lower": 2.2494180124398433e-16
+        }
+      ]
+    }
+  ],
+  "numerical_pulse_checks": 30,
+  "calibrated_pulse_enclosure": {
+    "native_current_interval": [
+      "1/15",
+      "176515458260766260132999236141864352585892803312313684476707609/482103636213862947664315522590093813925864642550169600000000000"
+    ],
+    "orientation": "positive",
+    "adjusted_response_interval": [
+      "17/2000",
+      "33/2000"
+    ],
+    "positive_kernel_interval": [
+      "16234102035772935992777971679054179448524013473628160000000000/176515458260766260132999236141864352585892803312313684476707609",
+      "1/4"
+    ],
+    "positive_gain_interval": [
+      "7954709997528738636461206122736547929776766602077798400000000/176515458260766260132999236141864352585892803312313684476707609",
+      "51/400"
+    ],
+    "duration": "1/4",
+    "factor_interval": [
+      "49/100",
+      "51/100"
+    ],
+    "endpoint_exit_cap": "4",
+    "preparation_tv": "1/2000",
+    "detector_error": "1/2000",
+    "other_response_error": "0",
+    "exp_negative_interval": [
+      "64936408143091743971111886716216717794096053894512640000000000/176515458260766260132999236141864352585892803312313684476707609",
+      "12413915592536072670862289047373375038521486354677760000000000/33744521175215207580610849391551744205299790387485206653398081"
+    ],
+    "exponential_taylor_terms": 48,
+    "scope": "Conditional calibrated enclosure; conservative, not a sharp network-constrained minimax interval"
+  },
+  "calibration_failure_abstention": {
+    "native_current_interval": [
+      "-176515458260766260132999236141864352585892803312313684476707609/795470999752873863646120612273654792977676660207779840000000000",
+      "176515458260766260132999236141864352585892803312313684476707609/227277428500821103898891603506758512279336188630794240000000000"
+    ],
+    "orientation": "unresolved",
+    "adjusted_response_interval": [
+      "-1/100",
+      "7/200"
+    ],
+    "positive_kernel_interval": [
+      "16234102035772935992777971679054179448524013473628160000000000/176515458260766260132999236141864352585892803312313684476707609",
+      "1/4"
+    ],
+    "positive_gain_interval": [
+      "7954709997528738636461206122736547929776766602077798400000000/176515458260766260132999236141864352585892803312313684476707609",
+      "51/400"
+    ],
+    "duration": "1/4",
+    "factor_interval": [
+      "49/100",
+      "51/100"
+    ],
+    "endpoint_exit_cap": "4",
+    "preparation_tv": "1/100",
+    "detector_error": "0",
+    "other_response_error": "0",
+    "exp_negative_interval": [
+      "64936408143091743971111886716216717794096053894512640000000000/176515458260766260132999236141864352585892803312313684476707609",
+      "12413915592536072670862289047373375038521486354677760000000000/33744521175215207580610849391551744205299790387485206653398081"
+    ],
+    "exponential_taylor_terms": 48,
+    "scope": "Conditional calibrated enclosure; conservative, not a sharp network-constrained minimax interval"
+  },
+  "paired_difference_sampling_plan": {
+    "records": 2000000,
+    "error": "1/500",
+    "failure_probability": "1/20",
+    "exponent": "4",
+    "exponential_taylor_terms": 48,
+    "certificate": "Taylor lower bound for exp(N*error^2/2) >= 2/alpha",
+    "assumption": "Independent native-stationary preparations and noninvasive paired endpoint readouts"
+  },
+  "short_pulse_magnitude_plans": [
+    {
+      "records": 180800,
+      "duration": "1/10",
+      "current_error": "1/10",
+      "response_sampling_error": "1/400",
+      "variance_cap": "67/480",
+      "current_bias_bound": "1/20",
+      "current_cap": "1/8",
+      "endpoint_exit_cap": "4",
+      "factor": "1/2",
+      "stationary_target_cap": "1/6",
+      "failure_probability": "1/20",
+      "bernstein_exponent": "4",
+      "exponential_taylor_terms": 48,
+      "total_active_pulse_time": "18080",
+      "precision_scope": "O(error^-3) sufficient records at fixed nonzero parameters; no optimality lower bound",
+      "physical_assumptions": "Exact stationary preparation and selective factor; independent paired singleton records; known current and endpoint exit caps"
+    },
+    {
+      "records": 1437867,
+      "duration": "1/20",
+      "current_error": "1/20",
+      "response_sampling_error": "1/1600",
+      "variance_cap": "67/960",
+      "current_bias_bound": "1/40",
+      "current_cap": "1/8",
+      "endpoint_exit_cap": "4",
+      "factor": "1/2",
+      "stationary_target_cap": "1/6",
+      "failure_probability": "1/20",
+      "bernstein_exponent": "4313601/1078400",
+      "exponential_taylor_terms": 48,
+      "total_active_pulse_time": "1437867/20",
+      "precision_scope": "O(error^-3) sufficient records at fixed nonzero parameters; no optimality lower bound",
+      "physical_assumptions": "Exact stationary preparation and selective factor; independent paired singleton records; known current and endpoint exit caps"
+    },
+    {
+      "records": 11468800,
+      "duration": "1/40",
+      "current_error": "1/40",
+      "response_sampling_error": "1/6400",
+      "variance_cap": "67/1920",
+      "current_bias_bound": "1/80",
+      "current_cap": "1/8",
+      "endpoint_exit_cap": "4",
+      "factor": "1/2",
+      "stationary_target_cap": "1/6",
+      "failure_probability": "1/20",
+      "bernstein_exponent": "4",
+      "exponential_taylor_terms": 48,
+      "total_active_pulse_time": "286720",
+      "precision_scope": "O(error^-3) sufficient records at fixed nonzero parameters; no optimality lower bound",
+      "physical_assumptions": "Exact stationary preparation and selective factor; independent paired singleton records; known current and endpoint exit caps"
+    }
+  ],
+  "fixed_source_exposure_plan": {
+    "source_exposure": "480400",
+    "rate_cap": "4",
+    "error": "1/100",
+    "failure_probability": "1/100",
+    "exponent": "6",
+    "exponential_taylor_terms": 48,
+    "stopping_rule": "Stop on reaching deterministic accumulated source-state exposure",
+    "wall_time": "Random and not bounded by the exposure; incomplete deadline-limited acquisitions abstain"
+  },
+  "selective_rate_rectangle": {
+    "native_current_interval": [
+      "239/255",
+      "261/245"
+    ],
+    "vertices": 128,
+    "proof": "Coordinatewise affine numerator and positive linear denominator imply extrema at box vertices",
+    "scope": "Sharp for the declared rectangular algebraic box, potentially conservative for physical constraints"
+  },
+  "energy_accounting": {
+    "kinetic_factor_is_not_energy": true,
+    "required_terms": [
+      "native fuel during baseline and pulse acquisition",
+      "stationary preparation and reset",
+      "selective control implementation",
+      "detector and recording",
+      "calibration"
+    ],
+    "pulse_time": "N*t counts only active pulse duration; it omits preparation and calibration",
+    "barrier_shift": "If Arrhenius calibration is justified, r=exp(-DeltaB/kBT); DeltaB is a barrier parameter, not total consumed work"
+  },
+  "limitations": [
+    "Singleton endpoint must be resolved; a coarse aggregate can reverse the sign",
+    "Native stationary preparation and unchanged nontarget rates are substantive physical assumptions",
+    "Independent repeated preparations are required by the supplied Hoeffding plan",
+    "Exact sign identifiability does not imply useful magnitude precision or low energy cost",
+    "Source exposure is not elapsed wall time; fixed-walltime counts are not conditionally independent Poisson",
+    "Constant current and endpoint rate caps in the size benchmark are imposed, not universal"
+  ]
+}

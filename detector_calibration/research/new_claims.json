@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "merge_policy": "Append only these new claims to the inherited claims list; preserve every prior claim and its scope. Update edition metadata separately when packaging succeeds.",
+  "reference_edition": "10.0",
+  "toolkit_version": "0.10.0",
+  "date": "2026-10-13",
+  "claims": [
+    {
+      "id": "DC01",
+      "statement": "Finite jointly covered detector and temporal moments yield an entropy lower confidence bound with unknown diffusion scale, common gain and uniform shutter width under a specified pointwise diffusion geometry.",
+      "status": "Scoped mathematical result with an exact-arithmetic finite-design implementation; independent internal review recorded separately; external review and historical priority not established.",
+      "primary_proof": "manuscript/chapters/dc_calibration_theory.tex",
+      "supporting_artifacts": [
+        "src/constructive_access/detector_calibration/certification.py",
+        "detector_calibration/code/API.txt",
+        "examples/calibration_tutorial.py",
+        "detector_calibration/review/results.json"
+      ],
+      "scope": [
+        "Stationary compact smooth uniformly elliptic ordinary-reversal hidden diffusion, smooth |f|<=1, exact pointwise Gamma_f=gamma*(1-f^2) for an unknown positive constant gamma; numerical bounds on Lf, Ldagger f, L^2 f and (Ldagger)^2 f are externally justified premises.",
+        "Independent stationary target trials; bounded detector randomizations independent conditional on the complete latent path; common conditional mean equal to gain times a common causal uniform exposure of width at most the lag.",
+        "Constant and timed-step reference records require known waveforms and time origin, a valid width bracket, common response between target and reference, and the stated fixed-quota sampling rules. They do not validate the structural geometry or generator caps.",
+        "One simultaneous event covers fixed moments, covered prefix selection and gain projection. A nominal projection is predeclared or selected independently of the target inference records; no unrestricted adaptive score fitting or stopping is authorized.",
+        "A zero certificate is inconclusive, not evidence of zero dissipation. Replication, confidence projection and concentration ingredients are established methods; no new statistical inequality is claimed."
+      ]
+    },
+    {
+      "id": "DC02",
+      "statement": "A reversible hidden stochastic drive generates a reversible scalar observed law whose attained minimum compatible ordinary-reversal entropy is exactly its mean-square angular drive divided by angular diffusivity, including positive minima at zero mean angular current.",
+      "status": "Scoped exact theorem and analytic checks, with independent internal review recorded separately; no additional simulation or physical measurement claimed.",
+      "primary_proof": "manuscript/chapters/dc_calibration_theory.tex",
+      "primary_section": "Sharpness with an unobserved stochastic drive",
+      "formula": "L=gamma*partial_phi^2+c(z)*partial_phi+L_Z; Y=cos(phi); sigma_min(law(Y))=E_piZ[c^2]/gamma",
+      "example": "L_Z=eta*partial_z^2, c(z)=epsilon*cos(z): E[c]=0 and sigma_min=epsilon^2/(2*gamma).",
+      "scope": [
+        "Z is a reversible smooth uniformly elliptic diffusion on a compact connected manifold without boundary, with positive smooth stationary density; c is smooth, gamma>0, and the joint process is stationary.",
+        "The compatible-law minimum ranges over the prior ordinary compact smooth hidden-diffusion class of arbitrary finite hidden dimension reproducing the complete ideal continuous scalar law with calibrated time.",
+        "All hidden coordinates have ordinary even-variable reversal. Generalized or odd-variable physical reversal, jump processes, non-Markovian realizations and arbitrary physical implementations are outside this minimum.",
+        "Finite-record certification additionally requires the stated structural, generator and detector calibration contract; the ideal-law equality is not a finite-data identification guarantee."
+      ]
+    },
+    {
+      "id": "DC03",
+      "statement": "A replicated polynomial hierarchy has the exact circle and hidden-stochastic-drive entropy limit, and a constructive increasing-access sequence approaches that minimum while covering the unknown diffusion scale and detector calibration.",
+      "status": "Scoped mathematical consistency result; conservative sufficient rate, not a minimax or practical-efficiency claim; internal review recorded separately.",
+      "primary_proof": "manuscript/chapters/dc_calibration_theory.tex",
+      "formula": "w_m(f)=sum_{j=0}^m f^(2j); w_m*Gamma_f=gamma*(1-f^(2m+2))<=gamma",
+      "scope": [
+        "Order m uses 2m+2 distinct center replicas and two endpoint readouts. In the sharp families with lambda=gamma, its ideal fraction of the minimum is 1-binomial(2m+2,m+1)/4^(m+1).",
+        "The sufficient schedule increases moment degree, genuine replica access, independent target and reference samples, a covered lambda grid and certified arithmetic precision; it shrinks lag and shutter width under valid model and gain envelopes.",
+        "The proved sufficient signed error order is O_P((log n)^(-1/2)); no consistency at fixed positive exposure or optimal acquisition rate is claimed.",
+        "The unchanged installed finite API has a fixed numerical enclosure floor and is not itself asserted to realize the infinite increasing-precision limit. Higher degree can perform worse at a fixed finite budget."
+      ]
+    },
+    {
+      "id": "DC04",
+      "statement": "Smooth rare-region diffusion constructions rule out uniformly finite upper confidence bounds for unrestricted global diffusivity and generator suprema from finite passive records, despite favorable ellipticity and mixing.",
+      "status": "Scoped impossibility theorem using explicit constructions and standard total-variation confidence transfer; independent internal review recorded separately; historical priority not established.",
+      "primary_proof": "manuscript/chapters/dc_calibration_limits.tex",
+      "supporting_artifacts": [
+        "detector_calibration/countermodels/RARE_BUMP_PROOF.txt",
+        "src/constructive_access/detector_calibration/rare_bump.py"
+      ],
+      "scope": [
+        "Smooth reversible diffusions on a fixed four-dimensional compact torus, bounded detector, uniform stationary density, common lower ellipticity and common spectral gap; each model is smooth but there is no common derivative or global diffusivity envelope.",
+        "A rare hidden region leaves finite-duration full continuous path laws arbitrarily close while the targeted global or stationary essential supremum diverges; the declared nonanticipating almost-surely finite stopping extension has its own conditions.",
+        "Separate constructions keep diffusivity bounded while the first generator norm diverges, and keep diffusivity and the first norm bounded while the second norm diverges.",
+        "All countermodels have zero ordinary entropy. This concerns global calibration extrapolation, not failure of pathwise local volatility recovery, the impossibility of all structured calibration, or a change to an ideal-law entropy minimum."
+      ]
+    },
+    {
+      "id": "DC05",
+      "statement": "A closed finite Fourier and additive-functional moment system produces enclosed finite-exposure binary-record laws for the circle simulator without a Brownian path discretization, with explicit probability-law discrepancy accounting.",
+      "status": "Analytic moment closure with rational numerical enclosures and independent checks; a simulated model and implementation result, not a physical experiment.",
+      "primary_proof": "manuscript/chapters/dc_calibration_experiment.tex",
+      "supporting_artifacts": [
+        "src/constructive_access/detector_calibration/exposure_moments.py",
+        "detector_calibration/experiment/benchmark_laws",
+        "detector_calibration/review/results.json"
+      ],
+      "scope": [
+        "Stationary circle diffusion, declared rational parameters and exposure durations, common gain and conditionally independent binary readouts; finite-degree polynomial targets close in a finite Fourier cone.",
+        "Rational Taylor remainders propagate through moment normalization and record probabilities. Conversion to a nonnegative dyadic law is charged in total variation and then at the product-law dataset level.",
+        "Uniform independent random bits are a sampling idealization; NumPy PCG64 is the implementation. Numerical enclosures do not prove ideal randomness or validate apparatus behavior."
+      ]
+    },
+    {
+      "id": "DC06",
+      "statement": "A frozen four-case virtual experiment demonstrates positive calibrated geometry certificates in stronger-drive cases and retains weak-signal failures and cases where the broader-class endpoint comparator detects more often.",
+      "status": "Frozen reproducible synthetic evidence with independent audit recorded separately; simulation diagnostics are not a proof of uniform coverage or laboratory validation.",
+      "primary_proof": "manuscript/chapters/dc_calibration_experiment.tex",
+      "supporting_artifacts": [
+        "detector_calibration/experiment/contract.json",
+        "detector_calibration/experiment/benchmark.json",
+        "detector_calibration/experiment/benchmark_counts.json.gz",
+        "detector_calibration/review/results.json",
+        "examples/calibration_counts.json",
+        "examples/calibration_tutorial.py"
+      ],
+      "benchmark": {
+        "data_origin": "simulated",
+        "datasets": 1600,
+        "datasets_per_case": 400,
+        "independent_target_trials_per_dataset": 13333333,
+        "center_replicas_per_trial": 4,
+        "endpoint_readouts_per_trial": 2,
+        "target_readouts_per_dataset": 79999998,
+        "gain_reference_readouts_per_dataset": 100000,
+        "step_reference_readouts_per_dataset": 100000,
+        "total_detector_readouts_per_dataset": 80199998,
+        "theorem_failure_budget_per_dataset": "1/20",
+        "simulator_total_variation_upper_per_dataset_strictly_less_than": "18/1000000000000",
+        "simultaneous_target_moment_event_covered": 1595,
+        "reference_calibration_covered": 1600,
+        "finite_gamma_upper_bound_covered": 1600,
+        "entropy_lower_bound_overshoots": 0,
+        "all_selected_prefixes": 0,
+        "cases": [
+          {
+            "name": "driven",
+            "simulator_entropy": "9",
+            "geometry_positive": 400,
+            "endpoint_positive": 400,
+            "target_moment_event_covered": 400,
+            "geometry_bound_mean_rounded": "0.577347",
+            "endpoint_bound_mean_rounded": "0.0000816405"
+          },
+          {
+            "name": "equilibrium",
+            "simulator_entropy": "0",
+            "geometry_positive": 0,
+            "endpoint_positive": 0,
+            "target_moment_event_covered": 399,
+            "geometry_bound_mean_rounded": "0",
+            "endpoint_bound_mean_rounded": "0"
+          },
+          {
+            "name": "weak_driven",
+            "simulator_entropy": "1",
+            "geometry_positive": 0,
+            "endpoint_positive": 27,
+            "target_moment_event_covered": 399,
+            "geometry_bound_mean_rounded": "0",
+            "endpoint_bound_mean_rounded": "0.00000000682113"
+          },
+          {
+            "name": "changed_calibration",
+            "simulator_entropy": "18",
+            "geometry_positive": 395,
+            "endpoint_positive": 400,
+            "target_moment_event_covered": 397,
+            "geometry_bound_mean_rounded": "0.599052",
+            "endpoint_bound_mean_rounded": "0.0000696106"
+          }
+        ]
+      },
+      "scope": [
+        "Exact frozen design and seeds, synthetic stationary circle records, supplied generator caps, simultaneous calibration and target confidence allocation. Simulator truth is for evaluation, not an inference input.",
+        "The geometry certificate uses the pointwise Gamma identity; the endpoint comparator has broader structural scope. Bound size and observed positive fractions do not establish universal dominance or a matched-assumption optimality result.",
+        "The higher polynomial prefix never wins in this bank. Weak-drive geometry detection is zero and changed-calibration geometry detection is lower than the endpoint comparator; these outcomes are retained.",
+        "Observed confidence-event frequencies, nuisance coverage and absence of entropy overshoots are separate diagnostics. The per-dataset theorem budget and simulator discrepancy are separately stated; no zero-failure or exact-power conclusion follows from this bank.",
+        "Target and reference readouts and modeled durations are counted. Preparation, reset, clock, reference waveform, replica hardware and energy costs remain additional and unmeasured. No calibrated joule savings or new empirical entropy validation is claimed.",
+        "The tutorial may report the maximum of the geometry and endpoint bounds on their shared simultaneous event, under the narrower geometry model contract. This deterministic post-benchmark combination has no additional failure allocation; the frozen per-method results remain unchanged."
+      ]
+    }
+  ]
+}

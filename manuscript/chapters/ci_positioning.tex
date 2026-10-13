@@ -1,0 +1,127 @@
+\chapter{Calibrated inference in context}
+\label{ch:ci-positioning}
+
+\section{What stronger access adds}
+
+The distinction between detecting irreversibility and determining total
+entropy production is central to thermodynamic inference. Optimizing over
+hidden models compatible with observations is established
+\cite{ciEhrich2021,ciNitzan2023}. Coarse descriptions can omit microscopic
+currents \cite{ciBusiello2019}. An experimentally useful result must therefore
+specify which lower bound follows from the recorded evidence, which extra
+calibration tightens it, and which unobserved changes leave that evidence
+unchanged. A numerical minimum over a chosen hidden architecture is not a
+proof of the minimum over every physical realization.
+
+Stationary means and variances are physical information. Fixing them can shrink
+a permissible correlation class. This use of calibration does not introduce
+a new spectral theorem: reversible autocorrelations already have positive
+spectral measures \cite{vlAldousFill2002}. The contribution to assess is the
+resulting finite-observation certificate, including uncertainty in the
+calibration itself. The zero-lag response of two separate noisy readouts
+must not silently be replaced by the square of a single recorded value.
+
+\section{Closest thermodynamic comparators}
+
+Correlation-based entropy bounds are an active subject
+\cite{rfShiraishi2023,rfDechant2023,rfRaux2026}. The Raux--Maier--Seifert
+preprint studies cross-correlation asymmetry and optimizes observable shifts
+and lag. Its numerator vanishes when both observables are the same; the
+single-observable moment constraints used here answer a different measurement
+question. Comparisons require the same observables and statistical budget,
+not merely a common underlying simulated process.
+
+The variance sum rule gives a particularly relevant physical comparison
+\cite{ciVSR2024,ciVSRProofs2024}. For overdamped steady dynamics, its full
+version uses displacement and force statistics together with mobility and
+thermal calibration. Its solvable switching-trap example already diagnoses
+strong nonequilibrium through position-correlation curvature. Consequently,
+a finite-lag curvature certificate would strengthen the observation and
+uncertainty treatment of an established effect. It would not constitute its
+first discovery. Force-assisted reconstruction is a valuable benchmark when
+those additional measurements are retained.
+
+Finite resolution and finite statistics can alter the performance and bias
+of entropy estimators \cite{vlFritz2025}. The present comparisons should retain
+these errors and report a lower confidence bound, rather than identify a
+positive fitted value with a certified physical quantity.
+
+Activity calibration connects the path-divergence bridge to classical
+divergence comparisons. Normalizing stationary directed edge fluxes by the
+total jump activity gives two probability distributions related by edge
+reversal. Their Jensen--Shannon divergence is the relative-entropy rate to
+the additive reversibilization divided by activity; their half-Jeffreys
+divergence $[D(P\Vert R)+D(R\Vert P)]/2$ is entropy production divided by
+activity. Linear and nonlinear comparisons
+between these divergences already exist \cite{ciCrooks2008,ciFalasco2022},
+and sharp $f$-divergence comparison is a developed subject
+\cite{ciGuntuboyina2014}. The activity-calibrated envelope proved here is
+positioned as a precise specialization and operational composition with the
+record certificate; its proof does not establish historical priority over
+that literature. Full-path equality does not imply equality after a noisy
+endpoint observation.
+
+The converse inference boundary also has established foundations.
+Lumpability can preserve an observed Markov law while microscopic mechanisms
+vary \cite{ac_buchholz}. Resolving a single bidirectional edge can recover
+the complete steady entropy production in a unicyclic network
+\cite[Sec.~V.2]{ciHarunari2022}. This asymptotic identifiability does not by
+itself provide a finite-sample upper confidence bound when reverse events
+can be arbitrarily rare. The fixed-graph constructions in this part make
+that distinction quantitative.
+
+\section{Statistical tools and their conditions}
+
+Reverse information projections, log-optimal e-variables, and composite-null
+safe testing are established constructions
+\cite{ciGrunwald2024,ciLarsson2025}. General constraint-generated null
+hypotheses have an extensive dual theory \cite{ciLarsson2026}. Using a
+calibrated reversible moment set as the null is an application of that theory.
+The mathematical and software questions here are whether its infinite family
+of physical constraints is represented soundly and whether the numerical
+certificate can be independently checked.
+
+An e-variable valid for one stationary marginal distribution cannot simply be
+multiplied over an arbitrarily dependent trajectory. Conditional validity or
+a valid trajectory-level construction is required. Likewise, data-dependent
+selection of a contrast needs a held-out record, predictable construction, or
+an explicit selection correction.
+
+For stationary Markov chains, Fan, Jiang and Sun give a Hoeffding inequality
+with dependence penalty $(1+\rho)/(1-\rho)$ when the mean-zero transition
+operator has norm at most $\rho<1$ \cite{ciFan2021}. This applies to bounded
+functions and does not require reversibility. Such a calibrated contraction
+bound can replace long blind gaps. A lagged observation pair, however, is a
+function of a path segment, and its appropriate block-chain contraction must
+be justified. The observed autocorrelation of one detector does not bound
+mixing of every hidden degree of freedom.
+
+\section{Public experimental records and the transfer boundary}
+
+Two primary datasets were audited. The switching-trap data accompanying the
+variance sum rule list timestamps, position and force measurements
+\cite{ciVSRData2024}. Their documented apparatus and model make them a
+promising future comparison. The raw archive download was unavailable in
+this audit; metadata, the source manuscript with supplementary material, and
+the companion analysis notebook were accessible. No result from those
+unretrieved trajectories is claimed.
+
+Selected records from the optical feedback-trap study of Bryan and colleagues
+were downloaded \cite{ciBryan2022,ciBryanData2022}. The repository distinguishes
+experimental trajectories from simulations. Its files called
+\texttt{groundtruth} contain simultaneous lower-noise measurements, not exact
+latent positions. They support a reproducible detector and data-format audit.
+The selected harmonic-well experiments are described as using an optical
+tweezer without feedback; feedback generates other potentials in the same
+study. The authors' code documents a nominal $10\,\mu\mathrm{s}$ sampling
+interval, but the selected files contain no per-sample timestamps.
+Stationary preparation, hidden-state mixing, clock error and detector
+calibration still require an explicit contract before an entropy-production
+confidence statement can be transferred to these records. Descriptive
+statistics of the downloaded measurements are kept separate from such a
+certificate.
+
+A successful reanalysis would be evidence about published measurements under
+a documented model and calibration. It would not be a new measurement of the
+apparatus, nor a measurement of the unrecorded energy expenditure of its
+laser, controller, and detector.

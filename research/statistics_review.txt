@@ -1,0 +1,136 @@
+Statistical and resource-interface integration review
+Abdinoor / 2D Labs / 12 October 2026
+Recorded: 2026-10-12 15:56:27 UTC
+Authoring agent: unified_statistics. Independent reviewer: unified_redteam.
+
+OWNED DELIVERABLES
+
+manuscript/chapters/precision_design.tex
+manuscript/chapters/adequacy_energy.tex
+research/statistics_bibliography.txt
+
+These are chapters of the unified reference, not separate application papers.
+The integrated mathematics is attributed to established testing, optimal
+recovery, linear programming, dynamic programming, martingale and
+counting-process theory. No historical novelty, empirical performance,
+independent external peer review, or new physical law is claimed.
+
+SOURCE COVERAGE
+
+Read the original access_theory/code/robust_protocols.py, budgeted_design.py,
+accesskit.py affinity routines, hardening/code/model_adequacy.py and
+energy_tail.py with their research explanations, and
+application_audit/code/intervention_criterion.py with its full research proof.
+Preserved these sources unchanged. The chapters rederive the proofs and expose
+the interfaces required for a scientist to transfer them.
+
+RESULTS AND SCOPE
+
+1. The pairwise absolute-error lower bound is derived by integrating the common
+   part of two record laws. A declared resource frontier yields a minimax lower
+   bound without interchanging infimum and supremum. A common policy and common
+   estimator/randomization are mandatory. Infinite risk follows from arbitrarily
+   separated finite invisible pairs, not an undefined infinity-times-zero term.
+
+2. The linear target criterion explicitly requires both law factorization and
+   access sufficiency. Its known-F, full positive-orthant, full Cartesian-box
+   minimax equality is proved using a common-observation two-point construction
+   and ordinary LP strong duality. Zero radii are allowed. An independently
+   checkable primal/dual equality certificate is distinguished from the solver.
+   Bounded domains, unknown selectivity, local compatible-set radius, and
+   correlated errors are stated as different recovery problems.
+
+3. Known-law iid affinity provides an equal-prior average-error guarantee.
+   A robust bounded-score gap provides uniform per-hypothesis concentration.
+   Its conditional-mean extension uses Hoeffding's conditional mgf lemma and
+   does not silently assume independent repeated samples. Fixed nuisance values
+   remain fixed. One-record convex-hull overlap is not a general impossibility
+   for repeated fixed-parameter experiments.
+
+4. Classical calibration covers full next-state/output kernels and uses a
+   maximal coupling bound; quantum calibration uses physical outcome-retaining
+   channels and half-diamond norms with an additive hybrid argument. Sensor
+   marginals or arbitrary signed-matrix norms do not establish these contracts.
+   Whole-dataset and per-record error radii are explicitly distinguished.
+   Cross-chapter review by unified_foundations requested explicit radii in [0,1]
+   for the multiplicative expression; this premise was added.
+
+5. The finite-horizon Bellman recurrence uses target-class stopping loss,
+   fixed nuisance indexing, pathwise charges and grammar. The independent
+   reviewer requested strictly positive priors when feasibility must hold
+   for every candidate; this condition was added. Finite exact search is not
+   claimed efficient in dimension or universally energy-optimal.
+   Cross-chapter review also requested explicit nonnegative classical kernels
+   and action normalization for the row-mass recurrence; both were added.
+
+6. Anytime adequacy uses signed endpoint bets with valid conditional forecasts.
+   One fixed correctly targeted candidate gives an alpha bound on the union of
+   ever-empty survivors and ever-wrong commitment, without multiplying alpha
+   by the candidate count. Protecting every valid candidate is a separate
+   simultaneous statement. No guarantee of power or eventual commitment is
+   implied; truth outside the family can produce wrong commitments.
+
+7. Calibration is composed by stopping wealth before the first predictable
+   invalid forecast, not by conditioning on an eventual good event. The
+   counting-process energy bound controls the joint event N_tau>=n,A_tau<=mu;
+   this allows a terminal resource premise on the same good event without
+   claiming it is predictable. Gross work, native channel work, total apparatus
+   work, expected expenditure, and high-probability caps are distinguished.
+
+8. The final handoff corollary composes calibrated score separation, finite
+   record count and a physical counting-channel cap into an alpha+beta+delta
+   guarantee. Its proof replaces scores by deterministic endpoints after the
+   first invalid conditional mean, yielding a valid comparison sequence that
+   equals the executed sequence on the joint good event. No independence
+   between calibration, inference and energy is used.
+
+INTERNAL INDEPENDENT REVIEW
+
+unified_redteam reviewed precision_design.tex, accepted its proofs, and requested
+the positive-prior condition above. After correction, it reviewed
+adequacy_energy.tex in full and reported no substantive corrections. In
+particular, it checked stopped-before-invalid factors, the modified-score
+handoff, the counting joint tail, the zero-event case, and the single joint
+calibration failure budget. This is internal adversarial review, not external
+peer review.
+
+ADDITIONAL EXACT CHECKS EXECUTED
+
+A standalone Python 3.12 Fraction calculation (no producing optimization code)
+verified 27 exact conditions: row-space reconstruction, dual feasibility and
+primal/dual equality for seven intervention responses; M=150 for score gap 1/5
+and alpha=1/20 using an outward rational log bound; counting cap n=189 at mu=150
+and beta=1/100 through the existing independent checker; both Fisher information
+values (16/3 versus 4/15) in the sign-blind comparison; and an invalid-marginal
+counterexample with expected wealth 5/4 after two fully dependent fair outcomes.
+Result: all 27 passed. The counting cap and logarithm routines were imported for
+their independent certificate checking, not reimplemented in this check.
+There is no empirical dataset or laboratory measurement in these calculations.
+
+BIBLIOGRAPHIC VERIFICATION
+
+Read-only web checks during this phase verified Le Cam and Yang's second edition
+and DOI on the Springer publisher page; Watrous's 2018 book and DOI on Cambridge;
+and Waudby-Smith/Ramdas volume 86, pages 1-27 and DOI on Oxford's journal page.
+Bhattacharyya's 1943 article metadata was corroborated in library/academic
+references (some derivative catalogues differ on final page; the common
+99-109 entry is used). Bremaud's 1981 title and ISBN were verified through
+library/book records. An unverified DOI was removed in favor of that ISBN.
+Relevant URLs:
+https://link.springer.com/book/10.1007/978-1-4612-1166-2
+https://www.cambridge.org/core/books/theory-of-quantum-information/AE4AA5638F808D2CFEB070C55431D897
+https://academic.oup.com/jrsssb/article/86/1/1/7043257
+https://cir.nii.ac.jp/crid/1572261550690788352
+https://books.google.com/books/about/Point_Processes_and_Queues.html?id=Pk0_AQAAIAAJ
+
+INTEGRATION STATUS
+
+Chapter labels are prefixed precision: and adequacy:. Foundations cross-references
+use foundations:radius and foundations:frontier. Root owns integrated LaTeX
+compilation, package tests, final source hashes and release verification.
+The two chapters also passed a standalone LaTeX smoke compilation in /tmp with
+the supplied bibliography: 14 pages, no overfull or underfull boxes after a
+short running title and one displayed-equation adjustment. Only the two
+intentionally external foundations references remain undefined in that isolated
+wrapper; the unified reference supplies them. The temporary PDF is a typesetting
+check, not a separate research release.

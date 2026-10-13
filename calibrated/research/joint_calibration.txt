@@ -1,0 +1,172 @@
+2026-10-12T21:38:59Z — joint-calibration proof and production checkpoint
+
+Task
+Use same-state twin agreement directly in one fixed contrast with positive-lag
+records, instead of separately widening a detector-calibration region and a
+science interval. Compare the actual prior two-stage Pinsker/nonlinear and
+extra-lag implementations at the declared common readout budget. Keep all
+previous completed branches unchanged.
+
+Exact theorem
+For a fixed stationary noninvasive binary detector f, C0=Epi f²=A and
+Ck=<f,exp(k Delta Q)f>pi. Fresh same-state conditionally independent twins have
+q0=(1+A)/2; positive-lag agreement laws qk=(1+Ck)/2 use the same detector.
+For reversible Q and P=exp(Delta Q), self-adjointness gives
+ -s²C0+2sC1-C2 = -||(P-sI)f||pi² <=0.
+Thus a=(-s²,2s,-1) has exact support b=-(1-s)²/2 for all0<=s<=1. Equality
+holds for f=0, or a mean-zero one-mode spectrum x=s when0<s<1. This is the
+established quadratic/Hankel moment condition, not a new physical law.
+
+One joint Hoeffding statement for independent fixed pair quotas uses
+ radius² = log(1/alpha)/2 * (s^4/n0+4s²/n1+1/n2).
+The twin term contributes sampling uncertainty and two detector operations.
+A same-state error radius delta0 must be explicitly charged as s² delta0.
+Contrasts are fixed before the inference data or using an independent pilot.
+The code rejects unsupported declared detector/record contracts and invalid
+quotas, fractions or failure budgets. It does not empirically validate hidden
+physical assumptions merely because the caller selected an allowed label.
+
+Physical bridge
+The additive reversibilization S shares pi and the detector, hence ideal
+p0=q0 exactly. Consequently a·(p-q)=2s(p1-q1)-(p2-q2); the lag-zero difference
+vanishes from the physical path comparison. The stationary ordinary-reversal
+path-KL inequality and Pinsker give
+ sigma >=8g²/(2s sqrt(Delta)+sqrt(2Delta))²,
+where g is the confidence lower gap over b. This does not remove lag-zero
+uncertainty, preparation cost, detector latency or energy. Finite exposure,
+measurement back-action and a changed channel require further calibration.
+
+Transferable consequence
+If measured coordinates are exactly invariant under a physically justified
+original/reference comparison, they still enter the statistical contrast but
+cancel from the physical divergence sum. The chapter states this elementary
+general rule with explicit positive denominator and discrepancy assumptions.
+It may apply to other instantaneous stationary detector moments, but does not
+infer invariance from the coarse data itself. No generic quantum-measurement
+or nonstationary extension is asserted.
+
+Adversarial control
+Independent reviewer proposed reversible A=x=s=1/2, giving
+(p0,p1,p2)=(3/4,5/8,9/16), true gap0. With one twin pair, its empirical
+agreement is0 with probability1/4. If lag-zero variance is omitted while
+positive-lag means are exact, a false gap3/16 results. The correct function
+retains sufficient radius and returns no certificate in this control.
+
+Frozen evaluation
+contracts/joint_calibration.json SHA256:
+d9c465a457049bd7289a5d0cc69fb7eed6b5003aa9d11b9ce9fff038f1dfa1a1
+Seed49183726;400 datasets per driven/equilibrium/high-noise/invalid-gain case.
+s19/25 fixed before these data. Quotas4000/8000/8000 at lags0/1/2, alpha1/20.
+The actual calibrated_benchmark.analyze is called unchanged for prior
+two-stage alpha.025+.025 Pinsker/nonlinear, optimized extra-lag s.34 and
+legacy extra-lag contrasts. Shared lag1/2 and twin records permit paired
+comparison; extra-lag arm substitutes4000 independent lag3 pairs.
+run() checks the imported baseline specification against its saved frozen
+contract and reports the baseline hash as well as the new contract hash.
+
+Every arm20000 pairs/40000 endpoint readings. Joint and two-stage evolution
+time24000; extra-lag36000. Generating all shared menus for comparison requires
+24000 distinct pairs/48000 readings. No measured total joule or latency claim.
+Hardware verification, reset/preparation and detector exposure are unmeasured.
+
+Implementation
+code/joint_calibration.py provides support(), population(), certify_counts(),
+lag_zero_uncertainty_control(), and a frozen production runner. Default CLI
+uses4 independent dataset workers, --workers1 runs serially. Indexed
+SeedSequence streams and ordered assembly preserve results across worker
+counts. Actual nonlinear baseline calls dominate computation; no approximate
+replacement is used. Initial overthreaded/sequential execution was restarted
+at the same seed and frozen design with BLAS1 and independent worker tasks;
+no incomplete run was used to tune a design or infer a result.
+
+Proof and tests
+8 producer tests passed: exact support/population rational gap, independent
+reversible matrix-exponential operator identity, physical-duration and
+variance accounting, additional twin precision, exact false-positive control,
+bounded whole-record mismatch and failure allowance, malformed-contract
+guards, and serial/worker stream equality. Independent reviewer found no
+mathematical blocker in the chapter or API; final count-bank replay pending
+at this checkpoint.
+
+Stable arithmetic tutorial
+certify_counts([4000,8000,8000],[3000,5520,4720]) gives radius .027290056643351,
+gap .027109943356649 and entropy lower .000682910463599426. These are
+illustrative deterministic counts. The exact population gap at
+(3/4,69/100,59/100) is34/625. No empirical observation is claimed.
+
+Reproduce
+ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=../virtual_laboratory/release/src python -m unittest discover -s tests -p test_joint_calibration.py -v
+ OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=../virtual_laboratory/release/src python code/joint_calibration.py --workers 4
+The default without that option also uses4workers. Output includes result JSON, all raw
+sufficient counts NPZ, and first-dataset full records NPZ. Production seeds,
+counts, errors and exact arithmetic examples are auditable locally.
+
+Status at this checkpoint
+The four-worker held-out evaluation is running. Final frequencies, bound
+comparisons, failures and archive hashes will be appended only after complete
+production. External peer review and physical validation remain absent.
+
+2026-10-12T21:44:35Z — frozen held-out production complete
+
+All1600 datasets completed with unchanged actual baseline calls and four
+deterministic workers. No running production job remains.
+Driven detections/400:
+ joint399; two-stagePinsker353; two-stageNonlinear352;
+ optimized-extra-lag400; legacy-extra-lag393.
+Pointwise95% Clopper-Pearson intervals for the first three are
+[.9861502300,.9999367075], [.8468267532,.9123753168],
+[.8440606368,.9101817953]. Joint adds46 and47 paired detections against the
+two split methods, with zero paired losses. It misses one dataset caught by
+the optimized extra-lag method.
+
+Driven mean certified entropy lower:
+ joint .00080051332794;
+ splitPinsker .00024406104504;
+ splitNonlinear .00028135288564;
+ optimizedExtra .00112292496449;
+ legacyExtra .00030267031627.
+Ratios of the joint mean to split means are3.2799717 and2.8452288. These are
+observed ratios of means, not universal improvement factors or means of
+dataset ratios. The joint bound exceeds each split bound in399 datasets and
+ties the remaining zero case, but loses to optimized extra-lag in274/400
+datasets. Extra-lag uses36000 evolution units compared with24000 for joint
+and split methods; all arms20000 pairs and40000 readings. No hidden-cost or
+universal performance domination claim is made.
+
+Valid equilibrium: every method0/400 false exclusions.
+High-noise driven detections:6/0/0/8/6 in the same method order. It remains
+an underpowered case. Joint one-sided coverage is397/400 driven,399/400
+equilibrium,396/400 noisy; two-stage joint-region coverage397/400,400/400,
+398/400. These are Monte Carlo diagnostics rather than proofs of coverage.
+
+Invalid detector-change equilibrium: joint/splitPinsker/splitNonlinear each
+400/400 false exclusions; both extra-lag methods0/400. Joint and split
+coverage0/400. This is outside the same-channel twin premise and confirms
+that the new statistical treatment does not cure systematic bad calibration.
+
+True driven entropy~3.55736. The joint mean recovers only about0.023% of it.
+The increased rate bound remains quantitatively loose. Nothing here infers
+total entropy, gives a finite upper bound, or constitutes a new physical law.
+
+Actual nonlinear baseline solver proposed successfully in all353 optimized
+driven datasets and all400 invalid-control datasets. Maximum certified
+relaxation gaps were1.4984849955e-6 and3.4332790063e-7. One positivePinsker
+dataset yields no positive nonlinear dual certificate; this real implementation
+outcome is retained, not replaced by the Pinsker result.
+
+Artifacts and hashes
+results/joint_calibration.json:
+89873eedbd448e677e5a707231b4eba2b373ddb80ecf11c7ada88aa4ba585ac0
+results/joint_calibration_counts.npz:
+008c08c4fd91375e1307d3f820f69875b0689b93c3c511123dd89e6a8ffbb23c
+results/joint_calibration_raw.npz:
+005cd998e7e8001977f75fb902d30c54f37a9b06ea834c0d36dccd49668320f5
+Imported baseline frozen-contract SHA256:
+ff3ea5cac5d2c7fc88f9239639ebd546d40f80f8ebfbbac6a3e0ba4ebaccbb24
+The first archive includes every per-dataset rate and all counts; the full
+record exemplar independently supports endpoint/count reconstruction.
+
+Independent proof review also accepted the generic invariant-coordinate
+cancellation and joint-versus-split radius inequality. The independent
+reviewer is now checking the final count bank; no mathematical blocker has
+been identified. External review and physical validation remain absent.

@@ -1,0 +1,4 @@
+{"case": "driven", "detections": {"learned": 301, "fixed": 311, "fixed_horizon": 369}}
+{"case": "changed_drive", "detections": {"learned": 400, "fixed": 399, "fixed_horizon": 399}}
+{"case": "equilibrium", "detections": {"learned": 4, "fixed": 0, "fixed_horizon": 0}}
+{"case": "high_readout_noise", "detections": {"learned": 10, "fixed": 17, "fixed_horizon": 5}}

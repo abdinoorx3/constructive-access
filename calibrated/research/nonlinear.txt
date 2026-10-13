@@ -1,0 +1,60 @@
+2026-10-12 UTC — nonlinear quantitative inference branch
+
+Read inherited AGENTS and phase SWARM. Preserve all previous releases.
+
+Candidate: replace the previous Pinsker/Cauchy entropy estimate with an exact
+forward-KL projection between a fixed-contrast confidence halfspace and a
+calibrated continuous reversible moment class. Positive rational likelihood
+scores give a variational lower certificate; a rational finite-mixture reference
+and feasible rational probability vector give an upper bracket on that SAME
+observational relaxation. This upper bracket is not an EPR upper bound.
+
+Independent internal mathematical review from frontier_redteam confirmed the
+dual construction and interior strong-duality proof. It emphasized boundary
+atoms, empty confidence regions, and the extra relaxation between an arbitrary
+reversible model and the actual symmetrization of the same driven generator.
+All caveats are implemented and written in the chapter.
+
+Implemented code/nonlinear.py. Exact inherited log and Bernstein backend;
+numerical SLSQP only proposes rational scores and mixtures. Fixed-quota
+confidence_region uses one-sided Hoeffding/Azuma with conditional-bias penalty.
+calibration_vertices from spectral_frontier uses the identical (m²,A) format.
+
+Initial exact result: one-setting p>=0.8 versus q=0.5 recovers KL=0.1927447570
+with matching rational lower and upper brackets. A three-lag halfspace gave
+lower0.000146344876263 and upper0.000146344876518, showing optimization error
+can be separated from evidential weakness. These are deterministic checks.
+
+Additional route proposed and independently derived by frontier_redteam:
+microscopic stationary jump-activity cap K sharpens the physical bridge.
+For edge traffic c and imbalance x, pathKLrate=sum c*j(x), EPR=sum c*e(x),
+j=.5[(1+x)log(1+x)+(1-x)log(1-x)], e=x log[(1+x)/(1-x)]. Convexity of
+G=e∘j^{-1}, perspective monotonicity and data processing prove
+sigma>=K G(J/(K Etime)), stronger than4J/Etime. Uniform-bias rings saturate
+this at full-path access. Endpoint data still generally lose information.
+Implemented exact rational inversion, domain rejection and independent tests.
+
+Established ingredients: relative-entropy variational duality, convex
+information projection, log-optimal composite-null scores, divergence/activity
+inequalities. Literature agent is checking closest activity-bound prior art.
+No new universal law or empirical physical evidence is claimed.
+
+Reproduction: PYTHONPATH=code:../virtual_laboratory/release/src python -m
+unittest discover -s tests -p test_nonlinear.py -v. Example command:
+PYTHONPATH=../virtual_laboratory/release/src python code/nonlinear.py.
+Interpreter supplies NumPy/SciPy; pytest is not installed, so tests use unittest.
+
+Completed current deterministic checks:13 owned unittest tests pass in6.434s.
+Independent redteam suite also checks60 random LPs against HiGHS, analytic
+Bernoulli projection, altered/empty-input rejection, and activity inversion
+against independent brentq, with no blocking issue reported.
+
+Final saved example: positive decreasing two-lag halfspace has uncalibrated
+KL bracket[0,6.43e-14], versus A=.5,m=0 calibrated bracket
+[0.0010251000031058512,0.001026563873247574]. This certifies activation by
+calibration and quantifies the solver gap, not empirical discovery. The scalar
+analytic p>=.8 versusq=.5 case brackets KL0.19274475702175742 to<1e-27.
+Activity example J=.5,time1,cap1 yields entropy>=2.6957239390784653 versus
+linear2, with the same record-KL evidence but genuinely additional activity
+access. Simulated held-out data are owned and frozen by root, not generated
+by this branch.

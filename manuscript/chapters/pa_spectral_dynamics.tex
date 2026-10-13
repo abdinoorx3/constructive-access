@@ -1,0 +1,307 @@
+\chapter{Dissipation from a finite-lag correlation defect}
+\label{ch:pa-spectral-dynamics}
+
+A positive departure from a reversible correlation inequality contains more
+information than a generic distance-to-equilibrium argument retains. The
+operator identity below turns that departure directly into a lower bound on
+stationary entropy production. The improvement is linear in a small positive
+correlation defect; the previous comparison followed by Pinsker's inequality
+was quadratic in its confidence gap. Both statements remain valid under their
+respective contracts.
+
+This is a theorem for a specified stochastic model class. It does not identify
+the hidden generator, establish the exact minimum dissipation over all
+compatible continuous-time models, or infer physical entropy from an arbitrary
+oscillatory record. The distinction between ordinary and generalized time
+reversal is essential.
+
+\section{Population theorem and its operational assumptions}
+
+Let $X_t$ be a stationary, time-homogeneous Markov process with invariant law
+$\pi$ and transition semigroup $P_t$. Initially consider a finite irreducible
+CTMC with positive stationary probabilities. Its physical time reversal must
+be the \emph{ordinary reversal of the complete hidden state}, so that its
+reverse generator is the $L^2(\pi)$ adjoint $Q^\dagger$. Define
+\[
+ \sigma=\sum_{x\ne y}\pi_x Q_{xy}
+       \log\frac{\pi_xQ_{xy}}{\pi_yQ_{yx}}.
+\]
+The usual conventions give infinite entropy production for an unpaired
+positive transition. The finite-entropy case is the informative one below.
+Physical heat or power additionally requires a thermodynamic embedding; all
+rates here are dimensionless entropy per unit physical time.
+
+Let $f$ be a real bounded function with a valid range bound
+$\sup f-\inf f\leq R$, $R>0$. This may be the conditional mean of a
+noninvasive memoryless detector. Detector noise must be conditionally
+independent between retained readings. Its range bound concerns the whole
+admissible channel, not the largest and smallest values in a finite sample.
+Set
+\[
+ C(t)=\langle f,P_t f\rangle_\pi,
+ \qquad
+ \Delta_s(t)=-s^2 C(0)+2sC(t)-C(2t),\quad t>0.
+\]
+The population identity allows any real $s$. Selecting $s$ from inference
+data requires a simultaneous confidence argument or an independent pilot.
+
+\begin{theorem}[Finite-lag dissipation bound]
+\label{thm:pa-finite-lag}
+Put $d=[\Delta_s(t)]_+$ and $u=4d/R^2$. Then $0\leq u\leq1$.
+If $\sigma$ is finite, $u<1$ whenever $d>0$, and
+\begin{equation}
+ \boxed{\displaystyle
+ \sigma\ \geq\ \frac{\Phi(u)}{t}\ \geq\
+ \frac{8[\Delta_s(t)]_+}{R^2 t},
+ \qquad
+ \Phi(u)=2\sqrt{u}\,\operatorname{atanh}\sqrt{u}.}
+ \label{eq:pa-direct-bound}
+\end{equation}
+Here $\Phi(0)=0$ and $\Phi(1)=+\infty$. The theorem requires no bound on
+the number of hidden states or transition rates.
+\end{theorem}
+
+\begin{proof}
+Write $P=P_t$, $H=(P+P^\dagger)/2$ and $B=(P-P^\dagger)/2$.
+These are the self-adjoint and skew-adjoint parts of the transition operator,
+not of the generator. In a real Hilbert space,
+\begin{align}
+ C(2t)&=\langle P^\dagger f,Pf\rangle_\pi
+       =\|Hf\|_\pi^2-\|Bf\|_\pi^2,\\
+ \Delta_s(t)&=\|Bf\|_\pi^2-\|(H-sI)f\|_\pi^2
+              \leq\|Bf\|_\pi^2.
+ \label{eq:pa-defect-identity}
+\end{align}
+In particular a reversible process, for which $B=0$, has no positive defect.
+
+For each state $x$, let $v_x$ be the total variation between the probability
+rows $P(x,\cdot)$ and $P^\dagger(x,\cdot)$. The bounded-expectation
+inequality gives
+\[
+ |Bf(x)|\leq\frac{R}{2}v_x,
+ \qquad u\leq\sum_x\pi_x v_x^2\leq1.
+\]
+Let $\mu(x,y)=\pi_xP(x,y)$ and $\mu^\leftarrow(x,y)=\mu(y,x)$ be
+the forward and reverse stationary endpoint laws. Transposition exchanges the
+two laws, so their relative entropies in opposite directions are equal. Since
+both first marginals are $\pi$,
+\begin{align}
+ D(\mu\Vert\mu^\leftarrow)
+ &=\frac12\sum_x\pi_x\bigl\{
+       D(P_x\Vert P_x^\dagger)+D(P_x^\dagger\Vert P_x)\bigr\}\\
+ &\geq\sum_x\pi_x\,2v_x\operatorname{atanh}v_x.
+\end{align}
+The last inequality is the established sharp Jeffreys--total-variation
+inequality \cite{paSason2015}. The power series
+\[
+ \Phi(u)=2\sum_{k=1}^\infty\frac{u^k}{2k-1}
+\]
+shows that $\Phi$ is increasing and convex on $[0,1)$, with
+$\Phi(u)\geq2u$. Jensen's inequality therefore gives
+\[
+ D(\mu\Vert\mu^\leftarrow)
+ \geq\Phi\!\left(\sum_x\pi_xv_x^2\right)\geq\Phi(u).
+\]
+Finally, retaining only the endpoints cannot increase relative entropy.
+The forward and ordinarily reversed stationary CTMC path laws over $[0,t]$
+have relative entropy $t\sigma$. Consequently
+$t\sigma\geq D(\mu\Vert\mu^\leftarrow)\geq\Phi(u)$.
+\end{proof}
+
+The elementary linear version follows already from conditional Pinsker and
+the same identity. The nonlinear version retains the sharp symmetric
+divergence ingredient. Neither version assumes that the observed scalar
+record is itself Markovian: the semigroup acts on the full hidden state.
+
+\section{What is sharp, and what remains a realization problem}
+
+The endpoint bound is sharp over stationary discrete-time Markov kernels.
+To see this, take a four-state cycle with uniform stationary law and
+\[
+ P_{i,i+1}=\frac{1+z}{2},\qquad
+ P_{i,i-1}=\frac{1-z}{2},\qquad 0<z<1,
+\]
+with indices modulo four. For $f=(1,1,-1,-1)$ and $s=0$,
+\[
+ C_0=1,\quad C_1=0,\quad C_2=-z^2,\quad
+ \Delta_0=z^2,\quad R=2.
+\]
+Every row has total variation $z$ from its reverse, and
+\[
+ D(\mu\Vert\mu^\leftarrow)
+ =z\log\frac{1+z}{1-z}=\Phi(z^2).
+\]
+Thus equality holds throughout the endpoint argument.
+
+This example does \emph{not} establish sharpness among finite CTMCs:
+$\det P=-z^2<0$, whereas $\det e^{tQ}=e^{t\operatorname{tr}Q}>0$.
+The sharp kernel cannot be the finite-time transition matrix of a finite
+CTMC. The contraction from a full continuous path to its endpoints can lose
+further information. Determining the best CTMC-compatible rate from a given
+finite correlation record remains a separate physical realization problem.
+
+For a nearest-neighbor ring with uniform stationary law and the cosine
+detector, write its Fourier eigenvalue as $-\gamma+i\omega$. Then
+\[
+ C(t)=\tfrac12 e^{-\gamma t}\cos(\omega t),\qquad
+ s=e^{-\gamma t}\cos(\omega t),\qquad
+ \Delta_s(t)=\tfrac12e^{-2\gamma t}\sin^2(\omega t).
+\]
+The nonnegative residual in \eqref{eq:pa-defect-identity} vanishes for this
+mode, but the subsequent information inequalities need not be saturated.
+This avoids interpreting a convenient exact spectral example as a universal
+minimum-dissipation model.
+
+\section{Use with finite-confidence calibration}
+
+Suppose an existing confidence construction returns $g\geq0$ such that,
+on an event of probability at least $1-\alpha$,
+\[
+ 2g\leq[\Delta_s(t)]_+.
+\]
+Both the same-state binary-twin construction and the bounded analog joint
+construction provide such a gap. For the analog detector, writing
+$f(x)=\mathbb E[Z\mid X=x]$ gives
+\[
+ B_{\rm obs}=\mathbb E Z^2\geq\mathbb E f(X)^2=C(0).
+\]
+The coefficient of the diagonal moment is $-s^2$, so its excess measurement
+noise makes the contrast conservative. With
+$q_0=(1+B_{\rm obs})/2$, $q_1=(1+C(t))/2$, $q_2=(1+C(2t))/2$,
+\[
+ a_s=(-s^2,2s,-1),\qquad b_s=-\frac{(1-s)^2}{2},
+ \qquad 2(a_s\cdot q-b_s)\leq\Delta_s(t).
+\]
+Consequently the same confidence event yields
+\begin{equation}
+ \sigma\geq\frac{1}{t}\Phi\!\left(\frac{8g}{R^2}\right)
+ \geq\frac{16g}{R^2t}.
+ \label{eq:pa-statistical-direct}
+\end{equation}
+For a detector mean in $[-1,1]$, $R=2$ gives the particularly simple
+lower bound $4g/t$. There is no new statistical failure allowance for replacing
+the old physical implication by this stronger one. Taking a maximum with
+another bound is justified without an extra penalty only when both follow
+on the same already-covered event, or have separate simultaneous coverage.
+
+The implementation returns exact rational bounds. For $0\leq u<1$ and
+an integer $K\geq1$,
+\[
+ 2\sum_{k=1}^K\frac{u^k}{2k-1}
+ \leq\Phi(u)\leq
+ 2\sum_{k=1}^K\frac{u^k}{2k-1}
+ +\frac{2u^{K+1}}{(2K+1)(1-u)}.
+\]
+The upper endpoint encloses the \emph{lower-bound formula}, not the actual
+entropy production. If a confidence gap implies $u\geq1$, the API flags
+incompatibility with finite entropy \emph{on the coverage event}; it retains
+the valid linear inequality and does not silently clip $u$ or treat a possible
+confidence failure as an empirical refutation of the model.
+
+\section{Reanalysis of the frozen joint-calibration experiment}
+
+The sixth-edition joint-calibration count archive contains 400 independent
+simulated datasets in each of four declared cases. Its contrast, confidence
+level, counts, and acquisition resources were fixed before those datasets
+were generated. Recomputing the old certificates reproduces all saved rates
+exactly. Applying \eqref{eq:pa-statistical-direct} then changes only the
+mathematical physical bound, without collecting data or selecting a new
+contrast.
+
+\begin{center}
+\begin{tabular}{lrrr}
+Case & Positive datasets & Previous mean bound & New nonlinear mean bound\\
+\hline
+Driven ring & $399/400$ & $0.0008005133$ & $0.1122449304$\\
+Equilibrium & $0/400$ & $0$ & $0$\\
+High readout noise & $6/400$ & $0.0000002836$ & $0.0002243291$\\
+Invalid calibration & $400/400$ & $0.0105740727$ & $0.4597513517$\\
+\end{tabular}
+\end{center}
+
+The driven mean is $140.216$ times the former mean, while its actual model
+entropy production is about $3.55736$. The new mean is about $3.16\%$ of
+that value: the improved inference still leaves a substantial gap. Positive
+detection counts are unchanged because the same positive confidence gap is
+used. Each dataset still has 20,000 pair acquisitions, 40,000 endpoint
+readouts and 24,000 units of declared evolution time; preparation and detector
+overheads require their existing separate calibration.
+
+The invalid-calibration row is a failure control, not a successful inference.
+Changing the detector between calibration and science measurements violates
+the shared-channel premise and produces false positive certificates even
+for equilibrium. A stronger valid inequality cannot repair an invalid
+measurement contract. The archived reanalysis is retrospective simulated-data
+evidence, not new physical experimental validation.
+
+\section{Vector observations and diffusion processes}
+
+The same proof holds for a bounded detector map $F$ into a real Hilbert space,
+with image diameter at most $R$, if
+\[
+ C(t)=\mathbb E\langle F(X_0),F(X_t)\rangle.
+\]
+For each row, the difference between the two vector expectations is total
+variation times the difference of two barycenters of the detector image.
+Its norm is at most $R v_x$, since taking the convex hull does not enlarge
+diameter. The operator identity holds componentwise, or directly in the
+corresponding Hilbert-valued $L^2$ space. All remaining inequalities are
+unchanged. This proves a joint-diameter bound, rather than adding scalar
+entropy lower bounds, an addition which would generally be invalid.
+
+For example, replacing the cosine channel by
+$F(\theta)=(\cos\theta,\sin\theta)$ doubles the ring correlation and
+its defect while retaining diameter two. The linear population bound doubles;
+the nonlinear one improves further. This is a changed observation channel,
+whose full vector acquisition and readout costs must be recorded. It is not
+additional information obtained by processing the original cosine alone.
+For a noisy vector detector $Z$ confined to the unit ball,
+$\mathbb E\|Z\|^2\geq\mathbb E\|\mathbb E(Z\mid X)\|^2$, and the
+scores $(1+\|Z\|^2)/2$ and $(1+\langle Z_0,Z_t\rangle)/2$ have ranges
+$[1/2,1]$ and $[0,1]$. This supplies the analogous joint-score construction;
+the executable scalar benchmark does not claim a measured vector advantage.
+
+The result also transfers to a stationary ordinary-even overdamped diffusion
+whenever the forward and reversed path laws exist with
+$D(\mathbb P_{[0,t]}\Vert\mathbb P^\leftarrow_{[0,t]})=t\sigma$.
+For the smooth, compact, uniformly elliptic setting, or the separately
+justified absolute-continuity setting of the diffusion chapter, the proof
+uses the same transition-kernel identity and conditional divergences.
+Here the reverse comparison is $Q^\dagger$, and its path divergence is
+$t\sigma$, rather than the earlier reversible comparison's $t\sigma/4$.
+Those constants belong to different comparisons and cannot be interchanged.
+
+\section{Counterexamples that delimit the inference}
+
+Stationarity cannot be replaced by a reversible generator alone. Take
+$Q=\left(\begin{smallmatrix}-1&1\\1&-1\end{smallmatrix}\right)$,
+$f=(1/2,1)$ and initialize the process in state zero. Its nonstationary
+products obey $C(t)=3/8-e^{-2t}/8$, so
+\[
+ -C(0)+2C(t)-C(2t)=\tfrac18(1-e^{-2t})^2>0.
+\]
+The generator's stationary entropy production is zero. The positive record
+defect therefore does not imply a positive stationary entropy rate without
+the stationary-preparation assumption.
+
+Likewise, observing an even physical quantity is insufficient to establish
+ordinary time reversal for the hidden state. An equilibrium inertial
+oscillator has an even position and odd velocity; its bounded position
+readouts can have oscillatory correlations and a positive defect while its
+physical entropy production is zero. Another explicit model is circle
+drift--diffusion with the physical involution $\theta\mapsto-\theta$.
+Its generator $Q=\omega\partial_\theta+D\partial_\theta^2$ obeys
+$\Theta Q\Theta=Q^\dagger$ and is generalized reversible under that
+involution. The even observable $\cos\theta$ has
+$C(t)=e^{-Dt}\cos(\omega t)/2$; at $\omega t=\pi/2$ and $s=0$,
+$\Delta_s=e^{-2Dt}/2>0$. Its ordinary-reversal mathematical entropy and
+its generalized-reversal physical entropy are different quantities. The
+theorem applies to the former unless ordinary full-state reversal has been
+physically justified.
+
+Finally, related spectral, cross-correlation and variance-sum-rule
+dissipation bounds are established prior work. The specific contribution
+tested here is the finite-lag scalar-defect implication, its sharp endpoint
+envelope with explicit nonembedding caveat, and its integration with the
+already-covered calibration record. The adjacent literature assessment
+identifies the closest results and does not claim historical priority.

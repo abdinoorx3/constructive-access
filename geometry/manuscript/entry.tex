@@ -1,0 +1,106 @@
+\chapter{What a reversible signal can require of its hidden dynamics}
+\label{og:entry}
+
+A recorded signal can have exactly the same law when played backwards and
+still require positive dissipation from every admissible hidden model.
+There is no contradiction: the recorded law and the physical class of its
+possible generators supply different constraints. This chapter develops that
+distinction for stationary, smooth, ordinary-reversal overdamped diffusions.
+It does not extend the conclusion to arbitrary physical realizations.
+
+The earlier correlation certificates give lower bounds without reconstructing
+hidden dynamics. Their remaining gap raises a physical question: can any
+admissible system actually attain the inferred minimum? The present layer
+answers that question for a family of observed processes while allowing any
+finite hidden dimension. It also identifies the extra access needed for this
+answer. A covariance function alone is insufficient. Local fluctuation
+strength and a conditional past--future statistic retain information that
+global correlations discard.
+
+\section{The information that closes a minimum}
+Let $Y_t=f(X_t)$ be a scalar detector applied to a hidden diffusion. For ideal
+continuous observation, the local quadratic variation determines
+\[
+ V_t=\frac12\frac{d[Y]_t}{dt}.
+\]
+This is the local strength of the observed fluctuations, not a finite-window
+sample variance. Condition the symmetric short-time drift and the product of
+past and future increments on $U=(Y_0,V_0)$:
+\begin{align*}
+ g(U)&=\lim_{h\downarrow0}
+   \mathbb E\!\left[\frac{Y_h+Y_{-h}-2Y_0}{2h}\,\middle|\,U\right],\\
+ K(U)&=\lim_{h\downarrow0}
+   \mathbb E\!\left[\frac{(Y_h-Y_0)(Y_{-h}-Y_0)}{h^2}
+                 \,\middle|\,U\right].
+\end{align*}
+The theorem proved next gives
+\[
+ \mathcal I(Y)=
+ \mathbb E\!\left[\mathbf 1_{\{V_0>0\}}
+            \frac{[g(U)^2-K(U)]_+}{V_0}\right]\leq\sigma.
+\]
+The difference is formed before division and integration. Its two terms need
+not be separately integrable. All rates use a calibrated physical clock;
+$\sigma$ is entropy production in nats per unit time under the stated
+thermodynamic embedding, not a heat or power measurement without that embedding.
+
+For a stationary phase diffusing around a circle,
+$d\phi=\omega\,dt+\sqrt{2\gamma}\,dW$ and $Y=\cos\phi$, this bound equals
+$\omega^2/\gamma$, the full hidden entropy production. Every compatible
+admissible hidden diffusion must have at least this value, and the circle
+attains it. The same reasoning closes a larger family with nonuniform even
+stationary densities and diffusivities. Phase reflection makes their scalar
+observations reversible. Thus the sign of circulation can remain unidentifiable
+while its minimum dissipation is determined exactly.
+
+\section{From a population theorem to an experiment}
+Three levels of access must be kept distinct.
+\begin{center}
+\begin{tabular}{p{0.23\textwidth}p{0.66\textwidth}}
+\toprule
+Level & What is justified\\
+\midrule
+Ideal observed law & Local quadratic variation and conditional derivative
+functions determine a population lower bound; certain laws attain it.\\
+Finite time resolution & Frozen weighted triple scores become valid after
+subtracting an explicit semigroup remainder, using calibrated generator
+derivative bounds.\\
+Finite records & Bounded-score concentration and exact quantized summaries
+give a confidence statement, retaining calibration and acquisition costs.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The implementation uses a predeclared central-state rule $q$ and a pointwise
+upper envelope $a$ for local diffusion strength. It scores independent
+stationary triples, including the zero scores of excluded central states.
+This avoids estimating an entire conditional distribution or dividing by an
+estimated bin occupancy. Its finite-time correction and confidence penalty
+are part of the reported result. A simulation compares it with the earlier
+endpoint certificate using the same records. Such a comparison establishes
+performance for the declared design, not optimality over all experimental
+protocols or laboratory validation.
+
+A covered fallback recomputes the geometry and endpoint bounds with a shared
+failure budget before taking their maximum. It recovers much of the weaker-drive
+sensitivity in the same simulated records, with the loss from the stricter
+component budgets stated explicitly. A separate consistency result shows that
+a calibrated sequence of finite-record experiments approaches the sharp circle
+minimum. Its rate is a conservative sufficient construction, not an optimal
+sample-complexity claim.
+
+\section{Where the physical premise matters}
+A conditional average of local diffusion strength cannot replace a pointwise
+envelope: the connected-torus counterexample overestimates the true entropy
+under that substitution. An uncorrected finite-time replacement of $g$ and
+$K$ can also overestimate entropy, even after a smooth invertible detector
+recalibration. Measurement noise, finite exposure and physical odd-variable
+reversal change the relevant contract. The countermodels identify these
+failures explicitly.
+
+The sharp minimum is therefore a solved compatible-model problem within a
+declared diffusion class. It is not a restriction on every conceivable
+realization of the signal. The underlying curvature and force-free inference
+identities have established predecessors; the literature chapter separates
+those results from the present local-geometry construction and its attainment
+claim. Historical priority and external scientific review remain open.

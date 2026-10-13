@@ -1,0 +1,30 @@
+{
+  "schema": "constructive-access-dependence-refinement-v1",
+  "frozen_before_heldout_generation": true,
+  "date": "2026-10-12",
+  "parent_contract": "dependence.json",
+  "parent_contract_sha256": "ad68a7a598e841c9041783142454d9493371e4fd4dd098714793c59c8d6f6c2a",
+  "reason": "Preserve the original matched-time benchmark and test whether sparse common blocks retain useful power with substantially fewer readouts",
+  "inherited": "All observation, calibration, initialization and confidence assumptions from the parent contract; only common block durations and deterministic quotas change",
+  "design": {
+    "seed": 918472,
+    "replicates_per_model_budget_block": 1000,
+    "evaluation_menu": [
+      {"physical_time_budget": 400000, "block_durations": [10, 20, 50]},
+      {"physical_time_budget": 800000, "block_durations": [20, 50, 100, 200, 500]}
+    ],
+    "models": ["metastable_equilibrium", "driven_ring", "wrong_mixing_calibration"],
+    "allocation": "Pay the inherited initial gap once; retain equal fixed quotas floor((budget-burn)/(2H)); all lag1 blocks followed by all lag2 blocks",
+    "baseline": "Original H2 counts and optimized old-gap results remain in dependence.json unchanged",
+    "selection": "The entire menu is frozen before new samples. These results do not authorize postselected use of a single-contrast bound on the same records"
+  },
+  "analytic_design": {
+    "block_duration_grid": {"start": 2, "stop_inclusive": 1000, "step": 1},
+    "normalized_readout_cost_ratios": ["0", "1/10", "1", "10", "100", "1000", "10000"],
+    "normalized_total_budgets": [400000, 800000],
+    "cost_definition": "C=T+zeta*R after dividing by constant waiting power times the lag1 time unit; R counts individual endpoint readouts, and zeta is readout energy divided by that unit waiting energy",
+    "scope": "Hypothetical parametric resource accounting. Waiting power, readout energy and detector duration are not measured. Optimize only over the declared finite block grid, with every detector record counted. External calibration costs remain separate."
+  },
+  "reported_metrics": ["all frozen-menu power and coverage values", "approximate95percent Wilson Monte Carlo intervals", "full evolution time", "endpoint readout count", "outward certified halfwidth", "raw counts and digests", "finite-grid normalized-cost optimum and selection scope"],
+  "claim_limit": "No guarantee of uniformly greater power, no calibrated energy advantage, and no mixing envelope learned from the tested records"
+}

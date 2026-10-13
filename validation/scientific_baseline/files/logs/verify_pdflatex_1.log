@@ -1,0 +1,2986 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+(./reference.tex
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+(/usr/share/texlive/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2024/06/29 v1.4n Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/bk11.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
+(/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texmf/tex/latex/lm/lmodern.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mathtools.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/mathtools/mhsetup.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/graphics.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def)))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.sty
+(/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype-pdftex.def)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/microtype.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdfescape/pdfescape.sty
+(/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+(/usr/share/texlive/texmf-dist/tex/generic/infwarerr/infwarerr.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/hycolor/hycolor.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+(/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty)))
+(/usr/share/texlive/texmf-dist/tex/generic/stringenc/stringenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty)
+(/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
+(/usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+(/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))
+(/usr/share/texlive/texmf-dist/tex/latex/bookmark/bookmark.sty
+(/usr/share/texlive/texmf-dist/tex/latex/bookmark/bkm-pdftex.def))
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file reference.aux.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg))
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-cmr.cfg)
+(/usr/share/texmf/tex/latex/lm/ts1lmr.fd)
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+LaTeX Warning: Reference `pa:entry' on page i undefined on input line 50.
+
+
+LaTeX Warning: Reference `og:entry' on page i undefined on input line 62.
+
+
+LaTeX Warning: Reference `ch:dg-entry' on page i undefined on input line 70.
+
+
+LaTeX Warning: Reference `ch:dc-entry' on page i undefined on input line 78.
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.95 
+      [1]
+
+LaTeX Warning: Reference `entry:start' on page ii undefined on input line 147.
+
+
+LaTeX Warning: Reference `workflow:suite' on page ii undefined on input line 14
+7.
+
+
+[2]
+No file reference.toc.
+
+[3] (/usr/share/texmf/tex/latex/lm/ot1lmr.fd)
+(/usr/share/texmf/tex/latex/lm/omllmm.fd)
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd)
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg)
+[4{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
+c/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/s
+hare/texmf/fonts/enc/dvips/lm/lm-mathex.enc}] (./chapters/entry.tex
+Chapter 1.
+
+[1]
+
+LaTeX Warning: Reference `sec:physical-pulse' on page 2 undefined on input line
+ 22.
+
+
+LaTeX Warning: Reference `sec:quantum-pulse' on page 2 undefined on input line 
+25.
+
+
+LaTeX Warning: Reference `completion:statistics' on page 2 undefined on input l
+ine 26.
+
+
+LaTeX Warning: Reference `ch:graph-access' on page 2 undefined on input line 27
+.
+
+
+LaTeX Warning: Reference `completion:composition' on page 2 undefined on input 
+line 27.
+
+
+LaTeX Warning: Reference `rr:reset-boundary' on page 2 undefined on input line 
+29.
+
+
+LaTeX Warning: Reference `rr:explanation' on page 2 undefined on input line 29.
+
+
+(/usr/share/texmf/tex/latex/lm/t1lmtt.fd)
+Underfull \hbox (badness 1629) in paragraph at lines 40--41
+[]\T1/lmr/m/n/10.95 (+20) The com-plete con-tract ap-pears in \T1/lmtt/m/n/10.9
+5 examples/active.json\T1/lmr/m/n/10.95 (+20) ; re-mov-ing the drive gives
+
+[2]
+
+LaTeX Warning: Reference `rr:dimension-robust' on page 3 undefined on input lin
+e 71.
+
+
+LaTeX Warning: Reference `rf:entry' on page 3 undefined on input line 79.
+
+
+[3 <./access_map.pdf>]
+[4]) (./chapters/foundations.tex
+[5]
+Chapter 2.
+
+[6]
+
+LaTeX Warning: Citation `f_nemcova' on page 7 undefined on input line 84.
+
+
+LaTeX Warning: Citation `f_thon' on page 7 undefined on input line 84.
+
+
+[7]
+
+LaTeX Warning: Reference `foundations:factorization' on page 8 undefined on inp
+ut line 150.
+
+
+LaTeX Warning: Citation `f_blackwell' on page 8 undefined on input line 154.
+
+
+LaTeX Warning: Reference `foundations:processing' on page 8 undefined on input 
+line 171.
+
+
+[8]
+
+LaTeX Warning: Reference `finite:span' on page 9 undefined on input line 263.
+
+
+[9]
+
+LaTeX Warning: Reference `finite:span' on page 10 undefined on input line 273.
+
+
+LaTeX Warning: Reference `workflow:suite' on page 10 undefined on input line 28
+2.
+
+) (./chapters/finite_access.tex
+[10]
+Chapter 3.
+
+[11]
+
+LaTeX Warning: Citation `f_tzeng' on page 12 undefined on input line 116.
+
+
+LaTeX Warning: Citation `f_kiefer' on page 12 undefined on input line 116.
+
+
+LaTeX Warning: Citation `f_notes' on page 12 undefined on input line 116.
+
+
+LaTeX Warning: Citation `f_thon' on page 12 undefined on input line 118.
+
+
+LaTeX Warning: Citation `f_jaeger' on page 12 undefined on input line 118.
+
+
+LaTeX Warning: Citation `f_littman' on page 12 undefined on input line 118.
+
+
+LaTeX Warning: Citation `f_wang' on page 12 undefined on input line 119.
+
+
+[12] (/usr/share/texmf/tex/latex/lm/ot1lmss.fd)
+
+LaTeX Warning: Reference `finite:span' on page 13 undefined on input line 166.
+
+
+LaTeX Warning: Citation `f_petreczky' on page 13 undefined on input line 170.
+
+
+LaTeX Warning: Citation `f_bastug' on page 13 undefined on input line 170.
+
+
+[13]
+
+LaTeX Warning: Reference `finite:closure' on page 14 undefined on input line 24
+2.
+
+
+[14]
+
+LaTeX Warning: Reference `finite:filteredbeta' on page 15 undefined on input li
+ne 293.
+
+
+LaTeX Warning: Reference `finite:filteredclosure' on page 15 undefined on input
+ line 300.
+
+
+[15]
+
+LaTeX Warning: Reference `finite:span' on page 16 undefined on input line 358.
+
+
+LaTeX Warning: Citation `f_basu' on page 16 undefined on input line 369.
+
+
+LaTeX Warning: Citation `f_nemcova' on page 16 undefined on input line 369.
+
+
+LaTeX Warning: Citation `f_rote' on page 16 undefined on input line 395.
+
+
+[16]) (./chapters/precision_design.tex
+[17]
+Chapter 4.
+
+LaTeX Warning: Reference `foundations:frontier' on page 18 undefined on input l
+ine 39.
+
+
+[18]
+
+LaTeX Warning: Reference `precision:two-point-fixed' on page 19 undefined on in
+put line 81.
+
+
+LaTeX Warning: Reference `precision:two-point-resource' on page 19 undefined on
+ input line 86.
+
+
+LaTeX Warning: Citation `caLeCamYang2000' on page 19 undefined on input line 90
+.
+
+
+[19]
+
+LaTeX Warning: Reference `precision:linear-upper' on page 20 undefined on input
+ line 171.
+
+
+LaTeX Warning: Citation `caBoyd2004' on page 20 undefined on input line 187.
+
+
+LaTeX Warning: Reference `foundations:radius' on page 20 undefined on input lin
+e 197.
+
+
+[20]
+
+LaTeX Warning: Citation `caBhattacharyya1943' on page 21 undefined on input lin
+e 236.
+
+
+LaTeX Warning: Reference `precision:tv-risk' on page 21 undefined on input line
+ 248.
+
+
+[21]
+
+LaTeX Warning: Citation `caHoeffding1963' on page 22 undefined on input line 28
+9.
+
+
+LaTeX Warning: Reference `precision:kernel-calibration' on page 22 undefined on
+ input line 343.
+
+
+LaTeX Warning: Citation `caWatrous2018' on page 22 undefined on input line 346.
+
+
+
+[22]
+
+LaTeX Warning: Citation `caBellman1957' on page 23 undefined on input line 412.
+
+
+
+[23]) (./chapters/adequacy_energy.tex
+[24]
+Chapter 5.
+
+LaTeX Warning: Reference `precision:chapter' on page 25 undefined on input line
+ 9.
+
+
+[25]
+
+LaTeX Warning: Reference `adequacy:conditional' on page 26 undefined on input l
+ine 64.
+
+
+LaTeX Warning: Reference `adequacy:ville' on page 26 undefined on input line 83
+.
+
+
+LaTeX Warning: Citation `caVille1939' on page 26 undefined on input line 87.
+
+
+LaTeX Warning: Citation `caWaudbySmithRamdas2024' on page 26 undefined on input
+ line 87.
+
+
+LaTeX Warning: Reference `adequacy:anytime' on page 26 undefined on input line 
+114.
+
+
+[26]
+
+LaTeX Warning: Reference `adequacy:commit' on page 27 undefined on input line 1
+46.
+
+
+[27]
+
+LaTeX Warning: Citation `caBremaud1981' on page 28 undefined on input line 222.
+
+
+
+LaTeX Warning: Reference `adequacy:count-tail-equation' on page 28 undefined on
+ input line 224.
+
+
+LaTeX Warning: Reference `adequacy:count-tail-equation' on page 28 undefined on
+ input line 237.
+
+
+LaTeX Warning: Reference `adequacy:energy-ledger' on page 28 undefined on input
+ line 249.
+
+
+[28]
+
+LaTeX Warning: Reference `adequacy:energy-ledger' on page 29 undefined on input
+ line 278.
+
+
+LaTeX Warning: Reference `adequacy:count-tail' on page 29 undefined on input li
+ne 281.
+
+
+LaTeX Warning: Reference `adequacy:calibration' on page 29 undefined on input l
+ine 294.
+
+
+LaTeX Warning: Reference `adequacy:count-tail' on page 29 undefined on input li
+ne 296.
+
+
+LaTeX Warning: Reference `adequacy:energy-ledger' on page 29 undefined on input
+ line 323.
+
+
+[29]
+
+LaTeX Warning: Reference `precision:score-test' on page 30 undefined on input l
+ine 340.
+
+
+LaTeX Warning: Reference `adequacy:count-tail' on page 30 undefined on input li
+ne 342.
+
+
+LaTeX Warning: Reference `precision:robust-gap' on page 30 undefined on input l
+ine 349.
+
+) (./chapters/continuous_thermodynamics.tex
+[30]
+Chapter 6.
+
+LaTeX Warning: Citation `physics-schnakenberg' on page 31 undefined on input li
+ne 48.
+
+
+LaTeX Warning: Citation `physics-polettini' on page 31 undefined on input line 
+48.
+
+
+[31]
+
+LaTeX Warning: Citation `physics-uniformization' on page 32 undefined on input 
+line 114.
+
+
+[32]
+
+LaTeX Warning: Citation `physics-lucente' on page 33 undefined on input line 17
+9.
+
+
+[33]
+
+LaTeX Warning: Reference `eq:continuous-exact' on page 34 undefined on input li
+ne 276.
+
+
+[34]
+
+LaTeX Warning: Reference `eq:continuous-dirichlet' on page 35 undefined on inpu
+t line 345.
+
+
+[35]
+
+LaTeX Warning: Reference `eq:continuous-triangle' on page 36 undefined on input
+ line 354.
+
+
+LaTeX Warning: Citation `physics-qian' on page 36 undefined on input line 389.
+
+
+LaTeX Warning: Citation `physics-rao' on page 36 undefined on input line 407.
+
+
+[36]) (./chapters/classical_section.tex
+[37]
+Chapter 7.
+
+LaTeX Warning: Reference `eq:physical-response' on page 38 undefined on input l
+ine 42.
+
+
+LaTeX Warning: Reference `eq:physical-hitting' on page 38 undefined on input li
+ne 51.
+
+
+[38]
+
+LaTeX Warning: Reference `eq:physical-current-response' on page 39 undefined on
+ input line 109.
+
+
+LaTeX Warning: Reference `thm:physical-endpoint-response' on page 39 undefined 
+on input line 131.
+
+
+[39]
+[40]
+
+LaTeX Warning: Reference `prop:physical-magnitude' on page 41 undefined on inpu
+t line 264.
+
+) (./chapters/rr_robust_physics.tex
+[41]
+Chapter 8.
+
+[42]
+[43]
+
+LaTeX Warning: Reference `robustphysics:omega' on page 44 undefined on input li
+ne 155.
+
+
+LaTeX Warning: Reference `robustphysics:ideal' on page 44 undefined on input li
+ne 180.
+
+
+[44]
+
+LaTeX Warning: Reference `robustphysics:jitter' on page 45 undefined on input l
+ine 225.
+
+
+[45]) (./chapters/quantum_section.tex
+[46]
+[47]
+Chapter 9.
+
+LaTeX Warning: Reference `eq:quantum-pulse-integral' on page 48 undefined on in
+put line 52.
+
+
+Package amsmath Warning: Foreign command \over;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 64.
+
+
+[48]
+[49]) (./chapters/statistical_section.tex
+[50]
+Chapter 10.
+
+LaTeX Warning: Reference `completion:samesign' on page 51 undefined on input li
+ne 33.
+
+
+[51]
+
+LaTeX Warning: Reference `completion:reject' on page 52 undefined on input line
+ 63.
+
+
+LaTeX Warning: Reference `completion:samesign' on page 52 undefined on input li
+ne 78.
+
+
+[52]) (./chapters/rr_preparation.tex
+[53]
+[54 <./completion_results.pdf>]
+Chapter 11.
+
+LaTeX Warning: Citation `rrLambert2010' on page 55 undefined on input line 16.
+
+
+LaTeX Warning: Citation `rrLi2012' on page 55 undefined on input line 16.
+
+
+LaTeX Warning: Citation `rrZhou2015' on page 55 undefined on input line 16.
+
+
+LaTeX Warning: Reference `sec:rr-comparison' on page 55 undefined on input line
+ 16.
+
+
+[55]
+
+LaTeX Warning: Reference `eq:rr-hitting' on page 56 undefined on input line 58.
+
+
+
+LaTeX Warning: Reference `thm:rr-return' on page 56 undefined on input line 88.
+
+
+
+LaTeX Warning: Reference `thm:rr-return' on page 56 undefined on input line 109
+.
+
+
+LaTeX Warning: Citation `rrPavlides2012' on page 56 undefined on input line 114
+.
+
+
+[56]
+
+LaTeX Warning: Reference `eq:rr-qubit' on page 57 undefined on input line 190.
+
+
+[57]
+
+LaTeX Warning: Reference `eq:rr-qubit' on page 58 undefined on input line 253.
+
+
+LaTeX Warning: Reference `eq:rr-qubit' on page 58 undefined on input line 262.
+
+
+[58]
+
+LaTeX Warning: Citation `rrLambert2010' on page 59 undefined on input line 300.
+
+
+
+LaTeX Warning: Reference `eq:rr-survival-product' on page 59 undefined on input
+ line 310.
+
+
+LaTeX Warning: Reference `tab:rr-baselines' on page 59 undefined on input line 
+328.
+
+
+[59]
+
+LaTeX Warning: Reference `rr:dimension-robust' on page 60 undefined on input li
+ne 365.
+
+
+LaTeX Warning: Reference `rr:four-states' on page 60 undefined on input line 37
+6.
+
+
+LaTeX Warning: Reference `eq:rr-qubit' on page 60 undefined on input line 389.
+
+
+[60]) (./chapters/rr_reset_boundary.tex
+[61]
+Chapter 12.
+
+[62]
+
+LaTeX Warning: Reference `rr:hazards' on page 63 undefined on input line 81.
+
+
+LaTeX Warning: Reference `rr:reset-defect' on page 63 undefined on input line 8
+1.
+
+
+[63]
+[64]
+
+LaTeX Warning: Reference `rr:unrestricted-coarse' on page 65 undefined on input
+ line 211.
+
+
+[65]
+[66]
+
+LaTeX Warning: Reference `rr:dimension-noise' on page 67 undefined on input lin
+e 363.
+
+
+LaTeX Warning: Reference `rr:dimension-drop' on page 67 undefined on input line
+ 365.
+
+
+LaTeX Warning: Reference `rr:dimension-drop' on page 67 undefined on input line
+ 368.
+
+
+[67]
+
+LaTeX Warning: Reference `rr:dimension-drop' on page 68 undefined on input line
+ 403.
+
+
+[68]) (./chapters/rr_clock_design.tex
+[69]
+Chapter 13.
+
+[70]
+
+LaTeX Warning: Reference `rr:clock-lp' on page 71 undefined on input line 70.
+
+
+[71]) (./chapters/rr_statistics.tex
+[72]
+Chapter 14.
+
+[73]
+
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 57.
+
+
+[74]
+
+LaTeX Warning: Reference `rr:conditional-null' on page 75 undefined on input li
+ne 131.
+
+
+LaTeX Warning: Citation `caVille1939' on page 75 undefined on input line 146.
+
+
+LaTeX Warning: Citation `caWaudbySmithRamdas2024' on page 75 undefined on input
+ line 146.
+
+
+[75]
+[76]
+[77]) (./chapters/rr_explanation.tex
+[78]
+Chapter 15.
+
+[79]
+[80]
+[81]
+[82 <./robust_results.pdf>]) (./chapters/rf_frontier.tex
+[83 <./dimension_witness.pdf>]
+Chapter 16.
+
+Underfull \hbox (badness 1297) in paragraph at lines 43--44
+[]|\T1/lmr/m/n/10.95 (+20) No non-triv-ial uni-form test
+
+Underfull \hbox (badness 2426) in paragraph at lines 44--44
+[]|\T1/lmr/m/n/10.95 (+20) Stationary non-in-va-sive bi-
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--44
+[]|\T1/lmr/m/n/10.95 (+20) Entropy-production lower
+
+Underfull \hbox (badness 10000) in paragraph at lines 45--45
+[]|\T1/lmr/m/n/10.95 (+20) Preparation--housekeeping
+
+[84]) (./chapters/rf_hierarchy.tex
+[85]
+[86 <./figures/realization_frontier.pdf>]
+Chapter 17.
+
+LaTeX Warning: Citation `rfGillis2020' on page 87 undefined on input line 15.
+
+
+LaTeX Warning: Citation `rfShahandeh2024' on page 87 undefined on input line 15
+.
+
+
+LaTeX Warning: Citation `rfHeinosaari2024' on page 87 undefined on input line 1
+7.
+
+
+[87]
+
+LaTeX Warning: Reference `eq:hier-margin' on page 88 undefined on input line 63
+.
+
+
+LaTeX Warning: Reference `eq:hier-margin' on page 88 undefined on input line 75
+.
+
+
+LaTeX Warning: Reference `eq:hier-pk' on page 88 undefined on input line 93.
+
+
+LaTeX Warning: Reference `eq:hier-margin' on page 88 undefined on input line 95
+.
+
+
+[88]
+
+LaTeX Warning: Reference `eq:hier-margin' on page 89 undefined on input line 15
+1.
+
+
+[89]
+
+LaTeX Warning: Reference `eq:hier-errors' on page 90 undefined on input line 21
+1.
+
+) (./chapters/rf_spectral.tex
+[90]
+Chapter 18.
+
+LaTeX Warning: Citation `rrWolf2009' on page 91 undefined on input line 6.
+
+
+[91]
+
+LaTeX Warning: Reference `eq:erlang-qubit' on page 92 undefined on input line 1
+06.
+
+
+LaTeX Warning: Reference `eq:resolvent-lens' on page 92 undefined on input line
+ 115.
+
+
+[92]
+[93]) (./chapters/rf_limits.tex
+[94]
+Chapter 19.
+
+LaTeX Warning: Citation `rfSzasz1950' on page 95 undefined on input line 14.
+
+
+[95]
+[96]
+
+LaTeX Warning: Reference `rf:backward-coupling' on page 97 undefined on input l
+ine 171.
+
+
+LaTeX Warning: Reference `rf:preparation-cost' on page 97 undefined on input li
+ne 173.
+
+
+[97]
+[98]
+
+LaTeX Warning: Reference `rf:cycle-size' on page 99 undefined on input line 309
+.
+
+) (./chapters/rf_thermodynamic.tex
+[99]
+[100]
+Chapter 20.
+
+[101]
+
+LaTeX Warning: Citation `rfCrooks2011' on page 102 undefined on input line 64.
+
+
+LaTeX Warning: Citation `rfChoi2024' on page 102 undefined on input line 65.
+
+
+LaTeX Warning: Reference `eq:rf-path-quarter' on page 102 undefined on input li
+ne 107.
+
+
+[102]
+
+LaTeX Warning: Citation `rfEsposito2010' on page 103 undefined on input line 13
+9.
+
+
+LaTeX Warning: Reference `eq:rf-energy-cone' on page 103 undefined on input lin
+e 161.
+
+
+LaTeX Warning: Reference `eq:rf-path-quarter' on page 103 undefined on input li
+ne 175.
+
+
+[103]
+
+LaTeX Warning: Reference `eq:rf-revival-energy' on page 104 undefined on input 
+line 237.
+
+
+LaTeX Warning: Reference `eq:rf-revival-energy' on page 104 undefined on input 
+line 252.
+
+
+LaTeX Warning: Reference `eq:rf-revival-energy' on page 104 undefined on input 
+line 266.
+
+
+[104]
+
+LaTeX Warning: Citation `rfDechant2023' on page 105 undefined on input line 295
+.
+
+
+LaTeX Warning: Citation `rfRaux2026' on page 105 undefined on input line 296.
+
+
+LaTeX Warning: Citation `rfShiraishi2026' on page 105 undefined on input line 2
+97.
+
+
+LaTeX Warning: Citation `rfHidden2026' on page 105 undefined on input line 299.
+
+
+) (./chapters/rf_energy_certificate.tex
+[105]
+Chapter 21.
+
+[106]
+
+LaTeX Warning: Reference `rf:moment-cone' on page 107 undefined on input line 7
+0.
+
+
+LaTeX Warning: Reference `rf:moment-cone' on page 107 undefined on input line 7
+8.
+
+
+[107]
+[108]) (./chapters/vl_entry.tex
+[109]
+Chapter 22.
+
+[110]) (./chapters/vl_timing.tex
+[111]
+Chapter 23.
+
+LaTeX Warning: Citation `vlAldousFill2002' on page 112 undefined on input line 
+20.
+
+
+LaTeX Warning: Citation `vlSchilling2012' on page 112 undefined on input line 2
+0.
+
+
+LaTeX Warning: Reference `eq:clock-criterion' on page 112 undefined on input li
+ne 35.
+
+
+LaTeX Warning: Reference `eq:clock-criterion' on page 112 undefined on input li
+ne 40.
+
+
+[112]
+[113]
+
+LaTeX Warning: Reference `eq:block-positive-spectrum' on page 114 undefined on 
+input line 135.
+
+
+LaTeX Warning: Reference `eq:block-entropy' on page 114 undefined on input line
+ 137.
+
+
+[114]) (./chapters/vl_sampling.tex
+[115]
+Chapter 24.
+
+LaTeX Warning: Citation `caHoeffding1963' on page 116 undefined on input line 1
+0.
+
+
+LaTeX Warning: Citation `vlHoward2021' on page 116 undefined on input line 10.
+
+
+LaTeX Warning: Reference `vl:conditional-bias' on page 116 undefined on input l
+ine 60.
+
+
+LaTeX Warning: Reference `vl:dependent-box' on page 116 undefined on input line
+ 62.
+
+
+[116]
+
+LaTeX Warning: Reference `vl:conditional-bias' on page 117 undefined on input l
+ine 69.
+
+
+LaTeX Warning: Reference `vl:radius-check' on page 117 undefined on input line 
+79.
+
+
+LaTeX Warning: Citation `vlPaulin2015' on page 117 undefined on input line 126.
+
+
+
+[117]
+
+LaTeX Warning: Reference `vl:spectral-mixing' on page 118 undefined on input li
+ne 158.
+
+) (./chapters/vl_contrast.tex
+[118]
+[119]
+Chapter 25.
+
+LaTeX Warning: Citation `caHoeffding1963' on page 120 undefined on input line 1
+0.
+
+
+LaTeX Warning: Citation `vlHoward2021' on page 120 undefined on input line 10.
+
+
+LaTeX Warning: Citation `vlCochran1977' on page 120 undefined on input line 10.
+
+
+
+[120]
+
+LaTeX Warning: Reference `ch:rf-thermodynamic' on page 121 undefined on input l
+ine 55.
+
+
+LaTeX Warning: Reference `vl:contrast-rate' on page 121 undefined on input line
+ 79.
+
+
+LaTeX Warning: Reference `vl:contrast-kl' on page 121 undefined on input line 8
+6.
+
+
+[121]
+
+LaTeX Warning: Reference `vl:contrast-optimal-rate' on page 122 undefined on in
+put line 119.
+
+) (./chapters/vl_thermodynamic_lab.tex
+[122]
+[123]
+Chapter 26.
+
+LaTeX Warning: Citation `vlMorris2019' on page 124 undefined on input line 18.
+
+
+[124]
+
+LaTeX Warning: Reference `tab:vl-thermodynamic' on page 125 undefined on input 
+line 113.
+
+
+LaTeX Warning: Citation `vlClopper1934' on page 125 undefined on input line 117
+.
+
+
+[125]
+[126]
+
+LaTeX Warning: Citation `vlFritz2025' on page 127 undefined on input line 220.
+
+
+LaTeX Warning: Citation `vlSkinner2021' on page 127 undefined on input line 221
+.
+
+) (./chapters/vl_dimension_lab.tex
+[127]
+Chapter 27.
+
+[128]
+[129]
+[130]) (./chapters/vl_benchmark.tex
+[131]
+Chapter 28.
+
+[132]
+[133]
+[134 <./figures/virtual_laboratory.pdf>]) (./chapters/ci_entry.tex
+[135]
+Chapter 29.
+
+[136]
+[137]) (./chapters/ci_calibration.tex
+[138]
+[139 <./figures/calibrated_inference.pdf>]
+[140 <./figures/calibrated_resources.pdf>]
+Chapter 30.
+
+[141]
+
+LaTeX Warning: Citation `vlAldousFill2002' on page 142 undefined on input line 
+85.
+
+
+[142]
+
+LaTeX Warning: Citation `caHoeffding1963' on page 143 undefined on input line 1
+45.
+
+
+[143]
+[144]) (./chapters/ci_nonlinear.tex
+[145]
+Chapter 31.
+
+LaTeX Warning: Citation `ciLarsson2025' on page 146 undefined on input line 15.
+
+
+
+LaTeX Warning: Citation `ciGrunwald2024' on page 146 undefined on input line 15
+.
+
+
+LaTeX Warning: Citation `ciLarsson2026' on page 146 undefined on input line 15.
+
+
+
+[146]
+
+LaTeX Warning: Reference `eq:ci-nonlinear-dual' on page 147 undefined on input 
+line 91.
+
+
+[147]
+
+LaTeX Warning: Reference `eq:ci-nonlinear-dual' on page 148 undefined on input 
+line 129.
+
+
+[148]
+
+LaTeX Warning: Reference `eq:ci-activity-bridge' on page 149 undefined on input
+ line 221.
+
+
+LaTeX Warning: Citation `ciCrooks2008' on page 149 undefined on input line 238.
+
+
+
+LaTeX Warning: Citation `ciFalasco2022' on page 149 undefined on input line 238
+.
+
+
+LaTeX Warning: Citation `ciGuntuboyina2014' on page 149 undefined on input line
+ 238.
+
+
+[149]
+
+LaTeX Warning: Citation `ciSeifert2012' on page 150 undefined on input line 266
+.
+
+
+LaTeX Warning: Citation `ciGirsanov1960' on page 150 undefined on input line 27
+0.
+
+
+LaTeX Warning: Reference `eq:ci-diffusion-bridge' on page 150 undefined on inpu
+t line 300.
+
+
+[150]) (./chapters/ci_dissipation_limits.tex
+[151]
+Chapter 32.
+
+LaTeX Warning: Citation `ac_buchholz' on page 152 undefined on input line 13.
+
+
+LaTeX Warning: Citation `ciBusiello2019' on page 152 undefined on input line 13
+.
+
+
+LaTeX Warning: Citation `ciEhrich2021' on page 152 undefined on input line 15.
+
+
+LaTeX Warning: Citation `ciNitzan2023' on page 152 undefined on input line 15.
+
+
+LaTeX Warning: Reference `eq:dl-entropy' on page 152 undefined on input line 39
+.
+
+
+[152]
+
+LaTeX Warning: Reference `eq:dl-pair' on page 153 undefined on input line 84.
+
+
+[153]
+
+LaTeX Warning: Reference `eq:dl-cycle' on page 154 undefined on input line 130.
+
+
+
+[154]
+
+LaTeX Warning: Reference `eq:dl-full-coupling' on page 155 undefined on input l
+ine 185.
+
+
+LaTeX Warning: Citation `ciHarunari2022' on page 155 undefined on input line 21
+0.
+
+
+LaTeX Warning: Reference `eq:dl-one-edge' on page 155 undefined on input line 2
+11.
+
+
+[155]
+
+LaTeX Warning: Reference `eq:dl-entropy' on page 156 undefined on input line 24
+8.
+
+) (./chapters/ci_sequential.tex
+[156]
+Chapter 33.
+
+LaTeX Warning: Citation `caHoeffding1963' on page 157 undefined on input line 9
+.
+
+
+LaTeX Warning: Citation `caVille1939' on page 157 undefined on input line 9.
+
+
+LaTeX Warning: Citation `vlHoward2021' on page 157 undefined on input line 9.
+
+
+[157]
+[158]) (./chapters/ci_dependence.tex
+[159]
+Chapter 34.
+
+[160]
+
+LaTeX Warning: Citation `ciFan2021' on page 161 undefined on input line 76.
+
+
+LaTeX Warning: Reference `eq:ci-dependent-contrast' on page 161 undefined on in
+put line 122.
+
+
+[161]
+[162]
+[163]) (./chapters/ci_analog.tex
+[164]
+Chapter 35.
+
+LaTeX Warning: Reference `ch:ci-calibration' on page 165 undefined on input lin
+e 12.
+
+
+LaTeX Warning: Reference `ch:ci-calibration' on page 165 undefined on input lin
+e 43.
+
+
+LaTeX Warning: Citation `caHoeffding1963' on page 165 undefined on input line 5
+7.
+
+
+[165]
+
+LaTeX Warning: Citation `ciBlackwell1947' on page 166 undefined on input line 9
+6.
+
+
+[166]) (./chapters/ci_calibrated_benchmark.tex
+[167]
+Chapter 36.
+
+LaTeX Warning: Reference `chap:ci-nonlinear' on page 168 undefined on input lin
+e 14.
+
+
+[168]
+[169]) (./chapters/ci_joint_calibration.tex
+[170]
+Chapter 37.
+
+LaTeX Warning: Citation `vlAldousFill2002' on page 171 undefined on input line 
+50.
+
+
+LaTeX Warning: Citation `caHoeffding1963' on page 171 undefined on input line 5
+0.
+
+
+[171]
+
+LaTeX Warning: Reference `eq:ci-joint-confidence' on page 172 undefined on inpu
+t line 95.
+
+
+[172]
+[173]) (./chapters/ci_empirical.tex
+[174]
+Chapter 38.
+
+LaTeX Warning: Citation `ciBryan2022' on page 175 undefined on input line 9.
+
+
+LaTeX Warning: Citation `ciBryanData2022' on page 175 undefined on input line 9
+.
+
+
+[175]
+[176]
+[177]) (./chapters/pa_entry.tex
+[178]
+Chapter 39.
+
+[179]) (./chapters/pa_spectral_dynamics.tex
+[180 <./figures/attainability.pdf>]
+Chapter 40.
+
+[181]
+
+LaTeX Warning: Citation `paSason2015' on page 182 undefined on input line 95.
+
+
+[182]
+
+LaTeX Warning: Reference `eq:pa-defect-identity' on page 183 undefined on input
+ line 150.
+
+
+[183]
+
+LaTeX Warning: Reference `eq:pa-statistical-direct' on page 184 undefined on in
+put line 207.
+
+
+[184]) (./chapters/pa_joint_analog.tex
+[185]
+Chapter 41.
+
+[186]
+
+LaTeX Warning: Reference `eq:pa-analog-radius' on page 187 undefined on input l
+ine 92.
+
+
+LaTeX Warning: Reference `eq:pa-analog-gap' on page 187 undefined on input line
+ 113.
+
+
+[187]
+
+LaTeX Warning: Reference `eq:pa-analog-old-bridge' on page 188 undefined on inp
+ut line 136.
+
+
+[188]) (./chapters/pa_retiming.tex
+[189]
+Chapter 42.
+
+LaTeX Warning: Reference `ch:pa-joint-analog' on page 190 undefined on input li
+ne 4.
+
+
+LaTeX Warning: Citation `vlAldousFill2002' on page 190 undefined on input line 
+17.
+
+
+LaTeX Warning: Citation `ciVSR2024' on page 190 undefined on input line 17.
+
+
+LaTeX Warning: Citation `ciVSRProofs2024' on page 190 undefined on input line 1
+7.
+
+
+LaTeX Warning: Reference `thm:pa-finite-lag' on page 190 undefined on input lin
+e 24.
+
+
+[190]
+[191]) (./chapters/pa_design.tex
+[192]
+[193]
+Chapter 43.
+)
+[194]
+Chapter 44.
+(./chapters/pa_physical_minimum.tex
+
+LaTeX Warning: Citation `rfGu2026' on page 195 undefined on input line 29.
+
+
+[195]
+
+LaTeX Warning: Reference `eq:pa-circulant-feasible' on page 196 undefined on in
+put line 58.
+
+
+LaTeX Warning: Reference `eq:pa-circulant-min' on page 196 undefined on input l
+ine 89.
+
+
+LaTeX Warning: Reference `eq:pa-circulant-feasible' on page 196 undefined on in
+put line 93.
+
+
+LaTeX Warning: Reference `eq:pa-circulant-rates' on page 196 undefined on input
+ line 94.
+
+
+[196]
+
+LaTeX Warning: Citation `rfShiraishi2026' on page 197 undefined on input line 1
+56.
+
+
+LaTeX Warning: Citation `paYue2021' on page 197 undefined on input line 191.
+
+
+[197]
+[198]
+
+LaTeX Warning: Reference `eq:pa-mode-correlation' on page 199 undefined on inpu
+t line 289.
+
+) (./chapters/og_entry.tex
+[199]
+Chapter 45.
+
+[200]) (./chapters/og_population_theory.tex
+[201]
+Chapter 46.
+
+LaTeX Warning: Reference `eq:og-entropy' on page 202 undefined on input line 52
+.
+
+
+[202]
+[203]
+
+LaTeX Warning: Reference `eq:og-conditional-limits' on page 204 undefined on in
+put line 146.
+
+
+LaTeX Warning: Reference `eq:og-local-bound' on page 204 undefined on input lin
+e 171.
+
+
+LaTeX Warning: Reference `eq:og-defect-fiber' on page 204 undefined on input li
+ne 173.
+
+
+LaTeX Warning: Reference `eq:og-qv' on page 204 undefined on input line 177.
+
+
+[204]
+
+LaTeX Warning: Reference `eq:og-local-bound' on page 205 undefined on input lin
+e 256.
+
+
+[205] (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-euf.cfg)
+
+LaTeX Warning: Reference `eq:og-local-bound' on page 206 undefined on input lin
+e 335.
+
+
+LaTeX Warning: Reference `eq:og-entropy' on page 206 undefined on input line 33
+9.
+
+
+LaTeX Warning: Reference `eq:og-conditional-limits' on page 206 undefined on in
+put line 346.
+
+
+LaTeX Warning: Reference `eq:og-circle-min' on page 206 undefined on input line
+ 357.
+
+
+[206]
+
+LaTeX Warning: Reference `eq:og-local-bound' on page 207 undefined on input lin
+e 366.
+
+
+LaTeX Warning: Reference `eq:og-slack' on page 207 undefined on input line 394.
+
+
+
+LaTeX Warning: Reference `eq:og-family-minimum' on page 207 undefined on input 
+line 396.
+
+
+LaTeX Warning: Reference `eq:og-circle-min' on page 207 undefined on input line
+ 414.
+
+
+[207]
+
+LaTeX Warning: Reference `eq:og-vector' on page 208 undefined on input line 479
+.
+
+
+LaTeX Warning: Reference `eq:og-circle-min' on page 208 undefined on input line
+ 486.
+
+) (./chapters/og_finite_resolution.tex
+[208]
+Chapter 47.
+
+[209]
+
+LaTeX Warning: Citation `ogMaurer2009' on page 210 undefined on input line 122.
+
+
+
+[210]
+[211]) (./chapters/og_consistency.tex
+[212]
+Chapter 48.
+
+LaTeX Warning: Reference `eq:og-finite-score' on page 213 undefined on input li
+ne 60.
+
+
+[213]
+
+LaTeX Warning: Reference `eq:og-finite-range' on page 214 undefined on input li
+ne 115.
+
+
+LaTeX Warning: Reference `eq:og-consistency-calibration' on page 214 undefined 
+on input line 117.
+
+
+[214]
+
+LaTeX Warning: Reference `eq:og-consistency-population' on page 215 undefined o
+n input line 165.
+
+
+LaTeX Warning: Reference `eq:og-consistency-radius' on page 215 undefined on in
+put line 166.
+
+
+[215]) (./chapters/og_countermodels.tex
+[216]
+Chapter 49.
+
+[217]
+[218]) (./chapters/og_experiment.tex
+[219]
+[220]
+Chapter 50.
+
+[221]
+
+LaTeX Warning: Reference `tab:og-frozen' on page 222 undefined on input line 11
+5.
+
+
+[222]
+[223 <./figures/observed_geometry.pdf>]) (./chapters/og_combination.tex
+[224]
+Chapter 51.
+
+LaTeX Warning: Reference `ch:og-finite' on page 225 undefined on input line 32.
+
+
+
+[225]) (./chapters/dg_entry.tex
+[226]
+Chapter 52.
+
+Underfull \hbox (badness 1215) in paragraph at lines 39--39
+[]|\T1/lmr/m/n/10.95 (+20) Fixed sam-pling grid af-ter
+
+Underfull \hbox (badness 1132) in paragraph at lines 42--42
+[]|\T1/lmr/m/n/10.95 (+20) Finite sta-tion-ary tri-als at
+
+Underfull \hbox (badness 2012) in paragraph at lines 45--45
+[]|\T1/lmr/m/n/10.95 (+20) Known bi-nary hy-pothe-ses
+
+Underfull \hbox (badness 3758) in paragraph at lines 48--48
+[]|\T1/lmr/m/n/10.95 (+20) Read pre-ci-sion pur-chased
+
+Underfull \hbox (badness 1990) in paragraph at lines 48--48
+\T1/lmr/m/n/10.95 (+20) through the de-clared law
+
+[227]) (./chapters/dg_recovery.tex
+[228]
+Chapter 53.
+
+[229]
+
+LaTeX Warning: Reference `eq:dg-dense-noise-average' on page 230 undefined on i
+nput line 116.
+
+
+[230]
+
+LaTeX Warning: Reference `eq:dg-covariance-mixing' on page 231 undefined on inp
+ut line 165.
+
+
+LaTeX Warning: Reference `eq:dg-readout' on page 231 undefined on input line 16
+6.
+
+
+LaTeX Warning: Reference `eq:dg-reconstruction-error' on page 231 undefined on 
+input line 173.
+
+
+[231]
+[232]
+[233]) (./chapters/dg_finite_access.tex
+[234]
+Chapter 54.
+
+[235]
+[236]
+
+LaTeX Warning: Reference `eq:dg-mixture-chi-square' on page 237 undefined on in
+put line 211.
+
+
+[237]
+
+LaTeX Warning: Reference `eq:dg-resonant-variance' on page 238 undefined on inp
+ut line 260.
+
+
+LaTeX Warning: Reference `eq:dg-variance-gap' on page 238 undefined on input li
+ne 260.
+
+
+LaTeX Warning: Reference `eq:dg-ito-moments' on page 238 undefined on input lin
+e 304.
+
+
+[238]
+
+LaTeX Warning: Reference `eq:dg-prepared-mean' on page 239 undefined on input l
+ine 331.
+
+
+LaTeX Warning: Reference `eq:dg-ito-moments' on page 239 undefined on input lin
+e 360.
+
+
+[239]
+
+LaTeX Warning: Reference `eq:dg-ito-moments' on page 240 undefined on input lin
+e 391.
+
+
+LaTeX Warning: Reference `eq:dg-variance-gap' on page 240 undefined on input li
+ne 403.
+
+
+LaTeX Warning: Reference `eq:dg-energy-necessary' on page 240 undefined on inpu
+t line 406.
+
+) (./chapters/dg_design.tex
+
+LaTeX Warning: Reference `tab:dg-count-design' on page 240 undefined on input l
+ine 4.
+
+
+[240]
+[241]) (./chapters/dg_countermodels.tex
+[242 <./figures/detector_access.pdf>]
+Chapter 55.
+
+LaTeX Warning: Reference `eq:dg-ou-covariance' on page 243 undefined on input l
+ine 52.
+
+
+[243]
+
+LaTeX Warning: Reference `eq:dg-ou-exposed-moments' on page 244 undefined on in
+put line 74.
+
+
+LaTeX Warning: Reference `eq:dg-ou-matching' on page 244 undefined on input lin
+e 123.
+
+
+[244]
+
+LaTeX Warning: Reference `eq:dg-ou-model' on page 245 undefined on input line 1
+40.
+
+
+LaTeX Warning: Reference `eq:dg-ou-entropy' on page 245 undefined on input line
+ 173.
+
+
+LaTeX Warning: Reference `thm:dg-ou-ambiguity' on page 245 undefined on input l
+ine 186.
+
+
+[245]
+
+LaTeX Warning: Reference `eq:dg-ou-exposed-moments' on page 246 undefined on in
+put line 193.
+
+
+LaTeX Warning: Reference `eq:dg-ou-positive-weights' on page 246 undefined on i
+nput line 193.
+
+) (./chapters/dc_calibration_entry.tex
+[246]
+Chapter 56.
+
+[247]) (./chapters/dc_calibration_theory.tex
+[248]
+Chapter 57.
+
+LaTeX Warning: Reference `eq:dc-shape' on page 249 undefined on input line 31.
+
+
+[249]
+
+LaTeX Warning: Reference `eq:dc-shape' on page 250 undefined on input line 85.
+
+
+[250]
+
+LaTeX Warning: Reference `eq:dc-cross-spacing' on page 251 undefined on input l
+ine 180.
+
+
+LaTeX Warning: Reference `eq:dc-gap' on page 251 undefined on input line 180.
+
+
+[251]
+[252]
+
+LaTeX Warning: Reference `eq:dc-shape' on page 253 undefined on input line 330.
+
+
+
+[253]
+
+LaTeX Warning: Reference `eq:dc-gain-contrast' on page 254 undefined on input l
+ine 350.
+
+
+LaTeX Warning: Reference `eq:dc-shape' on page 254 undefined on input line 385.
+
+
+
+[254]
+
+LaTeX Warning: Reference `eq:dc-endpoint-baseline' on page 255 undefined on inp
+ut line 414.
+
+
+LaTeX Warning: Reference `eq:dc-consistency-schedule' on page 255 undefined on 
+input line 473.
+
+
+LaTeX Warning: Reference `eq:dc-hierarchy' on page 255 undefined on input line 
+479.
+
+
+[255]
+
+LaTeX Warning: Reference `eq:dc-consistency' on page 256 undefined on input lin
+e 503.
+
+
+LaTeX Warning: Reference `eq:dc-hierarchy' on page 256 undefined on input line 
+541.
+
+
+[256]
+
+LaTeX Warning: Reference `eq:dc-modulated-entropy' on page 257 undefined on inp
+ut line 567.
+
+
+[257]) (./chapters/dc_calibration_limits.tex
+[258]
+Chapter 58.
+
+[259]
+
+LaTeX Warning: Reference `eq:dc-rare-model' on page 260 undefined on input line
+ 86.
+
+
+[260]
+
+LaTeX Warning: Reference `eq:dc-hitting-bound' on page 261 undefined on input l
+ine 181.
+
+
+LaTeX Warning: Reference `eq:dc-rare-model' on page 261 undefined on input line
+ 187.
+
+
+LaTeX Warning: Reference `eq:dc-multiple-records' on page 261 undefined on inpu
+t line 219.
+
+
+[261]
+
+LaTeX Warning: Reference `eq:dc-uniform-coverage' on page 262 undefined on inpu
+t line 239.
+
+
+LaTeX Warning: Reference `eq:dc-trivial-bound' on page 262 undefined on input l
+ine 246.
+
+
+[262]
+
+LaTeX Warning: Reference `eq:dc-common-gap' on page 263 undefined on input line
+ 301.
+
+
+LaTeX Warning: Reference `eq:dc-rare-model' on page 263 undefined on input line
+ 323.
+
+
+LaTeX Warning: Reference `eq:dc-bump-profile' on page 263 undefined on input li
+ne 326.
+
+
+LaTeX Warning: Reference `eq:dc-rare-generator' on page 263 undefined on input 
+line 335.
+
+
+[263]) (./chapters/dc_calibration_experiment.tex
+[264]
+Chapter 59.
+
+[265]
+
+LaTeX Warning: Reference `eq:dc-endpoint-baseline' on page 266 undefined on inp
+ut line 75.
+
+
+LaTeX Warning: Reference `tab:dc-benchmark-cases' on page 266 undefined on inpu
+t line 119.
+
+
+[266]
+[267]) (./chapters/graph_section.tex
+[268]
+[269 <./figures/detector_calibration.pdf>]
+Chapter 60.
+
+[270]
+
+LaTeX Warning: Reference `eq:graph-cut-conservation' on page 271 undefined on i
+nput line 93.
+
+
+LaTeX Warning: Reference `eq:graph-target-estimator' on page 271 undefined on i
+nput line 94.
+
+
+LaTeX Warning: Reference `thm:graph-target-identification' on page 271 undefine
+d on input line 120.
+
+
+LaTeX Warning: Reference `eq:graph-target-estimator' on page 271 undefined on i
+nput line 122.
+
+
+[271]
+
+LaTeX Warning: Reference `eq:graph-current-class' on page 272 undefined on inpu
+t line 148.
+
+
+LaTeX Warning: Reference `eq:graph-box-record' on page 272 undefined on input l
+ine 148.
+
+
+LaTeX Warning: Reference `eq:graph-exact-radius' on page 272 undefined on input
+ line 169.
+
+
+LaTeX Warning: Reference `thm:graph-target-identification' on page 272 undefine
+d on input line 186.
+
+
+LaTeX Warning: Reference `eq:graph-dual-witness' on page 272 undefined on input
+ line 199.
+
+
+[272]
+
+LaTeX Warning: Reference `eq:graph-bundle-factorization' on page 273 undefined 
+on input line 256.
+
+
+LaTeX Warning: Reference `thm:graph-target-identification' on page 273 undefine
+d on input line 273.
+
+
+LaTeX Warning: Reference `eq:graph-mixed-target' on page 273 undefined on input
+ line 274.
+
+
+LaTeX Warning: Reference `eq:graph-mixed-dimension' on page 273 undefined on in
+put line 277.
+
+
+[273]
+
+LaTeX Warning: Reference `eq:graph-bundle-factorization' on page 274 undefined 
+on input line 284.
+
+
+LaTeX Warning: Reference `thm:graph-mixed-access' on page 274 undefined on inpu
+t line 311.
+
+
+LaTeX Warning: Reference `thm:graph-target-identification' on page 274 undefine
+d on input line 319.
+
+
+LaTeX Warning: Reference `thm:graph-mixed-access' on page 274 undefined on inpu
+t line 343.
+
+
+LaTeX Warning: Reference `eq:graph-all-target-optimum' on page 274 undefined on
+ input line 353.
+
+
+[274]
+[275]
+
+LaTeX Warning: Reference `eq:graph-rate-realization' on page 276 undefined on i
+nput line 423.
+
+) (./chapters/resource_section.tex
+[276]
+Chapter 61.
+
+LaTeX Warning: Reference `eq:res-observation' on page 277 undefined on input li
+ne 45.
+
+
+[277]
+
+LaTeX Warning: Reference `eq:res-primal' on page 278 undefined on input line 56
+.
+
+
+LaTeX Warning: Reference `eq:res-primal' on page 278 undefined on input line 61
+.
+
+
+LaTeX Warning: Reference `eq:res-dual' on page 278 undefined on input line 64.
+
+
+LaTeX Warning: Reference `eq:res-observation' on page 278 undefined on input li
+ne 69.
+
+
+[278]
+
+LaTeX Warning: Reference `eq:res-energy-law' on page 279 undefined on input lin
+e 159.
+
+
+LaTeX Warning: Reference `eq:res-energy-law' on page 279 undefined on input lin
+e 173.
+
+
+[279]
+
+LaTeX Warning: Reference `eq:res-cut-energy' on page 280 undefined on input lin
+e 212.
+
+
+LaTeX Warning: Reference `eq:res-allocation' on page 280 undefined on input lin
+e 213.
+
+
+LaTeX Warning: Reference `prop:res-current-cut' on page 280 undefined on input 
+line 230.
+
+
+LaTeX Warning: Reference `eq:res-allocation' on page 280 undefined on input lin
+e 232.
+
+
+LaTeX Warning: Reference `eq:res-global-energy' on page 280 undefined on input 
+line 254.
+
+
+LaTeX Warning: Reference `eq:res-allocation' on page 280 undefined on input lin
+e 260.
+
+
+[280]
+[281]
+
+LaTeX Warning: Reference `eq:res-support-capacity' on page 282 undefined on inp
+ut line 362.
+
+
+LaTeX Warning: Reference `eq:res-allocation' on page 282 undefined on input lin
+e 363.
+
+
+[282]
+[283]) (./chapters/composition_section.tex
+[284]
+Chapter 62.
+
+Underfull \hbox (badness 1389) in paragraph at lines 43--51
+\T1/lmr/m/n/10.95 (+20) Nonnegativity gives $[][] \OMS/lmsy/m/n/10.95 k\OML/lmm
+/m/it/10.95 ^^V[]\OT1/lmr/m/n/10.95 (+20) (\OML/lmm/m/it/10.95 M[]C \OMS/lmsy/m
+/n/10.95 ^^@ \OML/lmm/m/it/10.95 CB[]\OT1/lmr/m/n/10.95 (+20) )\OMS/lmsy/m/n/10
+.95 k[] ^^T \OT1/lmr/m/n/10.95 (+20) 2\OML/lmm/m/it/10.95 ^^V[]^^O[]$\T1/lmr/m/
+n/10.95 (+20) . Out-come nor-mal-iza-tion gives
+
+[285]
+[286]) (./chapters/applications.tex
+[287]
+Chapter 63.
+
+LaTeX Warning: Citation `physics-rao' on page 288 undefined on input line 41.
+
+
+LaTeX Warning: Reference `ch:continuous' on page 288 undefined on input line 55
+.
+
+
+[288]
+
+LaTeX Warning: Reference `eq:applications-chemical-inverse' on page 289 undefin
+ed on input line 81.
+
+
+LaTeX Warning: Reference `eq:applications-chemical-inverse' on page 289 undefin
+ed on input line 92.
+
+
+LaTeX Warning: Reference `eq:applications-chemical-current' on page 289 undefin
+ed on input line 106.
+
+
+LaTeX Warning: Citation `physics-qian' on page 289 undefined on input line 128.
+
+
+
+LaTeX Warning: Citation `physics-young' on page 289 undefined on input line 128
+.
+
+
+[289]
+[290]
+
+LaTeX Warning: Citation `physics-burgarth' on page 291 undefined on input line 
+253.
+
+
+LaTeX Warning: Citation `physics-guta' on page 291 undefined on input line 253.
+
+
+
+[291]
+
+LaTeX Warning: Reference `eq:applications-xx-asymmetry' on page 292 undefined o
+n input line 274.
+
+
+LaTeX Warning: Citation `physics-wallman' on page 292 undefined on input line 2
+97.
+
+
+[292]
+
+LaTeX Warning: Citation `physics-degen' on page 293 undefined on input line 378
+.
+
+
+[293]
+
+LaTeX Warning: Citation `physics-bonato' on page 294 undefined on input line 42
+0.
+
+
+LaTeX Warning: Citation `physics-delange' on page 294 undefined on input line 4
+20.
+
+
+LaTeX Warning: Citation `physics-roldan' on page 294 undefined on input line 46
+6.
+
+
+LaTeX Warning: Citation `physics-vandermeer' on page 294 undefined on input lin
+e 468.
+
+
+LaTeX Warning: Citation `physics-landauer' on page 294 undefined on input line 
+470.
+
+
+[294]) (./chapters/workflow.tex
+[295]
+Chapter 64.
+
+[296]
+
+LaTeX Warning: Reference `workflow:composition' on page 297 undefined on input 
+line 65.
+
+
+[297]
+
+LaTeX Warning: Reference `workflow:composition' on page 298 undefined on input 
+line 73.
+
+
+[298]
+[299 <./suite_laws.pdf>]) (./chapters/toolkit.tex
+[300]
+Chapter 65.
+
+[301]
+[302]
+[303]
+Underfull \hbox (badness 1472) in paragraph at lines 219--226
+\T1/lmr/m/n/10.95 (+20) nal Cher-noff en-ve-lope un-der a sep-a-rately sup-plie
+d pre-dictable com-pen-sator bound.
+
+[304]
+Underfull \hbox (badness 1755) in paragraph at lines 275--280
+\T1/lmr/m/n/10.95 (+20) The $\T1/lmtt/m/n/10.95 constructive _ access . complet
+ion$ \T1/lmr/m/n/10.95 (+20) sub-pack-age adds six mod-ules: \T1/lmtt/m/n/10.95
+ physical_access\T1/lmr/m/n/10.95 (+20) ,
+
+[305]
+[306]
+
+LaTeX Warning: Reference `ch:ci-empirical' on page 307 undefined on input line 
+389.
+
+) (./chapters/research_map.tex
+[307]
+[308]
+Chapter 66.
+
+LaTeX Warning: Citation `p_kienker' on page 309 undefined on input line 18.
+
+
+LaTeX Warning: Citation `p_larget' on page 309 undefined on input line 18.
+
+
+LaTeX Warning: Citation `f_tzeng' on page 309 undefined on input line 20.
+
+
+LaTeX Warning: Citation `f_kiefer' on page 309 undefined on input line 20.
+
+
+LaTeX Warning: Citation `f_thon' on page 309 undefined on input line 20.
+
+
+LaTeX Warning: Citation `f_jaeger' on page 309 undefined on input line 22.
+
+
+LaTeX Warning: Citation `f_littman' on page 309 undefined on input line 22.
+
+
+LaTeX Warning: Citation `f_wang' on page 309 undefined on input line 27.
+
+
+LaTeX Warning: Citation `p_faigle' on page 309 undefined on input line 27.
+
+
+LaTeX Warning: Citation `p_riechers' on page 309 undefined on input line 29.
+
+
+LaTeX Warning: Citation `f_blackwell' on page 309 undefined on input line 32.
+
+
+LaTeX Warning: Citation `p_donoho' on page 309 undefined on input line 32.
+
+
+[309]
+
+LaTeX Warning: Reference `researchmap:lineage' on page 310 undefined on input l
+ine 95.
+
+
+Underfull \hbox (badness 1735) in paragraph at lines 108--108
+[]|\T1/lmr/m/n/10 (+20) Controlled hid-den cur-
+
+Underfull \hbox (badness 5077) in paragraph at lines 114--114
+[]|\T1/lmr/m/n/10 (+20) Certification and ad-e-
+
+LaTeX Warning: Citation `physics-qian' on page 310 undefined on input line 140.
+
+
+
+LaTeX Warning: Citation `p_barato' on page 310 undefined on input line 141.
+
+
+[310]
+
+LaTeX Warning: Citation `f_kiefer' on page 311 undefined on input line 153.
+
+
+LaTeX Warning: Citation `f_thon' on page 311 undefined on input line 153.
+
+
+LaTeX Warning: Citation `caWaudbySmithRamdas2024' on page 311 undefined on inpu
+t line 158.
+
+
+LaTeX Warning: Citation `p_intervals' on page 311 undefined on input line 158.
+
+
+LaTeX Warning: Citation `p_maier' on page 311 undefined on input line 167.
+
+
+LaTeX Warning: Citation `p_dieball' on page 311 undefined on input line 169.
+
+
+LaTeX Warning: Citation `p_stace' on page 311 undefined on input line 175.
+
+
+LaTeX Warning: Citation `physics-bonato' on page 311 undefined on input line 17
+5.
+
+
+[311]
+
+LaTeX Warning: Reference `ch:ci-empirical' on page 312 undefined on input line 
+213.
+
+
+LaTeX Warning: Reference `ch:continuous' on page 312 undefined on input line 22
+2.
+
+
+LaTeX Warning: Reference `completion:composition' on page 312 undefined on inpu
+t line 231.
+
+) (./chapters/positioning_section.tex
+[312]
+
+LaTeX Warning: Citation `ac_bagajewicz' on page 313 undefined on input line 14.
+
+
+
+LaTeX Warning: Citation `ac_he' on page 313 undefined on input line 14.
+
+
+LaTeX Warning: Citation `ac_xu' on page 313 undefined on input line 14.
+
+
+LaTeX Warning: Citation `ac_gross' on page 313 undefined on input line 16.
+
+
+LaTeX Warning: Citation `ac_elfving' on page 313 undefined on input line 18.
+
+
+LaTeX Warning: Citation `ac_harman' on page 313 undefined on input line 18.
+
+
+LaTeX Warning: Citation `ac_aissi' on page 313 undefined on input line 19.
+
+
+LaTeX Warning: Citation `ac_buchholz' on page 313 undefined on input line 23.
+
+
+LaTeX Warning: Citation `ac_bian' on page 313 undefined on input line 23.
+
+
+LaTeX Warning: Citation `ac_lalire' on page 313 undefined on input line 24.
+
+
+LaTeX Warning: Citation `ac_deng' on page 313 undefined on input line 24.
+
+
+LaTeX Warning: Citation `ac_aslyamov_response' on page 313 undefined on input l
+ine 28.
+
+
+LaTeX Warning: Citation `ac_aslyamov_static' on page 313 undefined on input lin
+e 28.
+
+
+LaTeX Warning: Citation `ac_bao_nonlinear' on page 313 undefined on input line 
+30.
+
+
+LaTeX Warning: Citation `ac_zheng' on page 313 undefined on input line 31.
+
+
+LaTeX Warning: Citation `ac_floyd' on page 313 undefined on input line 32.
+
+
+LaTeX Warning: Citation `ac_liang_budget' on page 313 undefined on input line 3
+4.
+
+
+LaTeX Warning: Citation `ac_bao_firstpassage' on page 313 undefined on input li
+ne 34.
+
+
+LaTeX Warning: Citation `ac_coolen' on page 313 undefined on input line 45.
+
+
+LaTeX Warning: Citation `ac_smirne' on page 313 undefined on input line 55.
+
+
+LaTeX Warning: Citation `ac_prech' on page 313 undefined on input line 55.
+
+
+LaTeX Warning: Citation `ac_prakash' on page 313 undefined on input line 64.
+
+
+LaTeX Warning: Citation `ac_bao_higher' on page 313 undefined on input line 66.
+
+
+
+LaTeX Warning: Reference `ch:ci-empirical' on page 313 undefined on input line 
+70.
+
+
+[313]) (./chapters/rr_positioning.tex
+[314]
+
+LaTeX Warning: Citation `rrShiraishi2018' on page 315 undefined on input line 4
+4.
+
+
+LaTeX Warning: Citation `rrHasegawa2024' on page 315 undefined on input line 45
+.
+
+
+LaTeX Warning: Citation `rrBlom2024' on page 315 undefined on input line 49.
+
+
+LaTeX Warning: Citation `rrWolf2009' on page 315 undefined on input line 83.
+
+
+LaTeX Warning: Citation `rrBialecki2024' on page 315 undefined on input line 84
+.
+
+
+LaTeX Warning: Citation `rrBudroni2019' on page 315 undefined on input line 86.
+
+
+
+LaTeX Warning: Citation `rrVieira2022' on page 315 undefined on input line 86.
+
+
+[315]
+
+LaTeX Warning: Citation `rrGallego2010' on page 316 undefined on input line 93.
+
+
+) (./chapters/rf_positioning.tex
+[316]
+Chapter 67.
+
+LaTeX Warning: Citation `rrWolf2009' on page 317 undefined on input line 24.
+
+
+LaTeX Warning: Citation `rfDmitriev1946' on page 317 undefined on input line 27
+.
+
+
+LaTeX Warning: Citation `rfKarpelevich1951' on page 317 undefined on input line
+ 27.
+
+
+LaTeX Warning: Citation `rfSuccar2024' on page 317 undefined on input line 30.
+
+
+LaTeX Warning: Citation `rfBenvenuti2022' on page 317 undefined on input line 3
+5.
+
+
+LaTeX Warning: Citation `rfDeCaen1981' on page 317 undefined on input line 51.
+
+
+LaTeX Warning: Citation `rfGillis2020' on page 317 undefined on input line 51.
+
+
+LaTeX Warning: Citation `rfShahandeh2024' on page 317 undefined on input line 5
+3.
+
+
+LaTeX Warning: Citation `rfHeinosaari2024' on page 317 undefined on input line 
+56.
+
+
+[317]
+
+LaTeX Warning: Citation `rrVieira2022' on page 318 undefined on input line 62.
+
+
+LaTeX Warning: Citation `rfVieira2024' on page 318 undefined on input line 62.
+
+
+LaTeX Warning: Citation `rfOlamaei2026' on page 318 undefined on input line 66.
+
+
+
+LaTeX Warning: Citation `rfSzasz1950' on page 318 undefined on input line 72.
+
+
+LaTeX Warning: Citation `rfBarato2017' on page 318 undefined on input line 92.
+
+
+LaTeX Warning: Citation `rfOhga2023' on page 318 undefined on input line 92.
+
+
+LaTeX Warning: Citation `rfShiraishi2023' on page 318 undefined on input line 9
+2.
+
+
+LaTeX Warning: Citation `rfDechant2023' on page 318 undefined on input line 92.
+
+
+
+LaTeX Warning: Citation `rfKolchinsky2024' on page 318 undefined on input line 
+92.
+
+
+LaTeX Warning: Citation `rfGu2026' on page 318 undefined on input line 96.
+
+
+LaTeX Warning: Citation `rfShiraishi2026' on page 318 undefined on input line 9
+6.
+
+
+LaTeX Warning: Citation `rfRaux2026' on page 318 undefined on input line 97.
+
+
+LaTeX Warning: Citation `rfChoi2024' on page 318 undefined on input line 101.
+
+
+LaTeX Warning: Citation `rfCrooks2011' on page 318 undefined on input line 102.
+
+
+
+LaTeX Warning: Citation `rfHidden2026' on page 318 undefined on input line 103.
+
+
+
+[318]
+
+LaTeX Warning: Citation `rfEsposito2010' on page 319 undefined on input line 12
+6.
+
+
+LaTeX Warning: Citation `rfAznagulov2026' on page 319 undefined on input line 1
+36.
+
+) (./chapters/vl_positioning.tex
+[319]
+Chapter 68.
+
+LaTeX Warning: Citation `vlOberkampf2002' on page 320 undefined on input line 1
+8.
+
+
+LaTeX Warning: Citation `vlHendrych2012' on page 320 undefined on input line 38
+.
+
+
+LaTeX Warning: Citation `vlNielsen2021' on page 320 undefined on input line 40.
+
+
+
+LaTeX Warning: Citation `vlProctor2020' on page 320 undefined on input line 41.
+
+
+
+[320]
+
+LaTeX Warning: Citation `vlSkinner2021' on page 321 undefined on input line 57.
+
+
+
+LaTeX Warning: Citation `vlSkinnerWaiting2021' on page 321 undefined on input l
+ine 58.
+
+
+LaTeX Warning: Citation `vlBebon2023' on page 321 undefined on input line 59.
+
+
+LaTeX Warning: Citation `vlFritz2025' on page 321 undefined on input line 62.
+
+
+LaTeX Warning: Citation `vlDechant2021' on page 321 undefined on input line 77.
+
+
+
+LaTeX Warning: Citation `vlAldousFill2002' on page 321 undefined on input line 
+86.
+
+
+LaTeX Warning: Citation `vlSchilling2012' on page 321 undefined on input line 8
+8.
+
+
+[321]
+
+LaTeX Warning: Citation `vlClopper1934' on page 322 undefined on input line 123
+.
+
+
+LaTeX Warning: Citation `caHoeffding1963' on page 322 undefined on input line 1
+31.
+
+
+LaTeX Warning: Citation `vlHoward2021' on page 322 undefined on input line 131.
+
+
+
+LaTeX Warning: Citation `vlPaulin2015' on page 322 undefined on input line 132.
+
+
+
+LaTeX Warning: Reference `ch:ci-dependence' on page 322 undefined on input line
+ 136.
+
+
+LaTeX Warning: Reference `ci:sequential' on page 322 undefined on input line 14
+1.
+
+
+LaTeX Warning: Citation `vlHoward2021' on page 322 undefined on input line 142.
+
+
+
+LaTeX Warning: Citation `vlMorris2019' on page 322 undefined on input line 150.
+
+
+
+LaTeX Warning: Citation `vlCochran1977' on page 322 undefined on input line 158
+.
+
+) (./chapters/ci_positioning.tex
+[322]
+Chapter 69.
+
+LaTeX Warning: Citation `ciEhrich2021' on page 323 undefined on input line 9.
+
+
+LaTeX Warning: Citation `ciNitzan2023' on page 323 undefined on input line 9.
+
+
+LaTeX Warning: Citation `ciBusiello2019' on page 323 undefined on input line 10
+.
+
+
+LaTeX Warning: Citation `vlAldousFill2002' on page 323 undefined on input line 
+19.
+
+
+LaTeX Warning: Citation `rfShiraishi2023' on page 323 undefined on input line 2
+7.
+
+
+LaTeX Warning: Citation `rfDechant2023' on page 323 undefined on input line 27.
+
+
+
+LaTeX Warning: Citation `rfRaux2026' on page 323 undefined on input line 27.
+
+
+LaTeX Warning: Citation `ciVSR2024' on page 323 undefined on input line 35.
+
+
+LaTeX Warning: Citation `ciVSRProofs2024' on page 323 undefined on input line 3
+5.
+
+
+LaTeX Warning: Citation `vlFritz2025' on page 323 undefined on input line 45.
+
+
+LaTeX Warning: Citation `ciCrooks2008' on page 323 undefined on input line 56.
+
+
+LaTeX Warning: Citation `ciFalasco2022' on page 323 undefined on input line 56.
+
+
+
+LaTeX Warning: Citation `ciGuntuboyina2014' on page 323 undefined on input line
+ 58.
+
+
+[323]
+
+LaTeX Warning: Citation `ac_buchholz' on page 324 undefined on input line 66.
+
+
+LaTeX Warning: Citation `ciHarunari2022' on page 324 undefined on input line 68
+.
+
+
+LaTeX Warning: Citation `ciGrunwald2024' on page 324 undefined on input line 77
+.
+
+
+LaTeX Warning: Citation `ciLarsson2025' on page 324 undefined on input line 77.
+
+
+
+LaTeX Warning: Citation `ciLarsson2026' on page 324 undefined on input line 78.
+
+
+
+LaTeX Warning: Citation `ciFan2021' on page 324 undefined on input line 92.
+
+
+LaTeX Warning: Citation `ciVSRData2024' on page 324 undefined on input line 103
+.
+
+
+LaTeX Warning: Citation `ciBryan2022' on page 324 undefined on input line 110.
+
+
+LaTeX Warning: Citation `ciBryanData2022' on page 324 undefined on input line 1
+10.
+
+
+[324])
+[325]
+Chapter 70.
+(./chapters/pa_literature.tex
+
+LaTeX Warning: Citation `ciEhrich2021' on page 326 undefined on input line 7.
+
+
+LaTeX Warning: Citation `ciNitzan2023' on page 326 undefined on input line 10.
+
+
+LaTeX Warning: Citation `rfOhga2023' on page 326 undefined on input line 30.
+
+
+LaTeX Warning: Citation `rfShiraishi2023' on page 326 undefined on input line 3
+1.
+
+
+LaTeX Warning: Citation `paVu2024' on page 326 undefined on input line 32.
+
+
+LaTeX Warning: Citation `rfRaux2026' on page 326 undefined on input line 37.
+
+
+[326]
+
+LaTeX Warning: Citation `paSason2015' on page 327 undefined on input line 64.
+
+
+LaTeX Warning: Citation `ciGuntuboyina2014' on page 327 undefined on input line
+ 68.
+
+
+LaTeX Warning: Citation `ciFalasco2022' on page 327 undefined on input line 68.
+
+
+
+LaTeX Warning: Citation `ciVSR2024' on page 327 undefined on input line 73.
+
+
+LaTeX Warning: Citation `ciVSRProofs2024' on page 327 undefined on input line 7
+3.
+
+
+LaTeX Warning: Citation `rfBarato2017' on page 327 undefined on input line 84.
+
+
+LaTeX Warning: Citation `rfOhga2023' on page 327 undefined on input line 85.
+
+
+LaTeX Warning: Citation `rfGu2026' on page 327 undefined on input line 93.
+
+
+LaTeX Warning: Citation `paKolchinsky2026' on page 327 undefined on input line 
+103.
+
+
+LaTeX Warning: Citation `rfShiraishi2026' on page 327 undefined on input line 1
+07.
+
+
+LaTeX Warning: Citation `paYue2021' on page 327 undefined on input line 116.
+
+
+LaTeX Warning: Citation `rfAznagulov2026' on page 327 undefined on input line 1
+25.
+
+
+[327]) (./chapters/og_literature.tex
+[328]
+Chapter 71.
+
+LaTeX Warning: Citation `ogDiTerlizzi2025' on page 329 undefined on input line 
+15.
+
+
+LaTeX Warning: Citation `ciVSR2024' on page 329 undefined on input line 51.
+
+
+LaTeX Warning: Citation `ciVSRProofs2024' on page 329 undefined on input line 5
+1.
+
+
+LaTeX Warning: Citation `ogHaradaSasa2005' on page 329 undefined on input line 
+54.
+
+
+[329]
+
+LaTeX Warning: Citation `ogDaCosta2023' on page 330 undefined on input line 64.
+
+
+
+LaTeX Warning: Citation `ogOtsubo2020' on page 330 undefined on input line 68.
+
+
+LaTeX Warning: Citation `ogFrishman2020' on page 330 undefined on input line 71
+.
+
+
+LaTeX Warning: Citation `ogHyvarinen2005' on page 330 undefined on input line 8
+5.
+
+
+LaTeX Warning: Citation `ciEhrich2021' on page 330 undefined on input line 93.
+
+
+LaTeX Warning: Citation `ciNitzan2023' on page 330 undefined on input line 96.
+
+
+LaTeX Warning: Citation `physics-lucente' on page 330 undefined on input line 1
+09.
+
+
+[330]
+
+LaTeX Warning: Citation `ogDiTerlizzi2025' on page 331 undefined on input line 
+120.
+
+
+LaTeX Warning: Citation `ogFrishman2020' on page 331 undefined on input line 12
+0.
+
+) (./chapters/dg_literature.tex
+[331]
+Chapter 72.
+
+LaTeX Warning: Citation `dgLandweber1951' on page 332 undefined on input line 1
+6.
+
+
+LaTeX Warning: Reference `ch:dg-recovery' on page 332 undefined on input line 1
+7.
+
+
+LaTeX Warning: Citation `dgHall2007' on page 332 undefined on input line 29.
+
+
+LaTeX Warning: Citation `dgGupta2022' on page 332 undefined on input line 39.
+
+
+LaTeX Warning: Citation `dgBerglund2010' on page 332 undefined on input line 48
+.
+
+
+LaTeX Warning: Citation `dgVestergaard2014' on page 332 undefined on input line
+ 51.
+
+
+[332]
+
+LaTeX Warning: Citation `dgGloter2000' on page 333 undefined on input line 58.
+
+
+LaTeX Warning: Citation `dgNakakita2020' on page 333 undefined on input line 61
+.
+
+
+LaTeX Warning: Citation `dgJacod2009' on page 333 undefined on input line 67.
+
+
+LaTeX Warning: Citation `dgHoffmann2012' on page 333 undefined on input line 70
+.
+
+
+LaTeX Warning: Citation `ogFrishman2020' on page 333 undefined on input line 80
+.
+
+
+LaTeX Warning: Citation `ogDiTerlizzi2025' on page 333 undefined on input line 
+82.
+
+
+LaTeX Warning: Reference `ch:og-literature' on page 333 undefined on input line
+ 83.
+
+
+LaTeX Warning: Citation `dgGingrich2026' on page 333 undefined on input line 86
+.
+
+
+LaTeX Warning: Citation `caLeCamYang2000' on page 333 undefined on input line 1
+07.
+
+
+LaTeX Warning: Citation `dgCai2020' on page 333 undefined on input line 109.
+
+
+[333]) (./chapters/dc_calibration_literature.tex
+[334]
+Chapter 73.
+
+LaTeX Warning: Citation `dcDelaigle2008' on page 335 undefined on input line 27
+.
+
+
+LaTeX Warning: Citation `dcCapitao2025' on page 335 undefined on input line 33.
+
+
+
+[335]
+
+LaTeX Warning: Citation `dcKato2021' on page 336 undefined on input line 65.
+
+
+LaTeX Warning: Citation `caHoeffding1963' on page 336 undefined on input line 7
+4.
+
+
+LaTeX Warning: Citation `ogMaurer2009' on page 336 undefined on input line 74.
+
+
+LaTeX Warning: Citation `dcSohl2016' on page 336 undefined on input line 80.
+
+
+LaTeX Warning: Citation `dgBerglund2010' on page 336 undefined on input line 10
+4.
+
+
+LaTeX Warning: Citation `dgVestergaard2014' on page 336 undefined on input line
+ 105.
+
+
+[336]
+
+LaTeX Warning: Citation `dcCalderon2016' on page 337 undefined on input line 12
+4.
+
+
+LaTeX Warning: Citation `dgNakakita2020' on page 337 undefined on input line 12
+9.
+
+
+LaTeX Warning: Citation `dcLinden2017' on page 337 undefined on input line 132.
+
+
+
+LaTeX Warning: Citation `ogFrishman2020' on page 337 undefined on input line 15
+8.
+
+
+LaTeX Warning: Citation `dgGingrich2026' on page 337 undefined on input line 16
+0.
+
+
+LaTeX Warning: Citation `dcGobet2004' on page 337 undefined on input line 170.
+
+
+LaTeX Warning: Citation `dcSohl2016' on page 337 undefined on input line 175.
+
+
+[337]
+
+LaTeX Warning: Reference `ch:dc-calibration-limits' on page 338 undefined on in
+put line 182.
+
+
+LaTeX Warning: Citation `caLeCamYang2000' on page 338 undefined on input line 1
+86.
+
+)
+[338] (./bibliography.tex
+[339]
+Underfull \hbox (badness 1776) in paragraph at lines 84--85
+\T1/lmr/m/n/10.95 (+20) works: wis-dom from stochas-tic ther-mo-dy-nam-ics, \T1
+/lmr/m/it/10.95 (+20) Phys. Rev. X \T1/lmr/bx/n/10.95 (+20) 6\T1/lmr/m/n/10.95 
+(+20) , 041064 (2016),
+
+[340]
+Underfull \hbox (badness 2600) in paragraph at lines 98--99
+[]\T1/lmr/m/n/10.95 (+20) G. de Lange, D. Rist�, V. V. Do-brovit-ski, and R. Ha
+n-son, Single-spin mag-ne-
+
+Underfull \hbox (badness 2495) in paragraph at lines 98--99
+\T1/lmr/m/n/10.95 (+20) tom-e-try with mul-ti-pulse sens-ing se-quences, \T1/lm
+r/m/it/10.95 (+20) Phys. Rev. Lett. \T1/lmr/bx/n/10.95 (+20) 106\T1/lmr/m/n/10.
+95 (+20) , 080802 (2011),
+
+Underfull \hbox (badness 1184) in paragraph at lines 110--111
+[]\T1/lmr/m/n/10.95 (+20) U. Faigle and A. Sch�n-huth, Ef-fi-cient tests for eq
+uiv-a-lence of hid-den Markov pro-
+) (./completion_bibitems.tex
+[341]
+Underfull \hbox (badness 2951) in paragraph at lines 55--59
+[]\T1/lmr/m/n/10.95 (+20) T. Aslyamov and M. Es-pos-ito, Nonequi-lib-rium Re-sp
+onse for Markov Jump Pro-
+
+[342]) (./robust_bibitems.tex
+[343]
+Underfull \hbox (badness 2326) in paragraph at lines 78--82
+[]\T1/lmr/m/n/10.95 (+20) R. Gal-lego, N. Brun-ner, C. Hadley, and A. Ac�n, ``D
+evice-Independent Tests of
+
+Underfull \hbox (badness 2189) in paragraph at lines 78--82
+\T1/lmr/m/n/10.95 (+20) Clas-si-cal and Quan-tum Di-men-sions,'' \T1/lmr/m/it/1
+0.95 (+20) Phys-i-cal Re-view Let-ters \T1/lmr/bx/n/10.95 (+20) 105\T1/lmr/m/n/
+10.95 (+20) , 230501 (2010).
+) (./frontier_bibitems.tex
+Underfull \hbox (badness 2205) in paragraph at lines 96--2
+[]\T1/lmr/m/n/10.95 (+20) T. Bi-a�ecki, T. Ry-bo-ty-cki, J. Ba-tle, and A. Bed-
+norz, ``Quan-tum di-men-sion wit-
+
+Underfull \hbox (badness 2261) in paragraph at lines 96--2
+\T1/lmr/m/n/10.95 (+20) ness with a sin-gle re-peated op-er-a-tion,'' \T1/lmr/m
+/it/10.95 (+20) Phys-i-cal Re-view A \T1/lmr/bx/n/10.95 (+20) 109\T1/lmr/m/n/10
+.95 (+20) , L020201 (2024).
+
+LaTeX Warning: Citation `rfGillis2020' on page 344 undefined on input line 31.
+
+
+[344]
+Underfull \hbox (badness 6268) in paragraph at lines 70--74
+[]\T1/lmr/m/n/10.95 (+20) N. Ohga, S. Ito and A. Kolchin-sky, ``Ther-mo-dy-nami
+c Bound on the Asym-
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--74
+\T1/lmr/m/n/10.95 (+20) me-try of Cross-Correlations,'' \T1/lmr/m/it/10.95 (+20
+) Phys-i-cal Re-view Let-ters \T1/lmr/bx/n/10.95 (+20) 131\T1/lmr/m/n/10.95 (+2
+0) , 077101 (2023).
+) (./virtual_bibitems.tex
+[345]
+Underfull \hbox (badness 5359) in paragraph at lines 35--39
+[]\T1/lmr/m/n/10.95 (+20) R. Be-bon and A. Godec, ``Con-trol-ling Un-cer-tainty
+ of Em-pir-i-cal First-Passage
+
+Underfull \hbox (badness 1817) in paragraph at lines 35--39
+\T1/lmr/m/n/10.95 (+20) Times in the Small-Sample Regime,'' \T1/lmr/m/it/10.95 
+(+20) Phys-i-cal Re-view Let-ters \T1/lmr/bx/n/10.95 (+20) 131\T1/lmr/m/n/10.95
+ (+20) , 237101 (2023).
+
+[346]) (./calibrated_bibitems.tex
+Underfull \hbox (badness 4779) in paragraph at lines 35--39
+[]\T1/lmr/m/n/10.95 (+20) E. Nitzan, A. Ghosal and G. Bisker, ``Uni-ver-sal bou
+nds on en-tropy pro-duc-
+
+Underfull \hbox (badness 1365) in paragraph at lines 35--39
+\T1/lmr/m/n/10.95 (+20) tion in-ferred from ob-served statis-tics,'' \T1/lmr/m/
+it/10.95 (+20) Phys-i-cal Re-view Re-search \T1/lmr/bx/n/10.95 (+20) 5\T1/lmr/m
+/n/10.95 (+20) , 043251 (2023).
+
+[347]) (./attainability_bibitems.tex
+Underfull \hbox (badness 1430) in paragraph at lines 2--6
+\T1/lmr/m/n/10.95 (+20) me-try of finite-time cross-correlations,'' \T1/lmr/m/i
+t/10.95 (+20) Phys-i-cal Re-view Re-search \T1/lmr/bx/n/10.95 (+20) 6\T1/lmr/m/
+n/10.95 (+20) , 013273 (2024).
+) (./geometry_bibitems.tex
+Underfull \hbox (badness 1163) in paragraph at lines 17--22
+[]\T1/lmr/m/n/10.95 (+20) T. Harada and S.-i. Sasa, ``Equal-ity Con-nect-ing En
+-ergy Dis-si-pa-tion with a Vi-o-la-
+) (./detector_bibitems.tex
+[348]) (./calibration_bibitems.tex
+[349]
+Underfull \hbox (badness 1360) in paragraph at lines 46--52
+[]\T1/lmr/m/n/10.95 (+20) E. Go-bet, M. Hoff-mann and M. Rei�, ``Non-para-met-r
+ic es-ti-ma-tion of scalar dif-fu-
+
+Underfull \hbox (badness 1454) in paragraph at lines 46--52
+\T1/lmr/m/n/10.95 (+20) sions based on low fre-quency data,'' \T1/lmr/m/it/10.9
+5 (+20) An-nals of Statis-tics \T1/lmr/bx/n/10.95 (+20) 32\T1/lmr/m/n/10.95 (+2
+0) (5), 2223--2253 (2004).
+)
+[350] (./reference.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ )
+(see the transcript file for additional information)</usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/s
+hare/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/publi
+c/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lm
+mib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr9.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmri8.pfb></usr/share/texmf/fonts/type1/public/lm/lmss8.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmsy8.pfb></usr/share/texmf/fonts/type1/public/lm/lmtk10.pfb></
+usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmtt9.pfb></usr/share/texmf/fonts/type1/public/lm/lmtti10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on reference.pdf (355 pages, 2167368 bytes).
+Transcript written on reference.log.

@@ -1,0 +1,345 @@
+\chapter{Current measurements with imperfect physical access}
+\label{robustphysics:chapter}
+
+The selective-channel current assay can tolerate quantified preparation,
+control, and readout imperfections. Its useful extension is a matched native
+control: preparing both arms from the same ensemble cancels a preparation
+penalty that otherwise grows when the pulse is shortened. Common generator
+drift also cancels to first order. Readout delay admits a conservative safe
+window expressed through local endpoint hazards.
+
+These results concern a declared finite classical Markov model and calibrated
+error envelopes. They do not certify those envelopes from the response data,
+and do not turn a sign crossing into an unconditional quantum witness. The
+mathematical ingredients are standard semigroup perturbation, coupling, and
+oscillation contraction; the contribution here is their explicit assembly into
+a checkable physical current assay.
+
+\section{The reference experiment}
+
+Use row generators and row probability distributions. Let $Q$ be a finite
+generator with stationary distribution $\pi$, and let a separately selectable
+bidirectional physical channel between $i\ne j$ have rates $a,b\ge0$.
+Its generator $L$ has $L_{ij}=a$, $L_{ji}=b$, $L_{ii}=-a$, $L_{jj}=-b$,
+with all other entries zero. Set
+\[
+ s=1-r\in(0,1],\qquad Q_r=Q-sL,\qquad
+ P(t)=e^{tQ},\quad P_r(t)=e^{tQ_r},\quad f=\mathbf1_j.
+\]
+Both $Q,Q_r$ must be valid generators. The native selected-channel current is
+$J=\pi_i a-\pi_j b$. Multiple physical channels may connect the same states;
+selectivity refers to the specified physical channel, not an unobserved choice
+of algebraic decomposition.
+
+For a stationary preparation, the native-minus-controlled contrast obeys
+\begin{equation}\label{robustphysics:ideal}
+ D_\pi(t)=\pi[P(t)-P_r(t)]f=sJH(t),\qquad
+ t e^{-\Lambda_p t}\le H(t)\le t,
+\end{equation}
+where $\Lambda_p$ bounds the controlled exit rates of both endpoints. The
+positive kernel is
+$H(t)=\int_0^t(P_{r,jj}(u)-P_{r,ij}(u))\,du$. Its positivity follows from
+the first-hitting argument in the finite-pulse theorem; its integrand need not
+be positive. Thus the reference experiment does not require the surrounding
+network to be reconstructed. Current and rates have units of inverse time;
+$H$ and all pulse or delay durations have units of time. A response contrast
+and all probability-error bounds are dimensionless.
+
+\section{Generator error as a coupling certificate}
+
+For a matrix $E$ with zero row sums define
+\[
+ \|E\|_{\mathrm{rowTV}}=\max_x\frac12\sum_y|E_{xy}|.
+\]
+The diagonal is included. For $E=A-B$, where $A,B$ are generators, this is
+\[
+ \max_x\max\left\{
+  \sum_{y\ne x}(A_{xy}-B_{xy})_+,
+  \sum_{y\ne x}(B_{xy}-A_{xy})_+\right\}.
+\]
+
+\begin{theorem}[Dimension-independent generator error]
+\label{robustphysics:coupling}
+Let $A(u),B(u)$ be bounded measurable finite generators on a common state
+space, and start their processes from the same distribution. If
+$\|A(u)-B(u)\|_{\mathrm{rowTV}}\le\kappa(u)$, then
+\[
+ \operatorname{TV}(\mathcal L(X_t),\mathcal L(Y_t))
+ \le 1-\exp\left[-\int_0^t\kappa(u)\,du\right].
+\]
+\end{theorem}
+
+\begin{proof}
+While both processes are at $x$, couple their equal transitions to $y$ at
+rate $\min(A_{xy},B_{xy})$. Let $U,V$ be the total remaining jump rates
+of the two processes. Their remaining destinations are disjoint. Synchronize
+remaining jumps to distinct destinations at rate $\min(U,V)$; run the excess
+$|U-V|$ unilaterally. The total separation hazard is $\max(U,V)$, bounded
+by $\kappa(u)$. The integrated hazard bounds the probability of ever separating
+before $t$. Terminal disagreement and total variation are no larger. Complete
+the coupling arbitrarily after separation.
+\end{proof}
+
+This rate can be half the looser sum of absolute off-diagonal discrepancies.
+Rows $(-3,2,1)$ and $(-3,1,2)$ have row-TV discrepancy $1$, while that
+off-diagonal sum is $2$. A one-way jump against a frozen process attains
+$1-e^{-\kappa t}$, so no universally smaller bound follows from $\kappa$
+alone. The certificate can cover a full piecewise intervention and readout
+history, provided its integral covers that entire history.
+
+\section{Matched preparation}
+
+For a real column $g$, write
+$\operatorname{osc}(g)=\max g-\min g$. A stochastic matrix contracts
+oscillation, and a zero-mass signed row $v$ satisfies
+$|vg|\le\operatorname{TV}(v)\operatorname{osc}(g)$, where
+$\operatorname{TV}(v)=\tfrac12\sum_x|v_x|$.
+
+\begin{theorem}[Preparation cancellation]
+\label{robustphysics:preparation}
+Suppose both arms use the same preparation $\rho$, with
+$\operatorname{TV}(\rho,\pi)\le\eta$. Then
+\begin{align}
+ |D_\rho(t)-D_\pi(t)|
+ &\le\min\left\{
+ \eta s(a+b)t,
+ 2\eta\bigl(1-e^{-s\max(a,b)t}\bigr),2\eta\right\}.
+ \label{robustphysics:preparationbound}
+\end{align}
+The same statement holds after any common stochastic terminal operation $R$,
+with $f$ replaced by $Rf$.
+\end{theorem}
+
+\begin{proof}
+Duhamel's identity gives
+\[
+ P(t)-P_r(t)=s\int_0^tP_r(u)L P(t-u)\,du.
+\]
+The only nonzero entries of $Lg$ are $a(g_j-g_i)$ at $i$ and
+$-b(g_j-g_i)$ at $j$. Consequently
+$\operatorname{osc}(Lg)=(a+b)|g_j-g_i|\le(a+b)\operatorname{osc}(g)$.
+Oscillation contraction bounds that of $[P(t)-P_r(t)]f$ by $s(a+b)t$.
+Apply the signed-row inequality to $\rho-\pi$. Alternatively, the coupling
+rate for $Q,Q_r$ is $s\max(a,b)$, so each entry of this column has absolute
+value at most $1-e^{-s\max(a,b)t}$. Its oscillation is at most twice that
+quantity, and is always at most $2$. Finally $Rf$ remains in $[0,1]$.
+\end{proof}
+
+The coefficient $\eta s(a+b)$ is attained at first order when
+$\rho-\pi=(\eta,-\eta)$ on the two endpoints. Dividing by $st$ to
+estimate current gives a bounded preparation error $\eta(a+b)$ as $t$ tends
+to zero. Using the older response bound $2\eta$ would instead produce
+$2\eta/(st)$. The improvement requires actual matching of the preparation
+distributions, not merely the same stated preparation method.
+
+If the controlled and native arms use $\rho_c,\rho_n$, one may apply the
+matched bound to $\rho_n$ and add
+$\zeta=\operatorname{TV}(\rho_c,\rho_n)$ to the response error. That
+unmatched term can again be amplified by $1/t$. Random assignment to a common
+ensemble supports matching; it does not establish stationarity or independent
+records under uncontrolled drift. A steady observed mean cannot by itself
+calibrate the TV distance to a hidden stationary distribution.
+
+\section{A safe window for readout delay}
+
+After the pulse, suppose both arms evolve under the native generator for
+delay $d$, so $R(d)=e^{dQ}$. Let $\lambda_j$ bound the native exit rate from
+$j$, and let $\beta_j$ bound $\max_{x\ne j}Q_{xj}$. Define
+\begin{equation}\label{robustphysics:omega}
+ \omega(d)=\operatorname{osc}((R(d)-I)f)
+ \le\bar\omega(d):=(1-e^{-\lambda_j d})+(1-e^{-\beta_j d}).
+\end{equation}
+Indeed, the $j$ entry is $P_{jj}(d)-1\le0$, with magnitude at most the
+probability of a departure. Every other entry is $P_{xj}(d)\ge0$, bounded
+by the probability of entrance to $j$. Before that entrance its hazard is
+at most $\beta_j$. Their range gives \eqref{robustphysics:omega}.
+
+\begin{theorem}[Delayed sign protection]
+\label{robustphysics:delay}
+The stationary delayed contrast is $D_\pi(t,d)=sJK(t,d)$, where
+\[
+ K(t,d)=\int_0^t(e_j-e_i)P_r(u)R(d)f\,du,
+\]
+and
+\[
+ \max\{-t,t(e^{-\Lambda_p t}-\bar\omega(d))\}
+ \le K(t,d)\le t.
+\]
+In particular, $\bar\omega(d)<e^{-\Lambda_p t}$ guarantees the native
+current sign despite the delay.
+\end{theorem}
+
+\begin{proof}
+Multiplying the stationary response identity by $R(d)$ gives the expression
+for $K$. Each integrand is a difference of probabilities, so $|K|\le t$.
+Furthermore
+\[
+ |K-H|\le\int_0^t
+ |(e_j-e_i)P_r(u)(R(d)-I)f|\,du\le t\omega(d).
+\]
+Combine this with \eqref{robustphysics:ideal}.
+\end{proof}
+
+This is a sufficient safe window. Failure of its inequality means that the
+certificate abstains; it does not establish a reversal. Unrestricted readout
+delay can reverse a classical response, as the earlier counterexample shows.
+
+Now let a clock select a duration $T\in[t_-,t_+]$, $t_->0$, independently
+of the hidden state and preparation, with the same law in both arms. Its
+distribution need not be known. For a valid uniform delay bound $\bar\omega$,
+the averaged kernel satisfies
+\begin{equation}\label{robustphysics:jitter}
+ L:=\max\left\{-t_+,\min_{u\in\{t_-,t_+\}}
+ u(e^{-\Lambda_pu}-\bar\omega)\right\}
+ \le\mathbb E K(T,d)\le t_+.
+\end{equation}
+To see why endpoints suffice, the derivative of
+$u(e^{-\Lambda_pu}-\bar\omega)$ is
+$e^{-\Lambda_pu}(1-\Lambda_pu)-\bar\omega$. Before $1/\Lambda_p$ its
+positive part decreases strictly, and afterwards it is nonpositive. Thus its
+only possible interior extremum is a maximum; for $\Lambda_p=0$ the function
+is linear. With no delay, every positive duration has a positive kernel.
+State-dependent stopping is a different experiment and is not covered.
+
+\section{An exact current interval}
+
+A common fixed binary detector has mean $o+gp_j$. The offset $o$ cancels
+in contrasts. Assume $0<g_-\le g\le g_+\le1$; a known negative gain can
+instead be handled by relabeling detector outputs. Arbitrary coarse partitions
+are not affine singleton detectors. Setting-dependent detector changes require
+their own contrast error bound $\epsilon_{\rm det}$.
+
+Let $\eta$ bound common preparation error, $\zeta$ its mismatch between
+arms, and $K_n,K_c$ the calibrated integrated row-TV generator errors of the
+full native and controlled histories. With rate caps $a\le a_+$,
+$b\le b_+$, put
+\begin{align*}
+ b_p&=\min\{\eta s(a_++b_+)t_+,
+ 2\eta(1-e^{-s\max(a_+,b_+)t_+}),2\eta\},\\
+ b&=g_+\{b_p+\zeta+(1-e^{-K_n})+(1-e^{-K_c})\}
+       +\epsilon_{\rm det}.
+\end{align*}
+If a sampling procedure supplies an interval $[D_-,D_+]$ for the actual
+native-minus-controlled recorded mean, widen it by $b$ and intersect with
+$[-g_+,g_+]$. If the lower kernel bound $L$ in
+\eqref{robustphysics:jitter} is positive, the ideal mean is $cJ$ for some
+\[
+ c\in[g_-sL,g_+st_+].
+\]
+The four endpoint ratios enclose $J$. Intersect also with the physical cap
+$[-b_+,a_+]$. An interval excluding zero certifies current orientation;
+an empty interval indicates inconsistent data and calibration inputs. If
+$L\le0$, this certificate does not establish a sign. Joint calibration
+failure probability adds once to the sampling failure probability.
+
+The implementation uses exact rational arithmetic and positive Taylor
+remainder bounds for exponentials. It cannot verify an apparatus merely by
+receiving its asserted calibration numbers. Systematic errors do not disappear
+with additional records, and preparation, clocks, or generator errors cannot
+be treated as common unless that premise is justified.
+
+\section{Current measurement without stationary preparation}
+
+When stationarity cannot be established, the prepared ensemble's instantaneous
+current can still be a useful physical target. For an arbitrary common
+preparation $\rho$, put $J_\rho=\rho_i a-\rho_j b$.
+
+\begin{theorem}[Stationarity-free short-pulse assay]
+\label{robustphysics:nonstationary}
+Let $k_i',k_j'$ each bound both departure from and maximal entrance to the
+corresponding endpoint under $Q_r$. Let $\lambda_j,\beta_j$ bound native
+departure and entrance as above, and suppose $|J_\rho|\le J_+$.
+Then
+\begin{equation}\label{robustphysics:nonstationarybound}
+ \left|\frac{D_\rho(t)}{st}-J_\rho\right|
+ \le\frac t2\{a k_i'+b k_j'+J_+(\lambda_j+\beta_j)\}.
+\end{equation}
+No stationary distribution is required.
+\end{theorem}
+
+\begin{proof}
+Duhamel gives the exact identity
+\[
+ D_\rho(t)=s\int_0^t J_{\rho P_r(u)}
+                [P_{jj}(t-u)-P_{ij}(t-u)]\,du.
+\]
+State $x$ membership can change only by departing from or entering $x$.
+The probability of such a change before $u$ is at most
+$1-e^{-k_x'u}\le k_x'u$, from any starting distribution. Consequently
+$|J_{\rho P_r(u)}-J_\rho|\le a k_i'u+b k_j'u$.
+For $h(v)=P_{jj}(v)-P_{ij}(v)$, one has $|h(v)|\le1$ and
+\[
+ |h(v)-1|\le(1-e^{-\lambda_jv})+(1-e^{-\beta_jv})
+             \le(\lambda_j+\beta_j)v.
+\]
+Subtract $J_\rho$ inside the integral and integrate the two bounds.
+\end{proof}
+
+Without a sharper input, $J_+=\max(a,b)$ is valid. This theorem targets
+the instantaneous current of the prepared ensemble. It does not identify an
+unspecified steady-state flux or extend the all-time sign theorem to arbitrary
+preparations. It is a finite-difference assay with an explicit bias bound.
+
+\section{Shared drift cancels to first order}
+
+The generic error certificate treats the arms separately. A genuinely shared
+additive generator error supports a stronger conclusion.
+
+\begin{theorem}[Common generator drift]
+\label{robustphysics:shareddrift}
+Suppose the actual pulse generators are $Q+E$ and $Q_r+E$, all four
+generators being valid, and $\|E\|_{\mathrm{rowTV}}\le\kappa$. With the
+same arbitrary initial distribution and terminal effect $f\in[0,1]$, let
+$D^E,D$ denote actual and reference matched contrasts. Then, with
+$M=\max(a,b)$,
+\begin{align*}
+ |D^E-D|&\le s(a+b+2M)\int_0^t(1-e^{-\kappa u})\,du\\
+         &\le \tfrac12 s(a+b+2M)\kappa t^2.
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+Mark actual semigroups by a superscript $E$. Subtract the two Duhamel
+response expressions to obtain
+\begin{align*}
+ D^E-D=s\int_0^t\rho\big[&
+ (P_r^E(u)-P_r(u))L P^E(t-u)\\
+ &+P_r(u)L(P^E(t-u)-P(t-u))\big]f\,du.
+\end{align*}
+The first row difference has TV at most $1-e^{-\kappa u}$ and the column
+$LP^Ef$ has oscillation at most $a+b$. For the second term,
+$\rho P_r(u)L$ is its instantaneous channel current, of absolute value at
+most $M$, times $e_j-e_i$. The remaining column has oscillation at most
+$2(1-e^{-\kappa(t-u)})$. Integration proves the first inequality and
+$1-e^{-\kappa u}\le\kappa u$ proves the second.
+\end{proof}
+
+For $\kappa>0$ the exact integral is
+$t-(1-e^{-\kappa t})/\kappa$; it is zero at $\kappa=0$. After division
+by $st$, shared drift contributes at most
+$(a+b+2M)\kappa t/2$ to current error, which vanishes as the pulse shrinks.
+The same norm bound for two different errors is insufficient: their matrices
+must be the same. A common terminal operation is allowed, but an actual versus
+reference change of the postpulse delay semigroup needs its own bound. This
+pulse-only improvement is provided as a separate helper so that it cannot be
+silently substituted into the complete independent-arm certificate.
+
+\section{Evidence and operational limits}
+
+The exact module \texttt{robust\_physics.py} implements generator discrepancy,
+matched preparation, delayed kernels, current intervals, short-pulse bias, and
+shared-drift bounds. Fourteen tests cover the arithmetic and stated contracts.
+An additional seeded numerical sweep checks all five principal bounds on
+$180$ constructed positive networks with two through eight states; matrix
+exponentials are numerical checks, not the proofs. The fixed seed is $71293$.
+All generated records and models are synthetic. No empirical physical
+validation is reported.
+
+The main experimental improvement is a choice between two explicit targets:
+native stationary current with a calibrated preparation envelope, or
+instantaneous prepared-ensemble current with a short-pulse bias bound. Both
+need matched preparation, selective control or a calibrated spillover bound,
+and a justified singleton or protected detector. The delayed safe window and
+shared-error cancellation are useful only with their corresponding physical
+rate and matching certificates. The formulas identify the missing calibration
+when inference fails; they do not replace that calibration.

@@ -1,0 +1,399 @@
+Independent adversarial review: calibrated inference
+Started 2026-10-12T21:08:25Z. Reviewer: frontier_redteam.
+This file reports internal mathematical/software review, not external peer review.
+
+1. Scope and first physical-access challenge
+
+For a stationary hidden CTMC and fixed noninvasive binary endpoint channel, let
+g(i)=E[Y|X=i], m=E_pi[g], and A=E_pi[g^2]. The additive reversibilization shares
+pi and g, hence both m and A. This is the valid reason calibration can narrow
+the reversible comparison class. It does not verify the physical detector model.
+Two conditionally independent readouts of the SAME unchanged state estimate A
+through their sign product. Squaring one retained bit always gives1. Backaction,
+detector memory, or an uncontrolled delay can change the measured object.
+
+Positive-time endpoint pairs do not automatically supply this zero-lag access.
+The exact two-lag example from the spectral branch survives independent matrix
+exponentiation: a four-state independent-telegraph product with detector
+g=(sqrt(3)Z1+Z2)/4, eigenvalues1/4 and3/4 per unit time, has A=1/4; a two-state
+telegraph with g=sqrt(3)Z/4 and eigenvalue1/2 has A=3/16. Both are irreducible
+equilibrium processes of mean0 with C1=3/32,C2=3/64. Every binary pair law at
+these two lags agrees. Their multi-time laws need not agree. Arbitrarily fast
+additional modes also show why approximate positive-time calibration requires
+either a rate bound or explicit finite-delay control.
+
+The sharp closed cone construction checks out. For m<1, A in[m^2,1], take a
+two-valued detector {a,1}, a=(m-A)/(1-m), stationary mass r=(m-a)/(1-a) at1,
+and transition rates lambda*r and lambda*(1-r). Its covariance is
+m^2+(A-m^2)exp(-lambda*t). Mixtures of such blocks realize finite spectral
+mixtures with common m,A. Handle m=1 separately. Zero modes/reducible blocks
+and infinite-rate atoms can be closure points, not exact finite irreducible
+realizations. The code/manuscript must maintain that distinction.
+
+Independent test construction: an eight-state driven cycle with Fourier damping
+0.2 and angular frequency0.4 has calibrated A=1/2 and positive two-lag
+correlations violating C2>=C1^2/A. Those same correlations have an exact
+two-state reversible fit if A is left unknown. Thus the proposed calibration
+has a concrete mathematical benefit; it is not merely a change of notation.
+
+2. Information relaxation versus the physical entropy minimum
+
+The calibrated KL projection is a lower-bound relaxation. Its optimizing
+comparison point need not be the additive reversibilization of a physical model
+that reproduces the observed data under the same pi, detector and interventions.
+A primal feasible pair brackets the information optimization only. It supplies
+neither an upper bound on physical entropy production nor a proof that the
+thermodynamic lower bound is physically attainable.
+
+There is a simple strong-driving obstruction even before endpoint coarsening.
+For a fully observed four-state cycle of total activity kappa and clockwise
+probability p, its path KL rate to additive reversibilization is
+  d=kappa[p log(2p)+(1-p)log(2(1-p))] <= kappa log2,
+but physical entropy production is
+  sigma=kappa(2p-1)log[p/(1-p)].
+As p tends to1, d remains bounded while sigma diverges. The linear sigma>=4d
+bridge is locally sharp near equilibrium but has unbounded strong-driving slack.
+An improved cone optimizer cannot remove this loss by itself.
+
+The thermodynamic branch's dual checks out for compact convex probability sets
+P and calibrated reversible class K: any positive score h gives
+  inf_{p inP,q inK} KL_w(p||q) >= inf_P E_p logh - log sup_K E_q h.
+For an interior minimizer h_y=p*_y/q*_y, first-order optimality in q makes
+sup E_q h=1, and optimality in p makes inf E_p logh=KL_w(p*||q*).
+Boundary attainment requires limits. Empty P needs an explicit inconsistency
+status, not an entropy claim. Numerical optimization proposes witnesses; exact
+polynomial support, logarithm enclosures and linear minimization certify them.
+
+3. Candidate additional physical calibration: nonlinear activity bridge
+
+Independent review derived and sent this candidate to the thermodynamic branch.
+Let a_e,b_e be stationary opposite edge fluxes; put w_e=a_e+b_e and
+x_e=|a_e-b_e|/(a_e+b_e). Define
+  j(x)=((1+x)log(1+x)+(1-x)log(1-x))/2,
+  e(x)=2x atanh(x).
+Then activity kappa=sum w_e, path KL rate d=sum w_e j(x_e), and
+sigma=sum w_e e(x_e). On(0,1), j'(x)=atanh(x), and
+  de/dj=2+2x/((1-x^2)atanh(x)).
+This derivative is increasing: differentiating its nonconstant ratio has sign
+((1+x^2)atanh(x)-x)>0. Thus F=e composed with j^{-1} is convex, increasing,
+and F(0)=0. Jensen gives sigma>=kappa*F(d/kappa). If an independently justified
+activity UPPER bound K>=kappa is available, the perspective decreases with its
+first argument, giving sigma>=K*F(d/K). A certified record KL lower bound J
+and independent chosen mean path duration T imply d>=J/T, hence
+  sigma >= K*e(j^{-1}(J/(K*T))).
+This strictly strengthens4J/T for positive feasible arguments, approaches it as
+K grows, and is sharp at the full-path level when all active edges have the same
+absolute asymmetry. The four-state cycle realizes equality. Arguments exceeding
+log2 signal incompatible calibration/model assumptions; equality needs explicit
+handling of vanishing reverse rates/infinite entropy. No activity cap follows
+from coarse readouts alone. This calibration is additional physical access.
+
+Independent numerical tests check the inequality on100 randomized edge mixtures,
+its monotonic weakening under a looser activity cap, exact equal-bias saturation,
+and the uncalibrated large-K limit. These are supporting checks, not the proof.
+
+4. Total-dissipation identification boundary
+
+The access branch's four-state parity example is substantive and sound. Each
+physical jump changes the observed parity: no invisible jumps or independent
+spectator are needed. At fixed activity kappa, graph, dimension and stationary
+distribution, the entire observed process is the same symmetric two-state
+telegraph process for all clockwise probabilities p. Yet entropy spans0 to
+arbitrarily large values. The detector is deterministic, so A=1 is already
+known perfectly. Therefore zero-lag calibration cannot universally identify total
+dissipation; its value is to tighten lower bounds for informative records.
+
+Breaking lumpability by giving four states distinct known exits r_i leaves
+pi_i proportional to1/r_i independent of bias. Coupling to the one-direction
+limit on any stopped exposure at mostL gives TV<=r_max*L*(1-p). This supports
+the uniform finite-upper-confidence obstruction even for resolved states.
+For direction-count repair, a fixed number of jumps gives Bernoulli marks;
+conditioning on the random number of jumps in a fixed exposure is not generally
+binomial when exits differ. The access branch was alerted to this distinction.
+
+5. Predictable sequential contrasts
+
+Root's proposed sequential contrast e-process checks algebraically. Predictable
+coefficients a,b, nonnegative stake lambda and calibrated bias budgets allow
+  S=sum lambda(a.Y-b-bias)-sum lambda^2||a||^2/8,
+  H=sum lambda*sum_k |a_k|sqrt(t_k).
+For true stationary entropy sigma, exp(S-H*sqrt(sigma/8)) is a supermartingale
+provided EACH outcome has the required conditional mean envelope, including
+conditioning on earlier outcomes within the same batch. Marginal stationarity
+or an unconditional vector mean is insufficient. Ville at the single true
+sigma gives the anytime lower bound8[(S-log(1/alpha))_+/H]^2; no union over
+all candidate sigma is needed. H=0 abstains.
+
+Learning a and stakes from completed past data is allowed. Physical Q and its
+stationary entropy must stay fixed, or a different cumulative target must be
+proved. If calibration intervals update using the same history, add their
+simultaneous failure probability and stop the comparison supermartingale at
+the first predictable invalid calibration/support event. Simply conditioning
+the proof on a good calibration event can invalidate the martingale argument.
+
+6. Common-block dependent records
+
+The sampling branch uses a deterministic common block duration H, an externally
+calibrated hidden-state L2 contraction rho<1, and a schedule fixed before the
+evaluated data. For each bounded block statistic Z_i, write
+Z_i=g_i(X_i)+D_i, where conditional on the full hidden past at the start state,
+E[D_i]=0 and D_i has conditional range length1. The established Fan--Jiang--Sun
+bound controls the state-function part with factor A=(1+rho)/(1-rho).
+Conditional Hoeffding controls the D part with factor1. Holder with exponents
+p=1+1/sqrt(A),q=1+sqrt(A) gives total factor pA+q=(sqrt(A)+1)^2.
+The algebra checks. The common-block schedule and fixed functions are essential;
+an outcome-adaptive schedule is not established by this argument.
+
+If the initial law is within beta of stationarity in TV, the entire future
+record law is within beta of the stationary reference, so beta is paid once.
+The hidden contraction calibration has its own failure budget. Observed
+autocorrelation cannot replace that hidden-state calibration.
+
+A shared hidden-state endpoint at the boundary of two blocks is allowed. With
+a stochastic detector, however, reusing a previously retained noisy endpoint
+bit can violate the stated g_i(X_i) conditional-mean property; fresh conditional
+detector noise or a calibrated augmented state is required. A deterministic
+detector already has no separate private noise to reuse. The conservative
+Holder factor tends4, not1, when rho tends0; no sharp IID-limit claim is made.
+
+Independent transfer-matrix calculations verify the block-record MGF envelope
+for a biased two-state CTMC with noisy endpoint readouts and mixed-sign weights.
+A stationary slow-state control exceeds the naive IID MGF upper bound by over
+a factor ten. The new count sampler was checked against a separately assembled
+four-state matrix exponential for the agreement probability, final-sector
+probability and their joint probability after padding;6000 seeded draws agree
+within six worst-case binomial standard deviations.
+
+7. Implementation review checkpoint
+
+The independent suite currently contains21 passing tests. It does not reproduce
+the producer's assertions mechanically: physical countermodels are reconstructed
+with independent matrix exponentials, the exact halfspace solver is checked
+against60 independent HiGHS programs, the nonlinear dual/primal bracket is
+compared with an analytic Bernoulli KL optimum, and the activity inverse is
+checked with a separate scalar root solver. Chronological sequential replay,
+confidence-contract tampering and wrong acquisition assumptions have explicit
+negative tests. A complete four-batch enumeration verifies the learned policy's
+null e-value expectation and threshold-crossing control on an equilibrium law.
+
+Reviewed calibration and nonlinear chapter proofs match these scoped claims.
+A missing LaTeX display closure was reported to the nonlinear author. The
+literature chapter's Jeffreys-divergence factor convention was clarified:
+half-Jeffreys equals sigma/activity, while the unhalved sum is twice that value.
+The empirical data loader clearly separates lower-noise reference measurements
+from latent truth and abstains from entropy inference when physical premises
+are unestablished. No new physical measurement is claimed.
+
+The remaining review is the final dependent-record chapter, final dissipation
+chapter, and root's frozen matched benchmarks and integrated presentation.
+
+Review continuation timestamp: 2026-10-12T21:27:26.297312+00:00
+
+8. Successor independent review: completed benchmark and measurement checks
+
+Independent reviewer resumed after the prior review process disconnected.
+All earlier22 tests were retained; eight additional checks bring the suite to30.
+The entire original frozen sequential bank was independently replayed using
+smoothed empirical probabilities and floating-point scores, without calling
+producer policy or vector replay routines. Every first crossing for all400
+replicates, four cases and both sequential policies matches. The separately
+recomputed fixed-horizon threshold gives every published detection count.
+Contract and archive hashes match; capped time/readout means charge full cost
+to every non-detection.
+
+The original three-method comparison is fair at common stationary-reset access
+and maximum budgets. Its changed-drive advantage is specific to the declared
+fixed s=2/3 comparator. The original-drive loss (learned301/400 versus fixed-
+horizon369/400) and high-readout-noise failure regime remain material. An oracle
+chosen with true mechanisms or after inspecting this bank is a privileged
+reference, not a newly predeclared matched competitor. New policy comparisons
+need a new frozen holdout. No total energy advantage follows without measured
+reset, readout, detector-exposure and calibration costs.
+
+The final dissipation chapter's upper-confidence obstruction is sound. Its
+limit law at reverse probability0 is used only to transfer record events;
+every asserted finite physical countermodel retains positive reverse rates.
+Independent scipy.stats.beta quantiles confirm outward coverage of exact
+fixed-jump count intervals and their monotone entropy transformation. A random
+fixed-time jump count still does not license the same binomial calculation.
+The Palm waiting-pair, flux-affinity versus bare-rate-affinity and timeout
+qualifications are preserved.
+
+The final dependence proof is sound under its declared homogeneous hidden
+Markov and externally calibrated L2 contraction assumptions. Independent
+transfer matrices include observation time plus unobserved padding and verify
+the same MGF bound for unequal within-block lags and signed weights. A separate
+floating-point grid objective selects the same sparse block optimizer and
+confirms charges for all padding/readouts. The slow-mixing illustration also
+checks: stationary laws(3/4,1/4) and(1/4,3/4) share constant-path mass at least
+[e^-kappaT+e^-3kappaT]/4, so Bayes error is at least half this quantity. For a
+fixed sufficiently small target failure below1/4, occupation estimation with
+error strictly below1/4 requires time of order1/kappa. No optimality of the
+present concentration constant follows.
+
+9. Direct analog inference and empirical-data boundary
+
+A bounded pair score W=(1+Z0*Zt)/2 has the same mean as a virtual agreement coin
+sampled conditionally as Bernoulli(W). The common conditional-coin kernel
+justifies Bernoulli information/physical bounds on that mean without physically
+adding the coin noise. Direct bounded-score concentration remains required.
+An independently integrated two-state CTMC with three-valued conditional
+readouts verifies the physical mean, total-variance reduction and exponential
+moment dominance over the virtual coin. Exact digital-ratio arithmetic checks
+that final integer quantization encloses every stored pair mean, including
+near-boundary binary floating-point values. This is a Rao--Blackwell application,
+not a new physical law or universal empirical-Bernstein guarantee.
+
+Observed analog second moment supplies only an upper bound on the squared
+conditional detector response. Two coin encodings of one shared analog reading
+retain its measurement noise and do not become conditionally independent
+same-state sensor replicates. Two real detectors with distinct nonlinear
+conditional responses likewise do not automatically calibrate either one's A.
+
+All three public optical-trap files pass independent SHA-256 and HDF5 numerical
+schema checks; altered bytes are rejected before data loading. Each has49999
+measured samples. The39,999-point evaluation split, block sizes and exact
+cross-detector covariance decomposition were checked. Original files called
+'groundtruth' remain lower-noise measurements. No serialized source function
+is executed. The empirical analysis has no inference alpha and returns no
+entropy-rate lower bound. The chapter accurately distinguishes exploratory
+out-of-segment diagnostics from blinded empirical physical validation.
+
+Reproduction:
+  PYTHONPATH=/workspace/discovery_program/virtual_laboratory/release/src python tests/test_independent.py
+The complete30-test suite passed in10.134seconds. Independent numerical checks
+use NumPy float64, matrix exponentials, scalar Brent roots, HiGHS LPs and SciPy
+beta quantiles; exact producer certificate comparisons use rational Fractions.
+Source mathematical proofs are separately reviewed; software checks alone do
+not establish them. External peer review and empirical entropy certification
+remain absent.
+
+Final-artifact review 2026-10-12T21:31:40.792273+00:00
+Two further artifact tests bring the independent suite to32; all pass in9.611s.
+Every sparse-refinement count hash, analytic CTMC target, certified halfwidth,
+power count and coverage count was independently recomputed. Every one of1200
+analog certificate outputs was independently reconstructed from the retained
+exact calibration and science sufficient statistics using the closed-form
+support max(A-m^2)/8 and a separate floating Hoeffding calculation. All three
+raw analog exemplar banks match their exact summaries. Analog costs correctly
+count6000 pair records plus4000 calibration singles, hence16000 readouts.
+Final analog manuscript preserves the common-kernel proof, conditional-expectation
+variance principle, non-universal power qualification and noisy-channel failure.
+
+A new joint lag0/1/2 calibration branch is under review. Its current algebra is
+sound: a=(-s^2,2s,-1), support=-(1-s)^2/2, because the remaining moment term is
+-1/2 integral(x-s)^2 mu(dx), where total spectral mass isA. Same-state twin
+records have identical target law underQ and its additive reversibilization:
+they share the stationary distribution and detector. Thus ideal lag0 contributes
+no physical-comparison divergence or duration denominator. Its retained records
+still contribute finite-sample concentration variance and acquisition cost.
+The explicit warning example has m0,A1/2,x=s1/2, hence(q0,q1,q2)=(3/4,5/8,9/16).
+If science means were known exactly while only one lag0 outcome was sampled,
+omitting lag0 uncertainty falsely rejects this equilibrium model with
+probability1/4. Fresh same-state detector draws, detector consistency and
+negligible intervening dynamics remain physical premises, not output checks.
+
+Joint and calibrated-benchmark review 2026-10-12T21:36:43.203783+00:00
+The suite now has34 tests, all passing in26.402s during concurrent production.
+The joint API and manuscript maintain the required difference between zero
+physical comparison duration and nonzero sampling/measurement costs. A new
+independent physical-ring test checks lag0 cancellation and the false-exclusion
+counterexample exactly. The saved original calibrated benchmark's count/raw
+hashes, hidden endpoints, pair bits and calibration category counts all match.
+All1600 quadratic/extra-lag rate outputs were independently reconstructed using
+low-degree Bernstein polynomials evaluated via derivatives rather than producer
+recursive code. Saved representative nonlinear dual witnesses were checked
+against independent HiGHS minimization and analytic quadratic extrema.
+
+The raw nonlinear procedure detects348/400 driven samples versus350/400 for
+Pinsker, despite its higher all-dataset mean bound. This numerical loss and the
+400/400 stronger extra-lag result remain plainly reported. Combining the two
+valid lower bounds by a maximum is safe on their common covered event; a later
+higher-grid optimization is an arithmetic diagnostic, not a replacement frozen
+comparison. The gain-mismatch equilibrium control's400/400 apparent positives
+are failures of its external detector premise, not successful physical inference.
+
+Two undefined Hoeffding citation keys were reported to root/owners for repair.
+No blocking mathematical issue found in the final calibration, nonlinear,
+dissipation, dependence, analog, empirical, sequential or joint-calibration
+proofs under their explicit contracts. Final independent audit of the newly
+frozen joint heldout bank remains pending its completion.
+
+Joint heldout audit 2026-10-12T21:45:10.285559+00:00
+The35th independent test reconstructs every joint-calibration rate from the
+1600 retained count vectors and verifies the declared target against the
+analytic ring correlation, all detection/coverage counts, all mean/paired
+comparisons, readout/evolution costs, both contract hashes, both archive hashes
+and the raw exemplar. The targeted test passed. Driven joint399/400 and mean
+0.0008005133 exceed the actual split Pinsker353/400 and mean0.0002440610 at the
+same20,000pairs/40,000readouts/24,000evolution units. Split nonlinear detects352;
+extra-lag400 detects at36,000evolution units and has higher mean0.0011229250.
+Equilibrium control has no positives. Noisy joint6/400 versus split0/400 remains
+weak, while every changed-channel calibration method falsely excludes the
+underlying equilibrium system in all400cases outside its valid premise.
+The generic invariant-coordinate cancellation and scalar joint-vs-split
+Hoeffding penalty comparison are valid as stated; neither is a new divergence
+inequality or a uniform ordering of richer data analyses.
+
+The calibrated nonlinear audit supplement also passed an extended existing
+test: every saved audit rate matches the frozen bank, every safe maximum is
+exactly max(Pinsker,raw nonlinear), and summaries/hashes match. The finer-grid
+posthoc diagnostics still return0for the two tiny raw sign losses; they do not
+replace the frozen evidence. Empirical source files additionally match the
+published MD5 values and sizes in the retained Zenodo metadata, beyond the
+runtime SHA-256 integrity check.
+
+A newly requested overdamped-diffusion transfer corollary is under review.
+Initial mathematical review finds the Girsanov sigma/4 path-KL relation sound
+for common stationary preparation, constant positive-definite diffusion,
+ordinary even-coordinate reversal, correct boundary/domain conditions and a
+valid likelihood martingale. Nonexplosion/finite entropy must be explicit.
+The finite-jump activity envelope does not transfer, and CTMC-realizability
+sharpness does not establish sharpness within diffusion-only classes.
+
+FINAL INTERNAL REVIEW 2026-10-12T21:47:24.996292+00:00
+All36 independent tests passed in8.773seconds. The original22 were preserved;
+14 successor checks cover exact benchmark replay, digital analog inference,
+dependent padding/cost design, empirical provenance and descriptive arithmetic,
+fixed-jump confidence intervals, joint calibration, nonlinear audit consistency
+and the overdamped-diffusion transfer. results/independent.json is current.
+Portable release command:
+  PYTHONPATH=src python calibrated/tests/test_independent.py
+Run from the release root. Scientific source imports and retained artifacts
+are included by root's release integration; no prior-directory path appears
+in the output reproduction contract.
+
+The final diffusion corollary is sound on its compact periodic, smooth,
+strictly positive stationary-density, constant-SPD-diffusion, even-coordinate
+model class. Its noncompact extension explicitly requires valid likelihood,
+nonexplosion, finite energy and boundary/decay conditions. For the OU example,
+radial cutoffs of rotational drift preserve Gaussian stationarity; bounded
+controls give true likelihoods, uniform stationary energy gives entropy/UI,
+and localization plus nonexplosion/uniqueness identifies the limiting law.
+Thus the stated unbounded-linear example does not need an unproved global
+Novikov condition. This is established Girsanov/spectral theory composed with
+the certificate, not a newly discovered diffusion law.
+
+The independent check integrates the bounded sine-detector correlation with
+40-node Gauss-Hermite quadrature and compares it with the rational enclosure.
+It separately forms the full4D Gaussian covariance of adjacent stationary
+states, evaluates exact Gaussian relative entropy and refines the observation
+grid from1to256intervals. The grid KL increases toward the continuous-path
+value t*sigma/4=2 from below. The final record certificate agrees with its
+analytic Bernoulli relaxation, gives entropy lower0.006396863865576646 in the
+model with true entropy8, and gives0in the equilibrium control. These are
+model calculations, not empirical measurements or estimates from the optical
+trap records. Finite-jump activity inversion remains inapplicable here.
+
+All final source proofs were internally challenged under their declared
+contracts. Frozen sequential, calibrated, sparse, analog and joint outputs
+retain unsuccessful regimes and stronger comparators. The original calibrated
+raw nonlinear sign loss is preserved; its later maximum/finer-grid diagnostic
+is explicitly separate. Published measured files are checked against both
+retained source MD5 metadata and runtime SHA-256, and the empirical analysis
+continues to abstain from a thermodynamic confidence statement.
+
+No blocking mathematical, numerical, benchmark-fairness or data-integrity
+issue remains in the reviewed artifacts. This is independent internal review,
+not external peer review. Historical priority, empirical thermodynamic
+validation and a new universal physical law remain unestablished.

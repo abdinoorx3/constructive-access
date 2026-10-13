@@ -1,0 +1,66 @@
+{
+  "schema": "constructive-access-sampling-v1",
+  "frozen_before_production": true,
+  "date": "2026-10-12",
+  "scope": "Synthetic four-state CTMC; no laboratory measurements",
+  "model": {
+    "state": "(sector, binary detector bit)",
+    "sector_flip_rate": "1/1000",
+    "bit_flip_rates_by_sector": ["1/50", "2"],
+    "stationary_distribution": ["1/4", "1/4", "1/4", "1/4"],
+    "detector": "binary state bit; perfect and noninvasive",
+    "certified_spectral_gap_lower": "1/500",
+    "spectral_gap_justification": "Dirichlet comparison with independent bit flips at min rate1/50 and sector flips1/1000"
+  },
+  "design": {
+    "lags": [1, 2],
+    "step": "1",
+    "records_per_lag": [600, 600],
+    "setting_order": "all lag1 records, then all lag2 records; predetermined",
+    "statistical_alpha": "1/20",
+    "statistical_radius": "61/1000",
+    "replicates": 4000,
+    "seed": 918273,
+    "calibration_radii": ["0", "0"]
+  },
+  "scenarios": [
+    {
+      "name": "shared_endpoint_pairs",
+      "initialization": "stationary for each independent replicate",
+      "inter_record_gap": "0",
+      "chronology": "reuse prior pair endpoint as next pair start",
+      "naive_declared_conditional_bias": "0",
+      "honest_uniform_conditional_bias": "3/4",
+      "purpose": "Stationary marginals do not validate iid or bounded conditional mean0"
+    },
+    {
+      "name": "blind_mixing_gap",
+      "initialization": "fixed state0 for each independent replicate",
+      "inter_record_gap": "3000",
+      "chronology": "blind gap before every pair, then read start, wait lag, read end",
+      "declared_conditional_bias": "1/400",
+      "purpose": "Known uniform reversible gap bound controls whole-pair conditional bias"
+    },
+    {
+      "name": "independent_stationary_pairs",
+      "initialization": "fresh stationary preparation before every pair",
+      "inter_record_gap": "0",
+      "declared_conditional_bias": "0",
+      "purpose": "Valid iid baseline with identical per-menu record counts"
+    }
+  ],
+  "reported_metrics": [
+    "simultaneous probability-box coverage",
+    "false reversible-monotonicity exclusion rate",
+    "Wilson 95 percent Monte Carlo intervals",
+    "total pair evolution plus blind-gap model time",
+    "uncorrected versus corrected analysis of identical dependent counts"
+  ],
+  "analysis_constraints": [
+    "No retuning after held-out generation",
+    "Do not infer the uniform mixing contract from the same unknown data",
+    "All detector memory would have to enter the mixed state or have a separate reset bound",
+    "The honest no-gap correction may be uninformative; retain it",
+    "Simulator uses exact CTMC transition law via matrix exponential, cross-checked by uniformization"
+  ]
+}

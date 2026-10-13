@@ -1,0 +1,19 @@
+test_complex_fourier_fourth_moment_enclosed (test_independent.IndependentCalibration.test_complex_fourier_fourth_moment_enclosed) ... ok
+test_fixed_absolute_enclosure_floor_requires_precision_schedule (test_independent.IndependentCalibration.test_fixed_absolute_enclosure_floor_requires_precision_schedule) ... ok
+test_hidden_modulation_geometry_and_generator_identity (test_independent.IndependentCalibration.test_hidden_modulation_geometry_and_generator_identity) ... ok
+test_multilinear_score_direct_conditional_expectation (test_independent.IndependentCalibration.test_multilinear_score_direct_conditional_expectation) ... ok
+test_nominal_gain_requires_residual_and_preserves_true_sum (test_independent.IndependentCalibration.test_nominal_gain_requires_residual_and_preserves_true_sum) ... ok
+test_nontrivial_exposure_covariances_enclosed (test_independent.IndependentCalibration.test_nontrivial_exposure_covariances_enclosed) ... ok
+test_prefix_projection_uses_existing_replicas_and_budget (test_independent.IndependentCalibration.test_prefix_projection_uses_existing_replicas_and_budget) ... ok
+test_rational_radial_cutoff_and_uniform_hitting_constant (test_independent.IndependentCalibration.test_rational_radial_cutoff_and_uniform_hitting_constant) ... ok
+test_reversible_blur_false_positive_and_valid_correction (test_independent.IndependentCalibration.test_reversible_blur_false_positive_and_valid_correction) ... ok
+test_signed_gain_extrema_and_degenerate_reference (test_independent.IndependentCalibration.test_signed_gain_extrema_and_degenerate_reference) ... ok
+test_signed_nonreversible_word_derivative_bound (test_independent.IndependentCalibration.test_signed_nonreversible_word_derivative_bound) ... ok
+test_tutorial_shared_event_max_uses_stricter_scope (test_independent.IndependentCalibration.test_tutorial_shared_event_max_uses_stricter_scope) ... ok
+test_uniform_cross_gap_coefficient_independent_integral (test_independent.IndependentCalibration.test_uniform_cross_gap_coefficient_independent_integral) ... ok
+
+----------------------------------------------------------------------
+Ran 13 tests in 7.453s
+
+OK
+{"status": "passed", "tests": 13, "replayed_datasets": 1600, "source_bindings": 48, "output": "/tmp/constructive-access-clean-u5dilc0q/reference/detector_calibration/review/results.json"}

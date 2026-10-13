@@ -1,0 +1,217 @@
+{
+  "certificate": {
+    "certificate": {
+      "basis": [
+        {
+          "cost": "0",
+          "effect": [
+            "1",
+            "1",
+            "1",
+            "1"
+          ],
+          "word": []
+        },
+        {
+          "cost": "1",
+          "effect": [
+            "1",
+            "0",
+            "1",
+            "0"
+          ],
+          "word": [
+            "s0"
+          ]
+        }
+      ],
+      "beta_coefficients": [
+        "1",
+        "0"
+      ],
+      "closure": [
+        {
+          "coefficients": [
+            "0",
+            "1"
+          ],
+          "letter": "s0",
+          "source": 0
+        },
+        {
+          "coefficients": [
+            "1",
+            "-1"
+          ],
+          "letter": "s1",
+          "source": 0
+        },
+        {
+          "coefficients": [
+            "0",
+            "1"
+          ],
+          "letter": "s0",
+          "source": 1
+        },
+        {
+          "coefficients": [
+            "0",
+            "0"
+          ],
+          "letter": "s1",
+          "source": 1
+        }
+      ],
+      "mode": "equivalent",
+      "witness": null
+    },
+    "model": {
+      "alpha": [
+        "1/2",
+        "1/2",
+        "-1/2",
+        "-1/2"
+      ],
+      "beta": [
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "letters": [
+        {
+          "action": "read",
+          "cost": "1",
+          "id": "s0",
+          "matrix": [
+            [
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "outcome": "0"
+        },
+        {
+          "action": "read",
+          "cost": "1",
+          "id": "s1",
+          "matrix": [
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1"
+            ]
+          ],
+          "outcome": "1"
+        }
+      ]
+    },
+    "model_sha256": "e227171bfcead1c3d3c06d31f2de91700b0a75fb6e461d146f34986b7714a27b",
+    "schema": "finite-access-cost-certificate-v1"
+  },
+  "certificate_verification": {
+    "checked_closure_identities": 4,
+    "contrast": null,
+    "dimension": 4,
+    "expected_model_bound": true,
+    "minimum_action_cost": null,
+    "mode": "equivalent",
+    "model_sha256": "e227171bfcead1c3d3c06d31f2de91700b0a75fb6e461d146f34986b7714a27b",
+    "retained_effects": 2,
+    "scope": "Declared exact rational linear representation; physical validity and calibration are separate",
+    "shortest_length_at_minimum_cost": null,
+    "verified": true,
+    "witness": null
+  },
+  "conclusion": "The two different target labels cannot be distinguished by any permitted finite protocol in these supplied models",
+  "contract_name": "Passive readout alone is insufficient",
+  "contract_sha256": "d3eea590b109ebecd582cf47e69774e8edd413d345cc9604af5f677e837434d0",
+  "experiment": null,
+  "model_names": [
+    "mechanism A",
+    "mechanism B"
+  ],
+  "preparation": {
+    "description": "Fresh independent preparation in the listed initial distribution before every complete action sequence; a single fixed hypothesis governs all records.",
+    "iid_records": true
+  },
+  "question": "Can the available controlled readout distinguish the two candidate response mechanisms?",
+  "resources": {
+    "action_costs": {
+      "read": "1"
+    },
+    "calibration": "Each passive read is one counted operation; fresh preparation is one operation.",
+    "charge_name": "operation count",
+    "excluded": [
+      "apparatus heating",
+      "classical computation",
+      "storage"
+    ],
+    "included": [
+      "passive read calls",
+      "fresh preparation"
+    ],
+    "meaning": "operation_count",
+    "per_record_overhead": "1",
+    "unit": "operation"
+  },
+  "robust_experiment": null,
+  "schema": "constructive-access-report-v1",
+  "scope": [
+    "Exactly two specified finite classical rational instruments",
+    "Exact equivalence or minimum additive action-charge nonzero witness under the declared action grammar",
+    "A finite model certificate does not establish physical calibration, model completeness, or historical novelty",
+    "Minimum witness charge does not imply minimum repeated-record charge or optimal adaptive design",
+    "Resource accounting covers only the explicitly included items",
+    "No amount of repeated sampling separates identical laws; this does not rule out changing the access or model assumptions"
+  ],
+  "status": "equivalent_under_declared_access",
+  "target": {
+    "labels": [
+      "toward state 0",
+      "toward state 1"
+    ],
+    "name": "response class"
+  },
+  "toolkit_version": "0.1.0"
+}

@@ -1,0 +1,78 @@
+{
+  "alpha_per_method": "1/20",
+  "common_generator_bounds": [
+    "19/6",
+    "19/6",
+    "10",
+    "10"
+  ],
+  "declared_frequency_cap": 3,
+  "endpoint_denominator": 16777216,
+  "endpoint_parameter": "24/25",
+  "endpoint_uniform_error": "77457/10485760000",
+  "frozen_utc": "2026-10-12T23:43:28.548778+00:00",
+  "gamma": 1,
+  "independent_stationary_triples": 200000,
+  "lag": "1/25",
+  "master_seed": 202610130731,
+  "no_adaptive_selection": "No timing, weights, quota, frequency-dependent generator caps or primary statistic may be chosen from this frozen bank. Methods receive individual 95% coverage, not a simultaneous max certificate.",
+  "pilot_disclosure": "Root investigated independent preliminary circle simulations at h=.035 and .05, n=200000, driven omega=3, seed82653. This informed the h=.04 quota/design choice. The frozen bank uses a different master seed and no pilot records.",
+  "primary": "weighted_empirical_bernstein",
+  "protocol": {
+    "K_bias_upper": "19/15",
+    "coordinate_readouts_per_record": 0,
+    "corrected_score_bounds": [
+      "-193667/27",
+      "15625/9"
+    ],
+    "detector_contract": "noiseless_state_function",
+    "envelope_floor": "9/25",
+    "g_bias_upper": "1/5",
+    "generator_bounds": [
+      "19/6",
+      "19/6",
+      "10",
+      "10"
+    ],
+    "global_gamma_upper": "1",
+    "h": "1/25",
+    "maximum_weighted_bias": "119/27",
+    "q_abs_max": "4/5",
+    "readout_bounds": [
+      "-1",
+      "1"
+    ],
+    "second_moment_upper": "1811015790349565776460278304372646972846193139974583170331723984412131299340562969881437796031489171673369361020119601/15408787885579119808182882195534840236611853203387486671710536064222823413776945997565329128402467460592525377536",
+    "selection": "predeclared"
+  },
+  "reading_error_upper": "1/1048576",
+  "records": "All 1200 dataset sufficient statistics, deterministic per-dataset seeds and one complete raw triple exemplar per scenario are retained.",
+  "replicates": 400,
+  "resources_per_dataset": {
+    "detector_readings": 600000,
+    "independent_stationary_preparations": 200000,
+    "modeled_evolution_time": "16000"
+  },
+  "rounding_denominator": 1048576,
+  "rule": "z=j/2^20; retain 5|j0|<=4*2^20; q=-z0; a=1-max(|z0|-2^-20,0)^2",
+  "scenarios": {
+    "driven": 3,
+    "equilibrium": 0,
+    "weak_driven": 1
+  },
+  "score_denominator": 256,
+  "score_uniform_error": "20483/1179648",
+  "secondary": [
+    "endpoint_empirical_bernstein",
+    "weighted_hoeffding"
+  ],
+  "sensor_contract": "The original bounded noiseless smooth f=cos(phi) readings are approximated within delta by stored j/2^20. The frozen rounded central rule is itself a deterministic state function. The envelope bounds Gamma of the original smooth f. This is numerical rounding, not an assumption of unbiased rounded sensor noise.",
+  "simulation_scope": "PCG64 and NumPy normal/cosine routines are numerical approximations to ideal independent uniform/Brownian sampling. Exact inferential arithmetic does not prove exact sampling from real-valued probability laws. Nearest-grid rounding leaves a half-grid allowance for floating evaluation; a platform violating the declared reading error invalidates the numerical simulation contract.",
+  "source_hashes": {
+    "experiment.py": "1bb71e3ebe664ab3a9a6a7ef5be852be15e18a633425ac204638df3959d48ac4",
+    "finite_resolution.py": "5f34bc6dc812e7451e79649cda97880158a2cb99cbf40f6ccf55a490231e412c",
+    "spectral_dynamics.py": "3118844f7e9efbebd757acfb117977b2d3eff4f0a72a33bf8f1eeaf4e739f6c9"
+  },
+  "uncounted_resources": "Stationary preparation and reset duration, actual elapsed laboratory time, calibrated geometry and generator caps, exposure, clock and energy are not measured or assigned zero.",
+  "version": 1
+}

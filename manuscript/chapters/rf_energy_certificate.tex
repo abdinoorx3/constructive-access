@@ -1,0 +1,184 @@
+\chapter{Certified resource requirements from correlation data}
+\label{rf:dual}
+
+The preceding comparison theorem turns a departure from stationary reversible
+behavior into a resource requirement. This chapter makes that statement usable
+with a finite set of uncertain measurements. Its output is a checkable lower
+bound, together with the assumptions needed to interpret it as sustained
+entropy production or as a preparation--housekeeping tradeoff.
+
+The method combines established variational relative entropy and polynomial
+bounds with the reversible correlation representation. A numerical fit may
+propose a useful test, but the exported certificate is checked over the entire
+continuous comparison class. A finite spectral grid alone would not justify
+that conclusion.
+
+\section{The comparison class and observable records}
+At positive integer multiples $k\Delta$ of a known time step, let $p_k$ be the
+probability that two binary readouts agree. The readouts must use the same fixed
+noninvasive detector. Conditional detector noise at the two times is independent;
+its state-dependent mean may be any function $g\in[-1,1]$. Choose the lag with
+known positive weights $w_k$ summing to one, independently of the trajectory.
+The complete reduced record retains the lag and the agreement bit.
+
+For a reversible process started in its stationary distribution $\pi$, write
+$m=\pi g$. Spectral decomposition of its self-adjoint semigroup gives
+\begin{equation}
+ q_k=r+(1-r)\int_0^1 x^k\,\mu(dx),\qquad
+ r=\frac{1+m^2}{2},\qquad \mu\text{ a probability measure}.
+ \label{rf:moment-cone}
+\end{equation}
+This comparison set may include limits of finite-state models; enlarging the
+set makes a lower bound conservative. For a stochastic detector the spectral
+mass can be smaller than $1-m^2$. Missing mass is placed at $x=0$, which leaves
+all positive-lag moments unchanged. This is why zero lag is excluded from the
+software's moment menu. Additional mass at $x=1$ covers conserved components
+and arbitrarily slow modes.
+
+An independently valid interval for $m$ supplies an interval $[r_L,r_U]$.
+Without such information, use $[1/2,1]$. In the nonstationary resource theorem,
+$m$ is the \emph{stationary reference} mean, not the mean of the transient
+preparation. Substituting the latter would invalidate the inference.
+
+\section{An exact dual certificate}
+Choose positive numbers $h_{k,0},h_{k,1}$, interpreted as test scores for the two
+agreement outcomes. Define
+\begin{align}
+ B(r,x)&=\sum_k w_k\bigl[h_{k,0}
+ +(h_{k,1}-h_{k,0})\{r+(1-r)x^k\}\bigr],\\
+ U&\geq\sup_{r\in[r_L,r_U],\;0\leq x\leq1}B(r,x).
+ \label{rf:normalizer}
+\end{align}
+Since $B$ is affine in $r$, it suffices to check the two endpoints. For each
+endpoint it is a polynomial in $x$. The implementation converts its rational
+power coefficients into Bernstein coefficients on $[0,1]$. Their maximum is
+an upper bound; repeated exact subdivision tightens it. Thus $U$ can be
+certified using rational arithmetic without discretizing away hidden rates.
+
+Suppose simultaneous confidence bounds give $p_k\in[\ell_k,u_k]$. Set
+\begin{equation}
+ J=\max\left\{0,
+ \sum_k w_k\min_{p\in[\ell_k,u_k]}
+       [(1-p)\log h_{k,0}+p\log h_{k,1}]-\log U\right\}.
+ \label{rf:dual-J}
+\end{equation}
+The inner minimum occurs at an interval endpoint. Rational logarithm
+bounds make the numerical result a rigorous lower enclosure.
+
+\begin{proposition}[Observable separation certificate]
+For every record law $P$ in the supplied confidence box and every stationary
+reversible comparison law $Q$ in \eqref{rf:moment-cone},
+\[
+ D(P\|Q)\geq J.
+\]
+\end{proposition}
+\begin{proof}
+The variational relative-entropy inequality gives
+$D(P\|Q)\geq\mathbb E_P\log h-\log\mathbb E_Q h$.
+Equation~\eqref{rf:moment-cone} expresses $\mathbb E_Qh$ as a mixture of
+$B(r,x)$, so it is at most $U$. Minimize the first term over the entire
+confidence box. Nonnegativity of relative entropy permits truncation at zero.
+\end{proof}
+
+Scores, and weights on a predeclared lag menu, may be chosen after a valid
+simultaneous confidence box has been constructed. The bound holds for every
+probability vector in that box. An interval valid only for a test chosen before
+seeing the data does not justify unrestricted later selection. Undeclared
+searches over additional lags need their own coverage guarantee.
+
+\section{What the certificate requires of a physical explanation}
+For a stationary ordinary-reversal Markov explanation, the preceding chapter's
+path comparison implies
+\begin{equation}
+ \sigma\geq\frac{4J}{\mathbb E U_{\rm lag}},\qquad
+ \mathbb E U_{\rm lag}=\Delta\sum_k w_k k.
+ \label{rf:dual-rate}
+\end{equation}
+Here $\sigma$ is entropy production in natural units per model time. The lag
+variable $U_{\rm lag}$ is distinct from the score normalizer $U$.
+
+If the initial law is instead $\nu$, while the homogeneous generator has
+positive stationary law $\pi$, the more general conclusion is
+\begin{equation}
+ D(\nu\|\pi)
+ +\frac12\mathbb E\!\int_0^{U_{\rm lag}}\sigma_{\rm hk}(\nu_s)\,ds
+ \geq J.
+ \label{rf:dual-budget}
+\end{equation}
+Thus a separately calibrated upper preparation budget $B_0$ gives expected
+integrated housekeeping entropy at least $2\max\{0,J-B_0\}$. A detailed-balance
+explanation has zero housekeeping term and must instead supply preparation
+divergence at least $J$. Neither interpretation assumes a known hidden-state
+count. The code refuses to use a narrowed stationary-reference mean interval
+for this general conclusion unless its separate calibration is declared.
+
+These are model requirements. Physical heat interpretation additionally needs
+ordinary even-variable reversal and a valid thermodynamic embedding. In an
+isothermal stationary jump model with local detailed balance, $k_BT\sigma$ is
+the dissipated power. If $\pi$ is a specified Gibbs law, $k_BT D(\nu\|\pi)$ is
+excess nonequilibrium free energy. Those identifications are not implied by a
+probability fit. Equilibrium systems with odd variables and invasive detector
+backaction provide explicit alternatives outside the contract.
+
+\section{Information beyond a reversal or monotonicity test}
+A stationary binary two-time distribution is symmetric under exchanging its
+times. Its forward--reverse relative entropy is therefore zero, even when the
+underlying process dissipates. The comparison class in this chapter imposes
+additional reversible Markov structure, so $J$ can nevertheless be positive.
+
+The two-lag ring example in the preceding chapter has increasing agreement
+probabilities, both above one half. A rational score certificate for a wider
+synthetic uncertainty box gives an entropy-production rate above $0.0468$ in
+model units. Its true model rate is approximately $56.9$: this is a valid but
+loose lower bound, not a near-complete heat reconstruction.
+
+A further example distinguishes the full moment constraint from monotonicity.
+Take a 40-state ring with clockwise rate 20 and counterclockwise rate 1. Use a
+fixed stochastic binary detector whose conditional mean at state $j$ is the
+exact rational number
+\[
+ g_j=\frac{\operatorname{round}(10^6\cos(2\pi j/40))}{10^6}.
+\]
+The rounded values define the model; no exact sinusoidal identity is assumed.
+The code exports all values and evaluates the three agreement probabilities at
+lags $3/20,6/20,9/20$ by exact uniformization. All three probabilities exceed
+one half and decrease with lag. They nevertheless violate convexity:
+$p_1-2p_2+p_3<0$.
+
+Choose $w_k=1/3$, $v=(-1,2,-1)$, $q=2/3$, and $a=1/200$, with scores
+\[
+ h_{k,0}=1-av_kq/w_k,\qquad
+ h_{k,1}=1+av_k(1-q)/w_k.
+\]
+Their reversible normalizer is at most one because
+$-x+2x^2-x^3=-x(1-x)^2\leq0$. Even after widening each exact model probability
+interval by $1/5000$, the exported certificate gives a rate above $0.000731$.
+Negative-correlation and monotonic-revival bounds are both zero for this box.
+This is an exact model illustration of additional information in several lags;
+it is not a laboratory result or a claim of competitive sample efficiency.
+
+\section{Implementation and finite records}
+The module \texttt{energy\_certificate.py} provides deterministic certificate
+construction, binding to an independently supplied contract, a fixed-count
+confidence interface, and a numerical score proposal followed by exact checking.
+The proposal fits a finite mixture to nominal probabilities. Its grid and
+optimizer status never certify the result: rational score rounding and the
+continuous polynomial upper bound are authoritative.
+
+For $M$ predeclared lag settings with $N_k$ independent pair records each,
+a common radius $a$ satisfying
+\[
+ 2\min_k N_k\,a^2\geq\log(2M/\alpha)
+\]
+gives simultaneous two-sided Hoeffding coverage at least $1-\alpha$.
+Whole-record calibration radii enlarge the intervals. A calibration failure
+allowance must be added separately; overlapping pairs from one trajectory are
+not independent samples. Scores can then be selected using the entire box,
+and the exported certificate remains valid on its joint coverage event.
+
+The implementation currently accepts distinct positive integer lags up to 256
+and bounded polynomial subdivision depth. These are declared computational
+limits. A nonpositive result means that the supplied certificate finds no
+positive bound, not that the mechanism is reversible. The historical status of
+the specific calibrated construction remains open; its mathematical ingredients
+and the closest prior comparisons are recorded in the positioning chapter.

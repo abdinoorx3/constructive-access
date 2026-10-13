@@ -1,0 +1,33 @@
+PREDICTABLE PHYSICAL CONTRAST
+Abdinoor / 2D Labs / 12 October 2026
+
+The theorem uses conditional Hoeffding and Ville with predictable rational
+coefficients, supports and bets. It does not claim a new concentration result.
+At the true stationary entropy rate, exp(S-H sqrt(sigma/8)) is a nonnegative
+supermartingale. Inverting at that true parameter yields simultaneous coverage;
+no union over the continuum of candidate entropy values is required.
+
+The conditional mean envelope must cover each readout given all previous
+readouts, including its own batch. Stationary marginals are insufficient.
+Independent prerun calibration is the supported calibration case. Dynamically
+updated calibration needs a separate simultaneous-good-event/stopped-process
+argument and is not inferred merely by conditioning on a favorable event.
+
+The primary held-out design and seed were frozen in sequential_benchmark.json
+before generation. Poisson trajectory increments and physical endpoint states
+generate the readouts; neither sequential policy sees generator parameters or
+future bits. All methods share the same retained bank. Exact policy replay
+checks integer vectorization and stopping. Subsequent code hardening propagates
+the frozen alpha/duration values explicitly and rejects integer-overflow ranges;
+it does not alter that frozen design or its predictions.
+
+Learning is useful but not universally better: changed-drive detection400/400
+with869.175pairs mean vs fixedsequential399/400with3471.3525 andfixedhorizon
+399/400with15000pairs. In the originaldrive scenario, learned301/400 loses to
+fixedhorizon369/400. Equilibriumlearned4/400 is compatiblewithnominal5percent
+anytimeerror; zeroerrorsinotherprocedures do not provezerorisk. The comparison
+uses the prior s2/3 fixedcontrast, not a globallyoptimalororaclefixedpolicy.
+
+The exported certificate checks mathematical replay and record binding. It
+does not independently authenticate an actual acquisition chronology, reset,
+stationarity, detector, ordinaryreversal or physical time/energy calibration.

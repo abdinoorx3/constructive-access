@@ -1,0 +1,332 @@
+\chapter{What finite reset experiments cannot exclude}
+\label{rf:limits}
+
+An observable that excludes a three-state classical model does not exclude
+classical models with unrestricted hidden resources. This distinction survives
+precise timestamps, adaptive scheduling, and arbitrarily accurate finite
+records. This chapter constructs the alternative models explicitly. It also
+shows that a transient coherent-looking signal need not identify nonzero
+\emph{stationary} dissipation: a classical model satisfying detailed balance
+can approximate the same records by starting far from equilibrium.
+
+The approximation machinery is established. In particular, the Poisson
+operator used below is the Sz\'asz--Mirakjan operator, introduced in the
+classical approximation literature\cite{rfSzasz1950}. The role of the result
+here is to locate the operational boundary of inference and count the hidden
+resources needed by a sufficient countermodel. It is not a claim of a new
+universal approximation principle.
+
+\section{The access contract}
+
+Let $a\in\{1,\ldots,m\}$ label finitely many preparations, and let
+$p_a(t)\in[0,1]$ be the probability of a fixed binary detector outcome after
+waiting for time $t$. Each record begins with a fresh preparation. Its arm and
+waiting time may depend on earlier records, but are chosen independently of
+the subsequent hidden noise in that record. The apparatus retains the arm,
+waiting time, and outcome. The initial theorem concerns $t\in[0,T]$.
+
+The classical comparison class has one common homogeneous finite Markov
+generator, one fixed detector, and a distribution for each preparation. All
+hidden clock and preparation-label states count toward its dimension. No
+intermediate measurement or control during the wait is included. The theorem
+does not reconstruct joint laws of repeated nondestructive measurements on a
+single persistent system, nor does it match independently measured energy or
+preparation-resource observables.
+
+\section{A finite homogeneous classical realization}
+
+\begin{theorem}[Explicit finite-window approximation]
+\label{rf:poisson-realization}
+Suppose all $p_a:[0,T]\to[0,1]$ have Lipschitz constant at most $L>0$.
+For every $r>0$, there is a common homogeneous finite Markov generator with
+deterministic binary readout, at most
+\[
+ n=2m(\lceil rT\rceil+1)
+\]
+states, and peak exit rate at most $r$, whose output probabilities satisfy
+\begin{equation}
+ \sup_{a,\,0\le t\le T}|q_a(t)-p_a(t)|
+ \le L\sqrt{T/r}.
+ \label{rf:lipschitz-realization}
+\end{equation}
+Thus $r=L^2T/\varepsilon^2$ is sufficient for error $\varepsilon$.
+\end{theorem}
+
+\begin{proof}
+Set $K=\lceil rT\rceil$ and $f_a(k)=p_a(\min(k/r,T))$. A pure-birth clock
+$k=0,\ldots,K$ starts at zero, jumps forward at rate $r$, and stays at $K$
+thereafter. Introduce states $(a,k,y)$ with $y\in\{0,1\}$ and detector value
+$y$. On moving to phase $k+1$, choose the new bit according to
+$\operatorname{Bernoulli}(f_a(k+1))$. Initially choose the bit according to
+$\operatorname{Bernoulli}(f_a(0))$. This is a homogeneous Markov model; the
+label $a$ selects an initial component of its common generator.
+
+If $N_{rt}$ is Poisson with mean $rt$, its detector probability is
+\[
+ q_a(t)=\mathbb E\,p_a\bigl(\min(N_{rt}/r,T)\bigr).
+\]
+Projection onto $[0,T]$ cannot increase distance from $t$. The Lipschitz
+bound and Cauchy--Schwarz therefore give
+\[
+ |q_a(t)-p_a(t)|\le L\mathbb E|N_{rt}/r-t|
+ \le L\sqrt{\operatorname{Var}(N_{rt}/r)}
+ =L\sqrt{t/r}.
+\]
+The claimed state and rate bounds follow directly from the construction.
+\end{proof}
+
+Zero-probability bit states may be deleted. Uniform error $\eta$ in tabulating
+the phase probabilities adds at most $\eta$ to the output bound. Preparations
+with $p_a(0)=0$ or $1$ remain supported entirely on the appropriate detector
+region: the construction does not rely on disguising an error at time zero.
+
+\begin{proposition}[Smooth approximation and finite truncation]
+\label{rf:smooth-realization}
+Suppose $p_a:[0,\infty)\to[0,1]$ is twice differentiable and
+$|p_a''(t)|\le M$ for every $a,t$. A clock frozen at phase $K$, tabulated using
+$f_a(k)=p_a(k/r)$, satisfies
+\begin{equation}
+ \sup_{a,\,0\le t\le T}|q_a(t)-p_a(t)|
+ \le \frac{MT}{2r}+\Pr\{\operatorname{Poisson}(rT)\ge K\}.
+ \label{rf:smooth-clock-bound}
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For the untruncated clock, Taylor's linear term averages to zero because
+$\mathbb E(N_{rt}/r)=t$. The second-order remainder is at most
+$M\mathbb E(N_{rt}/r-t)^2/2=Mt/(2r)$. Freezing changes a bounded detector
+mean by at most the probability of reaching the truncation region. Poisson
+tail monotonicity in $t$ gives the stated bound.
+\end{proof}
+
+The global derivative assumption matters: the untruncated clock can query
+times beyond $T$. For rational $\mu=rT$, an exact finite tail certificate is
+\begin{equation}
+ \Pr\{N\ge K\}\le
+ \min_{0\le s\le K}\frac{\mu^s}{(K)_s},
+ \qquad N\sim\operatorname{Poisson}(\mu),
+ \label{rf:factorial-tail}
+\end{equation}
+where $(K)_s=K(K-1)\cdots(K-s+1)$ and the $s=0$ term is one.
+It follows from the factorial moment $\mathbb E(N)_s=\mu^s$.
+For very large state bounds the implementation also uses the simpler Cantelli
+certificate
+\[
+ \Pr\{N\ge K\}\le \frac{\mu}{\mu+(K-\mu)^2},\qquad K>\mu.
+\]
+These are sufficient bounds, without an optimality claim.
+
+For a finite-dimensional Lindblad generator $\mathcal L$ and fixed binary
+effect $E$, all preparations satisfy usable global bounds
+\[
+ L=\|\mathcal L^*(E)\|_\infty,\qquad
+ M=\|(\mathcal L^*)^2(E)\|_\infty,
+\]
+as chosen Lipschitz and curvature constants. Indeed the derivatives are expectations of these Hermitian
+operators in the evolved density matrix. Thus every finite set of
+preparations of a finite-dimensional Lindblad semigroup fits the construction.
+The constructed classical clock rates need not equal the Lindblad damping
+rates and are not inferred physical parameters.
+
+\section{A detailed-balance countermodel with a preparation cost}
+
+\begin{theorem}[Reversible realization]
+\label{rf:reversible-realization}
+Replace the clock's forward rate $r$ by forward and backward rates $r,d>0$,
+with reflecting endpoints. Keep the destination-phase bit sampling used
+above. The resulting classical model satisfies detailed balance and has zero
+stationary entropy production. Its output probabilities differ from those of
+the one-way clock by at most
+\begin{equation}
+ 1-e^{-dT}\le dT
+ \label{rf:backward-coupling}
+\end{equation}
+uniformly on $[0,T]$. Let $R=r/d$ and $Z=\sum_{k=0}^{K}R^k$. Relative to the
+stationary law with equally weighted preparation components, the prescribed
+initial state has relative entropy
+\begin{equation}
+ D(\nu_a\Vert\pi)=\log(mZ).
+ \label{rf:preparation-cost}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+The phase chain has stationary weights $R^k/Z$. Write
+$b_a(k,y)=f_a(k)^y[1-f_a(k)]^{1-y}$, with its usual Bernoulli interpretation
+at endpoints. The lifted stationary law is
+\[
+ \pi(a,k,y)=\frac{R^k}{mZ}b_a(k,y).
+\]
+For neighboring phases $k,\ell$, the jump rate is $q_{k\ell}b_a(\ell,z)$.
+The two stationary edge flows agree because
+\[
+ R^k b_a(k,y)q_{k\ell}b_a(\ell,z)
+ =R^\ell b_a(\ell,z)q_{\ell k}b_a(k,y).
+\]
+Delete zero-weight bit states. Every retained state has positive stationary
+weight within its component. Couple the forward jumps and sampled bits with
+the one-way process until a backward jump occurs. The backward-jump counting
+process is dominated by a rate-$d$ Poisson process, which proves
+\eqref{rf:backward-coupling}. Finally,
+$\nu_a(a,0,y)=b_a(0,y)$, so its likelihood ratio relative to $\pi$ equals
+$mZ$ on its support. This proves \eqref{rf:preparation-cost}.
+\end{proof}
+
+If a single irreducible generator is required, add
+$c(\mathbf 1\pi-I)$ for any $c>0$ on the retained states. This introduces
+rare resets to $\pi$, connects all components, and preserves detailed balance.
+A reset-event coupling adds at most $cT$ to the approximation error. Thus
+arbitrarily accurate reversible approximations do not depend on reducibility
+or absorbing states.
+
+Zero \emph{stationary} entropy production does not imply zero transient
+entropy production, zero reset cost, or free hardware. For an isothermal
+detailed-balance realization at temperature $\Theta$,
+$k_{\mathrm B}\Theta\log(mZ)$ is the nonequilibrium free-energy difference
+from the specified equilibrium reference. It provides the corresponding
+preparation-work lower bound from equilibrium when suitable reversible
+controls are available. If the component label is conditioned on, the
+within-component divergence is $\log Z$. The result assigns no universal
+preparation charge to an arbitrary initial state supplied without a preparation
+model. It does expose where a reversible classical imitation stores its
+resource: highly nonequilibrium initialization of a large hidden clock.
+
+\section{Retained timestamps, adaptive experiments, and a testing limit}
+
+\begin{theorem}[Transcript approximation]
+\label{rf:transcript-approximation}
+Suppose the one-record output probabilities of the target and classical model
+differ by at most $\varepsilon$ for every allowed preparation and waiting time.
+For any fresh-reset protocol using at most $N$ records, including adaptive
+choices and bounded stopping, their complete retained transcript laws obey
+\begin{equation}
+ \operatorname{TV}(P,Q)\le 1-(1-\varepsilon)^N\le N\varepsilon.
+ \label{rf:transcript-tv}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+While the histories agree, share the random choices of next preparation and
+waiting time. Conditional on those choices, couple the two Bernoulli outputs
+maximally. The mismatch probability is at most $\varepsilon$ at every step.
+Thus all records agree with probability at least $(1-\varepsilon)^N$.
+The coupling inequality proves the result, including the retained timestamps.
+\end{proof}
+
+\begin{corollary}[No uniform quantum test against an unrestricted reset class]
+\label{rf:closure-nogo}
+Let $\mathcal C$ include every finite detailed-balance classical Markov model
+with the access contract above and no bound on hidden dimension, rates, or
+preparation resources. For a finite-record test $0\le\phi\le1$, suppose
+\[
+ \sup_{Q\in\mathcal C}\mathbb E_Q\phi\le\alpha.
+\]
+Then every smooth quantum prepare--wait--read law $P$ in the same contract
+satisfies $\mathbb E_P\phi\le\alpha$.
+\end{corollary}
+
+\begin{proof}
+For every $\varepsilon>0$, the preceding construction gives a classical
+$Q_\varepsilon\in\mathcal C$ whose finite transcript law is within
+$N\varepsilon$ of $P$. Expectations of a test valued in $[0,1]$ differ by at
+most total variation. Therefore
+$\mathbb E_P\phi\le\alpha+N\varepsilon$; let $\varepsilon$ tend to zero.
+\end{proof}
+
+The same statement applies to eventual finite rejection by a sequential test.
+First restrict to rejection within $N$ records with every wait at most $T$;
+then let $N,T$ increase. Every finite rejection is included, assuming each
+chosen wait is finite and the target functions are regular on compact windows.
+This argument permits the approximating classical model to grow. It does not
+claim that a single fixed finite model matches infinitely many records.
+
+The conclusion is a boundary on the null class, not a rejection of quantum
+experiments. State-size, rate, preparation, energy, or intervention restrictions
+can make a meaningful witness possible. Without such a restriction, the
+unrestricted classical class is dense in the observed experiment. Increasing
+the sample count alone cannot produce a test with controlled error and
+nontrivial power against that entire class.
+
+\section{A checked coherent-signal example}
+
+For the damped qubit
+\[
+ p_0(t)=\frac{1+e^{-0.1t}\cos(2t)}2,\qquad p_1(t)=1-p_0(t),
+ \qquad T=\frac94,
+\]
+a global curvature bound is $M=401/200$. The reproducible reversible
+construction for error $1/20$ uses
+\[
+ r=\frac{10827}{80},\qquad d=\frac1{135},\qquad K=356.
+\]
+Its deterministic lift has 1,426 retained states, below the certified bound
+1,428. The exact uniform error certificate is below $0.048250$; a numerical
+101-point check finds maximum error approximately $0.009875$. The latter is
+an illustration, while the former controls the full continuum of times.
+The code checks 2,848 exact detailed-balance flow identities. Its preparation
+relative entropy is approximately $3494.14$ nats, and its stationary entropy
+production is zero.
+
+For 6,000 records, a conservative Cantelli construction at per-record error
+$1/120000$ gives a complete-transcript total-variation bound of $0.05$.
+It uses $r=812025$, $d=1/810000$, and $K=2638068$, with a sufficient upper
+bound of 10,552,276 deterministic hidden states. These are sufficient
+resources, without a minimality or practical-hardware claim. They explain
+precisely how a finite experiment can exclude a small classical model while
+remaining compatible with a much larger equilibrium model supplied with a
+nonequilibrium preparation. All of these checks concern synthetic models;
+no laboratory measurements enter this example.
+
+\section{A smaller exact realization and the discontinuity of exact inference}
+
+The reversible approximation is a sufficient countermodel with a particular
+thermodynamic property. It is not a minimum-state realization. For the damped
+cosine, an exact and much smaller classical construction is available.
+Consider a biased cycle with $n\ge3$ phases and $\theta=2\pi/n$. Choose forward
+and backward rates $r,d$ by
+\begin{equation}
+ r+d=\frac{\gamma}{1-\cos\theta},\qquad
+ r-d=\frac{\omega}{\sin\theta}.
+ \label{rf:cyclic-rates}
+\end{equation}
+Its first Fourier mode has eigenvalue $-\gamma+i\omega$. From phase zero,
+the fixed stochastic binary detector
+\[
+ f(k)=\frac{1+\cos(k\theta)}2
+\]
+therefore gives exactly
+$[1+e^{-\gamma t}\cos(\omega t)]/2$ for every $t\ge0$. When $n$ is even,
+preparation in phase $n/2$ gives the complementary trace.
+Both rates are nonnegative precisely when
+\begin{equation}
+ n\arctan(\gamma/\omega)\ge\pi.
+ \label{rf:cycle-size}
+\end{equation}
+These facts follow by applying the cycle generator to $e^{ik\theta}$.
+
+For $\gamma=0.1$ and $\omega=2$, rational arctangent and Machin-formula bounds
+certify that 62 fails \eqref{rf:cycle-size} and 63 satisfies it. Together with
+the classical generator-sector lower bound, this gives an exact continuum
+minimum of 63 states for the single trace when a fixed stochastic detector
+is allowed. The 63-state rates are approximately $20.10533$ and $0.018529$.
+A 64-state cycle realizes both complementary preparations; no minimality of
+64 for that pair is asserted. If the detector must be deterministic within
+the counted state space, destination-bit resampling supplies a lift with
+125 states for the 63-cycle and 126 for the 64-cycle.
+
+This model has stationary entropy production
+$(r-d)\log(r/d)$ in units of $k_{\mathrm B}$ per unit time, and preparation
+relative entropy $\log n$ from its uniform stationary phase
+distribution. This law does not satisfy
+detailed balance when $r\ne d$; no equilibrium thermodynamic interpretation
+of that reference is implied here. The small exact cycle and the large
+reversible approximation make different resource commitments.
+
+Every finite detailed-balance generator has only real eigenvalues. It cannot
+exactly produce the nonzero complex poles of the damped cosine. Exact agreement
+on an open time interval would extend by analyticity. Nevertheless, the
+reversible construction approximates this same signal arbitrarily closely on
+every finite interval. Exact continuum exclusion and robust finite-precision
+exclusion are therefore different inference problems. The latter requires
+additional resource or access restrictions.

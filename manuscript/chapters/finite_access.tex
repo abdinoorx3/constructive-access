@@ -1,0 +1,433 @@
+\chapter{Finite instruments and independently checkable access}
+\label{finite:chapter}
+
+\section{Representing an experiment without discarding its disturbance}
+
+This chapter makes the abstract law profile constructive for finite
+classical and quantum models. The algebraic representation is shared; the
+conditions that make a representation physically valid differ. Throughout,
+states are row vectors and effects are columns. A chronological product
+$M_{s_1}M_{s_2}$ means that operation $s_1$ occurs first.
+
+For candidate $h\in\{0,1\}$, a classical action $a$ has a finite recorded
+outcome set $\mathcal Y_a$ and matrices $K_h^{a,y}$ on $n_h$ hidden states.
+The entry $K_h^{a,y}(x,x')$ is the joint probability of recording $y$ and
+ending at $x'$ conditional on starting at $x$. Physical validity requires
+\begin{equation}\label{finite:classical}
+ K_h^{a,y}\geq0\quad\hbox{entrywise},\qquad
+ \sum_{y\in\mathcal Y_a}K_h^{a,y}\mathbf1=\mathbf1.
+\end{equation}
+The initial distribution $x_h$ is nonnegative and satisfies $x_h\mathbf1=1$.
+An abort or failed preparation is a possible recorded outcome when it can
+occur. Deleting its probability and renormalizing would define a different
+experiment, usually with an unaccounted selection and preparation cost.
+
+For a word of action/outcome pairs
+$w=((a_1,y_1),\ldots,(a_m,y_m))$, the joint event probability is
+\begin{equation}\label{finite:probability}
+ p_h(w)=x_hK_h^{a_1,y_1}\cdots K_h^{a_m,y_m}\mathbf1.
+\end{equation}
+This expression retains both measurement probabilities and the change of
+hidden state caused by measurement. An outcome-only noise model generally
+cannot replace it when the detector disturbs subsequent dynamics.
+
+For a quantum system of Hilbert dimension $q_h$, an action instead consists
+of completely positive trace-nonincreasing maps
+$\mathcal E_h^{a,y}$ whose sum is trace preserving. From density operator
+$\rho_h$, the probability is
+\begin{equation}
+ p_h(w)=\operatorname{tr}\!\left[
+ \mathcal E_h^{a_m,y_m}\circ\cdots\circ
+ \mathcal E_h^{a_1,y_1}(\rho_h)\right].
+\end{equation}
+Expressing Hermitian operators in a real basis gives a row-state linear
+representation with dimension $n_h=q_h^2$ and a terminal column $\tau_h$
+representing trace. Transfer matrices can have negative entries in that
+basis. Entrywise stochastic positivity is not a quantum validity test;
+complete positivity and trace preservation must be established from the
+instrument, for example through its Kraus operators.
+
+Both cases therefore have the form
+\begin{equation}\label{finite:linear}
+ p_h(w)=x_hM_h^w\tau_h,\qquad
+ M_h^w=M_h^{a_1,y_1}\cdots M_h^{a_m,y_m},
+\end{equation}
+on the common finite alphabet
+$\Sigma=\{(a,y):y\in\mathcal Y_a\}$. A generic signed linear
+representation is an algebraic input; it does not automatically define
+probabilities. The exact software uses rational entries and recomputes
+identities with rational arithmetic. The finite-dimensional theorems also
+hold over the reals, but floating-point near-equality is not an exact
+equivalence certificate.
+
+\section{Finite closure decides equality of every finite record}
+
+Pair two representations by setting
+\begin{equation}\label{finite:paired}
+ \alpha=(x_0,-x_1),\qquad
+ \beta=\begin{pmatrix}\tau_0\\\tau_1\end{pmatrix},\qquad
+ M_s=\begin{pmatrix}M_0^s&0\\0&M_1^s\end{pmatrix},\qquad
+ d=n_0+n_1.
+\end{equation}
+Their contrast is $f(w)=\alpha M_w\beta=p_0(w)-p_1(w)$.
+Let
+\begin{equation}\label{finite:space}
+ V=\operatorname{span}\{M_w\beta:w\in\Sigma^*\}.
+\end{equation}
+The generating columns are actual event effects; arbitrary linear
+combinations in $V$ need not be effects of implementable measurements.
+The span is a computational device for proving statements about the
+generating experiments.
+
+\begin{theorem}[Finite effect-space criterion]\label{finite:span}
+For a finite alphabet and finite-dimensional representation, all contrasts
+vanish if and only if $\alpha V=0$. If $\beta\ne0$ and some contrast is
+nonzero, there is a distinguishing word of length at most $d-1$.
+For valid instrument models this is equivalent to equality of the complete
+laws of every fixed finite action sequence. Such equality also implies
+equality under every common causal classical policy with almost surely
+finite stopping under both models.
+\end{theorem}
+\begin{proof}
+Let $V_k$ span effects of length at most $k$. Then
+\begin{equation}
+ V_0=\operatorname{span}\{\beta\},\qquad
+ V_{k+1}=V_k+\sum_{s\in\Sigma}M_sV_k.
+\end{equation}
+If $V_{k+1}=V_k$, the space is invariant under all letters and contains
+every word effect. Otherwise its dimension strictly increases. Starting
+from dimension one, at most $d-1$ increases are possible. Hence
+$V_{d-1}=V$, proving both the criterion and the witness bound. The case
+$\beta=0$ has zero contrast for every word.
+
+For valid instruments, words with a prescribed action sequence are the
+atoms of its complete outcome law, so equality of all their probabilities
+is precisely equality of that law. Under a causal randomized policy, a
+complete action/outcome history has its instrument word probability
+multiplied by the common probabilities with which the policy chooses its
+actions and stopping along that history. These factors are identical under
+both candidates. Equality therefore holds at each finite terminal history;
+summing over the countable terminal histories proves equality for almost
+surely finite stopping. Conversely, fixed action sequences are policies.
+\end{proof}
+
+Finite-span equivalence and short counterexample words are established
+results for weighted and probabilistic automata
+\cite{f_tzeng,f_kiefer,f_notes}. Observable operator models and predictive
+state representations supply closely related descriptions of controlled
+hidden dynamics \cite{f_thon,f_jaeger,f_littman}. Quantum equivalence also
+has established finite-dimensional formulations \cite{f_wang}. The
+framework uses these results as its exact algebraic foundation.
+
+The allowed memory and control architecture must be represented. Arbitrary
+unmodeled ancillas, coherent feedback, or additional continuous control
+values are not included by calling the protocol ``adaptive.'' A specified
+finite quantum memory can be included in the state dimension. Enlarging
+that architecture changes the access problem.
+
+\subsection{A certificate another implementation can check}
+
+An equivalence certificate supplies columns $b_1,\ldots,b_r$, together with
+coefficients establishing
+\begin{equation}\label{finite:closure}
+ \beta\in\operatorname{span}\{b_i\},\qquad
+ M_s b_i\in\operatorname{span}\{b_j\}\quad\text{for all }s,i,
+ \qquad \alpha b_i=0.
+\end{equation}
+Induction on word length places every $M_w\beta$ in the supplied span,
+so every contrast vanishes. Linear independence of the columns is useful
+for compact generation but unnecessary for sound checking. A non-equivalence
+certificate supplies an actual word and its nonzero exact contrast. Neither
+certificate requires the reviewer to trust the search execution.
+
+For a minimal entry example, a one-state instrument emits a bit with
+probability $p_h$ under action $a$. Its scalar kernels are $M_h^{a,1}=p_h$
+and $M_h^{a,0}=1-p_h$. With $p_0=1/2$, $p_1=3/5$, the word $(a,1)$
+has contrast $-1/10$, and the bound $d-1=1$ is attained. Both outcomes
+remain possible under both hypotheses, so this exact witness is not a
+perfect discriminator. Repeated sampling belongs to the statistical layer.
+
+\section{Constraints on experiment histories}
+
+Apparatus rules can prohibit particular action orders or require a
+preparation and final readout. For an action-only deterministic finite
+automaton, let $q_0$ be its initial state, $F$ its accepting states, and
+$\delta(q,a)$ its possibly undefined transition. The matrix $A_a$ has entry
+one at $(q,\delta(q,a))$ when that transition is defined and zero otherwise.
+Let $v_F$ indicate accepting states. With $S$ automaton states, replace
+\begin{equation}\label{finite:grammar}
+ x_h\mapsto e_{q_0}^{\mathsf T}\otimes x_h,\qquad
+ M_h^{a,y}\mapsto A_a\otimes M_h^{a,y},\qquad
+ \tau_h\mapsto v_F\otimes\tau_h.
+\end{equation}
+The resulting series is the physical word probability on accepted complete
+action sequences and zero elsewhere. It is a masked algebraic series,
+not itself a normalized physical instrument on all strings. Applying
+Theorem~\ref{finite:span} in paired dimension $Sd$ proves equality on
+accepted experiments or produces an accepted witness of length at most
+$Sd-1$. The lift is a standard finite-language construction, consistent
+with constrained switching realization theory
+\cite{f_petreczky,f_bastug}.
+
+Nonaccepting intermediate grammar states are allowed. A protocol can pass
+through one while continuing toward a legal completed experiment. Stopping
+there is inadmissible. An empty accepted language gives a vacuous equality
+certificate. For adaptive policies the supported terminal action sequences
+must satisfy the grammar almost surely under both candidates.
+
+Outcome-dependent restrictions require further care. A language that
+retains only selected successful outcomes can describe postselection rather
+than executable access. A physical specification must say what happens on
+the excluded outcomes and how their probability and cost are retained.
+The implemented grammar here is action-only; it does not silently solve
+that more general policy-feasibility problem.
+
+\section{The cheapest nonzero witness}
+
+Give every action a nonnegative rational charge $c(a)$, independent of its
+outcome and prior history, and define the lexicographic weight
+\begin{equation}\label{finite:weight}
+ \omega(w)=\left(c(w),|w|\right),\qquad
+ c(w)=\sum_{j=1}^{|w|}c(a_j).
+\end{equation}
+The length component selects the shortest among equal-charge witnesses.
+An action charge may be a calibrated upper bound on gross energy, a
+specified duration, or a count. The theorem optimizes the supplied
+additive quantity. A mean physical cost depending on the hidden state or
+realized path generally does not have this form.
+
+Use a priority queue ordered by $\omega$, with a deterministic final tie
+breaker. Initially it contains $(\beta,\varnothing)$. Remove the least
+candidate $(v,w)$. If $v$ is in the span of previously retained columns,
+discard it. Otherwise retain the column and its actual word. Return $w$
+if $\alpha v\ne0$. If the contrast is zero, insert every
+$(M_s v,sw)$, where $sw$ prepends the letter $s$ to the chronological
+word. This backward construction of effects does not reverse the
+chronology of the resulting physical protocol.
+
+\begin{theorem}[Cost-priority closure]\label{finite:cost}
+The search accepts at most $d$ columns and removes at most
+$1+|\Sigma|d$ candidates. It returns either an equivalence certificate or
+a minimum-charge nonzero word, shortest among all minimum-charge nonzero
+words. Zero-charge actions are allowed. The same result applies after
+the grammar lift with its enlarged dimension.
+\end{theorem}
+\begin{proof}
+Each retained column increases rank and only retained zero-contrast columns
+generate candidates. This gives both finite bounds. In particular, the
+search cannot loop through infinitely many zero-charge words.
+
+A discarded candidate is a linear combination of earlier retained
+columns. Since prepending increases length by one and adds a nonnegative
+charge, queue removal weights never decrease. Every column in that
+combination has weight no larger than the discarded candidate. Prepending
+the same letter to the combination preserves the identity and the weight
+ordering.
+
+For completeness of this pruning rule, fix a weight threshold $T$ and
+consider the state after all generated candidates of weight below $T$
+have been processed, assuming none has nonzero contrast. Induct on word
+length. The empty effect has been retained or expressed in retained
+columns whenever its weight is below $T$. For $w=sv$ below $T$, the
+inductive representation of $M_v\beta$ uses columns of weight at most
+$\omega(v)$. Each of their $s$ prefixes was generated and has weight at
+most $\omega(w)<T$. On processing, it was either retained or replaced by
+earlier columns of no greater weight. Thus every below-threshold word
+effect lies in the retained span, with no greater representative weight.
+
+Before the returned witness, all retained effects have zero contrast. A
+cheaper, or equal-charge shorter, nonzero word would have an effect in
+their span, a contradiction. If the queue empties, the retained span
+contains $\beta$ and every prefixed retained effect, and is annihilated
+by $\alpha$. Equation~\eqref{finite:closure} then certifies equivalence.
+\end{proof}
+
+The returned word also gives a minimum-charge fixed action sequence whose
+complete outcome laws differ: every outcome word for the same sequence has
+the same action charge. It is an event to count while executing that action
+sequence and retaining all outcomes. The witness does not confer a right
+to postselect its outcomes without accounting for the failures.
+
+This specialization is built on established finite-rank search. Its
+historical priority is not established by this volume. It is useful because
+it aligns a qualitative witness with a declared physical protocol charge.
+It does not minimize repetitions, finite-error risk, total energy, or the
+expected cost of adaptive stopping. A cheaper tiny gap can require much
+greater total acquisition than a more expensive strong measurement.
+
+\section{Certifying optimality without trusting the optimizer}
+
+A reviewer should be able to verify more than the fact that a supplied
+word distinguishes the candidates. The following certificate also proves
+the declared minimum charge. Let $w_*$ be the proposed witness and
+$T=\omega(w_*)$. Supply a finite list of actual-word effects
+\begin{equation}
+ b_i=M_{u_i}\beta,\qquad t_i=\omega(u_i)<T,
+ \qquad\alpha b_i=0,
+\end{equation}
+and exact expansion coefficients with the following conditions:
+\begin{align}
+ \beta&=\sum_i r_i b_i,
+ &r_i\ne0&\ \Longrightarrow\ t_i\leq(0,0),
+ \label{finite:filteredbeta}\\
+ M_s b_i&=\sum_j q_{sij}b_j,
+ &q_{sij}\ne0&\ \Longrightarrow\
+ t_j\leq t_i+(c(s),1).
+ \label{finite:filteredclosure}
+\end{align}
+Require the initial expansion when $(0,0)<T$. Require the prefix expansion
+for every $(s,i)$ with $t_i+(c(s),1)<T$. Recompute each effect, weight, and
+contrast from the declared model and word. In particular, verify
+$\alpha M_{w_*}\beta\ne0$.
+
+\begin{theorem}[Filtered optimality certificate]
+\label{finite:filtered}
+A proposed nonzero word is minimum-charge and shortest among
+minimum-charge nonzero words if and only if a finite certificate satisfying
+these conditions exists. The certificate is sound with redundant columns,
+signed matrices, and zero-charge actions.
+\end{theorem}
+\begin{proof}
+For soundness, consider $w$ with $\omega(w)<T$. Induct on its length to
+express $M_w\beta$ using only $b_i$ with $t_i\leq\omega(w)$. The empty
+word uses Eq.~\eqref{finite:filteredbeta}. For $w=sv$, nonnegative
+charges and the length tie-break give
+$\omega(v)<\omega(sv)<T$. Every effect used for $v$ satisfies
+\begin{equation}
+ t_i+(c(s),1)\leq\omega(sv)<T.
+\end{equation}
+The corresponding required identity
+\eqref{finite:filteredclosure} propagates the representation and its
+weight bound. Since $\alpha b_i=0$, all below-threshold contrasts vanish.
+The supplied nonzero witness therefore has the claimed optimum. When
+$T=(0,0)$ there are no smaller words and no initial expansion is needed.
+
+For completeness, run the cost-priority construction through all generated
+candidates below $T$. If $w_*$ is optimal, every retained effect there
+has zero contrast. Each processed discarded effect has an expansion in
+earlier columns of no greater weight. The initial effect and every required
+prefix were processed, giving the displayed identities. At most $d$
+independent columns are needed, so this construction terminates even when
+some actions have zero charge.
+\end{proof}
+
+For full equivalence, omit the threshold, require an expansion of $\beta$
+and every prefix, and require zero contrast on all supplied columns.
+This is both sound and complete by finite closure. The checker needs only
+matrix multiplication, rational arithmetic, and the explicit expansion
+identities; it need not calculate a basis or call an optimizer.
+
+The weight restriction in the expansion is essential. Replacing a cheap
+effect by an expensive representative without tracking its weight can
+remove a required cheap prefix from the certificate and hide a cheaper
+witness. Exact closure alone proves equivalence when imposed globally;
+partial closure proves an optimum only when its filtration is respected.
+The software tests deliberately forged word costs, missing prefixes,
+model substitutions, and genuine but nonminimal witnesses.
+
+A certificate must be bound to the model the reviewer intends to check.
+A digest of an embedded model establishes internal consistency, but an
+adversary could replace both model and digest. The checker therefore accepts
+an independently selected expected model or digest. A digest is neither a
+signature nor a calibration measurement. Physical validity and empirical
+model adequacy remain separate requirements.
+
+\section{What finite dimension does and does not make easy}
+
+The dimension bound concerns the supplied representation. For two generic
+$n$-qubit instruments, each real operator space has dimension $4^n$ and
+the paired dimension is $2\cdot4^n$. Finite linear algebra therefore does
+not imply a polynomial algorithm in qubit count, constant-shot process
+characterization, or elimination of fault-tolerance overhead. Known
+structure and a narrow target can reduce the represented problem, but
+those are additional assumptions.
+
+The number of rank operations is finite and polynomial in the explicit
+matrix dimension for standard implementations. Exact arithmetic also incurs
+bit complexity, and certificate size includes its rational coefficients.
+A short word need not have a large probability contrast. Consequently a
+bound on witness length is not a bound on the records required for reliable
+inference. The statistical chapter keeps these quantities distinct.
+
+\subsection{Parameterized families and an algebraic route}
+
+Suppose every model has fixed representation dimension $n$, matrix entries
+are rational functions of parameters $\theta$ on a semialgebraic domain,
+and all denominators are nonzero there. Suppose the domain and functions
+are effectively given over the rationals or algebraic numbers. For a
+parameter pair $(\theta,\theta')$, Theorem~\ref{finite:span} makes
+equivalence a finite collection of word-probability equalities for lengths
+at most $2n-1$. Clearing nonvanishing denominators gives polynomial
+conditions. For a rational target $g$, structural identifiability is the
+validity of
+\begin{equation}
+ \forall\theta,\theta'\in\Theta:\quad
+ \left(\bigwedge_{|w|\leq2n-1}p_\theta(w)=p_{\theta'}(w)\right)
+ \Longrightarrow g(\theta)=g(\theta').
+\end{equation}
+Real quantifier elimination decides this statement in principle
+\cite{f_basu,f_nemcova}. The finite conjunction can be enormous and the
+decision can be computationally expensive. The observation is a route for
+appropriately structured symbolic problems, not an implemented solver for
+arbitrary continuous families. It also explains where algebraic geometry
+enters naturally: the fibers of the observable map are polynomial or
+rational constraint sets in such a model.
+
+\section{An exact boundary for unbounded positive-gap search}
+
+Deciding whether any word has a nonzero contrast is easier than deciding
+whether some arbitrarily long experiment exceeds a fixed positive
+discrimination threshold.
+
+\begin{theorem}[Strict-cutpoint boundary in instrument form]
+\label{finite:undecidable}
+Fix a rational $\delta\in(0,1)$. There is no algorithm that, for every
+pair of finite rational classical instruments with the following grammar,
+decides whether some admissible finite protocol has transcript total
+variation greater than $\delta$: any finite sequence of unobserved
+stochastic actions, followed by exactly one terminal binary readout.
+The horizon is unbounded and no repeated independent preparation is
+available within a protocol.
+\end{theorem}
+\begin{proof}
+Use the established undecidability of strict cutpoint emptiness for
+rational probabilistic finite automata, in particular the fixed cutpoint
+$1/7$ result described and proved in Ref.~\cite{f_rote}. Such an automaton
+has initial distribution $\mu$, stochastic letter matrices $T_a$, and
+binary acceptance column $v$. Its acceptance probability for word $w$ is
+$p(w)=\mu T_wv$. The undecidable question is whether $p(w)>1/7$ for some
+finite word.
+
+Turn each letter into a single-outcome unobserved action. After these
+actions allow one terminal readout with success effect
+$D=aI+b\operatorname{diag}(v)$ and failure effect $I-D$. Choose rational
+$b>0$ small enough that $a=\delta-b/7\geq0$ and $a+b\leq1$. These
+diagonal readout kernels are physically valid classical instruments.
+Compare against a one-state model that always reports zero. The only
+informative observation is Bernoulli success with probability
+$a+bp(w)$ versus certain failure; its total variation is $a+bp(w)$.
+It exceeds $\delta$ exactly when $p(w)>1/7$.
+
+All outcomes preceding the readout are deterministic, so feedback supplies
+no information for choosing the word. If the chosen word is recorded,
+randomization gives the average of its total variations, since the word
+distribution is common to both models. If that average exceeds the
+threshold, some deterministic word exceeds it. Thus an algorithm for
+the stated instrument problem would decide strict cutpoint emptiness.
+\end{proof}
+
+This is a translation of an established computability result, historically
+traced to Nasu and Honda, rather than a new impossibility theorem for
+physics. The reduction does not show that its stochastic matrices are
+embeddable continuous-time propagators, thermodynamically reversible, or
+available in any particular laboratory. Allowing unlimited independent
+resets and repeated measurements changes the problem: a nonzero single-run
+gap can then be amplified statistically.
+
+A finite horizon makes the specified finite-alphabet design problem
+finite. A finite additive budget does so only when every repeatable action
+has a strictly positive minimum charge, or a separate horizon is imposed.
+Zero declared entropy production does not imply zero laboratory energy,
+and a budget on one accounting channel need not bound the number of
+possible operations. Bounded design, calibrated statistics, and physical
+accounting are therefore required layers of the constructive framework.

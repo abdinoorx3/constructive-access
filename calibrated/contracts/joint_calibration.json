@@ -1,0 +1,43 @@
+{
+  "schema": "constructive-access-joint-calibration-v1",
+  "frozen_before_heldout_generation": true,
+  "date": "2026-10-12",
+  "goal": "Test whether one predeclared confidence statement for same-state twins and two positive lags improves quantitative inference over the actual two-stage and extra-lag implementations",
+  "seed": 49183726,
+  "datasets_per_case": 400,
+  "source_model_and_baselines": "calibrated_benchmark.specification/model/calibration_records/oracle/analyze; same model and predeclared baselines, independent new seed",
+  "joint": {
+    "parameter_s": "19/25",
+    "coefficients": ["-361/625", "38/25", "-1"],
+    "lags": [0, 1, 2],
+    "records": [4000, 8000, 8000],
+    "alpha": "1/20",
+    "exact_reversible_support": "-18/625",
+    "selection": "Fixed before these held-out records; prior model and parameter inherited from earlier work; no current-data optimization",
+    "same_state_contract": "Two noninvasive fresh conditionally independent binary readings at the same unchanged stationary hidden state, using exactly the same detector channel as positive-lag records",
+    "record_contract": "Fresh independent uniform stationary preparation for each pair; within-pair noise conditionally independent",
+    "entropy_denominator": "(2*s*sqrt(1)+sqrt(2))^2; ideal lag0 contributes sampling variance but no Q-versus-additive-reversible path divergence",
+    "calibration_radii": ["0", "0", "0"]
+  },
+  "cases": [
+    {"name": "driven", "rates": "driven", "gain": 1.0, "calibration_gain": 1.0, "contract": "within"},
+    {"name": "equilibrium", "rates": "equal_same_activity", "gain": 1.0, "calibration_gain": 1.0, "contract": "within"},
+    {"name": "high_readout_noise", "rates": "driven", "gain": 0.2, "calibration_gain": 0.2, "contract": "within"},
+    {"name": "invalid_calibration", "rates": "equal_same_activity", "gain": 1.0, "calibration_gain": 0.2, "contract": "outside: detector gain changes between lag0 and positive-lag records"}
+  ],
+  "baseline_contract": {
+    "two_stage": "Call calibrated_benchmark.analyze unchanged: alpha_calibration=.025, alpha_science=.025, coefficients(1.52,-1), calibrated polygon; report both Pinsker and nonlinear actual implementations",
+    "extra_lag": "Call the same analyze output for predeclared optimized shifted-cubic coefficients(-.1156,.68,-1), alpha=.05, quotas8000/8000/4000 at lags1/2/3",
+    "legacy_extra_lag": "Retain the original(-4/9,4/3,-1) comparator returned by analyze",
+    "paired_comparison": "All methods share identical lag1 and lag2 records. Joint and two-stage share identical same-state twin records. The extra-lag arm substitutes an independent4000-pair lag3 menu for those twins."
+  },
+  "costs": {
+    "joint_and_two_stage": {"pairs": 20000, "endpoint_readouts": 40000, "declared_evolution_time": 24000},
+    "extra_lag": {"pairs": 20000, "endpoint_readouts": 40000, "declared_evolution_time": 36000},
+    "all_menus_simulated_for_paired_comparison": {"pairs": 24000, "endpoint_readouts": 48000, "declared_evolution_time": 36000},
+    "unmeasured": ["preparation/reset costs", "detector duration and exposure", "detector energy", "hardware verification of same-state same-channel twin contract"],
+    "qualification": "Record and readout matched comparison, with unequal declared evolution times. No calibrated joule advantage; unmeasured overhead is not zero."
+  },
+  "outputs": ["all400 raw sufficient count vectors", "first driven full record archive", "exact certificate examples", "pointwise95percent Clopper-Pearson Monte Carlo detection intervals", "joint contrast and two-stage region confidence coverage", "all-dataset entropy-lower-bound statistics and paired differences", "true synthetic entropy", "nonlinear solver certificate status", "frozen contract and count hashes"],
+  "scope": "Synthetic finite-model study; established moment/Markov/entropy ingredients; no external peer review, physical data, universal power ranking or total-dissipation recovery"
+}

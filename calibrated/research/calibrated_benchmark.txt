@@ -1,0 +1,53 @@
+2026-10-12 UTC — calibrated held-out laboratory comparison
+
+Root authorized this extension after the nonlinear branch was proved/tested.
+No old release modified. Own calibrated_benchmark.py, its tests, manuscript,
+contract and results. Frozen contract SHA256:
+ff3ea5cac5d2c7fc88f9239639ebd546d40f80f8ebfbbac6a3e0ba4ebaccbb24
+
+Design before any production sample: seed73024119,400datasets per case;
+driven20ring, same-activity equilibrium, highreadoutnoise, invalidcalibration
+gain mismatch. 8000pairs at lag1 and8000 atlag2 shared across comparison arms.
+Calibrated arm adds4000 genuine independent same-state twinreadout pairs.
+Uncalibrated alternate adds4000 lag3pairs. Both20000pairs/40000readouts;
+evolutiontime24000vs36000. Reset/latency/sensorhardware/energy are uncalibrated,
+not free. Ideal zero-lag calibration is extra access not supplied by a squared
+single binary reading. Joint study physically simulates all24000records.
+
+Prior model chosen analytically: cosinedetector f_j=cos(2πj/20), m0,A.5;
+r=sqrt497/25, gamma=-logr, omega=acos(19/sqrt497), ringrates as chapter.
+Population agreements(.69,.59,.485712). The firsttwo are exactly reproduced
+by a zero-entropy symmetric two-state chain with decay9/19 andA361/450.
+This proves a genuine calibration-access distinction for this two-lag menu,
+not blindness under all uncalibrated protocols.
+
+Fixed calibrated contrast(38/25,-1), α.025 science+.025calibration. Calibrated
+nonlinear andPinsker share every count, the same covered halfspace and polygon.
+Rational weights291409/426973,135564/426973 approximate the optimized Pinsker
+time weights. Nonlinear proposalgrid33,depth7; exact continuous verifier and
+primalgap retained for every optimized case.
+
+Root required fair analytical design for the alternate. Before production,
+grid s=j/100,j1..99 maximized the expected finite-data Pinsker lower rate using
+the known prior-modelp, quotas and times. Chosen s17/50, a(-289/2500,17/25,-1).
+Proof of support: polynomial -x(x-s)^2<=0 gives uncalibratedsupport
+-(1-s)^2/2. Legacy s2/3 remains a separately reported predeclared comparator,
+not a data-selected union test. Each usesα.05.
+
+Independent focused tests pass4/4. Matrix-exponential oracle agrees with the
+analytic p to2e-15. Twinreadout test confirms product estimatesgain², not1.
+Deterministic centered test inputs show Pinsker0.000138797 vs nonlinear
+0.000160924 with relaxationgap~7.7e-8; these are explicitly not held-out data.
+Fixed invalidcalibration test catches expected apparent dissipation in a
+reversible model because the detector changes between calibration and science.
+
+Performance correction before production: OPENBLAS_NUM_THREADS=1 avoids heavy
+thread oversubscription; rational mixture weights use a common integer grid
+to avoid denominator explosion. Neither changes frozen sample allocation,
+coefficient design, seed, confidence contract or validity of checked outputs.
+
+Production launched using:
+OPENBLAS_NUM_THREADS=1 PYTHONPATH=code:../virtual_laboratory/release/src
+python code/calibrated_benchmark.py
+The process emits100-dataset progress, retains the first raw driven dataset,
+and writes all sufficient counts plus exact representative certificates.

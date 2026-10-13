@@ -1,0 +1,80 @@
+{
+  "schema": "constructive-access-dependence-v1",
+  "frozen_before_heldout_generation": true,
+  "date": "2026-10-12",
+  "goal": "Compare valid continuous-block Markov inference with the optimized previous blind-gap conditional-mean method at matched evolution time",
+  "access_contract": {
+    "calibrated_additive_reversibilization_gap_lower": "1/500",
+    "calibrated_stationary_mass_lower": "1/8",
+    "common_block_duration": "2",
+    "readout_lags": ["1", "2"],
+    "contrast_coefficients": ["-1", "1"],
+    "schedule": "fixed quotas; all lag1 blocks then all lag2 blocks; no adaptive routing",
+    "detector": "fixed deterministic binary function in these simulations; inference permits fresh independent endpoint noise under the same augmented mixing contract",
+    "new_initial_blind_gap": "4000",
+    "new_initial_TV_failure_allocation": "1/1000",
+    "new_statistical_failure": "49/1000",
+    "total_nominal_failure": "1/20",
+    "external_calibration_failure": "0",
+    "calibration_qualification": "Envelope is structurally true for the two valid synthetic models; no universal mixing rate is inferred from their coarse records"
+  },
+  "design": {
+    "physical_time_budgets": [200000, 400000, 800000],
+    "replicates_per_model_budget_protocol": 1000,
+    "seed": 731905,
+    "baseline_gap_candidates": {
+      "start": 0,
+      "stop_inclusive": 10000,
+      "step": 50
+    },
+    "baseline_selection": "Before data, minimize certified old fixed-contrast one-sided halfwidth over this gap grid, with each record costing gap+common_block_duration and equal fixed quotas",
+    "new_allocation": "Pay the initial gap once, then equal fixed quotas using all complete two-unit blocks",
+    "new_concentration_proxy": "K=(sqrt((1+rho)/(1-rho))+1)^2 with rho<=exp(-gap_lower*block_duration)",
+    "statistics": "One-sided fixed contrast lower bound; reject equilibrium if its lower bound exceeds zero"
+  },
+  "models": [
+    {
+      "name": "metastable_equilibrium",
+      "kind": "sector_bit",
+      "sector_flip_rate": "1/1000",
+      "bit_flip_rates": ["1/50", "2"],
+      "initialization": "fixed hidden state0 before the declared gaps",
+      "stationary_distribution": ["1/4", "1/4", "1/4", "1/4"],
+      "within_calibrated_contract": true
+    },
+    {
+      "name": "driven_ring",
+      "kind": "ring",
+      "states": 8,
+      "forward_rate": "4",
+      "backward_rate": "1/10",
+      "detector": [0, 0, 0, 0, 1, 1, 1, 1],
+      "initialization": "fixed hidden state0 before the declared gaps",
+      "within_calibrated_contract": true
+    },
+    {
+      "name": "wrong_mixing_calibration",
+      "kind": "sector_bit",
+      "sector_flip_rate": "1/100000",
+      "bit_flip_rates": ["1/50", "2"],
+      "initialization": "stationary; isolates the incorrect mixing envelope from initial-state bias",
+      "within_calibrated_contract": false,
+      "violation": "Actual additive spectral gap1/50000 is100times smaller than the declared lower bound"
+    }
+  ],
+  "reported_metrics": [
+    "one-sided contrast confidence coverage",
+    "equilibrium exclusion frequency or driven-model power with approximate95percent Wilson Monte Carlo intervals",
+    "certified halfwidth and entropy-rate lower bound",
+    "actual evolution time including blind gaps and unused budget",
+    "retained pair count and endpoint readout count",
+    "naive independent analysis of the identical continuous-block counts as an invalid negative control"
+  ],
+  "simulation": {
+    "sector_bit_continuous_blocks": "Condition on the independent Poisson sector-switch path; integrate bit-flip hazard in switch-containing blocks and aggregate independent parity outcomes in constant-sector blocks by binomial sampling",
+    "ring_continuous_blocks": "Independent forward/backward Poisson increments within observed and padding subintervals; cumulative phase preserves trajectory dependence",
+    "old_gap_baseline": "Sample exact finite CTMC semigroup transitions for every gap, observation lag, and padding interval",
+    "crosschecks": "Compare analytic semigroups and conditional parity sampler against direct transition sampling on separate validation seeds"
+  },
+  "cost_qualification": "Readouts are counted separately. Their energy and duration, external mixing calibration, and preparation hardware costs are unmeasured, so a time gain is not an asserted energy gain. No physical data are used."
+}

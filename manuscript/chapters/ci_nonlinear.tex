@@ -1,0 +1,365 @@
+\chapter{Quantitative inference with certified nonlinear bounds}
+\label{chap:ci-nonlinear}
+
+A positive contrast answers whether the specified equilibrium comparison class
+can explain the observations. Its quadratic entropy bound can discard much of
+the available probability information. This chapter gives a nonlinear replacement
+and an independently checkable bracket on the resulting optimization problem.
+It also identifies a second source of looseness: even an exact observational
+KL projection need not determine physical dissipation. An additional calibration
+of microscopic jump activity can sharpen that separate physical step.
+
+The variational representation of relative entropy, convex information
+projection and likelihood-score testing are established ingredients. The
+modern composite-null testing literature gives closely related log-optimal
+score constructions\cite{ciLarsson2025,ciGrunwald2024,ciLarsson2026}. The
+contribution here is their explicitly certified use with a calibrated continuous
+moment class, a nonrectangular finite-data confidence region, and a separate
+physical-resource calculation. Simulations and numerical optimization do not
+establish the physical premises.
+
+\section{The comparison problem and its scope}
+Let $k_1,\ldots,k_m$ be positive integer lag indices, $w_i>0$ sum to one, and
+$t_i>0$ bound the full expected path duration associated with each target
+record. Write $p_i$ for the probability that the two binary readings agree.
+Suppose a valid joint confidence event places the target vector in
+\[
+ {\cal P}=\{p\in\textstyle\prod_i[\ell_i,h_i]:a\cdot p\ge b\}.
+\]
+The contrast $a$ must have been declared before its test records, or selected
+using independent pilot data. The halfspace can use the one-sided conditional
+Hoeffding bound proved in the preceding work; the default box is $[0,1]^m$.
+An empty region is rejected as an inconsistent input, not interpreted as a
+scientific certificate.
+
+Let $V$ be rational vertices of a calibrated polygon in
+$\{(u,A):0\le u\le A\le1\}$. Here $u$ bounds the square of the stationary
+detector mean and $A$ bounds the stationary second moment of its conditional
+mean. Define the closed reversible comparison class
+\[
+ {\cal K}_V=\operatorname{conv}\left\{
+  q_i={1+u+(A-u)x^{k_i}\over2}:(u,A)\in V,\ 0\le x\le1\right\}.
+\]
+The preceding calibration chapter explains the access needed to measure $A$.
+The convex-hull representation allows distinct spectral atoms and arbitrary
+calibration points inside the polygon. Indeed, a convex combination has
+effective $u=\sum_j\theta_j u_j$, $A=\sum_j\theta_j A_j$, and spectral weights
+proportional to $\theta_j(A_j-u_j)$. Conversely, decomposing $(u,A)$ into
+vertices gives such a convex mixture. The atom $x=0$ is part of the closed
+comparison class and may represent an infinite-rate limit; it need not be
+an exact finite-rate physical realization.
+
+The quantity to bracket is
+\begin{equation}
+ B({\cal P},{\cal K}_V;w)=
+ \inf_{p\in{\cal P},q\in{\cal K}_V}
+       \sum_i w_i\,\operatorname{kl}(p_i\Vert q_i),
+ \label{eq:ci-nonlinear-projection}
+\end{equation}
+where $\operatorname{kl}$ is Bernoulli relative entropy in nats. For a
+stationary ordinary-reversal CTMC, the earlier additive-reversibilization
+bridge gives
+\[
+ \sigma\ge {4B\over\sum_iw_it_i}.
+\]
+This comparison class generally contains reference models that cannot be the
+additive reversibilization of the same hidden generator producing $p$.
+Consequently, $B$ is an observational relaxation. A feasible upper bound on
+$B$ is not an upper bound on physical entropy production, or proof that its
+lower bound is physically attainable. Odd-variable physical reversal,
+measurement disturbance and an uncalibrated initial transient remain outside
+this stationary interpretation.
+
+\section{An exact dual certificate and a primal bracket}
+Choose arbitrary positive rational scores $h_{i0},h_{i1}$. Let
+\begin{align*}
+ L(h)&=\inf_{p\in{\cal P}}\sum_iw_i
+       [(1-p_i)\log h_{i0}+p_i\log h_{i1}],\\
+ U(h)&=\sup_{q\in{\cal K}_V}\sum_iw_i
+       [(1-q_i)h_{i0}+q_i h_{i1}].
+\end{align*}
+Then
+\begin{equation}
+ B\ge\max\{0,L(h)-\log U(h)\}.
+ \label{eq:ci-nonlinear-dual}
+\end{equation}
+For each fixed pair $(p,q)$, regard $(i,y)$ as a joint record with probabilities
+$w_i\operatorname{Ber}(p_i)_y$ and $w_i\operatorname{Ber}(q_i)_y$.
+The relative-entropy variational inequality gives
+$D(P\Vert Q)\ge E_P\log h-\log E_Qh$.
+Taking the worst cases over the two convex sets proves
+\eqref{eq:ci-nonlinear-dual}.
+
+Both optimization steps in a supplied certificate are checked on their whole
+domains. For a calibration vertex $(u,A)$, the normalization is the maximum on
+$[0,1]$ of the rational polynomial
+\[
+ \sum_iw_i\left[h_{i0}+(h_{i1}-h_{i0})
+       {1+u+(A-u)x^{k_i}\over2}\right].
+\]
+Rational Bernstein coefficients after interval subdivision give a rigorous
+upper bound. No sampling grid is used as a proof of this maximum.
+The logarithms are enclosed by the inherited rational atanh-series routine.
+Substituting their lower endpoints gives a linear lower objective on
+${\cal P}$. Its minimum is an exact fractional-knapsack calculation: begin
+at a box minimizer, and if the contrast constraint fails, move coordinates in
+the direction increasing $a\cdot p$, ordered by objective cost per unit
+increase. These rational moves attain the minimum of the enclosed linear
+objective. The continuous normalization and outward logarithm enclosures then
+give a rational lower bound on $B$.
+
+Conversely, supply rational $p\in{\cal P}$ and finitely many rational atoms
+$(v_j,x_j,\theta_j)$ with $v_j\in V$, $x_j\in[0,1]$, $\theta_j\ge0$ and
+$\sum_j\theta_j=1$. They produce an exactly feasible $q\in{\cal K}_V$.
+Upper logarithm enclosures give
+\[
+ B\le\sum_iw_i\operatorname{kl}(p_i\Vert q_i)\le B_{\rm upper}.
+\]
+Thus the reported gap $B_{\rm upper}-B_{\rm lower}$ measures the remaining
+uncertainty of the relaxation calculation. The numerical optimizer proposes
+scores and mixtures; the rational checks retain their validity even when it
+fails to converge or uses a coarse proposal grid.
+
+For an interior minimizing pair $(p^*,q^*)$, the dual has no gap. Set
+$h_{i1}=p_i^*/q_i^*$ and
+$h_{i0}=(1-p_i^*)/(1-q_i^*)$. First-order optimality in $q$ implies
+$E_Qh\le1$ for all comparison vectors, with equality at $q^*$.
+First-order optimality in $p$ implies
+$E_P\log h\ge E_{P^*}\log h$ throughout ${\cal P}$. Substitution gives
+equality in \eqref{eq:ci-nonlinear-dual}. Boundary minimizers can require
+limiting scores; the implementation claims only the brackets it actually
+checks, not attainment at finite scores in every case.
+
+For a fixed alternative, normalizing $h$ by $U(h)$ gives a nonnegative score
+with expectation at most one throughout the composite equilibrium null.
+Its expected logarithm is the familiar information-projection testing
+objective. This connection does not make a score fitted to its own data an
+automatically valid significance test. Here data-dependent scores are safe
+because they are minimized over a previously valid confidence region that
+contains the entire true probability vector on the same event. Calibration
+failure probabilities must be included in that event separately.
+
+\section{A realizable calibration example}
+Consider a stationary twenty-state ring with conditional detector mean
+$f_j=\cos(2\pi j/20)$. Its uniform stationary law gives $m=0$, $A=1/2$.
+Put $r=\sqrt{497}/25$, $\omega=\arccos(19/\sqrt{497})$,
+$\gamma=-\log r$, and $\phi=2\pi/20$. Choose clockwise and anticlockwise
+rates
+\[
+ a={1\over2}\left({\gamma\over1-\cos\phi}
+                   +{\omega\over\sin\phi}\right),\qquad
+ b={1\over2}\left({\gamma\over1-\cos\phi}
+                   -{\omega\over\sin\phi}\right).
+\]
+Both are positive: numerically $a\simeq2.06125923$ and $b\simeq0.27982488$.
+Independent binary readings with means $f_j$ have agreement probability
+$p(t)=1/2+e^{-\gamma t}\cos(\omega t)/4$. The specified constants give
+$p(1)=0.69$, $p(2)=0.59$ exactly. The predeclared contrast
+$(38/25,-1)$ therefore takes the value $1147/2500=0.4588$.
+Its calibrated reversible support is
+$19/25-1/2+(19/25)^2/4=0.4044$; allowing $A$ to rise to one raises
+that support to $0.5488$. Positive and decreasing correlations alone do not
+expose the discrepancy; their scale relative to calibrated detector variance
+does.
+
+Using the idealized confidence halfspace with threshold $0.4588$, equal
+mixture weights and durations $(1,2)$, the saved deterministic calculation
+brackets the calibrated record-KL relaxation between
+$0.0010251000031$ and $0.0010265638733$. The uncalibrated bracket is
+$[0,6.43\times10^{-14}]$. These are model calculations, not finite-record
+experimental confidence statements. The true model entropy rate is about
+$3.55736$, whereas the certified lower rate is about $0.002734$.
+The narrow optimization bracket therefore reveals a substantial evidential
+and physical-bridge limitation, not an unresolved numerical calculation.
+
+\section{The physical bridge has its own limit}
+For an unordered edge, put
+$a=\pi_iq_{ij}$, $b=\pi_jq_{ji}$, $c=a+b$, and
+$x=|a-b|/(a+b)$. Edges with zero traffic contribute zero. For finite entropy
+assume positive reverse flux whenever forward flux is positive. Define
+\[
+ j(x)={ (1+x)\log(1+x)+(1-x)\log(1-x)\over2},
+ \qquad e(x)=x\log{1+x\over1-x}.
+\]
+The path-KL rate from $Q$ to $S=(Q+Q^*)/2$ and the entropy-production rate are
+exactly
+\[
+ d=\sum_{\{i,j\}}c_{ij}j(x_{ij}),\qquad
+ \sigma=\sum_{\{i,j\}}c_{ij}e(x_{ij}).
+\]
+The escape rates of $Q$ and $S$ agree pointwise, so there is no omitted
+waiting-time term in $d$. Total stationary microscopic jump activity is
+$K_0=\sum c_{ij}$.
+
+As $x\to1$, $j(x)\to\log2$ while $e(x)\to\infty$. A fixed-activity driven
+ring therefore has bounded path-KL rate but unbounded entropy production.
+An arbitrarily accurate endpoint projection cannot eliminate this physical
+loss of information. The data do not determine a finite upper bound on total
+dissipation without further assumptions.
+
+There is, however, a sharper lower bridge if a separate physical calibration
+gives $K_0\le K$. Write $G=e\circ j^{-1}$ on $[0,\log2)$. Then
+\begin{equation}
+ \sigma\ge K\,G\left({B\over K\bar t}\right),
+ \qquad \bar t=\sum_iw_it_i,
+ \quad 0\le {B\over K\bar t}<\log2.
+ \label{eq:ci-activity-bridge}
+\end{equation}
+To prove it, $j'(x)=\operatorname{atanh}x$ and
+\[
+ {e'(x)\over j'(x)}
+ =2+{2x\over(1-x^2)\operatorname{atanh}x}
+\]
+increase strictly for $0<x<1$. The derivative of the second term has the
+sign of $(1+x^2)\operatorname{atanh}x-x$, which is positive because its
+value at zero is zero and its derivative is
+$2x\operatorname{atanh}x+2x^2/(1-x^2)>0$.
+Thus $G$ is increasing and convex, with $G(0)=0$ and $G'(0)=4$.
+Jensen's inequality gives $\sigma\ge K_0G(d/K_0)$.
+The perspective $K\mapsto KG(d/K)$ is nonincreasing: convexity gives
+$G(z)-zG'(z)\le0$. Finally data processing gives $d\ge B/\bar t$.
+These three inequalities prove \eqref{eq:ci-activity-bridge}.
+It improves $\sigma\ge4B/\bar t$, with strict improvement for nonzero
+evidence and finite activity cap except for numerical rounding.
+
+The activity-calibrated envelope is sharp for full-path observations of a
+uniform ring with clockwise and anticlockwise rates
+$K(1+x)/2$ and $K(1-x)/2$: every edge has the same bias, the stationary law is
+uniform, total activity equals $K$, and Jensen is an equality. This is a
+sharpness statement about the full-path physical bridge. Restricted endpoint
+observations usually lose information, and the moment relaxation can lose
+more; no endpoint sharpness follows from the ring example.
+
+After normalization by activity, $d/K_0$ is the Jensen--Shannon divergence
+between the stationary directed-flux distribution and its transpose, while
+$\sigma/K_0$ is half their Jeffreys divergence when Jeffreys is defined as
+the sum of the two directed KL divergences. Bounds between these divergences
+and general finite-support optimization methods are established
+\cite{ciCrooks2008,ciFalasco2022,ciGuntuboyina2014}. The explicit envelope
+above is proved here for this inference contract; historical priority of the
+scalar divergence inequality is not claimed.
+
+The implementation inverts $j$ by rational bisection. If an upper logarithm
+enclosure proves $j(x_-)\le B/(K\bar t)$, then
+$Ke(x_-)$ with a lower logarithm enclosure is a certified lower entropy
+bound. The previous linear bound is retained if it is numerically larger.
+If the supplied evidence exceeds $K\bar t\log2$, the routine reports an
+incompatible joint contract rather than an entropy estimate. The microscopic
+activity cap cannot be inferred from a count of coarse detector changes:
+unobserved jumps still contribute activity. Its measurement cost, preparation
+cost and timing calibration belong in the experimental resource account.
+
+\section{A scoped transfer to overdamped diffusions}
+The observational certificate is not restricted to a finite state space.
+Consider the stationary diffusion
+\[
+ dX_t=b(X_t)\,dt+\sqrt{2D}\,dW_t
+\]
+on a connected compact periodic domain, with smooth drift, constant symmetric
+positive-definite $D$, and smooth strictly positive stationary density $\pi$.
+All state coordinates have even physical time-reversal parity. Define
+\[
+ b_s=D\nabla\log\pi,\qquad v=b-b_s,\qquad
+ \sigma=\int v^TD^{-1}v\,\pi\,dx.
+\]
+This is the standard steady current expression for overdamped entropy
+production under the stated physical convention\cite{ciSeifert2012}.
+The reversible comparison diffusion has drift $b_s$ and the same diffusion
+matrix and initial law $\pi$.
+
+The drift likelihood formula\cite{ciGirsanov1960} gives
+\begin{equation}
+ D(\mathbb P_b^{[0,t]}\Vert\mathbb P_{b_s}^{[0,t]})
+   ={1\over4}E_b\int_0^t v(X_s)^TD^{-1}v(X_s)\,ds
+   ={t\sigma\over4}.
+ \label{eq:ci-diffusion-bridge}
+\end{equation}
+The factor follows from the noise covariance $2D$: the control in the
+Brownian likelihood is $(\sqrt{2D})^{-1}v$, and relative entropy is one half
+its expected squared norm. On the compact periodic domain the drift
+difference is bounded, so Novikov's condition and finite energy hold.
+On a noncompact domain the conclusion instead requires nonexplosion,
+the appropriate boundary or decay conditions, a valid true likelihood
+martingale and finite expected energy. Novikov is a sufficient condition,
+not a claim automatically valid for every linear example and every horizon.
+
+The reference generator is
+$L_s=\pi^{-1}\nabla\!\cdot(\pi D\nabla)$.
+Periodic integration by parts makes it self-adjoint and nonpositive in
+$L^2(\pi)$. For a fixed bounded detector conditional mean $f$, the spectral
+theorem therefore gives
+\[
+ E_s[f(X_0)f(X_t)]
+   =m^2+\int_{[0,\infty)} e^{-\lambda t}\,d\nu(\lambda),
+ \quad \nu\ge0,\quad\nu([0,\infty))=A-m^2,
+\]
+where $m=E_\pi f$ and $A=E_\pi f^2$.
+Independent noninvasive binary readout noise at the two endpoints has the
+same correlation. At times $k\Delta$, putting $x=e^{-\lambda\Delta}$ yields
+the calibrated moment comparison class already used above. Data processing
+of \eqref{eq:ci-diffusion-bridge} proves the same record-KL lower certificate
+$\sigma\ge4B/\bar t$.
+
+This corollary composes established likelihood and spectral theory. It is not
+a new physical law. It supplies a legitimate mathematical route to suitable
+overdamped position measurements, including model classes used for optical
+traps; it does not certify that any particular experimental dataset satisfies
+the assumptions. Sharpness or finite realization within the CTMC comparison
+class does not establish sharpness in a diffusion-only class. The optional
+finite-jump activity envelope does not transfer to continuous diffusions.
+
+For an independently computable check, take a two-dimensional rotational
+Ornstein--Uhlenbeck process
+\[
+ dX_t=(-I+\omega J)X_t\,dt+\sqrt2\,dW_t,
+ \qquad J=\begin{pmatrix}0&-1\\1&0\end{pmatrix}.
+\]
+Its stationary covariance is $I$, the reversible drift is $-x$, and
+$v=\omega Jx$. Hence $\sigma=2\omega^2$ and the full-path relative entropy
+to the reversible reference is $t\omega^2/2$. This unbounded linear drift
+does not need a global Novikov assertion: smooth radial cutoffs of the
+rotational drift have bounded likelihood controls and preserve the Gaussian
+stationary density, since the rotation is orthogonal to radial gradients.
+Their expected control energies are uniformly bounded by the Gaussian second
+moment. The resulting likelihoods have uniformly bounded relative entropy
+and are uniformly integrable. Localization, nonexplosion and uniqueness of
+the linear diffusion identify the limiting true likelihood; its finite-energy
+Girsanov expression gives the identity above.
+
+Choose the bounded detector mean $f(x)=\sin(x_1)$ and independent binary
+readout noise. The stationary mean is zero and
+$A=(1-e^{-2})/2$. Since the two scalar Gaussian coordinates at times zero and
+$t$ have correlation $\rho=e^{-t}\cos(\omega t)$,
+\[
+ C(t)=E[f(X_0)f(X_t)]
+ =\tfrac12\{e^{-(1-\rho)}-e^{-(1+\rho)}\}
+ =e^{-1}\sinh\rho.
+\]
+The first equality follows directly from the Gaussian characteristic function
+and $2\sin x\sin y=\cos(x-y)-\cos(x+y)$.
+For $\omega=2$, $t=1$, existing rational exponential and cosine enclosures
+certify $C(t)<0$, hence a positive entropy lower certificate, while the same
+detector and score yield zero in the $\omega=0$ equilibrium control.
+The model entropy rate is exactly eight and the full-path KL is exactly two.
+This is an exact Gaussian-model calculation with certified transcendental
+enclosures, not a new trajectory experiment or an empirical measurement.
+
+\section{Implementation and checks}
+The API \path{constructive_access.calibrated.nonlinear.design} returns the
+exact dual lower certificate, a feasible primal upper bracket, and their gap.
+The faster \path{certify} accepts supplied rational scores and may reuse them
+across independently constructed confidence regions.
+\path{confidence_region} constructs the fixed-contrast halfspace and
+\path{activity_bridge} supplies the optional activity-calibrated physical step.
+All four routines distinguish an assumed observation contract from evidence
+that a physical apparatus satisfies it.
+
+The tests compare the rational linear-program solver with an independent
+linear optimizer, recover an analytic Bernoulli KL projection, exercise an
+equilibrium control, check off-grid normalization and reject malformed primal
+points. A positive, decreasing two-lag signal is accepted by the uncalibrated
+class but separated after second-moment calibration. Independent scalar root
+finding checks the activity inversion, including the equal-bias ring equality
+case. Deterministic example outputs are mathematical checks, not measured
+laboratory data. Matched held-out performance comparisons are reported in the
+integrated benchmark chapter.

@@ -1,0 +1,31 @@
+{
+  "errors": 0,
+  "external_peer_review": false,
+  "failures": 0,
+  "numpy_version": "2.3.5",
+  "passed": true,
+  "python_version": "3.12.14",
+  "reproduction": "PYTHONPATH=src python attainability/tests/test_independent.py",
+  "reproduction_workdir": "release root",
+  "scope": "Independent proof challenges, model counterexamples, and replay of frozen simulated records; no new empirical physical measurements",
+  "source_sha256": {
+    "code/design.py": "71263e6022d9045c476f184c8dd18a23d754f520120c6ac85831c40bac092228",
+    "code/joint_analog.py": "5f480384d52a4f4ded52310564bd7974a2e2a602b7b8a7ef424035b7cfac7027",
+    "code/physical_minimum.py": "d1f2e67b166b0c476ef2ac2f6070664112460c5d6ac8bbe3cfba176dd8dc027f",
+    "code/retiming.py": "27c2d05eee70fce4243a03d14251c3bdaf2054151d6ea1fd2f6063287fa859e0",
+    "code/spectral_dynamics.py": "3118844f7e9efbebd757acfb117977b2d3eff4f0a72a33bf8f1eeaf4e739f6c9",
+    "contracts/design.json": "fe37bdcee2163278f5a3d5324ed45569219406b14475c57b8a514ea74646fc45",
+    "contracts/joint_analog.json": "27d4ca888813e916017405e201f33b0c4b8a9030ad2484a18ecd1761e41fd50b",
+    "contracts/retiming.json": "550f061648b48c37e2a0f84d21911fc5f8c17d44ad5ec863d42e9fbacd4abc8b",
+    "results/design.json": "042f2e84e217f98b23561642aaabb5867bf10728062825fad2a03fb17b569830",
+    "results/joint_analog.json": "a74991c949090956731f83f093a177e89165e3bd5c04ab717e0f11f1e998cd66",
+    "results/joint_analog_population_audit.json": "70564361096a11d50c77c4788a10235e5a4391ba484eb78daf3175c18b49d31b",
+    "results/joint_analog_raw.npz": "62e4a15ed2981aa3747caafa71d5fbd40f18841695f753f20a85d3114edc2161",
+    "results/physical_minimum.json": "b823101fe4a65aafbc3a75a88e09838900b38b0ec1a72ffccaf5304a7b90a20f",
+    "results/retiming.json": "3cdffbebdfbb3dc5fe52f10045c66269b1e2d0ab0aa03a0d4e56681b8217bd80",
+    "results/retiming_raw.npz": "1bdf5aaaa903148b12a06f5eb75227c2b705ed4bf4e01a019561c7d955fa4d4d",
+    "results/spectral_dynamics_replay.json": "3d4ad68d8321f3b86645339459c63b6a961c01b0d1352cc9fd00b8b8c094ca26",
+    "tests/test_independent.py": "2dcdfc282b286b51e6aea915ff5318aabd02409723a881c17923650ea48d6db2"
+  },
+  "tests_run": 29
+}

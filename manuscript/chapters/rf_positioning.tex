@@ -1,0 +1,157 @@
+\chapter{Relation to established results and the remaining contribution}
+\label{ch:rf-positioning}
+
+The useful question is not whether partial observations can hide a mechanism.
+That obstruction is established. The question pursued here is what a finite,
+calibrated temporal record forces \emph{every compatible model} to contain or
+expend. The answer depends on the experimental contract: a common dynamics,
+repeatable preparation, detector, accessible times and an explicitly stated
+classical or quantum comparison class. These conditions belong to the theorem,
+not merely to its interpretation.
+
+The work combines three tasks that are often separated: exclusion of models
+with too few states, exclusion of stationary equilibrium explanations, and
+constructive examples showing when neither conclusion is justified. The
+specific mathematical and computational results should be evaluated on their
+own statements. A shared presentation does not establish a new physical law,
+a complete classification of hidden dynamics, or priority over the literatures
+below.
+
+\section{State number, positive realization and finite records}
+
+Wolf and P\'erez-Garc\'ia already derived dimension information from observable
+dynamics, including noisy Hankel-rank witnesses and a damped-qubit example
+with arbitrarily large classical dimension requirements \cite{rrWolf2009}.
+Their spectral argument uses stochastic eigenvalue restrictions originating
+in work including Dmitriev--Dynkin and Karpelevich
+\cite{rfDmitriev1946,rfKarpelevich1951}. An unbounded classical--qubit gap or a
+frequency-to-decay state bound is therefore established prior work. Statistical
+detection matrices also infer observable stochastic dimension from noisy data
+\cite{rfSuccar2024}.
+
+The extra issue is \emph{positive realization}: a scalar signal can have small
+ordinary linear rank while requiring a much larger probabilistic realization.
+The established positive-realization literature makes this distinction
+explicit \cite{rfBenvenuti2022}. A nonnegative matrix factorization is a
+necessary condition for a finite temporal model; it need not supply a common
+stochastic semigroup realizing every time. Conversely, a low ordinary rank
+cannot certify a small positive realization.
+
+Two finite-record constructions address this gap here. The random-clock
+construction supplies a quantitative distance from all generators below a
+specified state number, allowing unknown preparation, unknown fixed detector
+and arbitrarily large hidden rates. It does not infer an exact pole. The
+antichain construction uses a finite temporal probability matrix and an
+explicit positive-noise margin. The conservative record count of the first
+construction is part of its result; existence of a finite test does not imply
+experimental efficiency.
+
+The antichain ingredient has especially close precedents. The exact
+support-based inverse-central-binomial bound follows from established Boolean
+rank and nonnegative-rank arguments \cite{rfDeCaen1981,rfGillis2020} and has
+already been applied to quantum preparation--measurement tables
+\cite{rfShahandeh2024}. Heinosaari and collaborators use the same sinusoidal
+matrix, up to normalization, to demonstrate unbounded quantum advantage; they
+also establish a stronger exact rank for the seven-point instance
+\cite{rfHeinosaari2024}. The candidate addition here is the analytic tolerance
+for nonzero diagonal entries, its single repeated-channel temporal realization,
+and a specified finite-count rejection rule. It is not the first sinusoidal
+matrix, quantum advantage or application of Sperner's theorem.
+
+Temporal memory and environment-dimension witnesses provide another relevant
+body of work \cite{rrVieira2022,rfVieira2024}. Their measurement sequences can
+be invasive. A fresh preparation with one endpoint measurement imposes a
+different contract, so numerical comparisons require matching the operations,
+reset assumptions and counted memory. Quantum counting-process precision is
+also connected to finite memory \cite{rfOlamaei2026}; an external randomized
+endpoint clock is not itself a first-tick counting process.
+
+\section{Classical approximation identifies the limit of the contract}
+
+The Poisson smoothing operator used by the classical compiler is the
+established Sz\'asz--Mirakjan construction \cite{rfSzasz1950}. Its approximation
+properties are not new. The role of the compiler is to expose the resources
+that can remain unobserved: enough hidden states, fast transitions and a
+specially prepared initial state can approximate a finite collection of
+prepare--wait--read curves over a bounded interval. An explicit finite Markov
+implementation, error budget and adaptive-record comparison make that
+obstruction usable in the present inference problem.
+
+This yields a necessary distinction. A finite experiment can exclude every
+model below a state bound while failing to exclude the union over all state
+bounds. It can also reveal an expensive preparation without forcing persistent
+stationary dissipation. A claim that the same finite trace disproves all
+classical explanations would erase precisely the degrees of freedom that the
+compiler constructs.
+
+\section{Dissipation, reversible comparison and preparation}
+
+Thermodynamic restrictions on coherence and temporal correlations are
+established. They include affinity--coherence constraints, cross-correlation
+asymmetry bounds, oscillation bounds and correlation-time inequalities
+\cite{rfBarato2017,rfOhga2023,rfShiraishi2023,rfDechant2023,rfKolchinsky2024}.
+Their resource definitions matter: cycle affinity, stationary entropy
+production, activity and an eigenmode's weight are different quantities.
+Recent work further emphasizes these distinctions
+\cite{rfGu2026,rfShiraishi2026}. Finite-lag cross-correlation bounds are also
+under active development \cite{rfRaux2026}.
+
+The reversible comparison used here is not a new operation. Additive
+reversibilization has an established information-geometric interpretation
+\cite{rfChoi2024}, and the Jensen--Shannon/Jeffreys inequality underlying the
+quarter-factor estimate is established \cite{rfCrooks2011}. The inspected,
+unrefereed October 2026 manuscript \cite{rfHidden2026} already states the exact
+trajectory bound
+\[
+ D(\mathbb P_Q^{[0,t]}\Vert\mathbb P_{(Q+Q^*)/2}^{[0,t]})
+ \le t\sigma/4
+\]
+and uses reversible persistence restrictions to derive an
+architecture-independent dissipation certificate. Its uninterrupted residence
+observations differ from endpoint equality observations here. Its existence
+precludes presenting the comparison inequality as an original discovery;
+its unrefereed status means it does not independently validate this work.
+
+The operational contribution pursued here uses the common positive spectral
+measure of several endpoint autocorrelations. It certifies distance from that
+moment set while propagating finite counts and detector calibration into an
+entropy-production lower bound. A dual polynomial supplies a checkable lower
+certificate, which a numerical best fit alone cannot provide. Binary
+endpoint-pair records can be time-reversal symmetric even when their dependence
+on lag violates the reversible spectral restrictions. The inference concerns
+compatibility with a specified equilibrium model class, rather than an observed
+pairwise current.
+
+A further preparation--maintenance extension uses the standard adiabatic and
+nonadiabatic decomposition of entropy production \cite{rfEsposito2010}. Initial
+relative entropy and subsequent housekeeping dissipation are already known
+physical resources. The candidate result is their combined lower constraint
+from an accessible departure from equilibrium temporal laws. No claim is made
+that the decomposition, initial nonequilibrium free energy, or data processing
+is newly discovered.
+
+Randomized observation times themselves also have close prior art. A recent
+unrefereed manuscript uses two randomized clocks to identify fully observed
+generators and studies the sampling cost of rejecting hidden equilibrium
+explanations \cite{rfAznagulov2026}. This strengthens the need to state the
+specific finite-record certificate, comparison class and error guarantee,
+rather than claim first use of random clocks for hidden dynamics.
+
+\section{What has and has not been established}
+
+This part provides theorem statements, proofs and reproducible synthetic
+examples. Independent mathematical checks and exact arithmetic support their
+internal validity. The candidate additions are the particular robust temporal
+certificates, their resource consequences and the construction of matching
+obstructions under weaker experimental contracts. The literature audit
+identifies their closest known ingredients and overlapping results. It does
+not prove historical originality.
+
+Applications to a physical apparatus require evidence for homogeneous dynamics,
+preparation, readout, stationarity where invoked, and the relevant time-reversal
+convention. In particular, even-state Markov entropy bounds do not apply without
+modification to equilibrium systems with odd momentum variables or invasive
+quantum measurements. No new empirical data or independent peer review is
+reported. A practical next application should test an explicit laboratory
+contract and compare against an existing method on the same records, rather
+than infer engineering solutions from the breadth of the formalism.

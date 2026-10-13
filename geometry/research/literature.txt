@@ -1,0 +1,211 @@
+OBSERVED DIFFUSION GEOMETRY: PRIMARY-SOURCE AUDIT
+Audit: 2026-10-12 UTC. Owner: geometry_literature.
+Status: internal literature assessment; no historical-priority certification.
+
+Finding
+-------
+The proposed weighted conditional local-defect inequality belongs to an
+established family of kinetic/variance-sum-rule methods. It must not be
+introduced as the first way of extracting dissipation from time-symmetric
+fluctuations, the first use of local diffusion geometry, or the first minimum
+over hidden models compatible with observations. Those claims are precluded
+by the sources below. The closest equation-level predecessor is Di Terlizzi's
+2025 force-free kinetic inference paper, not only the 2024 variance sum rule.
+
+The defensible proposed addition is more specific: a conditional, locally
+weighted short-time inequality for a nonlinear scalar detector, explicit
+retention of pathwise quadratic variation, and a sharp minimum over all
+compatible finite-dimensional smooth ordinary-reversal hidden diffusions for
+the complete cosine-circle path law. None of the inspected primary results
+states that whole assertion. Search absence is not a proof of originality.
+The population theorem, its technical access contract and finite-resolution
+implementation need their own mathematical review.
+
+1. Closest identity: force-free kinetic inference
+------------------------------------------------
+I. Di Terlizzi, Force-Free Kinetic Inference of Entropy Production, Physical
+Review Letters 135, 237101 (2025), DOI 10.1103/fsph-437v. Primary full text:
+https://arxiv.org/html/2502.07540v2 (23 November 2025 version).
+Main Eqs. (5), (15)-(18); Supplement S1, Eqs. (S12)-(S16), S4, S11-S12.
+
+For stationary Cartesian overdamped coordinates with constant diffusion matrix,
+Eq. (5) writes entropy as minus diffusion-weighted position-covariance curvature
+plus an effective-force/score covariance. For diagonal diffusion, Eq. (16)
+decomposes each coordinate contribution as
+
+ sigma_i = -C_i''(0)/D_i + D_i E[(partial_i log pi)^2].
+
+Its Eq. (18) retains positive traffic terms under partial observation. Thus
+kinetic inference from a single scalar trace, including reversible scalar
+Gaussian traces, is already explicit prior work. The paper's statement that
+the full inflow cannot be inferred from a marginal does not preclude a lower
+bound on that inflow.
+
+Immediate corollary, not a separate invention: with smooth density p_i(y),
+appropriate decay/boundary conditions and constant diagonal diffusion,
+E[partial_i log pi | X_i=y] = partial_y log p_i(y). Conditional Jensen gives
+
+ sigma_i >= -C_i''(0)/D_i + D_i E[(partial_y log p_i(X_i))^2].
+
+This is the unweighted, signed, constant-D specialization of our conditional
+construction. Any manuscript should show this reduction and explicitly call
+it a corollary of the established identity plus conditional Jensen. The
+positive part before averaging can retain more information, but it does not
+make the underlying curvature/score identity new.
+
+What remains different in the proposed theorem: arbitrary smooth scalar
+f(X), state-dependent/correlated hidden diffusion, conditioning on
+V=Gamma_f(X), a pointwise cancellation before weighting by 1/V, and a full-law
+compatibility argument independent of hidden dimension. In the circle,
+E[g(Y)^2/V] diverges near Y=+/-1, as does the corresponding piece of E[K(Y)/V];
+the combined (g^2-K)/V is finite. Do not split that expression into a
+difference of separately finite global averages. A transformation arccos(Y)
+creates folding endpoints/local-time issues, so merely applying a globally
+constant-D coordinate formula to that nonsmooth transformed detector is not
+an adequate proof.
+
+S11 uses fitted sums of exponentials for correlation derivatives and a KDE
+for effective forces. S12 studies additive white/short-correlated measurement
+noise and excludes contaminated small lags before fitting. These are useful
+practical baselines. They do not establish a uniform semigroup-remainder
+certificate for every hidden model in our class; their numerical error bars
+must not be equated to a finite-sample lower confidence theorem.
+
+2. Variance sum rule and Harada-Sasa
+-----------------------------------
+Di Terlizzi et al., Science 383, 971-976 (2024), DOI 10.1126/science.adh1823,
+arXiv:2302.08565. Main VSR/entropy relations and Supplement S1-S2 inspected.
+Di Terlizzi, Baiesi and Ritort, New Journal of Physics 26, 063013 (2024),
+DOI 10.1088/1367-2630/ad4fb9, arXiv:2403.10442. Sections 2-3, particularly
+Sec. 3.3 Eq. (30), inspected. These relate displacement curvature, force
+variance and dissipation in overdamped Langevin systems. Scalar symmetric
+fluctuations as thermodynamic evidence are established. The present detector
+geometry and conditional cancellation should be positioned within that line.
+
+Harada and Sasa, Physical Review Letters 95, 130602 (2005),
+DOI 10.1103/PhysRevLett.95.130602, arXiv:cond-mat/0502505.
+Eq. (5) relates mean heat dissipation to a velocity-correlation spectrum minus
+the dissipative response spectrum, with a mean-velocity contribution. Response
+to a perturbing force is part of its access. The proposed local conditional
+statistics are passive under their stated detector assumptions; this changes
+the access contract, not the legitimacy of the older equality. It would be
+incorrect to claim that Harada-Sasa cannot quantify hidden dissipation in the
+settings where its response and force/mobility conditions are available.
+
+3. Reversal, geometry and short-time inference
+---------------------------------------------
+Da Costa and Pavliotis, Journal of Physics A 56, 365001 (2023),
+DOI 10.1088/1751-8121/acdf98, arXiv:2212.05125.
+Proposition 3.7 gives the reversible/irreversible drift decomposition;
+Proposition 3.12 its symmetric/antisymmetric generator form; Theorem 4.1 the
+stationary entropy integral in the regular case; Section 6.2 Eq. (34) the
+distinct generalized reversal involving a phase-space involution.
+The assumed sigma=E[v^T D^-1 v] and L=S+A are standard. The odd-variable
+exclusion is substantive: equilibrium underdamped systems have zero
+appropriately reversed physical entropy despite ordinary reversal behaving
+differently. An even scalar detector does not certify that all hidden
+variables have even parity.
+
+Otsubo, Ito, Dechant and Sagawa, Physical Review E 101, 062106 (2020),
+DOI 10.1103/PhysRevE.101.062106, arXiv:2001.07460.
+Sec. II Eqs. (23)-(30) proves short-time current TURs and their optimal-current
+saturation for Langevin dynamics; Sec. III and Appendix A.2 cover estimators
+and data splitting. Optimizing weighted short-time statistics or using a
+training/evaluation split is not new. Their current objective uses observable
+time-directed currents. A reversible scalar law makes those means vanish;
+our symmetric conditional defect addresses different retained information
+within a restricted hidden-model class.
+
+Frishman and Ronceray, Physical Review X 10, 021009 (2020),
+DOI 10.1103/PhysRevX.10.021009, arXiv:1809.09650.
+Sec. II Eqs. (6)-(8) develops finite-basis force/current projection; Sec. III
+Eqs. (10)-(15) treats spatially varying diffusion; Appendix E Eq. (91) gives
+hidden-variable conditional averaging; Appendices F-G study noise and finite
+time steps. Conditional force regression, inference of diffusion from
+increments, and projected-current entropy bounds are established. Appendix E
+explicitly limits the inferred entropy to observable currents. In particular,
+regressing squared increments on Y recovers conditional average diffusivity,
+not necessarily the instantaneous pathwise V=Gamma_f(X) needed for division
+inside the new conditional theorem. This distinction is physical and
+statistical, not a change of notation.
+
+Hyvarinen, Journal of Machine Learning Research 6, 695-709 (2005),
+https://jmlr.org/papers/v6/hyvarinen05a.html.
+Theorem 1, Eq. (3), derives the score-matching integration-by-parts objective;
+Eq. (4) is its sample version. A completed-square variational representation
+2qg-q^2 <= g^2 is elementary least-squares duality, and should not be advertised
+as a new operator. Distinguish ordinary density-score matching from the
+present regression test function q for the symmetric conditional drift.
+Any new statistical contribution must lie in a valid bias/concentration
+contract for the particular triple statistic and physical calibration.
+
+4. Minimum compatible dissipation is an existing research objective
+-------------------------------------------------------------------
+Ehrich, Journal of Statistical Mechanics 083214 (2021),
+DOI 10.1088/1742-5468/ac150e, arXiv:2105.08803.
+Sec. 4 Eq. (51) minimizes entropy over hidden transition matrices fitting the
+observed jump statistics; Eq. (52) compares this with time-series
+irreversibility. Sec. 5 explicitly discusses full observable statistics,
+dependence on known hidden-state count and the unresolved effect of enlarging
+the hidden model. Thus full observed-law compatibility can constrain entropy
+more strongly than reversed-record KL; that principle is established.
+
+Nitzan, Ghosal and Bisker, Physical Review Research 5, 043251 (2023),
+DOI 10.1103/PhysRevResearch.5.043251, arXiv:2212.01783.
+Sec. III.1.2 Eqs. (16)-(18) gives full waiting-time-law compatibility and a
+moment hierarchy for minimum entropy, assuming the same underlying topology.
+Sec. III.4 and the conclusion test simpler topologies numerically and retain
+the universal topology-reduction statement as open. These are clear prior
+examples of the compatible-model optimization objective. Our proposed
+cosine-law solution would close a different, broad diffusion-class instance,
+not create this objective for the first time.
+
+Lucente et al., Physical Review Research 4, 043103 (2022),
+DOI 10.1103/PhysRevResearch.4.043103, arXiv:2205.08961.
+Sec. III explains the scalar Gaussian time-reversal obstruction and the role
+of an equilibrium generalized Langevin realization. The present cosine trace
+is not Gaussian, and its compatible class explicitly excludes generalized
+or odd-variable reversal. Do not summarize the older no-go as a claim that
+every reversible scalar path law has a reversible ordinary overdamped hidden
+diffusion realization. Reversibility of an observed law and existence of a
+reversible generator in a specified realization class are distinct statements.
+
+5. Additional current search result
+-----------------------------------
+Cross-Spectral Witness for Hidden Nonequilibrium Beyond the Scalar Ceiling,
+arXiv:2604.03775, version dated 24 August 2026, inspected as an unrefereed
+preprint. Theorems 1-2 and Sec. VI/Appendix K use two-channel coherence under a
+channel-separable linear hidden-sector model; the entropy bridge additionally
+assumes one-way coupling. This is a different access/realization class. Shared
+cross-channel dependence is not automatically physical dissipation. No result
+from that preprint is used as a premise of our theorem.
+
+6. Recommended claim wording and remaining tests
+------------------------------------------------
+Use: 'A conditional diffusion-geometry bound, together with a sharp
+compatible-realization result for the complete cosine-circle observed law.'
+Avoid: 'universal entropy reconstruction', 'new physical law', 'first inference
+from reversible fluctuations', 'complete hidden dynamics recovery', or
+'laboratory-ready model-free measurement'.
+
+The practical addition must verify: exact continuous-path versus finite-time
+access; a calibrated V or pointwise upper envelope; simultaneous finite-h
+bias for g and K; sensor-noise/exposure handling; statistical coverage after
+selection; and physical clock/acquisition cost. A frozen linear variational
+score avoids a biased plug-in square but does not remove these obligations.
+Finite-h remainder bounds based on generator derivatives are conditional
+calibration assumptions, not quantities automatically identified by the same
+coarse observations. A model-assisted oracle should not be described as a
+data-only universal certificate.
+
+Search method and limits
+------------------------
+Focused web searches covered conditional/local entropy, quadratic variation,
+short-time drift/current inference, variance sum rules, hidden-model minima,
+and related recent work. Primary HTML was downloaded to temporary storage and
+math alttext inspected; the score-matching PDF was read as text. DOI metadata
+for the new journal references was checked against Crossref. Bibliography
+keys were checked against the seventh cumulative edition. Full texts are not
+redistributed. sources.json records reviewed files, SHA-256, source size,
+precise pointers and access level. No search can exclude all earlier work,
+and internal audit does not substitute for expert external review.

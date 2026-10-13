@@ -1,0 +1,122 @@
+{
+  "all_aggregates_known": {
+    "ambiguity_dimension": 1,
+    "identifiable_channels": [
+      "AC",
+      "BC",
+      "CD",
+      "DA"
+    ],
+    "internal_channel_dimension": 1,
+    "network_cycle_dimension": 0
+  },
+  "all_target_completion": {
+    "cost": "6",
+    "sensors": [
+      "target",
+      "AB_hidden",
+      "AC"
+    ],
+    "unknown_bundle_forest": [
+      "DA",
+      "CD",
+      "BC"
+    ],
+    "unsensed_channels": [
+      "DA",
+      "CD",
+      "BC"
+    ]
+  },
+  "certificate_valid": true,
+  "claims_of_novelty": "No priority claim for standard flow/cut/tree or linear-identification facts",
+  "model": "stationary signed physical-channel circulation; declared exact or box access",
+  "one_parallel_channel_revealed": {
+    "ambiguity_dimension": 0,
+    "identifiable_channels": [
+      "target",
+      "AB_hidden",
+      "AC",
+      "BC",
+      "CD",
+      "DA"
+    ],
+    "internal_channel_dimension": 0,
+    "network_cycle_dimension": 0
+  },
+  "physical_realization_of_dual": {
+    "AB_hidden": {
+      "forward": "201/50",
+      "reverse": "203/50"
+    },
+    "AC": {
+      "forward": "101/25",
+      "reverse": "103/25"
+    },
+    "BC": {
+      "forward": "43/10",
+      "reverse": "41/10"
+    },
+    "CD": {
+      "forward": "209/50",
+      "reverse": "203/50"
+    },
+    "DA": {
+      "forward": "209/50",
+      "reverse": "203/50"
+    },
+    "target": {
+      "forward": "109/25",
+      "reverse": "103/25"
+    }
+  },
+  "robust_target_radius": {
+    "circulation": {
+      "AB_hidden": "-1/100",
+      "AC": "-1/50",
+      "BC": "1/20",
+      "CD": "3/100",
+      "DA": "3/100",
+      "target": "3/50"
+    },
+    "coefficients": {
+      "AB_hidden": -1,
+      "AC": -1,
+      "DA": 1
+    },
+    "cut": [
+      "A"
+    ],
+    "status": "identified",
+    "value": "3/50"
+  },
+  "single_target_completion": {
+    "bundle_cut_certificate": {
+      "circulation": {
+        "bundle_1": "-3",
+        "bundle_2": "4",
+        "bundle_3": "1",
+        "bundle_4": "-1",
+        "target": "4"
+      },
+      "coefficients": {
+        "bundle_2": 1
+      },
+      "cut": [
+        "A",
+        "C",
+        "D"
+      ],
+      "status": "identified",
+      "value": "4"
+    },
+    "cost": "6",
+    "forced_parallel_channels": [
+      "AB_hidden"
+    ],
+    "sensors": [
+      "AB_hidden",
+      "BC"
+    ]
+  }
+}

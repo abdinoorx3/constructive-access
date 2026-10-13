@@ -1,0 +1,146 @@
+VIRTUAL LABORATORY: LITERATURE AND ASSUMPTION AUDIT
+Audit initiated 2026-10-12 UTC; source access timestamps in sources.json.
+
+1. What simulation establishes
+The planned experiment is a verification and operating-characteristic study.
+It can establish that an independently generated trajectory law agrees with
+an analytical model and that a statistical procedure has expected coverage
+or power over declared simulations. It cannot establish that an actual
+apparatus is stationary, Markovian, correctly reset, noninvasive, or accurately
+calibrated. Oberkampf–Trucano2002 distinguishes numerical verification from
+physical validation. Morris–White–Crowther2019 recommends separating aims,
+data-generating mechanisms, estimands, methods and performance measures, and
+reporting Monte Carlo uncertainty. These are established practices.
+
+Production design, seeds and criteria must be frozen before held-out tests.
+Pilot-selected contrasts need independent test data. Pseudorandom seeds and
+repeated simulations make results reproducible; their statistical status is
+conditional on the random-generator model and simulated data law. A numerical
+matrix exponential is not an independently certified interval calculation.
+Analytical and separately coded trajectory cross-checks are useful because
+they can expose common implementation errors, not because agreement proves
+that nature follows either implementation.
+
+A zero observed false-positive count is not proof of zero false-positive
+probability. For R independent simulation repetitions and zero failures,
+a one-sided 95% exact binomial upper limit is 1−0.05^(1/R). With R=300 this
+is about0.995%; with R=1000 about0.299%. The theorem provides universal
+coverage under its assumptions; simulations test selected implementations
+and regimes. Report uncertainty for power differences using paired outcomes
+when comparing methods on the same synthetic records.
+
+2. Closest thermodynamic methodology
+Fritz–Ertel–Seifert2025, PRE111044106, arxiv2412.04102v2, directly studies
+finite spatial/temporal resolution and finite samples for three entropy
+estimators. Its SecIII and conclusion explicitly warn that empirical plug-in
+estimates can exceed true entropy production. It simulates a four-state
+network and an augmented Michaelis–Menten network. The paper's estimates
+require currents or waiting-time events; our fresh binary endpoint contract
+lacks those observations. It is a methodological comparison, not an automatic
+matched-data competitor. Its temporal coarse-graining still records the
+transition sequence; this also differs from missed-event readout.
+
+Skinner–Dunkel2021 PNAS already establishes inference of hidden dissipation
+from apparently time-symmetric observed dynamics and applies it to biological
+data. Their PRL2021 waiting-time paper supplies a second close baseline.
+Do not frame nonzero inference from symmetric records or biological relevance
+as a new discovery here. Bebon–Godec2023 gives independent-realization kinetic
+first-passage confidence bounds; finite-count kinetic inference is established.
+
+For the current endpoint menu, negative-correlation floor, monotonic revival
+constraint, full spectral-moment cone, and a fixed scalar polynomial contrast
+are genuinely matched reductions of the same data. A method's improvement
+should be reported against these at identical access, confidence level,
+record count and either mean exposure or total physical duration as declared.
+Increasing the amount of measurement information and optimizing observables
+already improves thermodynamic bounds in Dechant–Sasa2021 PRX11041061; their
+current–noncurrent correlation TUR has a different observation model.
+
+3. Timing and exposure
+The reversible spectral-mixture representation and complete monotonicity are
+standard (Aldous–Fill onlinebook Ch3§3.5; Schilling–Song–Vondracek2012 for
+Bernstein functions and Bochner subordination). A proposed universal clock
+criterion says Eexp(−lambda T_k) must be a Hausdorff moment sequence for every
+lambda≥0; sufficiency is positive mixing of elementary spectral modes and
+necessity follows from symmetric two-state chains. This is an operational
+closure result derived from existing spectral theory, not a newly discovered
+subordination theory.
+
+Three clock models must remain distinct:
+- IID nonnegative increments: Eexp(Q sumX_j)=(Eexp(QX))^k, preserving the same
+  finite stochastic state space and the common-channel dimension contract.
+- Common per-record scale T_k=kV: the equilibrium spectral moment cone survives
+  by x=exp(−lambda V), even for broad V, but a common n-state channel need not.
+- Arbitrary settingwise laws T_k: neither condition follows merely from bounded
+  jitter or equal mean timing; an explicit profile/outercone test is needed.
+
+A two-state scalar exponential with a two-point random scale becomes a sum of
+two distinct exponentials plus the constant mode, yielding ordinary temporal
+rank3 generically. This illustrates why an unobserved clock can contribute
+memory resources even if the underlying system has onlytwo states.
+
+Measured timestamps are observations and retaining/discarding them changes
+the data contract. Entropy lowerbounds must divide by physical expected lag,
+not nominal lag if the two differ. Mean duration is not a pathwise exposure
+cap. State-dependent clocks and postselection can break the assumed spectral
+comparison; ordinary camera integration is not automatically a random
+endpoint observation. Identical nondestructive block detectors require their
+own proof and the time-reversal convention matters.
+
+4. Dependent records and reset
+The proposed bound with |E[Z_i|past,K_i=k]−p_k|≤delta_k, boundedZ_i, predictable
+setting choice and deterministicper-settingquotas is conditionalHoeffding
+plus a deterministic drift budget. Its bias penalty is delta_k, not Ndelta_k.
+This is established martingale concentration applied to an explicit apparatus
+contract. Hoeffding1963 is foundational; Howardetal2021 gives a muchbroader
+time-uniform conditional-mgf framework, and Paulin2015 establishes concentration
+under Markov mixing and spectral assumptions.
+
+Uniform conditionalbias can be justified by externally known worst-case
+mixing after a blind resetgap; it is not licensed by a fitted autocorrelation
+time from the same shortrecord. The Doeblinminorization/spectralgap assumptions
+must be explicit. Fixedquotas differ from arbitrary data-dependentgroupcounts
+or stopping; an optionalstopping claim needs time-uniform confidence or a
+separate valid argument. Clopper–Pearson confidence is suitable for iid
+Bernoulli observations or independent simulation repetitions, not arbitrary
+correlatedphysicalrecords.
+
+5. Dimension witness and physical practicality
+Hendrychetal2012 demonstrates actual dimensionwitness experiments with
+photons. Proctoretal2020 experimentally detects and tracks processor drift.
+Nielsenetal2021 GST jointly characterizes preparations, gates and readout.
+These are established approaches, not evidence that our apparatus assumptions
+hold. GST and fulltomography estimate a different object with richer access,
+so resource comparisons must match inference task as well as sample count.
+
+Fixed preparation/readout errors can be absorbed into unknown fixedstate and
+response functions; fixed drive errors change the common dynamics. Such
+errors may reduce power while preserving a theorem's null coverage. Setting-
+dependent changes, detector memory and quasistatic latentvariables can
+invalidate the declaredcommon-channel/state-number model or add hiddenmemory.
+Randomizing acquisitionorder helpsdiagnosis but doesnot mathematically
+eliminate arbitrary drift. Demonstrating a one-state detector can counterfeit
+a desired probability trace under settingdependenterrors is an important
+outside-contract control, not a falsepositive under the theorem.
+
+Every numerical rate,decoherence ratio,errorprobability in this phase is
+illustrative. No empiricallycalibrated hardwareperformance range is adopted.
+No conversion of dimensionless gamma/omega into a hardwarefeasibility claim
+is justified without platform-specific coherence, drive, readout, reset and
+timing data under the exact intended protocol.
+
+6. Fixed contrast and allocation
+For a polynomialcertified linearconstraint a·q≤b on reversibleendpointlaws,
+a predeclaredcontrast can avoid the simultaneouscoordinateconfidence penalty.
+WeightedHoeffding,Pinsker andweightedCauchy are established. The resulting
+bound sigma≥8C²/(sum|a_k|sqrt(t_k))² andits associatedclockweights are a useful
+specific consequence requiring an ownproof; no exact priorformula match was
+located in this limitedaudit. Optimal sampling allocation proportional to
+|a_k|/sqrt(c_k) is the standardcost-adjusted Neyman/stratified-allocation
+calculus applied to boundedvariance proxies, not a newallocation principle.
+Choosing acontrast from testdata without accounting for selection would
+invalidate the singlepredeclaredcontrastconfidence guarantee.
+
+The evidence claim supported by this phase is an explicitly scoped operational
+and statistical improvement under testedcontracts. Historical originality,
+universalphysicalvalidity andactualapparatusvalidation remain separate tasks.

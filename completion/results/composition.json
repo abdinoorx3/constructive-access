@@ -1,0 +1,597 @@
+{
+  "adaptive_defect": {
+    "accumulated_defect": "1509/8000",
+    "actual_transcript_tv": "3/40",
+    "interface": [
+      [
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "local_defects": {
+      "probe": [
+        "1/20",
+        "9/20"
+      ],
+      "quiet": [
+        "0",
+        "1/10"
+      ]
+    },
+    "model": {
+      "probe": {
+        "0": [
+          [
+            "3/5",
+            "1/5"
+          ],
+          [
+            "1/10",
+            "1/5"
+          ]
+        ],
+        "1": [
+          [
+            "1/10",
+            "1/10"
+          ],
+          [
+            "1/5",
+            "1/2"
+          ]
+        ]
+      },
+      "quiet": {
+        "0": [
+          [
+            "9/10",
+            0
+          ],
+          [
+            0,
+            "4/5"
+          ]
+        ],
+        "1": [
+          [
+            "1/10",
+            0
+          ],
+          [
+            0,
+            "1/5"
+          ]
+        ]
+      }
+    },
+    "policy": {
+      "action": "probe",
+      "children": {
+        "0": null,
+        "1": {
+          "action": "quiet",
+          "children": {
+            "0": null,
+            "1": {
+              "action": "probe",
+              "children": {
+                "0": null,
+                "1": null
+              }
+            }
+          }
+        }
+      }
+    },
+    "preparation_defect": "0",
+    "quotient": {
+      "probe": {
+        "0": [
+          [
+            "3/4"
+          ]
+        ],
+        "1": [
+          [
+            "1/4"
+          ]
+        ]
+      },
+      "quiet": {
+        "0": [
+          [
+            "9/10"
+          ]
+        ],
+        "1": [
+          [
+            "1/10"
+          ]
+        ]
+      }
+    },
+    "tensor_check": {
+      "bound": "epsilon_left + epsilon_right - epsilon_left*epsilon_right",
+      "checked_joint_rows": 16,
+      "maximum_slack": "9/40"
+    },
+    "terms": [
+      {
+        "action": "probe",
+        "contribution": "3/20",
+        "history": [],
+        "reach_probability": "1"
+      },
+      {
+        "action": "quiet",
+        "contribution": "1/50",
+        "history": [
+          [
+            "probe",
+            "1"
+          ]
+        ],
+        "reach_probability": "13/40"
+      },
+      {
+        "action": "probe",
+        "contribution": "149/8000",
+        "history": [
+          [
+            "probe",
+            "1"
+          ],
+          [
+            "quiet",
+            "1"
+          ]
+        ],
+        "reach_probability": "21/400"
+      }
+    ],
+    "tv_upper_bound": "1509/8000"
+  },
+  "cnot_completion": {
+    "active_model": {
+      "couple": {
+        "ok": [
+          [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0"
+          ]
+        ]
+      },
+      "read": {
+        "0": [
+          [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "1": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "wait": {
+        "ok": [
+          [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ]
+      }
+    },
+    "active_tv": "1",
+    "completed_interface_states": 4,
+    "completion_certificate": {
+      "interface": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ]
+      ],
+      "partition": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "quotient": {
+        "couple": {
+          "ok": [
+            [
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "0",
+              "1",
+              "0"
+            ]
+          ]
+        },
+        "read": {
+          "0": [
+            [
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "1": [
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1"
+            ]
+          ]
+        },
+        "wait": {
+          "ok": [
+            [
+              "1",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "1",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "1"
+            ]
+          ]
+        }
+      },
+      "trace": [
+        [
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ]
+        ]
+      ]
+    },
+    "coupling_is_permutation": true,
+    "initial_partition": [
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "passive_interface_states": 2,
+    "passive_model": {
+      "read": {
+        "0": [
+          [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ]
+        ],
+        "1": [
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ]
+      },
+      "wait": {
+        "ok": [
+          [
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "1",
+            "0"
+          ],
+          [
+            "0",
+            "0",
+            "0",
+            "1"
+          ]
+        ]
+      }
+    },
+    "passive_tv": "0",
+    "scope": "logically reversible stochastic gate; no hardware energy claim"
+  },
+  "correlated_preparation": {
+    "both_local_marginals": [
+      "1/2",
+      "1/2"
+    ],
+    "coupled_visible_tv": "1",
+    "direct_visible_tv": "0",
+    "joint_preparation_tv": "1"
+  },
+  "memory_counterexample": {
+    "accumulated_defect": "1",
+    "actual_transcript_tv": "1",
+    "first_action_output_tv": "0",
+    "local_defects": {
+      "prepare_hidden": [
+        "1",
+        "1"
+      ],
+      "read": [
+        "0",
+        "0"
+      ]
+    },
+    "preparation_defect": "0",
+    "terms": [
+      {
+        "action": "prepare_hidden",
+        "contribution": "1",
+        "history": [],
+        "reach_probability": "1"
+      },
+      {
+        "action": "read",
+        "contribution": "0",
+        "history": [
+          [
+            "prepare_hidden",
+            "ok"
+          ]
+        ],
+        "reach_probability": "1"
+      }
+    ],
+    "tv_upper_bound": "1"
+  },
+  "novelty": "established lumpability and simulation theory, integrated with access contracts",
+  "status": "exact rational demonstrations; no empirical measurements"
+}

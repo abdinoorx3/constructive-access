@@ -1,0 +1,61 @@
+[
+  {
+    "source": "discovery_program/access_theory/code/accesskit.py",
+    "source_sha256": "8740d34286b7b471d304c9b214ae16ce030252abb81ac27d6d7da2a5cad968e9",
+    "vendored_file": "src/constructive_access/_vendor/accesskit.py",
+    "vendored_sha256": "8740d34286b7b471d304c9b214ae16ce030252abb81ac27d6d7da2a5cad968e9",
+    "changes": []
+  },
+  {
+    "source": "discovery_program/hardening/code/cost_certificate.py",
+    "source_sha256": "ce929bfb4c7ac6587b098b9257e321fabe0abc441c41d8973859eff2f0a9ee39",
+    "vendored_file": "src/constructive_access/_vendor/cost_certificate.py",
+    "vendored_sha256": "ce929bfb4c7ac6587b098b9257e321fabe0abc441c41d8973859eff2f0a9ee39",
+    "changes": []
+  },
+  {
+    "source": "discovery_program/access_theory/code/ctmc_adapter.py",
+    "source_sha256": "76675832b47085d4a0b15fd18ad2ce752ddeab1fd5f60657d14353218bce96db",
+    "vendored_file": "src/constructive_access/_vendor/ctmc_adapter.py",
+    "vendored_sha256": "068bc3bf9160281249189786b7ba3c16dfe41785b4d9be1080ede61c6a58453e",
+    "changes": [
+      {
+        "old": "from accesskit import",
+        "new": "from .accesskit import"
+      }
+    ]
+  },
+  {
+    "source": "discovery_program/access_theory/code/budgeted_design.py",
+    "source_sha256": "9b1f7b6a0ccb038cf07be60fa671eb29acb10a7e1780480ce148feb55a40bbab",
+    "vendored_file": "src/constructive_access/_vendor/budgeted_design.py",
+    "vendored_sha256": "d876594b33cee443ef3e60240631732d1909738663d12c8645ab040d9e654b76",
+    "changes": [
+      {
+        "old": "from accesskit import",
+        "new": "from .accesskit import"
+      }
+    ]
+  },
+  {
+    "source": "discovery_program/hardening/code/model_adequacy.py",
+    "source_sha256": "af0e7ea02ff1b6640b3fe6bcc20aa3700eefa48220399d6b28233c73261d719b",
+    "vendored_file": "src/constructive_access/_vendor/model_adequacy.py",
+    "vendored_sha256": "af0e7ea02ff1b6640b3fe6bcc20aa3700eefa48220399d6b28233c73261d719b",
+    "changes": []
+  },
+  {
+    "source": "discovery_program/application_audit/code/intervention_criterion.py",
+    "source_sha256": "f3d2567703628ebeaadc85aafa34942e92d8910dd325f63c082ff4f7e618b63a",
+    "vendored_file": "src/constructive_access/_vendor/intervention_criterion.py",
+    "vendored_sha256": "f3d2567703628ebeaadc85aafa34942e92d8910dd325f63c082ff4f7e618b63a",
+    "changes": []
+  },
+  {
+    "source": "discovery_program/hardening/code/energy_tail.py",
+    "source_sha256": "4a9f585716698aa2a2482426c45c4c74b9ffa5499533fa825cbc1a394493609c",
+    "vendored_file": "src/constructive_access/_vendor/energy_tail.py",
+    "vendored_sha256": "4a9f585716698aa2a2482426c45c4c74b9ffa5499533fa825cbc1a394493609c",
+    "changes": []
+  }
+]

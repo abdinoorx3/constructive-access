@@ -1,0 +1,502 @@
+\chapter{Complete application patterns}
+\label{ch:applications}
+
+The examples in this chapter use the same sequence of questions. What is the
+target? Which distinct mechanisms fit all presently accessible evidence?
+Which permitted intervention changes that equivalence? How large is the
+resulting contrast after calibration error? What experiment and resource
+boundary support the conclusion? This order is useful across disciplines
+because each answer constrains the next. The physical ingredients remain
+different. All numerical results here are exact or certified model
+calculations, not new laboratory measurements.
+
+\section{Separating chemical channels hidden by an occupancy trace}
+\label{sec:applications-chemistry}
+
+Consider two states $A,B$ connected by two distinct chemical channels.
+Channel one has forward/backward rates $(a,b)$ and channel two $(c,d)$,
+all strictly positive. An ideal occupancy detector sees
+\begin{equation}
+ k=a+c,\quad \ell=b+d,\qquad
+ Q=\begin{pmatrix}-k&k\\\ell&-\ell\end{pmatrix},\qquad
+ \varpi=\frac1{k+\ell}(\ell,k).
+ \label{eq:applications-chemical-model}
+\end{equation}
+The target may be the channel-one net current, its forward throughput, or
+total entropy production. These are different quantities:
+\begin{equation}
+ J_1=\varpi_Aa-\varpi_Bb=\frac{ad-bc}{k+\ell},\qquad
+ \Phi_1^+=\varpi_Aa,\qquad J_2=-J_1.
+\end{equation}
+With channel-resolved local detailed balance,
+\begin{equation}
+ \frac{\dot S_{\rm tot}}{k_B}
+   =J_1\log\frac{\varpi_Aa}{\varpi_Bb}
+    +J_2\log\frac{\varpi_Ac}{\varpi_Bd}
+   =J_1\log\frac{ad}{bc}.
+ \label{eq:applications-chemical-entropy}
+\end{equation}
+The rates encode a chemostatted effective model. Reservoir identities and
+chemical free energies are additional physical information
+\cite{physics-rao}.
+
+\subsection{An exact obstruction and the intervention it requires}
+
+The rates $(2,2,2,2)$ and $(3,1,1,3)$ give the same complete occupancy
+generator, with $k=\ell=4$. Every occupancy-path law from a common preparation
+therefore agrees. Their native channel-one currents are respectively zero
+and one, and their entropy rates are zero and $2\log3$ in $k_B$ per model
+time. This ambiguity survives ideal continuous observation; collecting more
+of the same record cannot resolve it.
+
+Adding the same state-level generator $L$ to both hypotheses leaves their
+aggregate generators equal. Coupling the same controller to that additive
+channel also leaves the complete controlled occupancy model equal. The gate
+in Chapter~\ref{ch:continuous} exposes differences between generators hidden
+by a detector. It cannot expose a decomposition difference when the full
+permitted generators already coincide. The appropriate extra access must
+act differently on the two physical channels.
+
+Suppose a calibrated intervention multiplies both directions of channel one
+by a known $r>0$, $r\ne1$, while leaving channel two unchanged. The observed
+rates at baseline and under intervention obey
+\begin{equation}
+ k_0=a+c,\quad k_1=ra+c,\qquad
+ \ell_0=b+d,\quad \ell_1=rb+d.
+\end{equation}
+Consequently
+\begin{align}
+ a&=\frac{k_0-k_1}{1-r},&c&=\frac{k_1-rk_0}{1-r},\nonumber\\
+ b&=\frac{\ell_0-\ell_1}{1-r},&d&=\frac{\ell_1-r\ell_0}{1-r},
+ \label{eq:applications-chemical-inverse}\\
+ J_1&=\frac{k_0\ell_1-\ell_0k_1}{(1-r)(k_0+\ell_0)}.
+ \label{eq:applications-chemical-current}
+\end{align}
+This is the linear response fingerprint
+$F_r=\left(\begin{smallmatrix}1&1\\r&1\end{smallmatrix}\right)$ applied
+separately to forward and backward rates. Its rank answers exact
+identifiability. Its inverse conditioning answers practical precision.
+
+At $(a,b,c,d)=(3,1,1,3)$ and $r=1/2$, the perturbed totals are
+$(k_1,\ell_1)=(5/2,7/2)$, and Eq.~\eqref{eq:applications-chemical-inverse}
+recovers every native rate. The intervention changes the stationary
+distribution to $(7/12,5/12)$ and the actual perturbed current to $2/3$.
+It estimates the native current through a calibrated intervention model;
+it does not preserve physiology automatically.
+
+\subsection{A finite precision claim}
+
+If each total-rate response has deterministic absolute error at most
+$\varepsilon$ and $r$ is known, the worst-case absolute error of the
+reconstructed $a$ is $2\varepsilon/|1-r|$. The upper bound follows directly
+from Eq.~\eqref{eq:applications-chemical-inverse}; opposite endpoint errors
+attain it. At $\varepsilon=0.01$, choosing
+$r=0.5,0.9,0.99,0.999$ gives error $0.04,0.2,2,20$ respectively. Exact rank
+alone therefore does not establish a useful assay. An independently
+calibrated second intervention can improve conditioning: the response rows
+$(1,1),(1/2,1),(2,1)$ reconstruct $a$ with weights
+$(0,-2/3,2/3)$, giving worst-case error $1/75$ at the same response precision.
+
+An explicit uncertain-selectivity example uses the simultaneous calibration
+box
+\begin{align}
+ k_0,\ell_0&\in[3.99,4.01],& k_1&\in[2.49,2.51],\nonumber\\
+ \ell_1&\in[3.49,3.51],&r&\in[0.49,0.51].
+\end{align}
+Equation~\eqref{eq:applications-chemical-current} has the sharp range
+\begin{equation}
+ J_1\in[193/204,\ 207/196]\simeq[0.9461,1.0561].
+ \label{eq:applications-chemical-interval}
+\end{equation}
+With the other coordinates held fixed, the expression is linear-fractional
+in each coordinate and has positive denominator. Its extrema over the box
+therefore occur among the 32 vertices. Exact vertex evaluation also checks
+strict positivity of the reconstructed rates. Bounding the positive current
+and the cycle-affinity logarithm separately gives the conservative entropy
+interval $[1.946079453,2.483272369]$ in $k_B$ per model time. This entropy
+interval need not be the sharp joint range. The rate box is a calibration
+premise; a confidence statement additionally needs its simultaneous coverage.
+
+For a real biochemical cycle, the decisive work is to validate channel
+selectivity, off-target effects, bidirectional scaling, the effective state
+space, and detector time resolution. Molecular counts or concentration and
+volume are needed to convert single-system turnover into molar flux. A
+fluorescent binding reporter is not automatically the required selective
+reaction. Known chemical affinities can also reduce an ambiguity that exists
+when only occupancy rates are known; the analysis must include those priors.
+High-order fluorescence correlations and dynamic isotope-flux methods are
+established tools \cite{physics-qian,physics-young}. This calculation specifies
+a complementary native-rate identification experiment, with a failure
+control at $r=1$ and a quantitative selectivity requirement.
+
+\section[Quantum access and hidden bias]{Quantum access: a symmetry obstruction and two ways to change it}
+\label{sec:applications-xx}
+
+The original quantum benchmark concerns a boundary-driven three-spin chain.
+It is useful because a target can remain hidden after one enlarges the
+instrument class substantially. It does not model coherent gate error in a
+quantum processor; that separate target is treated in the next section.
+
+Let $s^-=|0\rangle\langle1|$, $s^+=(s^-)^\dagger$, and
+$n=s^+s^-=(I-Z)/2$. In units $\hbar=1$, define
+\begin{align}
+ H&=g\sum_{j=1}^2(s_j^+s_{j+1}^-+s_{j+1}^+s_j^-),\nonumber\\
+ \mathcal L_\delta(\rho)
+ &=-i[H,\rho]+\gamma\sum_{j\in\{1,3\}}
+ \big[(1-f_j)\mathcal D[s_j^-](\rho)+f_j\mathcal D[s_j^+](\rho)\big],
+ \label{eq:applications-xx}\\
+ \mathcal D[A](\rho)&=A\rho A^\dagger-\tfrac12\{A^\dagger A,\rho\},
+ \quad f_1=\tfrac12+\delta,\quad f_3=\tfrac12-\delta,
+ \quad |\delta|<\tfrac12,\quad g,\gamma>0.\nonumber
+\end{align}
+Each record begins in its unique stationary state $\rho_\delta$. Both raising
+and lowering operators act at the ends. Their commutant has the form
+$I\otimes A\otimes I$, and commutation with the connected Hamiltonian forces
+$A$ to be scalar; the finite dynamics is irreducible with a faithful unique
+stationary state. An accessible operation acts only on site two unless stated
+otherwise. All ancillary states and experiment rules are independent of the
+unknown bias.
+
+\subsection{An exact accessible-effect closure}
+
+Central population measurements have projectors $P_s=(I+sZ_2)/2$.
+More generally consider instruments with real diagonal central Kraus operators
+$K=\alpha I+\beta Z_2$, with their outcome sums trace preserving. Define
+the Pauli strings
+\begin{align}
+ B_0&=III,&B_1&=IZI,\nonumber\\
+ B_2&=-IXY+IYX+XYI-YXI,\nonumber\\
+ B_3&=IIZ+ZII-XZX-YZY,&
+ B_4&=IZZ+ZZI-XIX-YIY.
+\end{align}
+The span of these five observables is preserved by $\mathcal L_\delta^*$.
+With columns giving the images of basis observables, its matrix is
+\begin{equation}
+ C=\begin{pmatrix}
+ 0&0&0&0&0\\0&0&-4g&0&0\\0&g&-\gamma/2&-2g&0\\
+ 0&0&2g&-\gamma&0\\0&0&0&0&-\gamma
+ \end{pmatrix}.
+ \label{eq:applications-xx-closure}
+\end{equation}
+For $a_K=\alpha^2+\beta^2$, $b_K=2\alpha\beta$ and
+$c_K=\alpha^2-\beta^2$, the adjoint outcome map $O\mapsto KOK$ has matrix
+\begin{equation}
+ M_K=\begin{pmatrix}
+ a_K&b_K&0&0&0\\b_K&a_K&0&0&0\\0&0&c_K&0&0\\
+ 0&0&0&a_K&b_K\\0&0&0&b_K&a_K
+ \end{pmatrix}.
+\end{equation}
+These identities follow by Pauli multiplication and contain no $\delta$.
+The stationary expectation vector obeys $C^{\mathsf T}v=0$, $v_0=1$.
+The lower block has determinant $4g^2\gamma^2$, so
+$v=(1,0,0,0,0)^{\mathsf T}$. Every record probability is therefore a product
+of $e^{tC}$ and outcome matrices evaluated between this vector and the
+identity observable. It is independent of $\delta$.
+
+This proves complete blindness to both magnitude and orientation for that
+instrument class, including adaptive times and almost surely finite
+stopping: each terminal branch has the same probability. A central bit flip
+is outside the real diagonal Kraus class. Arbitrary complex diagonal Kraus
+operators have not been included in the closure. Measurements are invasive:
+inserting an unrecorded population measurement can change later statistics.
+The records at different schedules are thus different experiments, rather
+than samples of one undisturbed classical trajectory.
+
+\subsection{Magnitude can be activated; orientation has a stronger obstruction}
+
+At $g=\gamma=1$, an $X_2$ readout, evolution for $t$, and another $X_2$ readout
+give
+\begin{equation}
+ p_{++}^{XX}(\delta,t)-p_{++}^{XX}(0,t)
+     =\frac4{25}\delta^2t^2+O_\delta(t^3).
+ \label{eq:applications-xx-mag}
+\end{equation}
+A population readout, immediate $X_2$ bit flip independent of its result,
+evolution for $t$, and another population readout instead give
+\begin{equation}
+ p_{++}^{ZXZ}(\delta,t)-p_{++}^{ZXZ}(0,t)
+     =-\frac{16}{25}\delta^2t^2+O_\delta(t^3).
+\end{equation}
+These coefficients can be checked without numerical fitting. The exact
+stationary solution is
+\begin{align}
+ 8\rho_\delta={}&III+\tfrac{2\delta}{5}(IIZ-ZII)
+ +\tfrac{4\delta}{5}(-IXY+IYX-XYI+YXI)\nonumber\\
+ &-\tfrac{16\delta^2}{25}(IZZ+XIX+YIY+ZZI)
+   -\tfrac{4\delta^2}{25}ZIZ\nonumber\\
+ &+\tfrac{8\delta^2}{25}(-XYZ+YXZ+ZXY-ZYX).
+ \label{eq:applications-xx-state}
+\end{align}
+Substitution verifies unit trace and $\mathcal L_\delta(\rho_\delta)=0$.
+Expanding the two completely positive instrument expressions through
+$t^2$ gives coefficients $(1/2,0,-1/4+4\delta^2/25)$ for $XX$ and
+$(0,0,1/2-16\delta^2/25)$ for $ZXZ$. At a sufficiently small fixed positive
+$t$, all four outcome probabilities have positive zero-bias limits.
+Their divergence from the zero-bias law is consequently
+$\Theta(\delta^4)$, with independent-record fixed-error cost
+$\Theta(\delta^{-4})$. A magnitude signal does not imply a sign signal.
+
+Let $S$ exchange sites one and three, and let
+$\mathcal S(\rho)=S\rho S$. Equal exchange bonds imply
+\begin{equation}
+ \mathcal L_{-\delta}\mathcal S=\mathcal S\mathcal L_\delta,
+ \qquad \rho_{-\delta}=S\rho_\delta S.
+ \label{eq:applications-xx-symmetry}
+\end{equation}
+Every central operation commutes with $\mathcal S$. By induction, the
+unnormalized states on each outcome branch under opposite biases remain
+related by $S$ and have equal trace. Replacing $S$ by $S\otimes I_A$ includes
+arbitrary center--ancilla instruments, coherent control during evolution,
+feedback and stopping. Thus every central-only protocol remains blind to
+the orientation $+\delta$ versus $-\delta$. This is the operational symmetry
+principle familiar from quantum identification
+\cite{physics-burgarth,physics-guta}, instantiated with explicit stationary
+preparation. Ancillas already correlated with the hidden reservoirs would
+change the access contract.
+
+One way to break the obstruction is to change the physical bonds to known
+positive values $l,r$. Solving the stationary covariance equations then gives
+\begin{equation}
+ \langle n_2\rangle=\frac12+\delta\frac{l^2-r^2}{l^2+r^2}.
+ \label{eq:applications-xx-asymmetry}
+\end{equation}
+For a short derivation, the single-particle covariance satisfies
+$\dot A=-i[h,A]-\{\Gamma,A\}/2+P$, where $h$ has adjacent entries $l,r$,
+$\Gamma=\operatorname{diag}(\gamma,0,\gamma)$, and
+$P=\operatorname{diag}(\gamma(1/2+\delta),0,\gamma(1/2-\delta))$.
+The stationary current and central occupation solve
+\[
+ J=\frac{8\delta\gamma l^2r^2}
+ {(l^2+r^2)[\gamma^2+2(l^2+r^2)]},\qquad
+ A_{22}=\tfrac12+\delta-
+ \frac{J[\gamma^2+2(l^2+r^2)]}{4\gamma l^2}.
+\]
+Substitution proves Eq.~\eqref{eq:applications-xx-asymmetry}.
+With $l=g(1+\eta)$ and $r=g(1-\eta)$, the Bernoulli shifts are
+$\pm 2\delta\eta/(1+\eta^2)$ and their KL divergence is
+$32\delta^2\eta^2/(1+\eta^2)^2+O(\delta^4\eta^4)$.
+Unknown bond asymmetry would be a nuisance parameter confounded with bias.
+Changing bonds and re-preparing stationarity costs a physical resource;
+the sign activation does not come from center-only computation.
+
+\section{Targeted coherent-error diagnosis without full tomography}
+\label{sec:applications-qubit}
+
+For a processor diagnostic, choose two explicit single-qubit alternatives:
+\begin{equation}
+ U=aI-ibX,\quad a^2+b^2=1,\qquad
+ \mathcal U(\rho)=U\rho U^\dagger,\quad
+ \mathcal P(\rho)=a^2\rho+b^2X\rho X.
+\end{equation}
+Follow each call by known depolarization with Bloch retention $\lambda$.
+The channels have equal average fidelity and equal ideal gate-independent
+randomized-benchmarking decay parameter. Preparing $|0\rangle$ and making
+one $Z$ readout after one call also agrees. A phase-sensitive readout separates
+the coherent rotation from the stochastic alternative. This does not imply
+equality of all randomized-benchmarking records; unitarity and related methods
+already diagnose noise coherence \cite{physics-wallman}.
+
+Take $a=399/401$, $b=40/401$, $\lambda=19/20$ and
+$\cos\vartheta=a^2-b^2$, $\sin\vartheta=2ab$. Starting on the $Z$ axis,
+the stochastic alternative has zero $Y$ expectation after any number of
+calls. The coherent alternative rotates the Bloch vector by $m\vartheta$
+and contracts it by $\lambda^m$. A suitable calibrated phase-sensitive
+readout therefore has probability gap
+\begin{equation}
+ \Delta_m=\frac12\lambda^m|\sin(m\vartheta)|.
+\end{equation}
+Assume per-hypothesis preparation, known rotation and readout discrepancy
+at most $10^{-3}$, and per-call half-diamond discrepancy at most $10^{-4}$.
+The record discrepancy is at most $10^{-3}+m10^{-4}$. A certified gap is
+\begin{equation}
+ g_m=\Delta_m-2(10^{-3}+m10^{-4}).
+\end{equation}
+For $g_m>0$, thresholding the average binary outcome at the midpoint gives
+per-hypothesis error at most $\exp(-Mg_m^2/2)$ with fresh independent
+preparations. Taking $M=\lceil5/g_m^2\rceil$ makes this smaller than $0.1$.
+The exact rational menu search over $m=1,\ldots,80$ yields
+\begin{center}
+\small
+\begin{tabular}{rrrr}
+\hline
+Calls per record & Sufficient records & Unknown-channel calls & Role\\
+\hline
+1&590&590&single-call baseline\\
+4&60&240&least call count in this menu\\
+7&44&308&largest nominal gap in this menu\\
+\hline
+\end{tabular}
+\end{center}
+The count optimum and contrast maximum differ. These are sufficient counts
+under a declared bound, not an exact optimal test or a total energy comparison.
+Preparations, calibrated pulses, readouts and computation remain separate
+resources. Dephasing after every unknown-channel call, combined with
+$Z$-only preparation and detection and no intervening coherent control,
+is an exact negative control: the two accessible models then coincide.
+
+This approach can support targeted monitoring of a promised finite local
+dictionary. If there are $B$ independent calibrated blocks, a fixed number
+of candidate types per block, and a uniform positive witness gap $g$, a
+union allocation of error $\delta/B$ gives call cost of order
+$B\log(B/\delta)/g^2$ for fixed-depth witnesses. This assumes independent
+fresh records and excludes unmodeled cross-talk and memory. It does not
+characterize arbitrary $n$-qubit channels at constant cost: their Hermitian
+representation dimension is $4^n$, and their interior parameter count is
+$16^n-4^n$.
+
+Even a fixed small dimension cannot bound the required precision cost.
+Consider replacer channels producing diagonal qubit states with probabilities
+$1/2\pm\epsilon$, $0<\epsilon\leq1/4$. A two-action prepare/readout word
+distinguishes them, but the single-output divergence is
+\begin{equation}
+ D=2\epsilon\log\frac{1+2\epsilon}{1-2\epsilon}\leq16\epsilon^2.
+\end{equation}
+Any strategy using at most $N$ calls, including collective output measurements
+and feedback, is a hypothesis-independent processing of $N$ fresh commuting
+output states. Product additivity and data processing imply total variation
+at most $\sqrt{8N}\epsilon$. Error at most $\delta<1/2$ consequently requires
+\begin{equation}
+ N\geq\frac{(1-2\delta)^2}{8\epsilon^2}.
+\end{equation}
+At $\epsilon=1/1024$ and $\delta=0.1$, this is at least $83887$ calls.
+The bound concerns a maximum call count, not an expected stopping time.
+A short algebraic witness and reliable diagnosis are distinct achievements.
+
+\section{Ramsey sensing with an unknown fixed readout offset}
+\label{sec:applications-ramsey}
+
+An effective two-level Ramsey sensor has the model
+\begin{equation}
+ p(+\mid\omega,b,t,\phi)
+ =\frac12+b+\frac C2 e^{-t/T_2^*}\cos(\omega t+\phi).
+ \label{eq:applications-ramsey}
+\end{equation}
+Here $b$ is an unknown offset that remains fixed throughout the experiment.
+The target is the sign of $\omega$, not its local differential sensitivity.
+For an NV implementation, the effective channel, fluorescence contrast,
+preparation, microwave phases, relaxation and detector response require
+independent calibration \cite{physics-degen}.
+
+The finite benchmark uses four equally weighted hypotheses:
+$\omega=\pm\vartheta/\tau$, $b=\pm1/20$, with
+$\cos\vartheta=4/5$, $\sin\vartheta=3/5$, $C=4/5$ and
+$e^{-\tau/T_2^*}=4/5$. The 16 actions choose $t=k\tau$, $k=1,\ldots,4$,
+and phase $\phi\in\{0,\pi/2,\pi,3\pi/2\}$. Each record costs $k+2$ time
+ticks, including overhead. All probabilities are rational. The signal map
+is a valid rotation and dephasing channel; the offset and contrast define
+valid binary effect operators. Conditional on the same fixed $(\omega,b)$,
+fresh preparations are independent. Redrawing $b$ independently every shot
+would define a different experiment.
+
+For unnormalized hypothesis weights $z_h$, the terminal sign-decision loss is
+\begin{equation}
+ L(z)=\min\left\{\sum_{\omega_h<0}z_h,
+                       \sum_{\omega_h>0}z_h\right\}.
+\end{equation}
+With remaining budget $B$, the exact recursion is
+\begin{equation}
+ V(z,B)=\min\left\{L(z),\quad
+   \min_{a:c_a\leq B}\sum_{y\in\{+,-\}}
+       V\big((z_hp_h(y\mid a))_h,B-c_a\big)\right\}.
+ \label{eq:applications-ramsey-bellman}
+\end{equation}
+Positive action costs make the tree finite. This is a Bayes classification
+objective over four fixed candidates; it is not a continuous-nuisance
+minimax or a Fisher-information optimum. A cosine-only probe can have
+positive local Fisher information and remain exactly blind to the global
+alternatives $+\omega$ and $-\omega$.
+
+At maximum budget 12 ticks, the optimal risk is
+$9754517453/61035156250=0.159818013949952$. The best fixed sequence attains
+the same value. Early stopping reduces expected duration in that example,
+but there is no benefit from feedback-dependent probe choice. At budget
+15, the adaptive risk is $0.157898013949952$, whereas exhaustive comparison
+with all 1500 admissible nonadaptive multisets gives $0.159818013949952$.
+The absolute advantage is exactly $6/3125=0.00192$. This comparison matches
+maximum duration, not expected duration or physical heating.
+
+The small exact improvement supplies a reproducible decision-design benchmark.
+Adaptive Ramsey sensing has experimental precedents
+\cite{physics-bonato,physics-delange}. To use this construction on a device,
+replace the hypothetical four-point model with calibrated candidates or
+envelopes, include drift and readout memory if present, and compare protocols
+at the same inference target and complete resource boundary. Refocusing a
+DC signal and same-axis static noise removes both. Ideal sign modulation
+also does not remove white Markov dephasing. Noncommuting operations and
+asymmetric timing are tools for a specified signal model, not universal
+filters for biological noise.
+
+\section[Hidden energy expenditure]{Why complete computation does not imply complete energy inference}
+\label{sec:applications-energy}
+
+A final example supplies a limit that every proposed energy-diagnostic
+application must respect. Let the accessible state $X$ be a two-state chain,
+and let $Z$ be an independent unobserved three-state cycle. Its clockwise
+rate is $1+r$, its counterclockwise rate is one, and $r\geq0$. The hidden
+stationary law is uniform. With a visible control $a$ the joint generator is
+\begin{equation}
+ G_r^a=Q_a\otimes I+I\otimes R_r.
+\end{equation}
+Preparations, controls and detectors act on $X$ alone; the hidden state is
+initially uniform. For $B=I\otimes\mathbf1$, the intertwining identity
+\begin{equation}
+ G_r^aB=BQ_a
+ \label{eq:applications-hidden-energy}
+\end{equation}
+implies $e^{tG_r^a}B=Be^{tQ_a}$. Visible instruments and reset maps obey the
+corresponding identities. Multiplication proves equality of every finite
+accessible record law for all $r$. Conditioning on each history extends the
+equality to causal policies, including noncommuting visible controls. Thus
+even complete optimization over that access cannot learn $r$.
+
+Yet the hidden entropy-production rate is
+\begin{equation}
+ \frac{\dot S_{\rm hidden}}{k_B}=r\log(1+r).
+\end{equation}
+Under an isothermal local-detailed-balance realization, restoring a rate
+scale $\kappa$ gives net fuel power
+$k_BT_b\kappa r\log(1+r)$, unbounded across this family in the absence of a
+fuel or rate bound. Gross supply is at least the net power. All visible
+records are identical while physical expenditure can differ without bound.
+This proves a target-specific nonidentifiability result, rather than a
+failure of an inference algorithm.
+
+Forward/reverse relative entropy of a coarse record can provide a lower
+bound on entropy production under the relevant assumptions
+\cite{physics-roldan}. Exact reconstruction is possible in some more
+restricted settings, including particular observed-edge unicyclic networks
+\cite{physics-vandermeer}. Neither statement makes every coarse detector a
+complete heat meter. Landauer's principle constrains specified erasure
+operations under its thermodynamic premises \cite{physics-landauer}; it does
+not turn a current witness into a route that automatically attains the bound.
+
+The practical route for AI hardware is a targeted diagnostic coupled to
+independently calibrated fuel, power, or heat measurements. A useful claim
+would identify a particular waste mechanism, intervene upon it, and verify
+lower total expenditure at matched computational performance. The access
+framework determines which diagnostic distinctions are possible and what
+additional measurement is necessary. Optimization of the physical hardware
+then needs a causal model of performance and expenditure.
+
+\section{What transfers across the examples}
+
+Chemical channel ambiguity, a quantum reflection symmetry, readout-offset
+uncertainty, and a hidden dissipative cycle are physically different. Their
+common structure is an equivalence of accessible record laws. A successful
+intervention changes that equivalence for the target; a reliable experiment
+also makes the contrast exceed calibration and sampling error.
+
+The examples supply different remedies. Selective chemistry changes a rate
+fingerprint. Bond asymmetry breaks a quantum symmetry. A phase-sensitive
+readout preserves coherent information. Adaptive Ramsey design allocates a
+finite duration among globally useful probes. Independent physical energy
+measurement adds a distinction absent from the computational record. None
+of these remedies follows merely from increasing the complexity of an
+algorithm applied to unchanged evidence.
+
+These are usable model-level application patterns. Deploying any one of them
+requires a declared target and candidate class, calibrated instruments and
+preparations, a checked finite-error decision rule, a matched comparison, and
+an explicit resource boundary. That common contract is the contribution of
+the integrated subject to scientific practice; successful physical transfer
+must be demonstrated separately for each apparatus.

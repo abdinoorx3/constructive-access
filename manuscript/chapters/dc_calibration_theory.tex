@@ -1,0 +1,649 @@
+\chapter[Joint detector calibration]{Joint detector calibration and an entropy certificate}
+\label{ch:dc-calibration}
+
+Finite detector records need not supply a pointwise volatility estimate in
+order to certify dissipation.  Under an explicit structural relation between
+the detector coordinate and its local diffusivity, simultaneous moment bounds
+can instead calibrate the unknown geometric scale and a polynomial entropy
+score.  The construction below accounts for exposure, independent replica
+noise and a calibrated detector gain.  It does not infer the structural
+relation itself from the records.
+
+\section{Physical and acquisition assumptions}
+
+The hidden process is a stationary smooth uniformly elliptic diffusion on a
+smooth compact connected manifold without boundary, with positive smooth
+stationary density $\pi$.  Reversal is ordinary hidden-state reversal.  Write
+$L=S+A$, $L^\dagger=S-A$, $Af=v\cdot\nabla f$, and
+\[
+ \Gamma(f,g)=\nabla f^{\mathsf T}D\nabla g,\qquad
+ e=v^{\mathsf T}D^{-1}v,\qquad \sigma=\mathbb E_\pi e.
+\]
+In this convention $d[f(X)]_t=2\Gamma_f(X_t)\,dt$.  For a smooth real
+coordinate $f$ with $|f|\le1$, assume the pointwise identity
+\begin{equation}
+ \Gamma_f(x)=\gamma\bigl(1-f(x)^2\bigr),\qquad
+ \gamma>0\text{ unknown and constant}.
+ \label{eq:dc-shape}
+\end{equation}
+Hidden dimension and drift are otherwise unrestricted in the stated class.
+An average relation, a stationary marginal or an estimated conditional mean
+of $\Gamma_f$ is not a substitute for~\eqref{eq:dc-shape}.  The generator
+bounds $M_{1,\pm},M_{2,\pm}$ from the finite-resolution chapter are retained:
+\begin{align*}
+ \|Lf\|_\infty&\le M_{1,+},&
+ \|L^\dagger f\|_\infty&\le M_{1,-},\\
+ \|L^2f\|_\infty&\le M_{2,+},&
+ \|(L^\dagger)^2f\|_\infty&\le M_{2,-}.
+\end{align*}
+These are physical calibration assumptions.  Set
+$M_*:=\min(M_{1,+},M_{1,-})$ and
+$M_{2,*}:=\min(M_{2,+},M_{2,-})$.
+
+Each independent stationary trial has nominal centers $-h,0,h$ and a common
+causal uniform exposure
+\begin{equation}
+ A_t=\frac1\tau\int_{t-\tau}^t f(X_s)\,ds,
+ \qquad 0\le\tau\le\tau_U\le h.
+ \label{eq:dc-exposure}
+\end{equation}
+At $\tau=0$, interpret $A_t=f(X_t)$.  Acquire $K=2m+2$ center replicas and
+one endpoint readout at each of $-h,h$.  Conditional on the entire hidden
+path, all detector randomizations in a trial are independent and each
+bounded readout $Z$ has mean $A_t$.  A binary shot with mean $A_t$ is an
+example.  Conditional noise independence does not assert independent hidden
+states.  Unknown gain is treated separately below.  Repeated powers of a
+single noisy readout do not satisfy this replica contract.
+
+\section{An exactly unbiased replica polynomial}
+
+Let $e_k$ be the normalized elementary symmetric polynomial of the $K$
+center readouts: the average of all products indexed by distinct
+$k$-subsets.  Set $e_0=1$.  The replica assumptions imply
+$\mathbb E[e_k\mid X_{\mathbb R}]=A_0^k$.
+For fixed $\lambda\in\mathbb R$, put
+\begin{align}
+ b&=1-\lambda h,&
+ \beta_g&=\frac h4(M_{2,+}+M_{2,-}),\\
+ \beta_K&=\frac h2(M_{1,-}M_{2,+}+M_{1,+}M_{2,-}),&
+ \beta&=2|\lambda|\beta_g+\beta_K.
+ \label{eq:dc-beta}
+\end{align}
+Define the record score
+\begin{equation}
+ T_m=\frac1{h^2}\sum_{j=0}^m
+ \left[-Z_-Z_+e_{2j}
+       +b(Z_-+Z_+)e_{2j+1}-b^2e_{2j+2}\right]
+       -\beta\sum_{j=0}^m e_{2j}.
+ \label{eq:dc-replica-score}
+\end{equation}
+Its expectation is exactly the displayed polynomial in $A_-,A_0,A_+$.
+Write $T_m^{\rm ideal}$ for that polynomial evaluated at
+$Y_t=f(X_t)$ instead.
+
+\begin{proposition}[Ideal polynomial inequality]
+Under~\eqref{eq:dc-shape},
+\begin{equation}
+ \mathbb E T_m^{\rm ideal}\le\gamma\sigma.
+ \label{eq:dc-polynomial-physical}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Set $w_m(y)=\sum_{j=0}^m y^{2j}$ and $q(y)=-\lambda y$.  The uncorrected
+ideal polynomial is
+\[
+ -w_m(Y_0)
+ \left(q(Y_0)-\frac{Y_h-Y_0}{h}\right)
+ \left(q(Y_0)-\frac{Y_{-h}-Y_0}{h}\right).
+\]
+The two-sided semigroup bounds in the finite-resolution chapter control its
+conditional time-step bias by $2|q|\beta_g+\beta_K\le\beta$.  Conditional on
+the complete center state, the corrected expectation is therefore at most
+\[
+ w_m(f)\{2qSf-q^2-(Sf)^2+(Af)^2\}
+ =w_m(f)\{(Af)^2-(q-Sf)^2\}.
+\]
+Since $(Af)^2\le\Gamma_f e$ and
+$w_m(f)\Gamma_f=\gamma(1-f^{2m+2})\le\gamma$, integration proves the claim.
+The argument does not clip individual records or intermediate expectations.
+\end{proof}
+
+\section{A multitime moment bound for exposure}
+
+\begin{lemma}[Bidirectional gap derivative]
+For the stationary ordered moment
+$F(t_1,\ldots,t_d)=\mathbb E\prod_i f(X_{t_i})$, its derivative in gap $j$
+satisfies
+\begin{equation}
+ \left|\partial_{t_{j+1}-t_j}F\right|
+ \le a_{d,j}:=
+ \min\{j^2M_{1,-},(d-j)^2M_{1,+}\},\qquad 1\le j<d.
+ \label{eq:dc-gap}
+\end{equation}
+The assertion includes one-sided limits at coincident times.
+\end{lemma}
+\begin{proof}
+A backward semigroup word $g$ containing $k$ factors $f$ obeys
+$\|g\|_\infty\le1$ and $\|Lg\|_{L^1(\pi)}\le k^2M_{1,+}$.
+For the induction, semigroup application preserves this bound by stationary
+$L^1$ contraction and commutation with $L$.  Multiplication uses
+\begin{gather*}
+ L(fg)=fLg+gLf+2\Gamma(f,g),\\
+ \mathbb E\Gamma_f=-\mathbb E fLf\le M_{1,+},\qquad
+ \mathbb E\Gamma_g=-\mathbb E gLg\le\|Lg\|_1.
+\end{gather*}
+The Cauchy inequality for $\Gamma$ gives the new bound
+$B+M_{1,+}+2\sqrt{BM_{1,+}}$ when the old bound is $B$; if
+$B\le(k-1)^2M_{1,+}$, the result is at most $k^2M_{1,+}$.
+At a gap, the conditional product of preceding factors has absolute value
+at most one.  Differentiating the suffix and integrating its generator in
+$L^1(\pi)$ yields the $(d-j)^2M_{1,+}$ bound.  Applying the same argument
+under stationary time reversal gives $j^2M_{1,-}$.  Smooth compactness
+justifies the generator identities and differentiation.
+\end{proof}
+
+For arbitrary causal exposure supported in $[t_i-\tau,t_i]$, sorted
+displacements from the nominal ordered times lie in $[-\tau,0]$, so each
+gap changes by at most $\tau$.  Consequently a degree-$d$ product changes by
+at most
+\begin{equation}
+ \tau\sum_{j=1}^{d-1}a_{d,j}.
+ \label{eq:dc-support-blur}
+\end{equation}
+Products of exposure averages are integrals over auxiliary exposure times;
+these integration variables do not imply independence of signal values.
+
+Common uniform boxes give explicit sharper constants.  Suppose the nominal
+windows do not overlap and have chronological multiplicities
+$(p_1,\ldots,p_r)$, deleting zero entries, with $d=\sum_i p_i$.  Define
+$B(p_1,\ldots,p_r)$ by summing the following contributions at each global
+prefix $k$.  An internal gap of a cluster with $p$ factors contributes
+\begin{equation}
+ \frac{a_{d,k}}{p+1}.
+ \label{eq:dc-internal-spacing}
+\end{equation}
+A gap between consecutive clusters with $p$ and $q$ factors contributes
+\begin{equation}
+ a_{d,k}\left[1-\frac1{p+1}-\frac1{q+1}
+                  +\frac{2p!q!}{(p+q+1)!}\right].
+ \label{eq:dc-cross-spacing}
+\end{equation}
+The resulting blur radius is $\tau_U B(p_1,\ldots,p_r)$; degrees zero and
+one have radius zero.  To verify the formula, internal uniform order-statistic
+spacings have mean $1/(p+1)$.  A cross-gap displacement divided by $\tau$ is
+$U_{\min,q}-U_{\max,p}$.  Its positive part has expectation
+\[
+ \int_0^1t^p(1-t)^q\,dt=\frac{p!q!}{(p+q+1)!},
+\]
+while the mean of its negative is
+$1-1/(p+1)-1/(q+1)$.  This yields its expected absolute value in
+\eqref{eq:dc-cross-spacing}.  Integrate~\eqref{eq:dc-gap} along the segment
+between the two nonnegative gap vectors and then average.
+
+\section{Calibrating the geometric scale}
+
+Let
+\[
+ C(t)=\mathbb E[Y_0Y_t],\quad D_0=\mathbb E A_0^2,\quad
+ D_h=\mathbb E[A_0A_h],\quad q_0=\mathbb E\Gamma_f.
+\]
+Stationarity implies $C(-t)=C(t)$, $C'(0+)=-q_0$, $q_0\le M_*$ and
+$|C''(t)|\le M_{2,*}$ for $t\ge0$, with a right derivative at zero.  Hence
+\begin{align}
+ 0\le C(0)-D_0&\le\delta_0:=\frac{M_*\tau_U}{3},\\
+ |D_h-C(h)|&\le\delta_h:=\frac{M_{2,*}\tau_U^2}{12}.
+ \label{eq:dc-covariance-blur}
+\end{align}
+The first bound uses $C(t)\le C(0)$, the Lipschitz constant $M_*$ and
+$\mathbb E|U-V|=\tau/3$ for two uniform exposure offsets.  The second uses
+their centered difference, whose variance is $\tau^2/6$, in the Taylor
+remainder; $h\ge\tau$ prevents passage through the covariance cusp.  The
+same bound holds at $2h$.  A more precise identity is
+$D_0=C(0)-q_0\tau/3+R_0$, with $|R_0|\le M_{2,*}\tau^2/12$; the displayed
+bound avoids an unknown $q_0$ in the calibration envelope.
+
+Write $\mathcal D(p_1,\ldots,p_r)$ for either valid general blur radius
+above, optionally replacing a degree-two radius by $\delta_0$ for one window
+and by $\delta_h$ for distinct windows separated by at least $h$.  Define
+\begin{align}
+ \delta_N={}&\frac1{h^2}\sum_{j=0}^m
+ \bigl\{\mathcal D(1,2j,1)
+ +|b|[\mathcal D(1,2j+1)+\mathcal D(2j+1,1)]
+ +b^2\mathcal D(2j+2)\bigr\}\\
+ &\quad+\beta\sum_{j=0}^m\mathcal D(2j).
+ \label{eq:dc-score-blur}
+\end{align}
+Delete zero clusters before evaluation.  The last term accounts for blur of
+the bias-correction moments.  The two cross terms need not have identical
+bounds when the forward and adjoint caps differ.
+
+The following three population quantities now have compatible directions:
+\begin{align}
+ P&=\mathbb ET_m-\delta_N\le\gamma\sigma,\\
+ \overline A&=1-D_0-\delta_0\le A_{\rm true}:=1-C(0),\\
+ \overline H&=\frac{D_0-D_h+\delta_0+\delta_h}{h}
+                     +\frac{M_{2,*}h}{2}
+                 \ge\gamma A_{\rm true}.
+ \label{eq:dc-three-population}
+\end{align}
+The last inequality follows from
+$|C(0)-C(h)-hq_0|\le M_{2,*}h^2/2$ and the exact relation
+$q_0=\gamma(1-C(0))$.  This step uses neither an arcsine marginal nor a
+local-volatility estimate.
+
+\section{A simultaneous finite-record certificate}
+
+\begin{theorem}[Joint geometry and score calibration]
+Assume simultaneous bounds $p\le P$, $a\le\overline A$ and
+$u\ge\overline H$ hold with probability at least $1-\alpha$ for the
+declared acquisition.  Set
+\begin{equation}
+ \widehat L=
+ \begin{cases}
+ [p]_+[a]_+/u,&u>0,\\
+ 0,&u\le0,
+ \end{cases}
+ \label{eq:dc-certificate}
+\end{equation}
+marking the latter case inconclusive.  Then
+$\Pr(\sigma\ge\widehat L)\ge1-\alpha$.  On the same confidence event, if
+$a>0$, then $\gamma\le u/a$.
+\end{theorem}
+\begin{proof}
+If $p,a>0$, then $A_{\rm true}>0$ and
+$u\ge\gamma A_{\rm true}>0$.  Therefore
+$pa/u\le\sigma a/A_{\rm true}\le\sigma$.  Otherwise the displayed lower
+bound is zero.  The geometric upper bound follows from
+$u\ge\gamma A_{\rm true}\ge\gamma a$.
+\end{proof}
+
+One construction covers the means of $T_m$, $e_2$ and
+$(Z_-+Z_+)e_1/2$ simultaneously using the same independent trials.  Their
+population means are respectively $\mathbb ET_m,D_0,D_h$.  Interval
+arithmetic supplies the required lower and upper endpoints.  Unconditional
+bounded-mean concentration for each statistic, followed by a declared union
+bound, remains valid when the statistics share records.  There is no need
+to split data merely because the geometric scale and the entropy score are
+calibrated together.
+
+For $|Z|\le B$, $|e_k|\le B^k$, so valid finite score ranges follow directly.
+Hoeffding or a valid empirical-Bernstein inequality supplies the mean
+intervals.  Numerical endpoints require outward enclosure.  A variance
+estimate cannot be substituted into a theorem requiring a known variance.
+Selecting $m$ or $\lambda$ from the same records is valid only if the
+underlying moment region or a finite-family confidence event covers that
+selection.  Applying an ordinary iid score inequality after an uncovered
+coefficient selection would not establish the theorem's premise.
+
+\section{Unknown detector gain and a physical reference protocol}
+
+Suppose a raw bounded readout $R$ has mean $\kappa A_t$ conditional on the
+hidden path, with unknown common constant $\kappa>0$.  A raw degree-$d$
+product has mean $\kappa^d$ times its exposed moment.  Cover its raw mean and
+project that interval over a simultaneously covered positive gain region;
+this is different from inserting an estimated gain as if exact.
+In the formulas of this gain-calibration section and the raw-contrast
+projection below, $e_k$ denotes the elementary polynomial of the raw center
+readouts $R$, before gain correction.
+
+For example, the complete raw contrast
+\begin{equation}
+ S_j=\frac1{h^2}\left[-R_-R_+e_{2j}
+       +b(R_-+R_+)e_{2j+1}-b^2e_{2j+2}\right]
+ \label{eq:dc-gain-contrast}
+\end{equation}
+has homogeneous degree $2j+2$.  Its mean interval can be divided by
+$\kappa^{2j+2}$ while retaining cancellations within the contrast.  The
+degree-$2j$ bias-correction means are handled separately.  Signed endpoints
+must be minimized or maximized over the gain interval: dividing every
+endpoint by its lower gain is invalid for negative means.  A full joint
+region may preserve the common gain across degrees; rectangular projection
+is conservative.  If the gain region reaches zero, finite inverse bounds
+may be unavailable and the procedure can abstain.
+
+A concrete bounded reference protocol can calibrate both gain and exposure.
+Feed the same detector a known constant signal one, whose mean readout is
+$\kappa$.  Also feed a known step from zero to one at time zero.  If a
+coarse metrological bracket permits a fixed reference time
+$0<s<\tau_{\min}\le\tau$, the step's mean readout is
+\begin{equation}
+ p_{\rm step}=\kappa s/\tau.
+ \label{eq:dc-step}
+\end{equation}
+Simultaneous bounded-mean confidence intervals yield the joint constraints
+\[
+ \kappa\in[\kappa_L,\kappa_U],\qquad
+ p_{\rm step}\in[p_L,p_U],\qquad p_{\rm step}\tau=\kappa s.
+\]
+When $p_L>0$, a conservative exposure interval is
+\begin{equation}
+ \left[\frac{\kappa_Ls}{p_U},\frac{\kappa_Us}{p_L}\right]
+ \label{eq:dc-shutter-region}
+\end{equation}
+intersected with the coarse bracket.  Without the ramp condition the correct
+response is $\kappa\min(1,s/\tau)$, and that relation must be retained.
+An empty region is an inconclusive/model-check flag.  A nonpositive lower
+step mean can leave the exposure upper bound inconclusive.
+
+These references require a known input shape, a known time origin and common
+detector response between reference and target.  They do not validate
+\eqref{eq:dc-shape} or the generator caps.  Cover all raw target and reference
+means with one declared error allocation.  Dependence among statistics from
+the same trials is harmless to a union bound; independence across the trials
+used by each concentration inequality is still required.  Adaptive reference
+design requires its own valid confidence argument.
+
+\section{Retaining covariance before nuisance projection}
+
+Intervals for separate polynomial components can discard useful cancellations.
+A predetermined raw contrast can retain those cancellations before concentration,
+while still allowing an uncertain gain afterward.  Choose a nominal
+$\kappa_0>0$ as a predeclared fixed design constant, or using a pilot
+independent of the inference records, and include in the same covered mean
+vector, all $S_j$, the required $e_{2j}$, the calibration contrast, and
+\begin{equation}
+ R_\ell=\sum_{j=0}^{\ell}\frac{S_j}{\kappa_0^{2j+2}},
+ \qquad 0\le\ell\le m.
+ \label{eq:dc-predetermined-contrast}
+\end{equation}
+Here the $S_j$ include the $h^{-2}$ factor in
+\eqref{eq:dc-gain-contrast}.  A confidence interval for $\mathbb ER_\ell$
+is computed from its actual record variance or range, not by summing the
+individual $S_j$ margins.  This is the established principle of concentrating
+a fixed linear contrast before projecting nuisance uncertainty.
+
+Suppose $\mathbb ES_j\in[L_j,U_j]$ and
+$\mathbb ER_\ell\ge L_{R_\ell}$ on the common confidence event.  For
+$d_j=2j+2$, define
+\[
+ I_j=[\kappa_U^{-d_j}-\kappa_0^{-d_j},
+       \kappa_L^{-d_j}-\kappa_0^{-d_j}],\qquad
+ c_j=\min\{xy:x\in\partial I_j,\ y\in\{L_j,U_j\}\}.
+\]
+The four-corner minimum is valid because a bilinear function on a rectangle
+attains its extrema at corners.  For every gain in the covered interval,
+\begin{equation}
+ \sum_{j=0}^{\ell}\frac{\mathbb ES_j}{\kappa^{2j+2}}
+ =\mathbb ER_\ell+
+   \sum_{j=0}^{\ell}(\kappa^{-d_j}-\kappa_0^{-d_j})\mathbb ES_j
+ \ge L_{R_\ell}+\sum_{j=0}^{\ell}c_j.
+ \label{eq:dc-correlation-projection}
+\end{equation}
+Subtract the covered upper bound on
+$\beta\sum_{j=0}^{\ell}\mathbb E e_{2j}/\kappa^{2j}$ and the appropriate
+$\delta_N$ to obtain a lower bound for $P_\ell$.  The maximum of this bound
+and the componentwise lower bound remains valid on the same event.  All
+prefixes $\ell\le m$ use the same $K=2m+2$ genuine replicas: their elementary
+averages remain unbiased.  Once the common confidence vector covers every
+contrast actually used, choosing the largest certificate across these
+prefixes spends no further error probability.  Adding an uncovered contrast
+after inspecting the data would require additional justification.
+
+\section{An endpoint entropy comparison}
+
+The order-zero raw contrast also provides a comparison that does not require
+the structural identity~\eqref{eq:dc-shape}.  Keep the stationary ordinary
+diffusion and detector assumptions and let $0\le b\le1$.  Suppose the common
+confidence event gives $s$ below the ideal, gain-corrected and blur-corrected
+mean
+\begin{equation}
+ N_0=\frac{2bC(h)-C(2h)-b^2C(0)}{h^2}.
+ \label{eq:dc-endpoint-target}
+\end{equation}
+This endpoint comparison subtracts the raw order-zero blur radius, but not
+the $\beta$ penalty used by the derivative-based entropy score.  Then
+\begin{equation}
+ \sigma\ge\frac{2h^3[s]_+^2}{(2b+\sqrt2)^2}.
+ \label{eq:dc-endpoint-baseline}
+\end{equation}
+This is the earlier reversible-support and entropy-bridge construction,
+expressed in the current covariance normalization.
+
+To check constants, compare $L$ with $S=(L+L^\dagger)/2$ using the same
+stationary density, diffusion tensor and coordinate.  The diffusion
+Girsanov identity gives
+$D(P_L^{[0,t]}\Vert P_S^{[0,t]})=\sigma t/4$.  Pinsker and the bounded
+endpoint product yield
+$|C_L(t)-C_S(t)|\le\sqrt{\sigma t/2}$.  The zero-lag moments agree exactly,
+and reversibility gives
+\[
+ 2bC_S(h)-C_S(2h)-b^2C_S(0)
+   =-\|(e^{hS}-bI)f\|_{L^2(\pi)}^2\le0.
+\]
+It follows that $h^2[N_0]_+\le(2b+\sqrt2)\sqrt{\sigma h/2}$, which proves
+\eqref{eq:dc-endpoint-baseline}.  Exposure errors must be removed before
+using the ideal zero-lag cancellation.  Both entropy bounds can be reported
+on the same simultaneous confidence event.  Their difference then reflects
+different physical inequalities, with detector and calibration access held
+fixed, rather than a comparison against an uncorrected estimator.
+
+\section[Sharp limiting hierarchy]{A sharp limiting hierarchy with unknown scale}
+
+For the stationary circle
+$d\phi=\omega\,dt+\sqrt{2\gamma}\,dW$ and $f=\cos\phi$, one has
+$Sf=-\gamma f$ and $(Af)^2=\omega^2(1-f^2)$.  The zero-step weighted target
+divided by $\gamma$ is exactly
+\begin{equation}
+ J_m(\lambda)=\frac{\omega^2}{\gamma}
+       \bigl(1-\mathbb EY^{2m+2}\bigr)
+ -\frac{(\lambda-\gamma)^2}{\gamma}
+       \mathbb E[w_m(Y)Y^2].
+ \label{eq:dc-hierarchy}
+\end{equation}
+For $\lambda=\gamma$, this increases to the attained compatible-law minimum
+$\sigma=\omega^2/\gamma$, since
+\[
+ \mathbb EY^{2m+2}
+ =\frac{\binom{2m+2}{m+1}}{4^{m+1}}=O(m^{-1/2}).
+\]
+A grid point with $|\lambda-\gamma|\le\eta$ loses at most
+$(m+1)\eta^2/\gamma$.  A deterministic finite grid with simultaneous
+coverage therefore permits choosing the largest certified lower bound
+without knowing $\gamma$.  Independently, $u/a$ converges to $\gamma$ as
+the moment error, exposure error divided by $h$, and $h$ vanish with
+$C(0)<1$.
+
+For clarity, a conservative sufficient sequence makes the statement
+constructive and removes the need for an oracle choice of $\lambda$.  Use
+raw target and reference readouts bounded by one, as in the binary detector
+example.  Fix positive parameter envelopes for the circle and valid resulting generator
+caps.  Suppose a known integer $B\ge0$ obeys
+$\kappa\ge\kappa_{\min}\ge2^{-B}$.  In a fixed time unit, at stage $k$ take
+\begin{equation}
+ \begin{gathered}
+ m=k,\qquad h_k=2^{-k},\qquad \tau_k\le2^{-4k},\\
+ K_k=2k+2,\qquad n_k=n_{{\rm ref},k}=2^{(8B+16)k}.
+ \end{gathered}
+ \label{eq:dc-consistency-schedule}
+\end{equation}
+Use the finite grid $[0,k]\cap2^{-k}\mathbb Z$ for $\lambda$.  References
+use a known coarse shutter bracket shrinking at the stated exposure scale,
+so their upper exposure bound also has that order.  Allocate a fixed total
+error probability over all covered means and grid scores, or a summable
+stagewise allocation.  Eventually the grid contains a point within $2^{-k}$
+of the fixed true $\gamma$.
+
+The raw score ranges are at most a polynomial in $k$ times $2^{2k}$.
+Correcting degree at most $2k+2$ for gain multiplies interval widths by at
+most $2^{2B(k+1)}$.  A bounded-mean radius with the declared sample size is
+therefore at most a polynomial in $k$ times $2^{-(2B+6)k}$; the logarithm
+of the finite-family size is $O(k)$.  Gain uncertainty has the same
+vanishing order up to fixed and polynomial factors, by differentiating
+$\kappa^{-d}$ on the known positive gain interval.  The calibration
+reference count is included in~\eqref{eq:dc-consistency-schedule}.
+
+The generic exposure bound gives
+$O(k^4\tau_k/h_k^2)=O(k^4 2^{-2k})$ for raw-score blur.  The bias-correction
+blur is smaller.  Uniformly over the finite grid, the finite-step penalty
+is $O(k^2 2^{-k})$.  The nearest grid point loses $O(k4^{-k})$ in
+\eqref{eq:dc-hierarchy}, while the gamma upper bound converges to the true
+$\gamma$.  Direct uniform concentration around the covered means now gives
+\begin{equation}
+ \begin{gathered}
+ \max_{\lambda\text{ on the grid}}\widehat L_k
+       \longrightarrow\sigma\quad\text{in probability},\\
+ \sigma-\max\widehat L_k
+       =O_{\mathbb P}(k^{-1/2})
+       =O_{\mathbb P}((\log n_k)^{-1/2}).
+ \end{gathered}
+ \label{eq:dc-consistency}
+\end{equation}
+In the last expression the difference is signed; the stochastic error is
+smaller than the displayed order.  This rate is a conservative sufficient
+rate, not a minimax assertion.  Direct concentration proves convergence
+even at a fixed advertised confidence level; coverage alone would not.
+
+Numerical enclosure error must also vanish after degree and time-step
+amplification.  For example, carrying certified elementary-operation
+enclosures to $k^2+(4B+12)k$ binary digits is ample for the finite algebraic
+construction just described.  This includes refining any logarithm-series
+truncation and square-root enclosure, rather than only rounding a fixed
+approximation to more digits.  An implementation that retains a fixed
+absolute rounding floor remains a valid finite-stage certificate, but its
+unchanged output is not asserted to satisfy~\eqref{eq:dc-consistency}.
+
+This is an existence construction with increasing physical access, not a
+practical acquisition recommendation.  It requires shrinking exposure,
+increasing replica access and reference measurements.  Fixed positive
+exposure is not removed by this finite-difference argument.  Reset and
+reference energies remain separate acquisition costs.
+
+\section{Sharpness with an unobserved stochastic drive}
+
+The sharp hierarchy is not confined to constant angular drift.  Let $Z$ be
+any smooth reversible uniformly elliptic diffusion on a compact connected
+manifold without boundary, with generator $L_Z$ and positive smooth
+stationary density $\pi_Z$.  For a smooth real function $c$ on that manifold,
+consider the joint generator
+\begin{equation}
+ L=\gamma\partial_\phi^2+c(z)\partial_\phi+L_Z,
+ \qquad \phi\in\mathbb S^1,\qquad \gamma>0.
+ \label{eq:dc-modulated-generator}
+\end{equation}
+All coordinates are subject to ordinary, even-variable reversal.  The
+stationary measure is $(d\phi/2\pi)\pi_Z(dz)$: the angular drift is
+divergence-free with respect to the uniform angular measure, and $L_Z$
+preserves $\pi_Z$.  The diffusion tensor is block diagonal with angular
+entry $\gamma$.  Thus
+\begin{equation}
+ S=\gamma\partial_\phi^2+L_Z,\qquad
+ A=c(z)\partial_\phi,\qquad
+ \sigma=\frac{\mathbb E_{\pi_Z}c^2}{\gamma}.
+ \label{eq:dc-modulated-entropy}
+\end{equation}
+
+\begin{proposition}[Sharp minimum under reversible hidden modulation]
+For $f(\phi,z)=\cos\phi$, the full stationary scalar observation law is
+time-reversible.  Nevertheless its minimum compatible entropy over the
+ordinary compact hidden-diffusion class of the observed-geometry theorem is
+exactly $\mathbb E_{\pi_Z}c^2/\gamma$.  The actual joint diffusion attains
+that value.  The finite polynomial hierarchy has the same sharp limit and
+the same ideal formula~\eqref{eq:dc-hierarchy}, with
+$\omega^2$ replaced by $\mathbb E_{\pi_Z}c^2$.
+\end{proposition}
+\begin{proof}
+Direct computation gives
+\[
+ \Gamma_f=\gamma(1-f^2),\qquad Sf=-\gamma f,\qquad
+ Af=-c(z)\sin\phi.
+\]
+At stationarity $Z$ and $\phi$ are independent, and
+$U=(f,\Gamma_f)$ contains only $Y=f$.  The conditional quantities in the
+population observed-geometry theorem therefore satisfy
+\begin{align*}
+ g(Y)&=-\gamma Y,\\
+ K(Y)&=\gamma^2Y^2
+       -\mathbb E_{\pi_Z}c^2\,(1-Y^2).
+\end{align*}
+The integrated conditional bound is
+\[
+ \mathbb E\left[
+ \frac{[g(Y)^2-K(Y)]_+}{\gamma(1-Y^2)}
+       \boldsymbol 1_{\{|Y|<1\}}\right]
+ =\frac{\mathbb E_{\pi_Z}c^2}{\gamma}.
+\]
+The excluded endpoints have zero stationary probability.  This functional is
+fixed by the ideal continuous observation law, so it bounds every compatible
+ordinary hidden diffusion from below.  Equation~\eqref{eq:dc-modulated-entropy}
+provides a realization attaining it.
+
+For reversibility of the observation, the reflection
+$\mathcal R(\phi,z)=(-\phi,z)$ preserves the stationary measure, fixes $f$
+and conjugates $L$ to $L^\dagger$.  Applying this reflection to the reversed
+stationary hidden path thus restores its forward law without changing any
+detector values.  All finite-dimensional distributions of $Y$ agree with
+their time reverses.  Finally, stationarity and independence yield
+\begin{align*}
+ \frac1\gamma\mathbb E\left[
+ w_m(Y)\{(Af)^2-(-\lambda Y-Sf)^2\}\right]
+ &={}\frac{\mathbb E c^2}{\gamma}
+       (1-\mathbb EY^{2m+2})\\
+ &\quad-\frac{(\lambda-\gamma)^2}{\gamma}
+       \mathbb E[w_m(Y)Y^2],
+\end{align*}
+which proves the hierarchy assertion.
+\end{proof}
+
+The same sufficient acquisition and precision schedule applies under valid
+uniform generator and positive-gain envelopes: the stationary arcsine
+marginal and ideal hierarchy formula are unchanged, while the finite-lag
+and exposure bounds already hold for the general hidden class.
+
+The generator calibration can also be written explicitly.  Let
+$C=\|c\|_\infty$ and $G=\|L_Zc\|_\infty$.  Then
+\begin{align}
+ Lf&=-\gamma\cos\phi-c\sin\phi,\\
+ L^2f&=(\gamma^2-c^2)\cos\phi
+                  +(2\gamma c-L_Zc)\sin\phi.
+ \label{eq:dc-modulated-caps}
+\end{align}
+The adjoint formulas reverse the sine terms.  Both first-order norms equal
+$\sqrt{\gamma^2+C^2}$, and both second-order norms equal
+\[
+ \sup_z\sqrt{(\gamma^2-c(z)^2)^2+
+                       (2\gamma c(z)-L_Zc(z))^2}.
+\]
+The simple choices $M_{1,\pm}=\gamma+C$ and
+$M_{2,\pm}=(\gamma+C)^2+G$ consequently suffice.  For unknown parameters,
+calibrated upper envelopes for these expressions are required, just as in
+the main finite certificate; the records do not automatically certify them.
+
+For an explicit zero-mean example take a second angle $z$,
+$L_Z=\eta\partial_z^2$ with $\eta>0$, and $c(z)=\varepsilon\cos z$.
+Then
+\begin{equation}
+ \begin{gathered}
+ \mathbb E c=0,\qquad
+ \sigma=\frac{\varepsilon^2}{2\gamma},\qquad
+ M_{1,\pm}=\sqrt{\gamma^2+\varepsilon^2},\\
+ M_{2,\pm}=\sqrt{(\gamma^2-\varepsilon^2)^2
+                            +(2\gamma+\eta)^2\varepsilon^2}.
+ \end{gathered}
+ \label{eq:dc-zero-mean-drive}
+\end{equation}
+The last identity follows by maximizing the squared norm over
+$c^2\in[0,\varepsilon^2]$; its derivative in $c^2$ is positive.  Mean angular
+current vanishes, but nonzero conditional angular currents remain and the
+ordinary-reversal entropy minimum is positive when $\varepsilon\ne0$.
+This is an analytically verified family, not an additional simulation or
+physical experiment.  Interpreting a hidden coordinate as odd under
+physical reversal changes the admissible class and can change the entropy
+target; that interpretation is not included here.
+
+\section{Scope and failure modes}
+
+The theorem calibrates a scale in a declared pointwise geometry.  It does not
+learn arbitrary hidden diffusivity or global generator suprema from a finite
+record.  Rare-state countermodels obstruct that stronger inference.  A
+false structural identity, correlated detector randomization, an altered
+reference response, nonstationary target records or uncharged trial
+dependence invalidates the certificate.  A single noisy center value cannot
+replace the distinct replicas.
+
+Replica inference, confidence-region inversion and the semigroup and
+Dirichlet identities used here are established tools.  The result assembled
+here is their explicit finite-sample propagation into this entropy
+functional and its polynomial limiting hierarchy.  The record count,
+replica channels, references, exposure and evolution time are acquisition
+resources.  Total energy requires a separate calibrated sensor and preparation
+model; it is not inferred from the sample count.

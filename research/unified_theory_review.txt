@@ -1,0 +1,199 @@
+UNIFIED THEORY: CROSS-CHAPTER CONSISTENCY AUDIT
+
+Reviewer: /root/unified_foundations
+Review type: internal mathematical and interface review, not external peer review.
+This agent authored foundations.tex and finite_access.tex; those two chapters
+receive a self-consistency check here and have a separate internal redteam
+review. The other eight substantive chapters were reviewed independently of
+their authoring in this pass.
+
+FINAL STATUS
+Accepted for the stated mathematical/model scope at the source hashes below.
+No unresolved mathematical inconsistency was found after the author corrections
+listed here. This is not empirical validation, historical-priority confirmation,
+a proof of universal efficient solvability, or a guarantee against every error.
+
+METHOD
+Read all ten substantive chapter sources and the main reference's introductory
+material and notation. Trace assumptions from abstract law identifiability to
+finite instruments, precision, conditional adequacy, physical resource bounds,
+continuous dynamics, applications, suite construction, and toolkit promises.
+Check theorem proofs and counterexamples, especially whether a later chapter
+silently weakens an earlier premise. Check symbolic conventions locally rather
+than requiring a single letter to have one meaning across all mathematical
+subjects. Automated label/reference scan found no duplicated labels and no
+unresolved cross-references in the ten chapters plus reference.tex.
+
+CORRECTIONS REQUESTED AND VERIFIED IN THE SOURCE
+1. precision_design.tex: the multiplicative classical TV coupling bound now
+   explicitly requires all radii in [0,1], with truncation of looser bounds.
+   This is necessary: two nominally valid loose radii of 2 otherwise make the
+   displayed product bound incorrectly equal zero.
+2. precision_design.tex: the Bellman theorem explicitly uses finite classical
+   instruments with nonnegative kernels and action normalization. Its row mass
+   x_j 1 convention cannot silently be used for arbitrary signed quantum bases.
+3. continuous_thermodynamics.tex: the singleton-reversal proof handles the
+   one-state chain separately before dividing by its exit rate.
+4. continuous_thermodynamics.tex: the local triangle expansion and associated
+   information order explicitly use joint (F,eta)->(0,0), not merely F*eta->0.
+5. continuous_thermodynamics.tex: the current estimator and confidence radius
+   require positive gate Dirichlet form before division by it.
+6. workflow.tex: after assigning pairs, experiments assigned no pair are
+   discarded before taking the minimum defining their sampling radius. A
+   family with one shared target explicitly requires no acquisition.
+7. workflow.tex: the suite, events, nominal laws and radii are fixed before
+   classification. Calibration-derived random inputs require iid records
+   conditional on pre-acquisition calibration information and bounds on those
+   conditional laws. This supplies the required unconditional intersection
+   guarantee, rather than assuming arbitrary conditioning preserves Hoeffding.
+
+CHAPTER-BY-CHAPTER FINDINGS
+entry.tex -- accepted.
+The two-state drive/read example matches the finite-instrument conventions.
+A drive alone has deterministic output, a read alone is initially symmetric,
+and drive/read has action charge 3 with overhead 1. Twelve records yield the
+stated sufficient affinity bound 0.5*(3/4)^6 < 0.1. Counted operations are not
+called joules. Four outputs (obstruction, witness, precision, resource) remain
+distinct throughout the later chapters.
+
+foundations.tex -- accepted, self-consistency check.
+Target factorization is set-theoretic, not an implied measurable or efficient
+inverse. Simulation kernels are candidate independent. Resource ordering is
+conditioned on matched resource accounting. The real-target radius is local to
+the declared compatible set. The finite target-suite theorem needs a finite
+candidate family and permitted fresh preparations under the same fixed model.
+Its existence conclusion is correctly strengthened only later by sampling
+assumptions and explicit probability bounds.
+
+finite_access.tex -- accepted, self-consistency check.
+Chronological words, backward effect propagation and classical row states are
+consistent. Quantum density-operator composition is explicitly translated to
+that representation without imposing classical positivity. The d-1 bound is
+in supplied representation dimension. The grammar is an action-only masking
+construction. Nonnegative additive action charges and lexicographic length are
+retained in the cost search and certificate. The positive-threshold
+undecidability result retains its one-readout/no-reset grammar and does not
+contradict amplification using independently reset records in later chapters.
+
+precision_design.tex -- accepted after corrections 1 and 2.
+The two-point lower bound uses a uniform pairwise bound before taking suprema;
+no invalid minimax exchange occurs. The row-space criterion has both law
+factorization and access sufficiency. The LP minimax equality is global over
+the full positive orthant and full Cartesian error box, whereas the earlier
+compatible-set radius is data local. Fixed nuisance values remain fixed across
+records. The robust score and affinity bounds have different error objectives.
+The conditional bounded-score extension is justified by the conditional MGF
+argument, and full hidden-state/instrument calibration is required. Bellman
+risk is classical, finite horizon, positive prior, prescribed target loss and
+budget; it is not an optimality claim for the cheapest exact witness.
+
+adequacy_energy.tex -- accepted.
+The true candidate's prediction bounds are full-history conditional bounds,
+not marginal forecasts. The union-null target guarantee protects one fixed
+valid candidate and hence needs no candidate-count correction; simultaneous
+protection of all valid candidates is correctly distinguished. Stopping wealth
+before the first predictable invalid envelope establishes the intersection
+bound on a joint calibration event without invalid conditioning. The energy
+tail uses the actual counting process and a bounded stopping time. Resource
+contract failure is treated by a joint-event argument and is not assumed
+predictable. Gross expenditure, net dissipation, expected expenditure and a
+high-probability cap remain separate. The handoff theorem preserves these
+premises and adds a joint calibration failure only once.
+
+continuous_thermodynamics.tex -- accepted after corrections 3--5.
+The graph affinity quotient has dimension m-c+1 under connected total support
+and a bulk-balancing reference. Its source statement is not an observation
+sufficiency statement. Survival selection and nonstationary preparation are
+separate from steady entropy production. Rational uniformization supplies an
+error-bounded stochastic approximation but never certifies exact continuous
+model equality from approximate equality. Singleton renewal blindness is
+restricted to a singleton detector. The four-state aggregate counterexample
+prevents extrapolation to arbitrary binary observations. The switch identity
+uses common stationarity and a separately balanced added channel. The gate
+coefficient is sufficient in general and the converse is restricted to the
+triangle. Its remainder/CI uses positive Dirichlet form and independent
+preparations. The drive KL/energy identity is explicitly tied to the triangle's
+channel-resolved physical realization, not used as a universal energy law.
+
+applications.tex -- accepted.
+Chemical decomposition ambiguity persists even with complete occupancy paths
+when the full generators agree; this is correctly distinguished from a
+sensor-hidden difference between generators exposed by a balanced gate.
+Selective intervention changes stationarity and the perturbed current, and
+native-current reconstruction uses the calibrated response model. Net current,
+unidirectional throughput and molar flux remain separate. The XX chain's
+population blindness and stronger sign symmetry use their stated instrument
+classes and preparation. Ancilla extensions preserve the center-only symmetry;
+spatial bond asymmetry changes access. Reservoir bias is not conflated with a
+processor's coherent error. The coherent/stochastic diagnostic is a specified
+small dictionary, and the short-witness/sample-complexity distinction is
+reinforced by the replacer-channel lower bound. Ramsey design has a fixed
+nuisance and compares Bayes sign risk at matched maximum duration; it is not
+presented as global Fisher or energy optimality. Hidden independent dissipation
+correctly rules out an unrestricted total-energy inference from visible laws.
+The detailed historical coefficient computations were not all reexecuted in
+this audit; the source derivations and their interfaces were reviewed.
+
+workflow.tex -- accepted after corrections 6 and 7.
+The common compatible-target output faithfully extends the abstract quotient
+and calibrated intervals. Coverage/resource composition is a union bound on
+unconditional intersections with G and adds its failure once. Suite selection
+is finite set cover over positive robust gaps, not a global experimental
+minimum or a total acquisition-energy optimum. Its sample count uses
+exp(1)>2 to upper-bound Hoeffding rationally. Pairwise assigned event intervals
+cannot retain two different targets because the robust gap exceeds 2r_e.
+The target theorem is conditional on an included fixed true candidate, finite
+menu, predeclared events, valid law envelopes and iid records; all-rejected
+abstention does not validate an omitted alternative.
+
+toolkit.tex -- accepted as a mathematical-interface statement.
+The two-model rational classical JSON scope is distinguished from the broader
+advanced APIs and finite-family suite workflow. Exact access certificates,
+finite-error reports, calibration gap failure, non-iid declarations and
+transcript limits receive different outputs. The calibrated two-model example
+uses conditional iid data under pre-acquisition calibration information, in
+agreement with the corrected suite theorem. The source explicitly does not
+infer physical calibration or energy from a matrix/contract digest. This pass
+does not substitute for the separate software implementation and forgery tests.
+
+research_map.tex -- accepted.
+Established automata, predictive representations, classical/quantum linear
+models, decision theory, thermodynamic inference and adaptive sensing are
+credited. Proposed integration and specific physical coefficients are not
+called a newly validated physical law or externally accepted discipline.
+Earlier detector classifications and information-order comparisons are
+identified as research lineage, with detailed inherited calculations retained
+in the provenance archive. External specialist review, physical calibration,
+matched comparisons and independent replication remain distinct milestones.
+
+NOTATION AND SCOPE
+Rows are used for classical state laws; the XX effect-space display explicitly
+uses columns for images, so its C^T stationary-expectation equation is
+consistent. varpi denotes the primary stationary distribution; locally defined
+rho, Pi, and nu serve preparations or joint/controller stationary laws.
+alpha/beta are reused for algebraic vectors and statistical error allocations,
+with explicit local definitions. Sigma as finite alphabet versus entropy
+notation is likewise local. No unresolved convention mismatch was found.
+The finite sampling, calibration and energy results do not assume that
+equivalence of observed laws fixes omitted physical channels or mechanisms.
+
+REMAINING LIMITS OF THIS REVIEW
+No external peer review or laboratory validation is supplied. This review is
+not an independent full rerun of every historical symbolic/numerical result,
+a line-by-line code audit of every module, or a guarantee of novelty. New source
+changes require renewed review or explicit review of the change.
+
+SOURCE HASHES (SHA-256; exact reviewed versions)
+
+Recorded UTC: 2026-10-12T16:02:31.058025+00:00
+manuscript/reference.tex  dcc2431f1aa452ff0464db3dd85fb0306b8adbe6679fcbde29255d570b5b8651
+manuscript/chapters/entry.tex  ded75f97bdca214e93b4dc944b4aaa3ff4c65147228689c33b2c95b44de5e331
+manuscript/chapters/foundations.tex  24fb1d5944c6433023c09c18230d345daa299084d7b5239b0f7cae97e09ae2de
+manuscript/chapters/finite_access.tex  39e4290f070f7ff8e5c7a6b1c3120ce75d49c6f3ef2618c0b726824f60c82913
+manuscript/chapters/precision_design.tex  1c65d0b9e78782c52800510874d52f6b6790302884179722679f08b817447973
+manuscript/chapters/adequacy_energy.tex  0448bc1a8e9d6eddf3f82b72c7d255b53eec6dab26bc5415ad5e2160f64d8959
+manuscript/chapters/continuous_thermodynamics.tex  9e1940d863689f72a95e0b37e78aae6d8ef200b9503c618cc645976192166bf6
+manuscript/chapters/applications.tex  60e1cd50b21d219b745bd83fd447a1099adedab4b4c8e044050c3d057ba2fbc8
+manuscript/chapters/workflow.tex  ec944916a430dd9cc25c9e5f1be93c94410e865de52104c614e14864439ef2c3
+manuscript/chapters/toolkit.tex  72abcfe98ae3ffd2523e811b3f2d07333d1470b325bbc71d76e661cb8ef4e848
+manuscript/chapters/research_map.tex  b55b04b67c1364a39f2e8606645295fcca4584a38fa41aea9ff137f30f7d166e

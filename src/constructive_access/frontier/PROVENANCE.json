@@ -1,0 +1,37 @@
+[
+  {
+    "original_file": "frontier/code/energy_certificate.py",
+    "original_sha256": "29cd44376ae4f99a664dfda151640ce423416cffd79703544bffda22522caed7",
+    "packaged_file": "src/constructive_access/frontier/energy_certificate.py",
+    "packaged_sha256": "29cd44376ae4f99a664dfda151640ce423416cffd79703544bffda22522caed7",
+    "changes": []
+  },
+  {
+    "original_file": "frontier/code/hierarchy.py",
+    "original_sha256": "2c5b56299567e159a6cc5b1ec0916fe3d532970fbfbf6e0f11d576af80551af7",
+    "packaged_file": "src/constructive_access/frontier/hierarchy.py",
+    "packaged_sha256": "2c5b56299567e159a6cc5b1ec0916fe3d532970fbfbf6e0f11d576af80551af7",
+    "changes": []
+  },
+  {
+    "original_file": "frontier/code/limits.py",
+    "original_sha256": "07f2f12f6a39738d4633edf5183743657450541deef23c4c8a982709513c2b0e",
+    "packaged_file": "src/constructive_access/frontier/limits.py",
+    "packaged_sha256": "07f2f12f6a39738d4633edf5183743657450541deef23c4c8a982709513c2b0e",
+    "changes": []
+  },
+  {
+    "original_file": "frontier/code/spectral.py",
+    "original_sha256": "e9bebe0ef132d1a31c6851fa4040c0e3f54878f4c138143457b6407719e94b1a",
+    "packaged_file": "src/constructive_access/frontier/spectral.py",
+    "packaged_sha256": "e9bebe0ef132d1a31c6851fa4040c0e3f54878f4c138143457b6407719e94b1a",
+    "changes": []
+  },
+  {
+    "original_file": "frontier/code/thermodynamic.py",
+    "original_sha256": "58a107bae69f4a9609299f4fa22d257af57dadde3d6135c3b4c85ec107fa0bb5",
+    "packaged_file": "src/constructive_access/frontier/thermodynamic.py",
+    "packaged_sha256": "58a107bae69f4a9609299f4fa22d257af57dadde3d6135c3b4c85ec107fa0bb5",
+    "changes": []
+  }
+]

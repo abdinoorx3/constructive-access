@@ -1,0 +1,74 @@
+PUBLIC EXPERIMENTAL DATA AUDIT
+Audit date: 2026-10-12. Read-only public access; no external contacts.
+
+1. Downloaded, immutable experimental records
+Repository DOI 10.5281/zenodo.6680673, CC-BY-4.0.
+Paper DOI 10.1016/j.isci.2022.104731, Bryan IV, Basak, Bechhoefer, Presse.
+Raw files: data/source_audit/harmwell_n1.h5,
+harmwell_n1_groundtruth.h5, harmwell_n2.h5. Original bytes are chmod 444;
+SHA-256 pins and publisher MD5 checks appear in download_manifest.json.
+Repository metadata explicitly distinguishes these experiments from files
+prefixed simulated_. Reference files labelled groundtruth hold simultaneously
+measured, lower-noise positions for experimental data, not exact latent states.
+
+The published paper describes passive optical harmonic confinement without
+feedback; feedback modifies the potential for other records, including double
+wells. Both detector channels measure the same particle. This source statement
+supports a passive negative-control lead; it does not independently establish
+a calibrated, memoryless detector or exact equilibrium of the full apparatus.
+
+Schema: detector files contain data[49999], scalar dt=10000, scalar kT=4.14.
+The reference contains x_data[49999] and serialized potential/force functions.
+Those functions are not measured force arrays. Never evaluate their strings.
+The authors' source potential_learner.py specifies dt in ns; figures.py line294
+converts by 1e6 ns per ms. Thus nominal spacing is 10 microseconds and nominal
+first-to-last duration .49998 seconds. There are no individual timestamps and
+no supplied uniform timing-error bound. Position units are nm in source code.
+
+Reproduction:
+  PYTHONPATH=/tmp/calibrated_inference_deps python code/empirical_loader.py
+The temporary dependency target contains h5py; portable use requires installing
+h5py and numpy. Loader imports no third-party source scripts and performs no
+network access. It reads numerical arrays only after hash verification.
+Default output results/data_audit.json is deterministic and has no absolute
+paths or execution timestamps. It reports means, standard deviations, lag-one
+correlations, contiguous-block means and paired detector differences.
+
+Inference status: DESCRIPTIVE EMPIRICAL AUDIT; ABSTAIN on entropy certificate.
+Missing validated ingredients: stationary initialization or a correction;
+hidden-process mixing/contraction; detector conditional independence, memory
+and uniform calibration; clock jitter; justified Markov state and time-reversal
+parity. Empirical detector autocorrelation does not bound hidden mixing.
+Block means neither prove nor disprove exact stationarity. Paired detector
+differences are not error against latent truth. Particle-bath inference would
+not quantify unmeasured laser, controller or detector energy.
+
+2. Preferred positive-control lead, raw data not retrieved
+Dryad DOI10.5061/dryad.h44j0zpsw, variance-sum-rule experiment. Metadata and
+source papers were downloaded. SwitchingTrap.zip advertises 285389783 bytes,
+SHA256 e63a021d4b6cbf3e362d5ed06e4f7502fa7c8628741aabe1c77cdd402a11d541.
+The public file-stream URL returns403; official API download returns401.
+Do not claim an empirical analysis of these records. API metadata lists three
+columns: time(s), position(nm), force(pN). Actual timestamp distribution and
+archive schema remain unverified. Details are in data/source_audit/access_attempts.json.
+
+Source manuscript arXiv2302.08565 includes supplementary apparatus description:
+3-micrometer beads; force readout by linear-momentum conservation; a switched
+trap controlled through actuators; acquisition bandwidth stated100kHz. This is
+not proof that the archived timestamp spacing equals10microseconds. Companion
+analysis notebook from Zenodo10472505 (MIT) was downloaded but not executed.
+The overdamped switching model uses a two-state external controller; entropy
+of the bead bath and expenditure of that controller are distinct quantities.
+Paper-assumed parameters are not independent confidence bounds on calibration.
+
+3. Scope and next physical step
+The retrieved harmonic trajectories can exercise an empirical workflow and
+serve as a passive comparison. A positive quantitative physical certificate
+requires an adequate declared contract and preferably source-supported
+nonequilibrium data. No synthetic data were relabelled as experiment. No source
+PDF, metadata, or notebook substitutes for the missing Dryad raw archive.
+
+Provenance sources saved locally: zenodo_feedbacktrap.json,
+feedbacktrap_fulltext.xml, feedbacktrap_preprint.pdf, feedbacktrap_figures.py,
+feedbacktrap_potential_learner.py; Dryad metadata; VSR PDFs and notebook.
+All originals remain unchanged. Generated manifests and results are separate.

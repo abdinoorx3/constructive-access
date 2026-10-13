@@ -1,0 +1,181 @@
+\chapter{A frozen simulation at matched acquisition resources}
+\label{ch:og-experiment}
+
+The population result closes a physical realization problem with ideal path
+access. The finite-resolution theorem must instead tolerate nonzero sampling
+intervals, finite records and conservative calibration. This experiment tests
+that second claim against the preceding edition's endpoint certificate using
+exactly the same triples. It also exhibits a regime where the new certificate
+loses. All records here are simulated; no apparatus has been validated.
+
+\section{A predeclared design}
+The model is the stationary circle
+\begin{equation}
+ d\phi_t=\omega\,dt+\sqrt{2}\,dB_t\pmod {2\pi},\qquad
+ Y_t=\cos\phi_t,
+\end{equation}
+with uniform initial phase. Its physical entropy-production rate under ordinary
+reversal is $\sigma=\omega^2$. Three cases are generated: $\omega=3$, $1$ and
+$0$. Inference receives the same bounds in every case:
+\begin{equation}
+ |\omega|\le3,\qquad M_{1,+}=M_{1,-}=19/6,\qquad
+ M_{2,+}=M_{2,-}=10,\qquad \Gamma_f\le1.
+\end{equation}
+These are valid since $\|L^{\pm}f\|_\infty=\sqrt{1+\omega^2}$ and
+$\|(L^{\pm})^2f\|_\infty=1+\omega^2$. The inference routine does not receive
+the actual frequency. The circle supplies exact transition sampling in
+principle; the implemented normal, trigonometric and random-number routines are
+numerical approximations to it.
+
+Each of 400 independent datasets per case contains $n=200000$ independent
+stationary triples at $-h,0,h$, with $h=1/25$. Conditional on a uniform central
+phase, the past and future phases have independent normal increments with
+means $-\omega h$ and $\omega h$ and variance $2h$. This has the same stationary
+law as a chronological record at $0,h,2h$.
+
+The design followed preliminary simulations at $h=.035$ and $.05$, $n=200000$
+and $\omega=3$. Those pilot records and their seed are disclosed in the frozen
+contract and excluded from this bank. The new master seed is
+\texttt{202610130731}; scenario and replicate indices define separate
+\texttt{SeedSequence} inputs. The contract and source hashes were written
+before generation of any bank records. No bank result changes the timing,
+quota, generator bounds, rules, primary method or confidence allocation.
+
+\section{Numerical rounding preserves the geometry contract}
+Set $d=2^{20}$ and store $z_j=j_j/d$ for each rounded reading. Assume the original
+smooth detector value differs from its stored approximation by at most
+$\delta=d^{-1}$. Nearest-grid rounding uses only half that allowance; the rest
+covers numerical evaluation under the stated simulator contract. The frozen
+central rule is
+\begin{equation}
+ r=\mathbf 1_{5|j_0|\le4d},\qquad q=-z_0,\qquad
+ a=1-\max\{|z_0|-\delta,0\}^2.
+ \label{eq:og-experiment-rule}
+\end{equation}
+This is a deterministic function of the instantaneous underlying state.
+It does not treat a noisy central observation as that state. The error premise
+implies $1-Y_0^2\le a$, so the envelope holds pointwise. On retained centers,
+$|q|\le4/5$ and $a\ge9/25$. This small inflation is needed: simply substituting
+$1-z_0^2$ could underestimate the true local diffusivity.
+
+With $u_\pm=25j_\pm-24j_0$, the corrected score evaluated on the rounded readings
+is the exact rational number
+\begin{equation}
+ \widetilde W^{\rm pre}_h=
+ \frac{-15u_+u_- -6|j_0|d-19d^2}
+ {15\{d^2-\max(|j_0|-1,0)^2\}}
+ \label{eq:og-integer-score}
+\end{equation}
+on retained centers, and zero otherwise. It is floored to a multiple of
+$1/256$. Integer division with quotient and remainder avoids multiplication
+overflow. No floating score evaluation enters the certified aggregate.
+The uniform error allowance relative to the ideal smooth-reading score is
+\begin{equation}
+ \delta_W=\frac{4(2/h+4/5)\delta}{h(9/25)}+\frac1{256}
+ \simeq0.017364.
+\end{equation}
+The first term follows by telescoping the two score factors while keeping
+$r,q,a$ fixed. The concentration calculation expands the score range by this
+allowance and subtracts it from the final lower bound. It does not assume that
+rounding is unbiased. Excluded centers still count toward the quota and cost.
+
+The primary method uses the finite-resolution empirical-Bernstein certificate
+with $\alpha=1/20$. We retain the corresponding Hoeffding result as a
+predeclared comparison, including its failures. Exact integer totals and sums
+of squares determine all confidence calculations. Sums of squares are formed
+in safe integer chunks when their total exceeds the 64-bit range.
+
+\section{The same-record endpoint comparison}
+The baseline fixes $s=1-h=24/25$ before observing bank records and uses
+\begin{equation}
+ T=-(Y_h-sY_0)(Y_{-h}-sY_0),\qquad
+ \mathbb E[T]=\Delta_s=-s^2C(0)+2sC(h)-C(2h).
+\end{equation}
+Its deterministic range is $[-(1+s)^2,1]$. The same empirical-Bernstein theorem,
+same $\alpha$ and same triples give a covered lower bound on $\Delta_s$.
+The preceding edition's nonlinear bridge then returns
+\begin{equation}
+ \sigma\ge\frac{\Phi([\Delta_{s,\rm lower}]_+)}{h},\qquad
+ \Phi(u)=2\sqrt u\,\operatorname{atanh}\sqrt u.
+\end{equation}
+The bridge is evaluated by the existing exact rational implementation. The
+endpoint score is floored at denominator $2^{24}$, with a separate allowance
+$2(1+s)^2\delta+2^{-24}$. This finer grid prevents numerical rounding from
+unnecessarily obscuring the smaller endpoint defect. It is exact integer
+arithmetic because
+$\lfloor 2^{24}T(z)\rfloor=\lfloor-u_+u_-/(625\,2^{16})\rfloor$.
+
+The two methods use identical acquired data. The new method additionally
+uses calibrated local geometry and generator derivative bounds. Their
+acquisition cost is not included in the raw reading count; this is a test of
+the value of that additional physical information, not a claim of universal
+statistical dominance at an identical prior-information budget.
+
+\section{Results and the informative failure}
+Table~\ref{tab:og-frozen} reports all cases. Values are mean lower certificates,
+not estimates of the actual dissipation. Positive counts are out of 400
+independent datasets.
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrrrr}
+\hline
+Case & True $\sigma$ & Weighted mean & Positive & Endpoint mean & Positive\\
+\hline
+Driven & 9 & 2.982329 & 400 & 0.303964 & 400\\
+Weakly driven & 1 & 0 & 0 & 0.011963 & 396\\
+Equilibrium & 0 & 0 & 0 & 0 & 0\\
+\hline
+\end{tabular}
+\caption{The frozen same-triple benchmark. Each column uses its own predeclared
+95\% lower certificate; taking their maximum is not automatically covered.}
+\label{tab:og-frozen}
+\end{table}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/observed_geometry.pdf}
+\caption{The new calibration improves the strong-drive lower bound, while its
+finite-time correction prevents a positive certificate for weaker driving.
+The two methods use identical synthetic triples.}
+\label{fig:og-comparison}
+\end{figure}
+
+In the driven case, the geometry certificate has a mean lower bound
+$9.811$ times the endpoint mean, certifying on average $33.14\%$ of the actual
+rate. The endpoint method certifies $3.38\%$. Neither method overestimates the
+known rate in this bank. The Hoeffding geometry certificate is zero in all
+1200 datasets: its broad worst-case score range incurs a sampling penalty of
+about $24.38$, far larger than the driven score mean. The predeclared
+empirical-variance inequality makes the finite-resolution result useful here.
+
+The weakly driven case is an essential limitation. Keeping the same frequency
+cap and generator bounds incurs a bias penalty too large for the geometry
+certificate, while the endpoint method remains informative in 396 datasets.
+A method that resolves the ideal path-law minimum therefore need not dominate
+at a finite sampling interval with coarse derivative calibration. We do not
+replace the common bounds with values computed from the hidden true frequency.
+No equilibrium false positive occurs in this bank. These empirical counts
+check implementation behavior; mathematical coverage still rests on the
+physical and probabilistic assumptions, not on seeing zero violations.
+
+\section{Resources, reproducibility and application limits}
+Each dataset costs 600000 scalar readings, 200000 independent stationary
+preparations and $2hn=16000$ units of modeled evolution time for either method.
+The complete bank comprises 240 million triples. Preparation and reset time,
+clock accuracy, exposure, calibration effort, detector energy and heat are
+unmeasured. Equal modeled evolution time is not a claim of equal total
+laboratory time or energy.
+
+The release retains all 1200 exact aggregate records, their seeds, the frozen
+contract and a full raw triple exemplar for each case. The NPZ archive uses
+fixed entry timestamps. Producer checks verify score flooring against rational
+arithmetic, pointwise-envelope inflation, uniform rounding penalties, integer
+overflow handling, source bindings, aggregate consistency and seed replay.
+The independent review rederives the formulas and audits the bank separately.
+
+The practical output is a covered finite-data route to exploit an independently
+justified diffusion-geometry envelope. It has not yet been validated for a noisy
+laboratory sensor, dependent overlapping records, an uncertain physical clock,
+or generator bounds learned from the same data. Those are additional access
+and calibration problems, rather than implementation details that can be
+assigned zero cost.

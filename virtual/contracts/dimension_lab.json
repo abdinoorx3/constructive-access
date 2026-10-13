@@ -1,0 +1,452 @@
+{
+  "alpha": "1/20",
+  "classical_library": {
+    "dimensions": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "models_per_dimension": 100,
+    "selected_per_dimension": 3,
+    "selection": "largest exact binomial pass probability under old or pilot-selected plan"
+  },
+  "grid_size": 7,
+  "interval_coverage": 0.95,
+  "monte_carlo_repetitions": 20000,
+  "old_antichain_threshold": "2/25",
+  "old_critical_counts": [
+    313,
+    22,
+    22,
+    22,
+    22,
+    297,
+    48,
+    297,
+    22,
+    22,
+    22,
+    22,
+    282
+  ],
+  "old_diagonal_probability_boundary": "3/500",
+  "old_offdiagonal_probability_boundary": "3/20",
+  "outside_contract_controls": [
+    "setting-dependent detector response on one frozen classical state",
+    "quasi-static whole-run amplitude and clock error compared with IID step error"
+  ],
+  "physical_simulator": "Bloch generator expm, crossed with full vectorized Lindblad; IID four-point per-step amplitude/timing channel mixture",
+  "pilot": {
+    "beta_rounding_denominator": 10000,
+    "criterion": "maximum estimated joint pass probability at unchanged production counts, exact geometric-binomial calibrated individual alpha",
+    "epsilon_candidates": [
+      "50/10000",
+      "51/10000",
+      "52/10000",
+      "53/10000",
+      "54/10000",
+      "55/10000",
+      "56/10000",
+      "57/10000",
+      "58/10000",
+      "59/10000",
+      "60/10000",
+      "61/10000",
+      "62/10000",
+      "63/10000",
+      "64/10000",
+      "65/10000",
+      "66/10000",
+      "67/10000",
+      "68/10000",
+      "69/10000",
+      "70/10000",
+      "71/10000",
+      "72/10000",
+      "73/10000",
+      "74/10000",
+      "75/10000",
+      "76/10000",
+      "77/10000",
+      "78/10000",
+      "79/10000",
+      "80/10000",
+      "81/10000",
+      "82/10000",
+      "83/10000",
+      "84/10000",
+      "85/10000"
+    ],
+    "records_per_setting": 20000,
+    "scenario": "combined_design",
+    "seed": 610120701,
+    "tau_denominator": 10000
+  },
+  "production_comparison": "same18300 records and126900 nominal channel steps;260000 independent pilot records reported separately",
+  "raw_dataset_scenario": "combined_design",
+  "records": [
+    1900,
+    100,
+    100,
+    100,
+    100,
+    1800,
+    10300,
+    1800,
+    100,
+    100,
+    100,
+    100,
+    1700
+  ],
+  "reporting": "Marginal95percent Clopper-Pearson Monte Carlo intervals; all parameter regimes retained; no optimizer or sample optimality claim",
+  "scenarios": [
+    {
+      "name": "nominal",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "detector_false_positive_0.0005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0005,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "detector_false_positive_0.001",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.001,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "detector_false_positive_0.002",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.002,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "detector_false_positive_0.005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.005,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "preparation_error_0.0005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0005,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "preparation_error_0.001",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.001,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "preparation_error_0.002",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.002,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "coherent_amplitude_offset_0.005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.005,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "coherent_amplitude_offset_0.01",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.01,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "coherent_amplitude_offset_0.02",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.02,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "iid_amplitude_jitter_0.005",
+      "parameters": {
+        "amplitude_jitter": 0.005,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "iid_amplitude_jitter_0.01",
+      "parameters": {
+        "amplitude_jitter": 0.01,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "iid_amplitude_jitter_0.03",
+      "parameters": {
+        "amplitude_jitter": 0.03,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "iid_timing_jitter_0.005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.005
+      }
+    },
+    {
+      "name": "iid_timing_jitter_0.01",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.01
+      }
+    },
+    {
+      "name": "iid_timing_jitter_0.03",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.03
+      }
+    },
+    {
+      "name": "fixed_detuning_0.02",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.02,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "fixed_detuning_0.1",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.1,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "fixed_detuning_0.3",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.3,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "combined_mild",
+      "parameters": {
+        "amplitude_jitter": 0.003,
+        "amplitude_offset": 0.002,
+        "depolarization": 0.001,
+        "detuning": 0.02,
+        "false_negative": 0.002,
+        "false_positive": 0.00025,
+        "omega": 1.0,
+        "preparation_error": 0.00025,
+        "timing_jitter": 0.001
+      }
+    },
+    {
+      "name": "combined_design",
+      "parameters": {
+        "amplitude_jitter": 0.005,
+        "amplitude_offset": 0.003,
+        "depolarization": 0.001,
+        "detuning": 0.02,
+        "false_negative": 0.003,
+        "false_positive": 0.0005,
+        "omega": 1.0,
+        "preparation_error": 0.0005,
+        "timing_jitter": 0.002
+      }
+    },
+    {
+      "name": "depolarization_twice",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.002,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "name": "depolarization_fivefold",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.005,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    }
+  ],
+  "scope": "Frozen simulated laboratory; no empirical hardware calibration",
+  "seeds": {
+    "classical_holdout": 610120705,
+    "classical_library": 610120704,
+    "drift_control": 610120706,
+    "heldout": 610120702,
+    "raw_shots": 610120703
+  },
+  "step_duration": "2*pi/7",
+  "version": 1
+}

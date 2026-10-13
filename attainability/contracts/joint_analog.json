@@ -1,0 +1,34 @@
+{
+  "study": "joint_single_reading_analog_calibration",
+  "frozen_before_heldout_generation": true,
+  "seed": 120731449,
+  "replicates_per_case": 400,
+  "cycle_states": 20,
+  "sensor_grid_denominator": 4096,
+  "lag_unit": "1/10",
+  "calibration_records": 4000,
+  "science_records_per_lag": 3000,
+  "parameters": ["1/2", "3/4"],
+  "joint_alpha": "1/20",
+  "split_alpha_calibration": "1/40",
+  "split_alpha_science": "1/40",
+  "costs_per_method_per_dataset": {
+    "stationary_acquisitions": 10000,
+    "single_reading_calibration_acquisitions": 4000,
+    "science_pair_acquisitions": 6000,
+    "detector_readouts": 16000,
+    "declared_evolution_time": "900",
+    "overhead": "Stationary preparation, resets, detector operations and calibration overhead are unmeasured, not zero. No joule conversion is asserted. All six methods use identical data, making their physical overhead equal."
+  },
+  "methods": ["joint_analog", "joint_analog_tuned", "joint_coin_tuned", "split_analog", "split_analog_tuned", "split_coin"],
+  "comparison": "Same analog records and calibration for all methods. Split baselines call the actual sixth-edition analog/calibration APIs. Tuned means the fixed analytic design s=3/4, chosen before any held-out draws; base s=1/2 recovers the sixth benchmark contrast. Virtual coin processing draws Bernoulli((1+Z0 Zt)/2) from the same pairs. No same-state twins are acquired.",
+  "cases": [
+    {"name": "driven", "forward_rate": "20", "backward_rate": "1", "detector": "rounded_cosine", "calibration_detector": "same", "contract_valid": true},
+    {"name": "equilibrium", "forward_rate": "21/2", "backward_rate": "21/2", "detector": "rounded_cosine", "calibration_detector": "same", "contract_valid": true},
+    {"name": "noisy_driven", "forward_rate": "20", "backward_rate": "1", "detector": "half_cosine_plus_half_fair_noise", "calibration_detector": "same", "contract_valid": true},
+    {"name": "invalid_detector_gain_equilibrium", "forward_rate": "70", "backward_rate": "70", "detector": "rounded_cosine", "calibration_detector": "zero_gain", "contract_valid": false}
+  ],
+  "negative_control_repair": "Subtract a declared zero-lag conditional-mean discrepancy bound 1/2; this covers every possible bounded-detector calibration mismatch and can be uninformative. Report separately from incorrectly asserted same-channel certificates.",
+  "additional_same_event_physical_bridge": "Before held-out generation, add the proved direct semigroup bridge sigma>=4g/Delta and its nonlinear refinement phi(2g)/Delta. These reuse each joint method's exact confidence event and do not alter records, scores, parameter choices or alpha. Report separately from the older quadratic bridge so statistical and physical improvements can be compared.",
+  "selection": "All rates, detector models, quotas, contrasts, decision rules and seeds frozen before held-out generation. Six separate methods are compared; no unadjusted maximum or same-data parameter selection is claimed."
+}

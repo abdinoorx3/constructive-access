@@ -1,0 +1,268 @@
+CONSTRUCTIVE CURRENT ACCESS ON PHYSICAL CHANNEL GRAPHS
+Abdinoor / 2D Labs / 12 October 2026
+Agent scope: graph structure, exact completion, independently checkable cuts.
+
+STATUS AND ATTRIBUTION
+The statements below are proved finite-model results. Their algebraic ingredients
+are established conservation, linear identifiability, max-flow/min-cut duality,
+and maximum spanning forests. They are not presented as newly discovered graph
+theorems or physical laws. The potentially useful integration is an explicit
+classification of physical-channel versus aggregate-current ambiguities, an
+exact access design, and a bridge to calibrated physical intervention sensors.
+The physical sensor bridge is developed separately by completion_physics; the
+precision/energy extension by completion_robust. No laboratory data are used.
+
+1. ACCESS CONTRACT
+
+Let G=(V,E) be a finite undirected multigraph with a fixed reference direction
+u_e -> v_e on every physical transition channel e. Self-loops are excluded.
+Parallel edges represent distinct physical mechanisms between the same pair of
+states. B has column -1 at u_e and +1 at v_e. The native stationary channel
+current is j in R^E, and conservation is B j=0. Currents may have either sign.
+Unless explicitly imposed, there is no upper activity, rate, affinity, or current
+bound and no fixed thermodynamic driving constraint.
+The cut formulas require an ordinary graph incidence matrix. A general chemical
+stoichiometric balance matrix need not have that structure; use generic linear
+identifiability and robust recovery rather than assuming the cut formulas apply.
+
+An individual sensor reports j_e or a number z_e obeying |z_e-j_e|<=epsilon_e.
+This sensor contract does NOT assume that the entire state trajectory is visible.
+Full-state jump observation already identifies aggregate state-to-state rates
+and their aggregate currents. The sparse-sensor problem applies to instruments
+that supply only selected current estimates. Every lower bound here refers to
+this retained-data contract; richer raw records may carry extra information.
+
+Exact aggregate access reports the signed sum k_b of channel currents in a
+specified parallel bundle b. Choose one canonical direction per bundle. If a
+channel's reference orientation disagrees, its coefficient in the sum is -1.
+Writing k=A j gives B=bar(B) A for the simple underlying graph. The supplied
+graph and assignment of physical channels to bundles are assumed correct.
+
+Available exact aggregate readings are treated as already acquired, with no
+additional cost in graph completion. Their uncertainty cannot be silently set
+to zero in a real application. The general robust linear-observation method is
+needed when those readings also have uncertainty.
+
+2. SINGLE TARGET: EXACT NECESSITY AND MINIMUM ACCESS
+
+Fix an unmeasured target channel e with endpoints u,v, and an exact sensor set
+S subset E\{e}. The following conditions are equivalent:
+
+ (a) Every pair j,j' in ker B with j_S=j'_S has j_e=j'_e.
+ (b) e is a bridge in the residual multigraph G\S.
+ (c) S separates u from v in G\{e}.
+ (d) There exists U subset V containing u and excluding v for which every
+     crossing edge other than e belongs to S.
+
+Proof. If there is a u-to-v path in G\(S union {e}), that path together with e
+supports a signed circulation h with h_e=1 and h_S=0. Thus a is false. If there
+is no such path, take U to be u's component after deleting S and e. Summing
+conservation over U yields
+
+    j_e = - sum_{f != e crossing U} sigma_U(f) j_f,
+
+where sigma_U(f)=+1 for a reference arrow leaving U and -1 for one entering U.
+All those currents are measured. The bridge and separation conditions are the
+same graph statement. This proves both directions without a generic-rank or
+nonzero-current assumption. In particular, an original bridge has j_e=0.
+
+Give every eligible nontarget sensor a nonnegative additive cost c_f. Ineligible
+edges have infinite acquisition cost. Every successful set contains the crossing
+edges of some admissible u-v cut. Conversely, those crossing edges alone suffice.
+Therefore the minimum added exact sensing cost is the u-v minimum cut in G\e.
+Parallel edges must be retained: every parallel alternative to e crosses every
+admissible cut and must be observed. If direct measurement of e is allowed, the
+optimum is the smaller of its direct cost and the indirect minimum-cut cost.
+The public target_completion function deliberately excludes direct measurement.
+
+3. EXACT DETERMINISTIC MINIMAX PRECISION
+
+Suppose S is a fixed nontarget sensor set and epsilon_s >= 0. The observation is
+z_S=j_S+eta with |eta_s|<=epsilon_s; errors may be correlated or adversarial.
+Define
+
+ R = inf_f sup_{j in ker B, |eta_s|<=epsilon_s}
+             | f(j_S+eta)-j_e |.
+
+Then
+
+ R = min_{u-v cuts C in G\e, C subset S} sum_{s in C} epsilon_s,
+
+where the minimum is +infinity if no admissible cut exists. The infimum ranges
+over all estimators, including nonlinear ones. The corresponding signed cut-sum
+estimator attains the bound globally. No averaging can improve this particular
+worst-case box model.
+
+Proof of upper bound. Apply the exact cut identity to the measured z_s. The
+error is a signed sum of eta_s, bounded by the sum of epsilon_s on the cut.
+
+Proof of lower bound. Give sensor edges capacities epsilon_s and unsensed edges
+infinite capacities in G\e. By undirected max-flow/min-cut there is a signed
+flow of value R from v to u, bounded in absolute value by epsilon_s on every
+sensor edge. Add current R on e (u to v). The result is a conserved vector h,
+with h_e=R and |h_s|<=epsilon_s. Both current vectors h and -h produce the same
+record z=0 by errors -h_S and h_S. Every estimate at z=0 has absolute error at
+least R for one of those two possibilities. If the cut is absent, an entirely
+unsensed path plus e produces arbitrarily scalable ambiguity, so R=infinity.
+
+The theorem does not claim that every stochastic estimator is limited by this
+radius under a specified noise distribution. It is a deterministic guarantee
+for the full box of permissible errors. Known parameter bounds, correlations
+excluding box corners, activity limits, or additional priors can reduce it.
+
+INDEPENDENT CERTIFICATE. A finite certificate contains a cut U and a circulation
+h. A checker verifies B h=0, h_e=R, |h_s|<=epsilon_s, absence of unmeasured cut
+edges, and R=sum_cut epsilon_s. These establish matching upper and lower bounds
+without rerunning any optimizer. An infinite certificate contains B h=0,
+h_e=1, and h_S=0. In code, unsensed infinite capacities are safely replaced by
+1+sum_sensor epsilon only after checking absence of an all-unsensed path.
+
+4. MIXED AGGREGATE AND PHYSICAL-CHANNEL ACCESS
+
+Let T be the bundles whose signed aggregate currents are known exactly. Let S
+be the individually sensed channels. Write r_b for the number of unsensed
+channels in bundle b. Form H on V with one edge for every bundle b not in T
+with r_b>0. Isolated vertices are retained. Then the dimension of the homogeneous
+current ambiguity is exactly
+
+ dim ker [B; A_T; E_S]
+   = sum_b max(r_b-1,0) + |E(H)|-|V|+components(H).
+
+The first term is unresolved internal channel splitting. The second is a
+network-level circulation ambiguity in the unknown aggregate currents.
+
+Proof. Set sensed variations h_S=0. For each nonempty unsensed bundle, taking
+its signed sum maps R^(r_b) onto one aggregate variable with a kernel of
+dimension r_b-1. This map is a direct product across bundles. Known aggregate
+variations are zero. The remaining aggregate variations must lie in the cycle
+space of H, of dimension |E(H)|-|V|+components(H). Choose a representative
+channel in each nonempty bundle to lift any feasible aggregate variation.
+This proves surjectivity onto that cycle space, so dimensions add. Choosing
+representatives gives a direct-sum decomposition; the dimension and obstruction
+classification do not depend on that choice.
+
+An unsensed target e in bundle b is identifiable exactly when
+
+    r_b=1 AND (b in T OR b is a bridge of H).
+
+If r_b>=2, offsetting signed currents on two unsensed channels in b preserves
+every aggregate current and every conservation equation. If r_b=1, its current
+variation equals the bundle variation up to orientation, so the bridge result
+applies. A sensed target is of course identifiable, regardless of r_b.
+
+KEY NEGATIVE RESULT. If all bundle totals are known, ker A is already a subset
+of ker B. Conservation supplies no further information about the internal
+channel split. The residual dimension is sum_b(r_b-1)_+. Macroscopic balance
+equations cannot resolve how opposing microscopic channels share the same
+aggregate current. A balanced additional state-level channel common to two
+models with the same complete generator likewise cannot distinguish their
+different decompositions. This obstruction requires access that differentiates
+physical channels, not merely more processing of the same aggregate records.
+
+5. MINIMUM COMPLETION WITH AGGREGATE ACCESS
+
+For an unmeasured target e, every other channel in its bundle must be sensed.
+Those sensors are forced by the two-channel ambiguity just proved. If that
+bundle's aggregate is known, this completes recovery. Otherwise remove known
+aggregate bundles from the ambiguity graph, retain one edge for each remaining
+bundle, delete the target bundle, and find a minimum cut between its endpoints.
+Removing an alternative bundle from the residual ambiguity requires sensing all
+its channels, at cost equal to the sum of their sensor prices. Thus use these
+bundle sums as cut capacities. Forced parallel measurements plus the bundle
+minimum cut give a globally minimum added exact sensor set. A partial reading
+of an alternative bundle cannot remove that bundle's aggregate ambiguity and
+therefore cannot improve the minimum cost for this single target.
+
+For simultaneous recovery of all physical-channel currents, every bundle can
+retain at most one unsensed channel. In each known-total bundle, retain one
+maximum-price channel unsensed; its current follows from the total. In each
+unknown-total bundle, a retained channel makes that bundle an edge of H. These
+edges must form a forest. Let each unknown bundle's weight be its maximum
+channel price. A maximum-weight spanning forest maximizes saved sensing cost.
+Therefore the global minimum is
+
+ sum_allchannels c_e
+   - sum_knownbundles max_channel c_e
+   - maximum_forest_weight(unknown bundles, weights max_channel c_e).
+
+These are graph/matroid optimization consequences, not claims of new max-flow
+or spanning-tree theory. With all aggregates known, exactly one channel per
+nonempty bundle can be left unmeasured. With no aggregates known, this reduces
+to the familiar cotree measurement criterion on a multigraph.
+
+6. PHYSICAL REALIZABILITY AND THE LIMIT OF THE MINIMAX CLASS
+
+Take any conserved finite vector j and any strictly positive probability vector
+pi. For each oriented physical channel choose traffic t_e>|j_e|/2 and set
+
+ q_e(u_e,v_e) = (t_e+j_e/2)/pi[u_e],
+ q_e(v_e,u_e) = (t_e-j_e/2)/pi[v_e].
+
+Both rates are strictly positive. Their stationary net current is exactly j_e.
+Summing outgoing minus incoming stationary flux gives -B j=0, so pi is
+stationary for the sum generator. A connected graph yields an irreducible CTMC.
+Thus signed-current ambiguity witnesses are realizable by positive finite-rate
+Markov models with the same prescribed stationary occupations.
+
+For finitely many bounded witness currents, one can choose the same t_e for
+every witness. In particular, +h and -h in the minimax lower bound have common
+pi and common edge traffic. Unbounded impossibility uses arbitrarily large
+traffic and rates across the model class, not infinite rates in any one model.
+If a physical problem specifies a rate, fuel, activity, or affinity constraint,
+that must enter the model class and can invalidate an unbounded claim or reduce
+the sharp minimax radius. Conservation alone is not a complete thermodynamic
+description. Local detailed balance with freely chosen edge reservoirs can
+realize these rate ratios, but fixed chemical stoichiometry or fixed reservoir
+affinities impose additional conditions not proved here.
+
+7. REPRODUCIBLE EXAMPLE AND NEGATIVE CONTROLS
+
+code/graph_access.py uses four states and six physical channels: target A-B,
+a parallel hidden A-B channel, and A-C, B-C, C-D, D-A. It supplies exact cut
+certificates, a physical rate realization of the worst-case ambiguity, the
+mixed-access dimension, and the minimum sensor designs. Results are written to
+results/graph_access.json. Rationals are serialized as strings, never floats.
+
+With uncertainties 1/100 on the parallel hidden A-B channel, 2/100 on A-C and
+3/100 on D-A, the target radius is 3/50. All three measurements are required
+for the relevant cut under that access. The matching circulation certificate
+shows this is a sharp worst-case radius, not just a triangle-inequality bound.
+When all aggregate bundle currents are known, exactly one internal degree of
+freedom remains: the split between the two A-B channels. Revealing the other
+A-B channel removes it. Conservation never removed it by itself.
+
+The tests include ten named checks, including 160 seeded graphs against every
+vertex cut, 240 mixed-observation configurations against independent rational
+matrix ranks, 32 single-target designs against all sensor subsets, 32 all-target
+designs against all sensor subsets, malformed/forged certificates, reversed
+reference orientations, parallel channels, zero-price sensors, zero-radius
+bridges, and positive physical rate reconstruction. The seeded graphs include
+disconnected cases; connected physical irreducibility is a separate assumption.
+
+Commands:
+ python code/graph_access.py
+ python -m unittest discover -s tests -p test_graph_access.py -v
+
+Execution result: ten tests passed; the exact arithmetic result certificate is
+valid. The graph tests use their own Gaussian elimination and do not call the
+production graph classification to establish expected ranks or brute-force
+optimality. Independent internal red-team review is separate from these author
+checks. This is not external peer review.
+
+8. DEPENDENCIES AND NEXT SCIENTIFIC BRIDGE
+
+The graph solution is useful only if physical apparatus can deliver the assumed
+local channel-current estimates without already revealing all currents. The
+physical intervention work supplies a promising route: selectively scale both
+directions of one channel, prepare the native stationary distribution, and read
+the initial response of a local endpoint occupation. A finite-window response
+requires controlled transient bias, calibration and preparation guarantees.
+Its complete resource cost must include repeated preparation, control, sensing,
+reset, acquisition, calibration and support. A graph sensor cost is a declared
+accounting input, not by itself a first-principles energy value.
+
+The combined deliverable should therefore prove one continuous implication:
+physical access and calibration assumptions -> certified local current sensors
+-> a minimum sufficient cut -> a target estimate with a declared precision
+guarantee, with counterexamples showing which assumption failures restore the
+ambiguity. That chain, not a renamed graph primitive, is the research target.

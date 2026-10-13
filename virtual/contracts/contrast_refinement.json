@@ -1,0 +1,35 @@
+{
+  "schema": "virtual-laboratory-contrast-refinement-v1",
+  "frozen_utc": "2026-10-12T20:27:14.462517+00:00",
+  "evidence": "second simulation loop; first-loop model probabilities and aggregate outcomes already known",
+  "selection": "The new contrast is frozen before this independently seeded second-loop data generation. It follows the polynomial -x(x-2/3)^2, not a fit to these new records.",
+  "lags": [
+    1,
+    2,
+    3
+  ],
+  "step": "3/20",
+  "coefficients": [
+    "-4/9",
+    "4/3",
+    "-1"
+  ],
+  "support": "-1/18 analytically; exported implementation checks a conservative Bernstein upper support",
+  "records_per_setting": 5000,
+  "datasets": 400,
+  "seed": 330174,
+  "scenarios": [
+    "driven",
+    "equilibrium",
+    "high_readout_noise",
+    "independent_clock_jitter"
+  ],
+  "alpha": "1/20",
+  "baselines": [
+    "previous fixed-score simultaneous-box certificate",
+    "optimized continuous-moment simultaneous-box certificate using33 proposalgridpoints and6 exactsubdivisionlevels"
+  ],
+  "exact_certification": "All certificates use directed rational arithmetic; numerical optimizer only proposes scores.",
+  "matched_cost": "All methods receive identical counts within each dataset,15000recordsand4500expectedmodeltime, withzeroadditionalpilotrecords for this second-loop fixedcontrast. Resetandapparatuscost remain external.",
+  "inference_scope": "stationary even-stateMarkovsystem withsame noninvasive detector and clocks preserving the reversible moment cone"
+}

@@ -1,0 +1,23 @@
+[
+  {
+    "original_file": "detector_calibration/code/certification.py",
+    "original_sha256": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3",
+    "packaged_file": "src/constructive_access/detector_calibration/certification.py",
+    "packaged_sha256": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3",
+    "changes": []
+  },
+  {
+    "original_file": "detector_calibration/experiment/exposure_moments.py",
+    "original_sha256": "d6581978fd398fbed5a11962320f9a4211bcf6bb4b207adde3ef1b4cc5686cbb",
+    "packaged_file": "src/constructive_access/detector_calibration/exposure_moments.py",
+    "packaged_sha256": "d6581978fd398fbed5a11962320f9a4211bcf6bb4b207adde3ef1b4cc5686cbb",
+    "changes": []
+  },
+  {
+    "original_file": "detector_calibration/countermodels/rare_bump.py",
+    "original_sha256": "9a8b864fa1316f2b8db16142e64328b9a096caddd31d34f17d6d14479cfc1bab",
+    "packaged_file": "src/constructive_access/detector_calibration/rare_bump.py",
+    "packaged_sha256": "9a8b864fa1316f2b8db16142e64328b9a096caddd31d34f17d6d14479cfc1bab",
+    "changes": []
+  }
+]

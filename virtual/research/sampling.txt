@@ -1,0 +1,199 @@
+DEPENDENT-RECORD INFERENCE AND SAMPLING DESIGN
+Abdinoor / 2D Labs. 2026-10-12.
+Status: exact concentration/physical-envelope derivations; numerical trajectory
+stress test under a frozen synthetic contract. No physical laboratory evidence.
+
+1. FAILURE ADDRESSED
+
+Stationary one-record marginal probabilities do not make consecutive records
+independent, and do not make their conditional means stationary. In particular,
+overlapping or shared-endpoint pairs from one trajectory can have severely
+dependent counts. An iid confidence calculation can then falsely reject a
+reversible physical system. Conditional-mean control is a sufficient replacement
+that is weaker than independence and can be supported by an explicit mixing gap.
+Its error penalty is an additive bias delta, not record_count times delta.
+
+2. EXACT STATISTICAL CONTRACT AND THEOREM
+
+There are m settings and deterministic quotas n_k>0, with N=sum n_k. Before
+outcome Z_i is generated, select an unfinished setting K_i using past records
+and optionally fresh randomization. Reveal the selection before generating Z_i.
+No outcome-dependent acceptance, rejection or skipping of the current record
+is allowed. The procedure stops after every quota is filled, so N is fixed.
+Each Z_i lies in[0,1]; for count data it is a binary whole-record indicator.
+
+For fixed target probabilities p_k, let mu_i=E[Z_i | all preceding information,
+selected setting]. The physical contract requires almost surely
+  |mu_i-p_{K_i}| <= delta_{K_i}.
+This conditions on all recorded past information, not merely the previous
+state average or an unconditional stationary law. Let p_hat_k=S_k/n_k.
+For statistical radii r_k satisfying
+  2 n_k r_k^2 >= log(2m/alpha),
+the simultaneous confidence statement is
+  P(for every k: |p_hat_k-p_k| <= r_k+delta_k) >= 1-alpha.
+The radius remains valid with arbitrary dependence obeying this conditional
+mean contract. It is not a theorem about arbitrary stationary trajectories.
+
+Proof. For each setting k and real lambda, conditional Hoeffding's lemma gives
+  E exp(lambda 1{K_i=k}(Z_i-mu_i) -lambda^2 1{K_i=k}/8 | past) <=1.
+The centered random variable has conditional range length1. Multiplication
+gives a nonnegative exponential supermartingale. Since the final number of
+selected records is the deterministic n_k, exponential Markov inequality and
+lambda=4r_k give either tail <=exp(-2n_k r_k^2). Add the accumulated drift,
+whose magnitude is at most n_k delta_k, and divide by n_k. A union bound over
+both tails and m settings proves the result. The proof accommodates predictable
+setting selection because the setting indicator is known before its outcome.
+It does not justify stopping when a confidence result first looks favorable.
+
+A uniform whole-record apparatus radius eta_k is added to the half-width. If
+the required external calibration/conditional-mean envelope holds except on an
+event of externally certified probability beta, total failure is at most
+alpha+beta. This is not a license to postselect apparently well-behaved data or
+infer beta from a fitted target model without a separate confidence argument.
+
+The implementation checks 2n_k r_k^2 against an outward rational enclosure of
+log(2m/alpha), inherited from the exact continuous-moment module. Its radius
+designer computes an outward dyadic square root by integer arithmetic. It then
+passes the simultaneous probability box to the full continuous reversible
+moment certificate. Scores may be chosen after this simultaneous box is
+constructed because the deterministic certificate minimizes over the entire
+box. A fixed-score direct test can use a tighter directional confidence bound,
+but requires its scores to be fixed before the held-out outcomes.
+
+3. PHYSICAL CHRONOLOGY THAT JUSTIFIES CONDITIONAL BIAS
+
+One valid sequential apparatus chronology is:
+  finish previous pair;
+  select next setting and a blind mixing gap using only past information;
+  evolve without observing during that gap;
+  read the starting detector, wait the chosen lag, read the ending detector;
+  retain the whole same/not-same pair indicator and repeat.
+The detector must be noninvasive for the retained generator interpretation.
+Any hidden detector/controller memory must also mix, reset, or be included in
+the hidden state governed by the envelope.
+
+If Q has stationary pi and the full hidden-state semigroup satisfies
+  sup_x TV(delta_x exp(G Q),pi) <= delta,
+then the state at the next pair start, conditional on all pre-gap history, is
+within delta of pi. The complete pair is a stochastic channel of its initial
+state, including independent readout noise and the lag. Total-variation
+contraction therefore bounds its conditional mean shift by delta. Observing
+the first member is part of the pair; the conditional expectation in the
+statistical theorem is taken before this current pair, not after its first bit.
+
+Two checkable envelope forms are implemented:
+(a) Doeblin: if P_h(x,.)>=epsilon nu(.) uniformly over hidden x, then
+    sup_x TV(P_{jh}(x,.),pi)<=(1-epsilon)^j.
+(b) Additive-reversibilization gap: if pi_min<=min_x pi_x and
+    gap(S)>=lambda>0 for S=(Q+Q^dagger)/2, then
+    sup_x TV(P_G(x,.),pi)
+      <= min(1, .5 sqrt((1-pi_min)/pi_min) exp(-lambda G)).
+    Q itself need not be reversible. For a zero-mean density perturbation,
+    differentiating its squared L2(pi) norm gives the quadratic form of S;
+    the spectral gap contracts that norm at rate lambda. Cauchy--Schwarz gives
+    total variation, and a point mass has L2 norm sqrt(1/pi_x-1).
+The exponential upper bound uses an exact reciprocal of a finite positive
+Taylor lower bound for exp(lambda G). The square root is rounded outward.
+
+These are external model/calibration contracts. A mixing rate estimated only
+inside a favored low-dimensional model does not bound the mixing rate of all
+hidden models compatible with coarse evidence. The routines validate algebra,
+not that the actual unknown apparatus has the asserted uniform envelope.
+
+4. FROZEN VIRTUAL-LABORATORY CONTRACT
+
+contracts/sampling.json was written before the production simulation. Seed
+918273;4000 independent replicate trajectories;600 records at lag1 followed
+by600 records at lag2; alpha1/20; statistical radius61/1000. No postproduction
+retuning occurred. Each replicate uses an equilibrium four-state CTMC with
+state(sector,bit), sector flip rate1/1000, bit flip rates1/50 in sector0 and2
+in sector1. Every transition has the same reverse rate. Stationary pi is uniform
+and stationary entropy production is exactly zero. The binary detector reads
+the bit perfectly and noninvasively.
+
+The stationary same-outcome targets are approximately
+  p(lag1)=0.744650555321741,
+  p(lag2)=0.7305180840365182.
+Although each shared-endpoint record has the correct stationary marginal,
+slow sector switching strongly correlates its conditional agreement rate.
+
+Three chronologies use identical per-menu record counts:
+(a) stationary initialization once, then reuse each pair's endpoint as the next
+    start; analyze the same counts both naively(delta0) and honestly(delta3/4);
+(b) fixed initial state0, then a blind gap3000 before every pair, with
+    declared conditional bias1/400;
+(c) ideal fresh stationary preparation before every pair, with delta0.
+For(b), Dirichlet comparison against independent bit flips at rate1/50 and
+sector flips at rate1/1000 proves spectral gap>=1/500. With pi_min1/4, the
+exact uniform gap envelope is below0.002146663<1/400.
+
+CTMC snapshot transitions were generated from matrix exponentials, an exact
+transition-law simulator up to the stated numerical solver precision. Pair
+semigroups were independently checked by81-term uniformization; discrepancies
+were <=5.28e-15. The3000-gap semigroup was independently checked by symmetric
+eigendecomposition with max discrepancy1.19e-13. The lag allocation, statistical
+radii, model, number of replicates and seed were frozen before generation.
+
+5. HELD-OUT RESULTS, INCLUDING FAILED REGIME AND TIME COST
+
+Shared-endpoint pairs treated as iid:
+  simultaneous probability-box coverage0.023;
+  approximate95% Wilson Monte Carlo interval[0.018792,0.028124];
+  false reversible-monotonicity exclusions0.247;
+  approximate95% Wilson interval[0.233882,0.260604].
+The advertised95% confidence box therefore covers only2.3% of replicate truths,
+and an equilibrium process is falsely excluded24.7% of the time.
+
+The same dependent counts with the honest delta3/4 correction:
+  coverage1.0, approximate95% Wilson lower0.9990406;
+  zero false exclusions, approximate95% Wilson upper0.00095945.
+The intervals are deliberately broad; honest inference can be uninformative.
+
+Blind-gap design with the externally proved delta1/400 correction:
+  coverage0.999, approximate95% Wilson interval[0.997431,0.999612];
+  zero false exclusions, approximate95% Wilson upper0.00095945.
+
+Ideal independent stationary pairs:
+  coverage0.99875, approximate95% Wilson interval[0.997077,0.999466];
+  zero false exclusions, approximate95% Wilson upper0.00095945.
+The conservative Hoeffding boxes need not attain exactly95% coverage.
+
+Measured model-evolution time per replicate is1800 without gaps and3601800
+with blind gaps. The ideal independent-pair benchmark does not model the
+duration or energy of its external stationary preparation, so its1800 is not
+a complete hardware-resource comparison. The blind-gap design is sufficient,
+not time-optimal. Markov-specific concentration or calibrated regenerative
+sampling may use the available time more efficiently; neither is established
+by the present benchmark.
+
+The false-exclusion decision uses lower confidence p(lag2)>upper confidence
+p(lag1), which is impossible for the complete stationary reversible moment
+class. It is a valid necessary-condition rejection only when the probability
+box has its declared coverage. No exact binomial test is applied to the
+dependent records. Wilson intervals describe Monte Carlo uncertainty and are
+approximate, distinct from the exact rational inference thresholds.
+
+6. SOFTWARE, REPLAY AND POSITIONING
+
+code/sampling.py supplies confidence_radius, confidence_box, certify_counts,
+doeblin_mix_bound, spectral_mix_bound, and the frozen simulator. The JSON output
+retains the contract SHA256, per-scenario raw-count histograms with exact
+multiplicities, count-array digests, coverage/false-exclusion summaries, model
+times, solver cross-checks and mixing certificate. Invalid quotas, inadequate
+radii, invalid probabilities and unsupported stopping designs are rejected.
+The caller cannot make a false physical assertion true by passing a validator.
+
+Producer checks:9 tests pass, including exact arithmetic, bias added once,
+agreement with the old iid certificate at delta0, loss of a spurious positive
+bound at the honest bias, adaptive predictable-routing conditional mgf,
+mixing for an irreversible cycle, and a stationary-marginal counterexample.
+
+Underlying concentration and mixing results are established mathematics.
+Relevant sources: Hoeffding1963 (JASA58,13--30); Howard et al.2021
+(Annals of Statistics49,1055--1080, DOI10.1214/20-AOS1991); Paulin2015
+(Electronic Journal of Probability20 no.79, DOI10.1214/EJP.v20-4039).
+The contribution here is integrating explicit sampling chronology, dependency
+correction and exact physical inference, and demonstrating a consequential
+failure/correction in a reproducible equilibrium virtual laboratory. Historical
+novelty of that integration is not assumed; no new concentration theorem is
+claimed.

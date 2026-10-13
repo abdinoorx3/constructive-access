@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+.pytest_cache/
+.DS_Store
+manuscript/*.aux
+manuscript/*.toc
+manuscript/*.out
+manuscript/*.log
+calibration_example.json

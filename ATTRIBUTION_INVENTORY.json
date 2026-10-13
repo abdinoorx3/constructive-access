@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-13",
+  "project": "Constructive Access",
+  "credit": "Abdinoor / 2D Labs",
+  "contact": "helloworld@2dai.org",
+  "website": "https://2dlabs.org",
+  "scope": {
+    "basis": "Frozen internal ninth archive plus staged tenth scientific source, preceding first public-release editorial integration. Paths below are relative to the scientific package root unless marked nested archive. Final engineering manifest records public editorial changes.",
+    "ninth_archive_name": "constructive_access_ninth_edition.zip",
+    "ninth_archive_sha256": "767dca55824bd5137f48b5bb41c766150d3ba2482dbe796905252f7f7ad9e640",
+    "ninth_archive_top_level_entries": 723,
+    "recursive_archive_count_including_wheel": 8,
+    "prior_publication_inferred": false
+  },
+  "first_party_material": {
+    "coverage": [
+      "src/constructive_access/**",
+      "research/**",
+      "tests/**",
+      "examples/**",
+      "manuscript/**",
+      "calibrated/** except third-party originals and notices",
+      "detector_calibration/**",
+      "remaining project research text, code and generated analysis artifacts, subject to explicit third-party notices"
+    ],
+    "proposed_license": "Constructive Access Research and Revenue-Threshold License 1.0",
+    "license_file": "LICENSE",
+    "scope_of_grant": "Only protected expression to the extent of rights owned or controlled; original facts and independently implemented methods are not reserved.",
+    "project_local_provenance": [
+      {
+        "path": "src/constructive_access/_vendor/PROVENANCE.json",
+        "sha256": "70a67b6b22d244a2d8363e13239a83bfdbb9ff85ef9739f12158e1a02b2a0f00",
+        "module_records": 7
+      },
+      {
+        "path": "src/constructive_access/attainability/PROVENANCE.json",
+        "sha256": "5143ae974c00ba2c656f46e64d21a477023251472c4a28eddf0513c2a9f81cce",
+        "module_records": 5
+      },
+      {
+        "path": "src/constructive_access/calibrated/PROVENANCE.json",
+        "sha256": "662f03301f8968fad075432acdddb4186fdd7d13ff005ca880971c8eee61cbec",
+        "module_records": 12
+      },
+      {
+        "path": "src/constructive_access/completion/PROVENANCE.json",
+        "sha256": "86a6057e71c1deaf49f456bf17001d450abe66c8825f6700eb28c2974eab1430",
+        "module_records": 6
+      },
+      {
+        "path": "src/constructive_access/detector/PROVENANCE.json",
+        "sha256": "f3ecbe7991883d3b72e88f0524ed16d599041b2e2963a1b85dded1d22aab9079",
+        "module_records": 2
+      },
+      {
+        "path": "src/constructive_access/detector_calibration/PROVENANCE.json",
+        "sha256": "4587055e45e06108b3e45896ef9952649f16e9d36529d967da944405ef09019b",
+        "module_records": 3
+      },
+      {
+        "path": "src/constructive_access/frontier/PROVENANCE.json",
+        "sha256": "30009ed5fa4dca7513fa257ecf5be82a5ee1c147e440e203f447c140a13e6371",
+        "module_records": 5
+      },
+      {
+        "path": "src/constructive_access/observed_geometry/PROVENANCE.json",
+        "sha256": "5f4e4be5f81153c63ac47facc3e63f0572b518c230c93868b858130d649c5a4f",
+        "module_records": 5
+      },
+      {
+        "path": "src/constructive_access/robust/PROVENANCE.json",
+        "sha256": "1b1ddffdfac4479b3e54d69859ee7cbc5cc717e5b93f1438814e995f3898e8e0",
+        "module_records": 6
+      },
+      {
+        "path": "src/constructive_access/virtual/PROVENANCE.json",
+        "sha256": "a2e0c3137f53966a3c92326e14c1b525812983af2aef50c590cd713a98975c62",
+        "module_records": 6
+      }
+    ],
+    "vendor_directory_finding": "The seven modules in src/constructive_access/_vendor trace to prior project research source, rather than external dependency implementations. Hash provenance does not itself establish copyright authorship."
+  },
+  "experimental_data": {
+    "creators": [
+      "J. Shepard Bryan IV",
+      "Prithviraj Basak",
+      "John Bechhoefer",
+      "Steve Press\u00e9"
+    ],
+    "title": "Data for Inferring potential landscapes from noisy particle trajectories within an optical feedback trap",
+    "date": "2022-06-22",
+    "doi": "10.5281/zenodo.6680673",
+    "source": "https://zenodo.org/records/6680673",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+    "license_metadata_file": "calibrated/data/source_audit/zenodo_feedbacktrap.json",
+    "license_metadata_sha256": "23f51302db2de3a149de2b5c88bce70ae33b89eeccb4aa17831ddc92737a4509",
+    "attribution_files": [
+      "calibrated/data/source_audit/ATTRIBUTION.txt",
+      "data/source_audit/ATTRIBUTION.txt"
+    ],
+    "originals": [
+      {
+        "path": "calibrated/data/source_audit/harmwell_n1.h5",
+        "bytes": 402056,
+        "sha256": "ffa81dda2576934bd51cf544199a12da7d5568806883401a08848ad215c1286c",
+        "license": "CC-BY-4.0",
+        "modifications": "none",
+        "project_revenue_threshold_applies": false
+      },
+      {
+        "path": "calibrated/data/source_audit/harmwell_n1_groundtruth.h5",
+        "bytes": 408248,
+        "sha256": "ef390252ce9730b53c688958cad5fa4ff2379800f09ccc13ac2d6e90bb0e413b",
+        "license": "CC-BY-4.0",
+        "modifications": "none",
+        "project_revenue_threshold_applies": false
+      },
+      {
+        "path": "calibrated/data/source_audit/harmwell_n2.h5",
+        "bytes": 402056,
+        "sha256": "38efb704da6fb86a9da49938d3e84ff4c3d1e4c56588768cbdf37149f28b4a2e",
+        "license": "CC-BY-4.0",
+        "modifications": "none",
+        "project_revenue_threshold_applies": false
+      }
+    ],
+    "data_interpretation": "groundtruth is a simultaneous lower-noise measured trajectory, not exact latent positions. No serialized HDF5 functions are executed by the loader.",
+    "endorsement": false,
+    "other_source_papers_or_notebooks_bundled_with_data": false
+  },
+  "embedded_fonts": {
+    "coverage": [
+      "manuscript/*.pdf",
+      "manuscript/figures/*.pdf",
+      "project-generated PDFs in research subdirectories",
+      "historical project PDFs inside preserved nested archives"
+    ],
+    "standalone_font_binaries_bundled": false,
+    "families": [
+      {
+        "name": "DejaVu / Bitstream Vera / Arev glyphs",
+        "license": "Bitstream/Arev permission notices; DejaVu changes public domain",
+        "notice": "font_licenses/DEJAVU-LICENSE.txt",
+        "source": "https://dejavu-fonts.github.io/License.html"
+      },
+      {
+        "name": "Latin Modern / Latin Modern Math",
+        "license": "GUST Font License 1.0 with LPPL 1.3c or later",
+        "notice": "font_licenses/GUST-FONT-LICENSE.txt",
+        "referenced_license": "font_licenses/LPPL-1.3c.txt",
+        "source": [
+          "https://ctan.org/pkg/lm",
+          "https://ctan.org/pkg/lm-math"
+        ]
+      },
+      {
+        "name": "AMSFonts Type 1 Computer Modern, AMS symbols and Euler",
+        "license": "SIL Open Font License 1.1, as identified in installed font source headers",
+        "notice": "font_licenses/AMS-OFL.txt",
+        "source": "https://ctan.org/pkg/amsfonts"
+      }
+    ],
+    "historical_font_details": "Historical PDFs also reference standard PDF base Helvetica/Symbol fonts and Type 3 glyph subsets F188/F198. Type 3 resource names alone do not identify a separate external font distribution; their generating project TeX sources are preserved.",
+    "license_files": [
+      {
+        "path": "font_licenses/AMS-OFL.txt",
+        "bytes": 12520,
+        "sha256": "aa783fdd47e92743bafe79277ac4067d20339344dc5b64a09c2d0f869b2999dc"
+      },
+      {
+        "path": "font_licenses/DEJAVU-LICENSE.txt",
+        "bytes": 4816,
+        "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e"
+      },
+      {
+        "path": "font_licenses/GUST-FONT-LICENSE.txt",
+        "bytes": 1377,
+        "sha256": "49ea6cb9257bbee0a3979c48a774cd221550ac1c20c95549efe45fc99cc18050"
+      },
+      {
+        "path": "font_licenses/LPPL-1.3c.txt",
+        "bytes": 19102,
+        "sha256": "3d262cdf34dafa6955f703c634a8c238ec44109bc8dd6ef34fb7aa54809f7e66"
+      }
+    ]
+  },
+  "external_dependencies": [
+    {
+      "name": "sympy",
+      "audited_version": "1.14.0",
+      "license_summary": "BSD-3-Clause",
+      "third_party_implementation_bundled": false,
+      "role": "Separately installed runtime or reproduction dependency"
+    },
+    {
+      "name": "mpmath",
+      "audited_version": "1.3.0",
+      "license_summary": "BSD-3-Clause",
+      "third_party_implementation_bundled": false,
+      "role": "Separately installed runtime or reproduction dependency"
+    },
+    {
+      "name": "numpy",
+      "audited_version": "2.3.5",
+      "license_summary": "BSD-3-Clause plus bundled-component notices",
+      "third_party_implementation_bundled": false,
+      "role": "Separately installed runtime or reproduction dependency"
+    },
+    {
+      "name": "scipy",
+      "audited_version": "1.17.0",
+      "license_summary": "BSD-3-Clause plus bundled-component notices",
+      "third_party_implementation_bundled": false,
+      "role": "Separately installed runtime or reproduction dependency"
+    },
+    {
+      "name": "matplotlib",
+      "audited_version": "3.10.8",
+      "license_summary": "Matplotlib PSF-based license plus font notices",
+      "third_party_implementation_bundled": false,
+      "role": "Separately installed runtime or reproduction dependency"
+    },
+    {
+      "name": "h5py",
+      "audited_version": "3.16.0",
+      "license_summary": "BSD-3-Clause plus bundled-component notices",
+      "third_party_implementation_bundled": false,
+      "role": "Separately installed runtime or reproduction dependency"
+    },
+    {
+      "name": "PyMuPDF",
+      "audited_version": "1.26.6",
+      "license_summary": "AGPL-3.0 or Artifex commercial license",
+      "third_party_implementation_bundled": false,
+      "role": "Optional PDF validation tooling"
+    }
+  ],
+  "prior_archives": [
+    {
+      "archive": "constructive_access_ninth_edition.zip",
+      "sha256": "767dca55824bd5137f48b5bb41c766150d3ba2482dbe796905252f7f7ad9e640",
+      "entries": 723
+    },
+    {
+      "archive": "constructive_access_ninth_edition.zip!/constructive_access_9_0/dist/constructive_access-0.9.0-py3-none-any.whl",
+      "sha256": "01f5f45829df4c8ad786b5c3d44fc5cdef5e0ed320641f16ba75f294df41086f",
+      "entries": 83
+    },
+    {
+      "archive": "constructive_access_ninth_edition.zip!/constructive_access_9_0/physical_diagnostics_research_package.zip",
+      "sha256": "bbaaaef9f83b4ebf8c25555695cecdf4512568b5aebaea18a3639c5bafadea32",
+      "entries": 67
+    },
+    {
+      "archive": "constructive_access_ninth_edition.zip!/constructive_access_9_0/physical_diagnostics_research_package.zip!/physical_diagnostics/preserved/hardened_access_research_package.zip",
+      "sha256": "b3764a39b5ecac30d5a1eecb2301bbbba096fe51be77e7a4c34363cac47bb8eb",
+      "entries": 98
+    },
+    {
+      "archive": "constructive_access_ninth_edition.zip!/constructive_access_9_0/physical_diagnostics_research_package.zip!/physical_diagnostics/preserved/hardened_access_research_package.zip!/hardened_access/boundary_arrow_research_package.zip",
+      "sha256": "de3841cb7f011fd10775dc5c069f4e9fae39c12514b47c214f3c0fcf6c87521e",
+      "entries": 129
+    },
+    {
+      "archive": "constructive_access_ninth_edition.zip!/constructive_access_9_0/physical_diagnostics_research_package.zip!/physical_diagnostics/preserved/hardened_access_research_package.zip!/hardened_access/constructive_access_research_package.zip",
+      "sha256": "0c26409099a3082cf08c6e7eca19456703beda888bb3d52e399a379321670551",
+      "entries": 55
+    },
+    {
+      "archive": "constructive_access_ninth_edition.zip!/constructive_access_9_0/physical_diagnostics_research_package.zip!/physical_diagnostics/preserved/hardened_access_research_package.zip!/hardened_access/discovery_program_research_package.zip",
+      "sha256": "cbccb276e3a5563059fd8ebc96525fb48ffdf006828ef59ccfbe4eab0b3729df",
+      "entries": 134
+    },
+    {
+      "archive": "constructive_access_ninth_edition.zip!/constructive_access_9_0/physical_diagnostics_research_package.zip!/physical_diagnostics/preserved/hardened_access_research_package.zip!/hardened_access/equilibrium_gate_research_package.zip",
+      "sha256": "3544a194768b44385e12beef452a717be7fbdfa66fbf73f1d1abff3b1e2b8bd4",
+      "entries": 52
+    }
+  ],
+  "historical_user_source": {
+    "nested_path": "physical_diagnostics_research_package.zip!/physical_diagnostics/preserved/hardened_access_research_package.zip!/hardened_access/boundary_arrow_research_package.zip!/boundary_arrow/research/cascade_source.pdf",
+    "title": "Omnidirectionality and the Cascade Framework",
+    "visible_credit": "Abdinoor / 2D Labs",
+    "provenance": "User-supplied starting document; retained historical source, not a third-party literature article.",
+    "scientific_status": "Historical proposal, not evidence that its speculative claims were established."
+  },
+  "reuse_files": [
+    "LICENSE_RESEARCH_AND_SOFTWARE.txt",
+    "COMMERCIAL_USE.txt",
+    "THIRD_PARTY_NOTICES.txt",
+    "font_licenses/DEJAVU-LICENSE.txt",
+    "font_licenses/GUST-FONT-LICENSE.txt",
+    "font_licenses/LPPL-1.3c.txt",
+    "font_licenses/AMS-OFL.txt"
+  ],
+  "inventory_limit": "This records inspected files, source attributions and applicable separate notices. It is not an independent legal determination of authorship or ownership.",
+  "public_packaging_note": "The original audit license filename is normalized to LICENSE at the public package root; all recorded third-party and provenance payload hashes are unchanged."
+}

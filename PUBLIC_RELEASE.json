@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "title": "Constructive Access: A Unified Reference for Inference under Restricted Physical Access",
+  "author": "Abdinoor",
+  "organization": "2D Labs",
+  "toolkit_version": "0.10.0",
+  "date": "2026-10-13",
+  "website": "https://2dlabs.org",
+  "contact_email": "helloworld@2dai.org",
+  "first_public_release": true,
+  "internal_reference_edition": "10.0",
+  "internal_editions_are_prior_publications": false,
+  "external_peer_review": false,
+  "historical_priority_established": false,
+  "new_empirical_measurements": false,
+  "licensing": {
+    "model": "custom_revenue_threshold",
+    "free_business_revenue_max_usd": 10000000,
+    "aggregation": "worldwide company and controlled affiliates",
+    "commercial_license_required_above_threshold": true,
+    "personal_and_qualifying_academic_research_free": true,
+    "third_party_licenses_preserved": true,
+    "legal_counsel_reviewed": false,
+    "revenue_measurement": "trailing 12 months; worldwide affiliated group with internal transactions eliminated; actual revenue since formation for younger businesses"
+  },
+  "repository_url": "https://github.com/abdinoorx3/constructive-access",
+  "doi": null,
+  "publication_actions_performed": [],
+  "publication_status": "prepared_not_published",
+  "public_release_version": "1.0"
+}

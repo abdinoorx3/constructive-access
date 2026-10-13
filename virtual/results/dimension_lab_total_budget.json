@@ -1,0 +1,109 @@
+{
+  "contract_sha256": "c61cfb8c967e616bbff19108f3e1db9321c11566cb8ace6fd4374c33ea51952b",
+  "evidence": "Additional frozen synthetic comparison; no measured data",
+  "exact_certificate": {
+    "alpha_bound": 0.049162844303855265,
+    "alpha_exactly_verified": true,
+    "minimum_states": 5,
+    "valid": true,
+    "witness_margin": "1/1000"
+  },
+  "limitations": [
+    "Matchespilotplusproductionrecordcount, butphysicaldurationsaredifferentandreported.",
+    "Retainsoriginalclockandoriginalforbiddenprobabilityregion;notanoptimizedororaclebaseline.",
+    "Conclusionsaboutallpossibleexperimentaldesignsoruniversalcostsuperioritydonotfollow."
+  ],
+  "nominal_evolution_duration": 1732224.8213048556,
+  "plan": {
+    "beta": "3/20",
+    "critical_counts": [
+      4441,
+      253,
+      253,
+      253,
+      253,
+      4210,
+      886,
+      4210,
+      253,
+      253,
+      253,
+      253,
+      3979
+    ],
+    "epsilon": "3/500",
+    "tau": "2/25"
+  },
+  "records": [
+    28894,
+    1521,
+    1521,
+    1521,
+    1521,
+    27374,
+    156639,
+    27374,
+    1521,
+    1521,
+    1520,
+    1520,
+    25853
+  ],
+  "scenarios": [
+    {
+      "holdout": {
+        "clopper_pearson_interval": [
+          0.9998155730360381,
+          1.0
+        ],
+        "frequency": 1.0,
+        "numerical_binomial_power_crosscheck": 0.9999999999978681,
+        "rejects": 20000,
+        "repetitions": 20000
+      },
+      "name": "coherent_amplitude_offset_0.005"
+    },
+    {
+      "holdout": {
+        "clopper_pearson_interval": [
+          0.011570273137486218,
+          0.014773580148151458
+        ],
+        "frequency": 0.0131,
+        "numerical_binomial_power_crosscheck": 0.013640219032124588,
+        "rejects": 262,
+        "repetitions": 20000
+      },
+      "name": "coherent_amplitude_offset_0.01"
+    },
+    {
+      "holdout": {
+        "clopper_pearson_interval": [
+          0.0,
+          0.0001844269639618992
+        ],
+        "frequency": 0.0,
+        "numerical_binomial_power_crosscheck": 1.4043882437764373e-110,
+        "rejects": 0,
+        "repetitions": 20000
+      },
+      "name": "coherent_amplitude_offset_0.02"
+    },
+    {
+      "holdout": {
+        "clopper_pearson_interval": [
+          0.9998155730360381,
+          1.0
+        ],
+        "frequency": 1.0,
+        "numerical_binomial_power_crosscheck": 0.9999999999999998,
+        "rejects": 20000,
+        "repetitions": 20000
+      },
+      "name": "combined_design"
+    }
+  ],
+  "seed": 610120713,
+  "total_records": 278300,
+  "total_steps": 1929845
+}

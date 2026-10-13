@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Please cite this version of the Constructive Access research compendium. Its citation does not imply external peer review."
+type: software
+title: "Constructive Access: A Unified Reference for Inference under Restricted Physical Access"
+authors:
+  - family-names: "Abdinoor"
+    affiliation: "2D Labs"
+version: "1.0"
+date-released: "2026-10-13"
+url: "https://2dlabs.org"
+abstract: "A unified monograph and reproducible research toolkit for inference under restricted physical access, with exact certificates, physical comparison classes, finite-data calibration, and countermodels. Public compendium version 1.0 contains research toolkit 0.10.0."
+keywords:
+  - identifiability
+  - stochastic thermodynamics
+  - quantum instruments
+  - experimental design
+  - calibrated inference

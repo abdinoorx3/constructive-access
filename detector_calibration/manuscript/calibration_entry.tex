@@ -1,0 +1,107 @@
+\chapter{Learning the calibration that an entropy certificate needs}
+\label{ch:dc-entry}
+
+An inference method is usable only when its calibration assumptions can be
+obtained or justified. The preceding detector chapter established when a
+complete observation law retains the ideal diffusion information. A finite
+experiment must also account for uncertainty in the detector and in the
+diffusion scale. This chapter introduces a construction that does so, together
+with a precise obstruction to removing all structural assumptions.
+
+\section{The question answered here}
+
+Suppose a bounded signal is recorded through a shutter and a noisy detector.
+Can the same finite records both calibrate its local diffusion scale and
+certify positive entropy production, without treating either a fitted scale or
+a detector-noise estimate as exact?
+
+The answer developed below is conditional on a specified local geometry:
+\[
+ |f|\leq1,\qquad \Gamma_f=\gamma(1-f^2),\qquad \gamma>0.
+\]
+The unknown constant $\gamma$ is estimated. The pointwise functional relation
+is a premise. Hidden dimension, hidden drift and stationary density are not
+fixed to the circle used in the numerical example. Uniform bounds on the
+relevant first and second generator derivatives remain additional premises.
+This distinction is substantive: a compact countermodel proves that finite
+passive records cannot uniformly certify those global bounds over an
+unrestricted smooth diffusion class.
+
+\section{What each part of the experiment supplies}
+
+Repeated detector readings of one exposure estimate powers of its underlying
+signal through products of distinct readings. An ordinary power of one noisy
+reading does not do this. Conditional independence of the detector
+randomizations, a common conditional mean and a bounded output range are the
+required noise assumptions; the method does not insert a known read-noise
+variance.
+
+A constant reference signal and a timed step reference cover a common
+multiplicative gain and the width of a uniform shutter. These are actual
+additional reference operations, with their own observations and costs.
+They do not establish the local-geometry identity or the generator bounds.
+A detector with an unknown offset, changing gain or dependent replica noise
+requires a different contract.
+
+Time-separated target records provide a finite-step estimate of the average
+local diffusivity. The structural relation then converts this into a covered
+bound on $\gamma$. A simultaneous region for fixed measured moments carries
+its uncertainty through the entropy calculation. Calibration and testing can
+use the same target records because their joint coverage is proved; neither
+step is silently treated as certain.
+
+\section{A hierarchy with a finite cost}
+
+The polynomial weights
+\[
+ w_m(y)=1+y^2+\cdots+y^{2m}
+\]
+obey $w_m(f)\Gamma_f\leq\gamma$. They replace an inverse local-diffusivity
+weight by a finite polynomial that independent replicas can measure. Order
+$m$ uses $2m+2$ center readings and one reading at each endpoint. All readings,
+including additional replicas, consume physical access.
+
+For the stationary cosine-circle example, the ideal limit at order $m$
+recovers the fraction
+\[
+ 1-\frac{\binom{2m+2}{m+1}}{4^{m+1}}
+\]
+of the exact entropy minimum. This fraction tends to one. The constructive
+consistency theorem accounts for an unknown diffusion scale, gain calibration,
+finite time steps, shrinking exposure and increasing numerical precision.
+It does not claim consistency at a fixed nonzero shutter width or practical
+optimality of its conservative acquisition schedule.
+
+The sharp result extends beyond a constant hidden current. Let a reversible
+hidden process $Z$ modulate angular drift through $c(Z)$, while the measured
+signal remains $\cos\phi$. Within the stated ordinary time-reversal class,
+the compatible entropy minimum is exactly $\mathbb E[c(Z)^2]/\gamma$.
+It can be positive even when $\mathbb E[c(Z)]=0$, and the complete measured
+signal law is time-reversible. Thus mean circulation and observed temporal
+asymmetry can both vanish while the observation and its local geometry still
+force dissipation. This is an analytic extension; the simulation below uses
+constant angular drift.
+
+At a finite budget, more replicas and a higher polynomial order can reduce
+performance. The implementation therefore retains the lower orders and
+compares them under one simultaneous confidence event. Fixed linear contrasts
+preserve correlations between measured moments before concentration; remaining
+gain uncertainty is paid through the same covered region. Selecting the
+largest covered certificate is justified by that event, rather than by an
+uncorrected search through individually valid tests.
+
+\section{How to read the extension}
+
+The calibration-limit chapter explains why additional structure is necessary.
+The constructive chapter gives the detector contract, the exposure error
+bounds, the joint confidence theorem and the hierarchy. The virtual experiment
+then evaluates the actual finite procedure, including its simpler comparator
+and unsuccessful regimes. An independent audit checks the proofs and the
+implementation; the literature chapter identifies the established inference
+methods on which the construction depends.
+
+The numerical experiments use a circle to generate records, but the reported
+geometry certificates use the broader stated structural class. A fit that
+assumes the complete circle dynamics would answer a different inverse problem.
+The mathematical results, simulated observations and requirements for a future
+physical experiment retain separate evidence status throughout.

@@ -1,0 +1,194 @@
+\chapter{A virtual laboratory for the dimension witness}
+\label{ch:dimension-lab}
+
+The finite-record dimension test has a useful separation between validity and
+power. Fixed preparation error, detector confusion, and independent noise on
+each repeated step can substantially weaken a quantum signal while preserving
+the classical null theorem. A small coherent frequency error is particularly
+costly: it moves the recurrence away from the prescribed observation grid.
+An independently calibrated \emph{common} clock correction repairs this failure
+without changing the classical dimension bound. The following experiments
+establish that statement within an independently implemented simulator. They
+are not observations from a physical device.
+
+\section{Physical simulation and frozen experiments}
+The base system is a driven qubit with angular drive frequency $\omega=1$ and
+isotropic depolarization rate $\gamma=10^{-3}$, in declared model time units.
+The observation step is $\Delta=2\pi/7$. A fixed erroneous preparation places
+probability $e_{\rm prep}$ on $|1\rangle$. A fixed binary detector has false-positive
+and false-negative probabilities $e_0,e_1$. The drive can have a fixed amplitude
+error, fixed detuning, and independent two-point amplitude and duration noise
+refreshed on every step.
+
+The primary simulator exponentiates the three-dimensional Bloch generator,
+averages its four independently refreshed amplitude/duration channels, and
+then propagates the state. It does not call the dimension certificate's
+sinusoidal probability helper. A separate four-dimensional vectorized Lindblad
+calculation reproduces the probabilities to within $1.45\times10^{-15}$ across
+the initial 24 declared regimes. One additional record stream simulates the
+preparation bit, every step's noise choice, final Born measurement, and detector
+confusion explicitly. Its $18\,300$ records and noise history are retained in
+\texttt{dimension\_lab\_shots.npz}.
+
+The initial contract was saved before generating its pilot or production data.
+It fixes all settings, seeds, noise regimes, and the original $18\,300$-record
+critical-count test. Each power estimate uses $20\,000$ independently generated
+pseudoexperiments. A pilot of $20\,000$ records at each of 13 settings selects
+an alternative critical-count plan from a frozen candidate family. Its
+$260\,000$ additional records are separate from the production data. Later
+clock-repair and total-budget comparisons have separate frozen contracts and
+new seeds. All declared cases, including failed regimes, are retained.
+
+The saved shot ordering is a random permutation of independent simulated
+records. It represents randomized acquisition under this simulator; it is not
+evidence that an actual acquisition was stable or robust against drift.
+
+\section{Which apparatus errors preserve the null}
+Let $\alpha$, $P$, and $f$ denote the actual prepared distribution, repeated
+classical channel, and stochastic binary detector. The null theorem concerns
+$p_k=\alpha P^k f$, regardless of whether these quantities match nominal values.
+Consequently a fixed imperfect preparation or readout is already covered.
+Independent identical step errors replace $P$ by their average channel and
+are also covered. No assumed qubit frequency, pure preparation, or detector
+fidelity enters this classical argument.
+
+An error drawn once and held for an entire run is different. Its record is
+generally $\mathbb E[\alpha P(V)^k f]$, not
+$\alpha(\mathbb E P(V))^k f$. The retained noise label carries memory and must
+be included in a classical state count. In the declared quasi-static control,
+these two probability sequences differ by as much as $0.20164$. Likewise,
+allowing the detector response itself to depend on $k$ lets one frozen
+classical state reproduce the full target sequence. The resulting rejection
+rate is high, as intended for this outside-contract control. A dimension
+claim therefore needs a common interface and channel, with any controller
+memory included.
+
+\section{Noise tolerance and a matched production comparison}
+The original test's simulated power is $98.565\%$ in the nominal model.
+Representative single-error regimes show the following behavior:
+\begin{center}
+\begin{tabular}{lr}
+Illustrative error & Original-test power\\
+\hline
+Detector false-positive probability $0.0005$ & $95.245\%$\\
+Detector false-positive probability $0.001$ & $81.260\%$\\
+Detector false-positive probability $0.002$ & $28.050\%$\\
+Preparation error probability $0.001$ & $81.330\%$\\
+Independent step amplitude jitter $\pm1\%$ & $98.145\%$\\
+Independent step duration jitter $\pm1\%$ & $98.190\%$\\
+Fixed amplitude offset $+0.5\%$ & $63.920\%$\\
+Fixed amplitude offset $+1\%$ & $1.595\%$
+\end{tabular}
+\end{center}
+These are illustrative dimensionless settings, not a claim about the calibration
+or feasibility of any particular hardware platform. Complete marginal
+Clopper--Pearson intervals appear in the machine-readable results. Monte Carlo
+uncertainty and unknown real-device systematics are separate matters.
+
+The combined design regime has preparation error $0.0005$, detector errors
+$(e_0,e_1)=(0.0005,0.003)$, amplitude offset $0.003$, detuning $0.02$, independent
+amplitude jitter $\pm0.005$, and duration jitter $\pm0.002$. Its original-test
+power is $67.66\%$, with a $95\%$ Monte Carlo interval
+$[67.01\%,68.31\%]$. The independent pilot selects
+\[
+ \epsilon_0=61/10000,\qquad \beta_0=1503/10000,
+ \qquad \tau=781/10000.
+\]
+The resulting critical counts are
+\[
+ (314,22,22,22,22,298,49,298,22,22,22,22,282),
+\]
+with the low-count inequality at setting seven and high-count inequalities
+elsewhere. Exact rational tail checks give a type-I bound below $0.049144$.
+At the unchanged production allocation it obtains $71.28\%$ power, with
+interval $[70.65\%,71.91\%]$. The paired improvement is $3.62$ percentage
+points; a conservative Hoeffding interval is $[1.70,5.54]$ points.
+This is a production-budget comparison conditional on an additional pilot,
+not a total-cost superiority claim.
+
+A library of 400 homogeneous classical models, spanning one through four
+states and both continuous-time and discrete stochastic channels, supplies
+12 adversarially selected null examples. None rejects in $20\,000$ repetitions
+per selected example. A zero count has marginal upper $95\%$ limit
+$0.018443\%$. These finite checks are supplementary: the exact type-I
+certificate, rather than this library, establishes validity over the full null
+class.
+
+\section{Repairing coherent calibration error with one common clock}
+The fixed-amplitude failure is not merely a larger diagonal leakage. At a
+$1\%$ amplitude error the last setting has mean probability approximately
+$0.148983$, below the original required off-diagonal boundary $0.15$.
+Averaging this particular criterion more accurately will not repair that
+mismatch. The observation grid itself needs attention.
+
+In a second independently frozen loop, a $260\,000$-record pilot fits one drive
+amplitude offset with the nominal Bloch model. The production step is then
+multiplied by $1/(1+\widehat a)$. All 13 observation times use this \emph{same}
+step; none is individually corrected. The fit proposes a design and can be
+wrong. It does not supply a premise for the null theorem.
+
+\begin{proposition}[Independent common-clock calibration preserves validity]
+Condition on arbitrary pilot data $D$, and choose a positive common step
+$\Delta(D)$ and a production plan whose fixed-design null error is at most
+$\alpha$. If the independent production records share one actual preparation,
+channel, and detector, and every production setting repeats that chosen step,
+then their unconditional null error is at most $\alpha$.
+\end{proposition}
+\begin{proof}
+For each fixed pilot outcome, the production means factor through one actual
+channel $P_D$ as $p_k=\alpha_D P_D^k f_D$. Apply the fixed-design dimension
+certificate and count-tail guarantee conditionally on $D$, and average the
+resulting bound over $D$. No accuracy condition on the frequency fit is used.
+\end{proof}
+
+The second holdout uses the original $18\,300$ record quotas and original
+critical counts. Its outcomes are:
+\begin{center}
+\begin{tabular}{lrrr}
+Regime & Original clock & Common-clock repair & Repair's $95\%$ interval\\
+\hline
+Amplitude $+0.5\%$ & $63.740\%$ & $98.610\%$ & $[98.44,98.77]\%$\\
+Amplitude $+1\%$ & $1.575\%$ & $98.720\%$ & $[98.55,98.87]\%$\\
+Amplitude $+2\%$ & $0\%$ & $98.595\%$ & $[98.42,98.75]\%$\\
+Combined design noise & $67.855\%$ & $80.380\%$ & $[79.82,80.93]\%$
+\end{tabular}
+\end{center}
+The four positive fitted offsets shorten the production evolution time by
+approximately $0.30\%$ to $1.99\%$. The shot count and $126\,900$ repeated
+channel applications remain identical. Reset, readout, and controller overhead
+are not included in this evolution-time accounting.
+
+\section{Calibration is a resource, and sometimes more averaging wins}
+Each frequency pilot costs $260\,000$ records and $1\,820\,000$ channel
+applications. Combined with one production experiment, its total is
+$278\,300$ records. If one calibration remains valid for 100 later production
+experiments, its record overhead amortizes to about $14.21\%$ per experiment;
+for 1000 uses, about $1.42\%$. Such reuse assumes drive stability and is not
+established by the simulator.
+
+An additional frozen comparison spends all $278\,300$ records on the original
+clock, proportionally enlarges the original quotas, and recalibrates the
+original forbidden-region test at the same $5\%$ type-I level. Its measured
+powers are $100\%$, $1.31\%$, $0\%$, and $100\%$ for the four respective
+regimes in the preceding table. Thus extra averaging wins the mild-offset and
+combined-noise cases at this total record budget. Common retiming repairs the
+two severe phase failures. The equal-record baseline retains the original
+probability region and is not an oracle or an optimal competing protocol.
+The total evolution durations differ and are included in the result files.
+These comparisons support choosing an intervention according to the actual
+failure mechanism; they do not establish universal cost superiority.
+
+\section{Reproduction and interpretation}
+The module \texttt{dimension\_lab.py} exposes the physical channel simulators,
+exact plan checks, pilot design, record generation, and three frozen runs.
+The contracts, selected thresholds, all noise-regime results, count intervals,
+raw shot stream, and seeds are retained. Twelve producer tests include an
+independent density-matrix solver, direct measurement-noise checks, timing-memory
+counterexamples, exact null checks, malformed-plan rejection, reproducible shot
+streams, and common-clock repair.
+
+The concrete result is an experimentally relevant failure and repair:
+coherent grid error can dominate the power of a valid dimension witness,
+and independent calibration of one shared clock can restore power while
+preserving its target-independent null guarantee. Physical device validation,
+external review, and any claim of historical originality remain separate work.

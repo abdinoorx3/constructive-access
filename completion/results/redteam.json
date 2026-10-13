@@ -1,0 +1,109 @@
+{
+  "coarse_classical_detector_counterexample": {
+    "consequence": "Pulse sign crossing alone cannot certify quantumness against coarse or hidden-state classical alternatives",
+    "detector": "union of states 1 and 2",
+    "early_shift": -0.0012564988404562617,
+    "early_time": "1/10",
+    "late_shift": 0.0026926739946961983,
+    "late_time": "1/2",
+    "native_current": "10/121",
+    "signs_certified_by": "100-term rational Taylor enclosures",
+    "singleton_destination_remains_negative": true
+  },
+  "completion_exhaustive_sensor_cases": 65,
+  "correlated_preparation_negative_control": "equal local marginals; disjoint joint records",
+  "cut_exhaustive_partition_cases": 160,
+  "energy_support_vs_exhaustive_cuts": 105,
+  "errors": 0,
+  "failures": 0,
+  "interface_completion_exhaustive_partition_cases": 1080,
+  "mixed_graph_exact_rank_cases": 2197,
+  "parallel_channel_negative_control": "passed",
+  "partition_reduction_exhaustive_small_instances": 340,
+  "postpulse_delay_counterexample": {
+    "consequence": "Suppression must persist until readout, or a delay must be covered by the model discrepancy budget",
+    "delayed_shift": 0.0022926559388718537,
+    "immediate_shift": -0.04823334992643922,
+    "native_clockwise_rate": "4",
+    "native_counterclockwise_rate": "1/10",
+    "native_current": "13/10",
+    "native_evolution_delay": "2/5",
+    "pulse_duration": "1/10",
+    "signs_certified_by": "Exact rational matrix Taylor enclosures and stochastic product error bound",
+    "suppression_factor": "1/2"
+  },
+  "producer_source_sha256": {
+    "composition": "a808ca96faafccf8bce2e5a0587208dc63c4365a986a4cbfd7810649da6cacbf",
+    "graph_access": "594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f",
+    "physical_access": "485bac61f5a654a886c40da1a918242358d451bf621b90ff40a93be97e081a5b",
+    "pulse_test": "79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828",
+    "quantum_completion": "caea447b506a62e388f2c8a8d8ce22f6df684acc76295418f15c54218f69eedc",
+    "robust_completion": "9308b740c53f9b77009cb55cf5b638d36118809f1d03fce9e9fa4479d8218f64"
+  },
+  "pulse_failure_controls": {
+    "global_slowing_stationary_response": "identically zero",
+    "native_current": "1/3",
+    "nonstationary_matched_control_derivative": "1/2",
+    "stationary_endpoint_derivative": "-1/6"
+  },
+  "quantum_counterexample": {
+    "enclosure_method": "80-term rational Taylor sum; geometric induced-infinity-norm tail",
+    "endpoint_B_displacement_positive": true,
+    "lower_exact": "3845565919672180106814376579419701961596939838202741751176020358887823490450875753561618959947029078201215021144265256979444279550491576053395303489671277564871136551922659284522525325383512821356917431422772028921371503134972299402092180358836798392471337/2304689764752654567362927681408115832786695161806476875320984623461243373713143867588663101196289062500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "lower_float": 0.0016685828949671655,
+    "native_channel_current": "1/100",
+    "scope": "Physical coherent counterexample to a universal classical pulse sign law; not a device-independent quantum witness",
+    "suppression_factor": "1/2",
+    "time": "2",
+    "upper_exact": "3845565919672180106814376579419701961596939838202741751176020358887863202913172667470012399372360680243781220243505692034534508411791247033753659087837280940716033617207423399130473337612419949656045848105630719190868460199400241973006601060132415164659991/2304689764752654567362927681408115832786695161806476875320984623461243373713143867588663101196289062500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "upper_float": 0.0016685828949671655
+  },
+  "quantum_preferred_benchmark": {
+    "early_endpoint_B_shift": -0.03416833483914909,
+    "early_strictly_negative": true,
+    "early_time": "1/2",
+    "g": "1",
+    "kappa": "1/10",
+    "late_endpoint_B_shift": 0.014397066668271319,
+    "late_lower_exact": "15225643261528599639205084806647435461797350249392507251930864986204585753732732008014977640752735062049739049455473728918349933561016280733078824769144469857052526352558812814928128692395331739226509070585847775119049395312973/1057551764699633017488154980059992838578907143508542806725826600687462431294553790180435126884783651284875577394710504655166636032000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "late_strictly_positive": true,
+    "late_time": "5/2",
+    "late_upper_exact": "3045128652305719927841016961329487092359470049878501502125264211976506506158915926895107682004988404112144643087492229362689587590650288042174486782550479284669034906642677156403139536312716524198126861897543559767684291569703/211510352939926603497630996011998567715781428701708561345165320137492486258910758036087025376956730256975115478942100931033327206400000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "native_channel_current": "1/10",
+    "r": "1/10"
+  },
+  "short_pulse_exact_ctmc_bias_variance_checks": [
+    {
+      "duration": "10/533",
+      "error": "1/5",
+      "records": 582747
+    },
+    {
+      "duration": "5/533",
+      "error": "1/10",
+      "records": 4639232
+    },
+    {
+      "duration": "5/1066",
+      "error": "1/20",
+      "records": 37022891
+    }
+  ],
+  "success": true,
+  "tests_run": 14,
+  "three_arm_exact_binomial_checks": {
+    "adverse_calibration_powers": [
+      0.9892475896059103,
+      0.9892475896059103
+    ],
+    "alpha": "1/5",
+    "beta": "1/5",
+    "method": "exact rational binomial convolution conditional on shared baseline count",
+    "null_rejection_probabilities": [
+      0.028390164088321873,
+      0.028390164088321873,
+      9.929722592607978e-07
+    ],
+    "records_per_arm": 60
+  }
+}

@@ -1,0 +1,48 @@
+\chapter{Choosing a contrast from the observations}
+\label{pa:design}
+The direct bound needs a correlation contrast parameter $s$. A model can suggest
+one, but requiring the correct hidden rates would undermine its practical use.
+A finite predeclared library provides a simple alternative with explicit coverage.
+This is an application of simultaneous confidence bounds, not a new statistical
+principle.
+
+Let $\mathcal S\subset[0,1]$ contain $M$ distinct rational values chosen before
+collecting the inference records (an independent pilot is also allowed).
+For each $s$, compute the joint analog lower gap $g_s$ with statistical failure
+budget $\alpha/M$. The same calibration and pair records can be reused in every
+contrast. The union bound gives
+\[
+ \Pr\{\text{all }g_s\leq\tfrac12[\Delta_s]_+\}\geq1-\alpha.
+\]
+Thus selecting the largest nonnegative gap after observing the data is valid:
+\[
+ \sigma\geq \frac{4}{t}\max_{s\in\mathcal S}g_s
+\]
+for a detector conditional mean of range at most two and the physical contract
+of the direct semigroup theorem. The nonlinear bridge may likewise be applied
+to this selected gap. An external calibration-contract failure $\eta$ is added
+once, giving total failure at most $\alpha+\eta$. Independence between candidate
+estimates is unnecessary. Acquisition costs count the shared records once.
+
+The price is a larger confidence radius, with $\log(M/\alpha)$ in place of
+$\log(1/\alpha)$. A correctly chosen fixed contrast can outperform the library.
+A library picked or enlarged using these inference data does not satisfy the
+proof; it requires a new coverage argument. Likewise, reporting the maximum of
+several methods that each individually use all of $\alpha$ is invalid without
+simultaneous coverage.
+
+The executable \texttt{certify\_library} function removes duplicate parameters,
+allocates the error budget, retains the individual certificates, and returns the
+selected contrast and its physical bound. A frozen library of seventeen values
+$\{0,1/16,\ldots,1\}$ is evaluated on the same records as the joint analog study.
+The full result is retained in \texttt{attainability/results/design.json}; it
+reports the selection penalty and comparisons even where a fixed contrast wins.
+
+On the driven analog benchmark, the predeclared library detects $362/400$,
+compared with $399/400$ for each of the fixed $s=1/2$ and $s=3/4$ methods.
+Its mean linear rate lower bound is $0.346861$, versus $0.600275$ and
+$0.870376$ for those fixed contrasts. The equilibrium and strong-noise controls
+both give $0/400$; the invalid detector-calibration control gives $400/400$
+false positives and remains invalid. These results exhibit the cost of
+protecting selection from a larger library. They do not justify replacing a
+well-supported fixed design by a library in every experiment.

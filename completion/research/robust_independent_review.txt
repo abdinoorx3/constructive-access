@@ -1,0 +1,206 @@
+INDEPENDENT INTERNAL REVIEW: PRECISION, ENERGY AND CALIBRATION FLOORS
+Reviewer: completion_graph, separate from completion_robust producing agent
+Date: 12 October 2026
+
+VERDICT
+Accepted as exact mathematical results under the stated full-box current-sensor
+contract. The fixed-cut allocation, zero-floor global minimum-cut reduction,
+strict calibration-floor feasibility boundary, and rational FLOOR-ENERGY-CUT
+NP-completeness proof are correct. This is an internal adversarial review, not
+external peer review or experimental validation. Historical novelty is not
+established by this review.
+
+Reviewed producer code SHA256:
+  robust_completion.py
+  9308b740c53f9b77009cb55cf5b638d36118809f1d03fce9e9fa4479d8218f64
+Reviewed graph dependency SHA256:
+  graph_access.py
+  594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f
+Reviewed corrected research note SHA256:
+  robust_completion.txt
+  b1999e19a8af1e9b59cf06d9a21d6f5e4d3431ad672f61da8288d03b3e9696d8
+
+1. FIXED-CUT ALLOCATION
+
+Inputs are q_e>0, delta_e>=0, tau>0 and the declared relation
+epsilon_e(E_e)=delta_e+sqrt(q_e^3/E_e), with E_e>0 for acquired sensors. Let
+Q=sum q_e, D=sum delta_e, and s=tau-D. For a nonempty cut, s<=0 excludes a
+finite-energy solution. For s>0, the optimal allocation is
+
+  E_e=Q^2 q_e/s^2,
+  epsilon_e=delta_e+s q_e/Q,
+  E_total=Q^3/s^2.
+
+I independently derived this both by a Lagrange multiplier for positive slack
+errors and by Holder's inequality. Strict positivity of q ensures no boundary
+case with a zero-cost exact sensor has been silently included. The empty cut is
+handled separately with zero energy, as required when the target is a bridge.
+The code's check of (epsilon-delta)^2 E=q^3, positive slack, total error tau,
+and equality of summed energy with the closed-form lower bound is sufficient.
+It does not trust the producing optimizer.
+
+2. GLOBAL IDEAL DESIGN
+
+The exact minimax edge-current radius is the minimum cut sum of the declared
+sensor errors. Therefore every feasible energy allocation admits at least one
+cut with summed error <=tau. Restricting to that cut cannot increase energy.
+Without floors its best energy is (sum_cut q)^3/tau^2, monotonically increasing
+in the q-cut value. A minimum q-cut and its allocation are globally optimal
+among sensor subsets and estimators within this contract. The matching flow
+certificate supplies the lower bound. verify_ideal_energy correctly treats
+verify_target_cut as a Boolean and rejects a counterfeit target flow.
+
+3. CALIBRATION-FLOOR HARDNESS
+
+For positive PARTITION integers v_i, put V=sum v_i, b=V, Q_*=nV+V/2. A cut
+chooses one edge on each of n two-edge paths. Its sums are
+
+  Q=nV+sum_selected v_i,
+  D=nV+V-sum_selected v_i=2Q_*-Q.
+
+At accuracy tau=5Q_*/3 and budget L=9Q_*/4 every cut has positive slack, since
+Q>=nV>Q_*/3. Its optimal energy is Q^3/(Q-Q_*/3)^2. I independently checked
+the exact identity
+
+  Q^3/(Q-Q_*/3)^2 - 9Q_*/4
+    = (Q-Q_*)^2(4Q-Q_*) / [4(Q-Q_*/3)^2].
+
+The right side is nonnegative and vanishes only at Q=Q_*. Thus a cut meets the
+energy budget if and only if the original integers admit an equal partition.
+The graph is simple: a direct target s-t edge and distinct interior vertices
+on the other length-two paths. No parallel physical edges are required here.
+
+All q, delta, tau and L are rationals with polynomial bit length. Choosing
+a=q^3 also preserves polynomial bit length. Membership in NP follows from a
+cut witness and the rational check Q^3<=L(tau-D)^2, with tau>D. The optimal
+allocation can also be written with polynomially many rational bits. Therefore
+the stated decision problem is NP-complete for rational q. The reduction is
+from PARTITION and does not establish strong NP-hardness. It makes no claim
+against approximation, pseudopolynomial algorithms, tractable subclasses, or
+practical optimization. Exact algebraic verification remains easy even when
+finding an optimum is hard.
+
+4. INDEPENDENT EXACT COMPUTATIONAL CHECKS
+
+I executed a separate Fraction-based calculation with random.Random(7319):
+
+  - 120 PARTITION instances, each with 1 to 8 positive integers in 1..24;
+  - all 7,576 cuts across these instances;
+  - direct checks of the factorization, positive slack and exact decision
+    equivalence for every cut;
+  - comparison of independent minimum energies and subset-sum decisions with
+    the producing implementation;
+  - 100 rational fixed-cut allocations, with 1 to 6 edges;
+  - 1,000 alternative positive rational slack allocations, each checked to
+    require at least the claimed optimum energy.
+
+Every check passed. The independent calculations used the displayed formulas
+and Python fractions.Fraction; they did not invoke the producer's allocation
+routine to form expected energies. Producer results were imported only after
+the independent expected values had been calculated. These finite checks
+support implementation correctness; the proofs establish the general results.
+After the support-bound extension below, I reran all fourteen producing-agent
+unit tests successfully.
+
+5. SCIENTIFIC SCOPE THAT MUST SURVIVE INTEGRATION
+
+The correct interpretation is minimum certified acquisition energy under the
+declared adversarial box and precision-energy model. If epsilon(E) is merely a
+conservative confidence envelope, the result establishes the optimum for that
+guarantee, not the minimum physical energy achievable by all conceivable
+experiments. The inverse-square sensor model is not a universal physical law.
+In particular, the separate finite-time channel-pulse experiment may incur
+systematic transient bias and a different precision-energy relation; it must
+not be inserted into this ideal contract without derivation and calibration.
+
+A valid joint error envelope is required. Marginal confidence bounds alone do
+not establish the same simultaneous confidence across several sensors. Full
+box error uncertainty is a worst-case admissibility assumption, not a claim of
+probabilistic independence. Known error correlations can improve the optimum.
+
+Only acquisition energy is optimized. Setup, preparation, intervention, sensing,
+reset, thermal support and calibration costs remain additional unless included
+explicitly in a revised resource model. Continuous real-valued allocations also
+exclude record-count integrality and power or duration restrictions.
+The chosen sensors and allocations are fixed before observations. Sequential
+adaptive acquisition needs an additional protocol and conditional-error contract;
+it is not included in this fixed-design optimum.
+
+The unrestricted conserved-current model is what makes the minimax bound exact.
+A fixed finite device with rate, traffic or thermodynamic-affinity constraints
+can have a smaller admissible class and a different sharp bound. Positive-rate
+realizability establishes that a finite least-favorable pair is physically
+possible in the declared Markov class, not that every device realizes that pair.
+
+6. CORRECTIONS REQUESTED
+
+The research note cited graph_access.txt; the actual proof file is
+graph_theory.txt. The phrase "independently allowed errors" was recommended to
+be changed to "full jointly allowed box errors" to prevent confusion with
+statistical independence. These are presentation corrections, not mathematical
+defects. The producing agent was notified.
+Both corrections have been applied in the reviewed note whose hash is recorded
+above; the fixed/nonadaptive allocation limitation is now also explicit there.
+
+The generic shared-nuisance minimax theorem is a correct standard LP-duality
+extension and its illustrative cancellation/failure cases are consistent.
+This review concentrated on the energy allocation and complexity result;
+it is not an exhaustive independent code audit of every generic LP basis
+enumeration branch.
+
+7. ADDITIONAL REVIEW: SCALABLE FLOOR-AWARE BOUND CERTIFICATES
+
+The final producer version adds floor_energy_bound and verify_floor_energy_bound.
+For any positive rational supporting parameter t, compute a minimum cut with
+capacities 3 t^2 q_e + 2 t^3 delta_e. Subtract 2 tau t^3 from the cut value and
+take the maximum with zero. This is a valid global energy lower bound. If the
+returned cut has D<tau, its exact allocation supplies a feasible upper bound.
+
+I independently proved the lower bound as follows. For any feasible cut, put
+s=tau-D>0 and x=A/s. Its energy minus the supporting expression is
+
+  A^3/s^2 - (3 t^2 A - 2 t^3 s)
+    = s (x-t)^2 (x+2t) >= 0.
+
+Minimizing the supporting expression over all cuts therefore lower-bounds the
+minimum feasible energy. Including infeasible cuts in that supporting minimum
+cannot invalidate the lower bound. Clipping a negative value at zero is valid.
+For an empty cut, the optimum and the clipped lower bound both equal zero.
+If a returned feasible cut also satisfies t=A/(tau-D), equality certifies its
+global optimality. Other choices may leave a strict gap. Sampling several t
+values yields valid bounds, without an assertion that this solves the general
+NP-complete optimization or finds the best possible relaxation parameter.
+
+The checker independently validates the graph flow/cut certificate, supporting
+value, chosen cut, allocation and gap. No optimizer is called by the checker.
+I tested 100 additional random multigraphs using random.Random(884701), with
+unavailable sensors, rational q and floors, target bridges and disconnected
+cases. Independent exhaustive vertex-cut enumeration found 62 finite optima
+and 38 instances without a finite feasible design. Across five rational t
+values per graph (1/3, 1, 3/2, 7, 21), all 500 producer certificates correctly
+bounded the independently computed optimum. Every reported exact optimum was
+correct. No infeasible instance was supplied a finite feasible upper bound.
+
+This useful search-versus-verification distinction strengthens the engineering
+workflow. It remains an application of standard convex supporting bounds and
+minimum-cut duality; historical originality needs its own literature assessment.
+
+8. INTEGRATED MANUSCRIPT ACCEPTANCE
+
+I reviewed manuscript/resource_section.tex, final SHA256
+  fbf676f8ce151d14f3e6bf2ae8d3cbc45414aa60b0e24395a7f1673f4c261a17.
+The self-contained chapter preserves the accepted model assumptions, complete
+minimax/allocation/hardness/supporting-bound proofs, and executable examples.
+Its additional general-p remark is correct: for p>0 and a calibrated error
+delta+(a/E)^(1/p), set q=a^(1/(p+1)); Holder gives cut energy
+(sum q)^(p+1)/(tau-sum delta)^p and allocation proportional to q. The software
+restriction to p=2 is explicit.
+
+Three requested presentation corrections have been applied: the physical
+traffic variable now means half the total edge traffic, consistently with the
+graph chapter; the supporting-bound proof explicitly minimizes the supporting
+expression rather than referring ambiguously to its nonnegative gap; and the
+hardness theorem specifies availability of all nontarget sensors. No remaining
+mathematical correction is requested. The chapter has been compiled standalone
+without warnings. Acceptance concerns internal mathematical consistency and
+reproducibility, not experimental validity or historical priority.

@@ -1,0 +1,264 @@
+{
+  "curvature": {
+    "certificate": {
+      "contract": "stationary ordinary-reversal CTMC; same noninvasive fixed binary detector; independent randomized lag; joint confidence box supplied externally",
+      "depth": 4,
+      "entropy_production_rate_lower": "169817869389313723269795827828869/232113757366008801543585792000000000",
+      "expectation_log_lower": "169817869389313723269795827828869/3094850098213450687247810560000000000",
+      "expected_lag": "3/10",
+      "intervals": [
+        [
+          "1433564319/2000000000",
+          "1792955399/2500000000"
+        ],
+        [
+          "645107921/1000000000",
+          "6455079211/10000000000"
+        ],
+        [
+          "5512453727/10000000000",
+          "172389179/312500000"
+        ]
+      ],
+      "lags": [
+        1,
+        2,
+        3
+      ],
+      "mean_interval": [
+        "-1",
+        "1"
+      ],
+      "normalizer_upper": "1",
+      "polynomial_coefficients": [
+        [
+          "1",
+          "-1/400",
+          "1/200",
+          "-1/400"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "polynomial_upper_bounds": [
+        "1",
+        "1"
+      ],
+      "record_kl_lower": "169817869389313723269795827828869/3094850098213450687247810560000000000",
+      "reversible_baseline_interval": [
+        "1/2",
+        "1"
+      ],
+      "scores": [
+        [
+          "101/100",
+          "199/200"
+        ],
+        [
+          "49/50",
+          "101/100"
+        ],
+        [
+          "101/100",
+          "199/200"
+        ]
+      ],
+      "status": "positive_certificate",
+      "step": "3/20",
+      "weights": [
+        "1/3",
+        "1/3",
+        "1/3"
+      ]
+    },
+    "entropy_rate_lower_float": 0.000731614839707826,
+    "evidence": "exact classical model prediction plus synthetic uncertainty box; no measured data",
+    "exact_probability_intervals": [
+      [
+        "1433964319/2000000000",
+        "1792455399/2500000000"
+      ],
+      [
+        "645307921/1000000000",
+        "6453079211/10000000000"
+      ],
+      [
+        "5514453727/10000000000",
+        "172326679/312500000"
+      ]
+    ],
+    "model": {
+      "backward_rate": 1,
+      "detector_conditional_means": [
+        "1",
+        "123461/125000",
+        "951057/1000000",
+        "891007/1000000",
+        "809017/1000000",
+        "707107/1000000",
+        "117557/200000",
+        "45399/100000",
+        "309017/1000000",
+        "78217/500000",
+        "0",
+        "-78217/500000",
+        "-309017/1000000",
+        "-45399/100000",
+        "-117557/200000",
+        "-707107/1000000",
+        "-809017/1000000",
+        "-891007/1000000",
+        "-951057/1000000",
+        "-123461/125000",
+        "-1",
+        "-123461/125000",
+        "-951057/1000000",
+        "-891007/1000000",
+        "-809017/1000000",
+        "-707107/1000000",
+        "-117557/200000",
+        "-45399/100000",
+        "-309017/1000000",
+        "-78217/500000",
+        "0",
+        "78217/500000",
+        "309017/1000000",
+        "45399/100000",
+        "117557/200000",
+        "707107/1000000",
+        "809017/1000000",
+        "891007/1000000",
+        "951057/1000000",
+        "123461/125000"
+      ],
+      "forward_rate": 20,
+      "states": 40
+    },
+    "monotonic_revival_bound": 0,
+    "negative_correlation_bound": 0,
+    "resource_frontier": {
+      "contract": "D(nu||pi) + one half expected integrated housekeeping entropy >= record KL bound; fixed Q, positive stationary pi, common noninvasive detector",
+      "detailed_balance_preparation_kl_lower": "169817869389313723269795827828869/3094850098213450687247810560000000000",
+      "integrated_housekeeping_lower": "169817869389313723269795827828869/1547425049106725343623905280000000000",
+      "preparation_kl_cap": "0",
+      "preparation_plus_half_housekeeping_lower": "169817869389313723269795827828869/3094850098213450687247810560000000000",
+      "reference_mean_calibrated": false
+    }
+  },
+  "revival": {
+    "certificate": {
+      "contract": "stationary ordinary-reversal CTMC; same noninvasive fixed binary detector; independent randomized lag; joint confidence box supplied externally",
+      "depth": 4,
+      "entropy_production_rate_lower": "6705823918117366889926925433/143136817042372094285211238400",
+      "expectation_log_lower": "6705823918117366889926925433/309485009821345068724781056000",
+      "expected_lag": "37/20",
+      "intervals": [
+        [
+          "501/1000",
+          "523/1000"
+        ],
+        [
+          "29/40",
+          "747/1000"
+        ]
+      ],
+      "lags": [
+        16,
+        21
+      ],
+      "mean_interval": [
+        "-1",
+        "1"
+      ],
+      "normalizer_upper": "1",
+      "polynomial_coefficients": [
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "-875/7332",
+          "0",
+          "0",
+          "0",
+          "0",
+          "875/7332"
+        ],
+        [
+          "1",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "polynomial_upper_bounds": [
+        "1",
+        "1"
+      ],
+      "record_kl_lower": "6705823918117366889926925433/309485009821345068724781056000",
+      "reversible_baseline_interval": [
+        "1/2",
+        "1"
+      ],
+      "scores": [
+        [
+          "61/47",
+          "32/39"
+        ],
+        [
+          "33/47",
+          "46/39"
+        ]
+      ],
+      "status": "positive_certificate",
+      "step": "1/10",
+      "weights": [
+        "1/2",
+        "1/2"
+      ]
+    },
+    "entropy_rate_lower_float": 0.0468490501373401,
+    "evidence": "synthetic probability confidence box; not an empirical dataset",
+    "rate_units": "natural entropy per declared model time; heat conversion needs separate physical assumptions",
+    "resource_frontier": {
+      "contract": "D(nu||pi) + one half expected integrated housekeeping entropy >= record KL bound; fixed Q, positive stationary pi, common noninvasive detector",
+      "detailed_balance_preparation_kl_lower": "6705823918117366889926925433/309485009821345068724781056000",
+      "preparation_plus_half_housekeeping_lower": "6705823918117366889926925433/309485009821345068724781056000",
+      "reference_mean_calibrated": false
+    }
+  }
+}

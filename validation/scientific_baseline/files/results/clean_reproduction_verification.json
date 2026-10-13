@@ -1,0 +1,2686 @@
+{
+  "recorded_utc": "2026-10-13T02:22:29.682542+00:00",
+  "status": "passed",
+  "scope": "Internal mathematical/software reproduction and exploratory reanalysis of published measurements; no new physical measurement, empirical entropy validation, or external review.",
+  "python": "3.12.14",
+  "packages": {
+    "sympy": "1.14.0",
+    "mpmath": "1.3.0",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "matplotlib": "3.10.8",
+    "h5py": "3.16.0"
+  },
+  "commands": [
+    {
+      "name": "tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 4.54582,
+      "log": "logs/verify_tests.log",
+      "log_sha256": "e2f5e57ea602a40fd3ed564f90a1739bee296be8c9e8c4d08fc8ba5dc540dd16"
+    },
+    {
+      "name": "suite_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/suite_tutorial.py",
+        "--output",
+        "results/suite_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.57746,
+      "log": "logs/verify_suite_tutorial.log",
+      "log_sha256": "5b5a86d5b76db78449ace2bac0e35441196a99e903e620af4247a3829585d186"
+    },
+    {
+      "name": "advanced_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/advanced_tutorial.py",
+        "--output",
+        "results/advanced_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.588458,
+      "log": "logs/verify_advanced_tutorial.log",
+      "log_sha256": "3ebe69f6022940002ebfa1891ec2135d95c91e1d68fb2d8c061374e119323fdb"
+    },
+    {
+      "name": "physics_consistency",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "research/physics_consistency.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.338071,
+      "log": "logs/verify_physics_consistency.log",
+      "log_sha256": "5ecaa95f8d966111590884373e8e1b191ef4fb4becb33526499ce59bb93c9c6e"
+    },
+    {
+      "name": "analyze_active",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "analyze",
+        "examples/active.json",
+        "-o",
+        "results/active_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.584352,
+      "log": "logs/verify_analyze_active.log",
+      "log_sha256": "5fe49b64f5cb550646ec78ab0f2e4cf913511f835ee42a67922297b7715c53d1"
+    },
+    {
+      "name": "analyze_passive",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "analyze",
+        "examples/passive.json",
+        "-o",
+        "results/passive_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.421714,
+      "log": "logs/verify_analyze_passive.log",
+      "log_sha256": "55639a29a0656f79f40be97781d8a951e7ce77ba3896552dd1aaf2cb9591ecc5"
+    },
+    {
+      "name": "analyze_calibrated",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "analyze",
+        "examples/calibrated.json",
+        "-o",
+        "results/calibrated_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.449671,
+      "log": "logs/verify_analyze_calibrated.log",
+      "log_sha256": "0256bb8214ee4011fc83b28788fee6bcf7b5aca0f9895bd431067405aabbf7b3"
+    },
+    {
+      "name": "analyze_calibration_gap_closed",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "analyze",
+        "examples/calibration_gap_closed.json",
+        "-o",
+        "results/calibration_gap_closed_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.433024,
+      "log": "logs/verify_analyze_calibration_gap_closed.log",
+      "log_sha256": "471d9c32a9c4ce1ceaae3dc8a376f356d9f51f5b46df4febef9b06358d179f8c"
+    },
+    {
+      "name": "analyze_grammar",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "analyze",
+        "examples/grammar.json",
+        "-o",
+        "results/grammar_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.463433,
+      "log": "logs/verify_analyze_grammar.log",
+      "log_sha256": "b27d38f1661cb14c283c2b82afd52dd5c932d545aa229e06f4f5efda84d04f7a"
+    },
+    {
+      "name": "completion_tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "completion/run_tests.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.29638,
+      "log": "logs/verify_completion_tests.log",
+      "log_sha256": "92606f95cf0da255dc8ec47d4c01102b236de78e433940802ad23fadbd286d2e"
+    },
+    {
+      "name": "completion_independent",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "completion/tests/test_independent.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 5.787717,
+      "log": "logs/verify_completion_independent.log",
+      "log_sha256": "10ea1d1115f2f3d7782e919aab1537516373ca39bfaca283a5ac92ea4f313a1f"
+    },
+    {
+      "name": "completion_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/completion_tutorial.py",
+        "--output",
+        "results/completion_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.47402,
+      "log": "logs/verify_completion_tutorial.log",
+      "log_sha256": "09e138233a714c67276e6248c51f3a4336b6589b55af477d6c2d551b16f2213c"
+    },
+    {
+      "name": "graph_access",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "completion/code/graph_access.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.055608,
+      "log": "logs/verify_graph_access.log",
+      "log_sha256": "1ec5df24968855ebab71a45776deaa9512550bbffe86b7ba9066bd4d2832937d"
+    },
+    {
+      "name": "robust_completion",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "completion/code/robust_completion.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.083568,
+      "log": "logs/verify_robust_completion.log",
+      "log_sha256": "66ca9cedb56f872184703fab043d1c922615a0d5a73b998dc398f1d8b32ca4da"
+    },
+    {
+      "name": "composition",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "completion/code/composition.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.0525,
+      "log": "logs/verify_composition.log",
+      "log_sha256": "85c07d7f41440449f767c24ad4cf827094840295fce533e7a92ca829436f1442"
+    },
+    {
+      "name": "physical_access",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "completion/code/physical_access.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.458881,
+      "log": "logs/verify_physical_access.log",
+      "log_sha256": "5ad4b4cf845f3219c1b2d7eaf49b5f22800e797038232b830be75e60ebeadbe8"
+    },
+    {
+      "name": "quantum_completion",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "completion/code/quantum_completion.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.143855,
+      "log": "logs/verify_quantum_completion.log",
+      "log_sha256": "73c7390a1329e56ce0f43886825458ac7fdf692be58de3be55b9b94124346da3"
+    },
+    {
+      "name": "pulse_test",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "completion/code/pulse_test.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.074942,
+      "log": "logs/verify_pulse_test.log",
+      "log_sha256": "3f5a2759b3fd9cba3263039be775d27efb15a7b5100be05751ea40cfbad31ee6"
+    },
+    {
+      "name": "robust_tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "robustness/run_tests.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 6.937335,
+      "log": "logs/verify_robust_tests.log",
+      "log_sha256": "9f8dfcc2db60a80679774928b81623e2c4bbb74d5416de82ae62d7fd76efe3df"
+    },
+    {
+      "name": "robust_independent",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "robustness/run_independent.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 4.259372,
+      "log": "logs/verify_robust_independent.log",
+      "log_sha256": "f3f9de10d3fd7161c01874ed2b2c5b39f29959a318483347ea267eb4c07ca427"
+    },
+    {
+      "name": "robust_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/robust_tutorial.py",
+        "--output",
+        "results/robust_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.840885,
+      "log": "logs/verify_robust_tutorial.log",
+      "log_sha256": "92bc6a9c4d37d3efc10fea009abad2d4c0c404b9fe75f63a1004c7f448f346c5"
+    },
+    {
+      "name": "robust_clock_design",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "robustness/code/clock_design.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.099214,
+      "log": "logs/verify_robust_clock_design.log",
+      "log_sha256": "a4efdd927e900ea07e850a4a34a6f065e358478610672c1c00b94ce457a5cd0b"
+    },
+    {
+      "name": "robust_detector_boundary",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "robustness/code/detector_boundary.py",
+        "--output",
+        "robustness/results/detector_boundary.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.73113,
+      "log": "logs/verify_robust_detector_boundary.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "robust_explanation",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "robustness/code/explanation.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.301209,
+      "log": "logs/verify_robust_explanation.log",
+      "log_sha256": "45d2f86c9d5a0f4fc94383a7d1462f89f3d83ca503f33ac3050a0c6f7ac4b4c1"
+    },
+    {
+      "name": "robust_preparation",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "robustness/code/preparation.py",
+        "--output",
+        "robustness/results/preparation.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.553431,
+      "log": "logs/verify_robust_preparation.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "robust_robust_physics",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "robustness/code/robust_physics.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.489708,
+      "log": "logs/verify_robust_robust_physics.log",
+      "log_sha256": "cfdc68b9f24f9f2c32188b7ed9f4714aa5f48fc14ee173a0aae02ce549834938"
+    },
+    {
+      "name": "robust_statistics_design",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "robustness/code/statistics_design.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.276455,
+      "log": "logs/verify_robust_statistics_design.log",
+      "log_sha256": "337a3adafe380afceec6fc4217b65d00676fa59abf8e4a903b196aebab82d1f6"
+    },
+    {
+      "name": "frontier_tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "frontier/run_tests.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 5.343824,
+      "log": "logs/verify_frontier_tests.log",
+      "log_sha256": "3092a333ce0c4a4c96382c66f0f1e12dfa38f0c0b368c9fe787510bbcd6de831"
+    },
+    {
+      "name": "frontier_independent",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "frontier/tests/test_independent.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.638794,
+      "log": "logs/verify_frontier_independent.log",
+      "log_sha256": "85ff61b07d8295fe84bcf4303717f609e1b9ff63e1f6947ffb9a33e0129c78cb"
+    },
+    {
+      "name": "frontier_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/frontier_tutorial.py",
+        "--output",
+        "results/frontier_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.055122,
+      "log": "logs/verify_frontier_tutorial.log",
+      "log_sha256": "9bda546f12d88e6bf614c520fbcefe11332a789afab209dfd6c51bd499f3bb81"
+    },
+    {
+      "name": "frontier_hierarchy",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "frontier/code/hierarchy.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 14.105934,
+      "log": "logs/verify_frontier_hierarchy.log",
+      "log_sha256": "72c91738442e9d9f63db07ee2019b247ef461ff590eb22e89a8d70fa52818029"
+    },
+    {
+      "name": "frontier_spectral",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "frontier/code/spectral.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.060158,
+      "log": "logs/verify_frontier_spectral.log",
+      "log_sha256": "20175672540a40fc212ff8b4b4e4a02cee1e5d78924a375a06ad3cbad61ecbaa"
+    },
+    {
+      "name": "frontier_limits",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "frontier/code/limits.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.95073,
+      "log": "logs/verify_frontier_limits.log",
+      "log_sha256": "b8688b919b6fe0f2159543df08e2cf751fcc65e67060e6a0e93ac5dcce8aeb47"
+    },
+    {
+      "name": "frontier_thermodynamic",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "frontier/code/thermodynamic.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.223177,
+      "log": "logs/verify_frontier_thermodynamic.log",
+      "log_sha256": "2635c671d932cef54b4d8a025723088c07666e76a903d2cfce745a89de39ed5b"
+    },
+    {
+      "name": "frontier_energy_certificate",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "frontier/code/energy_certificate.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.360519,
+      "log": "logs/verify_frontier_energy_certificate.log",
+      "log_sha256": "c6d7631e9e50acc798e95af2ac5136e1b35685b8ac6ebd0ae80e51035aa05ba9"
+    },
+    {
+      "name": "virtual_independent",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/tests/test_independent.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.079524,
+      "log": "logs/verify_virtual_independent.log",
+      "log_sha256": "52ac0189a8ac0fc2d779d7159c77292fe497d3a4175bca3e5aadc9576083cf2a"
+    },
+    {
+      "name": "virtual_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/virtual_tutorial.py",
+        "--output",
+        "results/virtual_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.432876,
+      "log": "logs/verify_virtual_tutorial.log",
+      "log_sha256": "b9da79675f3e966ef5a166611faafb8c5097a6fc9f67d6c85ddb34680c22058a"
+    },
+    {
+      "name": "virtual_contrast",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/code/contrast.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.389457,
+      "log": "logs/verify_virtual_contrast.log",
+      "log_sha256": "75b66d5f7f0c1acc2ba7ec1ea53838b95218b7a551e49fa6c11e427978a8d767"
+    },
+    {
+      "name": "virtual_timing",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/code/timing.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.053107,
+      "log": "logs/verify_virtual_timing.log",
+      "log_sha256": "e39266981bd64c5a86c6514a9339822f2670e9936b3a022cf37c294aad07f678"
+    },
+    {
+      "name": "virtual_sampling",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/code/sampling.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.482671,
+      "log": "logs/verify_virtual_sampling.log",
+      "log_sha256": "6ce7b9c40c295a8d6e1aa1a7b8031ced3dd7f74dfe276b31c99705b23c3884c1"
+    },
+    {
+      "name": "virtual_dimension_lab",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/code/dimension_lab.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 6.423082,
+      "log": "logs/verify_virtual_dimension_lab.log",
+      "log_sha256": "0c00784bb442c50251fbb92119a674e93e1ebdbc9b929e4dfacce0060c31693e"
+    },
+    {
+      "name": "virtual_thermodynamic_lab",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/code/thermodynamic_lab.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 23.264315,
+      "log": "logs/verify_virtual_thermodynamic_lab.log",
+      "log_sha256": "2b1777005e7bbed915d2348c4241e8e3a44e13b35acaf955d1d757395dc1831a"
+    },
+    {
+      "name": "virtual_dimension_retiming",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/code/dimension_lab.py",
+        "--retiming-contract",
+        "virtual/contracts/dimension_lab_retiming.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.482684,
+      "log": "logs/verify_virtual_dimension_retiming.log",
+      "log_sha256": "5e3591f5926b2cdd808fc457778d9e7f7a80964be65c6af9717c53cb89353d5b"
+    },
+    {
+      "name": "virtual_dimension_total_budget",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/code/dimension_lab.py",
+        "--total-budget-contract",
+        "virtual/contracts/dimension_lab_total_budget.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 21.275562,
+      "log": "logs/verify_virtual_dimension_total_budget.log",
+      "log_sha256": "a4bdb73716176b6b58d7c33bace927c7aeec933bfe4bea731bb5a3b4cd15f989"
+    },
+    {
+      "name": "virtual_thermodynamic_pilot",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/code/thermodynamic_lab.py",
+        "--pilot-only"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.626787,
+      "log": "logs/verify_virtual_thermodynamic_pilot.log",
+      "log_sha256": "045f69748f94e1ebbf7e087870370e9aeebd4dc23c6c5a91cca15ff841bbd2e5"
+    },
+    {
+      "name": "virtual_allocation",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/research/allocation_benchmark.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 5.830037,
+      "log": "logs/verify_virtual_allocation.log",
+      "log_sha256": "884fcd0b283bd35ce87d40cebf0d8c044ebeb3769decff441cb53f53327cc439"
+    },
+    {
+      "name": "calibrated_calibration",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/calibration.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.3982,
+      "log": "logs/verify_calibrated_calibration.log",
+      "log_sha256": "4db582e7207e4e06f01af40e1d3a64672547ec13c81336be538d9221cb76d40f"
+    },
+    {
+      "name": "calibrated_nonlinear",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/nonlinear.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.185439,
+      "log": "logs/verify_calibrated_nonlinear.log",
+      "log_sha256": "523e6018cf6ca801b957900aa24491a747398693bfc7117eaf964331daebdc2f"
+    },
+    {
+      "name": "calibrated_dissipation_limits",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/dissipation_limits.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 5.618845,
+      "log": "logs/verify_calibrated_dissipation_limits.log",
+      "log_sha256": "ffb6e6075f62ae127b43e001393af5f7154af102beca33daeb1cd2b096b8864d"
+    },
+    {
+      "name": "calibrated_sequential",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/sequential.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.385119,
+      "log": "logs/verify_calibrated_sequential.log",
+      "log_sha256": "74039c4ce592be72d1200d2c640b717ff4d740d0ed89166f04bffbf26c4c8b49"
+    },
+    {
+      "name": "calibrated_sequential_benchmark",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/sequential_benchmark.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 15.862918,
+      "log": "logs/verify_calibrated_sequential_benchmark.log",
+      "log_sha256": "0f4669e5758922a42be3d9c0ea42c6ef0531d1d89110a0d4848fc242a97bac32"
+    },
+    {
+      "name": "calibrated_dependence",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/dependence.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 228.048798,
+      "log": "logs/verify_calibrated_dependence.log",
+      "log_sha256": "6fc432c4d4e0e5df6eee3e205e7af60c2e7d3159ff6fccc3675ed220a04f3396"
+    },
+    {
+      "name": "calibrated_analog",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/analog.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.432173,
+      "log": "logs/verify_calibrated_analog.log",
+      "log_sha256": "a04722b4f7fe56be8d6b585ad655a3356c95571de5c487ceb4085706c4804802"
+    },
+    {
+      "name": "calibrated_analog_benchmark",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/analog_benchmark.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 34.208364,
+      "log": "logs/verify_calibrated_analog_benchmark.log",
+      "log_sha256": "9cb8423664f94907c3143ce9cb60f468bd743eab90dbd2ba8b4564cdff859bc2"
+    },
+    {
+      "name": "calibrated_empirical_loader",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/empirical_loader.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.21089,
+      "log": "logs/verify_calibrated_empirical_loader.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "calibrated_empirical_analysis",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/empirical_analysis.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.220269,
+      "log": "logs/verify_calibrated_empirical_analysis.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "calibrated_calibrated_benchmark",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/calibrated_benchmark.py",
+        "--workers",
+        "4",
+        "--with-audit"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 797.601643,
+      "log": "logs/verify_calibrated_calibrated_benchmark.log",
+      "log_sha256": "2646ad1bb50d8db9360cf40ecb3638b2d98b81905de381fc6751ed42c08a4051"
+    },
+    {
+      "name": "calibrated_joint_calibration",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/joint_calibration.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 513.871377,
+      "log": "logs/verify_calibrated_joint_calibration.log",
+      "log_sha256": "eb535a8748810f072372bf1ea470abb74c0e5dbb8a6ea8fa5a77fdbca9517933"
+    },
+    {
+      "name": "calibrated_dependence_refinement",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/code/dependence.py",
+        "--refinement"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 93.821203,
+      "log": "logs/verify_calibrated_dependence_refinement.log",
+      "log_sha256": "acd09c5ff837f20e6b386f875f60916c78ceca85d493d94b52061716904dd0a1"
+    },
+    {
+      "name": "calibrated_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/calibrated_tutorial.py",
+        "--output",
+        "results/calibrated_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 7.923147,
+      "log": "logs/verify_calibrated_tutorial.log",
+      "log_sha256": "29cd7a3fbd8993eb650158b6b534bee8c932b8d7f86048797d985af538e8ba73"
+    },
+    {
+      "name": "calibrated_tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/run_tests.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.965468,
+      "log": "logs/verify_calibrated_tests.log",
+      "log_sha256": "8c94543227c566811792aa054fb1966858cf4c777fea890b890d41e4e3c561c8"
+    },
+    {
+      "name": "calibrated_independent",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "calibrated/tests/test_independent.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 9.156811,
+      "log": "logs/verify_calibrated_independent.log",
+      "log_sha256": "b72de5ddf29314d804d433a2cfc18112810de6d134d071368c999dd8a5863336"
+    },
+    {
+      "name": "attainability_physical_minimum",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "attainability/code/physical_minimum.py",
+        "--output",
+        "attainability/results/physical_minimum.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.352727,
+      "log": "logs/verify_attainability_physical_minimum.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "attainability_spectral_replay",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "attainability/code/spectral_dynamics.py",
+        "--sixth-results",
+        "calibrated/results",
+        "--output",
+        "attainability/results/spectral_dynamics_replay.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.944307,
+      "log": "logs/verify_attainability_spectral_replay.log",
+      "log_sha256": "4d610c6f36f31178cf95d010811a56c7766c00389a380d843f9a12fa97c37bdf"
+    },
+    {
+      "name": "attainability_joint_analog",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "attainability/code/joint_analog.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 32.865183,
+      "log": "logs/verify_attainability_joint_analog.log",
+      "log_sha256": "61557e0bf1b020c10dabb677c7d6a60e49ba178f1f79951751aa774d41e10778"
+    },
+    {
+      "name": "attainability_population_audit",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "attainability/code/joint_analog.py",
+        "--population-audit"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.484552,
+      "log": "logs/verify_attainability_population_audit.log",
+      "log_sha256": "7f1da647646b3c0d85bdc9388c2849106bbc7dadc7fc9f8d410b3e9e20ab7460"
+    },
+    {
+      "name": "attainability_design",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "attainability/code/design.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 11.319794,
+      "log": "logs/verify_attainability_design.log",
+      "log_sha256": "cd44dc3e1390fa7b7f0de379eb1f4d587737b2e19a28d1ca55fabddd5b13ef4e"
+    },
+    {
+      "name": "attainability_retiming",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "attainability/code/retiming.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 5.372573,
+      "log": "logs/verify_attainability_retiming.log",
+      "log_sha256": "8bc5963a13c0fac5ce3f89e7d0c597b28c4ebc436a8d5604dca92e17723ddd3a"
+    },
+    {
+      "name": "attainability_tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "attainability/run_tests.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.811767,
+      "log": "logs/verify_attainability_tests.log",
+      "log_sha256": "1e97720b279cd0f5caaa8da1ee186ff35449c26f5a787699f1681c52c10bf897"
+    },
+    {
+      "name": "attainability_independent",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "attainability/tests/test_independent.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.238674,
+      "log": "logs/verify_attainability_independent.log",
+      "log_sha256": "fd5f874f65efa8004ea756f3cd5d0f8d28f72082184a240ea468160f385f60e6"
+    },
+    {
+      "name": "attainability_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/attainability_tutorial.py",
+        "--output",
+        "results/attainability_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.730572,
+      "log": "logs/verify_attainability_tutorial.log",
+      "log_sha256": "3f718dfbd54a54c23e6ea09a5a119b639eb8d9f4e8e02fc0de079c2c440d07f7"
+    },
+    {
+      "name": "geometry_countermodels",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "geometry/code/countermodels.py",
+        "--output",
+        "geometry/results/countermodels.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.768394,
+      "log": "logs/verify_geometry_countermodels.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "geometry_experiment",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "geometry/code/experiment.py",
+        "--run"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 46.569953,
+      "log": "logs/verify_geometry_experiment.log",
+      "log_sha256": "d1bac79881ecdc8965822c883160b3c929b3a148774e658442bd682ec054130f"
+    },
+    {
+      "name": "geometry_combination",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "geometry/code/combination.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.67693,
+      "log": "logs/verify_geometry_combination.log",
+      "log_sha256": "76afa3688ac220ee2d396d4a1fa278cb019121f917d887a5efd99248e5383092"
+    },
+    {
+      "name": "geometry_consistency",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "geometry/code/consistency.py",
+        "--output",
+        "geometry/results/consistency.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.057201,
+      "log": "logs/verify_geometry_consistency.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "geometry_tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "geometry/run_tests.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.961899,
+      "log": "logs/verify_geometry_tests.log",
+      "log_sha256": "5ca4c7987ae50317967b045eb7fe9084e5c416c6914a956793bafdcd70032ac3"
+    },
+    {
+      "name": "geometry_independent",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "geometry/tests/test_independent.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.821642,
+      "log": "logs/verify_geometry_independent.log",
+      "log_sha256": "0dddb032cc9b5d24351d2f9cadf290c762e36103ab803ab3969776de80de229d"
+    },
+    {
+      "name": "geometry_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/geometry_tutorial.py",
+        "--output",
+        "results/geometry_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.50812,
+      "log": "logs/verify_geometry_tutorial.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "detector_countermodels",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector/countermodels/exact_sampling.py",
+        "--output",
+        "detector/countermodels/results.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.68882,
+      "log": "logs/verify_detector_countermodels.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "detector_design",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector/design/counts.py",
+        "--output",
+        "detector/design/results.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.072438,
+      "log": "logs/verify_detector_design.log",
+      "log_sha256": "1b8c306d4f8695ddfdc378138145d409512d56b9dbcd139490a906cefbde2299"
+    },
+    {
+      "name": "detector_tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector/run_tests.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.653445,
+      "log": "logs/verify_detector_tests.log",
+      "log_sha256": "fa19fc8636a8b658c26bf18469849a8e44a7cdae1a584c318b0f4043888c7d1c"
+    },
+    {
+      "name": "detector_independent",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector/review/test_review.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.717826,
+      "log": "logs/verify_detector_independent.log",
+      "log_sha256": "02c8a856705abdbc2e3315b5c706a05f4947dc2ca6e0116f5353e65eab670e94"
+    },
+    {
+      "name": "detector_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/detector_tutorial.py",
+        "--output",
+        "results/detector_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.366107,
+      "log": "logs/verify_detector_tutorial.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "detector_calibration_countermodels",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector_calibration/countermodels/rare_bump.py",
+        "--output",
+        "detector_calibration/countermodels/results.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.039537,
+      "log": "logs/verify_detector_calibration_countermodels.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "detector_calibration_detector_solver_fixture",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector_calibration/experiment/exposure_moments.py",
+        "--output",
+        "detector_calibration/experiment/exploratory_law.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.142374,
+      "log": "logs/verify_detector_calibration_detector_solver_fixture.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "detector_calibration_detector_frozen_benchmark",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector_calibration/experiment/benchmark.py",
+        "--workers",
+        "4"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 143.617357,
+      "log": "logs/verify_detector_calibration_detector_frozen_benchmark.log",
+      "log_sha256": "81a4c24281aa5cbf96e26217b6a9cacbc35f19c886a338f1b939218fdb764fa9"
+    },
+    {
+      "name": "detector_calibration_fixture",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-c",
+        "from pathlib import Path; a=Path('detector_calibration/experiment/calibration_counts.json'); b=Path('examples/calibration_counts.json'); assert a.read_bytes()==b.read_bytes(), 'Installed tutorial fixture differs from regenerated frozen data'"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.032913,
+      "log": "logs/verify_detector_calibration_fixture.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "detector_calibration_tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector_calibration/run_tests.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 4.138042,
+      "log": "logs/verify_detector_calibration_tests.log",
+      "log_sha256": "8caed53c040b726b25fbc7fe7833d8df8b2ef2e702ceb87db0a2ae8071a4a0e8"
+    },
+    {
+      "name": "detector_calibration_independent",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector_calibration/review/run_review.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 27.708675,
+      "log": "logs/verify_detector_calibration_independent.log",
+      "log_sha256": "2e15d7f0eae83aa226226f197263fa09082397bac83dbcc686c11a2fad14f230"
+    },
+    {
+      "name": "detector_calibration_tutorial",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "examples/calibration_tutorial.py",
+        "--output",
+        "results/calibration_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.364656,
+      "log": "logs/verify_detector_calibration_tutorial.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "virtual_tests",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/run_tests.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.636765,
+      "log": "logs/verify_virtual_tests.log",
+      "log_sha256": "59f9ac5bdabfb538a2294dc2a3372b103204d9ec9055082cb8c65de6046951b8"
+    },
+    {
+      "name": "virtual_contrast_benchmark",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/code/contrast_benchmark.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 217.301132,
+      "log": "logs/verify_virtual_contrast_benchmark.log",
+      "log_sha256": "dcb49393b68a42b3aaa75a30459a55e3250eb4eee925071a93bcb0d8943721d7"
+    },
+    {
+      "name": "virtual_box_obstruction",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "virtual/research/box_obstruction.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 5.685105,
+      "log": "logs/verify_virtual_box_obstruction.log",
+      "log_sha256": "ca2b4ac53c2d9acc0134c27f01e7247bddaba4e12aae50635eb4e4b977836f26"
+    },
+    {
+      "name": "check_active",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "verify",
+        "examples/active.json",
+        "results/active_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.38724,
+      "log": "logs/verify_check_active.log",
+      "log_sha256": "d232216c2a60eed73809ced73895735e25454990b7c83be163dc2447d8a99cb4"
+    },
+    {
+      "name": "check_passive",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "verify",
+        "examples/passive.json",
+        "results/passive_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.458258,
+      "log": "logs/verify_check_passive.log",
+      "log_sha256": "147a7c08e3e4ca5371ca3bf244507fc90f71d5af56a38450816991f1af724088"
+    },
+    {
+      "name": "check_calibrated",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "verify",
+        "examples/calibrated.json",
+        "results/calibrated_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.378332,
+      "log": "logs/verify_check_calibrated.log",
+      "log_sha256": "2b0caa610ede9785d34139983d9fdcf154216b7641bac5fcce07fbd32795223e"
+    },
+    {
+      "name": "check_calibration_gap_closed",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "verify",
+        "examples/calibration_gap_closed.json",
+        "results/calibration_gap_closed_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.487653,
+      "log": "logs/verify_check_calibration_gap_closed.log",
+      "log_sha256": "88a1fea7f0482b453c9fa5fd798f50b5806d1a8a9646f373f9580d723f9fec99"
+    },
+    {
+      "name": "check_grammar",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "constructive_access",
+        "verify",
+        "examples/grammar.json",
+        "results/grammar_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.380032,
+      "log": "logs/verify_check_grammar.log",
+      "log_sha256": "2ae2733b4a2f9f0d7683d223ae353efef7b6a5db7404788470ed8a9fd3338138"
+    },
+    {
+      "name": "figures",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "research/make_reference_figure.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.373979,
+      "log": "logs/verify_figures.log",
+      "log_sha256": "18adb8ad64a6056495343066ff8e84a8e452061708fbd6ee18d3bd620e44adac"
+    },
+    {
+      "name": "completion_figures",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "research/make_completion_figure.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.343065,
+      "log": "logs/verify_completion_figures.log",
+      "log_sha256": "ff4dc34cc21faedf924366c9268c41a21c0550842f7d3bc8d5bd96a52ee5dbfb"
+    },
+    {
+      "name": "robust_figures",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "research/make_robust_figure.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.907962,
+      "log": "logs/verify_robust_figures.log",
+      "log_sha256": "9f289de6bc107f9dd03e1445e61a8242a922f9b4f17b0fdf41b677e35c2b707d"
+    },
+    {
+      "name": "frontier_figures",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "research/make_frontier_figure.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.421764,
+      "log": "logs/verify_frontier_figures.log",
+      "log_sha256": "b3bd93cacd95a6a1dfd8e69ce2f6c46b39beac1f83f68b79077e61f0d69920a9"
+    },
+    {
+      "name": "virtual_figures",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "research/make_virtual_figure.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.180421,
+      "log": "logs/verify_virtual_figures.log",
+      "log_sha256": "00a5190617f7095e560ea78f735889e8cd22091968f5b324bf8df47ab74914ee"
+    },
+    {
+      "name": "calibrated_figures",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "research/make_calibrated_figure.py",
+        "--output-dir",
+        "manuscript/figures"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.552889,
+      "log": "logs/verify_calibrated_figures.log",
+      "log_sha256": "4b061818d717afd5b72705c6e360687158502fec9ec86bcbbecff57399ee247a"
+    },
+    {
+      "name": "attainability_figures",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "research/make_attainability_figure.py",
+        "--output-dir",
+        "manuscript/figures"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.272091,
+      "log": "logs/verify_attainability_figures.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "geometry_figures",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "research/make_geometry_figure.py",
+        "--output-dir",
+        "manuscript/figures"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.151923,
+      "log": "logs/verify_geometry_figures.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "detector_figures",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector/design/figure.py",
+        "--output-prefix",
+        "manuscript/figures/detector_access"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.275417,
+      "log": "logs/verify_detector_figures.log",
+      "log_sha256": "08c6c79ab96580f736c8946715a51fa3d6a0bbb19b74f6d2bc2409628f3b22f1"
+    },
+    {
+      "name": "detector_calibration_calibration_figure",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "detector_calibration/research/make_calibration_figure.py",
+        "--output-prefix",
+        "manuscript/figures/detector_calibration"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.242685,
+      "log": "logs/verify_detector_calibration_calibration_figure.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "pdflatex_1",
+      "argv": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "reference.tex"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.669069,
+      "log": "logs/verify_pdflatex_1.log",
+      "log_sha256": "8d8c6bc88d8c5bdd9aa02b6ba12c53b505dda3d945f77e51392534c7cf8e3770"
+    },
+    {
+      "name": "pdflatex_2",
+      "argv": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "reference.tex"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 3.560064,
+      "log": "logs/verify_pdflatex_2.log",
+      "log_sha256": "bbfc60d1ea8f5e48983e04eb188254e4801977a780d456f24dc5a433fd27e7f1"
+    },
+    {
+      "name": "pdflatex_3",
+      "argv": [
+        "pdflatex",
+        "-interaction=nonstopmode",
+        "-halt-on-error",
+        "reference.tex"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.937068,
+      "log": "logs/verify_pdflatex_3.log",
+      "log_sha256": "45f499c432db0b820be7d4e4d3c9a2f4d4e4ac5cfdac5761f96e56f93b834ef7"
+    }
+  ],
+  "expected_stage_names": [
+    "tests",
+    "suite_tutorial",
+    "advanced_tutorial",
+    "physics_consistency",
+    "analyze_active",
+    "analyze_passive",
+    "analyze_calibrated",
+    "analyze_calibration_gap_closed",
+    "analyze_grammar",
+    "completion_tests",
+    "completion_independent",
+    "completion_tutorial",
+    "graph_access",
+    "robust_completion",
+    "composition",
+    "physical_access",
+    "quantum_completion",
+    "pulse_test",
+    "robust_tests",
+    "robust_independent",
+    "robust_tutorial",
+    "robust_clock_design",
+    "robust_detector_boundary",
+    "robust_explanation",
+    "robust_preparation",
+    "robust_robust_physics",
+    "robust_statistics_design",
+    "frontier_tests",
+    "frontier_independent",
+    "frontier_tutorial",
+    "frontier_hierarchy",
+    "frontier_spectral",
+    "frontier_limits",
+    "frontier_thermodynamic",
+    "frontier_energy_certificate",
+    "virtual_independent",
+    "virtual_tutorial",
+    "virtual_contrast",
+    "virtual_timing",
+    "virtual_sampling",
+    "virtual_dimension_lab",
+    "virtual_thermodynamic_lab",
+    "virtual_dimension_retiming",
+    "virtual_dimension_total_budget",
+    "virtual_thermodynamic_pilot",
+    "virtual_allocation",
+    "calibrated_calibration",
+    "calibrated_nonlinear",
+    "calibrated_dissipation_limits",
+    "calibrated_sequential",
+    "calibrated_sequential_benchmark",
+    "calibrated_dependence",
+    "calibrated_analog",
+    "calibrated_analog_benchmark",
+    "calibrated_empirical_loader",
+    "calibrated_empirical_analysis",
+    "calibrated_calibrated_benchmark",
+    "calibrated_joint_calibration",
+    "calibrated_dependence_refinement",
+    "calibrated_tutorial",
+    "calibrated_tests",
+    "calibrated_independent",
+    "attainability_physical_minimum",
+    "attainability_spectral_replay",
+    "attainability_joint_analog",
+    "attainability_population_audit",
+    "attainability_design",
+    "attainability_retiming",
+    "attainability_tests",
+    "attainability_independent",
+    "attainability_tutorial",
+    "geometry_countermodels",
+    "geometry_experiment",
+    "geometry_combination",
+    "geometry_consistency",
+    "geometry_tests",
+    "geometry_independent",
+    "geometry_tutorial",
+    "detector_countermodels",
+    "detector_design",
+    "detector_tests",
+    "detector_independent",
+    "detector_tutorial",
+    "detector_calibration_countermodels",
+    "detector_calibration_detector_solver_fixture",
+    "detector_calibration_detector_frozen_benchmark",
+    "detector_calibration_fixture",
+    "detector_calibration_tests",
+    "detector_calibration_independent",
+    "detector_calibration_tutorial",
+    "virtual_tests",
+    "virtual_contrast_benchmark",
+    "virtual_box_obstruction",
+    "check_active",
+    "check_passive",
+    "check_calibrated",
+    "check_calibration_gap_closed",
+    "check_grammar",
+    "figures",
+    "completion_figures",
+    "robust_figures",
+    "frontier_figures",
+    "virtual_figures",
+    "calibrated_figures",
+    "attainability_figures",
+    "geometry_figures",
+    "detector_figures",
+    "detector_calibration_calibration_figure",
+    "pdflatex_1",
+    "pdflatex_2",
+    "pdflatex_3"
+  ],
+  "expected_commands": 111,
+  "source_unchanged": true,
+  "source_sha256": {
+    "CLAIMS.json": "a899b70cd1e10449aac63a46ee9ea86725f084ba9911cbc87b49e97e0811210b",
+    "README.txt": "9d48da39d592e3428b00b7a524cbadb312490c4df3a5c41845d0935d09705131",
+    "attainability/code/design.py": "71263e6022d9045c476f184c8dd18a23d754f520120c6ac85831c40bac092228",
+    "attainability/code/joint_analog.py": "5f480384d52a4f4ded52310564bd7974a2e2a602b7b8a7ef424035b7cfac7027",
+    "attainability/code/physical_minimum.py": "d1f2e67b166b0c476ef2ac2f6070664112460c5d6ac8bbe3cfba176dd8dc027f",
+    "attainability/code/retiming.py": "27c2d05eee70fce4243a03d14251c3bdaf2054151d6ea1fd2f6063287fa859e0",
+    "attainability/code/spectral_dynamics.py": "3118844f7e9efbebd757acfb117977b2d3eff4f0a72a33bf8f1eeaf4e739f6c9",
+    "attainability/contracts/design.json": "fe37bdcee2163278f5a3d5324ed45569219406b14475c57b8a514ea74646fc45",
+    "attainability/contracts/joint_analog.json": "27d4ca888813e916017405e201f33b0c4b8a9030ad2484a18ecd1761e41fd50b",
+    "attainability/contracts/retiming.json": "550f061648b48c37e2a0f84d21911fc5f8c17d44ad5ec863d42e9fbacd4abc8b",
+    "attainability/research/attainability_tutorial.py": "cb53ed10daebcb5e25c4d907d3bb67c784719ddc2eeb988dbe5a6fd0b855c966",
+    "attainability/research/joint_analog.txt": "fb4bdca54aee54755169553bdf6014b2e062e7148914881836b9af7cf544c5fd",
+    "attainability/research/literature.txt": "9ff22c30bc836472d093617de84d25c66b21c627de4f7f0c2fdaac7068b6c98b",
+    "attainability/research/make_attainability_figure.py": "b9a8ac6436672ccbbd3f1a739b9fb178f328f498d77b33ddf9886be8952124f6",
+    "attainability/research/physical_minimum.txt": "dc1e44d42cec71b2c00dd9449cd8875ea1519c26ff95a47508278d56df362d65",
+    "attainability/research/redteam.txt": "adbd82217ac80c498bfa9877243875c5711629db1600267d686305670034ede0",
+    "attainability/research/retiming.txt": "34ca37fe374ac8606a2c02eb34b23156e1b93fbe343a3d15709bdb7a70e15c0b",
+    "attainability/research/sources.json": "1c35c970a69e2ffa5bdff6e7815b0c03d4bc654d5990dd292f51550082fbcb97",
+    "attainability/research/spectral_dynamics.txt": "be7921a1cf41611d5469e5c78c98d8a73948af4c1c9b481a9daf2b69df768e3d",
+    "attainability/run_tests.py": "f9c81e8ad6422b6191c2912dcdf431f65266e1f4428efa132a0a6f9e758403be",
+    "attainability/tests/test_design.py": "690404130ba0db90ad1769c200f1daa46d565d729ed0e39d04f6ac8828e341e4",
+    "attainability/tests/test_independent.py": "2dcdfc282b286b51e6aea915ff5318aabd02409723a881c17923650ea48d6db2",
+    "attainability/tests/test_joint_analog.py": "b6f97a2e07885e7f03ee5dd20f5139fa742c6e1fa20f8c96acf68873cb502cf3",
+    "attainability/tests/test_physical_minimum.py": "bcecbf96205b1dc63a281572377b95776fc2d87ef5fcb24df6e0b8d6bf5ebd9b",
+    "attainability/tests/test_retiming.py": "7170f40a1f946676337d937c83efceb997807446037f101a9be666f91ccc90cb",
+    "attainability/tests/test_spectral_dynamics.py": "73a41dccd4d25098ead509ee1746102d2e18c8cbb635a713089ac84c715ed9cf",
+    "calibrated/code/analog.py": "952c4bd0528777502fe00accb31e2d4dd40b65d3367ab92ff0c1fb333846b518",
+    "calibrated/code/analog_benchmark.py": "9fbb5fe20390053c203272f3c42d65f0f2c8ebe556a9e1fc449cc15f9e1396f8",
+    "calibrated/code/calibrated_benchmark.py": "5994721d0539cd7c4977cab7e12f320237ba0d85452ad03684f2feebcd154887",
+    "calibrated/code/calibration.py": "7ac7e48da2253a7331c49b9bbfd6b37de7928b32d4bf088437fde86dc58bddb3",
+    "calibrated/code/dependence.py": "e186006d0819ed6ecbfa8ce8d649adfc603d14b0b27ff8a36e97d16aefaa3b91",
+    "calibrated/code/dissipation_limits.py": "94d5cc1acbaa6cf224740246df2e2f7e4adbe2b2865fc8511da76c84686b1d61",
+    "calibrated/code/empirical_analysis.py": "fede2df8201c5e70365fcf70bd9b06126120714b78a44479967dfea8342a80b1",
+    "calibrated/code/empirical_loader.py": "436c03359a253facb20b290092005902cee49288260430b1702f2defb96fe997",
+    "calibrated/code/joint_calibration.py": "144dd6975360da2b41d4f20119bc142ef1a79a992c5043d1a1d31616d95bca2d",
+    "calibrated/code/nonlinear.py": "cbd22567f54fe82331c63fb5cbdae8bed039a63c0d07410abf97f5dd8a4b69ba",
+    "calibrated/code/sequential.py": "72459ac2bd2a7c0911ae74550f72620fd892508a33cafa5db99fd7d07e1fa5dd",
+    "calibrated/code/sequential_benchmark.py": "ee156ae9113365830eed59f5d775a9d0e9edead8ae05687d6843e8b70bdb5aad",
+    "calibrated/contracts/analog_benchmark.json": "3e910e3f0b73ac9005db64ade1e0c6cc8e2d33d1a3db73af3f8a16a59d975b54",
+    "calibrated/contracts/calibrated_benchmark.json": "ff3ea5cac5d2c7fc88f9239639ebd546d40f80f8ebfbbac6a3e0ba4ebaccbb24",
+    "calibrated/contracts/calibration.json": "c36a2783d0efdd80ce1f546903324797b67f0ffc2502245c3103b884c9646fa4",
+    "calibrated/contracts/dependence.json": "ad68a7a598e841c9041783142454d9493371e4fd4dd098714793c59c8d6f6c2a",
+    "calibrated/contracts/dependence_refinement.json": "a5dd55183ae11206f2619828498fc005327fed29fdf0d7ebd29b71d3a0698137",
+    "calibrated/contracts/dissipation_limits.json": "2bc1f12a61437befef86276822481e04d97381dc14cfbafaaf423fd8c7bc5f86",
+    "calibrated/contracts/joint_calibration.json": "d9c465a457049bd7289a5d0cc69fb7eed6b5003aa9d11b9ce9fff038f1dfa1a1",
+    "calibrated/contracts/sequential_benchmark.json": "9ecaa1278df7d73fdb056adf62071e0a5900bfa64683ad8c528a05e9cc6ee7a7",
+    "calibrated/data/source_audit/ATTRIBUTION.txt": "d27a2f8da855d49d21e973b4a593da47ad3bc36e22d2323f181c53ad7f1b0f52",
+    "calibrated/data/source_audit/access_attempts.json": "6b8806983670e60651c42f9f76c253f334baec1cc545fd331c2c501a37ed2884",
+    "calibrated/data/source_audit/download_manifest.json": "568dce842ead10e4d7e8f80ad43f7b88d8640c20c18e52139e5d585b198b388c",
+    "calibrated/data/source_audit/harmwell_n1.h5": "ffa81dda2576934bd51cf544199a12da7d5568806883401a08848ad215c1286c",
+    "calibrated/data/source_audit/harmwell_n1_groundtruth.h5": "ef390252ce9730b53c688958cad5fa4ff2379800f09ccc13ac2d6e90bb0e413b",
+    "calibrated/data/source_audit/harmwell_n2.h5": "38efb704da6fb86a9da49938d3e84ff4c3d1e4c56588768cbdf37149f28b4a2e",
+    "calibrated/data/source_audit/zenodo_feedbacktrap.json": "23f51302db2de3a149de2b5c88bce70ae33b89eeccb4aa17831ddc92737a4509",
+    "calibrated/research/analog.txt": "28a79b556529c6e97ae5c7c027ea21514ecc531a0063883d5a580f67db919544",
+    "calibrated/research/calibrated_benchmark.txt": "58f683212beca77e04f04a91f9735ca953b9449912c1431091146044a233aabf",
+    "calibrated/research/calibrated_tutorial.py": "5aab64656a20f463446bcf2e469d2edc60f5b331687048d3d32849a0181785ac",
+    "calibrated/research/calibration.txt": "ef021669646184c306539eb419b95368bb55b9fab0f7e1880bdb6315a7defa0e",
+    "calibrated/research/data_audit.txt": "76b0290676483c376518ae45bea314bd8e1fd8c6c6ec9f46310404538cfc4a0f",
+    "calibrated/research/deduplicate_bibliography.py": "31124bd0bd8c5d2bc1fbd4349d631328ade5700d5f8bb95fd2014b03872e9596",
+    "calibrated/research/dependence.txt": "33361daa2e1ddae7894166694f136019ae274d1bdfff470c55299ed3cf2052a9",
+    "calibrated/research/dissipation_limits.txt": "e92d35535506b3e4ca7d5b09a22c6b63f53c51667cad5edc7766f39276f5c9a8",
+    "calibrated/research/empirical.txt": "ac6b2c00abef66cb7f0c10f0f59b8e732720a93d20b85711afff1bd1770326bf",
+    "calibrated/research/joint_calibration.txt": "256241e15bf8415a86aeae8a937b993734567b5b5e09c53324adf2a24387bebe",
+    "calibrated/research/literature.txt": "87fe93a696d0cabbe2e280691832d6e84c1238fb9b3ceaf92cdb2fa249eeebb9",
+    "calibrated/research/make_calibrated_figure.py": "d13517290e8cbdd6ad4332f5581ed52efd5e549b052f5c23efa3855702694de5",
+    "calibrated/research/nonlinear.txt": "eecf1b4b80d4e944d09bf62501c23952c09b2ffef4578d73abaf0d047fd206cf",
+    "calibrated/research/redteam.txt": "09fc203241c194f9860619fb7eb33de8f05a21d6295b9d2dcc4a363ba3cc0e48",
+    "calibrated/research/sequential.txt": "ee6c5653fa21c5a2f76394175115324d742a7d6bab633bf62bd8fe774b32fda4",
+    "calibrated/research/sources.json": "311d4c9bc096fed124e2fb883fc3dfcfa94a273214d81b9e6cf1ace1d7b74954",
+    "calibrated/run_tests.py": "f9c81e8ad6422b6191c2912dcdf431f65266e1f4428efa132a0a6f9e758403be",
+    "calibrated/tests/test_analog.py": "24d5b00315f6aa2680a04ea5221c8548d92ebdae70e98a41b5aff30725df4d96",
+    "calibrated/tests/test_analog_benchmark.py": "afe16ba3941a0cf9479bf68e91ef96517eebe187933dc0fba6fcfc4cf850282d",
+    "calibrated/tests/test_calibrated_benchmark.py": "02d9b627ebc6374ca3347b443365f61a2fa71388a532a2dd1110c40d47c522c8",
+    "calibrated/tests/test_calibration.py": "ce616a3e41e79f317517579656f26dd8fd3127e61b2c1ab68deb4c1caa5658d0",
+    "calibrated/tests/test_dependence.py": "fd286e8f426be2aa309b8f553d6c64f47961609c30d2e909f31265d2738c9d3e",
+    "calibrated/tests/test_dissipation_limits.py": "de698944572a70465289650aece568a3d4b6e0f5d7b1942a8a16e719559f7d36",
+    "calibrated/tests/test_empirical.py": "7d0026974aaaff94c1b34aab6632180d76514bc6fb3acc94d571fd482178e817",
+    "calibrated/tests/test_independent.py": "0ace31879c7794b4f8f5355063a84af8edf53491ea08f8b6719a4bcf75c495d7",
+    "calibrated/tests/test_joint_calibration.py": "cf8c292bf37d73c826377928cfe348d64373cb3dd41d52fde62d2091f78edc9c",
+    "calibrated/tests/test_nonlinear.py": "ccde727a4379ae15dd5fe66b879d1cc13ac2cb7857d29f3f980922c79194e6a0",
+    "calibrated/tests/test_sequential.py": "c95cca82d8072d134c9e7464d2390a6002086c2bfe413a1aa7ebde3bc1d7d5df",
+    "completion/code/composition.py": "a808ca96faafccf8bce2e5a0587208dc63c4365a986a4cbfd7810649da6cacbf",
+    "completion/code/graph_access.py": "594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f",
+    "completion/code/physical_access.py": "485bac61f5a654a886c40da1a918242358d451bf621b90ff40a93be97e081a5b",
+    "completion/code/pulse_test.py": "79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828",
+    "completion/code/quantum_completion.py": "caea447b506a62e388f2c8a8d8ce22f6df684acc76295418f15c54218f69eedc",
+    "completion/code/robust_completion.py": "9308b740c53f9b77009cb55cf5b638d36118809f1d03fce9e9fa4479d8218f64",
+    "completion/research/composition.txt": "e5558e0532baf66a8de2762d4807cf70f6f1a02881062156e40c3151ebe0a184",
+    "completion/research/graph_theory.txt": "91258daf55c1f131a3e2c88c28bc77f7540ffe86673fa6c6e2c251fa26a24547",
+    "completion/research/manuscript_review.txt": "7386a8b02190a1e49e5cc61467daf9bd4c4b11b7df1d95a0b488bcd4d8931b9b",
+    "completion/research/physical_access.txt": "a5051b494992fd8f51ec8f868fe3b4491968a83b1bdba1ada8059464af29a939",
+    "completion/research/prior_art.txt": "7b8e3d12c968ad65747358434ebf08c69962581362c48c66fc8b1117f3c8148e",
+    "completion/research/quantum_completion.txt": "30a71962ee9511c3036c45e84878b87642c3741e8dfeb9cb39ad08ec0b84af76",
+    "completion/research/redteam.txt": "1c62e49173d622d391261f3ee099e0393ed926d0b01d432a54a5af8b1edd53bd",
+    "completion/research/robust_completion.txt": "b1999e19a8af1e9b59cf06d9a21d6f5e4d3431ad672f61da8288d03b3e9696d8",
+    "completion/research/robust_independent_review.txt": "6c4a682358609dc3f711b41ce154d8b2341afe5be4cf61df6565bacff4ed4aa4",
+    "completion/research/sources.json": "3f340527620996cf5a4ac8093159e104252c8cb52648c4fa88cb2a7585b5037c",
+    "completion/run_tests.py": "d323fc315f004df22440019e39ebc4fb283079cef2da73b8bc437cd6f6a92807",
+    "completion/tests/test_composition.py": "f04df80a46cde206dc398f02cd0e8aef0b0bdf8b83ee792154bf98ba99be67ef",
+    "completion/tests/test_graph_access.py": "83f680a44b78b6ba2bcdb89e1afbd43289009241ec0d81905bf370b8e976db69",
+    "completion/tests/test_independent.py": "25e2711fa1e7a96deb39aa4a1bd41350241a17a43b98b29818ae6d2c7ef83bfc",
+    "completion/tests/test_physical_access.py": "4eaae6aa64ee2337b6b6c754f0a86f9a6330a55d845f07f9b0907014a3c8b465",
+    "completion/tests/test_pulse_test.py": "7cd6011e4324fcd18fd0b5f5934b5cfc61a555ef2fcd68d75a042e21fb310f1c",
+    "completion/tests/test_quantum_completion.py": "29db763cbb763efb17cca28561ce9aff6488f3f944e897a76f63538792b7cc94",
+    "completion/tests/test_robust_completion.py": "9f96ac90d702f25a8cdf36f9f6ac29ac551650fa1175540ee9635d3454d3b103",
+    "detector/countermodels/COUNTERMODELS.txt": "67f669c9e05b2aaeb58057e806ff65ef30e344058708218449b0041ec36ecf3d",
+    "detector/countermodels/exact_sampling.py": "d8939f2c50475d25aec4de4b945ca8e561a495a6c1da2ff8a9a68b70d3501cc1",
+    "detector/countermodels/test_exact_sampling.py": "1d148ff588529b183e1ba7cb5236edc67a59c2357593a02391fcd8b8a9a26220",
+    "detector/design/DESIGN.txt": "239764e9060c7094d40d9ff7c32bf49c3dfff65f7e8dd8bb42c57e29a3d8f166",
+    "detector/design/counts.py": "330ffdaddfec5330237349e8820ffbaed4a80babb46e3812e20066b69122347e",
+    "detector/design/design.tex": "4bbf2904291c7b6f3e50693eb8d4ec70f3a1d41e09e9bc1c2813d2331f4b7c41",
+    "detector/design/figure.py": "46bcdda21db6f6dd5b3141ac02dc6b7dd23680f253fe2af0e81d040fb8358897",
+    "detector/design/test_counts.py": "7cd558478038e054c05fb479c88c3c71192337bf9019f03cef2a294b18dd5ac2",
+    "detector/literature/audit.txt": "a8326ff543a9bc53019fb35177fb5d4c3cb400337f92d035dcdfd44112725707",
+    "detector/literature/sources.json": "b7d877a9e5c555ee2a224b6a61b85bf25346a64eec882bc8166186958589142d",
+    "detector/manuscript/bibitems.tex": "2daad4f807527a7d9a5902477619b19d9ab0c89c661c3cbcf9be9ce225966794",
+    "detector/manuscript/countermodels.tex": "1262bcd55a379c7e70cfd3f876dde404a0703cde4e02e0400d19d84949d54ac6",
+    "detector/manuscript/entry.tex": "a4e12b7e4ffe0052ab7c566b48a368eaadf6e90b95ae2d2312df4b7da0fc1c21",
+    "detector/manuscript/literature.tex": "de6333e411d0096e15ffc65dfe9237d735ae98be748e401438c20a588f1fad5e",
+    "detector/research/detector_tutorial.py": "933c3a36ddbdc47e6398766f9b7cabbb875f0ac08b47cdd60b30ba0eabd4f90d",
+    "detector/review/REVIEW.txt": "529404b0989287b05270a396462c59f98370d667ba7b0fc52bd42cfc76f2b573",
+    "detector/review/test_review.py": "2c54b88e3b05864b56c2cce26ce1877b6724f13ba96bac3876a5aded3214e045",
+    "detector/run_tests.py": "c7978edd7b2113fe25c226359b256888891cafafd9ed1e6df89a9a48ed1172aa",
+    "detector/theory/detector_recovery.tex": "c95c02f5de9a179192605bbbab58e1a907c95590271fd3f53725176d4c8cad04",
+    "detector/theory/detector_recovery.txt": "4489a93ed0bfbafbbafaf693659b555c5a4597f264d55869c41ee88d36b0f008",
+    "detector/theory/finite_access.tex": "2aeb79b599fc431fbf9bf28f047ba8e27a594f88da49b8f95a59e60a74a1fc1b",
+    "detector/theory/finite_access.txt": "b22c88949d1b38bbc438afd670e6cfcc7cd64d3ee92ea384cb437274b859af86",
+    "detector_calibration/code/API.txt": "be194e08f7af78d3a43af549c382f86abfe7f3082dd54e1e212eed08784b3101",
+    "detector_calibration/code/PROVENANCE.json": "d19365df990fd0621287904d2d6007180a484224cf26d6bfc76755ac145c18da",
+    "detector_calibration/code/certification.py": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3",
+    "detector_calibration/countermodels/RARE_BUMP_PROOF.txt": "1546ea382649e9b2056c9c044e1221921053339f436cbbf1d6d702e8f8c74d84",
+    "detector_calibration/countermodels/rare_bump.py": "9a8b864fa1316f2b8db16142e64328b9a096caddd31d34f17d6d14479cfc1bab",
+    "detector_calibration/countermodels/test_rare_bump.py": "8573733120872df241e0312834f5341d9f1db1c98103eb507f6440cb966c5f9a",
+    "detector_calibration/experiment/EXPERIMENT.txt": "6cdf59df04bbcb494670fff608a80f6c99c71dcbd8e029345e9791bdc2a24d4a",
+    "detector_calibration/experiment/benchmark.py": "093fd2556ee6d0c00b7055cfea6a09b6099ace9e196738cad52c42aa5e8d1abb",
+    "detector_calibration/experiment/benchmark_run.json": "d3b5df633d9338dd0e222c6568ba8ccb806ab1f7ce40b65cdc9de1184c496a4b",
+    "detector_calibration/experiment/contract.json": "f6d7583c18b7df76e5b9cbb865586511f2aa3e2408df9c1adc24d50f6aa9412d",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_2_omega0_m0.json": "49d71bf6ec1efcd2df86baf45b969bafd9577f5fa55bc10487c67dcc2c33b4f8",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_2_omega0_m1.json": "d55cce4584f0010f57dda44d4ed4eecf7ca9faf95a27431ed369e160b0ed2145",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_2_omega0_m2.json": "32d52772b2613f69254787d1e213c401c752ad33dc66b817389e412b7025c29c",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_2_omega1_m0.json": "aaa9f6b2c33ecc83f6b896ef40de0247318e65ebc6e183726f98e0a834b94583",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_2_omega1_m1.json": "27fa90f4e284a711926226ed5904bcde6c04f3d0f2fe9689e1ca2302cd432a4b",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_2_omega1_m2.json": "a032b9b509f55c7393ad77e35af0a3090b760cd71d1efcd2bd384fe53502b4a1",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_2_omega3_m0.json": "821940274dfd4091bb8f7fc40d2d5b514fe9ea8c10ed89edd74c451cd8d7dde4",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_2_omega3_m1.json": "094f8c453c5332fe11ceb5a77c3f1b75394aac5d2f65bc465e299cb16f7471ea",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_2_omega3_m2.json": "1e7ac8ae4dcd3b3242e366ca3c8878e15e14e478e66e57151c2653985dde6b1e",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_omega0_m0.json": "8d9b1b95cbf1df9535aff27df4c960cdae20db4a2e499e8a48d766f74362c553",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_omega0_m1.json": "a5f540252bed75c2d406b4367754c208766101ef5e978fbd1e2f2f6c7f7d8544",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_omega0_m2.json": "47d78c46e9259e07bc2b40e2831c2bfc0b9e1ccd0253aa05559ce1ffd577a9b1",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_omega1_m0.json": "85a102fb7a7ef76e7d0afbaeeec153ce6d8ac69e88318ab59b24e563e1f01b5e",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_omega1_m1.json": "302540142536a6b98744f00aee7e16dab22413acf09ab979319918482222b528",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_omega1_m2.json": "f3cd57085c8b3e224d6dfb1d15c78bcb9413c4711b2b8edb5a1076ea6b004150",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_omega3_m0.json": "8f7fdda7270088623c8579542fd043cafd6341dfa41984e65ed7bcc1a719e324",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_omega3_m1.json": "c137f3c36b324736ab13d5475f60c385e199c31e925fcf68a11ec77ce0cf890f",
+    "detector_calibration/experiment/exploratory_laws/law_gamma1_omega3_m2.json": "3c9dfe532c8b41c35ae79a20ec457008e30b0a22f4931848f98fde59468b1b60",
+    "detector_calibration/experiment/exploratory_laws/law_gamma2_omega0_m0.json": "47bb74e4c5fb494c0cb5311214adf14f0102c4fb9ab040edb70c0de8dc4f4084",
+    "detector_calibration/experiment/exploratory_laws/law_gamma2_omega0_m1.json": "e5a832e3ffdae5580151540302e5297e87601f9c4cc2d06d15f1087f58aef8a2",
+    "detector_calibration/experiment/exploratory_laws/law_gamma2_omega0_m2.json": "49ed263925a7154c8a1480234016dabc4d0f633aed82ef721cb307210458a666",
+    "detector_calibration/experiment/exploratory_laws/law_gamma2_omega1_m0.json": "556813b1b859d77310e7e3d7d90a9ebe814508304cf457c691f4be78443b874f",
+    "detector_calibration/experiment/exploratory_laws/law_gamma2_omega1_m1.json": "1765ebc14c8e3956777b6a223dfa24a5d67ec80718a5f8e912aa78344258f6c1",
+    "detector_calibration/experiment/exploratory_laws/law_gamma2_omega1_m2.json": "c61f9870dd157a7403143937f3b98c5b8a3b7fb50b9ed2db8dc2ed0a1aa9c6ab",
+    "detector_calibration/experiment/exploratory_laws/law_gamma2_omega3_m0.json": "9a27610e02b716e4ba76cef2a2da46b4b05610adc0a47284971b133a06dc220b",
+    "detector_calibration/experiment/exploratory_laws/law_gamma2_omega3_m1.json": "9482fc01c1b24c0db9f8615fff8fed0ccb9dfb4aa9dbda34fab89094b7bf1ba6",
+    "detector_calibration/experiment/exploratory_laws/law_gamma2_omega3_m2.json": "7fbd94037f08a53d0f7d29cacd6be953725fc0042d90c454879f3952cbe25942",
+    "detector_calibration/experiment/exposure_moments.py": "d6581978fd398fbed5a11962320f9a4211bcf6bb4b207adde3ef1b4cc5686cbb",
+    "detector_calibration/experiment/population_lag_sweep.json": "635458de200d6233cdf121ce3a52386fda3d59ae76709bc9bf59e0c3e2df0b84",
+    "detector_calibration/experiment/population_lag_sweep.py": "8da626ce679b77e1135e5f256a48575a48642bb3529152f1d6abe0f95f509254",
+    "detector_calibration/experiment/population_pilot.json": "b1389da874c5bfffc40b5391eca61d097bcb2f208bbc206682752ecd0e0618d5",
+    "detector_calibration/experiment/population_pilot.py": "252becb435e734b1c12cbc9b335e6e2f54531716fc7b335ffc77c1a454c82436",
+    "detector_calibration/experiment/projected_laws/law_h1_20_tau1000000_m0.json": "9605fdedaa0f882fa4738eefe64a705e7a7026a6c0385513d9ab04604ab0f84b",
+    "detector_calibration/experiment/projected_laws/law_h1_20_tau1000000_m1.json": "bdcef97182b371fd10d70e9ae27b7f896667465ec6474c4ee9f90f6184d525f8",
+    "detector_calibration/experiment/projected_laws/law_h1_20_tau1000000_m2.json": "3937b604743214b9c577a5cea22db73acc1a031ed3eaae603372f7f4989eadb2",
+    "detector_calibration/experiment/projected_laws/law_h1_20_tau100000_m0.json": "ce1a0968d6920634f4b4774c31aab4a98a2dc1f0e79d1b96728fce1b892d9e51",
+    "detector_calibration/experiment/projected_laws/law_h1_20_tau100000_m1.json": "f7b0cfab6226a821f278adb531ab4fdd73148e06af1e9ef9b0015d26873ce5f7",
+    "detector_calibration/experiment/projected_laws/law_h1_20_tau100000_m2.json": "a6922ffd53459183653264c91dc240a3dfa534456c5e5fb00336e985b10c3668",
+    "detector_calibration/experiment/projected_laws/law_h1_40_tau1000000_m0.json": "df95b49832f82cae9242d01eccae24954f843487b2a328405d94e5bc277b1129",
+    "detector_calibration/experiment/projected_laws/law_h1_40_tau1000000_m1.json": "6d96889774157556d21239d4045f71b526646d3e710b39f967e9dac790fb0e45",
+    "detector_calibration/experiment/projected_laws/law_h1_40_tau1000000_m2.json": "831cec71971e71ed4e1641cb6b6c4fea98cec99c8d548f38674b06c4af9522bd",
+    "detector_calibration/experiment/projected_laws/law_h1_40_tau100000_m0.json": "61dd81bd415f45c5bd4b75999c69db82046fd27d858fe8a9554ea209eb892ed5",
+    "detector_calibration/experiment/projected_laws/law_h1_40_tau100000_m1.json": "bc303e83b08af3ce721910bfa8707fdfbba1528323ec7588969bd3393d39db7e",
+    "detector_calibration/experiment/projected_laws/law_h1_40_tau100000_m2.json": "b77f17513d96c5e2207e69c33e092e12a08a22fd1ad635dbee8c0be2d641c337",
+    "detector_calibration/experiment/projected_laws/law_h7_200_tau1000000_m0.json": "fb65e64020c66173b49a4ee57912815cb17c979c856f986dcb13dadf378a9104",
+    "detector_calibration/experiment/projected_laws/law_h7_200_tau1000000_m1.json": "3d4d602ebaa4eb0179af4b6c0d212a9d1307f8be078e7989ca2982d1e1cfd3a6",
+    "detector_calibration/experiment/projected_laws/law_h7_200_tau1000000_m2.json": "f8bf61cbe973fb5bd0007fe83a7fd19b47ff99c0442a7c470954690d70de1f56",
+    "detector_calibration/experiment/projected_laws/law_h7_200_tau100000_m0.json": "2dfa18bba734dcf3728a6d59bcbe20c680d4d445d691e50bea9b966dd289f709",
+    "detector_calibration/experiment/projected_laws/law_h7_200_tau100000_m1.json": "4e21f57540eeb83eaa7e079d7ee9a1ff57f37b6731de1db4bcb03f0706ed20c1",
+    "detector_calibration/experiment/projected_laws/law_h7_200_tau100000_m2.json": "3019fa46fe31d48ac0960df4802b2e822270be588d7e809b884508ce8d35ed55",
+    "detector_calibration/experiment/projected_pilot.py": "c864479987f597daaec509666885d4cc27564d8de3fad7b1241ef885c7704a24",
+    "detector_calibration/experiment/projected_pilot_initial.json": "c4cb22fcbd63d682991514f49b68111582ecae510c7508875ee64d6d4f0cdb68",
+    "detector_calibration/experiment/projected_pilot_refined.json": "b8a70117dabbae99b97ce887f4727c85a816ce23cc06598517c260c881f89371",
+    "detector_calibration/experiment/release_plan.json": "83902827a606517b22ebdfcea0eaea73864f39a9bd3f8d17b0c0c876db316e66",
+    "detector_calibration/experiment/test_benchmark.py": "3e394c5258625831f136a4fa5dd5079ba44f0059c40248596c59078ecbb10a94",
+    "detector_calibration/experiment/test_exposure_moments.py": "147a1fd8f2ad5add21f7a94d48698360295e66f3ab5079a73c2aa4f7bdc9bec2",
+    "detector_calibration/literature/audit.txt": "f728e3fdf9414939389d2bcba9ffcd3d9056af5ffb7508fe74b79497e486b687",
+    "detector_calibration/literature/manuscript_validation.json": "996cec4f756d85da272d9747d3510353f517cd7677cd25fcf589921bd11ba6f3",
+    "detector_calibration/literature/sources.json": "5d830bef035f8f9365432256984905b86c842064ff0ba4f5497bcf10d095f0a1",
+    "detector_calibration/manuscript/calibration_bibitems.tex": "da7076714a3ade854448bc36b5b5cd6b6aa8abf9deb5173cbda609079fad3441",
+    "detector_calibration/manuscript/calibration_entry.tex": "85b12e6ecd2ae2230b132e499f2704cfe9c8af54f06cb1b897afc28f2ac113f0",
+    "detector_calibration/manuscript/calibration_experiment.tex": "47f5202e7bd3e41ac6cc65a426c4c945b2d29ba6b7f7af2503112b80fb9bb815",
+    "detector_calibration/manuscript/calibration_limits.tex": "31fcc2c7cd14db63b44a734eb950fcf1dce8a3d80af7080c696380005a056e65",
+    "detector_calibration/manuscript/calibration_literature.tex": "d406283bfcde0335c5f0043a240446f1c8f62bb1e4663dfdb0464d3bae1d636c",
+    "detector_calibration/research/calibration_tutorial.py": "6351f5689a2729d30f974243822df90d97efb31d372954390cdf5cf16e3cef74",
+    "detector_calibration/research/make_calibration_figure.py": "6fa58a01ee97404a04e868dda11f05369eb718d29b07fa9b083283eff0e64ca2",
+    "detector_calibration/research/new_claims.json": "c1afea131211db4d500fc2d7df2bc869ad9a4dd3ac3cb784c3bcba99df9c7ccf",
+    "detector_calibration/research/release_entry.txt": "87ed32a856e57ebb1904c3fb63696f57ccbd6211ad4737c49d2942100de6a5a8",
+    "detector_calibration/review/ASSESSMENT.txt": "dc15b0c6b807f2b01ed5cf0bf5e8e79323833e6be5a8acc825c8e3f4a094d3a2",
+    "detector_calibration/review/benchmark_audit.py": "2e5da39516d0166c95756e43217c0de825e15aef36f40574e6397cf67a1638b3",
+    "detector_calibration/review/run_review.py": "6ebb9df5ea4fc4940c28fe92db835c1b04496c88140f04c29c20fa8b45b3b4c6",
+    "detector_calibration/review/test_independent.py": "c3ca23f6a0a0d760506facf4b58da3ca1761dbc3efe97af13f4651e73fc96526",
+    "detector_calibration/run_tests.py": "7294c3c390abbc44d1ad883e4b676a06a57fbb9f45bc427c57596d7ae75729dc",
+    "detector_calibration/tests/test_certification.py": "ea7ffff3181eda4b857e99c12c896f595f3026ee4b993380e05f1db799ad8d75",
+    "detector_calibration/theory/calibration_theory.tex": "856496592169a4d84264349126b8764df1e2e2b0f66d6a67fa3cd906fb03e34b",
+    "detector_calibration/theory/calibration_theory.txt": "e2e6a4680b796fd47311ba0581d3bde141f23b764808252db44b0859d976c362",
+    "examples/active.json": "881aac05528b610f9c75c0efbe25c235778ade86a3e545c18bc985dc70d7dfa7",
+    "examples/advanced_tutorial.py": "2d5d1c0d66a47af873e3eec1259589ce1157e24cabd9534f2fac5585d909c0b4",
+    "examples/attainability_tutorial.py": "cb53ed10daebcb5e25c4d907d3bb67c784719ddc2eeb988dbe5a6fd0b855c966",
+    "examples/calibrated.json": "1f65d9ca7c49d2b42f6ad6b7258d274db621926ab3721b1870e61dc3333b0359",
+    "examples/calibrated_tutorial.py": "5aab64656a20f463446bcf2e469d2edc60f5b331687048d3d32849a0181785ac",
+    "examples/calibration_counts.json": "90b49a3d94c18f0d66af4c82d1a2a29b67fb49ce66b2e4d43d403c21d6d212b9",
+    "examples/calibration_gap_closed.json": "ad1a489621f14b3a1a5bb966f1ab40f59b090afbbbb0a4bf4f325b36de2f748f",
+    "examples/calibration_tutorial.py": "6351f5689a2729d30f974243822df90d97efb31d372954390cdf5cf16e3cef74",
+    "examples/completion_tutorial.py": "79263d0ac3dd9b13b9f6b2d6c0ed37c0667f575bbca3153083302fe9d0c5c06a",
+    "examples/detector_tutorial.py": "933c3a36ddbdc47e6398766f9b7cabbb875f0ac08b47cdd60b30ba0eabd4f90d",
+    "examples/frontier_tutorial.py": "c149b9cce309f4fb59812e6d98a72969d60c05fc64d02bb779005cc37436aa6d",
+    "examples/geometry_tutorial.py": "23e9c16327cf31d0c4da50b943fcbdcde1835c7867f3c782de5699bfcf599989",
+    "examples/grammar.json": "84bc21e08de39216733a394a6375b394ff3d3e8ee8ae19c4a6e70f3bb3f2c9fb",
+    "examples/passive.json": "5dd213bdae8e019e57f006620dbc6388f61270be8890c68e3e00551a8ec62e20",
+    "examples/robust_tutorial.py": "d2b189d2c21fc7a3e9010823e7482c3b513cdb40fc55857bfeb65ff08132a889",
+    "examples/suite_tutorial.py": "b2cdc7376f1183a36ebef07c034a4df6fe994d974cf63acdc0e10d5e9a3648f5",
+    "examples/virtual_tutorial.py": "fe986b561adb8133fc1d3fca0bb08ea511f1e8ec7e26dee35831f27b8d4da7c2",
+    "frontier/code/energy_certificate.py": "29cd44376ae4f99a664dfda151640ce423416cffd79703544bffda22522caed7",
+    "frontier/code/hierarchy.py": "2c5b56299567e159a6cc5b1ec0916fe3d532970fbfbf6e0f11d576af80551af7",
+    "frontier/code/limits.py": "07f2f12f6a39738d4633edf5183743657450541deef23c4c8a982709513c2b0e",
+    "frontier/code/spectral.py": "e9bebe0ef132d1a31c6851fa4040c0e3f54878f4c138143457b6407719e94b1a",
+    "frontier/code/thermodynamic.py": "58a107bae69f4a9609299f4fa22d257af57dadde3d6135c3b4c85ec107fa0bb5",
+    "frontier/research/bibliography_aliases.json": "ebcd89b527ba9b2fb3450a14787521c25f195c37c5a909a67eb2ea39e52e6411",
+    "frontier/research/candidates.txt": "ac3ca6497bcf3a1b6f548f1a0967155252ad6be82fa4f4e3784bfc4738d99f41",
+    "frontier/research/energy_certificate.txt": "89c39c99d78e6358742a81bc5b0b4f7d568ebbda530a5d7663dc8ac365526a95",
+    "frontier/research/final_integration_review.txt": "f5955be69ad6ca88fc1709c8727619b43a33d49d3bdb3d7cbcd3e56ca654e7f2",
+    "frontier/research/frontier_tutorial.py": "c149b9cce309f4fb59812e6d98a72969d60c05fc64d02bb779005cc37436aa6d",
+    "frontier/research/hierarchy.txt": "68aecad1e3626fd62aeef9d8619fa112a16da8414633aa12d72bb14128f581fb",
+    "frontier/research/limits.txt": "34e55f36898a3b1370fb8bff65f394f6a6cae986afdf212b36a3dfd0de71ca45",
+    "frontier/research/literature.txt": "85862b99be0f7862251d3f63e080f4996e6683f86de6744521ec0afea0b87bff",
+    "frontier/research/make_frontier_figure.py": "c89497a030770c7e05e95c000fedd44d3199344cfcaa8fd416487ec2438eb48c",
+    "frontier/research/redteam.txt": "562696765dbd3fc204cc3cc2409f62e9aa2f5a5c4b54d6b3aafa523833e6d90c",
+    "frontier/research/sources.json": "e64df7cea33d3646c79940cb44105462bfd8b591223fdb81bab0befd7bd1bf90",
+    "frontier/research/spectral.txt": "7aad46952d8866aed00da976118c915aa8b145d6a3bcfdd6463c1d497077bcdb",
+    "frontier/research/thermodynamic.txt": "cc2781b3ef47d208b8467c6efc57ef5ed0b23370e08ca98b67e7bc88f36a2af5",
+    "frontier/run_tests.py": "f9c81e8ad6422b6191c2912dcdf431f65266e1f4428efa132a0a6f9e758403be",
+    "frontier/tests/test_energy_certificate.py": "96824a47da90f0420af841bf6b304d543015b4b4948ec7de119fa427a2e1300e",
+    "frontier/tests/test_hierarchy.py": "465b2d2516f31ba2e6b42bd97c7aafcaca6f88a82fe1c2b3215ec015de9f50f1",
+    "frontier/tests/test_independent.py": "a076b42c5d09ceec8b79f91e5f32372fe723871ba7727912ded47bd8a231110a",
+    "frontier/tests/test_limits.py": "c48435f1c6df85dec786326aa89d989c3736180027fdc8bb42ebb8c04fc660da",
+    "frontier/tests/test_spectral.py": "b5553da6d66fa5164d5c47d2c5b90d0e90703013e9e9e5270a7328b4fbd8d173",
+    "frontier/tests/test_thermodynamic.py": "a4bc8d4ba6117d3b9ef118a0353eb80bed74fd1b3f7bfddec46056d0ba5e2dab",
+    "geometry/code/combination.py": "5266b6daa30e3c002d1f8953b28e993c2fe3d3bc349fce2fcc0afbaf1718af94",
+    "geometry/code/consistency.py": "53c570a9efebc4a4836818c196036719ad75e77319d3f1a32bdd5a5931c958fe",
+    "geometry/code/countermodels.py": "bdab78dbd1bb644d3dc7155da7ed679c7a037fc940b017f2ab57c13ab1ed1d0a",
+    "geometry/code/experiment.py": "1bb71e3ebe664ab3a9a6a7ef5be852be15e18a633425ac204638df3959d48ac4",
+    "geometry/code/finite_resolution.py": "5f34bc6dc812e7451e79649cda97880158a2cb99cbf40f6ccf55a490231e412c",
+    "geometry/contracts/experiment.json": "7aedd529884f112867dfb45e645e85760f5a33af2057fa8acae63115828cef0a",
+    "geometry/manuscript/bibitems.tex": "17af8ad6f88d8e87e954189f6de963321cafb747ad33a059a9ea14e10f69d538",
+    "geometry/manuscript/combination.tex": "e2f093ca8a556d68a644c1e022f4bbca0f59a387dd00e9457dd334bc5cef7aa7",
+    "geometry/manuscript/consistency.tex": "aaceb974ca55af7a9cc1b9e69282ac99a89e932ae2b950af92b656e2a9afe8e1",
+    "geometry/manuscript/countermodels.tex": "41af32393f33bcee57a60a18656ecd63fd3a733a0e24f219008c59dbb1916cba",
+    "geometry/manuscript/entry.tex": "bbd6bc24500860a869fb267681b7f6288322b1a71b8f9447c62cbc7d93a05f13",
+    "geometry/manuscript/experiment.tex": "31f1fa4a3a462abbd5b2da8349db93ea48e61439eea33bc1bf168b5f472d0fee",
+    "geometry/manuscript/finite_resolution.tex": "22fa084d27305c5312824651efb13120141d8a110f5d23a07ca5da65f9426ee6",
+    "geometry/manuscript/literature.tex": "ab3fbde9b347c1f704efbb19b2502f1734bdae066a8102af959277327ce2f2d1",
+    "geometry/manuscript/population_theory.tex": "e6c32d7f8cf4c5c67efd0dca27c1d80665031e55a545f1803ced0248de9af536",
+    "geometry/research/combination.txt": "bac028161b302c6acb845ec11f4b42b92605e0b3c2c8a995e736a4e7cb893c3b",
+    "geometry/research/consistency.txt": "210d80775e1907639d1457a79afdb8bcfe86cc03145627e2e57dd1dcc12abb89",
+    "geometry/research/countermodels.txt": "d5123b49fe66b6c3bb03a86ddac692961918cf7f27f9aac4b8d003e5520c2008",
+    "geometry/research/experiment.txt": "4be67740609c2cf10c25987618ba06ca497ef3913c27e40e67d49c0a8e20385b",
+    "geometry/research/finite_resolution.txt": "524cbd22fae05e4861364c788c1e1b54758b54f97d13f19ca0507e50c1c1e9f2",
+    "geometry/research/geometry_tutorial.py": "23e9c16327cf31d0c4da50b943fcbdcde1835c7867f3c782de5699bfcf599989",
+    "geometry/research/independent_review.txt": "967740f55cbe3ad9d3f19f9fd497e5ffd642b2579202726ce5e46adaac1b63e5",
+    "geometry/research/literature.txt": "e942d45793d3a763204efb0af64c1cb6df114e159825acf604a36a5717ccf7da",
+    "geometry/research/make_geometry_figure.py": "4f84f753eda509b150941dea7abfc6a80ddfba87ea5cf23fe00ad1d233d8409b",
+    "geometry/research/population_theory.txt": "c9c0309a829b4963a19dc8579b23563561e6295ba78fd4db739558cee5de9472",
+    "geometry/research/sources.json": "9a07a7d84462747dc3c80218d546bb972b5d9573add3b9986f442a54ddce0d60",
+    "geometry/research/starting_candidate.txt": "8c44ff20f027b4036925177d59509b6d8822493f2f5659d66e73d84e541626dc",
+    "geometry/run_tests.py": "f9c81e8ad6422b6191c2912dcdf431f65266e1f4428efa132a0a6f9e758403be",
+    "geometry/tests/test_combination.py": "5f497bebfd457020dcd3e16143cf76ad427100deb424face80cbd4a0c2f8a768",
+    "geometry/tests/test_consistency.py": "d3120b337551d9af16d576ab573aba0d9f61cead41a5ad2747effab1a62fdefa",
+    "geometry/tests/test_countermodels.py": "fe21f4ab88c72a848071bcf3cd2b6d7047ff01c2c5cb65f351e0fba06ac46ab6",
+    "geometry/tests/test_experiment.py": "970840b9c723562647b083ae5f26b986473e20e7c7730f33e7de182e61fd0e1a",
+    "geometry/tests/test_finite_resolution.py": "2468ea286a24f8d06cb9c668fa1bc048111ce34ff43c723b516e11efbd89e7f2",
+    "geometry/tests/test_independent.py": "7cd5cb77306fd41d4293865dd1c34e7d9c1f7fc043b230450559e1e822215db8",
+    "manuscript/attainability_bibitems.tex": "a35b84d236b19aeb6d5b37e09fd1e6339830d322d7d1b192e2d4a0645c0a81fe",
+    "manuscript/bibliography.tex": "a158ebe7415bde44b34d31424cc56ca58ea579b0a8d0ff702fc11e45c3aefd91",
+    "manuscript/calibrated_bibitems.tex": "1ef4ca15f50d97f32d9748892fb55e2e38d42b3bb36d88ee52c4fc86bf5c62ab",
+    "manuscript/calibration_bibitems.tex": "da7076714a3ade854448bc36b5b5cd6b6aa8abf9deb5173cbda609079fad3441",
+    "manuscript/chapters/adequacy_energy.tex": "0448bc1a8e9d6eddf3f82b72c7d255b53eec6dab26bc5415ad5e2160f64d8959",
+    "manuscript/chapters/applications.tex": "60e1cd50b21d219b745bd83fd447a1099adedab4b4c8e044050c3d057ba2fbc8",
+    "manuscript/chapters/ci_analog.tex": "1b46a791260272e4500edfe5ab285b3e2e9e84be957168434503cc0c9c6c5562",
+    "manuscript/chapters/ci_calibrated_benchmark.tex": "400249e40f642191b5ae1b61ad102639a68298bd0d587722b64e6a9785e9bf85",
+    "manuscript/chapters/ci_calibration.tex": "9b73fc9ee495127b53da61e02c67d43a4f0f6261e33a9ea95ea23277ec54e048",
+    "manuscript/chapters/ci_dependence.tex": "44d124188d1fea44b7de78f35a0f7c8af1b042367db17ae7f613fa9c751eb20e",
+    "manuscript/chapters/ci_dissipation_limits.tex": "ff3e01f0de0cc5c11b4c485591b4a3c6f91d65df29d30ae2e0bf26a8fcb223fe",
+    "manuscript/chapters/ci_empirical.tex": "c01adff6ccf458dd79153235b7e486993c567eb75f5cac1699c0fa3b93bce646",
+    "manuscript/chapters/ci_entry.tex": "eb867dd306eb6f2b51ee968486d5f5c3011039dfb369afbc6b829aa656343d39",
+    "manuscript/chapters/ci_joint_calibration.tex": "741984b335a80d6e9f6f0589c9d15fcb795b105b969b4025959ed125e31799c9",
+    "manuscript/chapters/ci_nonlinear.tex": "88b6716b8b016e6c6a2bec1dda6ae5f50cb13bdb462a6d5f6599dda24b3d9c0c",
+    "manuscript/chapters/ci_positioning.tex": "53ca6a5958e93fceac0701c0dfa5e1489c95437f3e390f558829122bcb73acf2",
+    "manuscript/chapters/ci_sequential.tex": "b8773bfd888f26ed45ef9c7fe80803dfcbc3bce562a4a095cc8310a131a9c8e7",
+    "manuscript/chapters/classical_section.tex": "6f8989a2e91fdf532e792b591e9b14bdecff0597d9750501927c03374ad13fcf",
+    "manuscript/chapters/composition_section.tex": "8a5f971bfa60cc953b9a6e0c65585c2fdae607f3fa66962cc40a9972eba5aa0e",
+    "manuscript/chapters/continuous_thermodynamics.tex": "9e1940d863689f72a95e0b37e78aae6d8ef200b9503c618cc645976192166bf6",
+    "manuscript/chapters/dc_calibration_entry.tex": "85b12e6ecd2ae2230b132e499f2704cfe9c8af54f06cb1b897afc28f2ac113f0",
+    "manuscript/chapters/dc_calibration_experiment.tex": "47f5202e7bd3e41ac6cc65a426c4c945b2d29ba6b7f7af2503112b80fb9bb815",
+    "manuscript/chapters/dc_calibration_limits.tex": "31fcc2c7cd14db63b44a734eb950fcf1dce8a3d80af7080c696380005a056e65",
+    "manuscript/chapters/dc_calibration_literature.tex": "d406283bfcde0335c5f0043a240446f1c8f62bb1e4663dfdb0464d3bae1d636c",
+    "manuscript/chapters/dc_calibration_theory.tex": "856496592169a4d84264349126b8764df1e2e2b0f66d6a67fa3cd906fb03e34b",
+    "manuscript/chapters/dg_countermodels.tex": "1262bcd55a379c7e70cfd3f876dde404a0703cde4e02e0400d19d84949d54ac6",
+    "manuscript/chapters/dg_design.tex": "4bbf2904291c7b6f3e50693eb8d4ec70f3a1d41e09e9bc1c2813d2331f4b7c41",
+    "manuscript/chapters/dg_entry.tex": "a4e12b7e4ffe0052ab7c566b48a368eaadf6e90b95ae2d2312df4b7da0fc1c21",
+    "manuscript/chapters/dg_finite_access.tex": "2aeb79b599fc431fbf9bf28f047ba8e27a594f88da49b8f95a59e60a74a1fc1b",
+    "manuscript/chapters/dg_literature.tex": "de6333e411d0096e15ffc65dfe9237d735ae98be748e401438c20a588f1fad5e",
+    "manuscript/chapters/dg_recovery.tex": "c95c02f5de9a179192605bbbab58e1a907c95590271fd3f53725176d4c8cad04",
+    "manuscript/chapters/entry.tex": "8769426bf7208f6bc5011140fc5aae90908d787904b7fa75f310feedc3a688bd",
+    "manuscript/chapters/finite_access.tex": "39e4290f070f7ff8e5c7a6b1c3120ce75d49c6f3ef2618c0b726824f60c82913",
+    "manuscript/chapters/foundations.tex": "24fb1d5944c6433023c09c18230d345daa299084d7b5239b0f7cae97e09ae2de",
+    "manuscript/chapters/graph_section.tex": "014160d1d709db9321c65683fd839d8cb05fde9d0b9fa1a521e8fdb0dac8a501",
+    "manuscript/chapters/og_combination.tex": "e2f093ca8a556d68a644c1e022f4bbca0f59a387dd00e9457dd334bc5cef7aa7",
+    "manuscript/chapters/og_consistency.tex": "aaceb974ca55af7a9cc1b9e69282ac99a89e932ae2b950af92b656e2a9afe8e1",
+    "manuscript/chapters/og_countermodels.tex": "41af32393f33bcee57a60a18656ecd63fd3a733a0e24f219008c59dbb1916cba",
+    "manuscript/chapters/og_entry.tex": "bbd6bc24500860a869fb267681b7f6288322b1a71b8f9447c62cbc7d93a05f13",
+    "manuscript/chapters/og_experiment.tex": "31f1fa4a3a462abbd5b2da8349db93ea48e61439eea33bc1bf168b5f472d0fee",
+    "manuscript/chapters/og_finite_resolution.tex": "22fa084d27305c5312824651efb13120141d8a110f5d23a07ca5da65f9426ee6",
+    "manuscript/chapters/og_literature.tex": "ab3fbde9b347c1f704efbb19b2502f1734bdae066a8102af959277327ce2f2d1",
+    "manuscript/chapters/og_population_theory.tex": "e6c32d7f8cf4c5c67efd0dca27c1d80665031e55a545f1803ced0248de9af536",
+    "manuscript/chapters/pa_design.tex": "e2bcafea5c40aaf3d0e990e2a9a738dac4dc4cf4729dd6db75faedc7001bb2a6",
+    "manuscript/chapters/pa_entry.tex": "35fc116c47388df3bc2da759692f0b4ca8b78028da332327ce137e7a8f448469",
+    "manuscript/chapters/pa_joint_analog.tex": "24144120bbb7f74f3ff9a1d7fb66f2ecc76220bce34ff7c58f560d06876d384f",
+    "manuscript/chapters/pa_literature.tex": "3ed97f685d1f61234bcdbc2dd5c1b6a2eb9b5a48a7d731ecf634c46bb65ab3aa",
+    "manuscript/chapters/pa_physical_minimum.tex": "2ce65aedd0b42a1da146c471896a7259ef1ffe2c07540f12c99cd2a47398b14b",
+    "manuscript/chapters/pa_retiming.tex": "767c12024092f6086be4381a2a28c7e7cbd13a58f4dd1ed8e74ce183c6ea3b30",
+    "manuscript/chapters/pa_spectral_dynamics.tex": "c935c92a503a5d73adc777e31229e74938bcf4a1cc139c53f09856bba3acb80c",
+    "manuscript/chapters/positioning_section.tex": "a2e49c68810a22b4ae0f917cc6e480e45c657220d0f63b478792f1c7876ebcc6",
+    "manuscript/chapters/precision_design.tex": "9155e211fb9bd5060fbef50d3794c86eee4eb9398409b25f8ceb3a55e1f27360",
+    "manuscript/chapters/provenance_bibitems.tex": "e1d8e7e1c0d1ca8a149f49bfafab461cb11e40692e0978e90dbfcdaf900f9b24",
+    "manuscript/chapters/quantum_section.tex": "bec1f771699f1d15828153ce63cd7823c0ce6b48258d881e615f1e9039854755",
+    "manuscript/chapters/research_map.tex": "cd42ea28f86c251ddc0b946b4a1d9aef2565f8adc2a93bc663f8ee192635314b",
+    "manuscript/chapters/resource_section.tex": "fd8662e3e1643e4740cfd46b33241e96ab9df5ef1ceaf47df07a21f06eb97a81",
+    "manuscript/chapters/rf_energy_certificate.tex": "006fdf072c375b5ab6ce22e8468e5d5758eafe06175c3cbc7c7bb0de86c67516",
+    "manuscript/chapters/rf_frontier.tex": "c9d05aea81d3302f9425615628f74a05958d60886b5cdd20ed0b216e7805b2d6",
+    "manuscript/chapters/rf_hierarchy.tex": "a1dedba32bacc928b8c7c5279273ab5a20a89259c6cb1a30e036f7a872df2f26",
+    "manuscript/chapters/rf_limits.tex": "8d4f6c82edb257edde6f91fb47c4660b490f40898d50b0e55cb4afb388d881be",
+    "manuscript/chapters/rf_positioning.tex": "5e2e9e04ac61f35c2380a26ece6b39e44cbf67180a82056891849982f3e7789d",
+    "manuscript/chapters/rf_spectral.tex": "7facb67804005dbbb0369c8f7373284576d7f360380f2b850236fd52abb4a7c6",
+    "manuscript/chapters/rf_thermodynamic.tex": "c1bb13ff14e94f1e2e8bc79ddd9799fbe4b3b8e7e5d28f4adf0b37caf4034361",
+    "manuscript/chapters/rr_clock_design.tex": "56f0451ed3d57dea3d0382ab20dc33edae306d99a4b58641ffafbc85e2aa9bb7",
+    "manuscript/chapters/rr_explanation.tex": "496661e660fa8796d345a074b4d57cd3b1c88a5aa8206c760b48fdd26173a619",
+    "manuscript/chapters/rr_positioning.tex": "04ce195c13ca91d0a874ba0e69f632535c357d6c2eb68afd5d42d1ab83118d18",
+    "manuscript/chapters/rr_preparation.tex": "4970b4f5494d369f78e2aeb19da1bfb8da604c744e08e3c7eccbe66fdad0ae51",
+    "manuscript/chapters/rr_reset_boundary.tex": "4a763e73a3f12be20f3bccf199f1e82abd4f4c43d433052b31d0424d8648a68b",
+    "manuscript/chapters/rr_robust_physics.tex": "a356ec915e63ef21f59cca97954656fda7eebba037dbfce371d346a7b5d0e4d0",
+    "manuscript/chapters/rr_statistics.tex": "e1380b282a051acd6fef7d5d84cc431d1ca68e6eda38d8ca5de2ad93d0dd814d",
+    "manuscript/chapters/statistical_section.tex": "5c4156e535e0f5d282f362351b3403e685b940720dda08c1ab053f5a1d0a4f13",
+    "manuscript/chapters/toolkit.tex": "429d6bd6aed00c129b6737135b30f15ddeb8a4b0f9706c1e3712c8adadb219c1",
+    "manuscript/chapters/vl_benchmark.tex": "6cfd8bcee75c78ca30d7782d233f19c233de0d26a7e1bee67eb1e66159b92c3a",
+    "manuscript/chapters/vl_contrast.tex": "892f76383d4f03fc2b31c38b3df26ddae27f79a8b262d2f1a92efa5bd8e45c6b",
+    "manuscript/chapters/vl_dimension_lab.tex": "81f1e1fd01d6a4d825a5a457eaf6cbfe78c89a19aef06f29794a45c6e1aa7b03",
+    "manuscript/chapters/vl_entry.tex": "35059079da0c1e41bf8d0a4b854007c46fe623fa709c8a0db22e17f1f0c02bae",
+    "manuscript/chapters/vl_positioning.tex": "50ef8870c943a2fed29132b1041f2c519fe6d0749c872f29dda3caae78c98080",
+    "manuscript/chapters/vl_sampling.tex": "df041525f64f8bb4321b7e1d56f55faadd8b00f82d267143ef415c849c27c2d6",
+    "manuscript/chapters/vl_thermodynamic_lab.tex": "afff92e39e73303592e98f4c486b856b936a2a9ba942a46af67bb7ae2b678494",
+    "manuscript/chapters/vl_timing.tex": "19aedeed6ca8bf0f078cbf8086bc4abafd564dcfd89219038fde1fc1a32dc3a4",
+    "manuscript/chapters/workflow.tex": "ec944916a430dd9cc25c9e5f1be93c94410e865de52104c614e14864439ef2c3",
+    "manuscript/completion_bibitems.tex": "68a674b419725b68708b4f32cd6bd5c1632744ad53379c8bf7bbdaf217ff5c5a",
+    "manuscript/detector_bibitems.tex": "2daad4f807527a7d9a5902477619b19d9ab0c89c661c3cbcf9be9ce225966794",
+    "manuscript/frontier_bibitems.tex": "e6b757f5a6a6ae82f0fd16891342f4b19bc1d8fff18afcbfa770969cfb6a46db",
+    "manuscript/geometry_bibitems.tex": "17af8ad6f88d8e87e954189f6de963321cafb747ad33a059a9ea14e10f69d538",
+    "manuscript/reference.tex": "bb779797539fa926c632bc637db53ef2f1ed7f88fb6e6f0e6c3f4fadc84a53eb",
+    "manuscript/robust_bibitems.tex": "5b12e100ee93bbdb474a9c955f00da0ec135f6aaf11010437fc406c032f6979f",
+    "manuscript/virtual_bibitems.tex": "3bab2c94d078760a90b15a8988ff78b6c06ce68c3a69f0722f6f8156f97207d9",
+    "pyproject.toml": "9717b4d5e312082efe6929d6d38a3e00d4b1d2db63c0eb7301a50ccd1d3dae05",
+    "requirements-reproduce.txt": "e5df46b8009a46188a4950aec2188170eb61ad7aa8a5ec66244cae32df5b7692",
+    "research/bibliography_aliases.json": "abb3b4f171aab073552f2e783cd45768a47f2b484dfc7a38e23ce58e15898fbd",
+    "research/bibliography_review.json": "796c081bb93f3dd75445ecfa40edc8e23de6f3c4e70f435d9f9b4ec1e1e64b40",
+    "research/bibliography_review.txt": "7ccf8f18470b578655a96804254a06c836da56cfd349a97bd238b683779d93ff",
+    "research/bibliography_sources.txt": "5bc3273d9304aa7e291118acfadf9a84162fb3cfdd2de54d6611b2ecbe879b8e",
+    "research/calibration_workflow.json": "0be354014a0c34b0b7ddf88623ab0724e76ab55c18e3a3884f1d60d95f7064d6",
+    "research/clean_reproduction.py": "5e45089901acc6f9823df2102d285c1e084a748919951a79b24189e0f390a2c6",
+    "research/foundations_bibliography.txt": "0a9fb3724671089face118b363a96fc6e7cd9c669061daf60bbafe585e343e4a",
+    "research/foundations_review.txt": "9da8793697e41b85bee70ca53d57228595145d12292f7abf5da3f47d60cbf8d2",
+    "research/independent_review.txt": "3d8f230659b710404cd6a670edebd82cf910f51a7b0327e56fb57a58f2225555",
+    "research/make_attainability_figure.py": "b9a8ac6436672ccbbd3f1a739b9fb178f328f498d77b33ddf9886be8952124f6",
+    "research/make_calibrated_figure.py": "d13517290e8cbdd6ad4332f5581ed52efd5e549b052f5c23efa3855702694de5",
+    "research/make_completion_figure.py": "7e06f5aa704f9faec9a1632c7a153912bb9c4485e9446b24c3cd2709b91800a1",
+    "research/make_frontier_figure.py": "c89497a030770c7e05e95c000fedd44d3199344cfcaa8fd416487ec2438eb48c",
+    "research/make_geometry_figure.py": "4f84f753eda509b150941dea7abfc6a80ddfba87ea5cf23fe00ad1d233d8409b",
+    "research/make_reference_figure.py": "e25a7c61cd790ead49d193554fe297d59796fb9ba6c70fc14b7703139d54bae3",
+    "research/make_robust_figure.py": "d412e4305586e0db8e2941a187aaa1866aab81452142563dc7b34e8fe3711cdf",
+    "research/make_virtual_figure.py": "89e9a12543e71045b5d9ce22d8d27b01d16ac826e5172b4a72d661c68f5a75ab",
+    "research/physics_bibliography.txt": "9f9bca0e96b5248cf3a8ba41425546f849a965812f7e1beb32cd2a9407cc53b3",
+    "research/physics_consistency.py": "51a2f5d4bc1e24d8dbca41d38a612d9c4f53965c88382960a94d6c07555c5ea4",
+    "research/physics_review.txt": "86a0ae88933a9bb4cc486af7f3222b355008c84bcc2dfe7d9eec9f29e4a23ab2",
+    "research/positioning.txt": "d35b7d6056b03a8d4ba8ce49f27f901215d1c05d9259d44d1ba3db27c51b4c1a",
+    "research/provenance.json": "ef420a1d30004697b4064bd62ec5f26d720a5467ae6c57f10ae0057c135e00c1",
+    "research/provenance_validation.json": "e951fd00710d030bd47eed4c9a5c28a81ecfaa988610070ea5ba2e2ca1d0b01d",
+    "research/statistics_bibliography.txt": "21939727b7856490c48d86c43854563a75f1e3cb1284ba8d4fe7cb21c37fea05",
+    "research/statistics_review.txt": "4092b04f4a16c9e0becbc2d55eaf763c80fcc0514ce837ebb2df2c586db458f5",
+    "research/toolkit.txt": "1c10adb6ba1dca9ae59205c06f2849480bcd26bdeabbb688baba1960a423a00b",
+    "research/unified_theory_review.txt": "a678f2920706abe9b01b2db1d852623b77c6a112d53d84b92dc12522bb80890b",
+    "robustness/code/clock_design.py": "62ade1641617e545e5672893d0180395cad3f4cd5ab2cfabb2836b74686f5bbc",
+    "robustness/code/detector_boundary.py": "8c587591103a67913427a76d8c44461471d2d646f265c348160a0bb6eb8bac95",
+    "robustness/code/explanation.py": "251023813271f847ce12f62741ea194564a8bcf2b17dfc4ebc24eeb319d759a2",
+    "robustness/code/preparation.py": "0e33e84309bfbdb2bef6a5aa5d07620f3bcd19b65a7098a962f36edf4ffcd66f",
+    "robustness/code/robust_physics.py": "197d630f33441fbe11538548711ec7e2b0e490540e4d394a15654d4fdc5af2da",
+    "robustness/code/statistics_design.py": "540a189c6fc532f265e35dcacb5ed260c4a388df2749adcdbc16af6291683e8b",
+    "robustness/research/detector_boundary.txt": "14e7ecfbfad9bc04466bddb3fa1c06e1287f66ba66d983d16e8f3aa2731822c6",
+    "robustness/research/literature.txt": "130bfb62049109dbbdf707c121dd66d0fc6cbbe564c8b6443bcb92bbb538a915",
+    "robustness/research/preparation.txt": "c8521a0fe9f4b36ce4b83d4efb245bb044dd36919aa948129635400e5dfc9bf3",
+    "robustness/research/redteam.txt": "3a4f9847f92325de214fe6a1b5f7b654e55c86dabbb7c28f16a2a4eaf7ec76dd",
+    "robustness/research/robust_physics.txt": "e977a9b5dc49dfe18e53b9b3cbd9f4fa43dd6f8fbcc5c5eefbf45f58c8487802",
+    "robustness/research/sources.json": "e39fd677da15bc846956b68ece48f98b4a4fdd686c8a932eadb2c0a6b5860a5c",
+    "robustness/research/statistics.txt": "1c0324dc296e35b29a824e5e5ad507ec707b43624afa6ef88eef5325f40de6a3",
+    "robustness/run_independent.py": "ff0891571b978ab48eb1dcc6d42b747ae529a21ad6e6cca74b1d1deb70d7185b",
+    "robustness/run_tests.py": "f9c81e8ad6422b6191c2912dcdf431f65266e1f4428efa132a0a6f9e758403be",
+    "robustness/tests/test_clock_design.py": "57883ad81ae98fa5d84f8f087cd9cbc68c76cfbd898cf96b5ebb3994cda1a175",
+    "robustness/tests/test_detector_boundary.py": "d168dafb53d4a64987b43402bbeed3955d4eedfbd61825249f794fa8257a7cab",
+    "robustness/tests/test_explanation.py": "22e18484fa42b62a40d33fb9f80d7c3b6d474395fad5c89ec5849f2d82cb7b58",
+    "robustness/tests/test_independent.py": "e1a1d1aaf043499a483623ebf7622a1a2b34eab2ed9b320adcd63a4f81822fdf",
+    "robustness/tests/test_preparation.py": "4f3791fa67ab86fc5ed46e5acbed8929bbac04eb2fc572073afd671c84c55d15",
+    "robustness/tests/test_robust_physics.py": "68e9710e6dfe4aa0fbe55486eb04d8a871268dedd862f135a0ce379450bd94d3",
+    "robustness/tests/test_statistics_design.py": "c713d5e6de0c82d57e0acbca9a6ccaac552d36d473ef0f680a975a2ffac241d4",
+    "src/constructive_access/__init__.py": "4f8592dd2175ce33676248b9763fb6d03e209c188ca07f159f6d8726317dba36",
+    "src/constructive_access/__main__.py": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+    "src/constructive_access/_vendor/PROVENANCE.json": "70a67b6b22d244a2d8363e13239a83bfdbb9ff85ef9739f12158e1a02b2a0f00",
+    "src/constructive_access/_vendor/__init__.py": "0cc7d6945968e40dd50ce97b3243c259e087e41e9b00e8b5ea949658ace94894",
+    "src/constructive_access/_vendor/accesskit.py": "8740d34286b7b471d304c9b214ae16ce030252abb81ac27d6d7da2a5cad968e9",
+    "src/constructive_access/_vendor/budgeted_design.py": "d876594b33cee443ef3e60240631732d1909738663d12c8645ab040d9e654b76",
+    "src/constructive_access/_vendor/cost_certificate.py": "ce929bfb4c7ac6587b098b9257e321fabe0abc441c41d8973859eff2f0a9ee39",
+    "src/constructive_access/_vendor/ctmc_adapter.py": "068bc3bf9160281249189786b7ba3c16dfe41785b4d9be1080ede61c6a58453e",
+    "src/constructive_access/_vendor/energy_tail.py": "4a9f585716698aa2a2482426c45c4c74b9ffa5499533fa825cbc1a394493609c",
+    "src/constructive_access/_vendor/intervention_criterion.py": "f3d2567703628ebeaadc85aafa34942e92d8910dd325f63c082ff4f7e618b63a",
+    "src/constructive_access/_vendor/model_adequacy.py": "af0e7ea02ff1b6640b3fe6bcc20aa3700eefa48220399d6b28233c73261d719b",
+    "src/constructive_access/attainability/PROVENANCE.json": "5143ae974c00ba2c656f46e64d21a477023251472c4a28eddf0513c2a9f81cce",
+    "src/constructive_access/attainability/__init__.py": "bd2172ac22bba0062f1aafe28c63c2158bd82978378e47cda71fc104678aeb41",
+    "src/constructive_access/attainability/design.py": "71263e6022d9045c476f184c8dd18a23d754f520120c6ac85831c40bac092228",
+    "src/constructive_access/attainability/joint_analog.py": "5f480384d52a4f4ded52310564bd7974a2e2a602b7b8a7ef424035b7cfac7027",
+    "src/constructive_access/attainability/physical_minimum.py": "d1f2e67b166b0c476ef2ac2f6070664112460c5d6ac8bbe3cfba176dd8dc027f",
+    "src/constructive_access/attainability/retiming.py": "27c2d05eee70fce4243a03d14251c3bdaf2054151d6ea1fd2f6063287fa859e0",
+    "src/constructive_access/attainability/spectral_dynamics.py": "3118844f7e9efbebd757acfb117977b2d3eff4f0a72a33bf8f1eeaf4e739f6c9",
+    "src/constructive_access/calibrated/PROVENANCE.json": "662f03301f8968fad075432acdddb4186fdd7d13ff005ca880971c8eee61cbec",
+    "src/constructive_access/calibrated/__init__.py": "8961e1a813e37d5de7a3d9754a01500986a9ccb452f63f7bba37b6348a1acef1",
+    "src/constructive_access/calibrated/analog.py": "952c4bd0528777502fe00accb31e2d4dd40b65d3367ab92ff0c1fb333846b518",
+    "src/constructive_access/calibrated/analog_benchmark.py": "9fbb5fe20390053c203272f3c42d65f0f2c8ebe556a9e1fc449cc15f9e1396f8",
+    "src/constructive_access/calibrated/calibrated_benchmark.py": "5994721d0539cd7c4977cab7e12f320237ba0d85452ad03684f2feebcd154887",
+    "src/constructive_access/calibrated/calibration.py": "7ac7e48da2253a7331c49b9bbfd6b37de7928b32d4bf088437fde86dc58bddb3",
+    "src/constructive_access/calibrated/dependence.py": "e186006d0819ed6ecbfa8ce8d649adfc603d14b0b27ff8a36e97d16aefaa3b91",
+    "src/constructive_access/calibrated/dissipation_limits.py": "94d5cc1acbaa6cf224740246df2e2f7e4adbe2b2865fc8511da76c84686b1d61",
+    "src/constructive_access/calibrated/empirical_analysis.py": "fede2df8201c5e70365fcf70bd9b06126120714b78a44479967dfea8342a80b1",
+    "src/constructive_access/calibrated/empirical_loader.py": "436c03359a253facb20b290092005902cee49288260430b1702f2defb96fe997",
+    "src/constructive_access/calibrated/joint_calibration.py": "144dd6975360da2b41d4f20119bc142ef1a79a992c5043d1a1d31616d95bca2d",
+    "src/constructive_access/calibrated/nonlinear.py": "cbd22567f54fe82331c63fb5cbdae8bed039a63c0d07410abf97f5dd8a4b69ba",
+    "src/constructive_access/calibrated/sequential.py": "72459ac2bd2a7c0911ae74550f72620fd892508a33cafa5db99fd7d07e1fa5dd",
+    "src/constructive_access/calibrated/sequential_benchmark.py": "ee156ae9113365830eed59f5d775a9d0e9edead8ae05687d6843e8b70bdb5aad",
+    "src/constructive_access/cli.py": "72b0657c3412d1a16e26ed6be8301d0a89be5f84538b42537f06e99a25c49860",
+    "src/constructive_access/completion/PROVENANCE.json": "86a6057e71c1deaf49f456bf17001d450abe66c8825f6700eb28c2974eab1430",
+    "src/constructive_access/completion/__init__.py": "40f3fbfe94980c1d33c348399fc29ca87a05d67abf9aa446d2e8c1d587cdef5b",
+    "src/constructive_access/completion/composition.py": "a808ca96faafccf8bce2e5a0587208dc63c4365a986a4cbfd7810649da6cacbf",
+    "src/constructive_access/completion/graph_access.py": "594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f",
+    "src/constructive_access/completion/physical_access.py": "485bac61f5a654a886c40da1a918242358d451bf621b90ff40a93be97e081a5b",
+    "src/constructive_access/completion/pulse_test.py": "79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828",
+    "src/constructive_access/completion/quantum_completion.py": "caea447b506a62e388f2c8a8d8ce22f6df684acc76295418f15c54218f69eedc",
+    "src/constructive_access/completion/robust_completion.py": "3aac69f5d31c39c8a8be61d14347b69f23b54efc311290ab5746e548fd83ab45",
+    "src/constructive_access/contract.py": "9c950fa549ca65607e9fad330c54d76fb2f854bb30c9793e147c4265ad5d4b6f",
+    "src/constructive_access/detector/PROVENANCE.json": "f3ecbe7991883d3b72e88f0524ed16d599041b2e2963a1b85dded1d22aab9079",
+    "src/constructive_access/detector/__init__.py": "fffd94d92594c109710e0d1938910ae983f3de531d5c80ad6c00bcf47bf52753",
+    "src/constructive_access/detector/counts.py": "330ffdaddfec5330237349e8820ffbaed4a80babb46e3812e20066b69122347e",
+    "src/constructive_access/detector/exact_sampling.py": "d8939f2c50475d25aec4de4b945ca8e561a495a6c1da2ff8a9a68b70d3501cc1",
+    "src/constructive_access/detector_calibration/PROVENANCE.json": "4587055e45e06108b3e45896ef9952649f16e9d36529d967da944405ef09019b",
+    "src/constructive_access/detector_calibration/__init__.py": "fa5b88f0d53418c3af5f66b46bfee0ba2f9e99c1d3b98d1e3f1fb5611b083ff7",
+    "src/constructive_access/detector_calibration/certification.py": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3",
+    "src/constructive_access/detector_calibration/exposure_moments.py": "d6581978fd398fbed5a11962320f9a4211bcf6bb4b207adde3ef1b4cc5686cbb",
+    "src/constructive_access/detector_calibration/rare_bump.py": "9a8b864fa1316f2b8db16142e64328b9a096caddd31d34f17d6d14479cfc1bab",
+    "src/constructive_access/frontier/PROVENANCE.json": "30009ed5fa4dca7513fa257ecf5be82a5ee1c147e440e203f447c140a13e6371",
+    "src/constructive_access/frontier/__init__.py": "61b650f632f0884d5ef71115c4007758db409cd74326b2d940d6941e62d91fa2",
+    "src/constructive_access/frontier/energy_certificate.py": "29cd44376ae4f99a664dfda151640ce423416cffd79703544bffda22522caed7",
+    "src/constructive_access/frontier/hierarchy.py": "2c5b56299567e159a6cc5b1ec0916fe3d532970fbfbf6e0f11d576af80551af7",
+    "src/constructive_access/frontier/limits.py": "07f2f12f6a39738d4633edf5183743657450541deef23c4c8a982709513c2b0e",
+    "src/constructive_access/frontier/spectral.py": "e9bebe0ef132d1a31c6851fa4040c0e3f54878f4c138143457b6407719e94b1a",
+    "src/constructive_access/frontier/thermodynamic.py": "58a107bae69f4a9609299f4fa22d257af57dadde3d6135c3b4c85ec107fa0bb5",
+    "src/constructive_access/observed_geometry/PROVENANCE.json": "5f4e4be5f81153c63ac47facc3e63f0572b518c230c93868b858130d649c5a4f",
+    "src/constructive_access/observed_geometry/__init__.py": "4446a39a844ae61e6230001bc74c12c7650ce55abfb6038edb6a763a9163df78",
+    "src/constructive_access/observed_geometry/combination.py": "5266b6daa30e3c002d1f8953b28e993c2fe3d3bc349fce2fcc0afbaf1718af94",
+    "src/constructive_access/observed_geometry/consistency.py": "53c570a9efebc4a4836818c196036719ad75e77319d3f1a32bdd5a5931c958fe",
+    "src/constructive_access/observed_geometry/countermodels.py": "bdab78dbd1bb644d3dc7155da7ed679c7a037fc940b017f2ab57c13ab1ed1d0a",
+    "src/constructive_access/observed_geometry/experiment.py": "1bb71e3ebe664ab3a9a6a7ef5be852be15e18a633425ac204638df3959d48ac4",
+    "src/constructive_access/observed_geometry/finite_resolution.py": "5f34bc6dc812e7451e79649cda97880158a2cb99cbf40f6ccf55a490231e412c",
+    "src/constructive_access/robust/PROVENANCE.json": "1b1ddffdfac4479b3e54d69859ee7cbc5cc717e5b93f1438814e995f3898e8e0",
+    "src/constructive_access/robust/__init__.py": "f6b68bee0fcc6c8a60de881025739617a5e2e992f7cdb8ea89acbd605ea0dd10",
+    "src/constructive_access/robust/clock_design.py": "1947f6ee2aac0fabb2631fb190ca5163457f8fb418eebabfde5e9ef1c34b7867",
+    "src/constructive_access/robust/detector_boundary.py": "8c587591103a67913427a76d8c44461471d2d646f265c348160a0bb6eb8bac95",
+    "src/constructive_access/robust/explanation.py": "251023813271f847ce12f62741ea194564a8bcf2b17dfc4ebc24eeb319d759a2",
+    "src/constructive_access/robust/preparation.py": "0e33e84309bfbdb2bef6a5aa5d07620f3bcd19b65a7098a962f36edf4ffcd66f",
+    "src/constructive_access/robust/robust_physics.py": "197d630f33441fbe11538548711ec7e2b0e490540e4d394a15654d4fdc5af2da",
+    "src/constructive_access/robust/statistics_design.py": "540a189c6fc532f265e35dcacb5ed260c4a388df2749adcdbc16af6291683e8b",
+    "src/constructive_access/suite.py": "540fb59e77ded3c2498f9ad7b9f4614f00c56dd3804a1e44ccf1545990149c0f",
+    "src/constructive_access/virtual/PROVENANCE.json": "a2e0c3137f53966a3c92326e14c1b525812983af2aef50c590cd713a98975c62",
+    "src/constructive_access/virtual/__init__.py": "e8d9b4a8badb12bef2bf991d46c492ab101569199e0038e2ff3949789b5d9965",
+    "src/constructive_access/virtual/contrast.py": "9869178194f91271381b7e34bafc5082e0e5f0b101c49eeb91859ea771eb8491",
+    "src/constructive_access/virtual/contrast_benchmark.py": "5e8587bad4542ddefeed62fda9009f39183e9bd4310f1132c0f7c5d3519b2445",
+    "src/constructive_access/virtual/dimension_lab.py": "47cfdbcb4a6bd4ca3798b5c768d5251735935565c863f7c8e8595826e957247d",
+    "src/constructive_access/virtual/sampling.py": "6804b0e173b9a0cdfe4f6dd0cbc0fdd3b5d839742359bb27ff3df77709dcb1dc",
+    "src/constructive_access/virtual/thermodynamic_lab.py": "6667bfac093d1bfc6116cebb73b991f375f26d69573fbcec793cbc8f5cd03530",
+    "src/constructive_access/virtual/timing.py": "3502bf4152c8825c27f4baa63c21c3fea1fa1834961dc28660120605bc5f0500",
+    "src/constructive_access/workflow.py": "8629550ae904f449a8fe1b9c867f28348c1ec777c72ed396d059c53ed9f421ef",
+    "tests/test_independent.py": "49ccebf87c856c16286e30ab9dc791e2c31c4cb02cbe3281bc306c7f72f8650f",
+    "tests/test_suite.py": "5efb3e3cc1064782ae50465712769ef1d2523451e4713efdb76378c60dd967e3",
+    "tests/test_workflow.py": "f81c362ca5274587622cc5a3d65847a1a0c7256ac4afa7e5c2147e686530621f",
+    "verify.py": "2223b8ba75a85e3b4fff8dde852a4b351e2bf880fb55230780c0f0444b9dce04",
+    "virtual/code/contrast.py": "9869178194f91271381b7e34bafc5082e0e5f0b101c49eeb91859ea771eb8491",
+    "virtual/code/contrast_benchmark.py": "5e8587bad4542ddefeed62fda9009f39183e9bd4310f1132c0f7c5d3519b2445",
+    "virtual/code/dimension_lab.py": "47cfdbcb4a6bd4ca3798b5c768d5251735935565c863f7c8e8595826e957247d",
+    "virtual/code/sampling.py": "6804b0e173b9a0cdfe4f6dd0cbc0fdd3b5d839742359bb27ff3df77709dcb1dc",
+    "virtual/code/thermodynamic_lab.py": "6667bfac093d1bfc6116cebb73b991f375f26d69573fbcec793cbc8f5cd03530",
+    "virtual/code/timing.py": "3502bf4152c8825c27f4baa63c21c3fea1fa1834961dc28660120605bc5f0500",
+    "virtual/contracts/contrast_benchmark.json": "84f8c333b15d7a8197386faccc186024d29db2c563b3c31f482d08151d6c5218",
+    "virtual/contracts/contrast_refinement.json": "d1b7838804777b53fc72832dc67fbee16b552ea07a3aebd1abb0292bb3cbb3f2",
+    "virtual/contracts/dimension_lab.json": "43f7efc0570760b042789e11d591dd2b2cde94cc426ac095c3735c7a18f01c04",
+    "virtual/contracts/dimension_lab_retiming.json": "f2b3cc1c1e0ca4c37cd050380a14794fdc880ff220a8200645faef40dda58ecf",
+    "virtual/contracts/dimension_lab_total_budget.json": "c61cfb8c967e616bbff19108f3e1db9321c11566cb8ace6fd4374c33ea51952b",
+    "virtual/contracts/sampling.json": "fc7a97b081c4617b4fe10386d1d7e686df06d34a6b84e4b7b1b3c82f1cd818ae",
+    "virtual/contracts/thermodynamic_lab.json": "5340939a64336a09f5e429e4d3270c7a1b22843418a498559efb4b93b36599e3",
+    "virtual/contracts/timing.json": "4b7246db21f1a5c4af51ff212502558d9f6de14c946db9f0cd40d9a637714ba9",
+    "virtual/research/allocation_benchmark.py": "e9219f3c2d7b2f11444081e9962cdee05c1a7f324bcb7faef6776552d180ec39",
+    "virtual/research/box_obstruction.py": "cc6a17e6e34daf0e0135edcf53b0f3080aebb06e43f7ec0f4de5826600d09fd8",
+    "virtual/research/contrast.txt": "b667d85757a2dcc62becfe5cc5bca93a490fd5a689a67f6ab63b21ec91df1e63",
+    "virtual/research/dimension_lab.txt": "90f9f5e96de2b7d1bbba89e90b018538e4cd8b07ab3a9244041f3c628f0269b2",
+    "virtual/research/literature.txt": "d5d14512e785ee87ed65f043fa8a1705c2823ad4332b99d40e90a9d74a55c091",
+    "virtual/research/make_virtual_figure.py": "89e9a12543e71045b5d9ce22d8d27b01d16ac826e5172b4a72d661c68f5a75ab",
+    "virtual/research/redteam.txt": "58adef055495e79e1016e49541e3d9b55238cfb83504123d13aff8bcb027b2bd",
+    "virtual/research/sampling.txt": "172a93e2d4a012c2115f041ba38b06bd923c4ff3f44b283ab05e9e1108fc021e",
+    "virtual/research/sources.json": "5733abdab841295c8636e8986af3b2aa7e66bab3853513c2b441b994bcf6584d",
+    "virtual/research/thermodynamic_lab.txt": "af75625b7f98ea545b97a3d6271398617ef0c3fcc97c39a9b2fd63af695c48a4",
+    "virtual/research/timing.txt": "d73dc8df3a116ff04c5639db61df7bc311e412ccd377e16a8198ca5c2a9551c8",
+    "virtual/research/virtual_tutorial.py": "fe986b561adb8133fc1d3fca0bb08ea511f1e8ec7e26dee35831f27b8d4da7c2",
+    "virtual/run_tests.py": "f9c81e8ad6422b6191c2912dcdf431f65266e1f4428efa132a0a6f9e758403be",
+    "virtual/tests/test_contrast.py": "d7b2e72f2580a02693b23fbef9fad4231df8b4b5f5b525ce4fefb72875cefd73",
+    "virtual/tests/test_dimension_lab.py": "20018f5db80f47c41dea1fb0442d429ff683f70078f08e62ea3c2730794e2180",
+    "virtual/tests/test_independent.py": "412f658d2aa9d415752ae8a0e7bbcf20c1a33d22b46f7fd416be6f93d633f9ff",
+    "virtual/tests/test_sampling.py": "b1d2057f679bca8e6790dbdceb2fa89d9e8b53eec91664921787f59aa54e0747",
+    "virtual/tests/test_thermodynamic_lab.py": "9892e8b57d42300821ee11aab6f9c0949049fdff44ba1adaf9f485d8bfb9f6f4",
+    "virtual/tests/test_timing.py": "85c438c3515cc91014fd0911e820061f48fedd60672cd3cc88320357993e33b6"
+  },
+  "vendored_provenance": {
+    "passed": true,
+    "files": [
+      {
+        "file": "src/constructive_access/_vendor/accesskit.py",
+        "expected": "8740d34286b7b471d304c9b214ae16ce030252abb81ac27d6d7da2a5cad968e9",
+        "actual": "8740d34286b7b471d304c9b214ae16ce030252abb81ac27d6d7da2a5cad968e9"
+      },
+      {
+        "file": "src/constructive_access/_vendor/cost_certificate.py",
+        "expected": "ce929bfb4c7ac6587b098b9257e321fabe0abc441c41d8973859eff2f0a9ee39",
+        "actual": "ce929bfb4c7ac6587b098b9257e321fabe0abc441c41d8973859eff2f0a9ee39"
+      },
+      {
+        "file": "src/constructive_access/_vendor/ctmc_adapter.py",
+        "expected": "068bc3bf9160281249189786b7ba3c16dfe41785b4d9be1080ede61c6a58453e",
+        "actual": "068bc3bf9160281249189786b7ba3c16dfe41785b4d9be1080ede61c6a58453e"
+      },
+      {
+        "file": "src/constructive_access/_vendor/budgeted_design.py",
+        "expected": "d876594b33cee443ef3e60240631732d1909738663d12c8645ab040d9e654b76",
+        "actual": "d876594b33cee443ef3e60240631732d1909738663d12c8645ab040d9e654b76"
+      },
+      {
+        "file": "src/constructive_access/_vendor/model_adequacy.py",
+        "expected": "af0e7ea02ff1b6640b3fe6bcc20aa3700eefa48220399d6b28233c73261d719b",
+        "actual": "af0e7ea02ff1b6640b3fe6bcc20aa3700eefa48220399d6b28233c73261d719b"
+      },
+      {
+        "file": "src/constructive_access/_vendor/intervention_criterion.py",
+        "expected": "f3d2567703628ebeaadc85aafa34942e92d8910dd325f63c082ff4f7e618b63a",
+        "actual": "f3d2567703628ebeaadc85aafa34942e92d8910dd325f63c082ff4f7e618b63a"
+      },
+      {
+        "file": "src/constructive_access/_vendor/energy_tail.py",
+        "expected": "4a9f585716698aa2a2482426c45c4c74b9ffa5499533fa825cbc1a394493609c",
+        "actual": "4a9f585716698aa2a2482426c45c4c74b9ffa5499533fa825cbc1a394493609c"
+      },
+      {
+        "file": "completion/code/composition.py",
+        "expected": "a808ca96faafccf8bce2e5a0587208dc63c4365a986a4cbfd7810649da6cacbf",
+        "actual": "a808ca96faafccf8bce2e5a0587208dc63c4365a986a4cbfd7810649da6cacbf"
+      },
+      {
+        "file": "src/constructive_access/completion/composition.py",
+        "expected": "a808ca96faafccf8bce2e5a0587208dc63c4365a986a4cbfd7810649da6cacbf",
+        "actual": "a808ca96faafccf8bce2e5a0587208dc63c4365a986a4cbfd7810649da6cacbf"
+      },
+      {
+        "file": "completion/code/graph_access.py",
+        "expected": "594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f",
+        "actual": "594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f"
+      },
+      {
+        "file": "src/constructive_access/completion/graph_access.py",
+        "expected": "594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f",
+        "actual": "594b6ffc4d7a34114a266033b60bd0d9d88cf0f4bc6f339b4837ab45ec71629f"
+      },
+      {
+        "file": "completion/code/physical_access.py",
+        "expected": "485bac61f5a654a886c40da1a918242358d451bf621b90ff40a93be97e081a5b",
+        "actual": "485bac61f5a654a886c40da1a918242358d451bf621b90ff40a93be97e081a5b"
+      },
+      {
+        "file": "src/constructive_access/completion/physical_access.py",
+        "expected": "485bac61f5a654a886c40da1a918242358d451bf621b90ff40a93be97e081a5b",
+        "actual": "485bac61f5a654a886c40da1a918242358d451bf621b90ff40a93be97e081a5b"
+      },
+      {
+        "file": "completion/code/pulse_test.py",
+        "expected": "79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828",
+        "actual": "79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828"
+      },
+      {
+        "file": "src/constructive_access/completion/pulse_test.py",
+        "expected": "79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828",
+        "actual": "79e6e1a3859299df4590ea3bc9efbf06b4e8c1c642cc2f690fe1297a961b3828"
+      },
+      {
+        "file": "completion/code/quantum_completion.py",
+        "expected": "caea447b506a62e388f2c8a8d8ce22f6df684acc76295418f15c54218f69eedc",
+        "actual": "caea447b506a62e388f2c8a8d8ce22f6df684acc76295418f15c54218f69eedc"
+      },
+      {
+        "file": "src/constructive_access/completion/quantum_completion.py",
+        "expected": "caea447b506a62e388f2c8a8d8ce22f6df684acc76295418f15c54218f69eedc",
+        "actual": "caea447b506a62e388f2c8a8d8ce22f6df684acc76295418f15c54218f69eedc"
+      },
+      {
+        "file": "completion/code/robust_completion.py",
+        "expected": "9308b740c53f9b77009cb55cf5b638d36118809f1d03fce9e9fa4479d8218f64",
+        "actual": "9308b740c53f9b77009cb55cf5b638d36118809f1d03fce9e9fa4479d8218f64"
+      },
+      {
+        "file": "src/constructive_access/completion/robust_completion.py",
+        "expected": "3aac69f5d31c39c8a8be61d14347b69f23b54efc311290ab5746e548fd83ab45",
+        "actual": "3aac69f5d31c39c8a8be61d14347b69f23b54efc311290ab5746e548fd83ab45"
+      },
+      {
+        "file": "robustness/code/clock_design.py",
+        "expected": "62ade1641617e545e5672893d0180395cad3f4cd5ab2cfabb2836b74686f5bbc",
+        "actual": "62ade1641617e545e5672893d0180395cad3f4cd5ab2cfabb2836b74686f5bbc"
+      },
+      {
+        "file": "src/constructive_access/robust/clock_design.py",
+        "expected": "1947f6ee2aac0fabb2631fb190ca5163457f8fb418eebabfde5e9ef1c34b7867",
+        "actual": "1947f6ee2aac0fabb2631fb190ca5163457f8fb418eebabfde5e9ef1c34b7867"
+      },
+      {
+        "file": "robustness/code/detector_boundary.py",
+        "expected": "8c587591103a67913427a76d8c44461471d2d646f265c348160a0bb6eb8bac95",
+        "actual": "8c587591103a67913427a76d8c44461471d2d646f265c348160a0bb6eb8bac95"
+      },
+      {
+        "file": "src/constructive_access/robust/detector_boundary.py",
+        "expected": "8c587591103a67913427a76d8c44461471d2d646f265c348160a0bb6eb8bac95",
+        "actual": "8c587591103a67913427a76d8c44461471d2d646f265c348160a0bb6eb8bac95"
+      },
+      {
+        "file": "robustness/code/explanation.py",
+        "expected": "251023813271f847ce12f62741ea194564a8bcf2b17dfc4ebc24eeb319d759a2",
+        "actual": "251023813271f847ce12f62741ea194564a8bcf2b17dfc4ebc24eeb319d759a2"
+      },
+      {
+        "file": "src/constructive_access/robust/explanation.py",
+        "expected": "251023813271f847ce12f62741ea194564a8bcf2b17dfc4ebc24eeb319d759a2",
+        "actual": "251023813271f847ce12f62741ea194564a8bcf2b17dfc4ebc24eeb319d759a2"
+      },
+      {
+        "file": "robustness/code/preparation.py",
+        "expected": "0e33e84309bfbdb2bef6a5aa5d07620f3bcd19b65a7098a962f36edf4ffcd66f",
+        "actual": "0e33e84309bfbdb2bef6a5aa5d07620f3bcd19b65a7098a962f36edf4ffcd66f"
+      },
+      {
+        "file": "src/constructive_access/robust/preparation.py",
+        "expected": "0e33e84309bfbdb2bef6a5aa5d07620f3bcd19b65a7098a962f36edf4ffcd66f",
+        "actual": "0e33e84309bfbdb2bef6a5aa5d07620f3bcd19b65a7098a962f36edf4ffcd66f"
+      },
+      {
+        "file": "robustness/code/robust_physics.py",
+        "expected": "197d630f33441fbe11538548711ec7e2b0e490540e4d394a15654d4fdc5af2da",
+        "actual": "197d630f33441fbe11538548711ec7e2b0e490540e4d394a15654d4fdc5af2da"
+      },
+      {
+        "file": "src/constructive_access/robust/robust_physics.py",
+        "expected": "197d630f33441fbe11538548711ec7e2b0e490540e4d394a15654d4fdc5af2da",
+        "actual": "197d630f33441fbe11538548711ec7e2b0e490540e4d394a15654d4fdc5af2da"
+      },
+      {
+        "file": "robustness/code/statistics_design.py",
+        "expected": "540a189c6fc532f265e35dcacb5ed260c4a388df2749adcdbc16af6291683e8b",
+        "actual": "540a189c6fc532f265e35dcacb5ed260c4a388df2749adcdbc16af6291683e8b"
+      },
+      {
+        "file": "src/constructive_access/robust/statistics_design.py",
+        "expected": "540a189c6fc532f265e35dcacb5ed260c4a388df2749adcdbc16af6291683e8b",
+        "actual": "540a189c6fc532f265e35dcacb5ed260c4a388df2749adcdbc16af6291683e8b"
+      },
+      {
+        "file": "frontier/code/energy_certificate.py",
+        "expected": "29cd44376ae4f99a664dfda151640ce423416cffd79703544bffda22522caed7",
+        "actual": "29cd44376ae4f99a664dfda151640ce423416cffd79703544bffda22522caed7"
+      },
+      {
+        "file": "src/constructive_access/frontier/energy_certificate.py",
+        "expected": "29cd44376ae4f99a664dfda151640ce423416cffd79703544bffda22522caed7",
+        "actual": "29cd44376ae4f99a664dfda151640ce423416cffd79703544bffda22522caed7"
+      },
+      {
+        "file": "frontier/code/hierarchy.py",
+        "expected": "2c5b56299567e159a6cc5b1ec0916fe3d532970fbfbf6e0f11d576af80551af7",
+        "actual": "2c5b56299567e159a6cc5b1ec0916fe3d532970fbfbf6e0f11d576af80551af7"
+      },
+      {
+        "file": "src/constructive_access/frontier/hierarchy.py",
+        "expected": "2c5b56299567e159a6cc5b1ec0916fe3d532970fbfbf6e0f11d576af80551af7",
+        "actual": "2c5b56299567e159a6cc5b1ec0916fe3d532970fbfbf6e0f11d576af80551af7"
+      },
+      {
+        "file": "frontier/code/limits.py",
+        "expected": "07f2f12f6a39738d4633edf5183743657450541deef23c4c8a982709513c2b0e",
+        "actual": "07f2f12f6a39738d4633edf5183743657450541deef23c4c8a982709513c2b0e"
+      },
+      {
+        "file": "src/constructive_access/frontier/limits.py",
+        "expected": "07f2f12f6a39738d4633edf5183743657450541deef23c4c8a982709513c2b0e",
+        "actual": "07f2f12f6a39738d4633edf5183743657450541deef23c4c8a982709513c2b0e"
+      },
+      {
+        "file": "frontier/code/spectral.py",
+        "expected": "e9bebe0ef132d1a31c6851fa4040c0e3f54878f4c138143457b6407719e94b1a",
+        "actual": "e9bebe0ef132d1a31c6851fa4040c0e3f54878f4c138143457b6407719e94b1a"
+      },
+      {
+        "file": "src/constructive_access/frontier/spectral.py",
+        "expected": "e9bebe0ef132d1a31c6851fa4040c0e3f54878f4c138143457b6407719e94b1a",
+        "actual": "e9bebe0ef132d1a31c6851fa4040c0e3f54878f4c138143457b6407719e94b1a"
+      },
+      {
+        "file": "frontier/code/thermodynamic.py",
+        "expected": "58a107bae69f4a9609299f4fa22d257af57dadde3d6135c3b4c85ec107fa0bb5",
+        "actual": "58a107bae69f4a9609299f4fa22d257af57dadde3d6135c3b4c85ec107fa0bb5"
+      },
+      {
+        "file": "src/constructive_access/frontier/thermodynamic.py",
+        "expected": "58a107bae69f4a9609299f4fa22d257af57dadde3d6135c3b4c85ec107fa0bb5",
+        "actual": "58a107bae69f4a9609299f4fa22d257af57dadde3d6135c3b4c85ec107fa0bb5"
+      },
+      {
+        "file": "virtual/code/contrast.py",
+        "expected": "9869178194f91271381b7e34bafc5082e0e5f0b101c49eeb91859ea771eb8491",
+        "actual": "9869178194f91271381b7e34bafc5082e0e5f0b101c49eeb91859ea771eb8491"
+      },
+      {
+        "file": "src/constructive_access/virtual/contrast.py",
+        "expected": "9869178194f91271381b7e34bafc5082e0e5f0b101c49eeb91859ea771eb8491",
+        "actual": "9869178194f91271381b7e34bafc5082e0e5f0b101c49eeb91859ea771eb8491"
+      },
+      {
+        "file": "virtual/code/contrast_benchmark.py",
+        "expected": "5e8587bad4542ddefeed62fda9009f39183e9bd4310f1132c0f7c5d3519b2445",
+        "actual": "5e8587bad4542ddefeed62fda9009f39183e9bd4310f1132c0f7c5d3519b2445"
+      },
+      {
+        "file": "src/constructive_access/virtual/contrast_benchmark.py",
+        "expected": "5e8587bad4542ddefeed62fda9009f39183e9bd4310f1132c0f7c5d3519b2445",
+        "actual": "5e8587bad4542ddefeed62fda9009f39183e9bd4310f1132c0f7c5d3519b2445"
+      },
+      {
+        "file": "virtual/code/dimension_lab.py",
+        "expected": "47cfdbcb4a6bd4ca3798b5c768d5251735935565c863f7c8e8595826e957247d",
+        "actual": "47cfdbcb4a6bd4ca3798b5c768d5251735935565c863f7c8e8595826e957247d"
+      },
+      {
+        "file": "src/constructive_access/virtual/dimension_lab.py",
+        "expected": "47cfdbcb4a6bd4ca3798b5c768d5251735935565c863f7c8e8595826e957247d",
+        "actual": "47cfdbcb4a6bd4ca3798b5c768d5251735935565c863f7c8e8595826e957247d"
+      },
+      {
+        "file": "virtual/code/sampling.py",
+        "expected": "6804b0e173b9a0cdfe4f6dd0cbc0fdd3b5d839742359bb27ff3df77709dcb1dc",
+        "actual": "6804b0e173b9a0cdfe4f6dd0cbc0fdd3b5d839742359bb27ff3df77709dcb1dc"
+      },
+      {
+        "file": "src/constructive_access/virtual/sampling.py",
+        "expected": "6804b0e173b9a0cdfe4f6dd0cbc0fdd3b5d839742359bb27ff3df77709dcb1dc",
+        "actual": "6804b0e173b9a0cdfe4f6dd0cbc0fdd3b5d839742359bb27ff3df77709dcb1dc"
+      },
+      {
+        "file": "virtual/code/thermodynamic_lab.py",
+        "expected": "6667bfac093d1bfc6116cebb73b991f375f26d69573fbcec793cbc8f5cd03530",
+        "actual": "6667bfac093d1bfc6116cebb73b991f375f26d69573fbcec793cbc8f5cd03530"
+      },
+      {
+        "file": "src/constructive_access/virtual/thermodynamic_lab.py",
+        "expected": "6667bfac093d1bfc6116cebb73b991f375f26d69573fbcec793cbc8f5cd03530",
+        "actual": "6667bfac093d1bfc6116cebb73b991f375f26d69573fbcec793cbc8f5cd03530"
+      },
+      {
+        "file": "virtual/code/timing.py",
+        "expected": "3502bf4152c8825c27f4baa63c21c3fea1fa1834961dc28660120605bc5f0500",
+        "actual": "3502bf4152c8825c27f4baa63c21c3fea1fa1834961dc28660120605bc5f0500"
+      },
+      {
+        "file": "src/constructive_access/virtual/timing.py",
+        "expected": "3502bf4152c8825c27f4baa63c21c3fea1fa1834961dc28660120605bc5f0500",
+        "actual": "3502bf4152c8825c27f4baa63c21c3fea1fa1834961dc28660120605bc5f0500"
+      },
+      {
+        "file": "calibrated/code/analog.py",
+        "expected": "952c4bd0528777502fe00accb31e2d4dd40b65d3367ab92ff0c1fb333846b518",
+        "actual": "952c4bd0528777502fe00accb31e2d4dd40b65d3367ab92ff0c1fb333846b518"
+      },
+      {
+        "file": "src/constructive_access/calibrated/analog.py",
+        "expected": "952c4bd0528777502fe00accb31e2d4dd40b65d3367ab92ff0c1fb333846b518",
+        "actual": "952c4bd0528777502fe00accb31e2d4dd40b65d3367ab92ff0c1fb333846b518"
+      },
+      {
+        "file": "calibrated/code/analog_benchmark.py",
+        "expected": "9fbb5fe20390053c203272f3c42d65f0f2c8ebe556a9e1fc449cc15f9e1396f8",
+        "actual": "9fbb5fe20390053c203272f3c42d65f0f2c8ebe556a9e1fc449cc15f9e1396f8"
+      },
+      {
+        "file": "src/constructive_access/calibrated/analog_benchmark.py",
+        "expected": "9fbb5fe20390053c203272f3c42d65f0f2c8ebe556a9e1fc449cc15f9e1396f8",
+        "actual": "9fbb5fe20390053c203272f3c42d65f0f2c8ebe556a9e1fc449cc15f9e1396f8"
+      },
+      {
+        "file": "calibrated/code/calibrated_benchmark.py",
+        "expected": "5994721d0539cd7c4977cab7e12f320237ba0d85452ad03684f2feebcd154887",
+        "actual": "5994721d0539cd7c4977cab7e12f320237ba0d85452ad03684f2feebcd154887"
+      },
+      {
+        "file": "src/constructive_access/calibrated/calibrated_benchmark.py",
+        "expected": "5994721d0539cd7c4977cab7e12f320237ba0d85452ad03684f2feebcd154887",
+        "actual": "5994721d0539cd7c4977cab7e12f320237ba0d85452ad03684f2feebcd154887"
+      },
+      {
+        "file": "calibrated/code/calibration.py",
+        "expected": "7ac7e48da2253a7331c49b9bbfd6b37de7928b32d4bf088437fde86dc58bddb3",
+        "actual": "7ac7e48da2253a7331c49b9bbfd6b37de7928b32d4bf088437fde86dc58bddb3"
+      },
+      {
+        "file": "src/constructive_access/calibrated/calibration.py",
+        "expected": "7ac7e48da2253a7331c49b9bbfd6b37de7928b32d4bf088437fde86dc58bddb3",
+        "actual": "7ac7e48da2253a7331c49b9bbfd6b37de7928b32d4bf088437fde86dc58bddb3"
+      },
+      {
+        "file": "calibrated/code/dependence.py",
+        "expected": "e186006d0819ed6ecbfa8ce8d649adfc603d14b0b27ff8a36e97d16aefaa3b91",
+        "actual": "e186006d0819ed6ecbfa8ce8d649adfc603d14b0b27ff8a36e97d16aefaa3b91"
+      },
+      {
+        "file": "src/constructive_access/calibrated/dependence.py",
+        "expected": "e186006d0819ed6ecbfa8ce8d649adfc603d14b0b27ff8a36e97d16aefaa3b91",
+        "actual": "e186006d0819ed6ecbfa8ce8d649adfc603d14b0b27ff8a36e97d16aefaa3b91"
+      },
+      {
+        "file": "calibrated/code/dissipation_limits.py",
+        "expected": "94d5cc1acbaa6cf224740246df2e2f7e4adbe2b2865fc8511da76c84686b1d61",
+        "actual": "94d5cc1acbaa6cf224740246df2e2f7e4adbe2b2865fc8511da76c84686b1d61"
+      },
+      {
+        "file": "src/constructive_access/calibrated/dissipation_limits.py",
+        "expected": "94d5cc1acbaa6cf224740246df2e2f7e4adbe2b2865fc8511da76c84686b1d61",
+        "actual": "94d5cc1acbaa6cf224740246df2e2f7e4adbe2b2865fc8511da76c84686b1d61"
+      },
+      {
+        "file": "calibrated/code/empirical_analysis.py",
+        "expected": "fede2df8201c5e70365fcf70bd9b06126120714b78a44479967dfea8342a80b1",
+        "actual": "fede2df8201c5e70365fcf70bd9b06126120714b78a44479967dfea8342a80b1"
+      },
+      {
+        "file": "src/constructive_access/calibrated/empirical_analysis.py",
+        "expected": "fede2df8201c5e70365fcf70bd9b06126120714b78a44479967dfea8342a80b1",
+        "actual": "fede2df8201c5e70365fcf70bd9b06126120714b78a44479967dfea8342a80b1"
+      },
+      {
+        "file": "calibrated/code/empirical_loader.py",
+        "expected": "436c03359a253facb20b290092005902cee49288260430b1702f2defb96fe997",
+        "actual": "436c03359a253facb20b290092005902cee49288260430b1702f2defb96fe997"
+      },
+      {
+        "file": "src/constructive_access/calibrated/empirical_loader.py",
+        "expected": "436c03359a253facb20b290092005902cee49288260430b1702f2defb96fe997",
+        "actual": "436c03359a253facb20b290092005902cee49288260430b1702f2defb96fe997"
+      },
+      {
+        "file": "calibrated/code/joint_calibration.py",
+        "expected": "144dd6975360da2b41d4f20119bc142ef1a79a992c5043d1a1d31616d95bca2d",
+        "actual": "144dd6975360da2b41d4f20119bc142ef1a79a992c5043d1a1d31616d95bca2d"
+      },
+      {
+        "file": "src/constructive_access/calibrated/joint_calibration.py",
+        "expected": "144dd6975360da2b41d4f20119bc142ef1a79a992c5043d1a1d31616d95bca2d",
+        "actual": "144dd6975360da2b41d4f20119bc142ef1a79a992c5043d1a1d31616d95bca2d"
+      },
+      {
+        "file": "calibrated/code/nonlinear.py",
+        "expected": "cbd22567f54fe82331c63fb5cbdae8bed039a63c0d07410abf97f5dd8a4b69ba",
+        "actual": "cbd22567f54fe82331c63fb5cbdae8bed039a63c0d07410abf97f5dd8a4b69ba"
+      },
+      {
+        "file": "src/constructive_access/calibrated/nonlinear.py",
+        "expected": "cbd22567f54fe82331c63fb5cbdae8bed039a63c0d07410abf97f5dd8a4b69ba",
+        "actual": "cbd22567f54fe82331c63fb5cbdae8bed039a63c0d07410abf97f5dd8a4b69ba"
+      },
+      {
+        "file": "calibrated/code/sequential.py",
+        "expected": "72459ac2bd2a7c0911ae74550f72620fd892508a33cafa5db99fd7d07e1fa5dd",
+        "actual": "72459ac2bd2a7c0911ae74550f72620fd892508a33cafa5db99fd7d07e1fa5dd"
+      },
+      {
+        "file": "src/constructive_access/calibrated/sequential.py",
+        "expected": "72459ac2bd2a7c0911ae74550f72620fd892508a33cafa5db99fd7d07e1fa5dd",
+        "actual": "72459ac2bd2a7c0911ae74550f72620fd892508a33cafa5db99fd7d07e1fa5dd"
+      },
+      {
+        "file": "calibrated/code/sequential_benchmark.py",
+        "expected": "ee156ae9113365830eed59f5d775a9d0e9edead8ae05687d6843e8b70bdb5aad",
+        "actual": "ee156ae9113365830eed59f5d775a9d0e9edead8ae05687d6843e8b70bdb5aad"
+      },
+      {
+        "file": "src/constructive_access/calibrated/sequential_benchmark.py",
+        "expected": "ee156ae9113365830eed59f5d775a9d0e9edead8ae05687d6843e8b70bdb5aad",
+        "actual": "ee156ae9113365830eed59f5d775a9d0e9edead8ae05687d6843e8b70bdb5aad"
+      },
+      {
+        "file": "attainability/code/design.py",
+        "expected": "71263e6022d9045c476f184c8dd18a23d754f520120c6ac85831c40bac092228",
+        "actual": "71263e6022d9045c476f184c8dd18a23d754f520120c6ac85831c40bac092228"
+      },
+      {
+        "file": "src/constructive_access/attainability/design.py",
+        "expected": "71263e6022d9045c476f184c8dd18a23d754f520120c6ac85831c40bac092228",
+        "actual": "71263e6022d9045c476f184c8dd18a23d754f520120c6ac85831c40bac092228"
+      },
+      {
+        "file": "attainability/code/joint_analog.py",
+        "expected": "5f480384d52a4f4ded52310564bd7974a2e2a602b7b8a7ef424035b7cfac7027",
+        "actual": "5f480384d52a4f4ded52310564bd7974a2e2a602b7b8a7ef424035b7cfac7027"
+      },
+      {
+        "file": "src/constructive_access/attainability/joint_analog.py",
+        "expected": "5f480384d52a4f4ded52310564bd7974a2e2a602b7b8a7ef424035b7cfac7027",
+        "actual": "5f480384d52a4f4ded52310564bd7974a2e2a602b7b8a7ef424035b7cfac7027"
+      },
+      {
+        "file": "attainability/code/physical_minimum.py",
+        "expected": "d1f2e67b166b0c476ef2ac2f6070664112460c5d6ac8bbe3cfba176dd8dc027f",
+        "actual": "d1f2e67b166b0c476ef2ac2f6070664112460c5d6ac8bbe3cfba176dd8dc027f"
+      },
+      {
+        "file": "src/constructive_access/attainability/physical_minimum.py",
+        "expected": "d1f2e67b166b0c476ef2ac2f6070664112460c5d6ac8bbe3cfba176dd8dc027f",
+        "actual": "d1f2e67b166b0c476ef2ac2f6070664112460c5d6ac8bbe3cfba176dd8dc027f"
+      },
+      {
+        "file": "attainability/code/retiming.py",
+        "expected": "27c2d05eee70fce4243a03d14251c3bdaf2054151d6ea1fd2f6063287fa859e0",
+        "actual": "27c2d05eee70fce4243a03d14251c3bdaf2054151d6ea1fd2f6063287fa859e0"
+      },
+      {
+        "file": "src/constructive_access/attainability/retiming.py",
+        "expected": "27c2d05eee70fce4243a03d14251c3bdaf2054151d6ea1fd2f6063287fa859e0",
+        "actual": "27c2d05eee70fce4243a03d14251c3bdaf2054151d6ea1fd2f6063287fa859e0"
+      },
+      {
+        "file": "attainability/code/spectral_dynamics.py",
+        "expected": "3118844f7e9efbebd757acfb117977b2d3eff4f0a72a33bf8f1eeaf4e739f6c9",
+        "actual": "3118844f7e9efbebd757acfb117977b2d3eff4f0a72a33bf8f1eeaf4e739f6c9"
+      },
+      {
+        "file": "src/constructive_access/attainability/spectral_dynamics.py",
+        "expected": "3118844f7e9efbebd757acfb117977b2d3eff4f0a72a33bf8f1eeaf4e739f6c9",
+        "actual": "3118844f7e9efbebd757acfb117977b2d3eff4f0a72a33bf8f1eeaf4e739f6c9"
+      },
+      {
+        "file": "geometry/code/combination.py",
+        "expected": "5266b6daa30e3c002d1f8953b28e993c2fe3d3bc349fce2fcc0afbaf1718af94",
+        "actual": "5266b6daa30e3c002d1f8953b28e993c2fe3d3bc349fce2fcc0afbaf1718af94"
+      },
+      {
+        "file": "src/constructive_access/observed_geometry/combination.py",
+        "expected": "5266b6daa30e3c002d1f8953b28e993c2fe3d3bc349fce2fcc0afbaf1718af94",
+        "actual": "5266b6daa30e3c002d1f8953b28e993c2fe3d3bc349fce2fcc0afbaf1718af94"
+      },
+      {
+        "file": "geometry/code/consistency.py",
+        "expected": "53c570a9efebc4a4836818c196036719ad75e77319d3f1a32bdd5a5931c958fe",
+        "actual": "53c570a9efebc4a4836818c196036719ad75e77319d3f1a32bdd5a5931c958fe"
+      },
+      {
+        "file": "src/constructive_access/observed_geometry/consistency.py",
+        "expected": "53c570a9efebc4a4836818c196036719ad75e77319d3f1a32bdd5a5931c958fe",
+        "actual": "53c570a9efebc4a4836818c196036719ad75e77319d3f1a32bdd5a5931c958fe"
+      },
+      {
+        "file": "geometry/code/countermodels.py",
+        "expected": "bdab78dbd1bb644d3dc7155da7ed679c7a037fc940b017f2ab57c13ab1ed1d0a",
+        "actual": "bdab78dbd1bb644d3dc7155da7ed679c7a037fc940b017f2ab57c13ab1ed1d0a"
+      },
+      {
+        "file": "src/constructive_access/observed_geometry/countermodels.py",
+        "expected": "bdab78dbd1bb644d3dc7155da7ed679c7a037fc940b017f2ab57c13ab1ed1d0a",
+        "actual": "bdab78dbd1bb644d3dc7155da7ed679c7a037fc940b017f2ab57c13ab1ed1d0a"
+      },
+      {
+        "file": "geometry/code/experiment.py",
+        "expected": "1bb71e3ebe664ab3a9a6a7ef5be852be15e18a633425ac204638df3959d48ac4",
+        "actual": "1bb71e3ebe664ab3a9a6a7ef5be852be15e18a633425ac204638df3959d48ac4"
+      },
+      {
+        "file": "src/constructive_access/observed_geometry/experiment.py",
+        "expected": "1bb71e3ebe664ab3a9a6a7ef5be852be15e18a633425ac204638df3959d48ac4",
+        "actual": "1bb71e3ebe664ab3a9a6a7ef5be852be15e18a633425ac204638df3959d48ac4"
+      },
+      {
+        "file": "geometry/code/finite_resolution.py",
+        "expected": "5f34bc6dc812e7451e79649cda97880158a2cb99cbf40f6ccf55a490231e412c",
+        "actual": "5f34bc6dc812e7451e79649cda97880158a2cb99cbf40f6ccf55a490231e412c"
+      },
+      {
+        "file": "src/constructive_access/observed_geometry/finite_resolution.py",
+        "expected": "5f34bc6dc812e7451e79649cda97880158a2cb99cbf40f6ccf55a490231e412c",
+        "actual": "5f34bc6dc812e7451e79649cda97880158a2cb99cbf40f6ccf55a490231e412c"
+      },
+      {
+        "file": "detector/design/counts.py",
+        "expected": "330ffdaddfec5330237349e8820ffbaed4a80babb46e3812e20066b69122347e",
+        "actual": "330ffdaddfec5330237349e8820ffbaed4a80babb46e3812e20066b69122347e"
+      },
+      {
+        "file": "src/constructive_access/detector/counts.py",
+        "expected": "330ffdaddfec5330237349e8820ffbaed4a80babb46e3812e20066b69122347e",
+        "actual": "330ffdaddfec5330237349e8820ffbaed4a80babb46e3812e20066b69122347e"
+      },
+      {
+        "file": "detector/countermodels/exact_sampling.py",
+        "expected": "d8939f2c50475d25aec4de4b945ca8e561a495a6c1da2ff8a9a68b70d3501cc1",
+        "actual": "d8939f2c50475d25aec4de4b945ca8e561a495a6c1da2ff8a9a68b70d3501cc1"
+      },
+      {
+        "file": "src/constructive_access/detector/exact_sampling.py",
+        "expected": "d8939f2c50475d25aec4de4b945ca8e561a495a6c1da2ff8a9a68b70d3501cc1",
+        "actual": "d8939f2c50475d25aec4de4b945ca8e561a495a6c1da2ff8a9a68b70d3501cc1"
+      },
+      {
+        "file": "detector_calibration/code/certification.py",
+        "expected": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3",
+        "actual": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3"
+      },
+      {
+        "file": "src/constructive_access/detector_calibration/certification.py",
+        "expected": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3",
+        "actual": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3"
+      },
+      {
+        "file": "detector_calibration/experiment/exposure_moments.py",
+        "expected": "d6581978fd398fbed5a11962320f9a4211bcf6bb4b207adde3ef1b4cc5686cbb",
+        "actual": "d6581978fd398fbed5a11962320f9a4211bcf6bb4b207adde3ef1b4cc5686cbb"
+      },
+      {
+        "file": "src/constructive_access/detector_calibration/exposure_moments.py",
+        "expected": "d6581978fd398fbed5a11962320f9a4211bcf6bb4b207adde3ef1b4cc5686cbb",
+        "actual": "d6581978fd398fbed5a11962320f9a4211bcf6bb4b207adde3ef1b4cc5686cbb"
+      },
+      {
+        "file": "detector_calibration/countermodels/rare_bump.py",
+        "expected": "9a8b864fa1316f2b8db16142e64328b9a096caddd31d34f17d6d14479cfc1bab",
+        "actual": "9a8b864fa1316f2b8db16142e64328b9a096caddd31d34f17d6d14479cfc1bab"
+      },
+      {
+        "file": "src/constructive_access/detector_calibration/rare_bump.py",
+        "expected": "9a8b864fa1316f2b8db16142e64328b9a096caddd31d34f17d6d14479cfc1bab",
+        "actual": "9a8b864fa1316f2b8db16142e64328b9a096caddd31d34f17d6d14479cfc1bab"
+      }
+    ]
+  },
+  "typesetting_problems": [],
+  "missing_outputs": [],
+  "result_sha256": {
+    "results/suite_tutorial.json": "6f80d5ceeebdb2a822b116b618230bbef9a880a5247138bd8538211c142695e3",
+    "results/advanced_tutorial.json": "7c4acae5d47ed8487903ade99da3cbfacc7bc3e24d85cf8c67a89bda4c7105d9",
+    "results/physics_consistency.json": "5ecaa95f8d966111590884373e8e1b191ef4fb4becb33526499ce59bb93c9c6e",
+    "results/completion_tutorial.json": "45dbeff9d8c23c00b995fe8b9d8f7c2436bc76d940de456a9ad9d815e7685bc2",
+    "results/robust_tutorial.json": "d0420248aca6c72006803048734f93cff31f96b35c34d67d9cbd0c6a8344df2f",
+    "results/frontier_tutorial.json": "a7a44be26fa759aae632a53aa8984f55ea49a058cb6b0efdb96b9e2dadb00c63",
+    "results/virtual_tutorial.json": "4dbb8253a68b7c025e15d090b3d515c6e45abbceaf3cac920da21e90a8039ace",
+    "results/calibrated_tutorial.json": "066b1a90ad76697a811119b08887d8153d66c1c33017f6068c0942fe25f68a53",
+    "results/attainability_tutorial.json": "0492e3234804fc30d637a6345996f810ec7174e2853d06d74fa143eabe27e247",
+    "results/geometry_tutorial.json": "4d70cae0c12726c778dab548958453a53f150648b83c234a4e2cc2d5afb6f22d",
+    "results/detector_tutorial.json": "5e111ec9de4c7c258af44ef6ab909970b70bdea0d7b14ca3025fafb985641557",
+    "results/active_report.json": "01353896d7498073008788153f85b9417e9b69f4033107a6670f67cb71c3de6c",
+    "results/passive_report.json": "b670ca10dc90e9824e194ff597a99b2560e293dc06f0b9bc9da5d7ce9e43e130",
+    "results/calibrated_report.json": "c97e2e8381dc9b9ba2234d2dd424588f44429c6952a9829f0d829d6d36ae97e1",
+    "results/calibration_gap_closed_report.json": "670990729fd109d5f1a354d20f836b02202270b68176c8d302aac488fa8c238f",
+    "results/grammar_report.json": "4678c24a6f2f93681e8c434170725fb5c2d40fbf78837a585e1d53da442723ef",
+    "robustness/results/clock_design.json": "8a08acc391935c6a2987251200cd24338595e4ec641ad947b68a6a1030c6b388",
+    "robustness/results/detector_boundary.json": "83d32f6d06d7c5fba0880f21ddf4b001aa4120431645fa44eec9ba9ec750d993",
+    "robustness/results/explanation.json": "23f92106214a9bfebce426416743a4fc65ff9af791e3619477a30cc640c68855",
+    "robustness/results/preparation.json": "c4f8a58b6ef70091405cede84ff67bce633eb7a424e4b1ec1c98eac4b46c4807",
+    "robustness/results/robust_physics.json": "ca7a4628bb330a8ee22c2fcc2df4b4b975b4055a30ed8c76b24b09ded4012eb5",
+    "robustness/results/statistics.json": "1d7a72cdca29f40754a6e7727923a1e9dc5dee75573e23766f6e0da77aefaed4",
+    "robustness/results/independent.json": "3be4324ddd905c8dd8f5e14ae33ec26e94641ca459b4f65aa0fff70b02005500",
+    "completion/results/graph_access.json": "63c98e5589f06ed0c73157e6d60b1b9923be78b39fc8006a39755e72c8e3d831",
+    "completion/results/robust_completion.json": "1184658896bab9a084867d7c5af862700f19bf2c72213906d63e98655b966462",
+    "completion/results/composition.json": "c604737dbebce19d980abe8f3a757733c506fcbf66bd97426ca988385bd307bd",
+    "completion/results/physical_access.json": "8408b24265fcac1695ab12de1e7c051f6787c22b928006b742e8fc8b3c77bde1",
+    "completion/results/quantum_completion.json": "1ece4f2825b1fb9a1bd8b6fc6a6415e14168f2a71523dc0812d96bb7d023a7b2",
+    "completion/results/pulse_test.json": "858fc1ddf8fb23b76c5919ead4a739e6ba70769044dc42e5c6e5ada1f8b2a2a3",
+    "completion/results/redteam.json": "fd484333435dfcb49076d6c863562c5d9a42af03480bc8dc178633bcf38980e9",
+    "frontier/results/hierarchy.json": "953a801092c7a59a11bec20f64683e26156828ceb5c8a7570e9b775c1d40493f",
+    "frontier/results/spectral.json": "063056928239b3eee2b9c12c01328491ca33239e23d8ad9bf1807f4d89891fa9",
+    "frontier/results/limits.json": "d9b290c9b58a47eab2f4156ae61b4c149fb83c4e34de0a5cc8e268d12b8e1f62",
+    "frontier/results/thermodynamic.json": "0d912e4a43b6bab273490c7fafcb66a22fee027e30229c8bd74b3dd0b7712678",
+    "frontier/results/energy_certificate.json": "ea7db9f82befd0cb33f7154730cdc9e2136aaf49d446ea8632724495c3f8b4d9",
+    "frontier/results/independent.json": "9d24b3f6c567944652b900c9354d071465ecdcd88c0ccf414b36587471aeb516",
+    "virtual/results/contrast.json": "f110386e778788b9d62af899d35948d0522178c811aa3361e054ab91900f8078",
+    "virtual/results/timing.json": "b05ea80946ccfc4b64cec4221991bfed6443841b232917a6319286ccb1faf17d",
+    "virtual/results/sampling.json": "53f1f3d743739482646fbf23b788cab12cc40e0870b25b336a4386f1dcc3aefc",
+    "virtual/results/dimension_lab.json": "e9becda39d6cbd6ae3e1a6a7a40c005dea752bd97d3b6020a8a7ad525f4afeac",
+    "virtual/results/dimension_lab_retiming.json": "e33165019297eaf2d04fe5e67a6cb3efe71e6cc1b7d53cd818279fd5dbb732f4",
+    "virtual/results/dimension_lab_total_budget.json": "ef6b6defd98318a475d54634dcfb42fce77d9924750ee5096c24faab1856358f",
+    "virtual/results/thermodynamic_lab.json": "219d9f99f2cb09d31e32c9b998c3ae9aed11fe9cb922880f73973fd0382febc7",
+    "virtual/results/thermodynamic_lab_pilot.json": "613a4b17ce2a01674730d6e5032d607a29f1df8400c54dce2194303eddfd8bff",
+    "virtual/results/contrast_benchmark.json": "604e49174a55680b2613bfc1eb5b4d936638902d58c6a217e7f9b8159bd0c25c",
+    "virtual/results/contrast_allocation.json": "f3f7af4bb382b28573d82d329aaa23a58a42ecb41903876cf0fc429bc98a1023",
+    "virtual/results/box_obstruction.json": "efa2d7a9d83bbb3b614df43f6333394d1edae21edbd9674313b21ad4f08cbe70",
+    "virtual/results/independent.json": "d0bd0ce9298956e9a83fb87f14572ee5dbd74ac1e0f5f5d89605620936d7bb69",
+    "virtual/results/dimension_lab_shots.npz": "0605dd352e47dc259b9032fa645668258b0df6fcb1ae94eda159b5479de3f4a3",
+    "virtual/results/thermodynamic_lab_counts.npz": "bfcd14aa9db6d49fb10e9fc132eb6eda59bcfc821b1354097041240ca5c2f1dd",
+    "virtual/results/thermodynamic_lab_counts_pilot.npz": "6074bbe6c353dc52148378aab4d4f8476fcaa2ac7f302e7791078ad2807dfa8e",
+    "virtual/results/thermodynamic_lab_raw.npz": "97f0d3ea2f6ab07b3fea094de87e6b66e1b905be4393d9f527fe2ef1a9a752b8",
+    "virtual/results/contrast_refinement_counts.npz": "8a977dc028dfd9219de5accb77d0a6f58978f6880ab12bf4dcddaa9fd6acdf7f",
+    "virtual/results/contrast_allocation_counts.npz": "c74dd599b745741eed4d2c7ab71339c8cdb993b9e83ddf8616edec33ae5b6d12",
+    "calibrated/results/calibration.json": "31e65fe8e78985a3dbd464916f565132bf10881fe9574e15fcd8fbefe64cede4",
+    "calibrated/results/nonlinear.json": "3e38efcee97cb6abe851c6531b2f632835914af4daefac284218e7262b65a1f1",
+    "calibrated/results/dissipation_limits.json": "b67978c5865d89a537a5cc47c3f091ca8cc9fd0f15fbeb8d0ca4dcef4c2f2b77",
+    "calibrated/results/sequential.json": "2604e3276fe39e82a77ba38f64cef5e65d255385179c0cc4f1746fe7d19fb203",
+    "calibrated/results/sequential_benchmark.json": "32695a2b8f36726da9c27ed7dacf32f2a283538e7e76999eb8798685682341aa",
+    "calibrated/results/dependence.json": "6f6067cb0cd4fd3dab00e52d44d0a0182880f7999869c7ac06fe77f6c3e7abb9",
+    "calibrated/results/dependence_refinement.json": "d40c04f4491627e1a8525fc98382cb55a21bf074c8ed299c8526dc98c85a640c",
+    "calibrated/results/analog.json": "064fe856185fee4b4b81125593b7b6a9992b40b205b0824d1ea758072875243b",
+    "calibrated/results/analog_benchmark.json": "fcfa1274feec9e0f0329871ea6e47d7e031a0384a7c168a3248c8ad49cfb3a6c",
+    "calibrated/results/data_audit.json": "b3fd46ec61d7619bfb14a57c5a266d9ea4c56d3ef678347b3e6f38209656ad7f",
+    "calibrated/results/empirical_analysis.json": "90abc48ff263d1252ee0348e4f68b27f0b15cd686f48c204b6c799d98d9c2d90",
+    "calibrated/results/calibrated_benchmark.json": "bf5f3cde3fb996ef1d18def397585f50159aa8dd57d694dfe807067974fe3dc5",
+    "calibrated/results/calibrated_benchmark_audit.json": "37e709888abacc34f0c65e804c48171e7710f29b296c6f695189be82a6162409",
+    "calibrated/results/joint_calibration.json": "89873eedbd448e677e5a707231b4eba2b373ddb80ecf11c7ada88aa4ba585ac0",
+    "calibrated/results/independent.json": "567b0e3eb4c2e1606c152f4df10da76d6e19d946b4339e6b8b13ff49017d2334",
+    "calibrated/results/sequential_records.npz": "981ad7dfe12586859a7cb5e9a9e962386f76e8ecbb8ea69eaf44cbd4f1fe1763",
+    "calibrated/results/calibrated_benchmark_raw.npz": "d4be61b64415717df8b447ea8cb1bd03411284d4474db219a52e308d62bba5ad",
+    "calibrated/results/calibrated_benchmark_counts.npz": "1378110e4c5c0bbb28891681ff3d13baf58a5b06773d58f316b225e963235b74",
+    "calibrated/results/joint_calibration_raw.npz": "005cd998e7e8001977f75fb902d30c54f37a9b06ea834c0d36dccd49668320f5",
+    "calibrated/results/joint_calibration_counts.npz": "008c08c4fd91375e1307d3f820f69875b0689b93c3c511123dd89e6a8ffbb23c",
+    "manuscript/figures/calibrated_inference.pdf": "24b5cb6f89447a7716a821af1ea069352e4db3a7d9ecf8b9e2bc5a37288109fd",
+    "manuscript/figures/calibrated_inference.png": "de352054946593983fe3b0fdca1a33c35a21316a475a331d40f90627087c6bed",
+    "manuscript/figures/calibrated_resources.pdf": "3da2148d604deb74dca951e9e004ebf6ab1c35cd56e00ccc46f70f46f4a022e4",
+    "manuscript/figures/calibrated_resources.png": "0109c4ad9fe67f01fc59f4fa4e6d4915192ab97ebe828d143c89eab719aa43d5",
+    "attainability/results/physical_minimum.json": "b823101fe4a65aafbc3a75a88e09838900b38b0ec1a72ffccaf5304a7b90a20f",
+    "attainability/results/spectral_dynamics_replay.json": "3d4ad68d8321f3b86645339459c63b6a961c01b0d1352cc9fd00b8b8c094ca26",
+    "attainability/results/joint_analog.json": "a74991c949090956731f83f093a177e89165e3bd5c04ab717e0f11f1e998cd66",
+    "attainability/results/joint_analog_population_audit.json": "70564361096a11d50c77c4788a10235e5a4391ba484eb78daf3175c18b49d31b",
+    "attainability/results/design.json": "042f2e84e217f98b23561642aaabb5867bf10728062825fad2a03fb17b569830",
+    "attainability/results/retiming.json": "3cdffbebdfbb3dc5fe52f10045c66269b1e2d0ab0aa03a0d4e56681b8217bd80",
+    "attainability/results/independent_review.json": "540db08c17a2e5cad73d72d7c53bbeb4955e9bb49284b9ad93074209efacabf8",
+    "attainability/results/joint_analog_raw.npz": "62e4a15ed2981aa3747caafa71d5fbd40f18841695f753f20a85d3114edc2161",
+    "attainability/results/retiming_raw.npz": "1bdf5aaaa903148b12a06f5eb75227c2b705ed4bf4e01a019561c7d955fa4d4d",
+    "manuscript/figures/attainability.pdf": "b86c76374952bf4ba952903f285b88b73d95b2bb0c48dc8f3ddbd0b46abc663e",
+    "manuscript/figures/attainability.png": "42172971072cdfa734f11a56456aeea7e5bfdc93a1ab1d91d0a101feabb6aad7",
+    "geometry/results/countermodels.json": "1b20024346209d8c9e9374e832f1426e0995b6a0edcabda3ac315eba9ead3f99",
+    "geometry/results/experiment.json": "330750785ea2a7ba429a97231f95f36551988f5c16495e1932afa80111b4b522",
+    "geometry/results/combination.json": "8aaeca3a917a7b5f7e835959ab3b65aac9b2e96def5e6a69b5f9d4a50dffeec1",
+    "geometry/results/consistency.json": "1e3f1b8286f68583bdecbf46a4fbca41c61886acbf35a9f73b706dcd87f73469",
+    "geometry/results/independent_review.json": "410f5e2f4fdeff464c90bec9d006344eca3488ed3d81ee7d46088ac8518fbe82",
+    "geometry/results/experiment_raw.npz": "35c3b44b382637c6abcb7d2a9dfb015d94a49db57796ecfb8c120cc14c4b4bc6",
+    "manuscript/figures/observed_geometry.pdf": "ac64796a405f5f8e7c508b503dc83507436c1da3a43f950e92663331f7871134",
+    "manuscript/figures/observed_geometry.png": "99f19bde5059cf2093c54c12ff815fb265fb8ef5832866c0eec470625a59f9f1",
+    "detector/countermodels/results.json": "59c9a76e79c3d347628c06208ecb3afb83354e25774a6a2418f526390e1e4475",
+    "detector/design/results.json": "359aa77e59287f4c279f3dbfe82f582f124a54b36b76748e07f426d8999d4c91",
+    "detector/review/results.json": "60bff9c27313d15016a85af8296b73199fee99aef06edd868257fdcd489969e9",
+    "manuscript/figures/detector_access.pdf": "96b7b4e6d0f9ca90e4e5787a48f35578b56e779992025d017141dd753436aaa8",
+    "manuscript/figures/detector_access.png": "ea9ef52f24baea7bb5a1f65b3e73f2a16b4aad7e3cf181cb2267cd2d776caab5",
+    "detector_calibration/countermodels/results.json": "7aed4c638dd149589e52bfeaaf31c5add67dafb0d3787483d085d0c093679f9e",
+    "detector_calibration/experiment/exploratory_law.json": "9a79898d84bd8a02ed31326c2e88b154c8966e1e523ff67b2ae51e74d421f2e2",
+    "detector_calibration/experiment/benchmark.json": "e5cfee129ec360b7c19aa7ee897294751e0d6ac289fff1a026a93dabb8186e51",
+    "detector_calibration/experiment/benchmark_counts.json.gz": "28851c9cd8eca7ceacc6004c47873704195938c4b88d7be7800605685fe1154c",
+    "detector_calibration/experiment/calibration_counts.json": "90b49a3d94c18f0d66af4c82d1a2a29b67fb49ce66b2e4d43d403c21d6d212b9",
+    "detector_calibration/experiment/benchmark_laws/driven.json": "351b54e6b417104e309219c430b80a8c50f9bce8e97ebd62cd7d959d83f517f8",
+    "detector_calibration/experiment/benchmark_laws/equilibrium.json": "cd558e7e7c54f190415bed5ccc46f7dcd0a387bab4dca356c183c97de71eb5f2",
+    "detector_calibration/experiment/benchmark_laws/weak_driven.json": "3897712f22d3f3151272f3fcdb7ac4d395d12867cbaced6f9eb6b76c84283d2f",
+    "detector_calibration/experiment/benchmark_laws/changed_calibration.json": "2733d418c23b46b57c2c2ab8bccacb8fefb81182567564732b8a10b445368501",
+    "detector_calibration/review/benchmark_audit.json": "62a35c4a7f50c0f6003cfb445f8b1ca1412b812a2af5220cb00b80c9bf59c633",
+    "detector_calibration/review/results.json": "b063221218240cba3b5b0ceb66a9d857906ca18ad5304aef2f1d334aa455b79a",
+    "results/calibration_tutorial.json": "ba7698e12fbab8ee677bea91ffd9dcaa912a68ba78a59edc195542365c955d1e",
+    "manuscript/figures/detector_calibration.pdf": "6b15fc91ab603c1ea4fa2e8bb709c33bae7ad26e567b5cf55ac28e534817669b",
+    "manuscript/figures/detector_calibration.png": "ce805c96cb885dd63946a98d74108ea614103388b864452a3880e2a90cbe2ee9"
+  }
+}

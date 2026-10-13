@@ -1,0 +1,476 @@
+{
+  "curvature_certificate": {
+    "certificate": {
+      "contract": "stationary ordinary-reversal CTMC; same noninvasive fixed binary detector; independent randomized lag; joint confidence box supplied externally",
+      "depth": 4,
+      "entropy_production_rate_lower": {
+        "lower": "3658074198539/5000000000000000",
+        "upper": "7316148397079/10000000000000000"
+      },
+      "expectation_log_lower": {
+        "lower": "27435556489/500000000000000",
+        "upper": "548711129781/10000000000000000"
+      },
+      "expected_lag": {
+        "lower": "3/10",
+        "upper": "3/10"
+      },
+      "intervals": [
+        [
+          {
+            "lower": "1433564319/2000000000",
+            "upper": "1433564319/2000000000"
+          },
+          {
+            "lower": "1792955399/2500000000",
+            "upper": "1792955399/2500000000"
+          }
+        ],
+        [
+          {
+            "lower": "645107921/1000000000",
+            "upper": "645107921/1000000000"
+          },
+          {
+            "lower": "6455079211/10000000000",
+            "upper": "6455079211/10000000000"
+          }
+        ],
+        [
+          {
+            "lower": "5512453727/10000000000",
+            "upper": "5512453727/10000000000"
+          },
+          {
+            "lower": "172389179/312500000",
+            "upper": "172389179/312500000"
+          }
+        ]
+      ],
+      "lags": [
+        1,
+        2,
+        3
+      ],
+      "mean_interval": [
+        {
+          "lower": "-1",
+          "upper": "-1"
+        },
+        {
+          "lower": "1",
+          "upper": "1"
+        }
+      ],
+      "normalizer_upper": {
+        "lower": "1",
+        "upper": "1"
+      },
+      "polynomial_coefficients": [
+        [
+          {
+            "lower": "1",
+            "upper": "1"
+          },
+          {
+            "lower": "-1/400",
+            "upper": "-1/400"
+          },
+          {
+            "lower": "1/200",
+            "upper": "1/200"
+          },
+          {
+            "lower": "-1/400",
+            "upper": "-1/400"
+          }
+        ],
+        [
+          {
+            "lower": "1",
+            "upper": "1"
+          },
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "0",
+            "upper": "0"
+          },
+          {
+            "lower": "0",
+            "upper": "0"
+          }
+        ]
+      ],
+      "polynomial_upper_bounds": [
+        {
+          "lower": "1",
+          "upper": "1"
+        },
+        {
+          "lower": "1",
+          "upper": "1"
+        }
+      ],
+      "record_kl_lower": {
+        "lower": "27435556489/500000000000000",
+        "upper": "548711129781/10000000000000000"
+      },
+      "reversible_baseline_interval": [
+        {
+          "lower": "1/2",
+          "upper": "1/2"
+        },
+        {
+          "lower": "1",
+          "upper": "1"
+        }
+      ],
+      "scores": [
+        [
+          {
+            "lower": "101/100",
+            "upper": "101/100"
+          },
+          {
+            "lower": "199/200",
+            "upper": "199/200"
+          }
+        ],
+        [
+          {
+            "lower": "49/50",
+            "upper": "49/50"
+          },
+          {
+            "lower": "101/100",
+            "upper": "101/100"
+          }
+        ],
+        [
+          {
+            "lower": "101/100",
+            "upper": "101/100"
+          },
+          {
+            "lower": "199/200",
+            "upper": "199/200"
+          }
+        ]
+      ],
+      "status": "positive_certificate",
+      "step": {
+        "lower": "3/20",
+        "upper": "3/20"
+      },
+      "weights": [
+        {
+          "lower": "3333333333333333/10000000000000000",
+          "upper": "1666666666666667/5000000000000000"
+        },
+        {
+          "lower": "3333333333333333/10000000000000000",
+          "upper": "1666666666666667/5000000000000000"
+        },
+        {
+          "lower": "3333333333333333/10000000000000000",
+          "upper": "1666666666666667/5000000000000000"
+        }
+      ]
+    },
+    "evidence": "exact classical model prediction plus synthetic uncertainty box; no measured data",
+    "monotonic_revival_bound": 0,
+    "negative_correlation_bound": 0,
+    "resource_frontier": {
+      "contract": "D(nu||pi) + one half expected integrated housekeeping entropy >= record KL bound; fixed Q, positive stationary pi, common noninvasive detector",
+      "detailed_balance_preparation_kl_lower": {
+        "lower": "27435556489/500000000000000",
+        "upper": "548711129781/10000000000000000"
+      },
+      "integrated_housekeeping_lower": {
+        "lower": "1097422259561/10000000000000000",
+        "upper": "548711129781/5000000000000000"
+      },
+      "preparation_kl_cap": {
+        "lower": "0",
+        "upper": "0"
+      },
+      "preparation_plus_half_housekeeping_lower": {
+        "lower": "27435556489/500000000000000",
+        "upper": "548711129781/10000000000000000"
+      },
+      "reference_mean_calibrated": false
+    }
+  },
+  "dimension_hierarchy": [
+    {
+      "certificate": {
+        "certified": true,
+        "classical_comparison_bound": {
+          "lower": "543961124667801/5000000000000000",
+          "upper": "1087922249335603/10000000000000000"
+        },
+        "diagonal_upper": {
+          "lower": "391467961/125000000000",
+          "upper": "391467961/125000000000"
+        },
+        "grid_size": 7,
+        "margin": {
+          "lower": "797425701594397/10000000000000000",
+          "upper": "398712850797199/5000000000000000"
+        },
+        "minimum_states": 5,
+        "offdiagonal_lower": {
+          "lower": "188534795093/1000000000000",
+          "upper": "188534795093/1000000000000"
+        },
+        "threshold": {
+          "lower": "437203/7812500",
+          "upper": "437203/7812500"
+        }
+      },
+      "coherence_ratio": 1000,
+      "grid_size": 7,
+      "observation_settings": 13
+    },
+    {
+      "certificate": {
+        "certified": true,
+        "classical_comparison_bound": {
+          "lower": "175647244149603/5000000000000000",
+          "upper": "351294488299207/10000000000000000"
+        },
+        "diagonal_upper": {
+          "lower": "31406059/100000000000",
+          "upper": "31406059/100000000000"
+        },
+        "grid_size": 11,
+        "margin": {
+          "lower": "442678102120793/10000000000000000",
+          "upper": "221339051060397/5000000000000000"
+        },
+        "minimum_states": 6,
+        "offdiagonal_lower": {
+          "lower": "39698629521/500000000000",
+          "upper": "39698629521/500000000000"
+        },
+        "threshold": {
+          "lower": "8860877/500000000",
+          "upper": "8860877/500000000"
+        }
+      },
+      "coherence_ratio": 10000,
+      "grid_size": 11,
+      "observation_settings": 21
+    },
+    {
+      "certificate": {
+        "certified": true,
+        "classical_comparison_bound": {
+          "lower": "111783914811653/10000000000000000",
+          "upper": "55891957405827/5000000000000000"
+        },
+        "diagonal_upper": {
+          "lower": "1570747/50000000000",
+          "upper": "1570747/50000000000"
+        },
+        "grid_size": 21,
+        "margin": {
+          "lower": "55183175784173/5000000000000000",
+          "upper": "110366351568347/10000000000000000"
+        },
+        "minimum_states": 7,
+        "offdiagonal_lower": {
+          "lower": "11107513319/500000000000",
+          "upper": "11107513319/500000000000"
+        },
+        "threshold": {
+          "lower": "5604903/1000000000",
+          "upper": "5604903/1000000000"
+        }
+      },
+      "coherence_ratio": 100000,
+      "grid_size": 21,
+      "observation_settings": 41
+    }
+  ],
+  "evidence": "Exact model certificates and explicitly synthetic counts; no laboratory data",
+  "finite_clock_exclusion": {
+    "n4_bounded_record_design": {
+      "error_probability": {
+        "lower": "1/20",
+        "upper": "1/20"
+      },
+      "hoeffding_exponent_lower": {
+        "lower": "80000002545589351/10000000000000000",
+        "upper": "10000000318198669/1250000000000000"
+      },
+      "maximum_duration": {
+        "lower": "246153846153846153/10000000000000000",
+        "upper": "123076923076923077/5000000000000000"
+      },
+      "nominal_acceptance_radius": {
+        "lower": "420424699269/1000000000000000",
+        "upper": "4204246992691/10000000000000000"
+      },
+      "power_target": "nominal target; compare confidence box with target moments",
+      "records_per_setting": 22630016,
+      "settings": 6,
+      "statistical_radius": {
+        "lower": "4204240698979/10000000000000000",
+        "upper": "210212034949/500000000000000"
+      },
+      "symmetric_calibration_margin_for_nominal_power": {
+        "lower": "4204234405269/10000000000000000",
+        "upper": "420423440527/1000000000000000"
+      },
+      "tail_upper": {
+        "lower": "629371/1000000000000000",
+        "upper": "6293711/10000000000000000"
+      },
+      "total_records": 135780096
+    },
+    "n4_exclusion_gap": {
+      "lower": "16816962795919/10000000000000000",
+      "upper": "210212034949/125000000000000"
+    },
+    "n62_exclusion_gap": {
+      "lower": "0",
+      "nonzero_decimal_approximation": 1.1657896420483656e-117,
+      "upper": "1/10000000000000000"
+    },
+    "n62_gap_verified_positive": true,
+    "note": "Finite guarantees can have very large record requirements; these are sufficient designs.",
+    "required_states_at_endpoint": 63
+  },
+  "larger_classical_explanations": {
+    "100_record_transcript_tv_upper": {
+      "lower": "99506613086291/10000000000000000",
+      "upper": "24876653271573/2500000000000000"
+    },
+    "cycle62_admissibility": {
+      "admissible": false,
+      "decision": "inadmissible",
+      "inadmissible": true,
+      "margin_lower": {
+        "lower": "-441721188293421/10000000000000000",
+        "upper": "-22086059414671/500000000000000"
+      },
+      "margin_upper": {
+        "lower": "-441721188293421/10000000000000000",
+        "upper": "-22086059414671/500000000000000"
+      },
+      "states": 62
+    },
+    "cycle63_admissibility": {
+      "admissible": true,
+      "decision": "admissible",
+      "inadmissible": false,
+      "margin_lower": {
+        "lower": "57862768926007/10000000000000000",
+        "upper": "7232846115751/1250000000000000"
+      },
+      "margin_upper": {
+        "lower": "57862768926007/10000000000000000",
+        "upper": "7232846115751/1250000000000000"
+      },
+      "states": 63
+    },
+    "note": "Reversible approximation may consume a far-from-equilibrium preparation resource.",
+    "reversible_finite_window_approximation": {
+      "backward_rate": {
+        "lower": "37037037037037/5000000000000000",
+        "upper": "2962962962963/400000000000000"
+      },
+      "deterministic_state_bound": 1428,
+      "horizon": {
+        "lower": "9/4",
+        "upper": "9/4"
+      },
+      "kind": "smooth",
+      "last_phase": 356,
+      "peak_exit_rate_bound": {
+        "lower": "676724537037037037/5000000000000000",
+        "upper": "54137962962962963/400000000000000"
+      },
+      "poisson_clock_error": {
+        "lower": "83333333333333/5000000000000000",
+        "upper": "166666666666667/10000000000000000"
+      },
+      "preparations": 2,
+      "rate": {
+        "lower": "10827/80",
+        "upper": "10827/80"
+      },
+      "reversibility_error": {
+        "lower": "83333333333333/5000000000000000",
+        "upper": "166666666666667/10000000000000000"
+      },
+      "tail_method": "factorial",
+      "truncation_error": {
+        "lower": "74579096010699/5000000000000000",
+        "upper": "149158192021399/10000000000000000"
+      },
+      "uniform_error_bound": {
+        "lower": "120622881338683/2500000000000000",
+        "upper": "482491525354733/10000000000000000"
+      }
+    },
+    "small_exact_detailed_balance_check": {
+      "checked": 16,
+      "valid": true
+    }
+  },
+  "limitations": [
+    "Historical priority and external peer review are not established by this tutorial.",
+    "Classical state-count conclusions require common homogeneous dynamics and interfaces.",
+    "Entropy conclusions require the separate stationary or preparation-budget physical contract.",
+    "No heat or energy value follows without physical units and the appropriate thermodynamic assumptions."
+  ],
+  "synthetic_entropy_inference": {
+    "confidence_result": {
+      "confidence_failure_upper": {
+        "lower": "1/20",
+        "upper": "1/20"
+      },
+      "first_upper": {
+        "lower": "133/250",
+        "upper": "133/250"
+      },
+      "rate_lower": {
+        "lower": "196510737549037/5000000000000000",
+        "upper": "15720859003923/400000000000000"
+      },
+      "second_lower": {
+        "lower": "179/250",
+        "upper": "179/250"
+      }
+    },
+    "counts": [
+      2560,
+      3680
+    ],
+    "preparation_housekeeping_frontier": {
+      "integrated_housekeeping_lower": {
+        "lower": "171772432232859/5000000000000000",
+        "upper": "343544864465719/10000000000000000"
+      },
+      "preparation_divergence_upper": {
+        "lower": "1/1000",
+        "upper": "1/1000"
+      },
+      "record_information_lower": {
+        "lower": "181772432232859/10000000000000000",
+        "upper": "9088621611643/500000000000000"
+      },
+      "stationary_rate_lower_if_stationary": {
+        "lower": "196510737549037/5000000000000000",
+        "upper": "15720859003923/400000000000000"
+      }
+    },
+    "rate_units": "natural entropy per declared model time",
+    "records_per_lag": 5000
+  }
+}

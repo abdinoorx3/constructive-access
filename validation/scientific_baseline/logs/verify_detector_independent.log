@@ -1,0 +1,16 @@
+test_analytical_design_table_by_independent_complex_moments (__main__.DetectorReview.test_analytical_design_table_by_independent_complex_moments) ... ok
+test_covariance_reconstruction_and_derivative_free_norm_bounds (__main__.DetectorReview.test_covariance_reconstruction_and_derivative_free_norm_bounds) ... ok
+test_exact_fourier_moments_and_declared_readout_energy_bounds (__main__.DetectorReview.test_exact_fourier_moments_and_declared_readout_energy_bounds) ... ok
+test_exact_rational_finite_count_separation (__main__.DetectorReview.test_exact_rational_finite_count_separation) ... ok
+test_exposed_cosine_variance_and_gaussian_tv_upper_bound (__main__.DetectorReview.test_exposed_cosine_variance_and_gaussian_tv_upper_bound) ... ok
+test_gaussian_mixture_chisquare_and_quartic_independent_trial_order (__main__.DetectorReview.test_gaussian_mixture_chisquare_and_quartic_independent_trial_order) ... ok
+test_matching_rate_constants_for_independent_exposure_trials (__main__.DetectorReview.test_matching_rate_constants_for_independent_exposure_trials) ... ok
+test_oriented_phase_mean_exception_and_prepared_second_moment (__main__.DetectorReview.test_oriented_phase_mean_exception_and_prepared_second_moment) ... ok
+test_ou_exposure_integrals_and_all_grid_covariances (__main__.DetectorReview.test_ou_exposure_integrals_and_all_grid_covariances) ... ok
+test_ou_ratio_monotonicity_and_visible_component_entropy (__main__.DetectorReview.test_ou_ratio_monotonicity_and_visible_component_entropy) ... ok
+test_triangular_inverse_telescopes_and_periodic_kernel_remains (__main__.DetectorReview.test_triangular_inverse_telescopes_and_periodic_kernel_remains) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.025s
+
+OK

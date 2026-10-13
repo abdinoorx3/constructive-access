@@ -1,0 +1,317 @@
+Independent adversarial review: access completion
+Abdinoor / 2D Labs / 12 October 2026
+Status: independent mathematical and computational review completed for the
+specified modules; this file records actual findings, not external review.
+
+Scope
+The candidate advance is a constructive, calibrated physical access completion
+method. A graph observability formula alone is not a new physical law, nor does
+the present review establish historical priority. Existing linear algebra,
+network flow duality, graph observability and statistical identification supply
+much of the mathematical machinery.
+
+Initial findings
+1. For a fixed known oriented multigraph and unrestricted signed steady
+   circulations B j = 0, an unmeasured edge target is recoverable from measured
+   edge currents exactly when it is a bridge in the unmeasured subgraph. An
+   equivalent certificate is a cut whose only unmeasured crossing is the target.
+   The multigraph condition matters: a second invisible parallel channel closes
+   a two-edge circulation even when the collapsed simple graph is a tree.
+2. If only measured currents have independent deterministic error bounds, the
+   exact target minimax radius is a weighted separating cut, equivalently the
+   dual circulation capacity problem. This follows from familiar row-space
+   duality and max-flow/min-cut. It requires the full circulation model class;
+   known activity, positivity, kinetic or prior bounds can change the minimax
+   value and can make a structurally hidden target bounded rather than unbounded.
+3. A nominal graph certificate assumes a complete physical inventory of crossing
+   channels. An omitted parallel channel can invalidate identifiability without
+   changing any state-level generator. Model adequacy tests cannot necessarily
+   expose that omission through the same unchanged state-level data.
+4. Ordinary finite-state CTMC edge counts at a fixed elapsed time are not
+   independent Poisson observations conditional on terminal occupation times.
+   In a two-state chain starting at A, the forward and reverse counts differ by
+   zero or one on every path. Independent nondegenerate Poisson counts violate
+   this support constraint. The physics agent has adopted source-local-time
+   stopping instead, which admits an exact marked-Poisson representation.
+5. Source-local-time acquisition requires a fixed time-homogeneous generator,
+   observation of each source state's occupation and departure destination, and
+   a run prepared in that source. For finite irreducible chains, the local-time
+   exposure finishes almost surely and has expected wall time T/pi_i. This is
+   an expectation, not a deterministic deadline. A deadline can cause abstention;
+   conditional coverage given successful completion is not automatic.
+6. Selective perturbations must multiply the intended physical channel by a
+   calibrated factor while leaving other channel kinetics invariant. A generic
+   reporter, barrier change, or equilibrium gate does not automatically realize
+   this intervention. Stationary populations under intervention may change;
+   reconstructing a native current must use the native populations.
+
+Mixed aggregate/channel observations
+Let parallel channels be consistently oriented in bundles b. Fix the individually
+measured channel set S and exactly known aggregate-current bundle set T. Write
+r_b for the number of channels not in S and form H with one edge per b outside
+T having r_b > 0. Mapping unsensed currents to bundle sums gives a surjection
+onto the circulation space of H. Its fiber has dimension sum_b (r_b-1)_+.
+Consequently the ambiguity dimension is
+    sum_b (r_b-1)_+ + |E(H)| - |V(H)| + components(H).
+For an unsensed target in b, identifiability is equivalent to r_b=1 and either
+b in T or b being a bridge of H. This decomposition cleanly separates invisible
+parallel-channel contrasts from spatial circulation contrasts. It is a direct
+linear-network theorem, subject to exact data and a fixed topology.
+
+For single-target minimum-price completion, direct target measurement must either
+be excluded explicitly or be compared against the inferred solution. A target
+already measured requires no added measurement. Nonnegative prices may be zero;
+ties and disconnected graphs must be handled. Whole-network recovery selects
+which channels may remain unmeasured: one most expensive channel in each known
+aggregate bundle, and most expensive channels on a maximum-weight spanning
+forest of unknown-aggregate bundles. Independent exhaustive checks are planned.
+
+Open review items
+- Inspect final physical certificates, especially any Poisson-tail arithmetic.
+- Compare producer graph formulas to exact row ranks and exhaustive sensor sets.
+- Check composition against hidden initial correlations and interface violations.
+- Check all energy claims separate expected exposure, gross energy, preparation,
+  sensor/control overhead, calibration failure, and actual deadline guarantees.
+- Confirm manuscript claims do not turn established reductions into priority
+  assertions, or finite-model evidence into general laboratory validation.
+
+Independent review of the stronger pulse-response theorem
+Let Q be the native finite irreducible row generator, pi its stationary row,
+and L the single physical channel i <-> j with forward/backward rates a,b.
+Let s=1-r>0 and Qr=Q-sL be a valid generator. Then
+    pi L = J (e_j-e_i),  J=pi_i a-pi_j b,
+and Duhamel's identity gives the endpoint response
+    Delta p_j(t) = -s J H_ij(t),
+    H_ij(t)=integral_0^t [P^r_jj(u)-P^r_ij(u)] du.
+This algebra is valid even if Qr is reducible. Write tau_j for the first hitting
+time of j starting from i and U_xy(t)=integral_0^t P_xy(u)du. Strong Markov gives
+    U_ij(t)=E_i[1_{tau_j<=t} U_jj(t-tau_j)].
+By Tonelli,
+    H_ij(t)=integral_0^t P_jj(u) Pr_i(tau_j>t-u) du > 0.
+Strict positivity follows from finite exit rates: P_jj(u)>=exp(-q_j u)>0
+and Pr_i(tau_j>v)>=exp(-q_i v)>0. In particular, for q_i,q_j<=Lambda,
+    t exp(-Lambda t) <= H_ij(t) <= t.
+An endpoint-specific bound replaces the lower term by
+    [exp(-q_i t)-exp(-q_j t)]/(q_j-q_i),
+with t exp(-q_i t) as the equal-rate limit. No detailed balance or knowledge
+of the rest of the network was used. The bound needs only endpoint exit-rate
+ceilings, not an exit-rate ceiling on every hidden state.
+
+The mathematical proof survives adversarial review. Its physical premises are
+substantial: native stationary preparation, a genuinely selective channel
+perturbation of known sign, and an endpoint-state occupancy observation.
+For a biased three-state cycle with clockwise rates 2 and counterclockwise 1,
+native pi is uniform and J_AB=1/3. Suppressing A<->B by 1/2 gives native
+endpoint-B response derivative -1/6. Starting instead in B gives a matched
+perturbed-minus-unperturbed derivative +1/2, reversing the inferred sign.
+Slowing ALL rates gives Qr=rQ and exactly zero stationary response despite
+nonzero native channel currents.
+
+Protected coarse-observation extension (communicated to root and physics agent)
+Let A contain j and not i. If every path from i into A must first hit j,
+occupation of A is zero before tau_j. Replace U_jj by U_jA in the same proof:
+    H_i,j;A(t)=integral_0^t P_jA(u) Pr_i(tau_j>t-u) du > 0.
+The same endpoint-rate lower bound applies because P_jA>=P_jj. Thus a known
+entrance-gateway topology can protect a coarse detector. Arbitrary coarse
+detectors cannot: the explicit four-state negative control supplied by the
+physics agent has a sign-crossing aggregate response while its singleton
+destination response remains negative. The independent test certifies this
+with exact rational Taylor enclosures at t=1/10 and t=1/2.
+
+Quantum limit and independently checked physical counterexample
+Two incoherent channels on |A>,|B> have rates (3k,k) and (k,3k), while H=g X.
+The native state is I/2 and native channel-1 current is k. Suppress channel 1
+by r. With z=p_A-p_B and y=Tr(rho sigma_y),
+    z'=-4 gamma z+2g y+2k(1-r),  y'=-2g z-2 gamma y,
+where gamma=k(1+r), initially z=y=0. The endpoint-B shift is -z/2.
+For k=1/100,g=1,r=1/2, the independently certified shift is negative at t=1/2
+and positive at t=2, the latter approximately 0.0016685828949671655.
+The independent implementation uses an 80-term rational matrix Taylor series
+with a geometric induced-infinity-norm remainder, not the producer's closed
+form or numerical matrix exponential.
+
+For g>gamma/2, the response-kernel derivative is
+    exp(-3 gamma t)[cos(Omega t)-(gamma/Omega) sin(Omega t)],
+where Omega=sqrt(4g^2-gamma^2). The first integral minimum occurs at
+    t*=[pi+atan(Omega/gamma)]/Omega,
+and its value is
+    [2 gamma-2g exp(-3 gamma t*)]/[4g^2+8gamma^2].
+Later minima increase toward the positive limiting value. Thus negative
+integrated response occurs exactly when q=g/gamma exceeds the unique root of
+    log(q)=3[pi+atan(sqrt(4q^2-1))]/sqrt(4q^2-1).
+The independent numerical root is 4.5706645325339026031362132874923976799002717800517;
+the composition agent is responsible for a certified rational root enclosure.
+For g<=gamma/2, the kernel has at most one zero, from positive to negative;
+its integral approaches a positive limit and never becomes negative.
+
+This quantum counterexample is a scope boundary and a potential calibrated
+model-class rejection experiment. It is NOT a device-independent witness of
+quantumness: nonstationarity, nonselective interventions, coarse classical
+detectors, unmodeled hidden states or non-Markovian descriptions can invalidate
+the classical null assumptions.
+
+Completed independent graph checks
+- All 2197 three-vertex multigraph access instances with up to two channels per
+  vertex pair, both edge orientations, all aggregate subsets, and all sensor
+  subsets agree with independent exact rational row-space calculations.
+- 65 seeded graphs with rational and zero prices agree with exhaustive sensor
+  subset optima for target completion and whole-network recovery.
+- 160 seeded cut instances agree with exhaustive vertex partitions; modified
+  claimed values and ambiguity flows are rejected by the certificate checker.
+- Positive physical channel realization and hidden parallel-channel failure
+  controls pass. These are mathematical/computational tests, not physical data.
+
+Timing failure control
+The pulse theorem requires that the constant suppression remain in force until
+the prescribed endpoint readout. A uniform three-state cycle with clockwise
+rate 4 and counterclockwise rate 1/10 has native current 13/10. Suppressing one
+channel by 1/2 for 1/10 time gives destination displacement about -0.04823335.
+Restoring the native generator and waiting another 2/5 time changes that
+displacement to about +0.00229266. The independent test encloses both signs by
+rational matrix Taylor sums and a stochastic-product error bound. State-dependent
+stopping and feedback-modulated controls are also outside the constant-pulse
+proof. Independent timing jitter averages positive kernels and preserves sign,
+but quantitative amplitude bounds require a calibrated duration range.
+
+Composition and energy review
+All 1080 deterministic three-state, two-outcome instrument/initial-partition
+instances agree with exhaustive enumeration of stable partition refinements.
+The claimed coarsest interface is minimal only among deterministic Markov
+interfaces refining the supplied partition, valid for every initial state.
+Equal local preparation marginals do not suffice for composition: correlated
+00/11 and anticorrelated 01/10 preparations have identical fair-bit marginals
+and disjoint joint-readout distributions.
+
+The fixed-cut energy allocation follows from the declared contract
+epsilon_e=delta_e+sqrt(q_e^3/E_e), with positive q_e and acquisition energy E_e.
+For a cut with Q=sum q_e, D=sum delta_e and desired error A>D, its optimum is
+Q^3/(A-D)^2. The support identity
+    Q^3/(A-D)^2 = sup_{t>=0}[3t^2 Q-2t^3(A-D)]
+justifies min-cut lower bounds. Independent checks compare 105 supporting
+bounds on 35 seeded graphs with exhaustive cut optima. The PARTITION reduction
+also passes all 340 instances of length one through four with entries one
+through four. Its proof establishes weak NP-hardness and, with rational
+certificate verification, NP-completeness of the specified decision problem;
+it does not establish strong NP-hardness. The precision contract is separately
+assumed and calibrated, not derived as a universal thermodynamic law.
+
+Independent statistical review of code/pulse_test.py
+The predeclared orientation is early < baseline < late. There are n independent
+Bernoulli records in each arm, with the baseline sample reused in the two
+contrasts. Let nominal means be p0,p1,p2 and actual mean deviations satisfy
+|mk-pk|<=eta_k. Under the protected classical null, at least one of
+    p0-p1 <= 0,  p2-p0 <= 0
+holds. For each empirical difference of two independent n-sample means,
+one-sided Hoeffding gives Pr(Dhat-E Dhat >= h)<=exp(-n h^2), because the sum
+of the 2n squared ranges is 2/n. Rejecting only if BOTH contrasts exceed
+eta0+etak+h_alpha therefore has size at most alpha when
+    n h_alpha^2 >= log(1/alpha).
+This is an intersection-union test. The shared baseline does not require an
+additional factor of two in the false-rejection guarantee. Searching both
+orientations or selecting times/orientation from these same trial data would
+need a different argument or an appropriate multiplicity correction.
+
+Under a nominal alternative with both gaps at least g_k, the actual contrast
+is at least g_k-eta0-etak. The distance above the null threshold is at least
+g_k-2(eta0+etak)-h_alpha. If this is at least h_beta and
+    n h_beta^2 >= log(2/beta),
+the union bound on the two failure events gives power at least 1-beta.
+Thus the doubled calibration penalty in the code is correct. Root was notified
+to reject input g1+g2>1, which describes an impossible Bernoulli alternative.
+Independent tests evaluate exact rational binomial distributions, conditioning
+on the shared baseline count, under boundary-null and adverse-calibration
+alternatives; they also reject a forged insufficient sample count.
+
+A calibration failure probability delta can be added once when calibration
+and design are fixed before the trials and the trial tail inequalities remain
+valid conditional on that calibration history. A calibration event chosen
+from the same test data does not automatically preserve this guarantee.
+Repeated monitoring, optional stopping, outcome-selected durations, correlated
+preparations and drift outside the fixed envelopes are not covered by this
+fixed-sample test. Failure to reject is inconclusive, not proof of classicality.
+
+General dephasing criterion review
+With gamma=k(1+r) and added dephasing d>=0, let alpha=3gamma+d,
+beta=gamma-d, and Omega=sqrt(4g^2-beta^2). In the underdamped case the response
+kernel is exp(-alpha t)[cos(Omega t)-beta/Omega sin(Omega t)]. The first maximum
+uses theta=atan2(Omega,beta) in (0,pi); the first minimum is at
+t*=(pi+theta)/Omega. Its value is
+    [alpha-beta-2g exp(-alpha t*)]/[alpha^2+Omega^2].
+Later minima increase. For 2g<=|beta|, either the kernel stays positive
+(beta<=0) or has at most one positive-to-negative zero followed by convergence
+of the integral to a positive limit (beta>0). No sign reversal occurs then.
+This independently confirms the producer's stated dephasing extension,
+including the atan2 branch that is essential when beta<0.
+
+Short-pulse magnitude and regenerative extension review
+For a singleton paired record Z, exact stationary preparation gives
+    E Z^2 = 2 pi_j (1-P'_jj(t)) - E Z.
+Under |J|<=Jmax and endpoint exit rates<=Lambda, its variance is bounded by
+min(1,[2 pmax Lambda+(1-r)Jmax]t). The response-kernel bound gives estimator
+bias at most Jmax Lambda t for Zbar/[(1-r)t]. Choosing
+t=epsilon/(2Jmax Lambda), assigning half the error to this bias, and using
+Bernstein with centered bound 2 gives the producer's O(epsilon^-3) sufficient
+record count. Total active pulse time is O(epsilon^-2); fixed preparation and
+readout cost still multiplies O(epsilon^-3) records. This is an upper guarantee,
+not a sample complexity lower bound or a universal resource law.
+An independent exact CTMC test computes the actual paired mean and second
+moment and compares them to these bounds at three target precisions.
+
+For a regenerative coarse entrance extension, the required statement is the
+factorization of the joint finite-entrance law:
+    Pr_{nu_A}(tau_B in dt, X_{tau_B}=x) = F(dt) nu_B(x).
+The distribution F may be defective if hitting B is not certain. Generic
+agreement of the unconditional entrance-state marginal with nu_B is not enough.
+With that factorization and no B occupation before entrance, the strong Markov
+proof and strict positive survival convolution remain valid.
+
+Manuscript review outcomes
+- graph_section.tex: accepted mathematically within its stated graph, access,
+  full-circulation, exact-aggregate, and calibration contracts.
+- resource_section.tex: accepted mathematically, including the p>0 Holder
+  extension, weak NP-hardness reduction and conditional supporting certificates.
+- classical_section.tex: accepted mathematical pulse, gateway, regenerative,
+  and finite-error statements; the constant-control-through-readout condition
+  and uncertain hardware limitations are essential.
+- quantum_section.tex: accepted after making g>=0 explicit without loss of
+  generality by Z conjugation. The implementation already imposes g>=0;
+  this fixes a statement-level sign-convention omission because the response
+  kernel depends on g^2.
+
+Review status
+This is independent internal review by a separate research agent. External
+peer review, historical priority, apparatus calibration, and empirical physical
+validation remain absent. The accompanying JSON records source hashes and
+actual computational checks. It does not assert independent experimental data.
+
+Final independent computation summary
+The direct command `python tests/test_independent.py` currently runs 14 tests.
+All passed. The checks include 2197 exact-rank graph instances, 65 exhaustive
+sensor-selection instances, 160 exhaustive cut instances, 1080 exhaustive
+stable-interface instances, 340 small PARTITION reductions, 105 energy-bound
+comparisons, and exact physical/quantum/statistical negative controls. Exact
+binomial checks with 60 records per arm, alpha=beta=1/5 and per-arm calibration
+radius 1/100 give boundary-null rejection probability 0.028390164088321873
+and adverse-calibration alternative power 0.9892475896059103. These are exact
+finite-law calculations, not simulated trials or observed experiments.
+
+Known mathematical scope corrections were implemented or communicated:
+- Use source-local-time stopping, not falsely independent fixed-time counts.
+- Preserve microscopic/channel distinctions and known graph completeness.
+- Require the perturbed generator to remain applied through endpoint readout.
+- Reject impossible three-arm probability-gap contracts with g1+g2>1.
+- State g>=0 without loss of generality in the driven-qubit threshold theorem.
+The last item was corrected by the manuscript owner. All listed mathematical
+review corrections are resolved within their stated model assumptions.
+
+Accepted reviewed manuscript snapshots
+graph_section.tex
+014160d1d709db9321c65683fd839d8cb05fde9d0b9fa1a521e8fdb0dac8a501
+resource_section.tex
+fbf676f8ce151d14f3e6bf2ae8d3cbc45414aa60b0e24395a7f1673f4c261a17
+classical_section.tex
+81953786da2f34daa2c56766009b6471923ac7b510cc9ac2caf3d86d513fb5af
+quantum_section.tex
+21807b662b050b7cdf94748bc9bb0c0732c0537b4b979c110fdc75dd9af7342f
+statistical_section.tex
+cb834b2316e4c4ab8e2f6bdbad925bef5b38888dc78fc6a46ef437d21e14bf1a

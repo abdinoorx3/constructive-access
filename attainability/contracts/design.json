@@ -1,0 +1,10 @@
+{
+  "purpose": "Valid selection of the spectral contrast parameter from a finite library on the same observations",
+  "frozen_before_analysis": true,
+  "parameters": ["0", "1/16", "1/8", "3/16", "1/4", "5/16", "3/8", "7/16", "1/2", "9/16", "5/8", "11/16", "3/4", "13/16", "7/8", "15/16", "1"],
+  "alpha": "1/20",
+  "source_records": "joint_analog.json exact_statistics, unchanged; no additional measurements",
+  "comparators": ["joint_analog", "joint_analog_tuned"],
+  "assumptions": "Fixed library and quotas; independent stationary acquisitions or the declared bounded conditional-mean contract; same bounded memoryless noninvasive detector; ordinary even-variable time reversal",
+  "scope": "The familywise method pays its selection penalty. No universal power advantage over a correctly prespecified contrast is claimed. Monte Carlo comparisons of different methods do not make their maximum a covered certificate."
+}

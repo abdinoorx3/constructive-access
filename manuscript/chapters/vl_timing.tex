@@ -1,0 +1,185 @@
+\chapter{When timing noise and finite exposure preserve an inference}
+\label{ch:virtual-timing}
+
+A timing error need not be a small perturbation, and a finite exposure need not
+behave like an instantaneous detector. Some large timing fluctuations preserve
+the inference exactly. Other schedules produce apparent equilibrium violations
+even when their mean lags are perfectly calibrated. This chapter identifies the
+relevant contracts and gives exact controls for their failure.
+
+\section{A universal clock criterion}
+For positive integer settings $k=1,\ldots,K$, let $T_k\geq0$ be a random
+observation time independent of the physical process. Define
+\[
+ \mathcal H_K=\left\{\left(\int_0^1x^k\,\mu(dx)\right)_{k=1}^K:
+ \mu\text{ is a probability measure}\right\}.
+\]
+The set is closed and convex. A reversible stationary process, observed through
+a fixed binary endpoint detector, has a correlation which is a positive mixture
+of decaying exponentials. This standard spectral fact underlies the following
+apparatus criterion~\cite{vlAldousFill2002,vlSchilling2012}.
+
+\begin{theorem}[Clock compatibility]
+The clock family preserves $\mathcal H_K$ for every finite stationary reversible
+Markov chain and every fixed, noninvasive binary endpoint detector with independent
+readout noise if and only if
+\begin{equation}
+ \left(\mathbb E e^{-\lambda T_k}\right)_{k=1}^K\in\mathcal H_K
+ \quad\text{for every }\lambda\geq0.
+ \label{eq:clock-criterion}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Write the reversible correlation as
+$C(t)=\sum_\ell b_\ell e^{-\lambda_\ell t}$, where $b_\ell\geq0$ and
+$\sum_\ell b_\ell\leq1$. If~\eqref{eq:clock-criterion} holds, combine the
+representing measures with weights $b_\ell$ and place the unused mass at zero.
+All indices are positive, so the resulting measure represents the sampled
+correlations. Conversely, a symmetric two-state chain with rates $\lambda/2$
+and detector values $\pm1$ has exactly $C(t)=e^{-\lambda t}$. It tests each
+scalar condition in~\eqref{eq:clock-criterion}.
+\end{proof}
+
+The theorem concerns a known clock family, not a finite numerical test over a
+few relaxation rates. For an endpoint detector with calibrated stationary mean
+$m$, its spectral atom $m^2$ at one is retained and the earlier mean-conditioned
+cone applies. Finite signed differences are useful necessary checks; they are
+not a complete finite moment-membership algorithm.
+
+\section{Two safe families with different dimension implications}
+If $T_k=X_1+\cdots+X_k$ for independent, identically distributed nonnegative
+increments, then
+\[
+ \mathbb E e^{-\lambda T_k}=\left(\mathbb E e^{-\lambda X}\right)^k,
+ \qquad
+ \mathbb E e^{QT_k}=P^k,
+ \qquad P=\mathbb E e^{QX}.
+\]
+The stochastic matrix $P$ acts on the same hidden state space. Thus arbitrary
+common increment noise preserves both the reversible moment cone and the
+classical dimension factorization. Neither exponential increments nor a hidden
+rate cap is required.
+
+A common random scale $T_k=kV$ also satisfies the clock criterion, by the
+pushforward $x=e^{-\lambda V}$. It need not produce a common channel on the
+same state space. For example, a two-state chain with decay $2^{-t}$ and a fair
+scale choice $V\in\{1,2\}$ gives prepared occupation probabilities
+\[
+ p_k=\frac12+\frac{2^{-k}+4^{-k}}4.
+\]
+The $3\times3$ Hankel matrix $(p_{i+j})_{i,j=0}^2$ has determinant
+$9/32768>0$. A two-state common-channel representation is impossible. A
+three-state representation exists: two transient states survive each step with
+probabilities $1/2$ and $1/4$, then enter an absorbing state; use equal initial
+weights on the transient states and detector values $(1,1,1/2)$.
+The pooled record includes a persistent scale variable. Preserving a
+thermodynamic null therefore does not automatically preserve a dimension null.
+
+\section{The actual duration belongs in the entropy bound}
+Keep the full joint record consisting of the setting, the realized clock and
+the physical trajectory. Its clock law is common to the actual generator $Q$
+and its additive reversibilization $S$. The stationary path comparison gives
+\[
+ D(\mathbb P_Q\Vert\mathbb P_S)
+ =\mathbb E[T]\,d(Q,S)\leq\frac{\mathbb E[T]}4\sigma,
+ \qquad
+ \mathbb E[T]=\sum_k w_k\mathbb E[T_k].
+\]
+Discarding the realized time only decreases relative entropy. Consequently,
+for a certified record divergence $J$ from the compatible reversible cone,
+\begin{equation}
+ \sigma\geq\frac{4J}{\sum_kw_k\mathbb E[T_k]}.
+ \label{eq:random-clock-entropy}
+\end{equation}
+The mean duration must be finite and positive; a calibrated upper bound on it
+can be used conservatively. For common increments it equals
+$\mathbb E[X]\sum_kw_kk$, and for common scale it equals
+$\mathbb E[V]\sum_kw_kk$. This remains a stationary even-state classical
+inference with the physical assumptions of the earlier entropy chapter.
+
+Mean timing alone is insufficient. In an equilibrium two-state process with
+$C(t)=2^{-t}$, take $T_1=1$ and let $T_2$ be zero with probability $4/5$ and ten
+otherwise. The mean lags are one and two, but the correlations increase from
+$1/2$ to $4097/5120$. Even stochastic ordering is insufficient for the full
+moment cone: the coupled schedules $(1,1,2)$ and $(1,11,12)$, chosen with
+probabilities $9/10$ and $1/10$, have means $(1,2,3)$ and pointwise ordered
+lags, yet their second correlation difference is $-7171/40960$.
+Both examples have zero physical entropy production.
+
+\section{Finite-duration symmetric detectors}
+Let a block last $L$ and have a bounded conditional binary mean
+$F(X_{[0,L]})\in[-1,1]$. Assume $F$ is invariant under reversing the path within
+the block, the detector is noninvasive, and different block outputs have
+independent noise conditional on the physical paths. Use identical blocks on
+$[0,L]$ and $[L+T,2L+T]$, where $T\geq0$ is the independent gap.
+
+\begin{theorem}[Disjoint symmetric exposure]
+For the reversible reference process, put
+$g(x)=\mathbb E_S[F(X_{[0,L]})\mid X_0=x]$. Then
+\begin{equation}
+ \mathbb E_S[Y_{\rm left}Y_{\rm right}\mid T]
+ =\langle g,e^{ST}g\rangle_\pi.
+ \label{eq:block-positive-spectrum}
+\end{equation}
+Thus a compatible gap clock preserves the reversible moment cone. The
+corresponding stationary entropy bound is
+\begin{equation}
+ \sigma\geq\frac{4J}{2L+\mathbb E[T]}.
+ \label{eq:block-entropy}
+\end{equation}
+\end{theorem}
+\begin{proof}
+Stationary path reversal and symmetry of $F$ imply that its conditional mean
+given the final block state is also $g$. Conditioning on the state at the end
+of the first block and the beginning of the second, the Markov property yields
+\eqref{eq:block-positive-spectrum}. Since $|g|\leq1$, its spectral measure has
+mass at most one. The observed record uses a path of length $2L+T$; applying
+the same path divergence comparison gives~\eqref{eq:block-entropy}.
+\end{proof}
+
+For a nonlinear block functional, the mean under $S$ can differ from the mean
+under $Q$. The mean-unrestricted outer cone is safe: its agreement baseline is $1/2$,
+and any conserved spectral mass is included. This does not assume that the
+physical mean is zero. Measured mean information cannot simply be transferred
+between the models. A symmetric
+linear exposure,
+\[
+ F=\int_0^Lw(u)f(X_u)\,du,
+ \qquad w\geq0,\quad\int_0^Lw(u)\,du=1,\quad w(u)=w(L-u),
+\]
+has mean $\pi f$ under either generator, so the calibrated-mean refinement
+is valid. Rectangular exposure is included at the level of this bounded
+conditional mean. Invasiveness, additional detector memory and conditional
+noise dependence still require separate treatment.
+
+\section{Three exposure controls that prevent false discoveries}
+All three controls use an equilibrium two-state process with $C(t)=2^{-t}$.
+A symmetric block channel reports a fair random choice of its two endpoint
+signs. For length $L$ and start separation $D$, its correlation is exactly
+\[
+ C_{L}(D)=\frac{2\,2^{-D}+2^{-(D+L)}+2^{-|D-L|}}4.
+\]
+For disjoint blocks, $D=L+T$, this is
+$((1+2^{-L})/2)^2 2^{-T}$, confirming the gap formula.
+
+First, overlap can create a false revival. For $L=4$, start separations two
+and four give $49/256$ and $289/1024$, an increase of $93/1024$.
+
+Second, even disjoint blocks require the correct time coordinate. For $L=2$,
+start separations two and four give $C_1=25/64$ and $C_2=25/256$. Assigning them
+to the first and second normalized moments yields
+$C_2-C_1^2=-225/4096<0$. The actual gaps are zero and two. A gap-zero correlation
+has unknown spectral mass at most one and must not be assigned the normalization
+of an ideal noiseless instantaneous detector.
+
+Third, reversing the detector can reverse the sign test. The antisymmetric
+channel $F=(X_{\rm end}-X_{\rm start})/2$, implemented through an independent
+binary encoding, gives correlation $-9/128$ at length two and gap one.
+Its agreement probability is $119/256<1/2$ despite equilibrium. The required
+time-reversal symmetry of the block channel is absent.
+
+These examples are exact synthetic population calculations, not laboratory
+measurements. They show why the apparatus contract is part of the theorem.
+The clock criterion is a direct consequence of established positive spectral
+calculus; the present contribution is its integration with the inference
+contracts, complete duration accounting and explicit failure controls.

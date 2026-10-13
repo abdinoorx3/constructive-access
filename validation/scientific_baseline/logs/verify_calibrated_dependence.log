@@ -1,0 +1,9 @@
+{"model": "metastable_equilibrium", "budget": 200000, "exclusions": {"continuous_markov": 0, "optimized_old_blind_gap": 1, "unqualified_independent_analysis": 271}}
+{"model": "metastable_equilibrium", "budget": 400000, "exclusions": {"continuous_markov": 0, "optimized_old_blind_gap": 0, "unqualified_independent_analysis": 217}}
+{"model": "metastable_equilibrium", "budget": 800000, "exclusions": {"continuous_markov": 0, "optimized_old_blind_gap": 1, "unqualified_independent_analysis": 131}}
+{"model": "driven_ring", "budget": 200000, "exclusions": {"continuous_markov": 0, "optimized_old_blind_gap": 84, "unqualified_independent_analysis": 1000}}
+{"model": "driven_ring", "budget": 400000, "exclusions": {"continuous_markov": 1000, "optimized_old_blind_gap": 212, "unqualified_independent_analysis": 1000}}
+{"model": "driven_ring", "budget": 800000, "exclusions": {"continuous_markov": 1000, "optimized_old_blind_gap": 465, "unqualified_independent_analysis": 1000}}
+{"model": "wrong_mixing_calibration", "budget": 200000, "exclusions": {"continuous_markov": 173, "optimized_old_blind_gap": 97, "unqualified_independent_analysis": 398}}
+{"model": "wrong_mixing_calibration", "budget": 400000, "exclusions": {"continuous_markov": 256, "optimized_old_blind_gap": 131, "unqualified_independent_analysis": 457}}
+{"model": "wrong_mixing_calibration", "budget": 800000, "exclusions": {"continuous_markov": 258, "optimized_old_blind_gap": 132, "unqualified_independent_analysis": 481}}

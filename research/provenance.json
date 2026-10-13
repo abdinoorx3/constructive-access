@@ -1,0 +1,2421 @@
+{
+  "schema": "constructive-access-research-provenance-v1",
+  "recorded_utc": "2026-10-12T15:53:40.492738+00:00",
+  "author": "Abdinoor",
+  "organization": "2D Labs",
+  "purpose": "Trace the unified subject to preserved sources, results, and claim status. IDs count records, not discoveries.",
+  "provenance_semantics": {
+    "hash_meaning": "Byte identity and binding only; not theorem truth or physical validity.",
+    "archive_locator": "Open immutable_archive then archive_member. Paths document archives, not runtime dependencies.",
+    "historical_claim_entries": "Copied verbatim for audit; current retained scope is in curated_results and unified claims.",
+    "priority": "A finite search cannot prove historical originality.",
+    "review": "Internal mathematical/computational checks are not external review.",
+    "empirical": "No new laboratory measurements in inherited phases."
+  },
+  "immutable_archives": {
+    "boundary": {
+      "file": "boundary_arrow_research_package.zip",
+      "sha256": "de3841cb7f011fd10775dc5c069f4e9fae39c12514b47c214f3c0fcf6c87521e",
+      "bytes": 2979468,
+      "phase_member_prefix": "boundary_arrow/"
+    },
+    "controlled": {
+      "file": "discovery_program_research_package.zip",
+      "sha256": "cbccb276e3a5563059fd8ebc96525fb48ffdf006828ef59ccfbe4eab0b3729df",
+      "bytes": 4872491,
+      "phase_member_prefix": "discovery_program/"
+    },
+    "gate": {
+      "file": "equilibrium_gate_research_package.zip",
+      "sha256": "3544a194768b44385e12beef452a717be7fbdfa66fbf73f1d1abff3b1e2b8bd4",
+      "bytes": 695685,
+      "phase_member_prefix": "equilibrium_gate_research/"
+    },
+    "finite": {
+      "file": "constructive_access_research_package.zip",
+      "sha256": "0c26409099a3082cf08c6e7eca19456703beda888bb3d52e399a379321670551",
+      "bytes": 648207,
+      "phase_member_prefix": "constructive_access/"
+    },
+    "hardening": {
+      "file": "hardened_access_research_package.zip",
+      "sha256": "b3764a39b5ecac30d5a1eecb2301bbbba096fe51be77e7a4c34363cac47bb8eb",
+      "bytes": 9788376,
+      "phase_member_prefix": "hardened_access/discovery_program/hardening/"
+    },
+    "applications": {
+      "file": "physical_diagnostics_research_package.zip",
+      "sha256": "bbaaaef9f83b4ebf8c25555695cecdf4512568b5aebaea18a3639c5bafadea32",
+      "bytes": 10650406,
+      "phase_member_prefix": "physical_diagnostics/discovery_program/application_audit/"
+    }
+  },
+  "evidence_files": {
+    "controlled:CLAIMS.json": {
+      "historical_path_from_workspace": "discovery_program/CLAIMS.json",
+      "sha256": "142c2b3d763010a989600e752afd481f10a9990c721c18d779a4f8882eaa0419",
+      "bytes": 13294,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/CLAIMS.json",
+      "verified_identical_to_archive": true
+    },
+    "gate:CLAIMS.json": {
+      "historical_path_from_workspace": "discovery_program/controller_extension/CLAIMS.json",
+      "sha256": "0b4045f37db895e6ce48c0fa3f02cb8e7e3d56916deb3e09f6d801636fb3f6d7",
+      "bytes": 5827,
+      "immutable_archive": "equilibrium_gate_research_package.zip",
+      "archive_member": "equilibrium_gate_research/CLAIMS.json",
+      "verified_identical_to_archive": true
+    },
+    "finite:CLAIMS.json": {
+      "historical_path_from_workspace": "discovery_program/access_theory/CLAIMS.json",
+      "sha256": "484b00660351b573b6b9cd1d473a5e2b256e3627b9cab7c59834b5259fbb332c",
+      "bytes": 7697,
+      "immutable_archive": "constructive_access_research_package.zip",
+      "archive_member": "constructive_access/CLAIMS.json",
+      "verified_identical_to_archive": true
+    },
+    "hardening:CLAIMS.json": {
+      "historical_path_from_workspace": "discovery_program/hardening/CLAIMS.json",
+      "sha256": "200d48bedfc560cddd9c7157a4e849f54b1349daae3df4f34b71f3c41460fee9",
+      "bytes": 20659,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/CLAIMS.json",
+      "verified_identical_to_archive": true
+    },
+    "applications:CLAIMS.json": {
+      "historical_path_from_workspace": "discovery_program/application_audit/CLAIMS.json",
+      "sha256": "8b6c95e644fd0670aa2028adb84e285b15cde19ab797817ae13b4a3451d983ef",
+      "bytes": 9936,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/CLAIMS.json",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/four_state_appendix.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/four_state_appendix.tex",
+      "sha256": "d956704cbf1796973a8469abf46f5ec842b5736f383223deb1a00f7c1693bb9e",
+      "bytes": 11131,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/four_state_appendix.tex",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/equilibrium_realizations.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/equilibrium_realizations.tex",
+      "sha256": "5b5f16e1bac8cb016bf5d858258a4653f5adaf353bd9f389f8aecfdee94a8289",
+      "bytes": 4832,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/equilibrium_realizations.tex",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/general_rates_appendix.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/general_rates_appendix.tex",
+      "sha256": "a3136b5141c598b814811df1eb0048b3d5360aaaa22841d4af1acc7818a87505",
+      "bytes": 3865,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/general_rates_appendix.tex",
+      "verified_identical_to_archive": true
+    },
+    "boundary:research/priority_audit_final.txt": {
+      "historical_path_from_workspace": "boundary_arrow/research/priority_audit_final.txt",
+      "sha256": "4d3d669e37239111eb98721e6e046a9c67cd0002abc0b7944a87fd04017bd84d",
+      "bytes": 18846,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/research/priority_audit_final.txt",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/rings_and_information.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/rings_and_information.tex",
+      "sha256": "4f17894e016020758a04492253338960f8e14bb90f2fc13dfd52858acd99ea33",
+      "bytes": 11773,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/rings_and_information.tex",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/ring_proof_appendix.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/ring_proof_appendix.tex",
+      "sha256": "418b9eabe2c03646535cab95556cdd95fe57d5c6a498b7ca673785294a6cbaac",
+      "bytes": 3982,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/ring_proof_appendix.tex",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/detection_cost_main.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/detection_cost_main.tex",
+      "sha256": "6fe64faef73b982667d5be99a31649e8b80c42db85ed3dfc79d37eb9d73b214d",
+      "bytes": 5175,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/detection_cost_main.tex",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/detection_cost_appendix.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/detection_cost_appendix.tex",
+      "sha256": "b2564933134df7bc3f09ba676f9f488b52bbde6810465b110dad50a7eb00158c",
+      "bytes": 6197,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/detection_cost_appendix.tex",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/robustness_theory.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/robustness_theory.tex",
+      "sha256": "777aef251be293e6e684cd4abcfa8c5f2e920fe96c3367f409c5e7f362d9a1e6",
+      "bytes": 5088,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/robustness_theory.tex",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/robustness_proof_appendix.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/robustness_proof_appendix.tex",
+      "sha256": "eacbe3adfcd7e3e8a18ce639f1c4918fed29ae07a1b6844d456c0568c46eed15",
+      "bytes": 8432,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/robustness_proof_appendix.tex",
+      "verified_identical_to_archive": true
+    },
+    "boundary:code/results/six_ring_design.json": {
+      "historical_path_from_workspace": "boundary_arrow/code/results/six_ring_design.json",
+      "sha256": "42dcb0d2b0da3fd93b489d6ac21c149734f39cb4bae7930fc2d8deb394ee1842",
+      "bytes": 411553,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/code/results/six_ring_design.json",
+      "verified_identical_to_archive": true
+    },
+    "boundary:manuscript/finite_criterion_appendix.tex": {
+      "historical_path_from_workspace": "boundary_arrow/manuscript/finite_criterion_appendix.tex",
+      "sha256": "ab1c2f2f961ba0630f092a2a2ab42e5239586d7fd3e7362b05b116c2fbf8c852",
+      "bytes": 5033,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/manuscript/finite_criterion_appendix.tex",
+      "verified_identical_to_archive": true
+    },
+    "controlled:manuscript/access_to_hidden_currents.tex": {
+      "historical_path_from_workspace": "discovery_program/manuscript/access_to_hidden_currents.tex",
+      "sha256": "cd9d3d3ced76a1ff8c74eae90150a408ca7f9642600e0776d91c8cf5e0e7bca5",
+      "bytes": 54325,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/manuscript/access_to_hidden_currents.tex",
+      "verified_identical_to_archive": true
+    },
+    "controlled:research/controlled_identification.txt": {
+      "historical_path_from_workspace": "discovery_program/research/controlled_identification.txt",
+      "sha256": "2b8e279ffa6202d2dc14bd4731dd5639567717756ddd80c79074b8fa66dae94f",
+      "bytes": 35324,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/research/controlled_identification.txt",
+      "verified_identical_to_archive": true
+    },
+    "controlled:results/controlled_identification_switch.json": {
+      "historical_path_from_workspace": "discovery_program/results/controlled_identification_switch.json",
+      "sha256": "aba51f4303a4891bf78f73f09f028e3edd88df734f3a60e9e5f5d5a5c70386ad",
+      "bytes": 4554,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/results/controlled_identification_switch.json",
+      "verified_identical_to_archive": true
+    },
+    "controlled:manuscript/quantum_access.tex": {
+      "historical_path_from_workspace": "discovery_program/manuscript/quantum_access.tex",
+      "sha256": "5453ff35305d7178880e077d0bd5e11f0cf248ed57ac716e019fca4e831fc83b",
+      "bytes": 23587,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/manuscript/quantum_access.tex",
+      "verified_identical_to_archive": true
+    },
+    "controlled:research/quantum_candidate.txt": {
+      "historical_path_from_workspace": "discovery_program/research/quantum_candidate.txt",
+      "sha256": "49eb0eef4fa066e4a789219bb972c47daff682c4e1d59f3e3f6f9c6578baa7dc",
+      "bytes": 21504,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/research/quantum_candidate.txt",
+      "verified_identical_to_archive": true
+    },
+    "controlled:code/quantum_candidate_exact.py": {
+      "historical_path_from_workspace": "discovery_program/code/quantum_candidate_exact.py",
+      "sha256": "96ae39be8b434c046bdb8e5e5e488eebae71e92d7b0b5e9d6138f6802a7937dc",
+      "bytes": 4428,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/code/quantum_candidate_exact.py",
+      "verified_identical_to_archive": true
+    },
+    "controlled:code/quantum_candidate_reflection.py": {
+      "historical_path_from_workspace": "discovery_program/code/quantum_candidate_reflection.py",
+      "sha256": "b6eaa24fd3c4c2f4fa89e07e6b2d0846a7f5d57bb2d847e3b4f0572670960dd9",
+      "bytes": 8633,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/code/quantum_candidate_reflection.py",
+      "verified_identical_to_archive": true
+    },
+    "controlled:research/computational_benchmark.txt": {
+      "historical_path_from_workspace": "discovery_program/research/computational_benchmark.txt",
+      "sha256": "bdefc3fd96fc6a4b7034bdf6e0294e2937983975502889fcd17cf0570fb26d0e",
+      "bytes": 8315,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/research/computational_benchmark.txt",
+      "verified_identical_to_archive": true
+    },
+    "controlled:research/cross_domain_scope.txt": {
+      "historical_path_from_workspace": "discovery_program/research/cross_domain_scope.txt",
+      "sha256": "0897c537fb09ad3a7098013e95f70e604dc31d3aed30ef978720c4b6dba83fd1",
+      "bytes": 3714,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/research/cross_domain_scope.txt",
+      "verified_identical_to_archive": true
+    },
+    "controlled:research/energy_protocol_benchmark.txt": {
+      "historical_path_from_workspace": "discovery_program/research/energy_protocol_benchmark.txt",
+      "sha256": "ecbed40244051ba5c8eed751640289db272c3a4cc02632fad63b1a14ca0a33ec",
+      "bytes": 7414,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/research/energy_protocol_benchmark.txt",
+      "verified_identical_to_archive": true
+    },
+    "controlled:research/heralded_preparation.txt": {
+      "historical_path_from_workspace": "discovery_program/research/heralded_preparation.txt",
+      "sha256": "5cda478935577fd7b023b18aa3b14cb76a87d56de3f547a08096fe1e3ee80c37",
+      "bytes": 16066,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/research/heralded_preparation.txt",
+      "verified_identical_to_archive": true
+    },
+    "controlled:results/energy_protocol_benchmark.json": {
+      "historical_path_from_workspace": "discovery_program/results/energy_protocol_benchmark.json",
+      "sha256": "d32cda6348905452c5d7cffa06e5d0582cc6d154089d475f6938ce356b82a6a9",
+      "bytes": 30106,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/results/energy_protocol_benchmark.json",
+      "verified_identical_to_archive": true
+    },
+    "gate:manuscript/equilibrium_gates.tex": {
+      "historical_path_from_workspace": "discovery_program/controller_extension/manuscript/equilibrium_gates.tex",
+      "sha256": "ca77771b63c3bf79980fac4821b0d2b362487f2f5cef274bc42064a85161c2ab",
+      "bytes": 46093,
+      "immutable_archive": "equilibrium_gate_research_package.zip",
+      "archive_member": "equilibrium_gate_research/manuscript/equilibrium_gates.tex",
+      "verified_identical_to_archive": true
+    },
+    "gate:code/equilibrium_gate.py": {
+      "historical_path_from_workspace": "discovery_program/controller_extension/code/equilibrium_gate.py",
+      "sha256": "3ea416b6ad97b2b13bb69e819df3cd65de2f6b0d773abbaddd7c258caf915956",
+      "bytes": 13937,
+      "immutable_archive": "equilibrium_gate_research_package.zip",
+      "archive_member": "equilibrium_gate_research/code/equilibrium_gate.py",
+      "verified_identical_to_archive": true
+    },
+    "gate:results/equilibrium_gate.json": {
+      "historical_path_from_workspace": "discovery_program/controller_extension/results/equilibrium_gate.json",
+      "sha256": "d2ac8cdf85a5355a2990efc42a117647c4743331c1219128f5e1d773c23dfec8",
+      "bytes": 6401,
+      "immutable_archive": "equilibrium_gate_research_package.zip",
+      "archive_member": "equilibrium_gate_research/results/equilibrium_gate.json",
+      "verified_identical_to_archive": true
+    },
+    "gate:results/controller_redteam.json": {
+      "historical_path_from_workspace": "discovery_program/controller_extension/results/controller_redteam.json",
+      "sha256": "e8d3997ef4a2249d5a0f684e8cec10fcc94966ff4ad617b4787116d0764a17a5",
+      "bytes": 5809,
+      "immutable_archive": "equilibrium_gate_research_package.zip",
+      "archive_member": "equilibrium_gate_research/results/controller_redteam.json",
+      "verified_identical_to_archive": true
+    },
+    "finite:manuscript/constructive_access.tex": {
+      "historical_path_from_workspace": "discovery_program/access_theory/manuscript/constructive_access.tex",
+      "sha256": "478ac88376645b6ae2eb703c536c109b9f11bc0f8960b84821deed10e45d70e2",
+      "bytes": 41557,
+      "immutable_archive": "constructive_access_research_package.zip",
+      "archive_member": "constructive_access/manuscript/constructive_access.tex",
+      "verified_identical_to_archive": true
+    },
+    "finite:research/finite_access_theory.txt": {
+      "historical_path_from_workspace": "discovery_program/access_theory/research/finite_access_theory.txt",
+      "sha256": "369984ad1f0a3ce839f9609db171bf91277f3bebd6144d6a556c813624a5735b",
+      "bytes": 19320,
+      "immutable_archive": "constructive_access_research_package.zip",
+      "archive_member": "constructive_access/research/finite_access_theory.txt",
+      "verified_identical_to_archive": true
+    },
+    "finite:research/access_prior_art.txt": {
+      "historical_path_from_workspace": "discovery_program/access_theory/research/access_prior_art.txt",
+      "sha256": "e4bc8edc01374174933345383ebf2a2298e4172c4fd98d1555af51a5120a9786",
+      "bytes": 25547,
+      "immutable_archive": "constructive_access_research_package.zip",
+      "archive_member": "constructive_access/research/access_prior_art.txt",
+      "verified_identical_to_archive": true
+    },
+    "hardening:research/cost_certificate.txt": {
+      "historical_path_from_workspace": "discovery_program/hardening/research/cost_certificate.txt",
+      "sha256": "d5552cabe5d0687f4dcac30d8a9575b6aebbb7fe4e19962c0862e5426fdc02aa",
+      "bytes": 11215,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/research/cost_certificate.txt",
+      "verified_identical_to_archive": true
+    },
+    "hardening:code/cost_certificate.py": {
+      "historical_path_from_workspace": "discovery_program/hardening/code/cost_certificate.py",
+      "sha256": "ce929bfb4c7ac6587b098b9257e321fabe0abc441c41d8973859eff2f0a9ee39",
+      "bytes": 19915,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/code/cost_certificate.py",
+      "verified_identical_to_archive": true
+    },
+    "hardening:results/cost_certificate.json": {
+      "historical_path_from_workspace": "discovery_program/hardening/results/cost_certificate.json",
+      "sha256": "e57dae32a9337ff52d1bfc3d0ab29638b7bb358fa373460c50403e4d3e604515",
+      "bytes": 21389,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/results/cost_certificate.json",
+      "verified_identical_to_archive": true
+    },
+    "hardening:research/priority_review.txt": {
+      "historical_path_from_workspace": "discovery_program/hardening/research/priority_review.txt",
+      "sha256": "a175f6d37ddf8f1831aa96a89ae3dbf77fda144218ccb65abe6ad3c39d994254",
+      "bytes": 18993,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/research/priority_review.txt",
+      "verified_identical_to_archive": true
+    },
+    "finite:research/robust_protocols.txt": {
+      "historical_path_from_workspace": "discovery_program/access_theory/research/robust_protocols.txt",
+      "sha256": "eaac50bebbd7484b287223da77cb0a914e9ca1983c630645eb7b4219d3af1efc",
+      "bytes": 18335,
+      "immutable_archive": "constructive_access_research_package.zip",
+      "archive_member": "constructive_access/research/robust_protocols.txt",
+      "verified_identical_to_archive": true
+    },
+    "finite:research/budgeted_design.txt": {
+      "historical_path_from_workspace": "discovery_program/access_theory/research/budgeted_design.txt",
+      "sha256": "94f7ca7a3a8e8e163a4d9999e1e9dda3e4ead9914e42cee2490c5e2633649320",
+      "bytes": 10004,
+      "immutable_archive": "constructive_access_research_package.zip",
+      "archive_member": "constructive_access/research/budgeted_design.txt",
+      "verified_identical_to_archive": true
+    },
+    "finite:code/ctmc_adapter.py": {
+      "historical_path_from_workspace": "discovery_program/access_theory/code/ctmc_adapter.py",
+      "sha256": "76675832b47085d4a0b15fd18ad2ce752ddeab1fd5f60657d14353218bce96db",
+      "bytes": 3775,
+      "immutable_archive": "constructive_access_research_package.zip",
+      "archive_member": "constructive_access/code/ctmc_adapter.py",
+      "verified_identical_to_archive": true
+    },
+    "finite:results/robust_protocols.json": {
+      "historical_path_from_workspace": "discovery_program/access_theory/results/robust_protocols.json",
+      "sha256": "0f4d15292bbe3cada31646fcd54d3f294a1cf13c0ac83b75e44fe7d8eaaa1c8f",
+      "bytes": 22826,
+      "immutable_archive": "constructive_access_research_package.zip",
+      "archive_member": "constructive_access/results/robust_protocols.json",
+      "verified_identical_to_archive": true
+    },
+    "hardening:manuscript/certified_inference.tex": {
+      "historical_path_from_workspace": "discovery_program/hardening/manuscript/certified_inference.tex",
+      "sha256": "23c52b6a3c3c1625e406aa030460ae941adc1aa16e08b56c84039f1e42773403",
+      "bytes": 32126,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/manuscript/certified_inference.tex",
+      "verified_identical_to_archive": true
+    },
+    "hardening:research/model_adequacy.txt": {
+      "historical_path_from_workspace": "discovery_program/hardening/research/model_adequacy.txt",
+      "sha256": "c1222b79149e6a9539a99f175116fe729b1c35623844a3379b4df5c1d0b7aa04",
+      "bytes": 17926,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/research/model_adequacy.txt",
+      "verified_identical_to_archive": true
+    },
+    "hardening:results/model_adequacy.json": {
+      "historical_path_from_workspace": "discovery_program/hardening/results/model_adequacy.json",
+      "sha256": "85d5d91e932f7b8c04786fb3424d42cff7489adbb4e6bd0b6b8a6ba123c9bf6c",
+      "bytes": 3668,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/results/model_adequacy.json",
+      "verified_identical_to_archive": true
+    },
+    "hardening:research/energy_tail.txt": {
+      "historical_path_from_workspace": "discovery_program/hardening/research/energy_tail.txt",
+      "sha256": "1ad082dbde8e1244347112b24d19e86265530dbe9b77881c4907e8e453e57419",
+      "bytes": 4116,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/research/energy_tail.txt",
+      "verified_identical_to_archive": true
+    },
+    "hardening:results/energy_tail.json": {
+      "historical_path_from_workspace": "discovery_program/hardening/results/energy_tail.json",
+      "sha256": "c992b54f62e808ebe1907bc501b34b0e2795386bada6668b48c5110ab7125a49",
+      "bytes": 20533,
+      "immutable_archive": "hardened_access_research_package.zip",
+      "archive_member": "hardened_access/discovery_program/hardening/results/energy_tail.json",
+      "verified_identical_to_archive": true
+    },
+    "applications:research/intervention_criterion.txt": {
+      "historical_path_from_workspace": "discovery_program/application_audit/research/intervention_criterion.txt",
+      "sha256": "6ff7e65862d3a2a7360fb1af310d2690873a4ad63391a3154fe88cdb4c50b36c",
+      "bytes": 12902,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/research/intervention_criterion.txt",
+      "verified_identical_to_archive": true
+    },
+    "applications:results/intervention_criterion.json": {
+      "historical_path_from_workspace": "discovery_program/application_audit/results/intervention_criterion.json",
+      "sha256": "5c7028cf507281e1a44edaf2430a212bf804a9d3efc40639258c87979d52cd9f",
+      "bytes": 30364,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/results/intervention_criterion.json",
+      "verified_identical_to_archive": true
+    },
+    "applications:results/cross_domain_review.json": {
+      "historical_path_from_workspace": "discovery_program/application_audit/results/cross_domain_review.json",
+      "sha256": "3df6322afed2f1119ba3eccc38d525d092b2e3f52b1521ad87c85479a7306fd7",
+      "bytes": 4685,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/results/cross_domain_review.json",
+      "verified_identical_to_archive": true
+    },
+    "applications:research/metabolic_flux.txt": {
+      "historical_path_from_workspace": "discovery_program/application_audit/research/metabolic_flux.txt",
+      "sha256": "895aea67696fc02609652fcfb185f48d577c5f07445439cd41187bedb93e351d",
+      "bytes": 18465,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/research/metabolic_flux.txt",
+      "verified_identical_to_archive": true
+    },
+    "applications:results/metabolic_flux.json": {
+      "historical_path_from_workspace": "discovery_program/application_audit/results/metabolic_flux.json",
+      "sha256": "349c5b34feee556cb7872e76f4c699a9b2f393d95d00a2d896e3820eeadf64a4",
+      "bytes": 10417,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/results/metabolic_flux.json",
+      "verified_identical_to_archive": true
+    },
+    "applications:research/quantum_scaling.txt": {
+      "historical_path_from_workspace": "discovery_program/application_audit/research/quantum_scaling.txt",
+      "sha256": "be45ce669d1f3cb438a578f6d089ca018b7fd0815a1d393592b0fad911095d1a",
+      "bytes": 19261,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/research/quantum_scaling.txt",
+      "verified_identical_to_archive": true
+    },
+    "applications:results/quantum_scaling.json": {
+      "historical_path_from_workspace": "discovery_program/application_audit/results/quantum_scaling.json",
+      "sha256": "3b121268da6732aa43689fe5cf69565bc16cd4a21d49f59572d63c52a89eaacb",
+      "bytes": 238261,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/results/quantum_scaling.json",
+      "verified_identical_to_archive": true
+    },
+    "applications:research/nv_sensing.txt": {
+      "historical_path_from_workspace": "discovery_program/application_audit/research/nv_sensing.txt",
+      "sha256": "a1cc861e298e1fcdd21aff2261fa2f0b77021215b315a8251c1b018efe03ec17",
+      "bytes": 17970,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/research/nv_sensing.txt",
+      "verified_identical_to_archive": true
+    },
+    "applications:results/nv_sensing.json": {
+      "historical_path_from_workspace": "discovery_program/application_audit/results/nv_sensing.json",
+      "sha256": "4d60bb7cc25a1dcdc9629ff5c4621bec5bf336aee16f208da8778488dfc6c73c",
+      "bytes": 22195,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/results/nv_sensing.json",
+      "verified_identical_to_archive": true
+    },
+    "applications:research/ai_energy.txt": {
+      "historical_path_from_workspace": "discovery_program/application_audit/research/ai_energy.txt",
+      "sha256": "a82d9924a0eff0d425e5656113861e2718d2f1fecbde3113c6edaf3eb80e7db1",
+      "bytes": 10456,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/research/ai_energy.txt",
+      "verified_identical_to_archive": true
+    },
+    "applications:results/energy_identifiability.json": {
+      "historical_path_from_workspace": "discovery_program/application_audit/results/energy_identifiability.json",
+      "sha256": "b940e650678482568453dd84d7efc6e7e29ddc54a6acf164a3e2550a4bdd1e4b",
+      "bytes": 6432,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/results/energy_identifiability.json",
+      "verified_identical_to_archive": true
+    },
+    "applications:research/transfer_obstructions.txt": {
+      "historical_path_from_workspace": "discovery_program/application_audit/research/transfer_obstructions.txt",
+      "sha256": "c3fbbc1c87ea966208ea9e63525daaf02eb5b712f60d77e749135147518d46ac",
+      "bytes": 15367,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/research/transfer_obstructions.txt",
+      "verified_identical_to_archive": true
+    },
+    "applications:results/transfer_obstructions.json": {
+      "historical_path_from_workspace": "discovery_program/application_audit/results/transfer_obstructions.json",
+      "sha256": "fffdfdaf2bb34b2919883ed2c2bf387f4ccf62054bee014022cfac6bde240c33",
+      "bytes": 7100,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/results/transfer_obstructions.json",
+      "verified_identical_to_archive": true
+    },
+    "applications:research/citation_audit.txt": {
+      "historical_path_from_workspace": "discovery_program/application_audit/research/citation_audit.txt",
+      "sha256": "c0eada7fa374748176ac37e604f4eb89e67ab8248308b66d4c100f52f44f5f35",
+      "bytes": 8598,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/research/citation_audit.txt",
+      "verified_identical_to_archive": true
+    },
+    "applications:research/cross_domain_review.txt": {
+      "historical_path_from_workspace": "discovery_program/application_audit/research/cross_domain_review.txt",
+      "sha256": "b57a88b9e312d468583fbbccd94cc835dd125967d6716fe72f420d8eba84e279",
+      "bytes": 14020,
+      "immutable_archive": "physical_diagnostics_research_package.zip",
+      "archive_member": "physical_diagnostics/discovery_program/application_audit/research/cross_domain_review.txt",
+      "verified_identical_to_archive": true
+    },
+    "boundary:research/upgrade_literature.txt": {
+      "historical_path_from_workspace": "boundary_arrow/research/upgrade_literature.txt",
+      "sha256": "0b2ae55e6ed452f0bdba77a59c384736b3864f055137c1ea693c3ae06cd38201",
+      "bytes": 19841,
+      "immutable_archive": "boundary_arrow_research_package.zip",
+      "archive_member": "boundary_arrow/research/upgrade_literature.txt",
+      "verified_identical_to_archive": true
+    },
+    "controlled:research/physical_literature.txt": {
+      "historical_path_from_workspace": "discovery_program/research/physical_literature.txt",
+      "sha256": "469e5f42b905edc2d347ed94f67a2bec08478a36d71c709249d2874daca06d9a",
+      "bytes": 61580,
+      "immutable_archive": "discovery_program_research_package.zip",
+      "archive_member": "discovery_program/research/physical_literature.txt",
+      "verified_identical_to_archive": true
+    },
+    "gate:research/controller_literature.txt": {
+      "historical_path_from_workspace": "discovery_program/controller_extension/research/controller_literature.txt",
+      "sha256": "0836716a197567b30722663cf3b0a1e9b19797a51fd014386150053ac2bc679d",
+      "bytes": 16624,
+      "immutable_archive": "equilibrium_gate_research_package.zip",
+      "archive_member": "equilibrium_gate_research/research/controller_literature.txt",
+      "verified_identical_to_archive": true
+    },
+    "gate:research/criterion_prior_art.txt": {
+      "historical_path_from_workspace": "discovery_program/controller_extension/research/criterion_prior_art.txt",
+      "sha256": "97f4ca3ec12ffaec223dad83b33f3a830163c3adf788524999f66618eab843fc",
+      "bytes": 13534,
+      "immutable_archive": "equilibrium_gate_research_package.zip",
+      "archive_member": "equilibrium_gate_research/research/criterion_prior_art.txt",
+      "verified_identical_to_archive": true
+    }
+  },
+  "curated_results": [
+    {
+      "id": "U-LINEAGE-01",
+      "title": "Source driving, observed arrow, and equilibrium compatibility are different targets",
+      "contribution_class": "specific_model_classification",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "thm:mimic"
+      ],
+      "evidence_files": [
+        "boundary:manuscript/four_state_appendix.tex",
+        "boundary:manuscript/equilibrium_realizations.tex",
+        "boundary:manuscript/general_rates_appendix.tex",
+        "boundary:research/priority_audit_final.txt"
+      ],
+      "prior_source_keys": [
+        "p_kienker",
+        "p_larget"
+      ],
+      "scope_limits": [
+        "Positive finite ring rates; stated detector and stationary preparation; no origin-of-time theorem"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-02",
+      "title": "Ring size, detector placement, and exact reversal ideal",
+      "contribution_class": "specific_model_classification",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "thm:Nclassification",
+        "thm:ideal"
+      ],
+      "evidence_files": [
+        "boundary:manuscript/rings_and_information.tex",
+        "boundary:manuscript/ring_proof_appendix.tex"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "Specified unit-bulk ring family and seam-crossing partitions; shifted detectors need their own test"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-03",
+      "title": "Readout timing and timestamps change local information order",
+      "contribution_class": "specific_model_asymptotic_result",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "thm:recordcost",
+        "thm:fullpathorder",
+        "prop:timestamps"
+      ],
+      "evidence_files": [
+        "boundary:manuscript/detection_cost_main.tex",
+        "boundary:manuscript/detection_cost_appendix.tex",
+        "boundary:manuscript/robustness_theory.tex",
+        "boundary:manuscript/robustness_proof_appendix.tex",
+        "boundary:code/results/six_ring_design.json"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "Fixed-duration and local positive-rate assumptions; independent-record cost differs from preparation cost"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-04",
+      "title": "Finite polynomial/effect-space criterion",
+      "contribution_class": "established_method_specialization",
+      "integration_status": "attributed",
+      "original_claim_or_theorem_ids": [
+        "thm:algebraic"
+      ],
+      "evidence_files": [
+        "boundary:manuscript/finite_criterion_appendix.tex"
+      ],
+      "prior_source_keys": [
+        "p_tzeng",
+        "p_faigle",
+        "p_thon"
+      ],
+      "scope_limits": [
+        "Finite representations; equivalence proof is model conditional"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-05",
+      "title": "Switched controls expose orientation concealed by frozen singleton records",
+      "contribution_class": "specific_model_result",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "C01",
+        "C02",
+        "C03",
+        "C08"
+      ],
+      "evidence_files": [
+        "controlled:manuscript/access_to_hidden_currents.tex",
+        "controlled:research/controlled_identification.txt",
+        "controlled:results/controlled_identification_switch.json"
+      ],
+      "prior_source_keys": [
+        "p_kienker",
+        "p_qian"
+      ],
+      "scope_limits": [
+        "Common stationary law; balanced added channel; control and sensor placement and preparation essential"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-06",
+      "title": "Quantum access separates magnitude activation from orientation symmetry",
+      "contribution_class": "specific_model_result",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "C11",
+        "C12"
+      ],
+      "evidence_files": [
+        "controlled:manuscript/quantum_access.tex",
+        "controlled:research/quantum_candidate.txt",
+        "controlled:code/quantum_candidate_exact.py",
+        "controlled:code/quantum_candidate_reflection.py"
+      ],
+      "prior_source_keys": [
+        "p_wang"
+      ],
+      "scope_limits": [
+        "Specified three-site XX chain; listed central operations and stationary preparation; reservoir bias differs from coherent error"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-07",
+      "title": "No new optimizer or universal data cap follows from the benchmark",
+      "contribution_class": "rejected_extension",
+      "integration_status": "retained_negative_result",
+      "original_claim_or_theorem_ids": [
+        "C14",
+        "C15"
+      ],
+      "evidence_files": [
+        "controlled:research/computational_benchmark.txt",
+        "controlled:research/cross_domain_scope.txt"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "No RSI, P versus NP, arbitrary neural-network identification, or new physical law"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-08",
+      "title": "Drive-only timing comparison and regeneration preparation",
+      "contribution_class": "specific_model_resource_calculation",
+      "integration_status": "retained_with_boundary",
+      "original_claim_or_theorem_ids": [
+        "C16",
+        "C17",
+        "C18"
+      ],
+      "evidence_files": [
+        "controlled:research/energy_protocol_benchmark.txt",
+        "controlled:research/heralded_preparation.txt",
+        "controlled:results/energy_protocol_benchmark.json"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "Native drive expenditure excludes apparatus costs; additional preparations can erase advantage"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-09",
+      "title": "Autonomous gate gives an edge-current times Dirichlet coefficient",
+      "contribution_class": "specific_model_theorem",
+      "integration_status": "retained_priority_unresolved",
+      "original_claim_or_theorem_ids": [
+        "thm:edge",
+        "thm:iff",
+        "thm:orders"
+      ],
+      "evidence_files": [
+        "gate:manuscript/equilibrium_gates.tex",
+        "gate:code/equilibrium_gate.py",
+        "gate:results/equilibrium_gate.json",
+        "gate:results/controller_redteam.json"
+      ],
+      "prior_source_keys": [
+        "p_qian",
+        "p_barato"
+      ],
+      "scope_limits": [
+        "General-network coefficient only sufficient; triangle converse narrower; zero added gate entropy is not free sensing"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-10",
+      "title": "Finite classical and quantum instrument equivalence",
+      "contribution_class": "established_method_specialization",
+      "integration_status": "attributed",
+      "original_claim_or_theorem_ids": [
+        "finite_equivalence"
+      ],
+      "evidence_files": [
+        "finite:manuscript/constructive_access.tex",
+        "finite:research/finite_access_theory.txt",
+        "finite:research/access_prior_art.txt"
+      ],
+      "prior_source_keys": [
+        "p_tzeng",
+        "p_faigle",
+        "p_wang",
+        "p_thon",
+        "p_riechers"
+      ],
+      "scope_limits": [
+        "Finite listed library and classical feedback; unlisted ancillas/coherent operations excluded"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-11",
+      "title": "Minimum prescribed-charge witness and independent filtered certificate",
+      "contribution_class": "specific_algorithm_certificate",
+      "integration_status": "retained_priority_unresolved",
+      "original_claim_or_theorem_ids": [
+        "HARD-CERT-01",
+        "HARD-CERT-02"
+      ],
+      "evidence_files": [
+        "hardening:research/cost_certificate.txt",
+        "hardening:code/cost_certificate.py",
+        "hardening:results/cost_certificate.json",
+        "hardening:research/priority_review.txt"
+      ],
+      "prior_source_keys": [
+        "p_kiefer",
+        "p_thon"
+      ],
+      "scope_limits": [
+        "Nonnegative rational costs; reliable-decision cost is different; physical validity separate"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-12",
+      "title": "Robust statistics, CTMC approximation, and bounded decision recursion",
+      "contribution_class": "established_method_integration",
+      "integration_status": "attributed",
+      "original_claim_or_theorem_ids": [
+        "robust_event_test",
+        "ctmc_adapter",
+        "finite_budget_design",
+        "unbounded_threshold_limit"
+      ],
+      "evidence_files": [
+        "finite:research/robust_protocols.txt",
+        "finite:research/budgeted_design.txt",
+        "finite:code/ctmc_adapter.py",
+        "finite:results/robust_protocols.json"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "Nominal equality is not exact CTMC equality; finite budgets and horizons matter; nuisance remains fixed unless model states otherwise"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-13",
+      "title": "Conditional adequacy, target abstention, and energy composition",
+      "contribution_class": "established_probability_integration",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "HARD-STAT-01",
+        "HARD-ENERGY-01",
+        "HARD-COMPOSE-01"
+      ],
+      "evidence_files": [
+        "hardening:manuscript/certified_inference.tex",
+        "hardening:research/model_adequacy.txt",
+        "hardening:results/model_adequacy.json",
+        "hardening:research/energy_tail.txt",
+        "hardening:results/energy_tail.json"
+      ],
+      "prior_source_keys": [
+        "p_betting",
+        "p_intervals"
+      ],
+      "scope_limits": [
+        "One fixed correct candidate; full-history predictable envelopes; energy and counting-process assumptions"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-14",
+      "title": "Selective response and exact deterministic recovery radius",
+      "contribution_class": "established_linear_geometry_specialization",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "A01",
+        "A02"
+      ],
+      "evidence_files": [
+        "applications:research/intervention_criterion.txt",
+        "applications:results/intervention_criterion.json",
+        "applications:results/cross_domain_review.json"
+      ],
+      "prior_source_keys": [
+        "p_donoho"
+      ],
+      "scope_limits": [
+        "Known F, factorization and response-identifiability; full positive orthant and Cartesian error box"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-15",
+      "title": "Reaction-channel ambiguity and calibrated selective recovery",
+      "contribution_class": "specific_physical_model_result",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "A03",
+        "A04"
+      ],
+      "evidence_files": [
+        "applications:research/metabolic_flux.txt",
+        "applications:results/metabolic_flux.json"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "Two channels and calibrated selectivity; no in-vivo demonstration or automatic flux units"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-16",
+      "title": "Targeted quantum comparison and finite-witness scaling obstruction",
+      "contribution_class": "specific_physical_model_result",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "A05",
+        "A06"
+      ],
+      "evidence_files": [
+        "applications:research/quantum_scaling.txt",
+        "applications:results/quantum_scaling.json"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "Finite alternatives and calibration; local dictionary for scalable use; short witness need not mean few samples"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-17",
+      "title": "Fixed-nuisance Ramsey budget comparison",
+      "contribution_class": "specific_physical_model_result",
+      "integration_status": "retained",
+      "original_claim_or_theorem_ids": [
+        "A07"
+      ],
+      "evidence_files": [
+        "applications:research/nv_sensing.txt",
+        "applications:results/nv_sensing.json"
+      ],
+      "prior_source_keys": [
+        "p_bonato",
+        "p_stace"
+      ],
+      "scope_limits": [
+        "Four fixed hypotheses and sixteen-action menu; maximum budget matched, not expected energy; no device experiment"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-18",
+      "title": "Same visible laws with arbitrarily large hidden entropy production",
+      "contribution_class": "specific_counterexample",
+      "integration_status": "retained_negative_result",
+      "original_claim_or_theorem_ids": [
+        "A08"
+      ],
+      "evidence_files": [
+        "applications:research/ai_energy.txt",
+        "applications:results/energy_identifiability.json"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "Unconstrained hidden fuel and rate family; added physical access can change identifiability"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-19",
+      "title": "Coarse binary recordings need not be reversible",
+      "contribution_class": "specific_counterexample",
+      "integration_status": "corrected_generalization",
+      "original_claim_or_theorem_ids": [
+        "A09"
+      ],
+      "evidence_files": [
+        "applications:research/transfer_obstructions.txt",
+        "applications:results/transfer_obstructions.json"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "Singleton renewal obstruction cannot be generalized to every subset, scalar, or concentration detector"
+      ]
+    },
+    {
+      "id": "U-LINEAGE-20",
+      "title": "Cross-domain source and separate implementation audit",
+      "contribution_class": "reproducibility_and_source_review",
+      "integration_status": "retained_internal_evidence",
+      "original_claim_or_theorem_ids": [
+        "A10",
+        "A11"
+      ],
+      "evidence_files": [
+        "applications:research/citation_audit.txt",
+        "applications:research/cross_domain_review.txt",
+        "applications:results/cross_domain_review.json"
+      ],
+      "prior_source_keys": [],
+      "scope_limits": [
+        "Internal review is distinct from external review; no measured solution of four application grand challenges"
+      ]
+    }
+  ],
+  "historical_claim_entries": [
+    {
+      "phase": "controlled",
+      "original_id": "C01",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C01",
+        "title": "All frozen controls are sign-blind; one switched triangle protocol is informative",
+        "evidence_stage": "E3",
+        "scope": "For the three-state row generator Q_F, singleton sensor, common stationary preparation, and additive uniform-reversible edge channel. Every frozen full-path law agrees between F and -F; exact switched endpoint contrast is nonzero locally.",
+        "proof_or_audit": "research/controlled_identification.txt",
+        "reproducibility": [
+          "code/controlled_identification_switch.py",
+          "code/redteam_access_audit.py"
+        ],
+        "novelty_status": "Specific conjunction priority unresolved; singleton renewal reversibility is established."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C02",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C02",
+        "title": "Protocol-order mixed derivative measures one stationary edge current",
+        "evidence_stage": "E3",
+        "scope": "Common pi, pi-reversible L, same durations. Mixed derivative equals -eta L_ji J_ij for a single controlled edge. A control changing pi can produce a false current interpretation.",
+        "proof_or_audit": "research/controlled_identification.txt",
+        "reproducibility": [
+          "code/controlled_identification_switch.py",
+          "code/redteam_access_audit.py"
+        ],
+        "novelty_status": "Elementary commutator response identity; no claim to invent kinetic response theory."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C03",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C03",
+        "title": "Triangle full-path information and adaptive amplitude-budget bound",
+        "evidence_stage": "E3",
+        "scope": "Fixed positive stage durations, compact positive-rate neighborhood, independent stationary records, and history-adaptive amplitudes between records. KL Theta(F^2 eta^2); transcript KL <= K F^2 E sum eta_i^2.",
+        "proof_or_audit": "research/controlled_identification.txt",
+        "reproducibility": [
+          "code/controlled_identification_switch.py",
+          "code/redteam_access_audit.py"
+        ],
+        "novelty_status": "Scoped proof; not an unrestricted control optimum or energy law."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C04",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C04",
+        "title": "Sharp discrimination order under specified intervention or drive-energy constraints",
+        "evidence_stage": "E3",
+        "scope": "Known equally likely triangle orientations; fixed stage durations, independent stationary preparations, and amplitudes chosen between records. D=Theta(min(1,|F|sqrt(min(B,M eta0^2)))). Energy translation fixes a deterministic record count before acquisition. Expected amplitude constraints apply under both hypotheses; terminal testing unrestricted.",
+        "proof_or_audit": "research/cost_discrimination.txt",
+        "reproducibility": [
+          "code/redteam_energy_frontier.py"
+        ],
+        "novelty_status": "General decision theory and statistical methods are established; model-specific derivation internally reviewed. No unrestricted or total-apparatus-energy optimum."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C05",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C05",
+        "title": "Exact randomized protocol-order composite-null test",
+        "evidence_stage": "E3",
+        "scope": "Independent fair arm choices and independent common stationary preparations; fixed sample count. Under the null both stages are reversible with the same pi. Count is Binomial(M,1/2).",
+        "proof_or_audit": "research/controlled_identification.txt",
+        "reproducibility": [
+          "code/controlled_identification_order_test.py",
+          "code/redteam_null_and_certificate.py"
+        ],
+        "novelty_status": "Standard randomization testing applied to the exact protocol-order identity."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C06",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C06",
+        "title": "Robustness to preparation and generator calibration errors",
+        "evidence_stage": "E3",
+        "scope": "Explicit total-variation preparation and rowwise transition-rate discrepancy bounds relative to common-reversible reference generators. These calibration bounds must be independently justified.",
+        "proof_or_audit": "research/controlled_identification.txt",
+        "reproducibility": [
+          "code/controlled_identification_robustness.py",
+          "code/redteam_selection_and_robustness.py"
+        ],
+        "novelty_status": "Standard coupling and concentration tools; independently reviewed practical calibration extension."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C07",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C07",
+        "title": "Rational finite-error certificate and cost-matched static comparison",
+        "evidence_stage": "E3",
+        "scope": "At F magnitude 1/2, eta=4, t=1/5, s=2/5: 8829 independent records suffice for average equal-prior error below 0.1;12633 suffice for each error below 0.1. Sufficient counts, not minima. Switching, preparation, and calibration work excluded.",
+        "proof_or_audit": "research/triangle_benchmark.txt",
+        "reproducibility": [
+          "code/triangle_benchmark.py",
+          "code/redteam_null_and_certificate.py"
+        ],
+        "novelty_status": "Reproducible model certificate; no physical test or novel design optimizer."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C08",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C08",
+        "title": "One-gateway hidden reversal survives exterior observation-based feedback",
+        "evidence_stage": "E3",
+        "scope": "A hidden component shares its gateway sensor label; controls cannot change its internal transitions. Accessible-supported preparation or matched stationary preparation. Extra port, internal control, or refined sensor can escape.",
+        "proof_or_audit": "research/controlled_identification.txt",
+        "reproducibility": [
+          "code/controlled_identification_gateway.py",
+          "code/redteam_access_audit.py"
+        ],
+        "novelty_status": "Operational use of established renewal and phase-type nonuniqueness."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C09",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C09",
+        "title": "Four-state actuator placement separates static visibility and blindness",
+        "evidence_stage": "E3",
+        "scope": "Specified four-ring seam model and balanced two-region detector. Crossing-edge reversible channel exposes an unequal-triple arrow; internal edge channel preserves full-law blindness.",
+        "proof_or_audit": "research/active_intervention_theory.txt",
+        "reproducibility": [
+          "code/active_theory_check.py",
+          "code/redteam_access_audit.py"
+        ],
+        "novelty_status": "Relies in part on preserved baseline ring classification; exact construction priority unresolved."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C10",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C10",
+        "title": "Six-state retained on/off sharp information crossover",
+        "evidence_stage": "E3",
+        "scope": "Specified six-ring, common-stationarity control, fixed duration, small force and amplitude. Four readings/full path Theta(F^2 eta^2+F^4); three readings Theta(F^2 eta^2+F^6).",
+        "proof_or_audit": "research/active_intervention_theory.txt",
+        "reproducibility": [
+          "code/active_theory_check.py",
+          "code/redteam_access_audit.py"
+        ],
+        "novelty_status": "Finite-model result, not a universal scaling law."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C11",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C11",
+        "title": "Quantum central population instruments conceal reservoir-bias magnitude",
+        "evidence_stage": "E3",
+        "scope": "Specified three-qubit XX Lindblad chain, stationary initial state. Five-dimensional observable closure covers arbitrary finite adaptive central Z/real-diagonal instruments.",
+        "proof_or_audit": "research/quantum_candidate.txt",
+        "reproducibility": [
+          "code/quantum_candidate_exact.py",
+          "code/redteam_access_audit.py"
+        ],
+        "novelty_status": "Specific classification priority unresolved; restricted quantum identification and driven XX models are established."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C12",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C12",
+        "title": "Quantum magnitude activation and stronger sign obstruction",
+        "evidence_stage": "E3",
+        "scope": "At g=gamma=1 two central X readings or Z-flip-Z reveal squared bias. All central-only operations remain sign-blind under outer reflection; unequal bonds break that symmetry. Measurements are invasive.",
+        "proof_or_audit": "research/quantum_candidate.txt",
+        "reproducibility": [
+          "code/quantum_candidate_exact.py",
+          "code/quantum_candidate_reflection.py",
+          "code/redteam_access_audit.py"
+        ],
+        "novelty_status": "No coherence necessity, quantum advantage, or physical time-reversal identification asserted."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C13",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C13",
+        "title": "Persistence selection can produce only boundary asymmetry in a reversible killed model",
+        "evidence_stage": "E3",
+        "scope": "State-dependent killing of finite reversible dynamics; stationary reference preparation yields reversible survivor paths. Quasi-stationary preparation yields endpoint likelihood ratio; Doob process reversible.",
+        "proof_or_audit": "research/persistence_selection.txt",
+        "reproducibility": [
+          "code/persistence_selection.py",
+          "code/redteam_selection_and_robustness.py"
+        ],
+        "novelty_status": "Reversible Doob-transform result is established prior work. Endpoint illustration does not establish a new law."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C14",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C14",
+        "title": "Computational optimizer novelty is not supported",
+        "evidence_stage": "E3_negative_result",
+        "scope": "Exact Bayesian information gain and symmetric KL choose the same schedules in the benchmark. A proposed weak-force heuristic can be inferior outside its local regime.",
+        "proof_or_audit": "research/computational_benchmark.txt",
+        "reproducibility": [
+          "code/computational_benchmark.py",
+          "code/test_computational_benchmark.py"
+        ],
+        "novelty_status": "Reject claim of new optimization superiority or recursive self-improvement."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C15",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C15",
+        "title": "Universal physical law, universal data cap, P versus NP, and RSI claims",
+        "evidence_stage": "not_established",
+        "scope": "The proved finite-model statements do not establish these wider claims. Observation limits depend on hypothesis pair, target, preparation, interventions, measurement, and resources.",
+        "proof_or_audit": "research/cross_domain_scope.txt",
+        "reproducibility": [
+          "code/redteam_counterexamples.py"
+        ],
+        "novelty_status": "No historical or empirical basis for those claims from this work."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C16",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C16",
+        "title": "Explicit chemical free-energy realization and labelled-path KL identity",
+        "evidence_stage": "E3",
+        "scope": "Three degenerate conformations, original fuel/waste reaction channels, and separate passive symmetric control channel. Mean drive free-energy dissipation E=M k_B T_b (t+s) 2F log((1+F)/(1-F)); labelled-path KL=E/(k_B T_b). Apparatus terms absent; literal bath heat needs additional thermochemistry.",
+        "proof_or_audit": "research/energy_application.txt",
+        "reproducibility": [
+          "code/energy_accounting.py",
+          "code/redteam_energy_frontier.py"
+        ],
+        "novelty_status": "Application of established local detailed balance and likelihood identities; same-drive-dissipation access comparison is specific to the model."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C17",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C17",
+        "title": "Heralded singleton preparation, exact null, and recovery expenditure",
+        "evidence_stage": "E3",
+        "scope": "Exact noninvasive singleton detection, irreducible baseline, instantaneous control changes, fair arm choice after heralding. Common-reversible null holds from a detected state; regeneration gives independent fixed-duration trials. Nonstationary occupations and recovery included; startup and apparatus energy not fully modeled.",
+        "proof_or_audit": "research/heralded_preparation.txt",
+        "reproducibility": [
+          "code/heralded_preparation.py",
+          "code/redteam_heralded.py"
+        ],
+        "novelty_status": "Scoped implementation refinement using standard Markov regeneration; broader preparation access than the stationary-record comparison."
+      }
+    },
+    {
+      "phase": "controlled",
+      "original_id": "C18",
+      "source_ledger": "controlled:CLAIMS.json",
+      "entry": {
+        "id": "C18",
+        "title": "Same-cap timing candidate with certified reduction in modeled drive expenditure",
+        "evidence_stage": "E3",
+        "scope": "F magnitude 1/2, eta=4, t=127/1000, s=221/1000, M=9734. Rational certificate gives equal-prior average error below .1. Mean drive expenditure 3721.47442223 k_B T_b, 36.054819% below baseline;905 more preparations. Equal per-record apparatus term erases advantage above2.31857935443 k_B T_b.",
+        "proof_or_audit": "research/energy_protocol_benchmark.txt",
+        "reproducibility": [
+          "code/energy_protocol_benchmark.py",
+          "code/redteam_timing_certificates.py"
+        ],
+        "novelty_status": "Standard numerical search followed by independent exact certification. No global optimum, new optimizer, total device-energy saving, or empirical measurement established."
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C01",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C01",
+        "title": "General edge-current correlation",
+        "evidence": "E3",
+        "scope": "Theorem for finite stationary Q, reversible autonomous R, and one pi-balanced added edge. Nonzero J times positive Dirichlet form is sufficient; no general converse.",
+        "sources": [
+          "research/equilibrium_gate.txt",
+          "research/controller_redteam.txt",
+          "code/equilibrium_gate.py",
+          "code/controller_redteam.py"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C02",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C02",
+        "title": "Triangle activation iff",
+        "evidence": "E3",
+        "scope": "Complete stationary singleton path distinguishes F from -F iff F != 0 and D_R(u)>0 in the specified triangle/reversible-gate class.",
+        "sources": [
+          "research/equilibrium_gate.txt",
+          "research/controller_redteam.txt"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C03",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C03",
+        "title": "Observation-dependent information orders",
+        "evidence": "E3",
+        "scope": "KL and squared Hellinger scale as F^2 eta^4 for hidden gate and F^2 eta^2 for retained gate, at fixed suitable finite horizon and regular positive-rate neighborhood.",
+        "sources": [
+          "research/controller_redteam.txt",
+          "research/equilibrium_gate.txt"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C04",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C04",
+        "title": "Calibrated finite-lag current interval",
+        "evidence": "E3",
+        "scope": "Requires known p,q,D and escape bound; Hoeffding and Bernstein coverage under stationary iid records. Bounds are impractically conservative in the example; no minimax or practical efficiency claim.",
+        "sources": [
+          "research/current_estimator.txt",
+          "research/controller_redteam.txt",
+          "code/current_estimator.py"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C05",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C05",
+        "title": "Exact iid error certificates",
+        "evidence": "E3",
+        "scope": "Equal-prior average errors below .1 for stated fixed parameters and access; sufficient counts, not minima. Native-drive accounting excludes acquisition/preparation.",
+        "sources": [
+          "research/gate_benchmark.txt",
+          "code/gate_benchmark.py",
+          "code/controller_redteam.py"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C06",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C06",
+        "title": "Continuous-run error certificates",
+        "evidence": "E3",
+        "scope": "Conservative mixing-gap design, arbitrary initial hidden law after stated burn-in; no resets. Exact average-error bounds below .091, all native gap/burn-in drive counted.",
+        "sources": [
+          "research/single_run.txt",
+          "code/single_run_certificate.py",
+          "code/controller_redteam.py"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C07",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C07",
+        "title": "Zero added gate steady entropy production",
+        "evidence": "E3",
+        "scope": "Exact for specified local-detailed-balance channels and product stationarity. Preexisting drive remains. Not total sensing/apparatus expenditure.",
+        "sources": [
+          "research/kinetic_realization.txt",
+          "research/controller_redteam.txt"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C08",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C08",
+        "title": "Thermal intermediate realization",
+        "evidence": "E3",
+        "scope": "Finite Markov embedding with positive profile and epsilon>0; exact controller autonomy, product law and zero gate/intermediate EP. No microscopic device identification.",
+        "sources": [
+          "research/kinetic_realization.txt",
+          "code/kinetic_realization_check.py",
+          "research/controller_redteam.txt"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C09",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C09",
+        "title": "Perfect-bandwidth path nonconvergence",
+        "evidence": "E3",
+        "scope": "Brief intermediate return pulses supply nonvanishing distinguishing probability despite vanishing occupancy; fixed-grid convergence does not imply full-path TV convergence.",
+        "sources": [
+          "research/kinetic_realization.txt",
+          "research/controller_redteam.txt"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C10",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C10",
+        "title": "Arbitrary-controller two-sensor-endpoint no-go",
+        "evidence": "E3",
+        "scope": "Triangle with scalar single-edge gating, common stationary preparation and independent finite controller, including driven controllers; not general networks or nonstationary launches.",
+        "sources": [
+          "research/autonomous_clock.txt",
+          "research/controller_redteam.txt",
+          "code/autonomous_clock.py"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C11",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C11",
+        "title": "Matched-activity short-window clock coefficient",
+        "evidence": "E3",
+        "scope": "Leading retained-phase KL independent of ring-clock bias at fixed activity/profile; no global optimality at finite windows.",
+        "sources": [
+          "research/autonomous_clock.txt",
+          "research/controller_redteam.txt"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C12",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C12",
+        "title": "Historical novelty of exact criterion",
+        "evidence": "unresolved",
+        "scope": "Focused primary-source searches do not establish priority. Correlation irreversibility/current inference and equilibrium kinetic trajectory information are established predecessors.",
+        "sources": [
+          "research/controller_literature.txt",
+          "research/criterion_prior_art.txt"
+        ]
+      }
+    },
+    {
+      "phase": "gate",
+      "original_id": "C13",
+      "source_ledger": "gate:CLAIMS.json",
+      "entry": {
+        "id": "C13",
+        "title": "New physical law or laboratory breakthrough",
+        "evidence": "not established",
+        "scope": "No empirical device measurements or independent external validation. Model theorems alone do not establish a physical law.",
+        "sources": []
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "finite_equivalence",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "finite_equivalence",
+        "claim": "Paired finite instrument models are equivalent exactly when the initial contrast annihilates the generated effect space; finite distinguishing words exist otherwise.",
+        "status": "E3",
+        "origin": "Established weighted-automaton, controlled predictive-model, and quantum-machine theory.",
+        "scope": "Fixed finite instrument library, listed classical policies, exact rational implementation; no unlisted quantum ancilla or coherent controls.",
+        "evidence": [
+          "manuscript/constructive_access.tex",
+          "research/access_prior_art.txt",
+          "code/finite_access_theory_check.py",
+          "code/access_redteam.py"
+        ]
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "minimum_scalar_cost_witness",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "minimum_scalar_cost_witness",
+        "claim": "Priority-ordered exact span search returns a minimum additive-charge nonzero word, including zero-charge actions and action-only finite grammars.",
+        "status": "E3",
+        "origin": "Proved specialization of established basis search; historical priority unresolved.",
+        "scope": "Nonnegative rational scalar charges, independent of outcomes; not minimum expected adaptive cost or optimal finite-error design.",
+        "evidence": [
+          "research/finite_access_theory.txt",
+          "research/manuscript_review_math.txt",
+          "research/access_redteam.txt",
+          "code/test_accesskit.py"
+        ]
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "robust_event_test",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "robust_event_test",
+        "claim": "Uniform event or bounded-score separation g yields each-hypothesis error at most exp(-M*g*g/2), using a threshold from robust endpoints.",
+        "status": "E3",
+        "origin": "Standard concentration and total-variation reasoning, applied explicitly to complete instruments.",
+        "scope": "Independent records from a fixed actual member of a justified calibration class; full kernel or flagged quantum-channel calibration.",
+        "evidence": [
+          "research/robust_protocols.txt",
+          "code/robust_protocols.py",
+          "code/access_redteam.py"
+        ]
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "ctmc_adapter",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "ctmc_adapter",
+        "claim": "Normalized rational uniformization gives a stochastic nominal transition and a rigorous row-TV discrepancy; a positive residual witness certifies the continuous process.",
+        "status": "E3",
+        "origin": "Established uniformization with an explicitly proved rational remainder.",
+        "scope": "Finite rational classical generators and rational durations; nominal equality alone is insufficient for physical equality; not generic Lindblad uniformization.",
+        "evidence": [
+          "code/ctmc_adapter.py",
+          "code/physical_protocols.py",
+          "code/access_redteam.py"
+        ]
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "physical_orientation",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "physical_orientation",
+        "claim": "The three-state example is blind under each frozen singleton observation process, but a switched protocol gives a certified distinction with minimum modeled evolution time3/5 in the supplied library.",
+        "status": "E3",
+        "origin": "Model-specific constructive application, extending the prior research package; priority unresolved.",
+        "scope": "Specified triangle, uniform stationary preparation, ideal singleton readings, finite action durations; time optimum excludes unspecified readout durations.",
+        "evidence": [
+          "results/physical_protocols.json",
+          "research/access_redteam.txt"
+        ]
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "continuous_composite_orientation",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "continuous_composite_orientation",
+        "claim": "For |F| in[.3,.7], gamma in[.9,1.1], eta4, t.4, s.2, randomized order gives nominal uniform gap>0.00779828531138. Under record-TV radius0.0009 for each hypothesis,127995 independent records suffice for each error<=.1.",
+        "status": "E3",
+        "origin": "Analytical model-specific robust certificate; does not establish broad historical novelty.",
+        "scope": "Full stated calibration class, retained randomization flag, independent records; sufficient count, not sample minimum or generic current-estimation guarantee.",
+        "evidence": [
+          "results/robust_protocols.json",
+          "results/access_redteam.json",
+          "research/access_redteam.txt"
+        ]
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "quantum_control_example",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "quantum_control_example",
+        "claim": "A qubit symmetry makes all listed base protocols blind; one added known control supplies a three-action perfect ideal distinguishing protocol.",
+        "status": "E3",
+        "origin": "Explicit illustration of established quantum instrument equivalence and control.",
+        "scope": "Listed ideal Clifford operations; one measurement among three actions; no computational advantage, thermodynamic-arrow claim, or energy inference.",
+        "evidence": [
+          "research/quantum_instruments.txt",
+          "results/quantum_instruments.json",
+          "code/access_redteam.py"
+        ]
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "finite_budget_design",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "finite_budget_design",
+        "claim": "Finite-horizon exact Bayesian recursion optimizes the stated nominal classical decision problem. The example has adaptive risk87/250 versus best fixed44/125 at budget3.",
+        "status": "E3",
+        "origin": "Standard finite-horizon decision theory, exact implementation and exhaustive checks.",
+        "scope": "Strictly positive hypothesis priors, nonnegative integer pathwise charge, mandatory finite horizon, optional action grammar; no efficiency or robust-minimax claim.",
+        "evidence": [
+          "research/budgeted_design.txt",
+          "results/budgeted_design.json",
+          "code/access_redteam.py"
+        ]
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "unbounded_threshold_limit",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "unbounded_threshold_limit",
+        "claim": "Unrestricted finite-word search for total variation above a fixed rational interior threshold is undecidable for the general finite rational instrument class under the stated grammar.",
+        "status": "E3",
+        "origin": "Translation of known probabilistic finite-automaton strict-cutpoint undecidability, with an explicit affine terminal-sensor transform.",
+        "scope": "One terminal readout per record, no reset amplification or intermediate informative observations; no claim of CTMC embeddability or prescribed thermodynamic implementation.",
+        "evidence": [
+          "research/access_prior_art.txt",
+          "research/access_redteam.txt",
+          "manuscript/constructive_access.tex"
+        ]
+      }
+    },
+    {
+      "phase": "finite",
+      "original_id": "parameter_fibers",
+      "source_ledger": "finite:CLAIMS.json",
+      "entry": {
+        "id": "parameter_fibers",
+        "claim": "Equivalence and target identifiability in fixed finite rational parameter families reduce to finite polynomial implications and real quantifier elimination.",
+        "status": "E3",
+        "origin": "Standard finite-span and algebraic-identifiability consequence.",
+        "scope": "Effectively specified semialgebraic parameter domains with nonzero denominators; no general implementation of quantifier elimination; matrix exponentials need not be rational in parameters.",
+        "evidence": [
+          "research/finite_access_theory.txt",
+          "research/manuscript_review_math.txt",
+          "code/finite_access_theory_check.py"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-CERT-01",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-CERT-01",
+        "claim": "A nonzero word is minimum in lexicographic additive charge and length if and only if a finite filtered-closure certificate of the stated form exists.",
+        "category": "mathematical theorem",
+        "stage": "E3",
+        "status": "proved and internally reviewed",
+        "assumptions": [
+          "Finite rational linear representation",
+          "Nonnegative rational additive letter charges",
+          "Equal charge for all outcomes of a physical action",
+          "Exact recomputation of word effects and every required filtered expansion"
+        ],
+        "consequence": "Global qualitative cost optimality can be checked without rerunning the search; zero-cost loops and signed cancellation are allowed.",
+        "evidence": [
+          "manuscript/certified_inference.tex",
+          "research/cost_certificate.txt",
+          "code/cost_certificate.py",
+          "code/test_cost_certificate.py",
+          "research/manuscript_review_math.txt",
+          "results/cumulative_audit.json"
+        ],
+        "priority": "Invariant-space equivalence and rank search are established; priority of the precise prescribed-cost filtered-certificate specialization remains unresolved.",
+        "limits": [
+          "Does not optimize finite-error sample expenditure or arbitrary adaptive policies",
+          "Does not validate physical model inputs",
+          "No unrestricted real-number or infinite-dimensional claim"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-CERT-02",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-CERT-02",
+        "claim": "The supplied standard-library rational checker verifies explicit optimality/equivalence identities independently of generation and rejects the tested tampering cases.",
+        "category": "implementation verification",
+        "stage": "E3",
+        "status": "checked on exact fixtures and adversarial cases",
+        "assumptions": [
+          "Expected canonical model or digest is supplied independently",
+          "Valid finite JSON/rational input representation",
+          "The model adapter is separately trusted or checked"
+        ],
+        "evidence": [
+          "code/cost_certificate.py",
+          "code/test_cost_certificate.py",
+          "results/cost_certificate.json",
+          "results/cumulative_audit.json",
+          "fixtures/"
+        ],
+        "priority": "A portable implementation contract; no claim that algebraic proof certificates themselves are new.",
+        "limits": [
+          "Hash binding is not authentication or empirical validation",
+          "Signed matrices need separate physical validity",
+          "Finite tests do not constitute proof-assistant verification"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-STAT-01",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-STAT-01",
+        "claim": "With one fixed valid target-homogeneous candidate, the union of ever-empty survival and ever-incorrect target commitment has probability at most alpha under the stated predictable conditional-envelope test.",
+        "category": "scoped statistical guarantee",
+        "stage": "E3",
+        "status": "proved and internally audited",
+        "assumptions": [
+          "Complete-history conditional prediction intervals",
+          "Predictable interval endpoints, action/statistic choice and stakes",
+          "Nonnegative affine factors and fixed mixtures",
+          "Permanent exclusion at threshold 1/alpha",
+          "A fixed included candidate with the true target"
+        ],
+        "evidence": [
+          "manuscript/certified_inference.tex",
+          "code/model_adequacy.py",
+          "results/model_adequacy.json",
+          "research/model_adequacy.txt",
+          "research/manuscript_review_statistics.txt",
+          "results/cumulative_audit.json"
+        ],
+        "priority": "Established testing-by-betting and intersection-union reasoning, integrated into a candidate-rejection and target-abstention interface.",
+        "limits": [
+          "No guaranteed termination or power",
+          "Does not prove model-family completeness",
+          "Stationary marginals are insufficient",
+          "Protecting every true candidate simultaneously requires summed error budgets",
+          "Not a posterior probability conditional on commitment"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-STAT-02",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-STAT-02",
+        "claim": "In the specified synthetic Bernoulli example, a predictable Beta(1,1) forecast rejects both incorrect supplied candidates at record 120 with exact probability approximately 0.9866236733.",
+        "category": "exact worked-model calculation",
+        "stage": "E3",
+        "status": "exactly calculated and independently cross-checked",
+        "assumptions": [
+          "Actual iid Bernoulli mean 1/2",
+          "Candidate means 1/4 and 3/4",
+          "Per-candidate level 0.05",
+          "Specified predictable strategy and permanent exclusion"
+        ],
+        "evidence": [
+          "results/model_adequacy.json",
+          "code/model_adequacy.py",
+          "results/cumulative_audit.json"
+        ],
+        "priority": "A demonstration of established statistical machinery, not a novel universal detector.",
+        "limits": [
+          "Synthetic data law",
+          "Final-time probability is a lower bound on rejection by that time",
+          "A missing true candidate can permit a temporary incorrect commitment",
+          "No optimal-power claim"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-ENERGY-01",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-ENERGY-01",
+        "claim": "A calibrated stopped compensator cap for a simple unit-jump counting process gives the stated Chernoff count envelope and, with bounded event work and apparatus work, a gross-expenditure tail bound.",
+        "category": "physical resource theorem and exact certificate",
+        "stage": "E3",
+        "status": "proved, exact arithmetic checked, internally reviewed",
+        "assumptions": [
+          "Actual simple nonexplosive unit-jump process",
+          "Predictable intensity",
+          "Bounded stopping time",
+          "Compensator cap or the explicitly stated joint-event variant",
+          "Gross work dominated by bounded per-event work plus separately bounded apparatus expenditure"
+        ],
+        "evidence": [
+          "manuscript/certified_inference.tex",
+          "code/energy_tail.py",
+          "results/energy_tail.json",
+          "research/energy_tail.txt",
+          "research/manuscript_review_math.txt"
+        ],
+        "priority": "Established exponential counting-process martingale and Chernoff inequality, with exact rational certificates and physical accounting interface.",
+        "limits": [
+          "Mean energy is not a deterministic cap",
+          "Signed net work does not equal gross supplied energy",
+          "Batch jumps need a different compensator",
+          "Native-channel illustration omits separately identified apparatus terms"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-COMPOSE-01",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-COMPOSE-01",
+        "claim": "Under a joint calibration event of probability at least 1-delta, the union of unsafe target/survivor output and the stated stopped gross-energy overrun has probability at most alpha+beta+delta.",
+        "category": "composed operational guarantee",
+        "stage": "E3",
+        "status": "proved and accepted in separate internal reviews",
+        "assumptions": [
+          "A fixed correctly targeted candidate",
+          "On the joint event, full conditional envelopes, terminal compensator cap, and gross-work domination hold",
+          "The actual count process globally satisfies the stated martingale premises",
+          "Bounded stopping time",
+          "Energy and inference budgets alpha,beta are computed for the executed exposure"
+        ],
+        "evidence": [
+          "manuscript/certified_inference.tex",
+          "research/manuscript_review_math.txt",
+          "research/manuscript_review_statistics.txt",
+          "research/manuscript_review_physical.txt",
+          "results/energy_tail.json"
+        ],
+        "priority": "An explicit integration of established supermartingale and union-bound ingredients; no universal energy-information law claimed.",
+        "limits": [
+          "No independence between energy and inference is needed",
+          "The deterministic certificate optimum belongs to its fixed supplied protocol, not every later adaptive policy",
+          "Physical calibration is an input requirement, not inferred from passing the code"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-PHYS-01",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-PHYS-01",
+        "claim": "The calibrated randomized-order triangle design has sufficient record counts 133852 or 140399 for per-orientation error at most 0.10 under the respective stated calibration and dependence contracts.",
+        "category": "conditional physical implementation contract",
+        "stage": "E3",
+        "status": "mathematical feasibility certified; engineering premises unmeasured",
+        "assumptions": [
+          "Specified symmetric randomized-order endpoint score",
+          "Parameter box |F| in [0.3,0.7], gamma in [0.9,1.1], eta=4, durations 0.4 and 0.2",
+          "Each complete-record TV error at most 0.0009",
+          "Joint calibration failure at most 0.01",
+          "Independent records for 133852; whole-dataset product-law TV at most 0.01 for 140399"
+        ],
+        "evidence": [
+          "review_packet/physical_protocol.txt",
+          "code/physical_contract.py",
+          "results/physical_contract.json",
+          "research/manuscript_review_physical.txt",
+          "results/cumulative_audit.json"
+        ],
+        "priority": "Application and calibration hardening of the prior finite-model result.",
+        "limits": [
+          "Counts are sufficient rather than minimal",
+          "No apparatus was measured",
+          "A one-record dependence bound cannot replace the whole-dataset bound",
+          "Additional detector-memory, waveform and embedding errors require allocated budgets"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-PHYS-02",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-PHYS-02",
+        "claim": "The revised native acquisition-only gross-work caps for the two calibration-aware designs are 262549.215744 and 275340.163926 kBT, respectively, with count-tail allowance 0.01 under the declared hazard/work bounds.",
+        "category": "conditional resource calculation",
+        "stage": "E3",
+        "status": "outward-rounded exact certificate and independent high-precision cross-check",
+        "assumptions": [
+          "M=133852 or 140399 records",
+          "Native energized acquisition duration 0.6 per record",
+          "Consuming-event hazard at most 1.87",
+          "Gross work per event at most kBT log(17/3)",
+          "Count thresholds 151360 and 158734"
+        ],
+        "evidence": [
+          "results/energy_tail.json",
+          "code/energy_tail.py",
+          "research/manuscript_review_math.txt",
+          "research/manuscript_review_physical.txt"
+        ],
+        "priority": "New calculations within established concentration theory.",
+        "limits": [
+          "Not a total apparatus budget",
+          "Preparation, gaps, sensing, switching, support, reset, logging and calibration remain to be added",
+          "These hazard and event-work bounds require independent physical validation"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "INHERITED-GATE-01",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "INHERITED-GATE-01",
+        "claim": "For the stated finite autonomous reversible kinetic gate and balanced single-edge channel, binary three-time asymmetry has leading coefficient p q J_ij D_R(u)/6 multiplying t s(s^2-t^2).",
+        "category": "candidate physical-model theorem inherited from prior release",
+        "stage": "E3",
+        "status": "proved and internally verified in companion; scope retained in hardening",
+        "assumptions": [
+          "Finite irreducible Q with positive stationary pi",
+          "Finite reversible R with positive stationary nu",
+          "Product stationary preparation",
+          "Single-edge balanced channel with p,q>0",
+          "Nonnegative gate profile",
+          "Singleton system readout"
+        ],
+        "evidence": [
+          "../controller_extension/manuscript/equilibrium_gates.tex",
+          "../controller_extension/code/equilibrium_gate.py",
+          "../controller_extension/code/current_estimator.py",
+          "../controller_extension/code/controller_redteam.py",
+          "research/priority_review.txt"
+        ],
+        "priority": "Exact coefficient remains a priority-unresolved candidate; triple lag asymmetry and equilibrium kinetic information are established prior art.",
+        "limits": [
+          "General-network condition is sufficient, not necessary",
+          "Remainder is for fixed finite generators and short lags",
+          "No empirical validation",
+          "A kinetic Dirichlet form is not energy in joules"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "INHERITED-GATE-02",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "INHERITED-GATE-02",
+        "claim": "For the specified uniform driven triangle and reversible gate, the complete binary path distinguishes F from -F if and only if F is nonzero and D_R(u)>0.",
+        "category": "candidate physical-model activation theorem inherited from prior release",
+        "stage": "E3",
+        "status": "proved and internally verified in companion",
+        "assumptions": [
+          "The companion's exact Q_F and balanced single-edge L",
+          "|F|<1",
+          "Stationary product preparation",
+          "Finite reversible controller with positive stationary law",
+          "Singleton observation"
+        ],
+        "evidence": [
+          "../controller_extension/manuscript/equilibrium_gates.tex",
+          "../controller_extension/code/equilibrium_gate.py",
+          "../controller_extension/code/controller_redteam.py",
+          "research/priority_review.txt"
+        ],
+        "priority": "Historical originality of this exact criterion remains unresolved.",
+        "limits": [
+          "Not a converse for arbitrary networks",
+          "Orientation blindness is not invisibility of every parameter or every sign of nonequilibrium",
+          "Zero gate-channel steady entropy does not imply a free sensor or an equilibrium source of current"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "INHERITED-GATE-03",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "INHERITED-GATE-03",
+        "claim": "The companion's local complete-path information orders are Theta(F^2 eta^4) with the gate hidden and Theta(F^2 eta^2) with the gate retained.",
+        "category": "scoped asymptotic physical-model theorem inherited from prior release",
+        "stage": "E3",
+        "status": "proved and internally reviewed in the companion; not newly re-proved by the hardening audit",
+        "assumptions": [
+          "Specified triangle",
+          "Fixed irreducible reversible gate and nonconstant profile",
+          "Fixed observation duration containing a suitable short unequal-lag triple",
+          "Positive-rate neighborhood of (F,eta)=(0,0)",
+          "Specified continuous path observations"
+        ],
+        "evidence": [
+          "../controller_extension/manuscript/equilibrium_gates.tex",
+          "../controller_extension/research/criterion_prior_art.txt",
+          "results/cumulative_audit.json"
+        ],
+        "priority": "Exact exponent pair remains priority-unresolved; score projection and local quadratic divergence are established.",
+        "limits": [
+          "Constants are not uniform in arbitrarily fast or slow controllers or growing observation duration",
+          "Finite detector bandwidth needs a separate observation model",
+          "No hardware information-rate measurement"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-BENCH-01",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-BENCH-01",
+        "claim": "Seventeen internally constructed exact classical and quantum challenge cases produce correct minimum-cost or equivalence results with separately verified portable certificates.",
+        "category": "reproducible computational benchmark",
+        "stage": "E3",
+        "status": "passed on the recorded finite test set",
+        "assumptions": [
+          "Declared exact synthetic instruments",
+          "Nonnegative additive action charges",
+          "Classical normalization or explicit quantum Kraus completeness checked",
+          "Recorded seeds, dimensions and coefficient sizes"
+        ],
+        "evidence": [
+          "code/transfer_benchmark.py",
+          "results/transfer_benchmark.json",
+          "research/transfer_benchmark.txt",
+          "fixtures/",
+          "results/cumulative_audit.json"
+        ],
+        "priority": "A reproducible comparative test set, not proof of new equivalence theory or independent empirical transfer.",
+        "limits": [
+          "No external empirical cases",
+          "Declared charges are not measured joules",
+          "Single-run timings do not establish a statistical speedup",
+          "Small redundant quantum examples do not establish many-body scalability or quantum advantage"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-BENCH-02",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-BENCH-02",
+        "claim": "The competent exact-state-caching baseline removes the apparent long-chain advantage over naive word enumeration; finite-span closure still terminates on the supplied equivalent controls.",
+        "category": "negative and comparative computational result",
+        "stage": "E3",
+        "status": "retained as a material limitation",
+        "assumptions": [
+          "Same exact minimum-charge objective",
+          "Matched enumeration caps within each case",
+          "Reported baseline implementation"
+        ],
+        "evidence": [
+          "research/transfer_benchmark.txt",
+          "results/transfer_benchmark.json",
+          "code/transfer_benchmark.py"
+        ],
+        "priority": "Established value of linear closure; no claimed superiority over existing linear-equivalence algorithms.",
+        "limits": [
+          "The 12-stage conversion case needs only 47 cached prefixes",
+          "A reached runtime cap means unresolved, not equivalent",
+          "No general practical performance dominance follows"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-BENCH-03",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-BENCH-03",
+        "claim": "At the same declared charge 24, the synthetic weak-screen and strong-diagnostic protocols have exact iid Bayes errors approximately 0.4613734056 and exactly 521/15625, respectively.",
+        "category": "exact matched-budget counterexample",
+        "stage": "E3",
+        "status": "computed and independently checked",
+        "assumptions": [
+          "Known binary hypotheses with equal priors",
+          "Weak output means 1/2 plus or minus 1/100, charge 1",
+          "Strong output means 1/2 plus or minus 3/10, charge 3",
+          "Independent newly prepared records",
+          "24 weak or 8 strong records"
+        ],
+        "evidence": [
+          "results/transfer_benchmark.json",
+          "code/transfer_benchmark.py",
+          "results/cumulative_audit.json"
+        ],
+        "priority": "A concrete counterexample illustrating distinct objectives, not a new general decision-theory principle.",
+        "limits": [
+          "Not a global optimum over adaptive policies",
+          "No hardware expenditure claim",
+          "Does not refute correctness of minimum nonzero-witness optimization"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "HARD-AUDIT-01",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "HARD-AUDIT-01",
+        "claim": "The cumulative read-only audit matched 280 phase-local manifest paths and inventoried 53 historical claim entries while preserving the prior release archives.",
+        "category": "provenance and scope audit",
+        "stage": "E3",
+        "status": "passed recorded hash and archive-integrity checks",
+        "assumptions": [
+          "Recorded historical manifests and available archives",
+          "Final historical outputs selected according to their recorded provenance"
+        ],
+        "evidence": [
+          "code/cumulative_audit.py",
+          "results/cumulative_audit.json",
+          "research/cumulative_audit.txt"
+        ],
+        "priority": "An audit result, not a scientific-discovery count.",
+        "limits": [
+          "Claim inventory includes rejected and unresolved statements",
+          "Historical calculations were not all reexecuted",
+          "Hashes establish byte identity, not theorem truth or external independence"
+        ]
+      }
+    },
+    {
+      "phase": "hardening",
+      "original_id": "OPEN-FOUR-GATES",
+      "source_ledger": "hardening:CLAIMS.json",
+      "entry": {
+        "id": "OPEN-FOUR-GATES",
+        "claim": "Concrete specialist-review, physical-calibration, matched-resource and independent-transfer packets are ready for evaluation; those external gates have not yet been passed.",
+        "category": "research handoff and open dependencies",
+        "stage": "E0",
+        "status": "review and replication materials prepared; external events pending",
+        "evidence": [
+          "review_packet/overview.txt",
+          "review_packet/expert_questions.txt",
+          "review_packet/physical_protocol.txt",
+          "research/priority_review.txt",
+          "research/physical_replication.txt"
+        ],
+        "requirements": [
+          "Independent specialist review of correctness and exact prior overlap",
+          "Actual apparatus calibration and blinded physical tests",
+          "Total-resource useful advantage over strong matched baselines",
+          "Independent implementation and physical transfer"
+        ],
+        "unestablished": [
+          "A new physical law",
+          "Universal hidden-mechanism recovery",
+          "Historical priority of all proposed specializations",
+          "External adoption or consensus",
+          "Universal data cap",
+          "P versus NP consequences",
+          "Guaranteed recursive self-improvement",
+          "Universal total-energy optimum"
+        ]
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A01",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A01",
+        "claim": "For a known linear response F theta satisfying both transcript-factorization and response-identifiability assumptions on the full positive orthant, b^T theta is identifiable exactly when b lies in row(F).",
+        "status": "proved_model_statement",
+        "positioning": "Established linear identifiability geometry; operational formulation and worked certificates, not a new universal identification principle.",
+        "evidence": [
+          "research/intervention_criterion.txt",
+          "results/intervention_criterion.json",
+          "research/manuscript_review_identification.txt"
+        ],
+        "unresolved": "Physical experiments must justify both access assumptions and calibrate F. A generator is not automatically an observable response."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A02",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A02",
+        "claim": "Under the full positive orthant and a full Cartesian deterministic error box, target minimax absolute error equals min_{F^T w=b} sum epsilon_i |w_i|; exact primal/dual pairs certify examples, including error 1/75 with redundant interventions.",
+        "status": "proved_model_statement_with_exact_certificates",
+        "positioning": "Deterministic optimal recovery and linear programming; no historical priority claim.",
+        "evidence": [
+          "research/intervention_criterion.txt",
+          "results/intervention_criterion.json",
+          "results/cross_domain_review.json"
+        ],
+        "unresolved": "Bounded parameter classes, structured error sets, unknown intervention response and statistical losses require their own analysis."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A03",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A03",
+        "claim": "Two parallel reaction-channel decompositions can have identical complete occupancy laws but different channel current and entropy production; adding the same state-level gate preserves this ambiguity.",
+        "status": "exact_counterexample",
+        "positioning": "A concrete thermodynamic coarse-graining obstruction; not a new general impossibility principle.",
+        "evidence": [
+          "research/metabolic_flux.txt",
+          "results/metabolic_flux.json",
+          "results/cross_domain_review.json"
+        ],
+        "unresolved": "Additional thermodynamic knowledge or channel-selective access can remove ambiguity and must be included when available."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A04",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A04",
+        "claim": "A known selective scaling of both directions of one reaction channel recovers all four native rates in the two-channel model; the stated calibration box gives native current [193/204,207/196] and a conservative entropy interval [1.946079453,2.483272369].",
+        "status": "constructive_exact_model_result_with_conditional_error_bounds",
+        "positioning": "Worked selective-response inference with calibrated assumptions; not whole-cell or unidirectional metabolic flux recovery.",
+        "evidence": [
+          "research/metabolic_flux.txt",
+          "results/metabolic_flux.json",
+          "research/manuscript_review_metabolic.txt",
+          "results/cross_domain_review.json"
+        ],
+        "unresolved": "Actual selective perturbation, rate/time/concentration calibration, reaction-network validity, reservoir accounting and independent biological ground truth have not been demonstrated."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A05",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A05",
+        "claim": "For the specified coherent-versus-stochastic qubit alternatives and calibration contract, depth four needs 240 unknown-channel calls under the chosen sufficient error bound versus 590 at depth one; depth seven maximizes nominal contrast but needs 308 calls.",
+        "status": "exact_model_design_comparison",
+        "positioning": "Finite-menu targeted diagnosis; coherence estimation and scalable partial characterization have established prior methods.",
+        "evidence": [
+          "research/quantum_scaling.txt",
+          "results/quantum_scaling.json",
+          "research/manuscript_review_quantum.txt",
+          "results/cross_domain_review.json"
+        ],
+        "unresolved": "This is neither a globally optimal statistical design nor a measured advantage over strong hardware baselines. SPAM, noise memory and drift need physical validation."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A06",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A06",
+        "claim": "Finite witness dimension does not bound reliable discrimination cost: a qubit replacer-channel pair with a short nonzero witness still needs at least 83887 calls for error at most 0.1 at the stated small separation. Unrestricted channel dimension grows exponentially with qubit count.",
+        "status": "proved_scope_obstruction_with_exact_example",
+        "positioning": "Information-theoretic and dimension limits prevent interpreting a short witness as constant-cost full quantum characterization.",
+        "evidence": [
+          "research/quantum_scaling.txt",
+          "results/quantum_scaling.json"
+        ],
+        "unresolved": "Scalable targeted monitoring needs a justified fixed local dictionary, separation and preparation assumptions. Arbitrary correlated faults are not covered."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A07",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A07",
+        "claim": "In the four-hypothesis, sixteen-action Ramsey model, adaptive and best nonadaptive sign risk coincide at budget 12. At maximum budget 15, adaptive risk 0.157898013949952 beats all 1500 allowed nonadaptive multisets by exactly 6/3125.",
+        "status": "exact_finite_bayes_design_comparison",
+        "positioning": "A worked application of established Bayesian adaptive sensing; not the first adaptive NV protocol.",
+        "evidence": [
+          "research/nv_sensing.txt",
+          "results/nv_sensing.json",
+          "research/manuscript_review_sensing.txt",
+          "results/cross_domain_review.json"
+        ],
+        "unresolved": "The comparison fixes maximum time, not expected time or energy. Fixed four-point nuisance assumptions, independent fresh preparations, optical/microwave calibration and actual biological transfer remain unvalidated."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A08",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A08",
+        "claim": "A hidden independent three-state fueled ring leaves every permitted visible transcript unchanged while its stationary entropy rate is k_B r log(1+r); an isothermal realization gives net power k_B T kappa r log(1+r), unbounded across the family without rate/fuel constraints.",
+        "status": "exact_access_equivalence_and_thermodynamic_counterexample",
+        "positioning": "Concrete restricted-access obstruction consistent with established coarse-graining and thermodynamic inference; not a new law or a hardware measurement.",
+        "evidence": [
+          "research/ai_energy.txt",
+          "results/energy_identifiability.json",
+          "research/manuscript_review_energy_sources.txt",
+          "results/cross_domain_review.json"
+        ],
+        "unresolved": "Total AI energy savings require added power/fuel access, a validated causal control model and matched-performance measured comparisons including overhead."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A09",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A09",
+        "claim": "A four-state stationary CTMC with a two-by-two binary partition has nonzero observed reversal contrast, although singleton readouts remain reversible; four states are minimal for this deterministic binary non-singleton counterexample.",
+        "status": "exact_counterexample_with_certified_finite_contrast",
+        "positioning": "Corrects an overextension of the singleton-state renewal obstruction; a scalar or aggregate observation need not be reversal-blind.",
+        "evidence": [
+          "research/transfer_obstructions.txt",
+          "results/transfer_obstructions.json"
+        ],
+        "unresolved": "Applicability to a physical concentration trace depends on its actual observation map and dynamics."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A10",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A10",
+        "claim": "The eight supplied references contain two duplicate pairs and do not establish the four proposed application breakthroughs; closest prior sources already cover classical uniformization, thermodynamic inference, reversible computation, coherence diagnosis and adaptive sensing.",
+        "status": "documented_source_entailment_audit",
+        "positioning": "Evidence and attribution check; literature searching does not establish historical priority or exhaust all relevant work.",
+        "evidence": [
+          "research/input_scope.txt",
+          "research/citation_audit.txt",
+          "research/ai_energy.txt",
+          "research/metabolic_flux.txt",
+          "research/quantum_scaling.txt",
+          "research/nv_sensing.txt"
+        ],
+        "unresolved": "External specialist review and a fuller priority assessment remain outstanding."
+      }
+    },
+    {
+      "phase": "applications",
+      "original_id": "A11",
+      "source_ledger": "applications:CLAIMS.json",
+      "entry": {
+        "id": "A11",
+        "claim": "A separate internal implementation cross-checked all five producing branches without importing them, using exact witnesses, alternate algebra, direct density matrices and complete policy replay; its current report is PASS.",
+        "status": "independent_internal_computational_review_completed",
+        "positioning": "Independent within this local agent workflow; not external peer review, independent laboratory replication or a guarantee against all mistakes.",
+        "evidence": [
+          "research/cross_domain_review.txt",
+          "results/cross_domain_review.json"
+        ],
+        "unresolved": "Release-wide final verification is recorded separately by the release owner. External correctness review, empirical realization and independent transfer are still absent."
+      }
+    }
+  ],
+  "fresh_sources": [
+    {
+      "key": "p_riechers",
+      "url": "https://arxiv.org/abs/2509.03004v1",
+      "inspection": "Primary HTML sections II-III and arXiv metadata; no journal entry.",
+      "relation": "Shared classical/quantum linear representations and identifiability."
+    },
+    {
+      "key": "p_maier",
+      "url": "https://doi.org/10.1007/s10955-024-03315-7",
+      "inspection": "Primary preprint sections 2-4 and publisher metadata.",
+      "relation": "Partial transition observations and periodic driving; distinguish proved Eq.13 and conjectured Eq.15."
+    },
+    {
+      "key": "p_dieball",
+      "url": "https://doi.org/10.1063/5.0251089",
+      "inspection": "Primary preprint introduction and observation/reversal organization.",
+      "relation": "Physical reversal and detector assumptions must be explicit."
+    },
+    {
+      "key": "p_stace",
+      "url": "https://doi.org/10.1103/PhysRevApplied.21.014012",
+      "inspection": "Publisher abstract and metadata only.",
+      "relation": "Existing experimentally demonstrated Bayesian quantum system identification."
+    }
+  ],
+  "external_validation_status": {
+    "external_specialist_review": false,
+    "physical_calibration_and_measurement": false,
+    "matched_resource_hardware_advantage": false,
+    "independent_physical_replication": false,
+    "new_physical_law_established": false,
+    "established_community_field": false
+  }
+}

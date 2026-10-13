@@ -1,0 +1,17 @@
+{
+  "chapter_pages_in_standalone_with_bibliography": 6,
+  "citation_keys_used": 20,
+  "citation_keys_provided": 20,
+  "latex_warnings": [],
+  "curated_results": 20,
+  "historical_claim_entries": 68,
+  "evidence_files": 68,
+  "archive_byte_checks": true,
+  "owned_file_hashes": {
+    "manuscript/chapters/research_map.tex": "73ee921a404aeee414d76855815344b4b6042f5b598fc86cdd6309246698dc14",
+    "manuscript/chapters/provenance_bibitems.tex": "e1d8e7e1c0d1ca8a149f49bfafab461cb11e40692e0978e90dbfcdaf900f9b24",
+    "research/positioning.txt": "d35b7d6056b03a8d4ba8ce49f27f901215d1c05d9259d44d1ba3db27c51b4c1a",
+    "research/provenance.json": "ef420a1d30004697b4064bd62ec5f26d720a5467ae6c57f10ae0057c135e00c1",
+    "research/bibliography_sources.txt": "5bc3273d9304aa7e291118acfadf9a84162fb3cfdd2de54d6611b2ecbe879b8e"
+  }
+}

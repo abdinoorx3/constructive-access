@@ -1,0 +1,11 @@
+holdout: curvature__driven: negative=0/200, revival=0/200, full_cone=1/200
+holdout: curvature__equilibrium: negative=0/200, revival=0/200, full_cone=0/200
+holdout: curvature__high_readout_noise: negative=0/200, revival=0/200, full_cone=0/200
+holdout: curvature__independent_clock_jitter: negative=0/200, revival=0/200, full_cone=0/200
+holdout: curvature__detector_memory: negative=0/200, revival=0/200, full_cone=1/200
+holdout: revival__driven: negative=0/200, revival=200/200, full_cone=200/200
+holdout: revival__equilibrium: negative=0/200, revival=0/200, full_cone=0/200
+holdout: revival__high_readout_noise: negative=1/200, revival=0/200, full_cone=0/200
+holdout: revival__independent_clock_jitter: negative=2/200, revival=200/200, full_cone=0/200
+holdout: revival__detector_memory: negative=0/200, revival=200/200, full_cone=200/200
+holdout: revival__prepared_equilibrium: negative=200/200, revival=0/200, full_cone=0/200

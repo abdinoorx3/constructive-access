@@ -1,0 +1,86 @@
+[
+  {
+    "original_file": "calibrated/code/analog.py",
+    "original_sha256": "952c4bd0528777502fe00accb31e2d4dd40b65d3367ab92ff0c1fb333846b518",
+    "packaged_file": "src/constructive_access/calibrated/analog.py",
+    "packaged_sha256": "952c4bd0528777502fe00accb31e2d4dd40b65d3367ab92ff0c1fb333846b518",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/analog_benchmark.py",
+    "original_sha256": "9fbb5fe20390053c203272f3c42d65f0f2c8ebe556a9e1fc449cc15f9e1396f8",
+    "packaged_file": "src/constructive_access/calibrated/analog_benchmark.py",
+    "packaged_sha256": "9fbb5fe20390053c203272f3c42d65f0f2c8ebe556a9e1fc449cc15f9e1396f8",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/calibrated_benchmark.py",
+    "original_sha256": "5994721d0539cd7c4977cab7e12f320237ba0d85452ad03684f2feebcd154887",
+    "packaged_file": "src/constructive_access/calibrated/calibrated_benchmark.py",
+    "packaged_sha256": "5994721d0539cd7c4977cab7e12f320237ba0d85452ad03684f2feebcd154887",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/calibration.py",
+    "original_sha256": "7ac7e48da2253a7331c49b9bbfd6b37de7928b32d4bf088437fde86dc58bddb3",
+    "packaged_file": "src/constructive_access/calibrated/calibration.py",
+    "packaged_sha256": "7ac7e48da2253a7331c49b9bbfd6b37de7928b32d4bf088437fde86dc58bddb3",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/dependence.py",
+    "original_sha256": "e186006d0819ed6ecbfa8ce8d649adfc603d14b0b27ff8a36e97d16aefaa3b91",
+    "packaged_file": "src/constructive_access/calibrated/dependence.py",
+    "packaged_sha256": "e186006d0819ed6ecbfa8ce8d649adfc603d14b0b27ff8a36e97d16aefaa3b91",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/dissipation_limits.py",
+    "original_sha256": "94d5cc1acbaa6cf224740246df2e2f7e4adbe2b2865fc8511da76c84686b1d61",
+    "packaged_file": "src/constructive_access/calibrated/dissipation_limits.py",
+    "packaged_sha256": "94d5cc1acbaa6cf224740246df2e2f7e4adbe2b2865fc8511da76c84686b1d61",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/empirical_analysis.py",
+    "original_sha256": "fede2df8201c5e70365fcf70bd9b06126120714b78a44479967dfea8342a80b1",
+    "packaged_file": "src/constructive_access/calibrated/empirical_analysis.py",
+    "packaged_sha256": "fede2df8201c5e70365fcf70bd9b06126120714b78a44479967dfea8342a80b1",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/empirical_loader.py",
+    "original_sha256": "436c03359a253facb20b290092005902cee49288260430b1702f2defb96fe997",
+    "packaged_file": "src/constructive_access/calibrated/empirical_loader.py",
+    "packaged_sha256": "436c03359a253facb20b290092005902cee49288260430b1702f2defb96fe997",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/joint_calibration.py",
+    "original_sha256": "144dd6975360da2b41d4f20119bc142ef1a79a992c5043d1a1d31616d95bca2d",
+    "packaged_file": "src/constructive_access/calibrated/joint_calibration.py",
+    "packaged_sha256": "144dd6975360da2b41d4f20119bc142ef1a79a992c5043d1a1d31616d95bca2d",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/nonlinear.py",
+    "original_sha256": "cbd22567f54fe82331c63fb5cbdae8bed039a63c0d07410abf97f5dd8a4b69ba",
+    "packaged_file": "src/constructive_access/calibrated/nonlinear.py",
+    "packaged_sha256": "cbd22567f54fe82331c63fb5cbdae8bed039a63c0d07410abf97f5dd8a4b69ba",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/sequential.py",
+    "original_sha256": "72459ac2bd2a7c0911ae74550f72620fd892508a33cafa5db99fd7d07e1fa5dd",
+    "packaged_file": "src/constructive_access/calibrated/sequential.py",
+    "packaged_sha256": "72459ac2bd2a7c0911ae74550f72620fd892508a33cafa5db99fd7d07e1fa5dd",
+    "changes": []
+  },
+  {
+    "original_file": "calibrated/code/sequential_benchmark.py",
+    "original_sha256": "ee156ae9113365830eed59f5d775a9d0e9edead8ae05687d6843e8b70bdb5aad",
+    "packaged_file": "src/constructive_access/calibrated/sequential_benchmark.py",
+    "packaged_sha256": "ee156ae9113365830eed59f5d775a9d0e9edead8ae05687d6843e8b70bdb5aad",
+    "changes": []
+  }
+]

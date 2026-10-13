@@ -1,0 +1,631 @@
+{
+  "analysis": "same simultaneous confidence boxes and same records/exposure across all three methods",
+  "cases": [
+    {
+      "case": "curvature__driven",
+      "contract": "within",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.7169821595267282,
+        0.6453079210325335,
+        0.5514453727600208
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.0,
+      "mean_same_probabilities": [
+        0.717069,
+        0.645499,
+        0.551096
+      ],
+      "mean_total_observation_exposure": 45000.0,
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 3,
+      "simulated_system_stationary_entropy_rate": 56.918913197525825
+    },
+    {
+      "case": "curvature__equilibrium",
+      "contract": "within",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.7404901891134725,
+        0.731342100117327,
+        0.7225419984240765
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.0,
+      "mean_same_probabilities": [
+        0.740086,
+        0.73122,
+        0.722476
+      ],
+      "mean_total_observation_exposure": 45000.0,
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 3,
+      "simulated_system_stationary_entropy_rate": 0.0
+    },
+    {
+      "case": "curvature__high_readout_noise",
+      "contract": "within",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.5086792863810691,
+        0.5058123168413013,
+        0.5020578149104008
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.0,
+      "mean_same_probabilities": [
+        0.50875,
+        0.50563,
+        0.501622
+      ],
+      "mean_total_observation_exposure": 45000.0,
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 3,
+      "simulated_system_stationary_entropy_rate": 56.918913197525825
+    },
+    {
+      "case": "curvature__independent_clock_jitter",
+      "contract": "within_random_scale_clock",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.7163943545492951,
+        0.6439648112344419,
+        0.551080610009554
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 19,
+        "monte_carlo_95_interval": [
+          0.7512672372279722,
+          0.9987349105020502
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 0.95
+      },
+      "mean_full_cone_rate_lower": 0.0,
+      "mean_same_probabilities": [
+        0.715303,
+        0.643946,
+        0.552046
+      ],
+      "mean_total_observation_exposure": 44999.53507875818,
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 3,
+      "simulated_system_stationary_entropy_rate": 56.918913197525825
+    },
+    {
+      "case": "curvature__detector_memory",
+      "contract": "outside_detector_memory",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.7169821595,
+        0.64530792105,
+        0.55144537275
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.0,
+      "mean_same_probabilities": [
+        0.717026,
+        0.644838,
+        0.551142
+      ],
+      "mean_total_observation_exposure": 45000.0,
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 3,
+      "simulated_system_stationary_entropy_rate": 0.0
+    },
+    {
+      "case": "revival__driven",
+      "contract": "within",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.5119894663900273,
+        0.7360448459591435
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.8315665290169146,
+            1.0
+          ],
+          "rate": 1.0,
+          "rejections": 20
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.8315665290169146,
+            1.0
+          ],
+          "rate": 1.0,
+          "rejections": 20
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.0384806330222139,
+      "mean_same_probabilities": [
+        0.5112,
+        0.73921
+      ],
+      "mean_total_observation_exposure": 18500.0,
+      "records_per_dataset": 10000,
+      "records_per_setting": 5000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 2,
+      "simulated_system_stationary_entropy_rate": 56.918913197525825
+    },
+    {
+      "case": "revival__equilibrium",
+      "contract": "within",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.7697120375154463,
+        0.7363445216268489
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.0,
+      "mean_same_probabilities": [
+        0.7695,
+        0.73587
+      ],
+      "mean_total_observation_exposure": 18500.0,
+      "records_per_dataset": 10000,
+      "records_per_setting": 5000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 2,
+      "simulated_system_stationary_entropy_rate": 0.0
+    },
+    {
+      "case": "revival__high_readout_noise",
+      "contract": "within",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.5004795786556011,
+        0.5094417938383657
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.0,
+      "mean_same_probabilities": [
+        0.50205,
+        0.51155
+      ],
+      "mean_total_observation_exposure": 18500.0,
+      "records_per_dataset": 10000,
+      "records_per_setting": 5000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 2,
+      "simulated_system_stationary_entropy_rate": 56.918913197525825
+    },
+    {
+      "case": "revival__independent_clock_jitter",
+      "contract": "within_random_scale_clock",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.4951535226966327,
+        0.6197006025666468
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0012650894979498038,
+            0.24873276277202777
+          ],
+          "rate": 0.05,
+          "rejections": 1
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.8315665290169146,
+            1.0
+          ],
+          "rate": 1.0,
+          "rejections": 20
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.0,
+      "mean_same_probabilities": [
+        0.49401000000000006,
+        0.6187199999999999
+      ],
+      "mean_total_observation_exposure": 18502.01182680626,
+      "records_per_dataset": 10000,
+      "records_per_setting": 5000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 2,
+      "simulated_system_stationary_entropy_rate": 56.918913197525825
+    },
+    {
+      "case": "revival__detector_memory",
+      "contract": "outside_detector_memory",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.512,
+        0.736
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.8315665290169146,
+            1.0
+          ],
+          "rate": 1.0,
+          "rejections": 20
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.8315665290169146,
+            1.0
+          ],
+          "rate": 1.0,
+          "rejections": 20
+        }
+      },
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.035986559852316816,
+      "mean_same_probabilities": [
+        0.51148,
+        0.73501
+      ],
+      "mean_total_observation_exposure": 18500.0,
+      "records_per_dataset": 10000,
+      "records_per_setting": 5000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 2,
+      "simulated_system_stationary_entropy_rate": 0.0
+    },
+    {
+      "case": "revival__prepared_equilibrium",
+      "contract": "outside_stationarity; valid preparation-resource interpretation",
+      "datasets": 20,
+      "independent_expm_oracle_probabilities": [
+        0.10000010128165725,
+        0.10000000068243044
+      ],
+      "inference": {
+        "full_cone": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        },
+        "negative": {
+          "monte_carlo_95_interval": [
+            0.8315665290169146,
+            1.0
+          ],
+          "rate": 1.0,
+          "rejections": 20
+        },
+        "revival": {
+          "monte_carlo_95_interval": [
+            0.0,
+            0.1684334709830853
+          ],
+          "rate": 0.0,
+          "rejections": 0
+        }
+      },
+      "initial_preparation_divergence": 2.302585092994046,
+      "joint_box_coverage": {
+        "covered_datasets": 20,
+        "monte_carlo_95_interval": [
+          0.8315665290169146,
+          1.0
+        ],
+        "oracle_status": "numerical matrix exponential; jitter quadrature independently converged",
+        "rate": 1.0
+      },
+      "mean_full_cone_rate_lower": 0.0,
+      "mean_same_probabilities": [
+        0.09974,
+        0.10099
+      ],
+      "mean_total_observation_exposure": 18500.0,
+      "records_per_dataset": 10000,
+      "records_per_setting": 5000,
+      "reset_and_detector_energy": "not included or empirically calibrated",
+      "settings": 2,
+      "simulated_system_stationary_entropy_rate": 0.0
+    }
+  ],
+  "contract_sha256": "5340939a64336a09f5e429e4d3270c7a1b22843418a498559efb4b93b36599e3",
+  "counts_archive": "thermodynamic_lab_counts_pilot.npz",
+  "counts_archive_sha256": "6074bbe6c353dc52148378aab4d4f8476fcaa2ac7f302e7791078ad2807dfa8e",
+  "datasets_per_case": 20,
+  "evidence": "independent stochastic trajectories and noisy simulated readouts; not laboratory data",
+  "outside_contract_cases_retained": true,
+  "period": "pilot",
+  "raw_dataset_retained": false,
+  "sampling": "independent physical trajectory pairs; exact Poisson ring counts or direct two-state Gillespie",
+  "seed": 94170011
+}

@@ -1,0 +1,157 @@
+\chapter{A driven-qubit boundary for the classical pulse law}
+\label{sec:quantum-pulse}
+
+The classical sign restriction concerns a stationary preparation, a calibrated
+change to one physical edge channel, and observation of a single endpoint
+state. A driven qubit violates this restriction while retaining positive jump
+rates. The comparison is conditional on that physical contract. A coarse
+classical detector or a control that changes additional channels can also
+produce sign reversals; the result is not a device-independent test of
+quantumness.
+
+The symbol $\gamma$ in this chapter denotes positive damping; it is distinct
+from the signed forcing coefficient called $\gamma$ in the classical proof.
+
+Write $\mathcal D[L](\rho)=L\rho L^\dagger-
+\{L^\dagger L,\rho\}/2$, use $\hbar=1$, and let
+$\sigma_+=|1\rangle\langle0|$, $\sigma_-=|0\rangle\langle1|$.
+Consider the native generator
+\begin{equation}
+ \mathcal L\rho=-i[gX,\rho]+
+ \sum_e\bigl(a_e\mathcal D[\sigma_+]+b_e\mathcal D[\sigma_-]\bigr)\rho,
+ \qquad \sum_ea_e=\sum_eb_e=K>0.
+\end{equation}
+Take $g\geq0$ without loss of generality: conjugation by $Z$ reverses the
+sign of $X$ while leaving the populations and jump dissipators unchanged.
+The stationary preparation is $\rho_*=I/2$. A selected channel has rates
+$(a,b)$ and native directed current $J=(a-b)/2$. Retain a fraction
+$r\in[0,1)$ of its two rates, set $\eta=1-r$, and leave all other terms
+unchanged. Assume $\Gamma=2K-\eta(a+b)>0$ and define $\gamma=\Gamma/4$.
+The generator is of GKSL form. These driven jump channels need not be thermal
+reservoirs in the Hamiltonian energy basis; no heat interpretation is needed.
+
+With $z=\operatorname{Tr}(Z\rho)$ and $y=\operatorname{Tr}(Y\rho)$,
+\begin{equation}
+ \frac{d}{dt}\begin{pmatrix}z\\y\end{pmatrix}
+ =A\begin{pmatrix}z\\y\end{pmatrix}
+   +\begin{pmatrix}2\eta J\\0\end{pmatrix},
+ \qquad A=\begin{pmatrix}-4\gamma&2g\\-2g&-2\gamma\end{pmatrix},
+ \qquad z(0)=y(0)=0.
+\end{equation}
+Thus the endpoint response is
+\begin{equation}
+ \Delta_B(t)=\operatorname{Tr}(|1\rangle\langle1|\rho(t))-\tfrac12
+ =-\eta J I(t),\qquad
+ I(t)=\int_0^t(e^{Au})_{11}\,du,
+ \qquad \Delta_B'(0)=-\eta J.
+ \label{eq:quantum-pulse-integral}
+\end{equation}
+
+\begin{theorem}[Exact reversal threshold]
+\label{thm:quantum-pulse-threshold}
+For $J\ne0$, the response in \eqref{eq:quantum-pulse-integral} has the
+opposite sign to its initial derivative at some positive time if and only if
+$q=g/\gamma>q_c$, where $q_c>1$ is the unique solution of
+\begin{equation}
+ \log q_c=\frac{3\{\pi+\arctan\sqrt{4q_c^2-1}\}}
+                         {\sqrt{4q_c^2-1}}.
+ \label{eq:quantum-critical-ratio}
+\end{equation}
+Exact rational bounds give
+$4.57066453253<q_c<4.57066453254$.
+For $g>\gamma/2$, put $\Omega=\sqrt{4g^2-\gamma^2}$ and
+\begin{equation}
+ t_*={\pi+\arctan(\Omega/\gamma)\over\Omega}.
+\end{equation}
+When reversal occurs, $t_*$ gives the largest reversal amplitude for these
+fixed physical parameters.
+\end{theorem}
+
+\begin{proof}
+Writing $A=-3\gamma I+B$ gives $B^2=(\gamma^2-4g^2)I$. In the
+underdamped case,
+\begin{align}
+ I'(t)&=e^{-3\gamma t}
+   \left[\cos(\Omega t)-{\gamma\over\Omega}\sin(\Omega t)\right],\\
+ I(t)&={2\gamma+e^{-3\gamma t}
+  [-2\gamma\cos(\Omega t)
+     +(\Omega+3\gamma^2/\Omega)\sin(\Omega t)]
+       \over4g^2+8\gamma^2}.
+ \label{eq:quantum-pulse-closed}
+\end{align}
+Critical points satisfy
+$\Omega t=\arctan(\Omega/\gamma)+n\pi$, $n\ge0$. The odd $n$ points
+are minima. Their values are
+\begin{equation}
+ {2\gamma-2g e^{-3\gamma t}\over4g^2+8\gamma^2},
+\end{equation}
+so successive minima strictly increase. Since $I(0)=0$ and
+$I(\infty)=2\gamma/(4g^2+8\gamma^2)>0$, a negative value exists exactly
+when $g e^{-3\gamma t_*}>\gamma$.
+
+If $0<g<\gamma/2$, set $h=\sqrt{\gamma^2-4g^2}$. Then
+$I'(t)=e^{-3\gamma t}[\cosh(ht)-(\gamma/h)\sinh(ht)]$ has exactly
+one zero, from positive to negative. The integral rises from zero and then
+decreases to a positive limit. At $g=\gamma/2$, replace the bracket by
+$1-\gamma t$ and use the same argument. At $g=0$,
+$I(t)=(1-e^{-4\gamma t})/(4\gamma)>0$.
+
+For $q>1/2$, the negative-minimum condition is
+$\log q>3(\pi+\arctan w)/w$, where $w=\sqrt{4q^2-1}$.
+It cannot hold for $q\le1$. For $q>1$, the left side increases strictly
+and the right side decreases strictly because
+\begin{equation}
+ {d\over dw}{\pi+\arctan w\over w}
+ ={w/(1+w^2)-\pi-\arctan w\over w^2}<0.
+\end{equation}
+Their difference is negative at $q=1$ and tends to infinity, proving the
+unique threshold. Equality merely touches zero. The numerical bracket in the
+statement is certified using rational enclosures of logarithm, arctangent,
+square root, and Machin's identity for $\pi$.
+\end{proof}
+
+\paragraph{A finite protocol with positive rates.}
+Choose channels $(3\kappa,\kappa)$ and $(\kappa,3\kappa)$, with
+$\kappa=1/10$, $g=1$, and $r=1/10$. Then $J=1/10$,
+$\gamma=11/100$, and $q=100/11>q_c$. All channel rates remain positive.
+Exact Taylor enclosures yield
+\begin{align}
+ \Delta_B(1/2)&=-0.03416833483914909\ldots,\\
+ \Delta_B(9/4)&=+0.01523153262660271\ldots.
+\end{align}
+For a common affine detector with gain $9/10$, the corresponding absolute
+short-pulse response is strictly greater than $3/100$, and the positive
+late-pulse response is strictly greater than $13/1000$. These conservative
+inequalities are checked with rational arithmetic. Offsets, drift,
+preparation error, and uncertainty in the intervention require their separate
+calibration bounds.
+
+For a rational matrix $A$, the implementation evaluates
+$S_N=\sum_{k=0}^N(A^k)_{11}t^{k+1}/(k+1)!$. With
+$s=t\|A\|_\infty$ and $N+3>s$,
+\begin{equation}
+ |I(t)-S_N|\le
+ {t s^{N+1}\over(N+2)!}\,{1\over1-s/(N+3)}.
+\end{equation}
+This is the geometric bound on the omitted matrix-norm series. At $t=9/4$
+and $N=80$, its radius is below $4.1\times10^{-63}$. The incoherent control
+$g=0$ has the same native stationary population and channel currents and no
+sign reversal. It does not have the same full temporal record law.
+
+The time $9/4$ also maximizes the positive response and its square divided by
+pulse duration within the explicitly tested menu $t=j/4$, $1\le j\le16$.
+This finite-menu acquisition-time comparison omits apparatus overhead and is
+not a claim of a global energy optimum.
+
+\paragraph{Calibrated pure dephasing.}
+Adding $d\mathcal D[Z]$ changes the lower diagonal element of $A$ to
+$-2\gamma-2d$. Put $\alpha=3\gamma+d$, $\beta=\gamma-d$. If
+$\Omega=\sqrt{4g^2-\beta^2}>0$, the same proof gives the exact reversal
+criterion
+\begin{equation}
+ 2g\exp\!\left[-{\alpha\{\pi+\operatorname{atan2}(\Omega,\beta)\}
+                         \over\Omega}\right]>\alpha-\beta.
+\end{equation}
+The angle is in $(0,\pi)$. If $2g\le|\beta|$, reversal is absent by
+the hyperbolic version of the preceding proof. This extension describes a
+specified Markovian dephasing channel, not arbitrary noise or memory.

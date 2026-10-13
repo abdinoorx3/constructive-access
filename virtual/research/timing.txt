@@ -1,0 +1,162 @@
+TIMING AND EXPOSURE CLOSURE
+Abdinoor / 2D Labs — 2026-10-12 UTC
+
+Status: proofs, exact counterexamples, code and producer checks complete;
+independent internal review passed after correcting a multiplication symbol and
+clarifying that the mean-unrestricted cone does not assume physical mean zero. This is an apparatus-hardening extension
+of established reversible spectral calculus, not a new subordination theorem.
+No empirical physical data or historical priority claim.
+
+1. Precise question
+Which randomized schedules and finite-duration detectors can use the existing
+classical realization and stationary entropy certificates without creating a
+false witness at equilibrium? Timing laws that preserve the thermodynamic cone
+need not preserve a fixed hidden-state dimension. Likewise an apparently
+symmetric exposure detector can violate a normalized moment constraint if the
+wrong time coordinate is used.
+
+2. Universal clock criterion
+Fix positive integer settings k=1,...,K, and probability laws T_k>=0 independent
+of hidden dynamics and detector noise. Write
+  H_K={ (integral x^k mu(dx))_k : mu a probability measure on [0,1] }.
+The following are equivalent:
+(a) For every finite stationary reversible continuous-time Markov chain and every
+fixed noninvasive binary endpoint detector with independent endpoint noise, the
+correlations C_k=E[Y_0 Y_{T_k}] belong to H_K.
+(b) For every lambda>=0 the Laplace profile
+    ( E exp(-lambda T_k) )_k belongs to H_K.
+Sufficiency: a reversible chain has a positive spectral expansion
+C(t)=sum_l b_l exp(-lambda_l t), b_l>=0, sum b_l<=1. Substitute the representing
+measure for each Laplace profile and put unused mass at x=0. Only positive k
+are used. Necessity: take the stationary symmetric two-state chain with both
+rates lambda/2 and detector +/-1. Its correlation is exactly exp(-lambda t).
+This criterion also handles irregular finite index sets by replacing H_K with
+the corresponding sampled moment set. Checking finitely many lambda values
+numerically does not certify the universal clock contract.
+
+If a calibrated stationary mean m is available for a fixed endpoint detector,
+its atom m^2 at x=1 is retained, giving the earlier mean-conditioned cone.
+Finite signed forward differences are necessary but not a complete test of
+membership in a finite Hausdorff moment cone.
+
+3. Safe clock families and a useful distinction
+- Common iid nonnegative increments X_j: T_k=sum_{j=1}^k X_j. Then
+  E exp(-lambda T_k)=(E exp(-lambda X))^k, and for ANY finite homogeneous Q,
+  E exp(Q T_k)=P^k with P=E exp(QX). P is stochastic. This preserves the same
+  hidden-state factorization used by the dimension witness, as well as the
+  reversible moment cone. No exponential clock, small jitter or rate cap is needed.
+- Common random scale: T_k=k V, with one nonnegative scale law used independently
+  on each record. Then x=exp(-lambda V) gives the full reversible moment cone.
+  There need not be a single channel P on the same hidden state space.
+- Mixtures over clock families that satisfy the scalar criterion preserve the
+  thermodynamic cone by convexity. A mixture can add persistent hidden clock
+  memory and therefore cannot automatically preserve a dimension bound.
+
+Exact distinction: an underlying two-state chain and common scale V in {1,2}
+with probabilities 1/2, at exp(-lambda)=1/2, yield prepared occupations
+  p_k=1/2+(2^(-k)+4^(-k))/4.
+Their 3-by-3 Hankel determinant is 9/32768>0. A two-dimensional common-channel
+representation is impossible although the physical chain has only two states.
+A three-state absorbing representation is explicitly supplied, so its minimum
+common-channel dimension is exactly three. The mixed record includes an
+uncontrolled scale variable; this is not a physical violation of a dimension
+certificate whose common-channel contract is enforced.
+
+4. Entropy accounting at random times
+Assume the even-state stationary classical model, common noninvasive detector,
+and additive reversibilization S=(Q+Q*)/2 from the earlier entropy chapter.
+Retain the full joint record (setting k, actual clock time T_k, full path).
+Clock laws are identical under Q and S and independent of the process. Therefore
+  KL(joint Q || joint S) = E[T] d(Q,S) <= E[T] sigma/4.
+Discarding actual times only decreases KL. If J is any certified lower bound on
+the KL separation of observed binary records from the clock-compatible reversible
+moment cone, then sigma>=4J/E[T], with E[T]=sum_k w_k E[T_k]. The relevant mean
+must be finite and positive. If it is only upper bounded, use its calibrated
+upper bound in the denominator. Mean duration alone does not establish clock
+compatibility. For iid increments E[T_k]=k E[X]; for common scale it is k E[V].
+Nonstationary preparation keeps the earlier preparation/housekeeping alternative,
+but the expected housekeeping integral must extend to the actual random horizon.
+
+5. Arbitrary jitter can manufacture equilibrium witnesses
+All examples below use a stationary symmetric two-state chain with correlation
+C(t)=2^(-t), so its physical entropy rate is exactly zero.
+(a) Ordered means do not preserve monotonicity. T_1=1; T_2=0 with probability4/5
+and10 with probability1/5. Their means are1 and2, but correlations are1/2 and
+4097/5120, an increase1537/5120.
+(b) Even stochastic ordering and exactly commensurate means do not preserve the
+full cone. Couple clocks as (T_1,T_2,T_3)=(1,1,2) with probability9/10 and
+(1,11,12) with probability1/10. Means are1,2,3 and each clock is pointwise later.
+Correlations are1/2,9217/20480,9217/40960. They decrease, but their second
+forward difference is -7171/40960, contradicting moment convexity.
+These are genuine apparatus counterexamples, not evidence of thermodynamic
+irreversibility. Common additive jitter with negative support retains some
+shape inequalities on positive lags but need not retain the unshifted normalized
+moment cone. An explicit nonnegative anchor and shifted indices are required.
+
+6. Disjoint symmetric block detectors
+Let each block have fixed duration L and a common conditional binary mean
+F(path) in [-1,1], invariant under reversal of the path inside that block.
+Blocks are noninvasive; their output noise is independent conditional on the
+physical paths. Two blocks occupy [0,L] and [L+T,2L+T], with T>=0 independent
+of the process. For the reversible reference S, define
+  g(x)=E_S[F(X_[0,L]) | X_0=x].
+Stationary path reversal gives the same function conditional on X_L=x.
+The Markov property then gives
+  E_S[Y_left Y_right | gap=T] = <g,exp(ST)g>_pi.
+Since |g|<=1, this has a positive spectral measure of mass at most one.
+Any clock family satisfying the criterion in section2 preserves the positive-gap
+moment cone. No approximation to a point detector is required.
+
+The total path used to generate the observation spans 2L+T. Consequently the
+stationary entropy certificate is sigma>=4J/(2L+E[T]), not 4J/E[T]. If one uses
+known stationary mean information, it must apply to the reversible reference:
+for a general nonlinear block functional the means under Q and S can differ.
+The mean-unrestricted outer cone with baseline1/2 and all conserved mass included
+is safe; it does not assume a physically zero stationary mean. For a symmetric linear average
+F=(integral_0^L w(u) f(X_u)du), w>=0, integral w=1 and w(u)=w(L-u), the mean is
+pi f under either generator; the calibrated-mean refinement is then valid.
+This covers rectangular exposure at the level of its bounded conditional mean.
+It does not automatically cover invasive photon collection or arbitrary detector
+memory, overlapping windows, or nonsymmetric exposure weighting.
+
+7. Exposure failures, all at equilibrium
+Use the bounded symmetric block channel F=(X_start+X_end)/2, realized by an
+independent fair choice of one endpoint sign. For decay base x=1/2, length L and
+start separation D, its exact correlation is
+  [2x^D+x^(D+L)+x^|D-L|]/4.
+For D=L+T>=L this equals ((1+x^L)/2)^2 x^T, exactly the corrected gap spectrum.
+- Overlap: L=4, D=2 or4 gives49/256 and289/1024, a revival93/1024. One pair of
+  windows overlaps, so the disjoint-block factorization is unavailable.
+- Wrong time coordinate despite disjoint windows: L=2, start separations2 and4
+  give25/64 and25/256. Calling these the first and second moments produces
+  C_2-C_1^2=-225/4096<0. The true gaps are0 and2, not one and two common positive
+  steps. Gap-zero correlations have spectral mass<=1 and should not be assigned
+  the normalization C_0=1 of an ideal noiseless endpoint detector.
+- Reversal-antisymmetric channel F=(X_end-X_start)/2: with L=2 and gap1, correlation
+  is-9/128 and P(same)=119/256<1/2. The detector itself is odd under reversal;
+  a positive autocorrelation spectral measure was never guaranteed.
+
+8. Reproducibility and evidence
+contracts/timing.json was written before generating results. code/timing.py uses
+exact fractions for every displayed example and resource denominator. Nine tests
+cross-check six reversible generators of sizes2 through7, common-channel products,
+positive spectral mixtures, full path sums for disjoint and overlapping blocks,
+the exact Hankel determinant, entropy duration accounting, and all failure cases.
+Seeds560219,560220,560221; no Monte Carlo inference is claimed. Numerical checks
+use NumPy/SciPy matrix exponentiation and eigendecomposition, independently of the
+rational two-state formulas. This complements the other agents' trajectory labs.
+Commands:
+ python discovery_program/virtual_laboratory/code/timing.py
+ python -m unittest discover -s discovery_program/virtual_laboratory/tests -p test_timing.py -v
+
+9. Positioning
+Aldous and Fill, Reversible Markov Chains and Random Walks on Graphs, Chapter3,
+section3.5, derives complete monotonicity from reversible spectral decomposition:
+https://www.stat.berkeley.edu/~aldous/RWG/Book_Ralph/Ch3.S5.html
+Schilling, Song and Vondracek, Bernstein Functions (2nd edition,2012), Chapter13,
+DOI10.1515/9783110269338, covers Bochner subordination and convolution clocks.
+The universal clock criterion is an operational corollary of established positive
+spectral calculus. The scoped addition is an integrated apparatus contract,
+explicit resource accounting, and exact controls showing how apparently benign
+clock/exposure choices can invalidate existing inference. Historical novelty is
+not claimed on the strength of this internal derivation.

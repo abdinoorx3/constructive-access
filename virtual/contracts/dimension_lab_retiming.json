@@ -1,0 +1,45 @@
+{
+  "confidence": "marginal95percentClopperPearson intervals;conservative95percentHoeffding interval for difference ofindependentmeans",
+  "cost": "sameproductionrecordsand126900steps;physicaldurationchangesbycommonclockscale;260000additionalpilotrecords percalibration, withamortization reported",
+  "frozen_at_utc": "2026-10-12T20:25:11.915328+00:00",
+  "holdout": {
+    "repetitions": 20000,
+    "seed": 610120712
+  },
+  "parent_contract": "dimension_lab.json",
+  "pilot": {
+    "assumed_fitting_model": "nominal Bloch-expm model with amplitude offset alone fitted; model misspecification may affect power, not null validity",
+    "clock_rule": "one common step multiplied by1/(1+fitted_offset)",
+    "offset_bounds": [
+      -0.05,
+      0.05
+    ],
+    "records_per_setting": 20000,
+    "seed": 610120711,
+    "settings": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ]
+  },
+  "preserved": "allpriorcontractsandresults;allfourpredeclaredregimesreported regardlessoutcome",
+  "production": "old18300record13settingplan with unchanged critical counts;compare original and retimed physical channels on independent simulated reset data",
+  "scenarios": [
+    "coherent_amplitude_offset_0.005",
+    "coherent_amplitude_offset_0.01",
+    "coherent_amplitude_offset_0.02",
+    "combined_design"
+  ],
+  "scope": "Second preregistered simulation loop; common clock retiming after independent frequency-calibration pilot",
+  "version": 1
+}

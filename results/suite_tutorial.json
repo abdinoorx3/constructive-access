@@ -1,0 +1,535 @@
+{
+  "evidence_type": "exact finite-law design and deliberately synthetic counts; no physical data",
+  "targets": {
+    "A": "even",
+    "A_copy": "even",
+    "B": "even",
+    "C": "odd",
+    "D": "odd"
+  },
+  "menu": [
+    {
+      "name": "left",
+      "charge": "1",
+      "laws": {
+        "A": {
+          "0": "3/4",
+          "1": "1/4"
+        },
+        "A_copy": {
+          "0": "3/4",
+          "1": "1/4"
+        },
+        "B": {
+          "0": "1/4",
+          "1": "3/4"
+        },
+        "C": {
+          "0": "3/4",
+          "1": "1/4"
+        },
+        "D": {
+          "0": "1/4",
+          "1": "3/4"
+        }
+      },
+      "tv_radii": {
+        "A": "1/100",
+        "A_copy": "1/100",
+        "B": "1/100",
+        "C": "1/100",
+        "D": "1/100"
+      }
+    },
+    {
+      "name": "right",
+      "charge": "1",
+      "laws": {
+        "A": {
+          "0": "3/4",
+          "1": "1/4"
+        },
+        "A_copy": {
+          "0": "3/4",
+          "1": "1/4"
+        },
+        "B": {
+          "0": "1/4",
+          "1": "3/4"
+        },
+        "C": {
+          "0": "1/4",
+          "1": "3/4"
+        },
+        "D": {
+          "0": "3/4",
+          "1": "1/4"
+        }
+      },
+      "tv_radii": {
+        "A": "1/100",
+        "A_copy": "1/100",
+        "B": "1/100",
+        "C": "1/100",
+        "D": "1/100"
+      }
+    },
+    {
+      "name": "direct",
+      "charge": "3",
+      "laws": {
+        "A": {
+          "0": "3/4",
+          "1": "1/4"
+        },
+        "A_copy": {
+          "0": "3/4",
+          "1": "1/4"
+        },
+        "B": {
+          "0": "3/4",
+          "1": "1/4"
+        },
+        "C": {
+          "0": "1/4",
+          "1": "3/4"
+        },
+        "D": {
+          "0": "1/4",
+          "1": "3/4"
+        }
+      },
+      "tv_radii": {
+        "A": "1/100",
+        "A_copy": "1/100",
+        "B": "1/100",
+        "C": "1/100",
+        "D": "1/100"
+      }
+    }
+  ],
+  "design": {
+    "schema": "constructive-access-suite-v1",
+    "targets": {
+      "A": "even",
+      "A_copy": "even",
+      "B": "even",
+      "C": "odd",
+      "D": "odd"
+    },
+    "sampling_failure_budget": "1/20",
+    "pair_count": 6,
+    "scope": "Known finite candidate family; fixed iid law within each selected experiment; externally justified whole-record TV radii.",
+    "objective": "Minimum sum of one-use selection charges within the supplied finite menu; not minimum repeated-record charge or total energy.",
+    "status": "certified_suite",
+    "selected": [
+      {
+        "name": "left",
+        "selection_charge": "1",
+        "records": 278,
+        "sampling_radius": "3/25",
+        "alphabet": [
+          "0",
+          "1"
+        ]
+      },
+      {
+        "name": "right",
+        "selection_charge": "1",
+        "records": 278,
+        "sampling_radius": "3/25",
+        "alphabet": [
+          "0",
+          "1"
+        ]
+      }
+    ],
+    "selection_charge": "2",
+    "repeated_charge": "556",
+    "total_records": 556,
+    "test_events": [
+      {
+        "experiment": "left",
+        "event": [
+          "0"
+        ],
+        "nominal": {
+          "A": "3/4",
+          "A_copy": "3/4",
+          "B": "1/4",
+          "C": "3/4",
+          "D": "1/4"
+        },
+        "tv_radii": {
+          "A": "1/100",
+          "A_copy": "1/100",
+          "B": "1/100",
+          "C": "1/100",
+          "D": "1/100"
+        },
+        "sampling_radius": "3/25"
+      },
+      {
+        "experiment": "left",
+        "event": [
+          "1"
+        ],
+        "nominal": {
+          "A": "1/4",
+          "A_copy": "1/4",
+          "B": "3/4",
+          "C": "1/4",
+          "D": "3/4"
+        },
+        "tv_radii": {
+          "A": "1/100",
+          "A_copy": "1/100",
+          "B": "1/100",
+          "C": "1/100",
+          "D": "1/100"
+        },
+        "sampling_radius": "3/25"
+      },
+      {
+        "experiment": "right",
+        "event": [
+          "0"
+        ],
+        "nominal": {
+          "A": "3/4",
+          "A_copy": "3/4",
+          "B": "1/4",
+          "C": "1/4",
+          "D": "3/4"
+        },
+        "tv_radii": {
+          "A": "1/100",
+          "A_copy": "1/100",
+          "B": "1/100",
+          "C": "1/100",
+          "D": "1/100"
+        },
+        "sampling_radius": "3/25"
+      },
+      {
+        "experiment": "right",
+        "event": [
+          "1"
+        ],
+        "nominal": {
+          "A": "1/4",
+          "A_copy": "1/4",
+          "B": "3/4",
+          "C": "3/4",
+          "D": "1/4"
+        },
+        "tv_radii": {
+          "A": "1/100",
+          "A_copy": "1/100",
+          "B": "1/100",
+          "C": "1/100",
+          "D": "1/100"
+        },
+        "sampling_radius": "3/25"
+      }
+    ],
+    "pair_certificates": [
+      {
+        "models": [
+          "A",
+          "C"
+        ],
+        "experiment": "right",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "A",
+          "D"
+        ],
+        "experiment": "left",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "A_copy",
+          "C"
+        ],
+        "experiment": "right",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "A_copy",
+          "D"
+        ],
+        "experiment": "left",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "B",
+          "C"
+        ],
+        "experiment": "left",
+        "event": [
+          "1"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "B",
+          "D"
+        ],
+        "experiment": "right",
+        "event": [
+          "1"
+        ],
+        "robust_gap": "12/25"
+      }
+    ],
+    "event_count": 4,
+    "union_bound_exponent": 8,
+    "sampling_failure_upper": "1/32",
+    "cover_states": 4,
+    "assumptions": [
+      "One fixed true candidate target has every selected actual law within its declared TV ball.",
+      "Each experiment uses the stated number of fresh independent records with a fixed law.",
+      "Preparation, controls, readout, nuisance parameters and reset are included in the record laws.",
+      "A joint probability of calibration failure must be added to the sampling failure bound."
+    ]
+  },
+  "design_replay": {
+    "valid": true,
+    "method": "Exact full recomputation from supplied inputs."
+  },
+  "synthetic_counts": {
+    "left": {
+      "1": 69,
+      "0": 209
+    },
+    "right": {
+      "1": 69,
+      "0": 209
+    }
+  },
+  "decision": {
+    "status": "commit",
+    "retained_models": [
+      "A",
+      "A_copy"
+    ],
+    "retained_targets": [
+      "even"
+    ],
+    "sampling_failure_upper": "1/32",
+    "condition": "Requires the stated candidate-coverage, TV-calibration and iid assumptions.",
+    "target": "even"
+  },
+  "left_only": {
+    "schema": "constructive-access-suite-v1",
+    "targets": {
+      "A": "even",
+      "A_copy": "even",
+      "B": "even",
+      "C": "odd",
+      "D": "odd"
+    },
+    "sampling_failure_budget": "1/20",
+    "pair_count": 6,
+    "scope": "Known finite candidate family; fixed iid law within each selected experiment; externally justified whole-record TV radii.",
+    "objective": "Minimum sum of one-use selection charges within the supplied finite menu; not minimum repeated-record charge or total energy.",
+    "status": "insufficient_robust_menu",
+    "selected": [],
+    "unresolved_pairs": [
+      [
+        "A",
+        "C"
+      ],
+      [
+        "A_copy",
+        "C"
+      ],
+      [
+        "B",
+        "D"
+      ]
+    ],
+    "interpretation": "No event with positive TV-ball separation exists for these pairs in this menu. This does not certify equivalence under other experiments or under more structured calibration sets."
+  },
+  "right_only": {
+    "schema": "constructive-access-suite-v1",
+    "targets": {
+      "A": "even",
+      "A_copy": "even",
+      "B": "even",
+      "C": "odd",
+      "D": "odd"
+    },
+    "sampling_failure_budget": "1/20",
+    "pair_count": 6,
+    "scope": "Known finite candidate family; fixed iid law within each selected experiment; externally justified whole-record TV radii.",
+    "objective": "Minimum sum of one-use selection charges within the supplied finite menu; not minimum repeated-record charge or total energy.",
+    "status": "insufficient_robust_menu",
+    "selected": [],
+    "unresolved_pairs": [
+      [
+        "A",
+        "D"
+      ],
+      [
+        "A_copy",
+        "D"
+      ],
+      [
+        "B",
+        "C"
+      ]
+    ],
+    "interpretation": "No event with positive TV-ball separation exists for these pairs in this menu. This does not certify equivalence under other experiments or under more structured calibration sets."
+  },
+  "direct_only": {
+    "schema": "constructive-access-suite-v1",
+    "targets": {
+      "A": "even",
+      "A_copy": "even",
+      "B": "even",
+      "C": "odd",
+      "D": "odd"
+    },
+    "sampling_failure_budget": "1/20",
+    "pair_count": 6,
+    "scope": "Known finite candidate family; fixed iid law within each selected experiment; externally justified whole-record TV radii.",
+    "objective": "Minimum sum of one-use selection charges within the supplied finite menu; not minimum repeated-record charge or total energy.",
+    "status": "certified_suite",
+    "selected": [
+      {
+        "name": "direct",
+        "selection_charge": "3",
+        "records": 209,
+        "sampling_radius": "3/25",
+        "alphabet": [
+          "0",
+          "1"
+        ]
+      }
+    ],
+    "selection_charge": "3",
+    "repeated_charge": "627",
+    "total_records": 209,
+    "test_events": [
+      {
+        "experiment": "direct",
+        "event": [
+          "0"
+        ],
+        "nominal": {
+          "A": "3/4",
+          "A_copy": "3/4",
+          "B": "3/4",
+          "C": "1/4",
+          "D": "1/4"
+        },
+        "tv_radii": {
+          "A": "1/100",
+          "A_copy": "1/100",
+          "B": "1/100",
+          "C": "1/100",
+          "D": "1/100"
+        },
+        "sampling_radius": "3/25"
+      }
+    ],
+    "pair_certificates": [
+      {
+        "models": [
+          "A",
+          "C"
+        ],
+        "experiment": "direct",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "A",
+          "D"
+        ],
+        "experiment": "direct",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "A_copy",
+          "C"
+        ],
+        "experiment": "direct",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "A_copy",
+          "D"
+        ],
+        "experiment": "direct",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "B",
+          "C"
+        ],
+        "experiment": "direct",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      },
+      {
+        "models": [
+          "B",
+          "D"
+        ],
+        "experiment": "direct",
+        "event": [
+          "0"
+        ],
+        "robust_gap": "12/25"
+      }
+    ],
+    "event_count": 1,
+    "union_bound_exponent": 6,
+    "sampling_failure_upper": "1/32",
+    "cover_states": 2,
+    "assumptions": [
+      "One fixed true candidate target has every selected actual law within its declared TV ball.",
+      "Each experiment uses the stated number of fresh independent records with a fixed law.",
+      "Preparation, controls, readout, nuisance parameters and reset are included in the record laws.",
+      "A joint probability of calibration failure must be added to the sampling failure bound."
+    ]
+  }
+}

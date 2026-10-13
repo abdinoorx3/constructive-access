@@ -1,0 +1,237 @@
+\chapter{A finite-resolution certificate for local diffusion geometry}
+\label{ch:og-finite}
+
+The ideal conditional theorem involves time derivatives.  A laboratory record
+has a nonzero time step, a detector and a finite sample.  This chapter gives a
+conservative certificate that pays for all three, under explicit calibration
+assumptions.  It uses a single bounded score per stationary three-time record;
+no conditional regression, empirical squaring or division by estimated bin
+occupancies is required.
+
+\section{Physical and calibration contract}
+Let $X$ be a stationary smooth ordinary-reversal diffusion in the model class
+of the preceding population theorem. Write $L=S+A$, let $L^\dagger=S-A$ be its
+stationary adjoint, and set $f(X_t)=Y_t$.  Assume that $f$ belongs to the domains
+needed below and that the Markov semigroups are contractions in the supremum
+norm.  The following are calibrated bounds, not quantities silently inferred
+from the test records:
+\begin{align}
+ \|Lf\|_\infty&\le M_{1,+},&
+ \|L^\dagger f\|_\infty&\le M_{1,-},\\
+ \|L^2f\|_\infty&\le M_{2,+},&
+ \|(L^\dagger)^2f\|_\infty&\le M_{2,-}.
+\end{align}
+Fix a time step $h>0$. A stationary triple is acquired at times $0,h,2h$,
+with the middle time relabelled zero. The complete central state determines an
+accessible coordinate $U$, a retention indicator $r(U)\in\{0,1\}$, a real
+number $q(U)$ and an envelope $a(U)$. On retained states require
+\begin{equation}
+ |q(U)|\le Q,\qquad a(U)\ge a_{\min}>0,
+ \qquad \Gamma_f(X_0)\le a(U) \quad\text{pointwise}.
+ \label{eq:og-finite-contract}
+\end{equation}
+The positive lower bound is on the \emph{chosen upper envelope}; it is not an
+assumption that the true local diffusivity is bounded away from zero. The
+retention and weighting rules must be fixed before the test records or fitted
+on a genuinely independent pilot. A finite partition with constant $q$ and
+$a$ on each retained cell is one case. A continuous rule, such as
+$q(Y)=-\gamma Y$, is equally admissible.
+
+\section{Uniform control of the time-step bias}
+Define the conditional population quantities
+\begin{align}
+ g_h(U)&=\mathbb E[(Y_h+Y_{-h}-2Y_0)/(2h)\mid U],\\
+ K_h(U)&=\mathbb E[(Y_h-Y_0)(Y_{-h}-Y_0)/h^2\mid U].
+\end{align}
+Write $g(U)=\mathbb E[Sf\mid U]$ and
+$K(U)=\mathbb E[(Sf)^2-(Af)^2\mid U]$. Then, almost surely,
+\begin{align}
+ |g_h-g|&\le\beta_g:=\frac h4(M_{2,+}+M_{2,-}),\\
+ |K_h-K|&\le\beta_K:=
+ \frac h2(M_{1,-}M_{2,+}+M_{1,+}M_{2,-}).
+ \label{eq:og-finite-bias}
+\end{align}
+For completeness, let
+$a_+=(P_hf-f)/h$ and $a_-=(P_h^\dagger f-f)/h$.
+The integral semigroup identity gives
+\begin{equation}
+ \|a_\pm\|_\infty\le M_{1,\pm},\qquad
+ \|a_+-Lf\|_\infty\le hM_{2,+}/2,\qquad
+ \|a_--L^\dagger f\|_\infty\le hM_{2,-}/2.
+\end{equation}
+Conditional independence of the stationary past and future given $X_0$
+identifies the two-sided product with $a_+a_-$. Apply the exact identity
+\begin{equation}
+ ab-cd=\tfrac12(a-c)(b+d)+\tfrac12(b-d)(a+c)
+\end{equation}
+and the preceding norm bounds. This proves the second bound without an
+unnecessary term of order $h^2$. Conditioning on $U$ preserves both bounds.
+
+\section{A weighted score with a physical lower-bound guarantee}
+For each ideal noiseless triple let
+\begin{equation}
+ W_h=\frac{r(U)}{a(U)}
+ \left[-\left(q(U)-\frac{Y_h-Y_0}{h}\right)
+          \left(q(U)-\frac{Y_{-h}-Y_0}{h}\right)
+       -2|q(U)|\beta_g-\beta_K\right],
+ \label{eq:og-finite-score}
+\end{equation}
+where excluded centers contribute zero. Then
+\begin{equation}
+ \mathbb E[W_h]\le\sigma.
+ \label{eq:og-finite-main}
+\end{equation}
+Indeed, the conditional expectation of the uncorrected numerator is
+$2qg_h-q^2-K_h$. After the bias penalty it is at most
+$2qg-q^2-K\le g^2-K\le\mathbb E[(Af)^2\mid U]$.
+The pointwise inequality
+$(Af)^2\le\Gamma_f e\le a(U)e$, with
+$e=v^\top D^{-1}v$, completes the proof after integration. The integrand
+need not be positive; its positive part must not be taken record by record.
+Taking the positive part of the final covered lower bound is legitimate
+because $\sigma\ge0$.
+
+If $Y$ lies in an interval of width $R$, a common deterministic score range is
+\begin{equation}
+ B_-=-\frac{(R/h+Q)^2+2Q\beta_g+\beta_K}{a_{\min}},
+ \qquad B_+=\frac{R^2}{4h^2a_{\min}}.
+ \label{eq:og-finite-range}
+\end{equation}
+For the upper bound put $u=q-(Y_h-Y_0)/h$ and
+$v=q-(Y_{-h}-Y_0)/h$. Then
+$-uv\le(u-v)^2/4\le R^2/(4h^2)$. The lower bound uses
+$|u|,|v|\le Q+R/h$. The bias penalty is nonnegative and bounded above by the
+stated amount. Both bounds include the zero scores from excluded centers.
+
+\section{Finite-sample confidence with exact arithmetic}
+Let $W_1,\ldots,W_n$ be independent stationary records under one frozen rule.
+Set $B=B_+-B_-$. Hoeffding's inequality gives, with probability at least
+$1-\alpha$,
+\begin{equation}
+ \sigma\ge\left[\overline W-
+ B\sqrt{\frac{\log(1/\alpha)}{2n}}\right]_+.
+ \label{eq:og-finite-hoeffding}
+\end{equation}
+A dependence-aware version holds if the conditional mean of each bounded
+score, given the preceding complete record, differs from one fixed target
+mean by at most a calibrated radius; that radius is subtracted. This is not a
+claim that overlapping triples from one trajectory are independent.
+
+For independent identically distributed triples, the empirical-Bernstein
+inequality of Maurer and Pontil, Theorem~4 of arXiv:0907.3740v1
+\cite{ogMaurer2009}, applied to the
+reflected affine-rescaled score, gives for $n\ge2$
+\begin{equation}
+ \sigma\ge\left[\overline W-
+ \sqrt{\frac{2s_n^2\log(2/\alpha)}{n}}
+ -\frac{7B\log(2/\alpha)}{3(n-1)}\right]_+,
+ \quad s_n^2=\frac1{n-1}\sum_i(W_i-\overline W)^2.
+ \label{eq:og-finite-empirical}
+\end{equation}
+This is a proved empirical-variance inequality, not the substitution of a
+sample variance into an inequality requiring the unknown population variance.
+The choice of concentration rule is predeclared. Selecting the largest among
+several data-dependent lower bounds requires simultaneous coverage or a new
+argument; the implementation does not silently grant it.
+
+The reference implementation accepts exact rational score sums and sums of
+squares. Integer quantizer codes therefore suffice even for a large record
+bank. Suppose each stored score $\widetilde W_i$ differs from the ideal score
+by at most $\delta_W$. Apply the selected concentration inequality to the
+stored scores in $[B_--\delta_W,B_++\delta_W]$, then subtract
+$\delta_W$ from its lower bound. Numerical errors in the empirical mean are
+separate penalties; the empirical-Bernstein path requires exact stored means
+and second moments. Logarithms and square roots are enclosed outward using
+rational arithmetic. An external calibration failure probability may be added to $\alpha$ only
+when the physical and concentration arguments hold conditional on frozen
+pre-test calibration information, for example from an independent calibration
+experiment, or when a separately proved joint guarantee supplies the needed
+coverage. A calibration event selected from the same test data does not
+automatically preserve independence or coverage. Calibration failure is not
+assigned zero merely because a numerical routine runs.
+
+\section{Optional variance calibration}
+For noiseless observations, a known global bound $\Gamma_f\le G$ gives a
+second concentration route. Conditional It\^o isometry and the bounded drift
+imply
+\begin{equation}
+ \|Y_{\pm h}-Y_0\|_{L^2(\cdot\mid X_0)}
+ \le hM_{1,\pm}+\sqrt{2Gh}.
+\end{equation}
+The two factors in the raw score are conditionally independent given $X_0$.
+Consequently the second moment of the corrected score is bounded by
+\begin{equation}
+ V_*=
+ \left[\frac{(Q+M_{1,+}+\sqrt{2G/h})
+                   (Q+M_{1,-}+\sqrt{2G/h})
+                   +2Q\beta_g+\beta_K}{a_{\min}}\right]^2.
+\end{equation}
+It can be intersected with the squared maximum absolute range bound.
+The usual known-variance Bernstein radius is then
+\begin{equation}
+ \frac{B\ell}{3n}+
+ \sqrt{\frac{2V_*\ell}{n}+\left(\frac{B\ell}{3n}\right)^2},
+ \qquad\ell=\log(1/\alpha).
+\end{equation}
+For fixed calibration bounds, $V_*=O(h^{-2})$ whereas the squared range is
+$O(h^{-4})$. This separates a genuine small-step sampling cost from an overly
+pessimistic bounded-range estimate. It does not promise useful constants for
+an arbitrary apparatus. Bounded score perturbations replace $V_*$ by
+$(\sqrt{V_*}+\delta_W)^2$. This option is not used for the noisy-detector
+contract below.
+
+\section{Two distinct detector contracts}
+First, bounded conditionally unbiased readouts may replace $Y_t$ if the noises
+at the three endpoints are conditionally independent given the complete
+hidden triple (or satisfy the corresponding zero cross-covariances), and if
+$r,q,a$ are measured independently of those noises as functions of the true
+central state. The mean drift is unchanged. The product acquires the
+additional conditional center variance:
+\begin{equation}
+ \mathbb E[(Z_h-Z_0)(Z_{-h}-Z_0)\mid X_0]
+ =\mathbb E[(Y_h-Y_0)(Y_{-h}-Y_0)\mid X_0]
+   +\operatorname{Var}(Z_0\mid X_0).
+\end{equation}
+Its minus sign in the score makes this noise conservative. Use the detector's
+full bounded range in the concentration inequality. This argument does not
+justify selecting the rule from the same noisy central reading or estimating
+local quadratic variation from a noisy record.
+
+Second, deterministic bounded readout error can be paid as a score
+perturbation. Suppose ideal and stored readings are in the same interval and
+differ by at most $\delta_Y$. The ideal and approximate scores must use
+\emph{identical} $r,q,a$. The factorization of the score gives
+\begin{equation}
+ |\widetilde W_h-W_h|
+ \le\frac{4(R/h+Q)\delta_Y}{h a_{\min}}.
+ \label{eq:og-finite-reading-error}
+\end{equation}
+A useful circle example defines $z_0$ by deterministic rounding of the true
+center, fixes $q=-\gamma z_0$, and uses
+\begin{equation}
+ a(z_0)=\gamma\left[1-\max(0,|z_0|-\delta_Y)^2\right].
+\end{equation}
+This bounds the true $\Gamma_f=\gamma(1-Y_0^2)$ on the calibrated error event.
+Retention based on $z_0$ is the actual fixed state rule, so there is no change
+of selector between ideal and stored scores. The reading error, output score
+rounding and arithmetic enclosure errors must all be included in
+$\delta_W$. A fitted detector model or an uncalibrated numerical simulator is
+not a substitute for these premises.
+
+\section{Resources and limits}
+A quota of $n$ independent stationary triples uses $3n$ endpoint readings,
+$n$ independent stationary preparations and $2hn$ units of declared evolution
+time. Excluded centers still consume all these resources. Additional
+coordinate readings are counted separately. Geometry calibration, stationary
+preparation, resetting, sensor exposure, independent pilot experiments and
+energy expenditure require additional accounting. Equal declared evolution
+time is not equal total laboratory time or equal energy.
+
+A nonzero step must retain its bias correction. The nonlinear-observable
+counterexamples in the adversarial chapter show that an uncorrected
+finite-$h$ local ratio can diverge near a zero of $\Gamma_f$, or remain finite
+and substantially exceed the true entropy production even after an invertible
+scalar recalibration. The lower envelope floor and its sampling
+penalty are substantive access requirements. The certificate also retains
+the ordinary hidden-state reversal restriction; it does not turn reversible
+inertial oscillations into evidence of dissipated heat.

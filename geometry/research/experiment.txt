@@ -1,0 +1,71 @@
+OBSERVED GEOMETRY EXPERIMENT — 2026-10-12T23:46:52.432453+00:00
+Owner: /root/geometry_experiment
+Status: completed frozen numerical experiment; 11 producer tests pass.
+No laboratory observations or external peer review are claimed.
+
+Question
+At one fixed nonzero lag and a common finite observation budget, does the
+covered weighted geometry score extract a stronger physical lower certificate
+than the seventh-edition endpoint score? Does it dominate across drives?
+
+Frozen design
+h=1/25; n=200000 iid stationary triples; 400 replicates each omega=3,1,0;
+gamma=1, primary alpha=1/20. Every case uses calibrated |omega|<=3 and the
+same M1+=M1-=19/6, M2+=M2-=10. Actual omega enters simulation/truth only,
+not infer(). Independent seed 202610130731, not root pilot seed 82653.
+Pilot at h .035/.05, omega 3, n 200000 informed design and is disclosed.
+The contract was written before bank generation. No bank-dependent tuning.
+Contract SHA256 7aedd529884f112867dfb45e645e85760f5a33af2057fa8acae63115828cef0a
+
+Frozen quantization
+Readings round to j/2^20, delta=2^-20 (half-grid extra evaluation allowance).
+The rounded-center rule is genuinely the predetermined state function:
+q=-j0/d; retain 5|j0|<=4d; a=1-max(|j0|/d-delta,0)^2.
+This envelope rigorously bounds true Gamma=1-Y0² under the reading-error
+contract. Using merely a=1-(j0/d)^2 could fail and is not done.
+Exact score formula and its Fraction checks are in code/experiment.py and
+tests/test_experiment.py. Primary floors to1/256, baseline to2^-24.
+Score uniform error 20483/1179648 = 0.0173636542426;
+endpoint uniform error 77457/10485760000 = 7.38687515259e-06.
+Ranges are expanded and the error is subtracted after concentration.
+Exact integer aggregate sums and sumsquares; safe chunking avoids overflow.
+NumPy sampler/transcendentals remain numerical approximations to the ideal
+uniform/Brownian law. Exact scoring does not certify exact real-valued sampling.
+
+Result
+Driven true 9: primary 400/400, mean 2.98232920865565;
+endpoint 400/400, mean 0.303963868202308. Ratio 9.81145958661.
+Primary mean 33.14% of actual rate versus endpoint 3.38%.
+Weak drive true 1: primary 0/400, endpoint 396/400, mean 0.011962951839866.
+Equilibrium true 0: both 0/400.
+Hoeffdingprimary 0/400 in all three cases (penalty 24.38093461417).
+No over-truth outputs occur in the bank. Coverage derives from the theorem,
+not the observed lack of violations. Individual alpha allocations do not
+authorize choosing max(methods) as another 95% certificate.
+
+Resource and interpretation
+Each method uses the same 600000 readings, 200000 stationary preparations,
+16000 modeled evolution time per dataset. Bank: 240 million triples.
+Calibration, preparation/reset time, detector exposure, energy, clock and
+physical heat are unmeasured. The gain uses additional calibrated geometry
+and derivative bounds; it is not universal same-prior-information dominance.
+Weak drive failure decisively refutes a general dominance claim.
+This finite-data result approaches 33% of exact ideal minimum 9 in the tested
+strong-drive case. It does not recover the ideal minimum or prove optimality.
+
+Reproducibility
+JSON SHA256 330750785ea2a7ba429a97231f95f36551988f5c16495e1932afa80111b4b522
+NPZ SHA256 35c3b44b382637c6abcb7d2a9dfb015d94a49db57796ecfb8c120cc14c4b4bc6
+All 1200 aggregate records and seeds retained; one full raw exemplar per case.
+NPZ timestamps deterministic. Producer tests replay all raw arrays from seeds,
+rebuild score codes and sums, check all summary counts and 9 preselected certificate
+entries. Independent review replays all 1200 certificates separately.
+Run:
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python code/experiment.py --run
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python -m unittest discover -s tests -p test_experiment.py -v
+Do not run --freeze over existing contract. It intentionally refuses overwrite.
+
+Next dependency
+Finite physical calibration with sensor noise/exposure and dependence, followed
+by independent noncircle experiments. Tighten derivativecaps only from a valid
+independent calibration or simultaneous inference; never insert truth.

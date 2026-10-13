@@ -1,0 +1,228 @@
+\chapter{A finite-record hierarchy of classical realization size}
+\label{ch:finite-hierarchy}
+
+The three-state occupation bound can exclude a small classical explanation,
+but one scalar contrast cannot establish an unbounded hierarchy. Retaining
+several observation times changes the mathematical object. A single prepared
+state, a single binary detector, and a common repeated evolution produce a
+matrix with a positive factorization through the hidden state space. This
+chapter turns a robust obstruction to that factorization into a finite-record
+experiment. The dimension is the total number of states of the proposed
+classical Markov explanation, including any hidden controller or clock.
+
+The foundations are established: positive realization and nonnegative-rank
+bounds, Sperner's antichain theorem, and quantum dimension witnesses already
+connect small quantum systems to larger classical realizations~\cite{rfGillis2020,rfShahandeh2024}. In particular,
+the zero-noise sine matrix used below has appeared in prior work, including a
+stronger six-factor lower bound for its seven-by-seven instance~\cite{rfHeinosaari2024}. The scoped
+addition developed here is a nonzero-noise certificate, its realization through
+one repeated channel and finitely many observation times, and an exactly checked
+finite-record statistical protocol. Historical priority of that combination is
+not established by this internal derivation.
+
+\section{The operational model}
+Let $P$ be any $n\times n$ stochastic matrix, $\alpha$ a probability row, and
+$f\in[0,1]^n$ a fixed stochastic binary readout. Independent reset experiments
+observe a binary outcome after $k$ applications of the same channel, with mean
+\begin{equation}
+ p_k=\alpha P^k f.                                      \label{eq:hier-pk}
+\end{equation}
+A continuous-time homogeneous chain is included by $P=e^{\Delta Q}$. The
+result also covers repeated stochastic interventions, and independent,
+identically distributed nonnegative timing increments with
+$P=\mathbb E[e^{QZ}]$. It does not require a generator, stationarity, reversibility,
+known rates, pure preparations, or a noiseless detector.
+
+Fix $N\ge2$ and measure $p_1,\ldots,p_{2N-1}$. Form the matrix
+\begin{equation}
+ M_{ij}=p_{N+i-j},\qquad 0\le i,j<N.
+                                                        \label{eq:hier-matrix}
+\end{equation}
+It factors as $M=AB$, where $A_i=\alpha P^i$ and $B_j=P^{N-j}f$.
+Every row of $A$ is a probability vector and every entry of $B$ lies in $[0,1]$.
+The reversal of the column index is only a permutation of a finite Hankel
+matrix. There are $2N-1$ distinct measurement settings, not $N^2$ distinct
+experiments. The diagonal entries all equal $p_N$.
+
+\section{A robust antichain certificate}
+\begin{theorem}[Finite-noise positive-factorization obstruction]
+\label{thm:robust-antichain}
+Suppose an $N\times N$ matrix admits $M=AB$ with $n$ columns in $A$,
+probability rows in $A$, and $0\le B_{kj}\le1$. If
+\begin{equation}
+ M_{ii}\le\epsilon,\qquad M_{ij}\ge\beta\quad(i\ne j),
+ \qquad
+ \beta>\tau+(1-\tau)\frac{\epsilon}{\tau}
+                                                        \label{eq:hier-margin}
+\end{equation}
+for some $0<\tau<1$, then
+\begin{equation}
+ N\le {n\choose\lfloor n/2\rfloor}.                     \label{eq:hier-sperner}
+\end{equation}
+For $0<\epsilon<1$, minimizing the right side of
+\eqref{eq:hier-margin} over $\tau$ gives the sufficient condition
+$\beta>2\sqrt\epsilon-\epsilon$. For $\epsilon=0$, any $\beta>0$
+suffices.
+\end{theorem}
+\begin{proof}
+Write $a_i$ for row $i$ of $A$, and define
+$S_i=\{k:B_{ki}<\tau\}$. The diagonal bound gives
+$a_i(S_i^c)\le\epsilon/\tau$. If $S_i\subseteq S_j$, then
+\[
+ M_{ij}\le\tau a_i(S_j)+a_i(S_j^c)
+ \le\tau+(1-\tau)\epsilon/\tau,
+\]
+contradicting \eqref{eq:hier-margin}. Thus the $N$ subsets $S_i$ are pairwise
+incomparable. Sperner's theorem bounds their number by the largest binomial
+coefficient. The minimum of $\tau+\epsilon/\tau-\epsilon$ is obtained at
+$\tau=\sqrt\epsilon$. When $\epsilon=0$, take $S_i=\{k:B_{ki}=0\}$.
+The diagonal condition puts all of $a_i$ on $S_i$, and inclusion
+$S_i\subseteq S_j$ would give $M_{ij}=0$.
+\end{proof}
+
+This certificate supplies a sufficient lower bound, not the nonnegative rank
+itself and not the minimum dimension of a positive dynamical realization.
+Those quantities need not coincide. The antichain cardinality bound is sharp
+for unrestricted stochastic factors: use all subsets of size $\lfloor n/2\rfloor$,
+let $a_i$ be uniform on subset $S_i$, and let $B_{kj}$ indicate $k\notin S_j$.
+The diagonal is zero and every off-diagonal entry is positive. This construction
+does not establish sharpness for a single-channel Hankel matrix.
+
+\begin{corollary}[One-channel finite-time dimension hierarchy]
+\label{cor:hierarchy}
+If the records \eqref{eq:hier-pk} satisfy $p_N\le\epsilon$ and
+$p_k\ge\beta$ for every $1\le k\le2N-1$, $k\ne N$, with
+\eqref{eq:hier-margin}, their classical homogeneous Markov realization requires
+at least
+\[
+ d_*(N)=\min\left\{n:{n\choose\lfloor n/2\rfloor}\ge N\right\}
+\]
+hidden states. In particular $N=7,11,21,71$ require respectively at least
+$5,6,7,9$ states.
+\end{corollary}
+
+\section{An explicit qubit family}
+Prepare a qubit in $|0\rangle$, use a fixed $|1\rangle$ detector, and evolve
+with
+\[
+ \mathcal L(\rho)=-i\frac{\omega}{2}[X,\rho]
+ +\gamma\bigl(\operatorname{tr}(\rho)I/2-\rho\bigr).
+\]
+Set $r=\omega/\gamma$ and $\Delta=2\pi/(N\omega)$. The measured means are
+\begin{equation}
+ p_k=\frac{1-e^{-2\pi k/(rN)}\cos(2\pi k/N)}2.
+                                                        \label{eq:hier-qubit}
+\end{equation}
+For $N\ge4$, their diagonal value is
+$\epsilon_r=(1-e^{-2\pi/r})/2$, and all the off-diagonal values are at least
+$\sin^2(\pi/N)$. If the cosine is nonnegative, damping increases the probability
+above its unitary value; if it is negative, the probability remains at least
+$1/2\ge\sin^2(\pi/N)$. It follows that any fixed desired finite state lower
+bound can be reached at a sufficiently large, but finite, coherence ratio.
+This is a hierarchy of finite-resource experiments, not one finite experiment
+that excludes all finite classical models.
+
+The sufficient coherence condition can be written
+\begin{equation}
+ \epsilon_r < \bigl(1-\cos(\pi/N)\bigr)^2.
+                                                        \label{eq:hier-coherence}
+\end{equation}
+For large $N$ its right side is of order $N^{-4}$. Since $N$ itself grows
+roughly exponentially in the desired state count, this certificate is not an
+efficient route to arbitrarily large dimension exclusions. Its transparent
+finite-noise guarantee is the benefit; efficiency and optimality remain
+separate questions. No relation between $r$ and thermodynamic energy is assumed.
+
+The exact-arithmetic implementation gives the following demonstrations:
+\begin{center}
+\begin{tabular}{rrrr}
+$N$ & observation settings & $\omega/\gamma$ & certified states\\
+\hline
+7 & 13 & $10^3$ & at least 5\\
+11 & 21 & $10^4$ & at least 6\\
+21 & 41 & $10^5$ & at least 7
+\end{tabular}
+\end{center}
+They are calculated qubit probabilities. None is a laboratory observation.
+
+\section{A finite-record test without a multiplicity penalty on type I error}
+Choose a forbidden rectangular probability region
+$p_N\le\epsilon_0$ and $p_k\ge\beta_0$ for $k\ne N$, satisfying
+\eqref{eq:hier-margin}. For each setting collect an independent fixed number
+$n_k$ of reset records, and let $S_k$ be the success count. Reject the proposed
+classical dimension only when
+\begin{equation}
+ S_N\le c_N\quad\hbox{and}\quad S_k\ge c_k\quad(k\ne N).
+                                                        \label{eq:hier-test}
+\end{equation}
+Calibrate each individual tail at its boundary to be at most $\alpha$.
+Every model in the excluded classical class violates at least one of the
+probability constraints. The probability of passing every count criterion is
+therefore at most the rejection probability for that one violated constraint,
+which is at most $\alpha$. A Bonferroni division of $\alpha$ among settings is
+unnecessary. This is an intersection--union test, an established statistical
+construction. For a specified alternative, the probability of failing any
+criterion is bounded by the sum of its individual miss probabilities.
+
+Here is a fully specified example. Set $N=7$, $r=1000$,
+$\epsilon_0=3/500$, $\beta_0=3/20$, and $\tau=2/25$.
+The classical comparison bound is $149/1000<\beta_0$.
+Use the following counts and acceptance conditions:
+\begin{center}
+\begin{tabular}{rrrr}
+Step $k$ & Records $n_k$ & Critical count $c_k$ & Requirement\\
+\hline
+1 &1900&313&$S_1\ge313$\\
+2--5 &100 each&22&$S_k\ge22$\\
+6 &1800&297&$S_6\ge297$\\
+7 &10300&48&$S_7\le48$\\
+8 &1800&297&$S_8\ge297$\\
+9--12 &100 each&22&$S_k\ge22$\\
+13 &1700&282&$S_{13}\ge282$
+\end{tabular}
+\end{center}
+At $k=7$ require $S_7\le48$; elsewhere require $S_k\ge c_k$.
+The total is $18\,300$ binary records and $126\,900$ channel applications.
+The exact certificates imply
+\begin{equation}
+ \Pr_{n\le4}(\text{reject})<0.049048,
+ \qquad
+ \Pr_{\text{specified qubit}}(\text{do not reject})<0.015708.
+                                                        \label{eq:hier-errors}
+\end{equation}
+The elapsed evolution time is $126900\Delta$, excluding preparation,
+reset, readout, and controller overhead. An energy cost cannot be inferred
+from this operation count without a physical implementation and calibration.
+The record count is a checked sufficient design; no global optimality is claimed.
+
+The probability intervals are certified with rational Machin-formula bounds
+on $\pi$ and Taylor remainders. A binomial tail is bounded using its boundary
+mass and a geometric series whose ratio bounds all successive masses in the
+tail. All reported error comparisons use integer or rational arithmetic.
+Floating-point quantiles only propose critical counts; they do not certify them.
+
+\section{Calibration, timing and failure cases}
+If recorded means differ from a common-model mean by at most a known absolute
+amount $\delta$, use null boundaries $\epsilon_0-\delta$ and
+$\beta_0+\delta$ in the two count tails. For a predicted alternative with the
+same uncertainty, its adverse bounds become $p_N+\delta$ and
+$p_k-\delta$. Calibration failure probability, if any, is added separately.
+The supplied routine implements this conservative extension, although the
+numerical design \eqref{eq:hier-errors} uses $\delta=0$.
+
+No hidden-state preparation purity or rate bound is required. What must be
+stable is the preparation distribution, repeated channel, and readout across
+settings. A one-state device with a readout chosen according to $k$ can fake
+any sequence $p_k$; a time-dependent or history-dependent classical process
+can also invalidate the factorization. Controller state must either be reset
+or included in the count. Arbitrary independent jitter at each total wait time
+need not preserve the additive grid when hidden rates are unbounded; a common
+random preparation latency, or independent identical increments composing each
+step, does preserve the repeated-channel model. General timing uncertainty
+requires a separate calibrated record-probability bound.
+
+For context, an $N$-state deterministic discrete cycle with detector values
+$\sin^2(\pi j/N)$ reproduces the ideal unitary sequence exactly. Thus the
+certificate demonstrably excludes small classical models while allowing a
+larger classical explanation. It is neither a proof of nonclassicality against
+all models nor a new universal physical law.

@@ -1,0 +1,734 @@
+{
+  "evidence": "exact synthetic population examples; no sampled or measured physical data",
+  "safe_iid_increment": {
+    "law": [
+      [
+        1,
+        {
+          "fraction": "3/4",
+          "decimal": 0.75
+        }
+      ],
+      [
+        3,
+        {
+          "fraction": "1/4",
+          "decimal": 0.25
+        }
+      ]
+    ],
+    "mean_increment": {
+      "fraction": "3/2",
+      "decimal": 1.5
+    },
+    "correlations": [
+      {
+        "fraction": "13/32",
+        "decimal": 0.40625
+      },
+      {
+        "fraction": "169/1024",
+        "decimal": 0.1650390625
+      },
+      {
+        "fraction": "2197/32768",
+        "decimal": 0.067047119140625
+      },
+      {
+        "fraction": "28561/1048576",
+        "decimal": 0.027237892150878906
+      },
+      {
+        "fraction": "371293/33554432",
+        "decimal": 0.011065393686294556
+      },
+      {
+        "fraction": "4826809/1073741824",
+        "decimal": 0.004495316185057163
+      }
+    ],
+    "signed_differences": [
+      [
+        {
+          "fraction": "13/32",
+          "decimal": 0.40625
+        },
+        {
+          "fraction": "169/1024",
+          "decimal": 0.1650390625
+        },
+        {
+          "fraction": "2197/32768",
+          "decimal": 0.067047119140625
+        },
+        {
+          "fraction": "28561/1048576",
+          "decimal": 0.027237892150878906
+        },
+        {
+          "fraction": "371293/33554432",
+          "decimal": 0.011065393686294556
+        },
+        {
+          "fraction": "4826809/1073741824",
+          "decimal": 0.004495316185057163
+        }
+      ],
+      [
+        {
+          "fraction": "247/1024",
+          "decimal": 0.2412109375
+        },
+        {
+          "fraction": "3211/32768",
+          "decimal": 0.097991943359375
+        },
+        {
+          "fraction": "41743/1048576",
+          "decimal": 0.039809226989746094
+        },
+        {
+          "fraction": "542659/33554432",
+          "decimal": 0.01617249846458435
+        },
+        {
+          "fraction": "7054567/1073741824",
+          "decimal": 0.006570077501237392
+        }
+      ],
+      [
+        {
+          "fraction": "4693/32768",
+          "decimal": 0.143218994140625
+        },
+        {
+          "fraction": "61009/1048576",
+          "decimal": 0.058182716369628906
+        },
+        {
+          "fraction": "793117/33554432",
+          "decimal": 0.023636728525161743
+        },
+        {
+          "fraction": "10310521/1073741824",
+          "decimal": 0.009602420963346958
+        }
+      ],
+      [
+        {
+          "fraction": "89167/1048576",
+          "decimal": 0.0850362777709961
+        },
+        {
+          "fraction": "1159171/33554432",
+          "decimal": 0.03454598784446716
+        },
+        {
+          "fraction": "15069223/1073741824",
+          "decimal": 0.014034307561814785
+        }
+      ],
+      [
+        {
+          "fraction": "1694173/33554432",
+          "decimal": 0.05049028992652893
+        },
+        {
+          "fraction": "22024249/1073741824",
+          "decimal": 0.020511680282652378
+        }
+      ],
+      [
+        {
+          "fraction": "32189287/1073741824",
+          "decimal": 0.029978609643876553
+        }
+      ]
+    ]
+  },
+  "safe_random_scale_thermodynamics": {
+    "law": [
+      [
+        1,
+        {
+          "fraction": "1/2",
+          "decimal": 0.5
+        }
+      ],
+      [
+        2,
+        {
+          "fraction": "1/2",
+          "decimal": 0.5
+        }
+      ]
+    ],
+    "correlations": [
+      {
+        "fraction": "3/8",
+        "decimal": 0.375
+      },
+      {
+        "fraction": "5/32",
+        "decimal": 0.15625
+      },
+      {
+        "fraction": "9/128",
+        "decimal": 0.0703125
+      },
+      {
+        "fraction": "17/512",
+        "decimal": 0.033203125
+      },
+      {
+        "fraction": "33/2048",
+        "decimal": 0.01611328125
+      },
+      {
+        "fraction": "65/8192",
+        "decimal": 0.0079345703125
+      }
+    ],
+    "signed_differences": [
+      [
+        {
+          "fraction": "3/8",
+          "decimal": 0.375
+        },
+        {
+          "fraction": "5/32",
+          "decimal": 0.15625
+        },
+        {
+          "fraction": "9/128",
+          "decimal": 0.0703125
+        },
+        {
+          "fraction": "17/512",
+          "decimal": 0.033203125
+        },
+        {
+          "fraction": "33/2048",
+          "decimal": 0.01611328125
+        },
+        {
+          "fraction": "65/8192",
+          "decimal": 0.0079345703125
+        }
+      ],
+      [
+        {
+          "fraction": "7/32",
+          "decimal": 0.21875
+        },
+        {
+          "fraction": "11/128",
+          "decimal": 0.0859375
+        },
+        {
+          "fraction": "19/512",
+          "decimal": 0.037109375
+        },
+        {
+          "fraction": "35/2048",
+          "decimal": 0.01708984375
+        },
+        {
+          "fraction": "67/8192",
+          "decimal": 0.0081787109375
+        }
+      ],
+      [
+        {
+          "fraction": "17/128",
+          "decimal": 0.1328125
+        },
+        {
+          "fraction": "25/512",
+          "decimal": 0.048828125
+        },
+        {
+          "fraction": "41/2048",
+          "decimal": 0.02001953125
+        },
+        {
+          "fraction": "73/8192",
+          "decimal": 0.0089111328125
+        }
+      ],
+      [
+        {
+          "fraction": "43/512",
+          "decimal": 0.083984375
+        },
+        {
+          "fraction": "59/2048",
+          "decimal": 0.02880859375
+        },
+        {
+          "fraction": "91/8192",
+          "decimal": 0.0111083984375
+        }
+      ],
+      [
+        {
+          "fraction": "113/2048",
+          "decimal": 0.05517578125
+        },
+        {
+          "fraction": "145/8192",
+          "decimal": 0.0177001953125
+        }
+      ],
+      [
+        {
+          "fraction": "307/8192",
+          "decimal": 0.0374755859375
+        }
+      ]
+    ]
+  },
+  "unsafe_random_scale_for_same_dimension": {
+    "occupation": [
+      {
+        "fraction": "1",
+        "decimal": 1.0
+      },
+      {
+        "fraction": "11/16",
+        "decimal": 0.6875
+      },
+      {
+        "fraction": "37/64",
+        "decimal": 0.578125
+      },
+      {
+        "fraction": "137/256",
+        "decimal": 0.53515625
+      },
+      {
+        "fraction": "529/1024",
+        "decimal": 0.5166015625
+      }
+    ],
+    "hankel": [
+      [
+        {
+          "fraction": "1",
+          "decimal": 1.0
+        },
+        {
+          "fraction": "11/16",
+          "decimal": 0.6875
+        },
+        {
+          "fraction": "37/64",
+          "decimal": 0.578125
+        }
+      ],
+      [
+        {
+          "fraction": "11/16",
+          "decimal": 0.6875
+        },
+        {
+          "fraction": "37/64",
+          "decimal": 0.578125
+        },
+        {
+          "fraction": "137/256",
+          "decimal": 0.53515625
+        }
+      ],
+      [
+        {
+          "fraction": "37/64",
+          "decimal": 0.578125
+        },
+        {
+          "fraction": "137/256",
+          "decimal": 0.53515625
+        },
+        {
+          "fraction": "529/1024",
+          "decimal": 0.5166015625
+        }
+      ]
+    ],
+    "hankel_determinant": {
+      "fraction": "9/32768",
+      "decimal": 0.000274658203125
+    },
+    "physical_states": 2,
+    "common_channel_minimum_dimension": 3,
+    "three_state_realization": {
+      "P": [
+        [
+          {
+            "fraction": "1/2",
+            "decimal": 0.5
+          },
+          {
+            "fraction": "0",
+            "decimal": 0.0
+          },
+          {
+            "fraction": "1/2",
+            "decimal": 0.5
+          }
+        ],
+        [
+          {
+            "fraction": "0",
+            "decimal": 0.0
+          },
+          {
+            "fraction": "1/4",
+            "decimal": 0.25
+          },
+          {
+            "fraction": "3/4",
+            "decimal": 0.75
+          }
+        ],
+        [
+          {
+            "fraction": "0",
+            "decimal": 0.0
+          },
+          {
+            "fraction": "0",
+            "decimal": 0.0
+          },
+          {
+            "fraction": "1",
+            "decimal": 1.0
+          }
+        ]
+      ],
+      "initial": [
+        {
+          "fraction": "1/2",
+          "decimal": 0.5
+        },
+        {
+          "fraction": "1/2",
+          "decimal": 0.5
+        },
+        {
+          "fraction": "0",
+          "decimal": 0.0
+        }
+      ],
+      "detector": [
+        {
+          "fraction": "1",
+          "decimal": 1.0
+        },
+        {
+          "fraction": "1",
+          "decimal": 1.0
+        },
+        {
+          "fraction": "1/2",
+          "decimal": 0.5
+        }
+      ]
+    }
+  },
+  "unsafe_settingwise_ordered_means": {
+    "laws": [
+      [
+        [
+          1,
+          {
+            "fraction": "1",
+            "decimal": 1.0
+          }
+        ]
+      ],
+      [
+        [
+          0,
+          {
+            "fraction": "4/5",
+            "decimal": 0.8
+          }
+        ],
+        [
+          10,
+          {
+            "fraction": "1/5",
+            "decimal": 0.2
+          }
+        ]
+      ]
+    ],
+    "mean_lags": [
+      {
+        "fraction": "1",
+        "decimal": 1.0
+      },
+      {
+        "fraction": "2",
+        "decimal": 2.0
+      }
+    ],
+    "correlations": [
+      {
+        "fraction": "1/2",
+        "decimal": 0.5
+      },
+      {
+        "fraction": "4097/5120",
+        "decimal": 0.8001953125
+      }
+    ],
+    "increase": {
+      "fraction": "1537/5120",
+      "decimal": 0.3001953125
+    },
+    "physical_entropy_rate": {
+      "fraction": "0",
+      "decimal": 0.0
+    }
+  },
+  "unsafe_stochastically_ordered_clocks_for_full_cone": {
+    "laws": [
+      [
+        [
+          1,
+          {
+            "fraction": "1",
+            "decimal": 1.0
+          }
+        ]
+      ],
+      [
+        [
+          1,
+          {
+            "fraction": "9/10",
+            "decimal": 0.9
+          }
+        ],
+        [
+          11,
+          {
+            "fraction": "1/10",
+            "decimal": 0.1
+          }
+        ]
+      ],
+      [
+        [
+          2,
+          {
+            "fraction": "9/10",
+            "decimal": 0.9
+          }
+        ],
+        [
+          12,
+          {
+            "fraction": "1/10",
+            "decimal": 0.1
+          }
+        ]
+      ]
+    ],
+    "mean_lags": [
+      {
+        "fraction": "1",
+        "decimal": 1.0
+      },
+      {
+        "fraction": "2",
+        "decimal": 2.0
+      },
+      {
+        "fraction": "3",
+        "decimal": 3.0
+      }
+    ],
+    "correlations": [
+      {
+        "fraction": "1/2",
+        "decimal": 0.5
+      },
+      {
+        "fraction": "9217/20480",
+        "decimal": 0.450048828125
+      },
+      {
+        "fraction": "9217/40960",
+        "decimal": 0.2250244140625
+      }
+    ],
+    "second_difference": {
+      "fraction": "-7171/40960",
+      "decimal": -0.1750732421875
+    },
+    "physical_entropy_rate": {
+      "fraction": "0",
+      "decimal": 0.0
+    }
+  },
+  "safe_disjoint_symmetric_blocks": {
+    "length": 4,
+    "gaps": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "correlations": [
+      {
+        "fraction": "289/2048",
+        "decimal": 0.14111328125
+      },
+      {
+        "fraction": "289/4096",
+        "decimal": 0.070556640625
+      },
+      {
+        "fraction": "289/8192",
+        "decimal": 0.0352783203125
+      },
+      {
+        "fraction": "289/16384",
+        "decimal": 0.01763916015625
+      }
+    ],
+    "signed_differences": [
+      [
+        {
+          "fraction": "289/2048",
+          "decimal": 0.14111328125
+        },
+        {
+          "fraction": "289/4096",
+          "decimal": 0.070556640625
+        },
+        {
+          "fraction": "289/8192",
+          "decimal": 0.0352783203125
+        },
+        {
+          "fraction": "289/16384",
+          "decimal": 0.01763916015625
+        }
+      ],
+      [
+        {
+          "fraction": "289/4096",
+          "decimal": 0.070556640625
+        },
+        {
+          "fraction": "289/8192",
+          "decimal": 0.0352783203125
+        },
+        {
+          "fraction": "289/16384",
+          "decimal": 0.01763916015625
+        }
+      ],
+      [
+        {
+          "fraction": "289/8192",
+          "decimal": 0.0352783203125
+        },
+        {
+          "fraction": "289/16384",
+          "decimal": 0.01763916015625
+        }
+      ],
+      [
+        {
+          "fraction": "289/16384",
+          "decimal": 0.01763916015625
+        }
+      ]
+    ]
+  },
+  "unsafe_overlapping_symmetric_blocks": {
+    "length": 4,
+    "start_separations": [
+      2,
+      4
+    ],
+    "correlations": [
+      {
+        "fraction": "49/256",
+        "decimal": 0.19140625
+      },
+      {
+        "fraction": "289/1024",
+        "decimal": 0.2822265625
+      }
+    ],
+    "increase": {
+      "fraction": "93/1024",
+      "decimal": 0.0908203125
+    },
+    "physical_entropy_rate": {
+      "fraction": "0",
+      "decimal": 0.0
+    }
+  },
+  "unsafe_center_spacing_index": {
+    "length": 2,
+    "start_separations": [
+      2,
+      4
+    ],
+    "actual_gaps": [
+      0,
+      2
+    ],
+    "correlations": [
+      {
+        "fraction": "25/64",
+        "decimal": 0.390625
+      },
+      {
+        "fraction": "25/256",
+        "decimal": 0.09765625
+      }
+    ],
+    "normalized_second_moment_gap": {
+      "fraction": "-225/4096",
+      "decimal": -0.054931640625
+    },
+    "physical_entropy_rate": {
+      "fraction": "0",
+      "decimal": 0.0
+    }
+  },
+  "unsafe_antisymmetric_block": {
+    "length": 2,
+    "gap": 1,
+    "correlation": {
+      "fraction": "-9/128",
+      "decimal": -0.0703125
+    },
+    "same_probability": {
+      "fraction": "119/256",
+      "decimal": 0.46484375
+    },
+    "physical_entropy_rate": {
+      "fraction": "0",
+      "decimal": 0.0
+    }
+  },
+  "duration_accounting_example": {
+    "mean_full_duration": {
+      "fraction": "11/2",
+      "decimal": 5.5
+    },
+    "stationary_entropy_rate_lower": {
+      "fraction": "2/275",
+      "decimal": 0.007272727272727273
+    }
+  }
+}

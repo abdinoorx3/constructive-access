@@ -1,0 +1,139 @@
+CALIBRATED EXPOSURE AND NOISE: POPULATION RECOVERY
+Owner: /root/population_theory
+Date: 2026-10-13 UTC
+Status: proof draft for independent internal review, outside frozen eighth
+release. No simulation, apparatus measurement, historical-priority claim or
+finite-sample recovery claim accompanies it.
+
+Authoritative manuscript: theory/detector_recovery.tex.
+
+MAIN FALSIFIABLE THEOREM
+Y real bounded stationary continuous, Cov(Y0,Yt)->0. Known causal boxcar
+Zt=(1/tau) integral[t-tau,t]Ys ds, tau>0. At a countable dense timestamp set,
+B_t=Z_t+xi_t, known iid noise independent signal. Complete joint noisy law
+uniquely determines the full ideal continuous law of Y.
+
+NOISE STEP
+If compactly supported latent vector laws P,Q satisfy P*N=Q*N for any known
+noise law N, their characteristic functions agree near zero because Nhat(0)=1
+and Nhat continuous. Compact support makes Phat,Qhat analytic, so equality
+extends everywhere. Thus each latent finite-dimensional Z law is identified,
+even if noise CF has zeros or noise lacks finite variance. Bounded latent
+support is essential to that particular argument; without it, nowhere-zero
+noise CF is a familiar alternative sufficient assumption. No stable analytic
+continuation is claimed. Known correlated noise also works if its complete
+joint laws, not merely marginals, are calibrated and independent of signal.
+Continuity makes all dense-time finite-dimensional Z laws determine C(R) law.
+
+ELEMENTARY EXPOSURE INVERSE (root and reviewer independently proposed)
+tau Z'_t=Y_t-Y_{t-tau} exactly. Put mu=EZ0=EY0 and
+R_N Z(t)=mu+tau sum[k=0..N-1](1-k/N)Z'_{t-k tau}.
+Telescoping gives R_N Z(t)=Y_t-(N^-1 sum[j=1..N]Y_{t-j tau}-mu).
+Mean-square error is covariance double sum/N² and tends0 under covariance
+decay. Joint L² convergence at any finite set of times identifies Y path law.
+If |Cov(Y0,Yt)|<=C exp(-kappa|t|), error²<=C coth(kappa tau/2)/N.
+This is finite-window POPULATION truncation error with exact Z derivatives,
+not a noisy finite-data estimation guarantee. Derivative RMS error delta
+amplifies at most tau(N+1)delta/2 by the triangle inequality; mean error adds.
+
+SPECTRAL VERSION / STANDARD LANDWEBER ITERATION
+A is known shift-average operator, T=A*A, norm A<=1.
+L_N Z=sum[j=0..N-1](I-T)^j A*Z=[I-(I-T)^N]Y when Z=AY.
+By the spectral theorem, L² recovery of Y holds iff Y has no projection in ker A.
+Boxcar multiplier H(lambda)=exp(-ilambda tau/2)sinc(lambda tau/2), zeros
+at nonzero 2pi k/tau. The minimal signal premise is no spectral mass at those
+zeros; covariance decay is sufficient. Operator norm L_N<=sqrtN, and exact
+squared bias=integral(1-|H|²)^(2N)dmu_Y. This is standard linear inverse
+theory, not a newly named mathematical operator. Finite-error rate needs
+quantitative spectral-mass control near zeros and high frequencies, not just
+injectivity.
+
+DIFFUSION CONSEQUENCE
+Smooth detector on compact connected uniformly elliptic stationary diffusion
+is bounded with exponentially decaying centered correlations. Every compatible
+hidden model under the calibrated detector therefore shares the identified
+ideal law. For exposed/noisy cosine-circle law, the broad-class attained
+ordinary-hidden-diffusion minimum remains omega²/gamma. This uses complete
+dense population law, not direct local geometry of exposure Z: Z is C1 and
+its quadratic variation is ZERO. Detector energy is not target entropy.
+
+UNKNOWN BOXCAR WIDTH: OPTIONAL PROPOSITION
+Countermodel agent noted, and I independently checked, that ideal centered
+detector PSD is strictly positive at every real lambda in this class. With
+f centered and nonzero, u=(i lambda-L)^-1 f,
+S_Y(lambda)=2Re<f,u>=2 integral grad(conj u)^T D grad u dpi>0.
+The Poincare gap and ellipticity give the mean-zero resolvent; nonconstant f
+gives strict positivity. Then S_Z=|Htau|² S_Y has zeros exactly at nonzero
+2pi k/tau. Its smallest positive zero identifies width tau if the boxcar
+shape and physical clock are known. Constant detectors are excluded. This
+is population identification, not robust spectral-zero estimation or
+identification of arbitrary unknown response kernels. Known noise can first
+be removed at the law level without assuming finite variance.
+
+FAILURE AND SCOPE
+A random-phase periodic harmonic at 2pi/tau is erased exactly, so stationarity
+or continuous-flow ergodicity alone is insufficient. Mixing excludes it.
+Fixed-grid sampling is not dense access, so our theorem makes no claim about
+recovering the path between grid points. An explicit construction gives a mixing
+OU counterexample for a fixed grid. Near spectral zeros and at high frequency,
+the inverse can be arbitrarily ill-conditioned despite injectivity.
+Root covers a strong finite-noise obstruction: for a fixed-gamma, high-omega
+cosine circle, exposure variance is O(omega^-2); the finite Gaussian-mixture
+law approaches pure noise while the sharp ideal-law minimum omega²/gamma
+diverges. Uniform finite upper confidence bounds fail under that scope.
+Calibration and independence premises cannot be inferred silently from test
+records. The sharp minimum is the target, rather than arbitrary invisible
+extra dissipation, which already lacks upper bounds under ideal access.
+
+PRIOR ART / REVIEW
+Convolution uniqueness, analytic continuation, Cesaro averaging, and Landweber
+iteration are established ingredients. Dedicated literature and independent
+review agents are auditing exact scope. This directory must not be copied
+into the frozen observed_geometry release or described as externally reviewed.
+
+INDEPENDENT REVIEWER'S DENSE-IID REFINEMENT, CHECKED AND ADDED
+At a target t choose deterministic distinct dense timestamps t_j->t. Conditional
+on the continuous exposure path, bounded complex variables exp(iu B_tj) have
+independent centered noises, so Kolmogorov's strong law gives their average
+->exp(iu Z_t)*noiseCF(u), regardless of noise moments. For countable u_k->0,
+noiseCF nonzero eventually; ratio gives exp(iu_k Z_t), then Im()/u_k->Z_t.
+Countable target times plus continuity reconstruct Z path almost surely as
+a measurable function of infinite dense noisy readings. No bounded latent
+amplitude needed for this iid result. Thus the main injectivity theorem extends
+to continuous square-integrable stationary Y with covariance decay.
+This is an infinite-readout information statement, not finite-time denoising
+or a claim that real overlapping detector errors become independent.
+A note on prior art added after the primary-source audit:
+Landweber (1951), DOI 10.2307/2372313, is the established iteration used here.
+Hall and Meister (2007), DOI 10.1214/009053607000000028, already treat known-error
+deconvolution with characteristic-function zeros under quantitative conditions.
+Nakakita and Uchida (2020), DOI 10.3390/e22091031, consistently estimate an
+unknown exposure-to-frame ratio in a shrinking-exposure diffusion regime.
+Gupta and Khammash (2022), DOI 10.1038/s41467-022-31263-x, explicitly use a
+Markov-generator resolvent formula for output spectra in reaction networks.
+The narrow fixed-width full-law and elliptic-positivity arguments should be
+compared against these works, not described as first detector calibration.
+
+INTERNAL REVIEW CHECKPOINT — 2026-10-13T00:17:24Z
+The independent review agent reported that the actual recovery manuscript
+survived review, including dense iid recovery without noise moments and the
+strictly positive elliptic spectrum / boxcar-width corollary. The agent is
+writing its separate review record; external peer review remains absent.
+Reviewed proof SHA256:
+ efe7a61821987fa8855922d11f2eb560904a53a77246f72a09e99f10525ea3db
+
+Resource distinction for the separate finite-access branch:
+The passive versus prepared comparison fixes positive read-noise variance and
+counts independent exposure trials. It is not a theorem about total energy.
+Changing sensor energy may change read precision, and preparation energy may
+depend on frequency. A joint calibrated sensor/actuator energy optimization
+is a further problem, not a proved consequence of the count exponents.
+
+FINAL SCOPE CLARIFICATION — 2026-10-13T00:29:28Z
+At the independent reviewer's request, the width section now explicitly states
+that it and the preceding compatible-minimum consequence inherit the smooth
+compact connected manifold WITHOUT BOUNDARY, smooth positive stationary
+density, uniform ellipticity, and ordinary full-hidden-state reversal model.
+No mathematical result or access claim was expanded.
+Final detector_recovery.tex SHA256:
+ c95c02f5de9a179192605bbbab58e1a907c95590271fd3f53725176d4c8cad04

@@ -1,0 +1,333 @@
+\documentclass[11pt,oneside]{book}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,longtable,array,graphicx,microtype,enumitem}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\usepackage{bookmark}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\setlength{\emergencystretch}{2em}
+\setcounter{tocdepth}{1}
+\hypersetup{pdftitle={Constructive Access: A Unified Reference for Inference under Restricted Physical Access},pdfauthor={Abdinoor, 2D Labs},pdfsubject={Identifiability, interventions, calibrated inference, physical resources and reproducible scientific software}}
+\begin{document}
+\pagestyle{plain}
+\frontmatter
+\begin{titlepage}
+\centering
+\vspace*{1.2in}
+{\Huge\bfseries Constructive Access\par}
+\vspace{0.4in}
+{\Large A Unified Reference for Inference\\under Restricted Physical Access\par}
+\vspace{0.6in}
+{\Large Abdinoor\par}
+\vspace{0.12in}
+{\large 2D Labs\par}
+\vfill
+{\large 13 October 2026\par}
+\vspace{0.25in}
+{\normalsize First public release 1.0\quad\textbullet\quad Research toolkit 0.10.0\par}
+\end{titlepage}
+% First-public-launch fragment. Replace only the Purpose and use block
+% after the title page and before \tableofcontents. Retain the surrounding
+% title page, contents, notation, conventions and scientific chapters.
+\chapter*{Purpose and use}
+\addcontentsline{toc}{chapter}{Purpose and use}
+
+Scientific evidence limits the explanations a system can have. Those limits
+depend on how the system is prepared, which interventions are possible, what
+the detector retains, and how accurately the experiment is calibrated.
+\emph{Constructive Access} develops a common framework for turning these
+conditions into a checkable conclusion: a property that the evidence
+identifies, an experiment that separates alternatives, a resource that every
+compatible explanation requires, or a precise reason to withhold judgment.
+
+The central mathematical object is the probability law of the complete
+accessible record under a permitted experiment. An \emph{access contract}
+specifies the target, candidate physical models, preparation, controls,
+detector, timing, calibration, error objective and resource accounting.
+Models that give the same accessible laws cannot be separated within that
+contract. This familiar identification principle becomes constructive when
+one can compute an obstruction, synthesize an informative protocol, or bound
+the target over all compatible models.
+
+This is a unified monograph and accompanying research toolkit. It starts
+with a two-state example and develops the mathematical machinery, physical
+models, finite-data procedures and reproducible applications needed to use
+that principle. Three questions remain distinct throughout: whether a
+distinction exists in ideal evidence, whether a finite experiment can resolve
+it reliably, and what physical resources the experiment requires. Exact
+identification alone does not imply an efficient or realizable measurement.
+
+\section*{The main contributions}
+
+The general foundations draw on established system identification, automata
+and realization theory, quantum instruments, statistical decision theory,
+stochastic thermodynamics and concentration inequalities. Their attribution
+is part of the reference. The contributions developed here are particular
+proofs, constructions and their operational connection, with a claim ledger
+that separates these from the inherited mathematics.
+
+For finite classical and quantum instruments, accessible linear spaces
+support exact equivalence certificates and finite distinguishing sequences.
+Exported certificates permit a separate checker to verify the claimed
+obstruction or additive witness charge. Calibrated testing and bounded
+decision design then address the different problem of obtaining reliable
+evidence. Worked intervention models distinguish current magnitude from
+orientation, hidden states from hidden reaction channels, and a missing
+measurement from a missing physical assumption.
+
+The physical-resource results ask what every compatible explanation must
+contain. Finite temporal observations can impose classical state requirements
+under declared preparation and detector rules. Correlation evidence can
+require preparation resources or sustained dissipation under different
+contracts. Explicit equilibrium realizations and sampling aliases identify
+where those conclusions cease to follow. A state-count obstruction is
+therefore presented with its comparison class, rather than as a general
+test of quantumness.
+
+A central diffusion result goes further than detecting irreversibility in
+the recorded signal. Within a specified class of ordinary smooth compact
+hidden diffusions, some completely time-reversible scalar process laws have
+an attained positive minimum entropy production over every compatible
+realization, allowing arbitrary finite hidden dimension. For the family
+\[
+ L=\gamma\partial_\phi^2+c(z)\partial_\phi+L_Z,
+ \qquad Y=\cos\phi,
+\]
+where $Z$ is a reversible compact diffusion, that minimum is
+$\mathbb E[c(Z)^2]/\gamma$. It can remain positive when the mean angular
+current is zero. The claim concerns the complete ideal observation law and
+ordinary reversal of all hidden coordinates. Changing the admissible dynamics
+or the physical reversal convention changes the question.
+
+The detector and calibration results connect such population statements to
+finite observations. A replicated polynomial construction supplies an entropy
+lower confidence bound when the bounded observable has the pointwise geometry
+$\Gamma_f=\gamma(1-f^2)$ with an unknown scale $\gamma$. Temporal moments,
+constant references and timed-step references cover the scale, a common
+detector gain and a uniform exposure width. The geometric relation and the
+required generator bounds are explicit premises. A complementary rare-region
+theorem proves why finite passive records cannot uniformly establish
+unrestricted global bounds merely from individual-model smoothness, favorable
+ellipticity or a mixing gap.
+
+The sharp polynomial limit is constructive but requires increasing access,
+shrinking exposure and increasingly accurate arithmetic. Finite performance
+is reported separately. In the frozen calibration experiment, each dataset
+uses $13{,}333{,}333$ independent target trials and $200{,}000$ reference
+readings, totaling $80{,}199{,}998$ detector readings. Positive geometry
+certificates occur in the stronger-drive cases; the weak-drive case remains
+inconclusive, and the higher polynomial prefix never wins at that budget.
+The broader-class endpoint comparator performs better in some detection
+comparisons. These outcomes expose remaining acquisition costs rather than
+establishing universal efficiency. Detector counts and elapsed time are
+reported separately from energy whenever apparatus energy has not been
+calibrated.
+
+\section*{Reading and using the reference}
+
+The chapters are arranged by dependency, with several entry routes:
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{First reading.}
+Chapter~\ref{entry:start} introduces the access contract through a complete
+example. Chapters~\ref{foundations:chapter}, \ref{finite:chapter} and
+\ref{precision:chapter} develop identification, constructive certificates
+and finite-error inference. Chapter~\ref{workflow:suite} assembles these
+into an experimental workflow.
+\item \textbf{Controlled classical and quantum experiments.}
+Begin with Chapter~\ref{finite:chapter}, then use the response, preparation,
+dimension and application chapters for the appropriate physical contract.
+Check which controls and retained outcomes a proposed instrument permits
+before applying its certificate.
+\item \textbf{Dissipation and hidden diffusion.}
+Chapter~\ref{pa:entry} introduces correlation evidence for necessary
+dissipation. Chapters~\ref{og:entry}, \ref{ch:dg-entry} and
+\ref{ch:dc-entry} connect observed diffusion geometry to physical detectors
+and uncertain calibration. Read each constructive result together with its
+countermodels and acquisition assumptions.
+\item \textbf{Implementation and reproduction.}
+Chapter~\ref{toolkit:chapter} gives installation instructions and examples
+for the \texttt{constructive\_access} package. The archive provides
+proof sources, frozen designs, retained statistics, provenance and verification
+drivers. The calibration tutorial replays a retained simulated dataset through
+the public exact-arithmetic API. Chapter~\ref{vl:entry} explains what the
+virtual experiments establish.
+\end{itemize}
+
+A practical application begins by matching an apparatus to a contract, then
+choosing the target and the corresponding certificate. Inconclusive output is
+an informative outcome when the remaining models disagree or the confidence
+region is too wide. Additional sensing, intervention, preparation or calibration
+may resolve it; additional processing of the same indistinguishable evidence
+cannot. The software checks the stated calculation. Physical calibration and
+model adequacy must be justified in the application.
+
+\section*{Evidence and review}
+
+The evidential basis comprises mathematical arguments, internally checked
+software, synthetic experiments and an explicitly exploratory reanalysis of
+previously published optical-tweezer measurements. The latter identifies a
+calibration gap and supplies no empirical entropy certificate. This work
+reports no newly measured apparatus or experimental verification of a new
+physical law. The claim ledger records assumptions and evidence status, and
+the literature chapters distinguish established methods from the specific
+results presented here. Historical priority has not been established.
+
+The monograph has not undergone external peer review. The
+released proofs, sources and reproduction records are provided so that readers
+can inspect, challenge and extend the results under their stated assumptions.
+
+\section*{Availability and reuse}
+
+Project information and correspondence:
+\url{https://2dlabs.org} and
+\href{mailto:helloworld@2dai.org}{\nolinkurl{helloworld@2dai.org}}.
+Copyright \textcopyright{} 2026 Abdinoor (2D Labs), to the extent of rights
+owned or controlled by the licensor. The covered research text and software
+use the \emph{Constructive Access Research and Revenue-Threshold License},
+version~1.0. Its controlling terms accompany the research package as
+\texttt{LICENSE}, with a \texttt{COMMERCIAL\_USE.txt} guide; copies and
+commercial terms may be requested at the address above.
+
+Personal noncommercial use and qualifying academic research and teaching are
+free. Business use is free while worldwide Group Revenue, including controlled
+and common-control affiliates, is at or below US\$10 million over the preceding
+12 months, subject to the license's eligibility conditions. Above that
+threshold, covered business use outside the universally permitted scholarly
+activities requires a separate written commercial license. Reading, scientific
+review, reproduction of the published demonstrations and scholarly quotation
+remain permitted under the stated terms regardless of revenue. The license
+does not reserve mathematical truths, scientific ideas or independent
+implementations that copy no protected expression. Third-party material
+retains its own licenses.
+
+\tableofcontents
+\chapter*{Notation and conventions}
+\addcontentsline{toc}{chapter}{Notation and conventions}
+\begin{longtable}{p{0.19\textwidth}p{0.74\textwidth}}
+\toprule
+Symbol & Meaning\\
+\midrule
+$\theta$, $h$ & A fixed candidate physical mechanism; $h$ indexes a finite family.\\
+$g(\theta)$ & The scientific target: a label, parameter, current or other specified property.\\
+$\pi$, $\Pi_C$ & A permitted experimental policy; policies within a declared resource budget.\\
+$P_\theta^\pi$ & Law of the complete accessible record, including observed action outcomes.\\
+$\varpi$ & A stationary distribution in physical network calculations. Local chapter definitions take precedence when an inherited conventional symbol is retained.\\
+$K^{a,y}$ & Classical kernel for action $a$, recorded outcome $y$, and the next hidden state.\\
+$\mathcal E^{a,y}$ & Completely positive quantum instrument component, including its outcome probability and state change.\\
+$\alpha M_w\beta$ & A finite linear representation of a probability difference for a chronological word $w$.\\
+$V$, $d$ & Accessible effect span and paired representation dimension.\\
+$C_t$, $g(C_t)$ & Retained model set and the corresponding set of possible target values.\\
+$\operatorname{TV}(P,Q)$ & Total variation, with convention $\frac12\int|p-q|$.\\
+$\eta$, $\varepsilon$ & Declared calibration radius or measurement error, defined for each use.\\
+$\alpha$, $\beta$, $\delta$ & Error budgets in statistical/resource theorems; distinguished locally from linear representation vectors.\\
+$Q$, $G$, $R$ & Continuous-time Markov generators; their roles are specified in each model.\\
+$J_{ij}$ & Stationary probability current, with a stated edge orientation.\\
+$W$, $\Sigma$ & A declared work/expenditure variable and entropy production; never interchangeable without physical assumptions.\\
+\bottomrule
+\end{longtable}
+Classical probability distributions are row vectors and Markov generators have zero row sums. Quantum states are density operators; the finite linear representation uses an explicitly chosen real Hermitian basis. A word is chronological: its leftmost action occurs first. Exact software inputs are integers or rational strings. Floating-point approximations are labeled as numerical checks, not exact certificates.
+\mainmatter
+\input{chapters/entry}
+\input{chapters/foundations}
+\input{chapters/finite_access}
+\input{chapters/precision_design}
+\input{chapters/adequacy_energy}
+\input{chapters/continuous_thermodynamics}
+\input{chapters/classical_section}
+\input{chapters/rr_robust_physics}
+\input{chapters/quantum_section}
+\input{chapters/statistical_section}
+\input{chapters/rr_preparation}
+\input{chapters/rr_reset_boundary}
+\input{chapters/rr_clock_design}
+\input{chapters/rr_statistics}
+\input{chapters/rr_explanation}
+\input{chapters/rf_frontier}
+\input{chapters/rf_hierarchy}
+\input{chapters/rf_spectral}
+\input{chapters/rf_limits}
+\input{chapters/rf_thermodynamic}
+\input{chapters/rf_energy_certificate}
+\input{chapters/vl_entry}
+\input{chapters/vl_timing}
+\input{chapters/vl_sampling}
+\input{chapters/vl_contrast}
+\input{chapters/vl_thermodynamic_lab}
+\input{chapters/vl_dimension_lab}
+\input{chapters/vl_benchmark}
+\input{chapters/ci_entry}
+\input{chapters/ci_calibration}
+\input{chapters/ci_nonlinear}
+\input{chapters/ci_dissipation_limits}
+\input{chapters/ci_sequential}
+\input{chapters/ci_dependence}
+\input{chapters/ci_analog}
+\input{chapters/ci_calibrated_benchmark}
+\input{chapters/ci_joint_calibration}
+\input{chapters/ci_empirical}
+\input{chapters/pa_entry}
+\input{chapters/pa_spectral_dynamics}
+\input{chapters/pa_joint_analog}
+\input{chapters/pa_retiming}
+\input{chapters/pa_design}
+\chapter{Physical realizations and sampling limits}
+\input{chapters/pa_physical_minimum}
+\input{chapters/og_entry}
+\input{chapters/og_population_theory}
+\input{chapters/og_finite_resolution}
+\input{chapters/og_consistency}
+\input{chapters/og_countermodels}
+\input{chapters/og_experiment}
+\input{chapters/og_combination}
+\input{chapters/dg_entry}
+\input{chapters/dg_recovery}
+\input{chapters/dg_finite_access}
+\input{chapters/dg_design}
+\input{chapters/dg_countermodels}
+\input{chapters/dc_calibration_entry}
+\input{chapters/dc_calibration_theory}
+\input{chapters/dc_calibration_limits}
+\input{chapters/dc_calibration_experiment}
+\input{chapters/graph_section}
+\input{chapters/resource_section}
+\input{chapters/composition_section}
+\input{chapters/applications}
+\input{chapters/workflow}
+\input{chapters/toolkit}
+\input{chapters/research_map}
+\input{chapters/positioning_section}
+\input{chapters/rr_positioning}
+\input{chapters/rf_positioning}
+\input{chapters/vl_positioning}
+\input{chapters/ci_positioning}
+\chapter{Positioning the direct correlation result}
+\input{chapters/pa_literature}
+\input{chapters/og_literature}
+\input{chapters/dg_literature}
+\input{chapters/dc_calibration_literature}
+\backmatter
+\begin{thebibliography}{99}
+\input{bibliography}
+\input{completion_bibitems}
+\input{robust_bibitems}
+\input{frontier_bibitems}
+\input{virtual_bibitems}
+\input{calibrated_bibitems}
+\input{attainability_bibitems}
+\input{geometry_bibitems}
+\input{detector_bibitems}
+\input{calibration_bibitems}
+\end{thebibliography}
+\end{document}

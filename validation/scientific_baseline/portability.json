@@ -1,0 +1,456 @@
+{
+  "recorded_utc": "2026-10-13T02:22:45.377046+00:00",
+  "status": "passed",
+  "workspace": "/tmp/constructive-access-clean-u5dilc0q",
+  "network_used": false,
+  "environment": "Clean copied source tree, then local wheel in a separate venv sharing only already-installed third-party dependencies. No PYTHONPATH for installed execution.",
+  "prior_research_directories_required": false,
+  "commands": [
+    {
+      "name": "reproduce",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "verify.py"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1403.947969,
+      "log": "logs/clean_reproduce.log",
+      "log_sha256": "e9cde2703bcf8491691e156e6faa0e47894643aa4b1f3299278a775eeddd2c52"
+    },
+    {
+      "name": "wheel",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "pip",
+        "wheel",
+        "--no-deps",
+        "--no-build-isolation",
+        "--no-index",
+        "--wheel-dir",
+        "/tmp/constructive-access-clean-u5dilc0q/wheel",
+        "/tmp/constructive-access-clean-u5dilc0q/reference"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.016143,
+      "log": "logs/clean_wheel.log",
+      "log_sha256": "7c316d2d9d6410209d2f08165943a2b1060d664a97b2e951420a91da031fa479"
+    },
+    {
+      "name": "venv",
+      "argv": [
+        "[recorded-python-runtime]/bin/python",
+        "-m",
+        "venv",
+        "--system-site-packages",
+        "/tmp/constructive-access-clean-u5dilc0q/environment"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.022397,
+      "log": "logs/clean_venv.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "install",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "/tmp/constructive-access-clean-u5dilc0q/wheel/constructive_access-0.10.0-py3-none-any.whl"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.572913,
+      "log": "logs/clean_install.log",
+      "log_sha256": "4e6ed6de1e9ea7442e1df9fda0a32cbb66050a956cc8d656c7f9dd098232c9dc"
+    },
+    {
+      "name": "installed_import",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "-I",
+        "-c",
+        "import constructive_access, pathlib, sys; p=pathlib.Path(constructive_access.__file__).resolve(); assert str(p).startswith(str(pathlib.Path(sys.prefix).resolve())), p; print(constructive_access.__version__); print(p)"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.402525,
+      "log": "logs/clean_installed_import.log",
+      "log_sha256": "7b6f857a984bd1825d8a9491073954119ceda6e01f072ab6bae34efcaf0e9af3"
+    },
+    {
+      "name": "installed_analyze",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/constructive-access",
+        "analyze",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/active.json",
+        "-o",
+        "/tmp/constructive-access-clean-u5dilc0q/active_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.376143,
+      "log": "logs/clean_installed_analyze.log",
+      "log_sha256": "7683b6b44efaea039b219a1889cfc00976ec6dd3e844f53813c89638346e5345"
+    },
+    {
+      "name": "installed_verify",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/constructive-access",
+        "verify",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/active.json",
+        "/tmp/constructive-access-clean-u5dilc0q/active_report.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.340905,
+      "log": "logs/clean_installed_verify.log",
+      "log_sha256": "d232216c2a60eed73809ced73895735e25454990b7c83be163dc2447d8a99cb4"
+    },
+    {
+      "name": "installed_suite",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/suite_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/suite_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.304456,
+      "log": "logs/clean_installed_suite.log",
+      "log_sha256": "5b5a86d5b76db78449ace2bac0e35441196a99e903e620af4247a3829585d186"
+    },
+    {
+      "name": "installed_advanced",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/advanced_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/advanced_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.488965,
+      "log": "logs/clean_installed_advanced.log",
+      "log_sha256": "3ebe69f6022940002ebfa1891ec2135d95c91e1d68fb2d8c061374e119323fdb"
+    },
+    {
+      "name": "installed_completion",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/completion_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/completion_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.439661,
+      "log": "logs/clean_installed_completion.log",
+      "log_sha256": "794d7dd914db91b52a945cfb6f68d88686a0c68aa373b12a33fe5fc64cd46940"
+    },
+    {
+      "name": "installed_robust",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/robust_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/robust_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.751899,
+      "log": "logs/clean_installed_robust.log",
+      "log_sha256": "4c0a6e36c2ca759021ad3eca4d263aa53a54d9f9b1a4aec999512d58f034bbbe"
+    },
+    {
+      "name": "installed_frontier",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/frontier_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/frontier_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.885701,
+      "log": "logs/clean_installed_frontier.log",
+      "log_sha256": "1f314792541043f3c0e72af321213809b6cb51da46f5efa3e7ef39cd0e58191f"
+    },
+    {
+      "name": "installed_virtual",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/virtual_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/virtual_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.412394,
+      "log": "logs/clean_installed_virtual.log",
+      "log_sha256": "b9da79675f3e966ef5a166611faafb8c5097a6fc9f67d6c85ddb34680c22058a"
+    },
+    {
+      "name": "installed_calibrated",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/calibrated_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/calibrated_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 2.440948,
+      "log": "logs/clean_installed_calibrated.log",
+      "log_sha256": "1625412ba0ec3876ef1c8065bd88545da3ffb710c1072e9dc7cc43bd85af9aba"
+    },
+    {
+      "name": "installed_empirical_loader",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "-m",
+        "constructive_access.calibrated.empirical_loader",
+        "--data-dir",
+        "/tmp/constructive-access-clean-u5dilc0q/reference/calibrated/data/source_audit",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/data_audit.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.446531,
+      "log": "logs/clean_installed_empirical_loader.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "installed_empirical_analysis",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "-m",
+        "constructive_access.calibrated.empirical_analysis",
+        "--data-dir",
+        "/tmp/constructive-access-clean-u5dilc0q/reference/calibrated/data/source_audit",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/empirical_analysis.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.469517,
+      "log": "logs/clean_installed_empirical_analysis.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "installed_attainability",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/attainability_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/attainability_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.644636,
+      "log": "logs/clean_installed_attainability.log",
+      "log_sha256": "e6905101d9c47bef963e5d7c218ec9dad86a35e9870531044ca1f8d35ec21ada"
+    },
+    {
+      "name": "installed_geometry",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/geometry_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/geometry_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.351528,
+      "log": "logs/clean_installed_geometry.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "installed_detector",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/detector_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/detector_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.45474,
+      "log": "logs/clean_installed_detector.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "installed_detector_calibration",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "/tmp/constructive-access-clean-u5dilc0q/examples/calibration_tutorial.py",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/calibration_tutorial.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.421036,
+      "log": "logs/clean_installed_detector_calibration.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "installed_detector_calibration_countermodels",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "-m",
+        "constructive_access.detector_calibration.rare_bump",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/installed_detector_calibration_countermodels.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.37323,
+      "log": "logs/clean_installed_detector_calibration_countermodels.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "installed_detector_calibration_detector_solver_fixture",
+      "argv": [
+        "/tmp/constructive-access-clean-u5dilc0q/environment/bin/python",
+        "-m",
+        "constructive_access.detector_calibration.exposure_moments",
+        "--output",
+        "/tmp/constructive-access-clean-u5dilc0q/installed_detector_calibration_detector_solver_fixture.json"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.457308,
+      "log": "logs/clean_installed_detector_calibration_detector_solver_fixture.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "comparisons": {
+    "results/active_report.json": true,
+    "results/passive_report.json": true,
+    "results/calibrated_report.json": true,
+    "results/calibration_gap_closed_report.json": true,
+    "results/grammar_report.json": true,
+    "results/suite_tutorial.json": true,
+    "results/advanced_tutorial.json": true,
+    "results/physics_consistency.json": true,
+    "results/completion_tutorial.json": true,
+    "results/robust_tutorial.json": true,
+    "results/frontier_tutorial.json": true,
+    "results/virtual_tutorial.json": true,
+    "results/calibrated_tutorial.json": true,
+    "results/attainability_tutorial.json": true,
+    "results/geometry_tutorial.json": true,
+    "results/detector_tutorial.json": true,
+    "installed:active_report": true,
+    "installed:suite_tutorial": true,
+    "installed:advanced_tutorial": true,
+    "installed:completion_tutorial": true,
+    "installed:robust_tutorial": true,
+    "installed:frontier_tutorial": true,
+    "installed:virtual_tutorial": true,
+    "installed:calibrated_tutorial": true,
+    "installed:attainability_tutorial": true,
+    "installed:geometry_tutorial": true,
+    "installed:detector_tutorial": true,
+    "completion/results/graph_access.json": true,
+    "completion/results/robust_completion.json": true,
+    "completion/results/composition.json": true,
+    "completion/results/physical_access.json": true,
+    "completion/results/quantum_completion.json": true,
+    "completion/results/pulse_test.json": true,
+    "completion/results/redteam.json": true,
+    "robustness/results/clock_design.json": true,
+    "robustness/results/detector_boundary.json": true,
+    "robustness/results/explanation.json": true,
+    "robustness/results/preparation.json": true,
+    "robustness/results/robust_physics.json": true,
+    "robustness/results/statistics.json": true,
+    "robustness/results/independent.json": true,
+    "frontier/results/hierarchy.json": true,
+    "frontier/results/spectral.json": true,
+    "frontier/results/limits.json": true,
+    "frontier/results/thermodynamic.json": true,
+    "frontier/results/energy_certificate.json": true,
+    "frontier/results/independent.json": true,
+    "virtual/results/contrast.json": true,
+    "virtual/results/timing.json": true,
+    "virtual/results/sampling.json": true,
+    "virtual/results/dimension_lab.json": true,
+    "virtual/results/dimension_lab_retiming.json": true,
+    "virtual/results/dimension_lab_total_budget.json": true,
+    "virtual/results/thermodynamic_lab.json": true,
+    "virtual/results/thermodynamic_lab_pilot.json": true,
+    "virtual/results/contrast_benchmark.json": true,
+    "virtual/results/contrast_allocation.json": true,
+    "virtual/results/box_obstruction.json": true,
+    "virtual/results/independent.json": true,
+    "virtual/results/dimension_lab_shots.npz": true,
+    "virtual/results/thermodynamic_lab_counts.npz": true,
+    "virtual/results/thermodynamic_lab_counts_pilot.npz": true,
+    "virtual/results/thermodynamic_lab_raw.npz": true,
+    "virtual/results/contrast_refinement_counts.npz": true,
+    "virtual/results/contrast_allocation_counts.npz": true,
+    "calibrated/results/calibration.json": true,
+    "calibrated/results/nonlinear.json": true,
+    "calibrated/results/dissipation_limits.json": true,
+    "calibrated/results/sequential.json": true,
+    "calibrated/results/sequential_benchmark.json": true,
+    "calibrated/results/dependence.json": true,
+    "calibrated/results/dependence_refinement.json": true,
+    "calibrated/results/analog.json": true,
+    "calibrated/results/analog_benchmark.json": true,
+    "calibrated/results/data_audit.json": true,
+    "calibrated/results/empirical_analysis.json": true,
+    "calibrated/results/calibrated_benchmark.json": true,
+    "calibrated/results/calibrated_benchmark_audit.json": true,
+    "calibrated/results/joint_calibration.json": true,
+    "calibrated/results/independent.json": true,
+    "calibrated/results/sequential_records.npz": true,
+    "calibrated/results/calibrated_benchmark_raw.npz": true,
+    "calibrated/results/calibrated_benchmark_counts.npz": true,
+    "calibrated/results/joint_calibration_raw.npz": true,
+    "calibrated/results/joint_calibration_counts.npz": true,
+    "calibrated/data/source_audit/harmwell_n1.h5": true,
+    "calibrated/data/source_audit/harmwell_n1_groundtruth.h5": true,
+    "calibrated/data/source_audit/harmwell_n2.h5": true,
+    "manuscript/figures/calibrated_inference.pdf": true,
+    "manuscript/figures/calibrated_inference.png": true,
+    "manuscript/figures/calibrated_resources.pdf": true,
+    "manuscript/figures/calibrated_resources.png": true,
+    "installed:data_audit": true,
+    "installed:empirical_analysis": true,
+    "attainability/results/physical_minimum.json": true,
+    "attainability/results/spectral_dynamics_replay.json": true,
+    "attainability/results/joint_analog.json": true,
+    "attainability/results/joint_analog_population_audit.json": true,
+    "attainability/results/design.json": true,
+    "attainability/results/retiming.json": true,
+    "attainability/results/independent_review.json": true,
+    "attainability/results/joint_analog_raw.npz": true,
+    "attainability/results/retiming_raw.npz": true,
+    "manuscript/figures/attainability.pdf": true,
+    "manuscript/figures/attainability.png": true,
+    "geometry/results/countermodels.json": true,
+    "geometry/results/experiment.json": true,
+    "geometry/results/combination.json": true,
+    "geometry/results/consistency.json": true,
+    "geometry/results/independent_review.json": true,
+    "geometry/results/experiment_raw.npz": true,
+    "manuscript/figures/observed_geometry.pdf": true,
+    "manuscript/figures/observed_geometry.png": true,
+    "detector/countermodels/results.json": true,
+    "detector/design/results.json": true,
+    "detector/review/results.json": true,
+    "manuscript/figures/detector_access.pdf": true,
+    "manuscript/figures/detector_access.png": true,
+    "detector_calibration/countermodels/results.json": true,
+    "detector_calibration/experiment/exploratory_law.json": true,
+    "detector_calibration/experiment/benchmark.json": true,
+    "detector_calibration/experiment/benchmark_counts.json.gz": true,
+    "detector_calibration/experiment/calibration_counts.json": true,
+    "detector_calibration/experiment/benchmark_laws/driven.json": true,
+    "detector_calibration/experiment/benchmark_laws/equilibrium.json": true,
+    "detector_calibration/experiment/benchmark_laws/weak_driven.json": true,
+    "detector_calibration/experiment/benchmark_laws/changed_calibration.json": true,
+    "detector_calibration/review/benchmark_audit.json": true,
+    "detector_calibration/review/results.json": true,
+    "results/calibration_tutorial.json": true,
+    "manuscript/figures/detector_calibration.pdf": true,
+    "manuscript/figures/detector_calibration.png": true,
+    "installed:calibration_tutorial": true,
+    "installed_detector_calibration_countermodels": true,
+    "installed_detector_calibration_detector_solver_fixture": true,
+    "reference_pdf_extracted_text": true,
+    "reference_page_count": true
+  },
+  "pdf_pages": 365,
+  "wheel": "dist/constructive_access-0.10.0-py3-none-any.whl",
+  "wheel_sha256": "637f17b93ee6e515ac43b3e3bbe1851d90f6f31d27366c622740ab64f91d6329",
+  "independence_limit": "This validates portability and deterministic reproduction, not independent external scientific review."
+}

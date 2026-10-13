@@ -1,0 +1,283 @@
+\chapter{A frozen detector-calibration experiment}
+\label{ch:dc-experiment}
+
+The finite certificate was evaluated on $1{,}600$ independently seeded
+synthetic datasets, with unknown detector gain, exposure width and diffusion
+scale carried through the inference.  The driven case produced a positive
+geometry certificate in all $400$ repetitions; equilibrium produced none.
+The acquisition is expensive: each dataset represents more than $80$ million
+detector readings.  Higher polynomial order did not improve the selected
+bound in this design.  These results demonstrate a working finite inference
+chain under its declared assumptions, with its sampling and calibration
+costs retained.  They are not laboratory observations or an efficiency claim.
+
+\section{The frozen acquisition and inference}
+
+The data-producing process was the stationary circle diffusion
+$d\phi_t=\omega\,dt+\sqrt{2\gamma}\,dW_t$, observed through
+$f=\cos\phi$.  Three uniform exposure windows start at $0,h,2h$ and have
+width $\tau$.  Each binary detector output $R\in\{-1,1\}$ has conditional
+mean $\kappa A$, where $A$ is the average of $f$ over its window.  The two
+endpoint windows have one readout each; the center has four conditionally
+independent readouts of the same exposure.  Translating all window times
+makes this the causal-boxcar convention of the preceding theorem, without
+changing its stationary moment law.
+The detector is noninvasive in this model.  No noise variance is supplied
+to inference; bounded outputs and the conditional replica contract justify
+the moment calculation.
+
+The design was fixed at
+\[
+ h=7/200=0.035,\quad \lambda=1,\quad m_{\max}=1,
+ \quad\kappa_0=0.9,\quad n=13{,}333{,}333.
+\]
+Every dataset also has $100{,}000$ constant-signal references and $100{,}000$
+step references.  The constant reference has mean $\kappa$; the step is read
+$s=1/500{,}000$ after its known transition and has mean $\kappa s/\tau$.
+Inference starts from $\kappa\in[0,1]$ and
+$\tau\in[1/200{,}000,1/50{,}000]$.  It receives the common physical bounds
+$M_{1,+}=M_{1,-}=4$ and $M_{2,+}=M_{2,-}=13$.
+
+The gain and width supplied to the simulator are not supplied as exact
+inference inputs.  The diffusion scale is likewise unknown to the
+certificate: its upper bound comes from the covered twin and lag moments.
+The pointwise identity $\Gamma_f=\gamma(1-f^2)$ and the generator caps remain
+assumptions.  The inference does not fit the complete circle model or
+substitute its arcsine marginal as a measured second moment.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{lrrrrr}
+\hline
+Case & $\gamma$ & $\omega$ & $\kappa$ & $10^5\tau$ & $\sigma$\\
+\hline
+Driven & 1 & 3 & 0.9 & 1 & 9\\
+Equilibrium & 1 & 0 & 0.9 & 1 & 0\\
+Weak drive & 1 & 1 & 0.9 & 1 & 1\\
+Changed calibration & 0.5 & 3 & 0.8 & 1.5 & 18\\
+\hline
+\end{tabular}
+\caption{Simulator parameters and exact entropy $\sigma=\omega^2/\gamma$.
+Each case has $400$ datasets.  The changed-calibration case uses fresh
+references with altered gain, exposure and diffusion; it is not an
+uncalibrated change of detector between target and reference.}
+\label{tab:dc-benchmark-cases}
+\end{table}
+
+Two-sided empirical-Bernstein intervals cover the fixed target-statistic
+vector at total failure allocation $0.04$.  Bounded reference-mean intervals
+receive allocation $0.01$.  The resulting $0.05$ per-dataset allowance covers
+gain and shutter projection, the geometry scale, and selection among the
+predeclared order-zero and order-one bounds.  The fixed nominal-gain
+contrasts retain covariance before calibration projection; componentwise
+bounds are also retained, and their covered maximum is reported.
+
+The endpoint bound~\eqref{eq:dc-endpoint-baseline} uses the same records,
+reference intervals and simultaneous event.  Here $b=1-\lambda h=0.965$.
+It is an established reversible-support and entropy-bridge comparison.  It
+does not require the pointwise geometry identity, so it has broader
+structural scope.  Comparing the two values measures what the additional
+geometry assumption provides in these examples; it does not establish
+dominance under identical assumptions or against all inference methods.
+
+\section{A finite-law simulator with an explicit error charge}
+
+The retained six-bit law is a finite exposure-moment polynomial:
+\begin{equation}
+ \Pr(R=r)=2^{-6}\mathbb E\prod_{i=1}^{6}
+                (1+\kappa r_i A_{w(i)}).
+ \label{eq:dc-bit-law}
+\end{equation}
+The simulator computes the needed integrated Fourier moments, rather than
+approximating a Brownian path on a time grid.  A closed system with $140$
+real states supplies the moments through total degree six.  Rational Taylor
+actions enclose the exposure and free-gap semigroups; if
+$x=t\|G\|_\infty$, the degree-$N$ action remainder is bounded by
+\[
+ \|v\|_\infty\,3^{\lceil x\rceil}\frac{x^{N+1}}{(N+1)!}.
+\]
+Input uncertainty, exposure normalization and event-polynomial coefficients
+are propagated explicitly.  In the driven case the exposure stages use
+Taylor degree $15$ and the gaps degree $58$.
+
+The resulting law is rounded to a nonnegative $63$-bit dyadic probability
+vector summing exactly to one.  Conditional center exchangeability collapses
+the $64$ labeled outcomes to $20$ categories: left sign, center plus-count,
+and right sign.  These counts retain all predeclared symmetric statistics;
+they would not support an arbitrary later score that distinguishes labeled
+center channels.  Integer-CDF sampling avoids floating probability thresholds.
+Independent uniform random bits are the ideal sampling assumption; the
+implementation uses NumPy $2.3.5$ and PCG64 pseudorandom streams.
+
+The exact rational total-variation charges include Taylor enclosure,
+dyadic rounding, all target records and both reference batches.  Rounded
+upward decimal bounds per dataset are
+\[
+ 1.308\,10^{-11},\quad 1.717\,10^{-11},\quad
+ 1.067\,10^{-11},\quad 1.141\,10^{-11}
+\]
+in the order of Table~\ref{tab:dc-benchmark-cases}.  The full bank's product-law
+charge is below $2.093\,10^{-8}$.  Thus transferring a per-dataset probability
+statement between the ideal model and the sampled dyadic law adds its
+specified charge.  These bounds concern the probability-law approximation;
+they do not certify hardware or the literal randomness of a deterministic
+pseudorandom generator.
+
+\section{Results, inclusion checks and negative controls}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\hline
+Case & Geometry positive & Mean lower & Endpoint positive & Mean lower\\
+\hline
+Driven & $400/400$ & $0.57735$ & $400/400$ & $8.1640\,10^{-5}$\\
+Equilibrium & $0/400$ & $0$ & $0/400$ & $0$\\
+Weak drive & $0/400$ & $0$ & $27/400$ & $6.8211\,10^{-9}$\\
+Changed calibration & $395/400$ & $0.59905$ & $400/400$ & $6.9611\,10^{-5}$\\
+\hline
+\end{tabular}
+\caption{Observed synthetic detection counts and mean lower bounds.  The
+geometry and endpoint bounds use the same detector records but different
+structural assumptions.  No method exceeded the true entropy in these runs.}
+\label{tab:dc-benchmark-outcomes}
+\end{table}
+
+The geometry lower bounds in the driven case have median $0.57649$ and
+empirical $2.5$th--$97.5$th percentiles $[0.29974,0.84860]$.  Under changed
+calibration the median is $0.59490$; the corresponding percentiles are
+$0.05523$ and $1.14799$.  These are descriptive quantiles across repeated
+datasets, not confidence intervals for the true entropy.  The mean
+certificates represent only about $6.4\%$ and $3.3\%$ of the respective
+entropies $9$ and $18$, despite the large acquisition quota.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\hline
+Case & Target event & Gain/width inclusion & Finite $\gamma$ bounds & Mean upper\\
+\hline
+Driven & $400/400$ & $400/400$ & $400/400$ & $1.69770$\\
+Equilibrium & $399/400$ & $400/400$ & $400/400$ & $1.53917$\\
+Weak drive & $399/400$ & $400/400$ & $400/400$ & $1.55591$\\
+Changed calibration & $397/400$ & $400/400$ & $400/400$ & $1.20801$\\
+\hline
+\end{tabular}
+\caption{Independent replay of the simultaneous target-mean event,
+reference-region inclusion and geometric-scale output.  Every finite
+$\gamma$ upper bound covered its simulator value; there were no unbounded
+geometry abstentions.  The target event missed five times in total without
+causing an entropy overshoot.}
+\label{tab:dc-benchmark-coverage}
+\end{table}
+
+All $1{,}600$ count records were independently reconstructed and replayed.
+The target mean-event inclusion check used rational law enclosures and had
+no unresolved enclosure-boundary cases.  Calibration inclusion and entropy
+overshoot checks are separate: failure of a sufficient simultaneous event
+need not cause the final lower bound to overshoot.
+
+The equilibrium control gives no positive result, as required for a useful
+check against obvious false positives.  The weak-drive case is an equally
+important negative result for sensitivity: the geometry certificate is zero
+throughout, while the endpoint certificate is positive in $27$ runs.  Under
+changed calibration the endpoint method also returns five more positive
+results.  The geometry method therefore does not dominate even this one
+broader-class comparator in detection frequency.
+
+A transparent derived fallback is to report the maximum of the geometry and
+endpoint lower bounds.  Under the narrower geometry contract, both hold on
+the already covered event, so this maximum requires no additional error
+allocation.  Its positive counts are $400,0,27,400$ in the four cases.
+This is a deterministic combination made after the frozen benchmark, not a
+change to its per-method outputs or a separately preregistered experiment.
+
+Zero overshoots in $400$ independent repetitions do not prove zero failure
+probability.  Under the ideal repeated-sampling model, their one-sided
+$95\%$ binomial upper bound is $1-0.05^{1/400}\simeq0.00746$, separately for
+each case and method.  This diagnostic is not a simultaneous guarantee
+across the comparisons.  The finite-sample coverage claim comes from the
+preceding theorem and implementation, not from the observed frequencies.
+
+\section{What the higher-order and design comparisons did not show}
+
+The selected prefix was order zero in every dataset.  Order one improved
+neither the final driven result nor the changed-calibration result.  Retaining
+covariance did help its own unselected estimate: in the driven case the
+order-one mean rose from $0.02109$ for the componentwise calculation to
+$0.06497$ for the fixed-contrast projection.  Both remained below the selected
+order-zero bound.  The sharp infinite hierarchy is a theorem; useful
+finite-resource gains from its higher orders were not demonstrated here.
+
+Before freezing the experiment, deterministic population calculations
+examined lags and replica counts.  At $h=0.035$, under a ceiling of $80$
+million target readouts, two, four and six center replicas permit respectively
+$20{,}000{,}000$, $13{,}333{,}333$ and $10{,}000{,}000$ stationary records.
+The corresponding population-moment values inserted into the confidence
+formula were $0.54161$, $0.55834$ and $0.50535$, with order zero selected in
+all three.  All designs add $200{,}000$ reference readouts.  The prospective
+calculation used target/reference allocations $0.025/0.025$, distinct from
+the final $0.04/0.01$ allocation.
+
+Those numbers are design diagnostics, not confidence-certified outcomes,
+power estimates or additional sampled experiments.  They show why comparing
+replicas at fixed record count would conceal extra readout costs.  Earlier
+$h=0.02$ diagnostics returned zero for the strong-drive geometry score at
+two and ten million target records, and higher orders remained zero even at
+fifty million.  A separately retained design with narrower exposure and
+tighter supplied generator caps looked better, but changed the apparatus
+contract and was not used for the primary experiment.  Its gains cannot be
+attributed to the estimator alone.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\linewidth]{figures/detector_calibration.pdf}
+\caption{Left: distributions over the $400$ simulated datasets in each case,
+with boxes at the interquartile range and whiskers at empirical $2.5$th and
+$97.5$th percentiles; the vertical axis uses a symmetric logarithmic scale.
+Black diamonds mark the simulator entropy.
+The endpoint bound has broader structural validity than the geometry bound.
+Right: the separate prospective population diagnostic at matched target
+readout ceilings, with the additional reference readings counted.  This
+panel contains no random experimental outcomes or confidence certificates.}
+\label{fig:dc-benchmark}
+\end{figure}
+
+\section{Acquisition costs and reproducibility}
+
+Each dataset uses $79{,}999{,}998$ target readings, $200{,}000$ reference
+readings and $80{,}199{,}998$ readings in total.  It requires
+$13{,}333{,}333$ independent stationary preparations and $200{,}000$ controlled
+reference preparations.  Four center shots share one physical exposure;
+they still count as four detector readings.  There are $39{,}999{,}999$
+target windows and $200{,}000$ reference windows.
+
+The summed modeled target evolution duration is $n(2h+\tau)$:
+$933{,}466.64333$ model-time units for the first three cases and
+$933{,}533.309995$ for changed calibration.  The summed target exposure
+durations are respectively $399.99999$ and $599.999985$; reference exposure
+durations add $2$ and $3$.  These are sums over independent acquisitions,
+not wall-clock durations or measured energy.  Stationary preparation, reset,
+replica construction, clock calibration and shutter-control costs remain
+unmeasured.  Fast categorical simulation does not make those physical
+preparations inexpensive.
+
+The authoritative files in \texttt{experiment/} are \texttt{contract.json},
+\texttt{benchmark.json}, the compressed sufficient counts
+\texttt{benchmark\_counts.json.gz}, and the first-generation
+clock record \texttt{benchmark\_run.json}.  The contract binds
+simulator, certifier and benchmark source hashes.  It was frozen on
+2026-10-13 at 01:45:27 UTC; generation started at 01:45:40 and completed at
+01:48:01 with four workers.  The choices preceding this freeze are retained
+as prospective population diagnostics, not concealed as a preselected
+universal design.  No stochastic pilot target records were used.
+
+The seed rule is
+$1032026400000+100000\,i+10\,r+s$ for case index $i$, repetition $r$ and
+stream $s\in\{0,1,2\}$ for target, gain and step records.  Exact counts,
+law enclosures, source bindings and the independent replay provide the
+reproduction chain.  The stochastic-drive family proved in the preceding
+chapter was not simulated in this bank.  Its analytic result and this
+constant-drift detector benchmark remain distinct evidence.

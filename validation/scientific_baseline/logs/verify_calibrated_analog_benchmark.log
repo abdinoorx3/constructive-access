@@ -1,0 +1,4 @@
+{"case": "driven", "direct_rejections": 380, "coin_rejections": 311, "replicates": 400}
+{"case": "equilibrium", "direct_rejections": 0, "coin_rejections": 0, "replicates": 400}
+{"case": "noisy_driven", "direct_rejections": 0, "coin_rejections": 0, "replicates": 400}
+/tmp/constructive-access-clean-u5dilc0q/reference/calibrated/results/analog_benchmark.json

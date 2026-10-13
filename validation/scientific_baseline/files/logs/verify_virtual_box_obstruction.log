@@ -1,0 +1,30 @@
+[
+  {
+    "case": "driven",
+    "datasets": 400,
+    "verified_equilibrium_box_points": 329,
+    "direct_positive_despite_box_point": 296,
+    "interpretation": "Actual two-state equilibrium explanation at deterministic lags"
+  },
+  {
+    "case": "equilibrium",
+    "datasets": 400,
+    "verified_equilibrium_box_points": 400,
+    "direct_positive_despite_box_point": 0,
+    "interpretation": "Actual two-state equilibrium explanation at deterministic lags"
+  },
+  {
+    "case": "high_readout_noise",
+    "datasets": 400,
+    "verified_equilibrium_box_points": 400,
+    "direct_positive_despite_box_point": 6,
+    "interpretation": "Actual two-state equilibrium explanation at deterministic lags"
+  },
+  {
+    "case": "independent_clock_jitter",
+    "datasets": 400,
+    "verified_equilibrium_box_points": 324,
+    "direct_positive_despite_box_point": 294,
+    "interpretation": "Point in the conservative moment comparison class; not a realization under the particular jitter law"
+  }
+]

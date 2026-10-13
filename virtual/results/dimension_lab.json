@@ -1,0 +1,3412 @@
+{
+  "alternative_scenarios": [
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.9855526870738203,
+          "pilot_selected": 0.9851574119683719
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.9839042939015321,
+            0.987252349732049
+          ],
+          "frequency": 0.98565,
+          "rejects": 19713,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.01975645582639841,
+            0.018656455826398414
+          ],
+          "improved_only": 23,
+          "mean": -0.00055,
+          "worse_only": 34
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.9833235999184092,
+            0.9867332570084624
+          ],
+          "frequency": 0.9851,
+          "rejects": 19702,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18853479509330262,
+        0.6110609118287796,
+        0.9492730041014874,
+        0.9488699185274643,
+        0.6107622500025613,
+        0.18992951557764487,
+        0.0031317436876108218,
+        0.19048565347205665,
+        0.6103652832096597,
+        0.94645898831227,
+        0.9460584274596506,
+        0.610068492048019,
+        0.19187163814225305
+      ],
+      "name": "nominal",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.9520852921406793,
+          "pilot_selected": 0.9614871906419387
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.9494091735038146,
+            0.9553584169250519
+          ],
+          "frequency": 0.95245,
+          "rejects": 19049,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.010356455826398412,
+            0.028056455826398412
+          ],
+          "improved_only": 210,
+          "mean": 0.00885,
+          "worse_only": 33
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.9585339752578148,
+            0.9639308715992971
+          ],
+          "frequency": 0.9613,
+          "rejects": 19226,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18894052769575598,
+        0.6112553813728653,
+        0.9492983675994366,
+        0.9488954835682005,
+        0.6109568688775601,
+        0.19033455081985606,
+        0.0036301778157670165,
+        0.19089041064532064,
+        0.6105601005680548,
+        0.9464857588181139,
+        0.9460853982459208,
+        0.610263457801995,
+        0.19227570232318195
+      ],
+      "name": "detector_false_positive_0.0005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0005,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.8150765780168396,
+          "pilot_selected": 0.8492026113372493
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.8071214624843093,
+            0.8179875143547901
+          ],
+          "frequency": 0.8126,
+          "rejects": 16252,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            0.016893544173601588,
+            0.05530645582639841
+          ],
+          "improved_only": 742,
+          "mean": 0.0361,
+          "worse_only": 20
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.8436580944161022,
+            0.8536403159887989
+          ],
+          "frequency": 0.8487,
+          "rejects": 16974,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.1893462602982093,
+        0.6114498509169508,
+        0.9493237310973859,
+        0.9489210486089368,
+        0.6111514877525588,
+        0.19073958606206723,
+        0.004128611943923211,
+        0.1912951678185846,
+        0.61075491792645,
+        0.9465125293239578,
+        0.946112369032191,
+        0.610458423555971,
+        0.1926797665041108
+      ],
+      "name": "detector_false_positive_0.001",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.001,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.2800343987001585,
+          "pilot_selected": 0.3289347357998874
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.2742811805250015,
+            0.2867826827438069
+          ],
+          "frequency": 0.2805,
+          "rejects": 5610,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            0.02714354417360159,
+            0.06555645582639841
+          ],
+          "improved_only": 935,
+          "mean": 0.04635,
+          "worse_only": 8
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.3203498045706836,
+            0.33340056198591367
+          ],
+          "frequency": 0.32685,
+          "rejects": 6537,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.19015772550311602,
+        0.6118387900051221,
+        0.9493744580932845,
+        0.9489721786904094,
+        0.6115407255025562,
+        0.1915496565464896,
+        0.005125480200235601,
+        0.19210468216511253,
+        0.6111445526432403,
+        0.9465660703356455,
+        0.9461663106047313,
+        0.610848355063923,
+        0.19348789486596854
+      ],
+      "name": "detector_false_positive_0.002",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.002,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 1.5599446511601172e-05,
+          "pilot_selected": 2.7395270348261838e-05
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.1925921211178361,
+        0.6130056072696357,
+        0.94952663908098,
+        0.9491255689348269,
+        0.6127084387525485,
+        0.19397986799975664,
+        0.008116084969172767,
+        0.19453322520469638,
+        0.6123134567936114,
+        0.9467266933707087,
+        0.9463281353223524,
+        0.612018149587779,
+        0.19591227995154178
+      ],
+      "name": "detector_false_positive_0.005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.005,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.9520222463560526,
+          "pilot_selected": 0.9613237698166903
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.9480713785397893,
+            0.9540966108397263
+          ],
+          "frequency": 0.95115,
+          "rejects": 19023,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.009156455826398412,
+            0.029256455826398412
+          ],
+          "improved_only": 224,
+          "mean": 0.01005,
+          "worse_only": 23
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.9584306797576675,
+            0.9638341984258931
+          ],
+          "frequency": 0.9612,
+          "rejects": 19224,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18884626029820933,
+        0.6109498509169509,
+        0.9488237310973859,
+        0.9484210486089368,
+        0.6106514877525587,
+        0.1902395860620672,
+        0.0036286119439232767,
+        0.1907951678185847,
+        0.61025491792645,
+        0.9460125293239576,
+        0.9456123690321909,
+        0.6099584235559709,
+        0.19217976650411078
+      ],
+      "name": "preparation_error_0.0005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0005,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.8159353925037982,
+          "pilot_selected": 0.8497985739175401
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.8078291446959898,
+            0.8186796275186419
+          ],
+          "frequency": 0.8133,
+          "rejects": 16266,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            0.015443544173601588,
+            0.05385645582639841
+          ],
+          "improved_only": 721,
+          "mean": 0.03465,
+          "worse_only": 28
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.842898112431625,
+            0.8529005178337387
+          ],
+          "frequency": 0.84795,
+          "rejects": 16959,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.189157725503116,
+        0.6108387900051221,
+        0.9483744580932845,
+        0.9479721786904094,
+        0.6105407255025562,
+        0.1905496565464896,
+        0.004125480200235565,
+        0.1911046821651125,
+        0.6101445526432403,
+        0.9455660703356454,
+        0.9451663106047314,
+        0.609848355063923,
+        0.19248789486596857
+      ],
+      "name": "preparation_error_0.001",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.001,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.2827420584798041,
+          "pilot_selected": 0.33177973881801953
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.27661503253470054,
+            0.2891481461599632
+          ],
+          "frequency": 0.28285,
+          "rejects": 5657,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            0.030193544173601587,
+            0.0686064558263984
+          ],
+          "improved_only": 992,
+          "mean": 0.0494,
+          "worse_only": 4
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.32572188354861953,
+            0.3388269112088745
+          ],
+          "frequency": 0.33225,
+          "rejects": 6645,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18978065591292942,
+        0.6106166681814645,
+        0.9474759120850815,
+        0.9470744388533544,
+        0.6103192010025511,
+        0.1911697975153343,
+        0.005119216712860364,
+        0.19172371085816842,
+        0.609923822076821,
+        0.9446731523590209,
+        0.944274193749812,
+        0.6096282180798269,
+        0.19310415158968397
+      ],
+      "name": "preparation_error_0.002",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.002,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.6357871884066603,
+          "pilot_selected": 0.6337984034868693
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.6324995829861413,
+            0.6458599307301671
+          ],
+          "frequency": 0.6392,
+          "rejects": 12784,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.021406455826398413,
+            0.01700645582639841
+          ],
+          "improved_only": 71,
+          "mean": -0.0022,
+          "worse_only": 115
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.6302911419956514,
+            0.6436690118488815
+          ],
+          "frequency": 0.637,
+          "rejects": 12740,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.19029077765926505,
+        0.6154239976874524,
+        0.952145238653678,
+        0.944917226103812,
+        0.5998455948563319,
+        0.1795731770863801,
+        0.003376918178285282,
+        0.2046171161718237,
+        0.6298011329391737,
+        0.9556555211659303,
+        0.9349145449402629,
+        0.5839499179176094,
+        0.16986576661392955
+      ],
+      "name": "coherent_amplitude_offset_0.005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.005,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.016594665338405593,
+          "pilot_selected": 0.016735837968784154
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.014259350759342981,
+            0.01778339283631325
+          ],
+          "frequency": 0.01595,
+          "rejects": 319,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019256455826398414,
+            0.01915645582639841
+          ],
+          "improved_only": 13,
+          "mean": -5e-05,
+          "worse_only": 14
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.014212038081976576,
+            0.017730724325327858
+          ],
+          "frequency": 0.0159,
+          "rejects": 318,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.19205299839333628,
+        0.6197777841049255,
+        0.9549355102568399,
+        0.9408211528120797,
+        0.5888786644462418,
+        0.1694491704645406,
+        0.004112199692686336,
+        0.21912931344118258,
+        0.6490252401277441,
+        0.9639344244397989,
+        0.9227109091608572,
+        0.5575879096613536,
+        0.14898335539106322
+      ],
+      "name": "coherent_amplitude_offset_0.01",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.01,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 3.6220054061028597e-16,
+          "pilot_selected": 4.846411483545467e-16
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.19559601226215678,
+        0.6284560562962596,
+        0.9602681563317981,
+        0.932204189475673,
+        0.5668160890879343,
+        0.1499273415028558,
+        0.00704969829598856,
+        0.24922062290617286,
+        0.686713183519933,
+        0.9776745333707624,
+        0.8952458337158596,
+        0.5044398483786424,
+        0.11086910364728475
+      ],
+      "name": "coherent_amplitude_offset_0.02",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.02,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.9848355301812214,
+          "pilot_selected": 0.9847159802558206
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.9825326847685072,
+            0.9860244584618623
+          ],
+          "frequency": 0.98435,
+          "rejects": 19687,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019606455826398413,
+            0.01880645582639841
+          ],
+          "improved_only": 31,
+          "mean": -0.0004,
+          "worse_only": 39
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.9821112832859203,
+            0.9856460106821575
+          ],
+          "frequency": 0.98395,
+          "rejects": 19679,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18853793186187123,
+        0.6110586748493819,
+        0.9492594303421411,
+        0.9488518365104704,
+        0.6107566726773752,
+        0.18994825143988298,
+        0.003166770378606354,
+        0.19051058956474914,
+        0.6103552802057803,
+        0.9464140274295065,
+        0.946009015109982,
+        0.6100551907768407,
+        0.19191197682623423
+      ],
+      "name": "iid_amplitude_jitter_0.005",
+      "parameters": {
+        "amplitude_jitter": 0.005,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.9817138823659417,
+          "pilot_selected": 0.9826982409210452
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.9794834603020569,
+            0.9832747500538831
+          ],
+          "frequency": 0.98145,
+          "rejects": 19629,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.018656455826398414,
+            0.01975645582639841
+          ],
+          "improved_only": 40,
+          "mean": 0.00055,
+          "worse_only": 29
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.9800607610005609,
+            0.983797251140708
+          ],
+          "frequency": 0.982,
+          "rejects": 19640,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18854734210439672,
+        0.6110519640914178,
+        0.9492187109778927,
+        0.9487975941014719,
+        0.6107399421621591,
+        0.19000445298885,
+        0.003271837047768733,
+        0.19058538679385445,
+        0.6103252762307343,
+        0.9462791701356359,
+        0.9458608089108105,
+        0.6100152960712912,
+        0.19203296281955884
+      ],
+      "name": "iid_amplitude_jitter_0.01",
+      "parameters": {
+        "amplitude_jitter": 0.01,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.6875243811428818,
+          "pilot_selected": 0.7349138295880955
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.6778572233397442,
+            0.6907891497020155
+          ],
+          "frequency": 0.68435,
+          "rejects": 13687,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            0.02839354417360159,
+            0.06680645582639841
+          ],
+          "improved_only": 975,
+          "mean": 0.0476,
+          "worse_only": 23
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.7257528002969904,
+            0.7380797090562442
+          ],
+          "frequency": 0.73195,
+          "rejects": 14639,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18864771212793074,
+        0.6109803994928033,
+        0.9487845496753426,
+        0.9482193482122534,
+        0.6105616195709924,
+        0.19060337297498658,
+        0.004391298022542178,
+        0.1913821935000236,
+        0.6100057034751354,
+        0.9448430562642689,
+        0.9442828187373145,
+        0.6095906015282105,
+        0.19332067856785917
+      ],
+      "name": "iid_amplitude_jitter_0.03",
+      "parameters": {
+        "amplitude_jitter": 0.03,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.9848355984479327,
+          "pilot_selected": 0.98471604554204
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.9822166071636868,
+            0.9857406492406571
+          ],
+          "frequency": 0.98405,
+          "rejects": 19681,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.01940645582639841,
+            0.019006455826398413
+          ],
+          "improved_only": 26,
+          "mean": -0.0002,
+          "worse_only": 30
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.9820059768000816,
+            0.9855513546533315
+          ],
+          "frequency": 0.98385,
+          "rejects": 19677,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18853792399198105,
+        0.6110586552500563,
+        0.9492594172823118,
+        0.9488518539439392,
+        0.6107567215536016,
+        0.18994829840794364,
+        0.0031667703435853123,
+        0.19051052700438514,
+        0.6103551925674131,
+        0.9464139841724525,
+        0.9460090627483716,
+        0.6100553073368391,
+        0.19191207794584403
+      ],
+      "name": "iid_timing_jitter_0.005",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.005
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.9817141469450331,
+          "pilot_selected": 0.9826984935662203
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.9799557647509403,
+            0.9837022835582502
+          ],
+          "frequency": 0.9819,
+          "rejects": 19638,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.01880645582639841,
+            0.019606455826398413
+          ],
+          "improved_only": 53,
+          "mean": 0.0004,
+          "worse_only": 45
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.9803758383942085,
+            0.9840820648859997
+          ],
+          "frequency": 0.9823,
+          "rejects": 19646,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.1885473106251528,
+        0.6110518856972722,
+        0.94921865874225,
+        0.9487976638283111,
+        0.610740137641466,
+        0.1900046408308474,
+        0.0032718369077645026,
+        0.19058513660787846,
+        0.6103249257654922,
+        0.9462789971561025,
+        0.9458609994047653,
+        0.6100157621516311,
+        0.1920333671474278
+      ],
+      "name": "iid_timing_jitter_0.01",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.01
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.6875261460771069,
+          "pilot_selected": 0.7349155629743883
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.6788123222048734,
+            0.6917337742604013
+          ],
+          "frequency": 0.6853,
+          "rejects": 13706,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            0.02884354417360159,
+            0.06725645582639841
+          ],
+          "improved_only": 982,
+          "mean": 0.04805,
+          "worse_only": 21
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.7271627943888157,
+            0.7394693070007655
+          ],
+          "frequency": 0.73335,
+          "rejects": 14667,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18864742884519414,
+        0.6109796942485637,
+        0.9487840799072503,
+        0.9482199750785547,
+        0.6105633764286904,
+        0.19060506065165872,
+        0.00439129677021266,
+        0.19137994714633383,
+        0.6100025577466655,
+        0.9448415041150449,
+        0.9442845274704873,
+        0.6095947809528235,
+        0.1933243030932698
+      ],
+      "name": "iid_timing_jitter_0.03",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.03
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.9844894614301385,
+          "pilot_selected": 0.9840737471523715
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.9812693053778507,
+            0.9848882863752417
+          ],
+          "frequency": 0.98315,
+          "rejects": 19663,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.018606455826398412,
+            0.019806455826398412
+          ],
+          "improved_only": 37,
+          "mean": 0.0006,
+          "worse_only": 25
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.9819006875479136,
+            0.9854566813136338
+          ],
+          "frequency": 0.98375,
+          "rejects": 19675,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.1885296747371662,
+        0.6109915540351925,
+        0.9490103827336034,
+        0.9483359778153438,
+        0.6100835238584538,
+        0.18943623648422853,
+        0.00313213576373661,
+        0.19096835961991754,
+        0.6109035556354614,
+        0.9464674035054689,
+        0.9452572732715638,
+        0.6087881071444363,
+        0.19089681169141332
+      ],
+      "name": "fixed_detuning_0.02",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.02,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.5614701966589535,
+          "pilot_selected": 0.5580380041389565
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.55754433423969,
+            0.5713369234075039
+          ],
+          "frequency": 0.56445,
+          "rejects": 11289,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.02230645582639841,
+            0.016106455826398414
+          ],
+          "improved_only": 55,
+          "mean": -0.0031,
+          "worse_only": 117
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.5544393376506986,
+            0.5682428215582203
+          ],
+          "frequency": 0.56135,
+          "rejects": 11227,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18840681954252436,
+        0.6093288351406655,
+        0.9427243971114179,
+        0.9355892642888697,
+        0.5939556487240466,
+        0.17784703927063344,
+        0.003373284604831661,
+        0.20259134489725872,
+        0.6235576867116215,
+        0.9462162914378083,
+        0.9257353641655259,
+        0.5782859310459271,
+        0.1682942070446269
+      ],
+      "name": "fixed_detuning_0.1",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.1,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 4.255940348199173e-152,
+          "pilot_selected": 1.0270464918304349e-151
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18738551333754971,
+        0.5956115904452759,
+        0.8915893649326254,
+        0.8343148695263309,
+        0.4711331350589277,
+        0.09863264541504357,
+        0.020465112588401058,
+        0.29984276854947645,
+        0.7084487525140356,
+        0.9130486820669912,
+        0.7472801014014037,
+        0.34694619612331146,
+        0.038788023093327906
+      ],
+      "name": "fixed_detuning_0.3",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.001,
+        "detuning": 0.3,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.9028438457633001,
+          "pilot_selected": 0.9127220417187363
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.8979995953578781,
+            0.9062830689847156
+          ],
+          "frequency": 0.9022,
+          "rejects": 18044,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.010156455826398412,
+            0.028256455826398415
+          ],
+          "improved_only": 226,
+          "mean": 0.00905,
+          "worse_only": 45
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.9072236968606628,
+            0.9151562848749712
+          ],
+          "frequency": 0.91125,
+          "rejects": 18225,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18921181041158863,
+        0.6115518575879442,
+        0.9480507082417859,
+        0.9446620209447676,
+        0.6045581954885142,
+        0.18527043582761904,
+        0.0036838429927944566,
+        0.19654615491378644,
+        0.6174890236145142,
+        0.9481090410356147,
+        0.9388089827385492,
+        0.5972269298304451,
+        0.18200279504146624
+      ],
+      "name": "combined_mild",
+      "parameters": {
+        "amplitude_jitter": 0.003,
+        "amplitude_offset": 0.002,
+        "depolarization": 0.001,
+        "detuning": 0.02,
+        "false_negative": 0.002,
+        "false_positive": 0.00025,
+        "omega": 1.0,
+        "preparation_error": 0.00025,
+        "timing_jitter": 0.001
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.6783270504034126,
+          "pilot_selected": 0.713465718970828
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.6700667838992165,
+            0.6830818452793479
+          ],
+          "frequency": 0.6766,
+          "rejects": 13532,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            0.01699354417360159,
+            0.055406455826398415
+          ],
+          "improved_only": 774,
+          "mean": 0.0362,
+          "worse_only": 50
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.7064737814416202,
+            0.7190643069664153
+          ],
+          "frequency": 0.7128,
+          "rejects": 14256,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.1897318885347085,
+        0.6118466816726772,
+        0.947450294265235,
+        0.9427057234548075,
+        0.6018223157657645,
+        0.1834011636737242,
+        0.004256262382237089,
+        0.19953493486502233,
+        0.6207645839160425,
+        0.9487362757385417,
+        0.9354013188603492,
+        0.5914722479565999,
+        0.177845124522361
+      ],
+      "name": "combined_design",
+      "parameters": {
+        "amplitude_jitter": 0.005,
+        "amplitude_offset": 0.003,
+        "depolarization": 0.001,
+        "detuning": 0.02,
+        "false_negative": 0.003,
+        "false_positive": 0.0005,
+        "omega": 1.0,
+        "preparation_error": 0.0005,
+        "timing_jitter": 0.002
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.020227331498347427,
+          "pilot_selected": 0.027869633606091463
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.02039378816501585,
+            0.024546654600601625
+          ],
+          "frequency": 0.0224,
+          "rejects": 448,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.010806455826398413,
+            0.02760645582639841
+          ],
+          "improved_only": 169,
+          "mean": 0.0084,
+          "worse_only": 1
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.02844890469188937,
+            0.0332887568822782
+          ],
+          "frequency": 0.0308,
+          "rejects": 616,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.1888142401740484,
+        0.6108617145986048,
+        0.9480648319942535,
+        0.947261189452496,
+        0.6102662640094656,
+        0.19159493860752014,
+        0.006243871738171924,
+        0.19270024811624614,
+        0.6094773019453499,
+        0.9424695133115383,
+        0.9416759064516889,
+        0.6088892871904206,
+        0.19544622190099542
+      ],
+      "name": "depolarization_twice",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.002,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    },
+    {
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 2.109200199739417e-25,
+          "pilot_selected": 6.988563616005722e-25
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "mean_probabilities": [
+        0.18965107201517362,
+        0.6102662640094657,
+        0.9444597746389336,
+        0.9424695133115382,
+        0.6087915922467417,
+        0.19653772858811452,
+        0.015463786847594696,
+        0.19924941135664748,
+        0.6068559960032198,
+        0.9307137122042408,
+        0.9287850048307209,
+        0.6054269322601135,
+        0.20592308035091506
+      ],
+      "name": "depolarization_fivefold",
+      "parameters": {
+        "amplitude_jitter": 0.0,
+        "amplitude_offset": 0.0,
+        "depolarization": 0.005,
+        "detuning": 0.0,
+        "false_negative": 0.0,
+        "false_positive": 0.0,
+        "omega": 1.0,
+        "preparation_error": 0.0,
+        "timing_jitter": 0.0
+      }
+    }
+  ],
+  "bloch_lindblad_maximum_probability_difference": 1.4432899320127035e-15,
+  "contract_sha256": "43f7efc0570760b042789e11d591dd2b2cde94cc426ac095c3735c7a18f01c04",
+  "evidence": "Independent physical simulations and synthetic records; no empirical laboratory validation",
+  "interpretation": [
+    "Both plans have target-independent type-I validity under the common-channel/preparation/detector contract.",
+    "IID errors per repeated step preserve the effective channel; errors held for an entire run add hidden memory.",
+    "Fixed preparation and detector error reduce power without invalidating the null theorem.",
+    "The selected plan is optimized for one independent simulated pilot, not universally better.",
+    "Power intervals are marginal95percent Clopper-Pearson Monte Carlo intervals.",
+    "Parameter values are illustrative and have no claimed device calibration."
+  ],
+  "monte_carlo_seed": 610120702,
+  "old_exact_certificate": {
+    "alpha_bound": 0.04904762350969613,
+    "alpha_exactly_verified": true,
+    "minimum_states": 5,
+    "valid": true,
+    "witness_margin": "1/1000"
+  },
+  "old_plan": {
+    "beta": "3/20",
+    "critical_counts": [
+      313,
+      22,
+      22,
+      22,
+      22,
+      297,
+      48,
+      297,
+      22,
+      22,
+      22,
+      22,
+      282
+    ],
+    "epsilon": "3/500",
+    "tau": "2/25"
+  },
+  "outside_contract_readout_control": {
+    "detector_success_probability_by_setting": [
+      0.18853479509330262,
+      0.6110609118287796,
+      0.9492730041014874,
+      0.9488699185274643,
+      0.6107622500025613,
+      0.18992951557764487,
+      0.0031317436876108218,
+      0.19048565347205665,
+      0.6103652832096597,
+      0.94645898831227,
+      0.9460584274596506,
+      0.610068492048019,
+      0.19187163814225305
+    ],
+    "explanation": "A setting-dependent readout creates the entire pattern on one frozen hidden state.",
+    "fixed_detector": false,
+    "generator": [
+      [
+        0
+      ]
+    ],
+    "hidden_states": 1,
+    "holdout": {
+      "numerical_binomial_power_crosscheck": {
+        "old": 0.9855526870738203,
+        "pilot_selected": 0.9851574119683719
+      },
+      "old": {
+        "clopper_pearson_interval": [
+          0.9840099402799543,
+          0.9873466642451536
+        ],
+        "frequency": 0.98575,
+        "rejects": 19715,
+        "repetitions": 20000
+      },
+      "paired_improvement": {
+        "hoeffding_interval": [
+          -0.01930645582639841,
+          0.019106455826398413
+        ],
+        "improved_only": 27,
+        "mean": -0.0001,
+        "worse_only": 29
+      },
+      "pilot_selected": {
+        "clopper_pearson_interval": [
+          0.9839042939015321,
+          0.987252349732049
+        ],
+        "frequency": 0.98565,
+        "rejects": 19713,
+        "repetitions": 20000
+      }
+    },
+    "outside_contract": true
+  },
+  "pilot": {
+    "candidate_plans": [
+      {
+        "beta": "683/5000",
+        "critical_counts": [
+          287,
+          21,
+          21,
+          21,
+          21,
+          272,
+          39,
+          272,
+          21,
+          21,
+          21,
+          21,
+          258
+        ],
+        "epsilon": "1/200",
+        "pilot_estimated_joint_power": 0.21473170153981758,
+        "tau": "707/10000"
+      },
+      {
+        "beta": "1379/10000",
+        "critical_counts": [
+          289,
+          21,
+          21,
+          21,
+          21,
+          275,
+          39,
+          275,
+          21,
+          21,
+          21,
+          21,
+          260
+        ],
+        "epsilon": "51/10000",
+        "pilot_estimated_joint_power": 0.21409605304446883,
+        "tau": "357/5000"
+      },
+      {
+        "beta": "87/625",
+        "critical_counts": [
+          292,
+          21,
+          21,
+          21,
+          21,
+          277,
+          40,
+          277,
+          21,
+          21,
+          21,
+          21,
+          262
+        ],
+        "epsilon": "13/2500",
+        "pilot_estimated_joint_power": 0.2608118130262004,
+        "tau": "721/10000"
+      },
+      {
+        "beta": "281/2000",
+        "critical_counts": [
+          294,
+          21,
+          21,
+          21,
+          21,
+          280,
+          41,
+          280,
+          21,
+          21,
+          21,
+          21,
+          265
+        ],
+        "epsilon": "53/10000",
+        "pilot_estimated_joint_power": 0.31008058819273415,
+        "tau": "91/1250"
+      },
+      {
+        "beta": "1417/10000",
+        "critical_counts": [
+          297,
+          21,
+          21,
+          21,
+          21,
+          282,
+          42,
+          282,
+          21,
+          21,
+          21,
+          21,
+          267
+        ],
+        "epsilon": "27/5000",
+        "pilot_estimated_joint_power": 0.3620666216501386,
+        "tau": "367/5000"
+      },
+      {
+        "beta": "143/1000",
+        "critical_counts": [
+          299,
+          21,
+          21,
+          21,
+          21,
+          284,
+          43,
+          284,
+          21,
+          21,
+          21,
+          21,
+          269
+        ],
+        "epsilon": "11/2000",
+        "pilot_estimated_joint_power": 0.41440324530184497,
+        "tau": "741/10000"
+      },
+      {
+        "beta": "721/5000",
+        "critical_counts": [
+          302,
+          22,
+          22,
+          22,
+          22,
+          287,
+          44,
+          287,
+          22,
+          22,
+          22,
+          22,
+          271
+        ],
+        "epsilon": "7/1250",
+        "pilot_estimated_joint_power": 0.46477791524845147,
+        "tau": "187/2500"
+      },
+      {
+        "beta": "727/5000",
+        "critical_counts": [
+          304,
+          22,
+          22,
+          22,
+          22,
+          289,
+          45,
+          289,
+          22,
+          22,
+          22,
+          22,
+          273
+        ],
+        "epsilon": "57/10000",
+        "pilot_estimated_joint_power": 0.5116671601481685,
+        "tau": "377/5000"
+      },
+      {
+        "beta": "1467/10000",
+        "critical_counts": [
+          307,
+          22,
+          22,
+          22,
+          22,
+          291,
+          46,
+          291,
+          22,
+          22,
+          22,
+          22,
+          276
+        ],
+        "epsilon": "29/5000",
+        "pilot_estimated_joint_power": 0.5463902345838811,
+        "tau": "761/10000"
+      },
+      {
+        "beta": "1479/10000",
+        "critical_counts": [
+          309,
+          22,
+          22,
+          22,
+          22,
+          293,
+          47,
+          293,
+          22,
+          22,
+          22,
+          22,
+          278
+        ],
+        "epsilon": "59/10000",
+        "pilot_estimated_joint_power": 0.5780184793894605,
+        "tau": "48/625"
+      },
+      {
+        "beta": "1491/10000",
+        "critical_counts": [
+          311,
+          22,
+          22,
+          22,
+          22,
+          296,
+          48,
+          296,
+          22,
+          22,
+          22,
+          22,
+          280
+        ],
+        "epsilon": "3/500",
+        "pilot_estimated_joint_power": 0.5984258794747589,
+        "tau": "387/5000"
+      },
+      {
+        "beta": "1503/10000",
+        "critical_counts": [
+          314,
+          22,
+          22,
+          22,
+          22,
+          298,
+          49,
+          298,
+          22,
+          22,
+          22,
+          22,
+          282
+        ],
+        "epsilon": "61/10000",
+        "pilot_estimated_joint_power": 0.6091750114500889,
+        "tau": "781/10000"
+      },
+      {
+        "beta": "757/5000",
+        "critical_counts": [
+          316,
+          22,
+          22,
+          22,
+          22,
+          300,
+          49,
+          300,
+          22,
+          22,
+          22,
+          22,
+          284
+        ],
+        "epsilon": "31/5000",
+        "pilot_estimated_joint_power": 0.5768854226371836,
+        "tau": "787/10000"
+      },
+      {
+        "beta": "763/5000",
+        "critical_counts": [
+          318,
+          23,
+          23,
+          23,
+          23,
+          302,
+          50,
+          302,
+          23,
+          23,
+          23,
+          23,
+          286
+        ],
+        "epsilon": "63/10000",
+        "pilot_estimated_joint_power": 0.5708240836489068,
+        "tau": "793/10000"
+      },
+      {
+        "beta": "1537/10000",
+        "critical_counts": [
+          320,
+          23,
+          23,
+          23,
+          23,
+          304,
+          51,
+          304,
+          23,
+          23,
+          23,
+          23,
+          288
+        ],
+        "epsilon": "4/625",
+        "pilot_estimated_joint_power": 0.5536854290257632,
+        "tau": "2/25"
+      },
+      {
+        "beta": "1549/10000",
+        "critical_counts": [
+          323,
+          23,
+          23,
+          23,
+          23,
+          307,
+          52,
+          307,
+          23,
+          23,
+          23,
+          23,
+          290
+        ],
+        "epsilon": "13/2000",
+        "pilot_estimated_joint_power": 0.520151066773427,
+        "tau": "403/5000"
+      },
+      {
+        "beta": "39/250",
+        "critical_counts": [
+          325,
+          23,
+          23,
+          23,
+          23,
+          309,
+          53,
+          309,
+          23,
+          23,
+          23,
+          23,
+          292
+        ],
+        "epsilon": "33/5000",
+        "pilot_estimated_joint_power": 0.48324772256114173,
+        "tau": "203/2500"
+      },
+      {
+        "beta": "393/2500",
+        "critical_counts": [
+          327,
+          23,
+          23,
+          23,
+          23,
+          311,
+          54,
+          311,
+          23,
+          23,
+          23,
+          23,
+          294
+        ],
+        "epsilon": "67/10000",
+        "pilot_estimated_joint_power": 0.43958872706692775,
+        "tau": "409/5000"
+      },
+      {
+        "beta": "1583/10000",
+        "critical_counts": [
+          329,
+          23,
+          23,
+          23,
+          23,
+          313,
+          55,
+          313,
+          23,
+          23,
+          23,
+          23,
+          296
+        ],
+        "epsilon": "17/2500",
+        "pilot_estimated_joint_power": 0.3913442989527225,
+        "tau": "103/1250"
+      },
+      {
+        "beta": "797/5000",
+        "critical_counts": [
+          332,
+          23,
+          23,
+          23,
+          23,
+          315,
+          56,
+          315,
+          23,
+          23,
+          23,
+          23,
+          298
+        ],
+        "epsilon": "69/10000",
+        "pilot_estimated_joint_power": 0.33907488087003845,
+        "tau": "83/1000"
+      },
+      {
+        "beta": "321/2000",
+        "critical_counts": [
+          334,
+          23,
+          23,
+          23,
+          23,
+          317,
+          57,
+          317,
+          23,
+          23,
+          23,
+          23,
+          300
+        ],
+        "epsilon": "7/1000",
+        "pilot_estimated_joint_power": 0.28826111945695665,
+        "tau": "209/2500"
+      },
+      {
+        "beta": "101/625",
+        "critical_counts": [
+          336,
+          24,
+          24,
+          24,
+          24,
+          319,
+          58,
+          319,
+          24,
+          24,
+          24,
+          24,
+          302
+        ],
+        "epsilon": "71/10000",
+        "pilot_estimated_joint_power": 0.2393149477887746,
+        "tau": "421/5000"
+      },
+      {
+        "beta": "1627/10000",
+        "critical_counts": [
+          338,
+          24,
+          24,
+          24,
+          24,
+          321,
+          59,
+          321,
+          24,
+          24,
+          24,
+          24,
+          304
+        ],
+        "epsilon": "9/1250",
+        "pilot_estimated_joint_power": 0.19385255992192268,
+        "tau": "53/625"
+      },
+      {
+        "beta": "1637/10000",
+        "critical_counts": [
+          340,
+          24,
+          24,
+          24,
+          24,
+          323,
+          60,
+          323,
+          24,
+          24,
+          24,
+          24,
+          306
+        ],
+        "epsilon": "73/10000",
+        "pilot_estimated_joint_power": 0.15306570837307792,
+        "tau": "427/5000"
+      },
+      {
+        "beta": "103/625",
+        "critical_counts": [
+          342,
+          24,
+          24,
+          24,
+          24,
+          325,
+          61,
+          325,
+          24,
+          24,
+          24,
+          24,
+          308
+        ],
+        "epsilon": "37/5000",
+        "pilot_estimated_joint_power": 0.11769058368427833,
+        "tau": "43/500"
+      },
+      {
+        "beta": "1659/10000",
+        "critical_counts": [
+          344,
+          24,
+          24,
+          24,
+          24,
+          327,
+          61,
+          327,
+          24,
+          24,
+          24,
+          24,
+          310
+        ],
+        "epsilon": "3/400",
+        "pilot_estimated_joint_power": 0.08778782563882577,
+        "tau": "433/5000"
+      },
+      {
+        "beta": "1669/10000",
+        "critical_counts": [
+          346,
+          24,
+          24,
+          24,
+          24,
+          329,
+          62,
+          329,
+          24,
+          24,
+          24,
+          24,
+          311
+        ],
+        "epsilon": "19/2500",
+        "pilot_estimated_joint_power": 0.07015829024529041,
+        "tau": "871/10000"
+      },
+      {
+        "beta": "1679/10000",
+        "critical_counts": [
+          348,
+          24,
+          24,
+          24,
+          24,
+          331,
+          63,
+          331,
+          24,
+          24,
+          24,
+          24,
+          313
+        ],
+        "epsilon": "77/10000",
+        "pilot_estimated_joint_power": 0.04981133896167511,
+        "tau": "877/10000"
+      },
+      {
+        "beta": "169/1000",
+        "critical_counts": [
+          351,
+          24,
+          24,
+          24,
+          24,
+          333,
+          64,
+          333,
+          24,
+          24,
+          24,
+          24,
+          315
+        ],
+        "epsilon": "39/5000",
+        "pilot_estimated_joint_power": 0.033418749402234306,
+        "tau": "883/10000"
+      },
+      {
+        "beta": "17/100",
+        "critical_counts": [
+          352,
+          25,
+          25,
+          25,
+          25,
+          335,
+          65,
+          335,
+          25,
+          25,
+          25,
+          25,
+          317
+        ],
+        "epsilon": "79/10000",
+        "pilot_estimated_joint_power": 0.022831706830185594,
+        "tau": "111/1250"
+      },
+      {
+        "beta": "171/1000",
+        "critical_counts": [
+          354,
+          25,
+          25,
+          25,
+          25,
+          337,
+          66,
+          337,
+          25,
+          25,
+          25,
+          25,
+          319
+        ],
+        "epsilon": "1/125",
+        "pilot_estimated_joint_power": 0.014705144861129432,
+        "tau": "447/5000"
+      },
+      {
+        "beta": "43/250",
+        "critical_counts": [
+          356,
+          25,
+          25,
+          25,
+          25,
+          338,
+          67,
+          338,
+          25,
+          25,
+          25,
+          25,
+          320
+        ],
+        "epsilon": "81/10000",
+        "pilot_estimated_joint_power": 0.011261446784849307,
+        "tau": "9/100"
+      },
+      {
+        "beta": "1731/10000",
+        "critical_counts": [
+          359,
+          25,
+          25,
+          25,
+          25,
+          341,
+          68,
+          341,
+          25,
+          25,
+          25,
+          25,
+          322
+        ],
+        "epsilon": "41/5000",
+        "pilot_estimated_joint_power": 0.006003150083332328,
+        "tau": "181/2000"
+      },
+      {
+        "beta": "1741/10000",
+        "critical_counts": [
+          361,
+          25,
+          25,
+          25,
+          25,
+          342,
+          69,
+          342,
+          25,
+          25,
+          25,
+          25,
+          324
+        ],
+        "epsilon": "83/10000",
+        "pilot_estimated_joint_power": 0.0038484607067090083,
+        "tau": "911/10000"
+      },
+      {
+        "beta": "1751/10000",
+        "critical_counts": [
+          363,
+          25,
+          25,
+          25,
+          25,
+          344,
+          70,
+          344,
+          25,
+          25,
+          25,
+          25,
+          326
+        ],
+        "epsilon": "21/2500",
+        "pilot_estimated_joint_power": 0.0021649335438082827,
+        "tau": "229/2500"
+      },
+      {
+        "beta": "22/125",
+        "critical_counts": [
+          364,
+          25,
+          25,
+          25,
+          25,
+          346,
+          71,
+          346,
+          25,
+          25,
+          25,
+          25,
+          328
+        ],
+        "epsilon": "17/2000",
+        "pilot_estimated_joint_power": 0.0012346144104558709,
+        "tau": "921/10000"
+      }
+    ],
+    "counts": [
+      3804,
+      12322,
+      18973,
+      18854,
+      11956,
+      3654,
+      87,
+      3981,
+      12517,
+      18982,
+      18746,
+      11751,
+      3482
+    ],
+    "heldout_seed_distinct": true,
+    "records_per_setting": 20000,
+    "scenario": "combined_design",
+    "seed": 610120701,
+    "total_records": 260000
+  },
+  "pilot_selected_exact_certificate": {
+    "alpha_bound": 0.04914322759531833,
+    "alpha_exactly_verified": true,
+    "minimum_states": 5,
+    "valid": true,
+    "witness_margin": "1523/7810000"
+  },
+  "pilot_selected_plan": {
+    "beta": "1503/10000",
+    "critical_counts": [
+      314,
+      22,
+      22,
+      22,
+      22,
+      298,
+      49,
+      298,
+      22,
+      22,
+      22,
+      22,
+      282
+    ],
+    "epsilon": "61/10000",
+    "pilot_estimated_joint_power": 0.6091750114500889,
+    "tau": "781/10000"
+  },
+  "production_budget": {
+    "excludes_reset_readout_controller_overhead": true,
+    "matched_between_plans": true,
+    "nominal_channel_applications": 126900,
+    "nominal_evolution_duration": 113905.17364015566,
+    "pilot_records_are_additional": true,
+    "records": 18300
+  },
+  "quasistatic_memory_control": {
+    "contract": "A noise label held for the run is controller memory; it must be included in a classical state count.",
+    "iid_step_mean_probabilities": [
+      0.19009630710243597,
+      0.6099251328916819,
+      0.9425031740505534,
+      0.9399084604148382,
+      0.6080474885533756,
+      0.19923175078653327,
+      0.020393661630072057,
+      0.2026838583013682,
+      0.605376388502061,
+      0.9244258094026929,
+      0.9219944369943217,
+      0.6037045579539081,
+      0.2115503379800785
+    ],
+    "maximum_difference": 0.2016394612723338,
+    "parameters": {
+      "amplitude_jitter": 0.1,
+      "amplitude_offset": 0.0,
+      "depolarization": 0.001,
+      "detuning": 0.0,
+      "false_negative": 0.0,
+      "false_positive": 0.0,
+      "omega": 1.0,
+      "preparation_error": 0.0,
+      "timing_jitter": 0.05
+    },
+    "whole_run_quasistatic_probabilities": [
+      0.19009630710243597,
+      0.6087580778199426,
+      0.9290165171720954,
+      0.9136779385618263,
+      0.5983401733039716,
+      0.24495698504695013,
+      0.11788506945880811,
+      0.27865684183323197,
+      0.5644759175680305,
+      0.7472516211393927,
+      0.7203549757219879,
+      0.5565000675688125,
+      0.41055700486432967
+    ]
+  },
+  "retained_shot_stream": {
+    "channel_applications": 126900,
+    "counts": [
+      358,
+      67,
+      97,
+      91,
+      63,
+      332,
+      45,
+      356,
+      60,
+      95,
+      95,
+      50,
+      312
+    ],
+    "file": "dimension_lab_shots.npz",
+    "maximum_marginal_standardized_count_residual": 1.8608500731682336,
+    "old_rejects": true,
+    "pilot_selected_rejects": true,
+    "randomized_acquisition_order": true,
+    "realized_evolution_duration": 113905.09824193196,
+    "records": 18300,
+    "scenario": "combined_design",
+    "seed": 610120703,
+    "separate_from_pilot_and_power_holdout": true,
+    "sha256": "0605dd352e47dc259b9032fa645668258b0df6fcb1ae94eda159b5479de3f4a3"
+  },
+  "selected_classical_nulls": [
+    {
+      "candidate_index": 65,
+      "class": "homogeneous discrete stochastic channel",
+      "detector": [
+        0.06962040525176272
+      ],
+      "dimension": 1,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": -1062.5091494904998,
+      "preparation": [
+        1.0
+      ],
+      "probabilities": [
+        0.0696204052517627,
+        0.0696204052517627,
+        0.06962040525176269,
+        0.06962040525176269,
+        0.06962040525176268,
+        0.06962040525176268,
+        0.06962040525176266,
+        0.06962040525176266,
+        0.06962040525176265,
+        0.06962040525176263,
+        0.06962040525176263,
+        0.06962040525176262,
+        0.06962040525176262
+      ],
+      "transition": [
+        [
+          0.9999999999999999
+        ]
+      ]
+    },
+    {
+      "candidate_index": 5,
+      "class": "homogeneous discrete stochastic channel",
+      "detector": [
+        0.0592201362108804
+      ],
+      "dimension": 1,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": -1104.15891058901,
+      "preparation": [
+        1.0
+      ],
+      "probabilities": [
+        0.059220136210880396,
+        0.05922013621088039,
+        0.05922013621088038,
+        0.059220136210880375,
+        0.05922013621088037,
+        0.05922013621088036,
+        0.059220136210880354,
+        0.05922013621088035,
+        0.05922013621088034,
+        0.05922013621088034,
+        0.059220136210880334,
+        0.05922013621088033,
+        0.05922013621088032
+      ],
+      "transition": [
+        [
+          0.9999999999999999
+        ]
+      ]
+    },
+    {
+      "candidate_index": 19,
+      "class": "homogeneous discrete stochastic channel",
+      "detector": [
+        0.029293897447016715
+      ],
+      "dimension": 1,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": -1571.7407781471086,
+      "preparation": [
+        1.0
+      ],
+      "probabilities": [
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715,
+        0.029293897447016715
+      ],
+      "transition": [
+        [
+          1.0
+        ]
+      ]
+    },
+    {
+      "candidate_index": 50,
+      "class": "homogeneous continuous-time chain sampled at a fixed step",
+      "detector": [
+        0.08063012038310335,
+        0.07336262711969932
+      ],
+      "dimension": 2,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": -1054.1041632848883,
+      "preparation": [
+        0.9989948639490733,
+        0.001005136050926685
+      ],
+      "probabilities": [
+        0.0760217507189096,
+        0.07602158431376703,
+        0.07602158430774877,
+        0.07602158430774861,
+        0.07602158430774866,
+        0.07602158430774872,
+        0.07602158430774877,
+        0.07602158430774883,
+        0.07602158430774887,
+        0.07602158430774893,
+        0.07602158430774898,
+        0.07602158430774904,
+        0.07602158430774908
+      ],
+      "transition": [
+        [
+          0.3658928556275854,
+          0.6341071443724152
+        ],
+        [
+          0.36585668896872975,
+          0.634143311031271
+        ]
+      ]
+    },
+    {
+      "candidate_index": 0,
+      "class": "homogeneous continuous-time chain sampled at a fixed step",
+      "detector": [
+        1.0,
+        1.0
+      ],
+      "dimension": 2,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": null,
+      "preparation": [
+        0.010291604558173623,
+        0.9897083954418264
+      ],
+      "probabilities": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999998,
+        0.9999999999999998,
+        0.9999999999999997,
+        0.9999999999999997,
+        0.9999999999999996,
+        0.9999999999999996,
+        0.9999999999999994,
+        0.9999999999999993,
+        0.9999999999999993,
+        0.9999999999999993,
+        0.9999999999999993
+      ],
+      "transition": [
+        [
+          0.9984641747849644,
+          0.0015358252150356158
+        ],
+        [
+          0.028391551983481037,
+          0.9716084480165189
+        ]
+      ]
+    },
+    {
+      "candidate_index": 1,
+      "class": "homogeneous discrete stochastic channel",
+      "detector": [
+        0.466237859503399,
+        0.7770165566276166
+      ],
+      "dimension": 2,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": null,
+      "preparation": [
+        0.7829804339911399,
+        0.21701956600886
+      ],
+      "probabilities": [
+        0.5847245749788761,
+        0.6244739673847869,
+        0.6554293531226993,
+        0.6795362852840189,
+        0.6983098900825758,
+        0.71293009288457,
+        0.7243157767883807,
+        0.7331825346379923,
+        0.7400876441973168,
+        0.745465093185434,
+        0.7496528555042452,
+        0.7529141329757021,
+        0.7554538976366658
+      ],
+      "transition": [
+        [
+          0.7877494497628098,
+          0.21225055023719022
+        ],
+        [
+          0.008985703595222582,
+          0.9910142964047775
+        ]
+      ]
+    },
+    {
+      "candidate_index": 66,
+      "class": "homogeneous continuous-time chain sampled at a fixed step",
+      "detector": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "dimension": 3,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": -1371.2653961147512,
+      "preparation": [
+        2.7173449952635508e-08,
+        0.01631131889799118,
+        0.983688653928559
+      ],
+      "probabilities": [
+        0.023570842372575958,
+        0.036345924132920066,
+        0.043366921169226,
+        0.047276150571853005,
+        0.04947878063407796,
+        0.0507330325982548,
+        0.05145386131180272,
+        0.05187140922327936,
+        0.052114891594700896,
+        0.05225765882587766,
+        0.05234175230869524,
+        0.052391469102732874,
+        0.05242095016612199
+      ],
+      "transition": [
+        [
+          0.5279302654578852,
+          0.31323754189437775,
+          0.15883219264773699
+        ],
+        [
+          0.03672106548258571,
+          0.6392666228330018,
+          0.32401231168441247
+        ],
+        [
+          0.023352774199220543,
+          0.07303582502942498,
+          0.9036114007713545
+        ]
+      ]
+    },
+    {
+      "candidate_index": 0,
+      "class": "homogeneous continuous-time chain sampled at a fixed step",
+      "detector": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "dimension": 3,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": null,
+      "preparation": [
+        0.36381098715696303,
+        0.05632266859100247,
+        0.5798663442520345
+      ],
+      "probabilities": [
+        0.647114904734647,
+        0.6574531795736768,
+        0.6672355143371267,
+        0.6764918757749964,
+        0.685250612836212,
+        0.6935385440963598,
+        0.7013810404576278,
+        0.7088021033767293,
+        0.7158244388627366,
+        0.7224695274736661,
+        0.7287576905282679,
+        0.7347081527377635,
+        0.7403391014511954
+      ],
+      "transition": [
+        [
+          0.9553565386484995,
+          0.029722323022255467,
+          0.014921138329245071
+        ],
+        [
+          0.00912026920382562,
+          0.9675121754765177,
+          0.023367555319656664
+        ],
+        [
+          0.008281584197044094,
+          0.003761668411916043,
+          0.9879567473910399
+        ]
+      ]
+    },
+    {
+      "candidate_index": 1,
+      "class": "homogeneous discrete stochastic channel",
+      "detector": [
+        0.9899435292934249,
+        0.2918613389439626,
+        0.7289758656405559
+      ],
+      "dimension": 3,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": null,
+      "preparation": [
+        0.5090151105956028,
+        0.4909618009776939,
+        2.308842670330591e-05
+      ],
+      "probabilities": [
+        0.8733501277758074,
+        0.8640287219321462,
+        0.8724352479109305,
+        0.8651219871948224,
+        0.8714845710913027,
+        0.8659490827961376,
+        0.8707649926797624,
+        0.8665751205726454,
+        0.8702203358483066,
+        0.8670489754663648,
+        0.8698080790889422,
+        0.8674076414586225,
+        0.8694960374035609
+      ],
+      "transition": [
+        [
+          0.1299890481544974,
+          1.881317760564956e-05,
+          0.869992138667897
+        ],
+        [
+          0.9946985494397138,
+          0.0015878843063303612,
+          0.0037135662539558084
+        ],
+        [
+          0.9999954730996402,
+          3.998476703001133e-06,
+          5.284236568291176e-07
+        ]
+      ]
+    },
+    {
+      "candidate_index": 53,
+      "class": "homogeneous discrete stochastic channel",
+      "detector": [
+        0.01002538987744983,
+        0.6030661829405202,
+        0.8524659459272749,
+        0.05915371354776855
+      ],
+      "dimension": 4,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": -1002.2484332404028,
+      "preparation": [
+        0.8821726985342344,
+        0.011714176199833034,
+        0.10547040077856709,
+        0.0006427244873653975
+      ],
+      "probabilities": [
+        0.09170627877176732,
+        0.08125585880854877,
+        0.07505787927210229,
+        0.07145749879616796,
+        0.06944638747558533,
+        0.06840752786550362,
+        0.06796336029935901,
+        0.06788285202623852,
+        0.06802463177981301,
+        0.06830219317476802,
+        0.06866260226962888,
+        0.06907346848247226,
+        0.06951497194617952
+      ],
+      "transition": [
+        [
+          0.9987693252919281,
+          4.164740731238905e-05,
+          7.432958487544726e-06,
+          0.0011815943422719057
+        ],
+        [
+          7.51296691551865e-11,
+          5.25459250920449e-12,
+          0.8389955272810475,
+          0.16100447263856815
+        ],
+        [
+          6.557901256346639e-07,
+          0.002061038674592088,
+          0.8102747563404199,
+          0.18766354919486244
+        ],
+        [
+          4.0746385350270586e-05,
+          8.573485436916642e-13,
+          0.2004931487533434,
+          0.799466104860449
+        ]
+      ]
+    },
+    {
+      "candidate_index": 63,
+      "class": "homogeneous discrete stochastic channel",
+      "detector": [
+        1.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "dimension": 4,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": -1037.582281095819,
+      "preparation": [
+        0.13312792668093135,
+        0.007354043010222757,
+        0.8587611300068185,
+        0.0007569003020273789
+      ],
+      "probabilities": [
+        0.10222564176375531,
+        0.10082266065852258,
+        0.09721020910219297,
+        0.09333755209885733,
+        0.08999370068438521,
+        0.08733755958913622,
+        0.0853091738775928,
+        0.08379139847495058,
+        0.08266813808216103,
+        0.08184190693473829,
+        0.08123624114692116,
+        0.0807931210275801,
+        0.08046928082464877
+      ],
+      "transition": [
+        [
+          0.7512976275482184,
+          2.4685709252608667e-07,
+          0.24757642909939753,
+          0.0011256964952916903
+        ],
+        [
+          0.01692189514381589,
+          0.9717304881513875,
+          5.1105279912844625e-05,
+          0.011296511424883755
+        ],
+        [
+          0.0007398643328129291,
+          0.9941991212761373,
+          0.004028953348561614,
+          0.0010320610424881303
+        ],
+        [
+          9.359520552260388e-09,
+          0.4190217097488302,
+          0.14775791311234163,
+          0.43322036777930767
+        ]
+      ]
+    },
+    {
+      "candidate_index": 23,
+      "class": "homogeneous discrete stochastic channel",
+      "detector": [
+        0.08162788149103617,
+        0.04936521074525668,
+        0.4125404606209112,
+        0.007609189950147699
+      ],
+      "dimension": 4,
+      "holdout": {
+        "numerical_binomial_power_crosscheck": {
+          "old": 0.0,
+          "pilot_selected": 0.0
+        },
+        "old": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        },
+        "paired_improvement": {
+          "hoeffding_interval": [
+            -0.019206455826398412,
+            0.019206455826398412
+          ],
+          "improved_only": 0,
+          "mean": 0.0,
+          "worse_only": 0
+        },
+        "pilot_selected": {
+          "clopper_pearson_interval": [
+            0.0,
+            0.0001844269639618992
+          ],
+          "frequency": 0.0,
+          "rejects": 0,
+          "repetitions": 20000
+        }
+      },
+      "pilot_selection_log_rejection_probability": -1237.200762368317,
+      "preparation": [
+        0.38565024058805425,
+        1.6707805598874015e-07,
+        0.4047546596068438,
+        0.20959493272704585
+      ],
+      "probabilities": [
+        0.03537416608056489,
+        0.08345188240107944,
+        0.05456332085988223,
+        0.059494187158316995,
+        0.06758847723973048,
+        0.05825867892026172,
+        0.0630604280945266,
+        0.06281998754879933,
+        0.06095944929047346,
+        0.06271821209592618,
+        0.061957618713310604,
+        0.06187433984394977,
+        0.062276997544087026
+      ],
+      "transition": [
+        [
+          0.09593796501558353,
+          5.6985405792919465e-06,
+          0.00010763462484498057,
+          0.9039487018189922
+        ],
+        [
+          0.9995665315233527,
+          0.00042114074660620234,
+          9.13180798075503e-06,
+          3.1959220603224936e-06
+        ],
+        [
+          0.15825883750058628,
+          1.8321243805008577e-05,
+          1.503563651929266e-07,
+          0.8417226908992435
+        ],
+        [
+          0.3981520259326404,
+          0.4702346033201833,
+          0.11753617830324281,
+          0.014077192443933502
+        ]
+      ]
+    }
+  ]
+}

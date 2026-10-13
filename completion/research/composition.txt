@@ -1,0 +1,153 @@
+INTERFACE COMPLETION AND COMPOSITION CHECKS
+Abdinoor / 2D Labs / 12 October 2026
+
+Status and attribution
+
+This is supporting integration of established stochastic lumpability,
+intertwining, probabilistic bisimulation and total-variation contraction. It
+provides exact checkable interfaces and failure controls for the access program;
+it is not promoted as the central new physical result. Relevant prior work:
+
+  Peter Buchholz, Exact and ordinary lumpability in finite Markov chains,
+  Journal of Applied Probability 31(1), 59-75 (1994), DOI 10.2307/3215235.
+
+  Robert Paige and Robert E. Tarjan, Three Partition Refinement Algorithms,
+  SIAM Journal on Computing 16(6), 973-989 (1987), DOI 10.1137/0216062.
+
+  Gaoang Bian and Alessandro Abate, On the Relationship between Bisimulation
+  and Trace Equivalence in an Approximate Probabilistic Context, FoSSaCS 2017,
+  321-337, DOI 10.1007/978-3-662-54458-7_19; arXiv:1701.04547.
+
+The distinction between local equivalence and contextual congruence also has a
+substantial quantum-process literature, including Lalire (2006),
+arXiv:quant-ph/0603274, and Deng/Feng, Open Bisimulation for Quantum Processes.
+No classical result here is asserted for arbitrary quantum interactions.
+
+1. Contract
+
+A finite classical instrument has nonnegative n x n matrices M_{a,y}, with
+sum_y M_{a,y} stochastic for each action a. Preparation mu is a probability
+row vector. Every policy is a finite tree: actions may depend on the complete
+retained outcome history, and every outcome branch must be retained. Stopping
+can be outcome-dependent. Randomized policies are mixtures with a common,
+hypothesis-independent private seed and obey the same bounds.
+
+Let C be a row-stochastic n x k interface and let B_{a,y} be a k-state
+instrument with the same actions/outcomes. Define joint outcome/interface
+defects
+
+  epsilon_a(x)=1/2 sum_{y,z}|(M_{a,y}C-CB_{a,y})_{xz}|.
+
+These are numbers in [0,1]. They include the post-measurement/interface state,
+not merely the immediate distribution of y. Controls, readout updates,
+preparation and couplings must all be included in the declared contract.
+
+2. Adaptive error propagation
+
+Theorem. Let P be the concrete terminal-record law for preparation mu and Q
+the quotient record law for preparation nu under the same finite policy tree.
+For each internal history h let mu_h=mu M_h be the UNNORMALIZED concrete row
+at that history and let a(h) be its selected action. Then
+
+ TV(P,Q) <= min{1, TV(mu C,nu)+sum_h mu_h epsilon_{a(h)}}.
+
+The sum is the expected accumulated local defect before stopping, evaluated
+under the concrete model; it can be tighter than horizon times a global defect.
+
+Proof. Let nu_h be the quotient branch row and d_h=mu_h C-nu_h. At an action a,
+
+ d_{hy}=mu_h(M_{a,y}C-CB_{a,y})+d_h B_{a,y}.
+
+Nonnegativity of mu_h gives sum_y ||mu_h(M_{a,y}C-CB_{a,y})||_1
+<=2 mu_h epsilon_a. Nonnegativity and outcome normalization of B give
+sum_y ||d_h B_{a,y}||_1<=||d_h||_1. Summing this recursion over the finite
+tree bounds the sum of leaf ||d_h||_1 by the initial norm plus all local
+defects. A terminal record's probability difference is d_h 1 because C1=1.
+Taking half the sum of absolute probability differences proves the result.
+All branches, including rejected-looking outcomes and stopped branches, count.
+
+Corollary. Exact intertwining M_{a,y}C=CB_{a,y} and matching interface
+preparations imply equality for every permitted finite adaptive record. Two
+different concrete models with the same quotient therefore remain
+indistinguishable in contexts obeying the interface contract. This is a
+sufficient certificate. It is not a claim that every trace-equivalent pair
+admits a common stochastic quotient of this form.
+
+3. Tensor composition and shared preparations
+
+For independent local action instruments and product interface C1 tensor C2,
+the product residual on a state pair (x1,x2) obeys
+
+ epsilon_joint <= epsilon_1+epsilon_2-epsilon_1 epsilon_2.
+
+Indeed each side of the local comparison is a normalized distribution over
+(outcome,next interface state). Couple the two local pairs maximally and
+independently. Both pairs agree with probability at least
+(1-epsilon_1)(1-epsilon_2); total variation is no greater than the coupling
+disagreement probability. This remains an upper bound rather than equality.
+For more factors it becomes 1-product_i(1-epsilon_i), in particular at most
+the sum of defects. Subsequent adaptive context uses the preceding theorem.
+
+Arbitrary interactions are not product instruments. Each added interaction
+must satisfy the joint interface contract or incur its own computed defect.
+Moreover the initial condition is equality of the FULL joint interface
+preparation. Equality of local marginals alone is insufficient. For example,
+the two preparations 1/2(00+11) and 1/2(01+10) have identical one-bit marginals;
+a CNOT followed by reading its target bit distinguishes their parity perfectly.
+Independent preparation is one sufficient way to infer joint-interface
+equality from local certificates; it is not required if joint equality is
+established directly.
+
+4. Coarsest deterministic Markov interface after adding a coupling
+
+Given a declared observation partition P0 of the microscopic states, repeat:
+split each block according to the vectors
+
+  (sum_{j in B} M_{a,y}(i,j))_{a,y,B in current partition}.
+
+The iteration terminates after at most n-|P0| strict refinement rounds. Its
+final partition P* is the unique coarsest refinement of P0 for which each
+instrument has a quotient satisfying exact deterministic intertwining.
+
+Proof. Each strict step increases the block count. At termination states in
+a block give equal transition/outcome mass to every target block, which is
+exactly the quotient identity. Any stable refinement of the current partition
+must separate states whose displayed signatures differ: a sum over current
+blocks is a sum over the finer stable blocks. Induction shows every stable
+refinement of P0 refines every iteration, hence refines P*. This proves both
+closure and coarseness. A certificate records all forced refinement rounds;
+the independent checker verifies their local justification and final closure.
+
+Scope: minimality is among DETERMINISTIC Markov interfaces refining P0 and
+valid for all initial preparations. It is not the smallest linear realization,
+the coarsest trace-equivalence relation, a minimum sensor-energy architecture,
+or a minimum distinguishing experiment. Partition growth describes necessary
+state retained by this kind of modular abstraction. Physical access to every
+refined block is not asserted merely because the algorithm names it.
+
+5. Exact failure controls and outputs
+
+The four-state CNOT model has state (hidden h, visible o), passive waiting and
+projective readout of o. Preparations (h,o)=(0,0) and (1,0) are passively
+identical. The coupling (h,o)->(h,o XOR h) is a stochastic permutation; one
+coupling and one visible readout distinguish them perfectly. The coarsest
+deterministic interface changes from two states to four. This is a finite
+logically reversible gate, not a claim of zero hardware energy cost.
+
+A separate counterexample gives two instruments with equal immediate
+prepare_hidden outcome laws but different hidden updates. A later readout
+distinguishes them perfectly. A calibration statement that checks only
+immediate output probabilities would assign zero error and fail; the joint
+defect detects the hidden update discrepancy and bounds the record TV by one.
+
+The rational adaptive example has terminal-record TV=3/40 and expected
+accumulated defect=1509/8000. It includes outcome-dependent stopping and action
+choice, and the code retains every branch. Tensor defects and correlated
+preparations are separately checked. No statistics or energy claim is inferred
+from these finite logical examples.
+
+Reproduction:
+  python code/composition.py
+  python -m unittest discover -s tests -p test_composition.py
+
+Results: results/composition.json. Standard-library Fraction arithmetic only.

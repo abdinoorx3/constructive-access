@@ -1,0 +1,52 @@
+COMMERCIAL USE OF CONSTRUCTIVE ACCESS
+Abdinoor / 2D Labs — 13 October 2026
+Contact: helloworld@2dai.org | https://2dlabs.org
+
+The released first-party material uses the Constructive Access Research
+and Revenue-Threshold License 1.0, a custom source-available license. The
+license text controls; this file explains the permission boundaries.
+
+Free use
+
+Personal study and noncommercial projects, and genuine academic research
+and teaching, are free. A Company may also use the covered material in its
+business for free while its worldwide Group Revenue is at or below
+US$10 million. Count the Company and all controlled or common-control
+affiliates together, over the preceding 12 months, eliminating internal
+transactions. For a younger Group, count actual revenue since formation.
+Exactly US$10 million qualifies. There is no employee limit.
+
+Everyone may read, retain and fork the public work, review it, reproduce
+its published demonstrations and cite it. Scholarly quotation, attributed
+figure reuse and distribution of scholarly articles remain permitted,
+including through commercial scholarly publishers, as described in the
+license. These permissions support scientific scrutiny and do not grant
+unrestricted corporate product or operational use.
+
+When a separate commercial license is needed
+
+If Group Revenue exceeds US$10 million, contact helloworld@2dai.org before
+using covered code or other protected material in company operations,
+products, proprietary research, customer services or other business uses
+outside the universally permitted scholarly activities. The test concerns
+the whole Group's revenue, not the revenue attributable to this project.
+Using a smaller contractor or an academic institution to perform the same
+Company work does not bypass that test. Ordinary independent scholarly
+research is not disqualified solely because a company sponsors it.
+
+A commercial agreement can specify scope, price, term and any support.
+No fee, percentage of revenue, royalty or share of profits becomes payable
+merely because the work is downloaded or a business crosses the threshold.
+The choices are to obtain permission for the covered use or to stop that
+use. Earlier permitted use is not retroactively charged. A request for
+terms is not itself a commercial license.
+
+What is outside this licensing requirement
+
+The license does not reserve mathematical results, scientific ideas,
+methods, facts or independent implementations that copy no protected
+expression. It does not automatically license or restrict every output
+of the software. The original experimental data remains CC BY 4.0, and
+other third-party material retains its own terms. Applicable statutory
+exceptions remain available. No patent exclusivity is claimed.
+

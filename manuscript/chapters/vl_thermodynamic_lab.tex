@@ -1,0 +1,229 @@
+\chapter{A stochastic laboratory for temporal entropy inference}
+\label{ch:vl-thermodynamic}
+
+This laboratory generates hidden trajectories, noisy detector outputs and
+experimental timing before analyzing the observed counts. Its purpose is to
+test the full inference chain under declared apparatus models. It supplies
+simulation evidence; none of the following records came from a physical
+laboratory. The time unit and transition rates are illustrative.
+
+The experiment specification, independent pilot and held-out seeds,
+record budgets, detector laws, confidence radii and original inference
+scores were saved in \texttt{contracts/thermodynamic\_lab.json} before
+production. Twenty pilot datasets and 200 held-out datasets per case use
+disjoint random streams. Pilot outcomes remain in the release. The
+subsequent comparison with a direct, predeclared curvature contrast uses
+the same held-out records and is reported separately. This separation of
+design, data generation and evaluation follows established simulation-study
+practice \cite{vlMorris2019}.
+
+\section{Trajectory and apparatus construction}
+
+The main physical model is a ring with $N=40$ states and translation-invariant
+forward and backward rates $a,b$. Each independent pair record begins with
+$X_0$ uniform on the ring, which is its exact stationary distribution. For
+the selected duration $U$, generate independent counts
+\begin{equation}
+ N_+\sim\operatorname{Poisson}(aU),\qquad
+ N_-\sim\operatorname{Poisson}(bU),\qquad
+ X_U=(X_0+N_+-N_-)\bmod40.
+\end{equation}
+This samples the continuous-time random walk exactly: independent forward
+and backward Poisson clocks generate its jumps. The simulator does not draw
+matching bits from an analytically supplied endpoint probability.
+
+A fixed detector has conditional mean $f_j\in[-1,1]$. Independent readouts
+are generated at both physical endpoints from
+\[
+ \Pr(Y=+1\mid X=j)=\frac{1+g f_j}{2},\qquad 0\le g\le1.
+\]
+Thus a gain $g$ multiplies the stationary two-time correlation by $g^2$.
+The first menu uses a deterministic half-ring detector, $f_j=+1$ on 20
+consecutive states and $-1$ on the others. The second uses the fixed rational
+approximation to a cosine detector specified in the frozen contract.
+These are declared detector models, not empirical calibrations.
+
+The revival menu observes lags $1.6$ and $2.1$, with 5,000 independent
+records per lag. The curvature menu observes $0.15$, $0.30$ and $0.45$,
+with 50,000 records per lag. They are separate experiments with different
+detectors and observation windows; their results are not presented as a
+matched efficiency comparison. Within each menu, every inference procedure
+receives exactly the same records.
+
+The driven ring has $(a,b)=(20,1)$ and stationary entropy-production rate
+$19\log20\simeq56.9189$ in natural entropy units per model time. The
+equilibrium control has $(a,b)=(10.5,10.5)$, preserving total jump activity
+while setting stationary entropy production to zero. A noisy detector
+control uses $g=0.2$, equivalent to an independent bit flip with probability
+$0.4$ after each ideal readout.
+
+An independent timing control replaces each nominal lag $t_k$ by
+$U_k=t_kV$, where $V$ is uniform on $[0.7,1.3]$ and independent of physical
+paths and detector noise. The same scale law is used at every lag. For a
+reversible process at $t_k=k\Delta$,
+\[
+ C(U_k)=m^2+\sum_\ell c_\ell\mathbb E
+       [e^{-\lambda_\ell k\Delta V}],\qquad c_\ell\ge0.
+\]
+After averaging over $V$, this is still a nonnegative moment mixture with
+$x=e^{-\lambda_\ell\Delta V}\in[0,1]$. Consequently the reversible
+correlation cone is preserved, and the expected duration remains nominal
+because $\mathbb E[V]=1$. Arbitrary setting-dependent timing errors do not
+inherit this conclusion.
+
+\section{Blind inference and matched accounting}
+
+Inference receives the number of matching endpoint pairs at each lag,
+not hidden states or jump counts. With $K$ settings, $n$ records at each,
+and empirical matching probabilities $\widehat p_k$, the simultaneous box
+\begin{equation}
+ p_k\in[\max(0,\widehat p_k-r),\min(1,\widehat p_k+r)]
+ \quad\text{for all }k
+\end{equation}
+has failure probability at most $2K e^{-2nr^2}$. The chosen radii are
+$r=0.021$ for revival and $r=0.007$ for curvature. Rational logarithm
+enclosures verify that both failure bounds are at most $0.05$.
+
+Three original procedures use this identical simultaneous box. A
+negative-correlation test rejects when an upper probability endpoint is
+below $1/2$. A revival test rejects when the upper endpoint at an earlier
+lag is below the lower endpoint at a later lag. A fixed dual witness
+evaluates the previously specified positive likelihood scores against the
+full reversible moment cone. Its exact polynomial normalizer is checked
+once, and each dataset is evaluated using the same rational logarithm
+enclosures as the original certificate. The latter is a fixed witness from
+the full cone; it is not an optimization over every valid witness.
+
+These tests need no correction merely because they are compared: each
+rejection is impossible on the same joint confidence event under its
+reversible null. Accordingly even the union of their null rejections is
+bounded by the box failure probability. This does not extend to changes in
+the measurement contract.
+
+The revival menu uses 10,000 pair records and nominal observation exposure
+$5000(1.6+2.1)=18,500$ per dataset. The curvature menu uses 150,000 pair
+records and exposure $50,000(0.15+0.30+0.45)=45,000$. Actual elapsed exposure
+is stored for every dataset, including jitter. Physical preparation,
+stationary resetting, detector operation and data processing costs are not
+calibrated or included in these exposure totals. The calculation does not
+equate wall-clock runtime with thermodynamic energy.
+
+\section{Held-out results and a useful failure}
+
+Table~\ref{tab:vl-thermodynamic} gives rejection counts in 200 independently
+generated held-out datasets per case. All entries are simulated outcomes.
+The JSON report also gives exact-binomial Clopper--Pearson confidence
+intervals for each Monte Carlo rejection probability
+\cite{vlClopper1934}, evaluated numerically. For example, $0/200$ gives an
+upper 95\% endpoint of approximately $0.0183$, while $200/200$ gives a lower
+endpoint of approximately $0.9817$. Neither outcome establishes zero or
+unit rejection probability.
+
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{llrrr}
+\hline
+Menu & Simulated case & Negative & Revival & Fixed dual\\
+\hline
+Curvature & Driven & 0 & 0 & 1\\
+ & Equilibrium & 0 & 0 & 0\\
+ & High detector noise & 0 & 0 & 0\\
+ & Independent scale jitter & 0 & 0 & 0\\
+ & Detector memory$^*$ & 0 & 0 & 1\\
+Revival & Driven & 0 & 200 & 200\\
+ & Equilibrium & 0 & 0 & 0\\
+ & High detector noise & 1 & 0 & 0\\
+ & Independent scale jitter & 2 & 200 & 0\\
+ & Detector memory$^*$ & 0 & 200 & 200\\
+ & Prepared equilibrium$^*$ & 200 & 0 & 0\\
+\hline
+\end{tabular}
+\caption{Rejections among 200 held-out simulated datasets, with matched
+records and exposure within each menu. Asterisks identify controls outside
+the stationary, independently read-out detector contract. Their rejections
+must not be interpreted as dissipation of the simulated physical sample.
+The fixed dual uses the original predeclared scores, not all possible
+moment-cone witnesses.}
+\label{tab:vl-thermodynamic}
+\end{table}
+
+The favorable revival experiment works with the planned record budget,
+and equilibrium controls produce no rejections in these runs. Independent
+readout noise substantially suppresses useful information although the
+sample's hidden stationary entropy production is unchanged.
+
+The curvature experiment exposes a practical limitation. Its model curve
+has the required departure from convex equilibrium decay, but the
+combination of coordinate confidence intervals and the original score
+choice removes most of this witness's usable separation at this budget.
+The fixed witness rejects only once in 200 held-out datasets.
+This is not a successful practical detection design at that record count.
+It does not establish that optimized moment-cone inference has low power.
+The subsequent matched comparison includes both safely optimized box
+witnesses and direct-contrast inference, which concentrates uncertainty
+in a predeclared informative direction.
+
+Timing jitter reveals a second distinction between validity and power.
+Common random scaling preserves the reversible cone, yet the original
+likelihood scores are poorly positioned for the shifted matching
+probabilities: the fixed dual never rejects, while the broader revival
+inequality rejects in all 200 datasets. A cone can remain the correct
+null class while one selected witness becomes ineffective. Simultaneous
+confidence boxes permit safe subsequent witness optimization, but these
+frozen-score results are retained without replacing the failed regime.
+
+\section{Controls that defeat an unqualified interpretation}
+
+The memory control evolves the sample with the equilibrium ring generator,
+but the detector stores its first bit and repeats it with a
+setting-dependent probability specified in the contract. This deliberately
+violates the assumption that each readout is a fixed channel of the current
+physical state with independent noise. The resulting revival record
+imitates the driven record and is rejected in all 200 datasets by both
+revival and the fixed dual. Sampling confidence about those observed
+probabilities cannot establish the missing detector contract. The
+sample's generator has zero stationary entropy production; the separate
+memory device's physical costs have not been modeled.
+
+The preparation control is a detailed-balanced two-state process with
+rates $0\to1$ equal to $9$ and $1\to0$ equal to $1$. Direct Gillespie
+simulation starts every record in state $0$, rather than in its stationary
+law $(0.1,0.9)$. The matching probability is
+$0.1+0.9e^{-10t}$, and the negative-correlation test rejects every held-out
+dataset. The stationary dissipation interpretation is inapplicable.
+The preparation-relative entropy is $D(\delta_0\Vert\pi)=\log10$;
+the earlier preparation-or-housekeeping theorem explicitly allows this
+source of apparent temporal separation.
+
+\section{Reproducibility and remaining physical work}
+
+The release retains the full 150,000-record first held-out curvature dataset
+in a compressed archive: initial and final hidden states, forward and
+backward jump counts, elapsed times, both detector bits and setting labels.
+These hidden arrays support auditing only. Separate compact archives retain
+counts and exposure for every pilot and held-out dataset. The frozen
+contract and deterministic archives have recorded SHA-256 digests.
+
+An independent matrix-exponential calculation checks the mean matching
+probabilities. For jitter, 32- and 64-node quadratures must agree within
+$10^{-11}$. Reports include empirical joint confidence-box coverage against
+these numerical oracles: all 11 cases cover the model probability vector
+in between 198 and 200 of their 200 held-out datasets. This includes the
+outside-contract controls, emphasizing that correct statistical coverage
+does not establish the physical interpretation. Tests also compare the direct Gillespie control
+with its independent analytic transition law and compare compiled inference
+with the original exact certificate implementation.
+
+This adds an executable apparatus stress test to existing thermodynamic
+inference research. Finite resolution and finite statistics have already
+been studied explicitly \cite{vlFritz2025}; entropy inference from
+time-symmetric observations is also established \cite{vlSkinner2021}.
+The comparison here is deliberately confined to the shared endpoint record.
+Methods requiring transition labels, waiting times or resolved currents
+have different access and are not ranked as inferior from this experiment.
+
+Finite-duration detector integration, imperfect physical resets,
+unmodeled sample drift and independently calibrated hardware energy remain
+experimental dependencies. The point-readout simulator and independent
+stationary preparation do not validate them.

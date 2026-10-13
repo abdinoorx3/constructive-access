@@ -1,0 +1,61 @@
+HIGH-LEVERAGE SELECTION — INTERNAL REVIEW, 12 OCTOBER 2026
+
+Recommended principal result
+
+An operational frontier for the resources required by a classical explanation
+of restricted dynamical observations. Its three coordinates are hidden state
+count, initial nonequilibrium preparation, and maintained entropy production.
+The frontier is conditional on common homogeneous Markov dynamics and declared
+observation access. It is not a universal classical-versus-quantum criterion.
+
+Why this is stronger than extending one dimension witness
+
+1. Finite noisy data can exclude a specified finite hidden dimension, with
+   rate-cap-free algebraic certificates rather than fitted invisible poles.
+2. Without a size, preparation, or stationarity constraint, arbitrary finite
+   reset traces can be approximated by reversible finite classical systems,
+   even irreducible ones. The missing assumption is constructively exposed.
+3. Stationary scalar correlation shapes constrain all even-state classical
+   models, independent of hidden dimension, through a reversible moment cone.
+   They can force positive dissipation even when ordinary two-time reversal
+   statistics, negative-correlation tests, and monotonicity tests vanish.
+4. If stationarity is relaxed, a valid record separation still requires
+   initial relative entropy or integrated housekeeping entropy. This explains
+   rather than conceals the reversible approximation escape.
+
+These are connected theorems about one inference task, not four unrelated
+applications. A useful experimental endpoint is an independently checkable
+statement of the form: every compatible model in this declared class needs
+at least this much hidden memory, preparation divergence, or dissipation.
+
+What survives the novelty hurdle
+
+Spectral sectors, nonnegative-rank dimension witnesses, exact sinusoidal
+quantum matrices, Poisson approximation, reversible comparison, and the
+stationary sigma/4 bridge have substantial prior art. The broad separation
+idea is not new. The precise candidate additions are the explicit nonzero
+antichain margin, normalized finite Erlang robustness certificate, finite
+reversible deterministic-readout compiler with operational transcript bounds,
+and confidence-box-to-continuous-moment-cone dual inference. Historical
+originality of those narrower additions remains to be checked externally.
+
+The empirical bottleneck
+
+An apparatus must justify common homogeneous dynamics, reproducible resets
+or stationarity, a fixed noninvasive detector model, and physical reversal
+parity. A finite Markov fit alone does not establish these conditions.
+Hardware calibration and a matched comparison against existing thermodynamic
+or dimension-witness methods are the next decisive contributions. Bigger
+symbols, more abstract fields, or more pages cannot replace that evidence.
+
+Recommended stopping rules for individual branches
+
+- Reject universal energy-from-oscillation claims: odd-variable equilibrium
+  systems and reversible transient preparation supply counterexamples.
+- Reject unrestricted finite-record classical exclusions: the compiler gives
+  a constructive operational closure result.
+- Retain exact-continuum state counts only alongside finite-data gaps and
+  actual sample costs; exact poles are not observed directly.
+- Promote an experimentally measured advantage only after access and resource
+  matched baselines, rather than comparing tomography to targeted testing as
+  if they solved the same estimation problem.

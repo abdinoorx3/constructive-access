@@ -1,0 +1,372 @@
+RESPONSE ROBUSTNESS: LITERATURE AND IMPLEMENTATION AUDIT
+Abdinoor / 2D Labs
+Audit date: 12 October 2026 UTC
+Recorded: 2026-10-12 18:59:11 UTC (current research phase)
+
+Scope and decision
+------------------
+This extends access_completion/research/prior_art.txt. It is a primary-source
+comparison, not evidence of historical priority or physical validation. The
+phase investigates occupation-response tests and a simpler two-preparation,
+random-readout experiment. No apparatus was operated and no new empirical data
+were obtained. Full third-party papers are not redistributed here.
+
+The strongest positioning supported by this audit is an explicit operational
+test of a declared time-homogeneous classical Markov model class, accompanied by
+calibration bounds, failure examples, and reproducible comparison with existing
+tests. Neither testing a classical Markov explanation from populations nor
+avoiding full tomography is new in itself. The integrated endpoint inequality
+is a direct corollary of established first-passage theory. The precise
+combination of finite-window random sampling, calibrated acceptance regions,
+and access assumptions may be useful; its priority remains unresolved.
+
+1. ATTRIBUTION OF THE POSITIVE OCCUPATION KERNEL
+
+Coolen-Schrijner and van Doorn, "The deviation matrix of a continuous-time Markov
+chain," Probability in the Engineering and Informational Sciences 16, 351–366
+(2002), DOI 10.1017/S0269964802163066, supply the relevant first-entrance identity
+as equation (3.11) of their author preprint. Their paper primarily studies
+infinite-horizon centered occupation matrices. The first-entrance decomposition
+is described there as well known. Our finite-window sign follows immediately by
+integrating that identity and using nonnegative occupation probabilities.
+
+For clarity, this phase's elementary derivation is as follows. Let
+U_xj(T)=E_x integral_0^T 1_{X_s=j} ds and tau_j be the first hit of j. The strong
+Markov property gives U_ij(T)=E_i U_jj((T-tau_j)_+). Since U_jj is increasing,
+U_jj(T)-U_ij(T)>=0. For a finite CTMC, finite rates and i!=j make the inequality
+strict at every T>0. Therefore a single observation at an independent time
+uniform on [0,T] compares the two preparations through this occupation gap
+divided by T. These are deductions in the present work, with established
+probabilistic ingredients. Do not call the first-hit identity or its positivity
+corollary a newly discovered physical law.
+
+The preceding phase already compared exact finite-amplitude stationary
+response with Aslyamov–Esposito and Bao–Liang, and transient response with
+Zheng–Lu. Zheng–Lu arXiv:2604.06162v2 was revisited: section III uses transition
+probability differences in trajectory response kernels; section V addresses
+Laplace-domain nonstationary mutual linearity. Those topics are established
+neighbors, although the inspected text does not state this phase's random-time
+test. A failure to find an identical formulation does not prove novelty.
+
+Other occupation references searched included Colwell, Statistics & Probability
+Letters 195, 109786 (2023), DOI 10.1016/j.spl.2023.109786. Only its primary abstract
+was inspected; no theorem-level priority conclusion is drawn from it.
+
+2. CLOSEST POPULATION-BASED CLASSICAL-MODEL TESTS
+
+Lambert, Emary, Chen and Nori, Physical Review Letters 105, 176801 (2010), DOI
+10.1103/PhysRevLett.105.176801, is the essential comparator. For a protected
+singleton return probability it obtains |2 P_jj(t)-P_jj(2t)|<=1 from the
+Chapman–Kolmogorov property. The proof does not require a known finite state
+count. Thus broad claims of the first size-independent population test against
+classical Markov networks are blocked. Their physical example concerns coherent
+transport. This phase must compare a randomized-time occupation test with that
+two-time return test at matched records, acquisition time, and calibration.
+
+Li, Lambert, Chen, Chen and Nori, Scientific Reports 2, 885 (2012), DOI
+10.1038/srep00885, develops population/propagator witnesses and explicitly
+discusses the trade between preparation access, noninvasive observation,
+state-space knowledge, and classical memory. Its witness 1 compares a later
+population with a classical mixture of propagated preparations; witness 2 tests
+consistency of propagators inferred at different times. These are not the same
+finite-window inequality. They establish that limited-access coherence testing
+without tomography is a mature subject, with preparation and memory loopholes.
+
+Zhou, Huelga, Li and Guo, Physical Review Letters 115, 113002 (2015), DOI
+10.1103/PhysRevLett.115.113002, demonstrates a related Leggett–Garg-type test in a
+light–matter system and separately benchmarks time-translation invariance and
+memory assumptions. Huelga, Marshall and Santos, Physical Review A 52, R2497
+(1995), DOI 10.1103/PhysRevA.52.R2497, is earlier foundational context; only
+primary metadata and its identification in the later primary references were
+inspected here. No unread theorem is attributed to it.
+
+Distinction to preserve: the standard Leggett–Garg inequality, a
+time-homogeneous Markov-model inequality, and this work's occupation inequality
+have different premises. A final measurement on each fresh preparation avoids
+an intermediate-measurement disturbance in that protocol. It does not establish
+noncontextuality, eliminate hidden classical memory, or certify that a detector
+corresponds to one classical microstate. In particular, classical coarse
+detectors and preparation-dependent hidden distributions require separate
+analysis. Rejecting the declared contract does not identify which premise
+failed.
+
+3. RANDOM TIME, REPEATED MEASUREMENT, AND OCCUPATION
+
+A random terminal observation is not repeated projective monitoring. The latter
+changes quantum dynamics and raises quantum-Zeno issues. Mueller et al.,
+Scientific Reports 6, 38650 (2016), DOI 10.1038/srep38650, is a neighboring study
+of stochastic Zeno detection of noise correlations. Its primary text describes
+repeated projections with random intervals, rather than our single terminal
+readout. It should not be used as an implementation proof for the current test.
+
+Grunbaum, Velazquez and Wilkening, arXiv:2012.07786, discusses occupation
+statistics in monitored discrete quantum walks. Its introduction and relevant
+definitions were inspected. It does not establish historical novelty or
+non-novelty of this phase's continuous-time two-preparation test.
+
+If nonincreasing readout-time densities are represented as mixtures of uniforms,
+attribute that representation to the classical Khintchine mixture theorem.
+Pavlides–Wellner's primary paper on multivariate scale mixtures of uniforms,
+available at PMC3318987, explicitly recalls its one-dimensional form. The
+mixture representation is not a new operator construction. A full
+characterization of which time weights preserve the inequality for every
+generator would be a separate theorem and must not be inferred from sufficiency.
+
+4. PHYSICAL FEASIBILITY: WHICH EXPERIMENT FIRST
+
+The simpler experiment is operationally preferable as a first demonstration:
+prepare either of two specified basis states, run the same fixed dynamics,
+choose the terminal readout time independently from a preregistered law, and
+measure the same endpoint. A resonantly driven qubit already supplies a
+candidate quantum response. This avoids the need to selectively scale one
+particular dissipative mechanism. It does not remove the preparation, hidden
+state, time-homogeneity, and detector contracts. A literature demonstration of
+Rabi control is evidence that the required operations exist, not calibration of
+this proposed experiment or evidence of an advantage over existing witnesses.
+
+The exact two-channel dissipative model of the previous release is more
+demanding. Guo, Du and Ma, Physical Review Research 8, 033175 (2026), DOI
+10.1103/mr1g-zqtq, arXiv:2605.12429, demonstrates programmable incoherent pump and
+loss using transmon–resonator sidebands. Sections II and IV and Appendices A–C
+were inspected. It is relevant hardware precedent, but not a demonstration of
+our particular paired-channel suppression. Reservoir bandwidth, residual
+thermal occupation, and common-mode interference require explicit modeling.
+The reported assignment fidelity is 98.4%; this figure cannot be substituted
+for a uniform error bound on every setting of our protocol. Their data and code
+record was identified at https://zenodo.org/records/20190733 but its contents
+were not downloaded or independently analyzed in this audit.
+
+Our additional model-level assessment: four engineered rates can represent two
+distinct bidirectional channels only if the apparatus supplies an independently
+calibrated physical decomposition. Identical jump operators with separately
+named coefficients do not by themselves establish distinct controllable
+reservoirs. An upward-biased channel requires an engineered drive or inversion;
+two ordinary positive-temperature thermal reservoirs on the same energy gap
+cannot produce the example's opposite biases and exact unital balance. No heat,
+entropy-production, or gate-energy interpretation follows from coefficient names.
+
+A digital quantum simulation of a Lindblad model can test the simulator's
+controlled dynamics. Time slicing, resets, compiler changes, and ancilla memory
+must enter its error contract. Agreement of such a simulation with its input
+model is not independent evidence that an unspecified natural system obeys the
+same physical decomposition. Garcia-Perez et al., npj Quantum Information 6, 1
+(2020), DOI 10.1038/s41534-019-0235-y, is a relevant experimental open-system
+simulation precedent; only the primary abstract and indexed article excerpts
+were inspected in this audit.
+
+5. CALIBRATION AND ADOPTION GATES
+
+Recommended experiment contract, to be instantiated rather than asserted:
+
+* Preparation error measured separately for each preparation; a shared average
+  gate fidelity is not a worst-case preparation bound.
+* The same dynamics and detector across arms, with setting-dependent drift
+  explicitly bounded. Interleaving/randomizing arms assists drift diagnosis but
+  does not make drift mathematically impossible.
+* Independent sampling of the terminal time. A finite timing grid is not uniform
+  continuous sampling; use a derived discretization bound or prove the grid
+  preserves the required kernel sign. Dead time and omitted short delays matter.
+* No selection of favorable windows on the same uncorrected significance test.
+* Endpoint leakage and hidden detector microstates explicitly bounded, or a
+  regenerative/lumpable interface certified. Ordinary qubit process tomography
+  alone cannot prove every possible classical ontological singleton assumption.
+* Reset and shot correlations handled in the statistical contract. A nominal
+  binomial count is inadequate if records share unmodeled drift or memory.
+* Positive controls and classical counterexamples published with the test.
+* Physical acquisition energy measured separately from the drive-generator
+  coefficients. Total energy includes preparation, resetting, measurement,
+  control electronics and refrigeration when the chosen boundary includes them.
+
+The most useful next comparison is a measured, scoped advantage: a wider
+calibration margin, a smaller number of independent records under the same
+resource accounting, or detection of a family missed by an established witness.
+No universal superiority or empirical advantage is established by this audit.
+
+6. PRIORITY STATUS
+
+Established ingredients: first-hit renewal decomposition, finite occupation
+monotonicity derived from it, population-based Markov-model tests, randomized
+sampling, concentration inequalities, driven-qubit control, and reservoir
+engineering. Newly developed in this research program: the exact combination of
+its response contracts, finite-window tests, calibrated certificates and
+adversarial examples, subject to the mathematical review elsewhere in this
+phase. Novelty of each particular result remains unestablished until a more
+targeted bibliographic comparison and external review. No new universal
+physical law or experimentally established scientific field is claimed.
+
+7. FOLLOW-UP: SHARP RESET-DEFECT AND CROSSING-INTENSITY ENVELOPE
+Follow-up recorded after the 2026-10-12 19:06:08 UTC clock reading.
+
+The detector-boundary branch proposes a more precise result than positivity
+alone. For reference reset inside B and comparison preparation outside B, it
+bounds the cumulative occupation difference by G-eta K, where
+G=integral_0^T exp[-bs-a(T-s)] ds,
+K=T-A_a-A_b+G, A_c=integral_0^T exp(-ct) dt.
+The eta parameter bounds conditional first-entrance mismatch in total variation;
+a,b cap the relevant conditional macro-entry and exit intensities. Its
+four-state saturation example is to be checked in that branch's independent
+mathematical review. This audit does not substitute for that review.
+
+At eta=1, the claim follows directly by comparing the two initial survival
+events: occupation from inside is at least exp(-bt), while occupation from
+outside is at most 1-exp(-at). Integration gives A_a+A_b-T. This is an elementary
+survival-envelope argument, also applicable to non-Markov/time-dependent
+processes with the stated hazard bounds. Calling this endpoint a new general
+classical speed limit would overstate the evidence. The interpolation with a
+conditional reset defect, a saturating classical construction, and inversion
+into experimentally interpretable necessary conditions is the more specific
+candidate contribution. No identical full statement was located in this audit;
+priority remains unestablished.
+
+Closest speed/concentration comparisons:
+
+* Shiraishi, Funo and Saito, PRL 121, 070601 (2018), DOI
+  10.1103/PhysRevLett.121.070601: distributional speed, entropy production and
+  mean dynamical activity. Its costs and target differ from our uniform crossing
+  caps and two-preparation cumulative contrast.
+* Hasegawa and Nishiyama, PRL 133, 247101 (2024), DOI
+  10.1103/PhysRevLett.133.247101, arXiv:2402.12197v5: equation (13) gives a
+  no-jump-based exponential concentration bound for homogeneous classical
+  processes; equations (15) and (19) yield observable and distributional bounds.
+  Their paper also discusses linear-response consequences. This is direct
+  prior art for survival-based kinetic bounds; it does not justify presenting
+  our hazard-cap method as a new universal strategy.
+
+Kuntz, Thomas, Stan and Barahona, SIAM J. Scientific Computing 41 (2019), DOI
+10.1137/18M1168261, provides rigorous truncation-based occupation and exit
+measure approximations with total-variation bounds for specified CTMCs. Its
+unknowns and inputs differ from a universal cap/reset envelope; it may supply
+numerical certificates when a partially specified microscopic generator is
+available. Abstract, introduction, theorem 1.1 and the definitions were read.
+
+Blom et al., PNAS 121, e2318333121 (2024), DOI 10.1073/pnas.2318333121,
+explicitly analyzes memory introduced by coarse observation and the resulting
+limitations of dissipation inference. It supports keeping hidden entrance laws
+and memory explicit; it is not a source for the proposed reset-defect formula.
+Introduction, coarse-graining examples and discussion were inspected.
+
+Roberts–Tweedie (1999), DOI 10.1016/S0304-4149(98)00085-4, and
+Gyllenberg–Silvestrov (2000), DOI 10.1016/S0304-4149(99)00084-8, are older
+regeneration/perturbation neighbors. Their primary abstracts describe mixing
+bounds and asymptotic perturbed regenerative processes, respectively. Original
+full proofs were not inspected, so they remain bibliographic leads rather than
+theorem-level exclusions of overlap. Their existence blocks a broad assertion
+that approximate regeneration is a newly introduced field.
+
+Physical terminology and inference limits:
+
+The inverted rate bound constrains necessary peak macro-crossing intensity.
+It does not measure expected total dynamical activity, total microscopic jump
+count, heat, entropy production, or energy. If a,b are given and K>0, an upper
+confidence bound H_hi yields eta >= max(0,(G-H_hi)/K) for the declared class.
+An answer above 1 excludes that entire class. An answer inside [0,1] is a
+necessary condition, not identification of the hidden law. Estimating a mean
+crossing rate does not calibrate a uniform history-conditioned hazard cap, and
+two binary terminal preparations do not identify an unobserved entrance law.
+These physical inputs require additional access or justified structural bounds.
+
+8. FOLLOW-UP: A FOUR-STATE CLASSICAL REALIZATION THRESHOLD
+Recorded after the 2026-10-12 19:17:29 UTC clock reading.
+
+New candidate interpretation, subject to the independent mathematical review:
+two preparations respectively inside and outside a fixed detected region have
+nonnegative uniform-time cumulative occupation contrast in every homogeneous
+finite CTMC with at most three states. One side of the detector partition must
+then be a singleton; the established first-hit occupation ordering, applied to
+the detector or its complement, gives the result. Four hidden states suffice to
+realize any negative contrast strictly between -1 and 0. This establishes a
+minimal realization size for this scalar datum under a specified dynamical
+contract. It does not establish the minimal realization of the complete quantum
+time series, a quantum computational advantage, or exclusion of all classical
+explanations.
+
+Important detector strengthening supplied to the mathematical reviewer: fixed
+stochastic readout f(x) in [0,1] is allowed if the two initial means are exactly
+1 and 0. These conditions force their supports onto the extremal level sets.
+For at most three states every threshold detector separates those supports and
+has a singleton side; integrating the threshold inequalities proves positivity.
+Equivalently, for prepared states j,i and a third-state response c,
+f=(1-c)1_j+c(1-1_i). This eliminates an unnecessary determinism assumption on
+the third hidden state, while preserving substantive preparation/calibration
+requirements. Imperfect extremality requires a separate robust theorem.
+
+Closest primary comparisons:
+
+* Wolf and Perez-Garcia, PRL 102, 190504 (2009), DOI
+  10.1103/PhysRevLett.102.190504, arXiv:0901.2542v2, sections I,II,IV,V:
+  dynamical dimension bounds from delayed data and spectra already establish
+  classical/quantum dimensional separation. The proposed integrated statistic
+  avoids reconstructing such a time series but assumes extremal preparation and
+  a common continuous-time semigroup. Matched robustness/resource superiority
+  has not been established.
+* Gallego, Brunner, Hadley and Acin, PRL 105, 230501 (2010), DOI
+  10.1103/PhysRevLett.105.230501, arXiv:1010.5064, scenario and classical-witness
+  sections: unrestricted prepare-and-measure statistics with N preparations can
+  always be represented with N classical states. Our two-preparation result
+  therefore depends essentially on the homogeneous dynamical contract and
+  initial detector constraints; it is not device-independent certification.
+* Budroni, Fagundes and Kleinmann, New J. Phys. 21, 093018 (2019), DOI
+  10.1088/1367-2630/ab3cb4, arXiv:1902.06517v2, introduction and finite-state
+  machine setup: temporal correlations already witness classical memory costs.
+  Their instruments generate sequential records; our observable is one terminal
+  readout after independent randomized evolution time.
+* Vieira and Budroni, Quantum 6, 623 (2022), DOI
+  10.22331/q-2022-01-18-623, arXiv:2104.02467, sections 2 and 3:
+  dimension-dependent probabilities for repeated identical binary instruments
+  and quantum/classical advantages are established. Their repeated instrument
+  sequence differs from an unmonitored occupation average.
+* Bialecki, Rybotycki, Batle and Bednorz, PRA 109, L020201 (2024), DOI
+  10.1103/PhysRevA.109.L020201, arXiv:2308.11246, witness construction and error
+  analysis: delay-matrix null tests already use one repeated operation and binary
+  outcomes to assess dimension, including classical and continuous-time models.
+  Multiple evolution lengths and rank/determinant structure distinguish their
+  statistic from the proposed calibrated integrated sign. Their experimental
+  data were not downloaded or reanalyzed here.
+
+Targeted searches for occupation-time dimension witnesses did not locate this
+exact at-most-three-state inequality with its four-state sharpness statement.
+That negative search result is not a novelty certificate. The theorem is a short
+corollary of standard first-passage ordering; presentation should emphasize the
+operational interpretation, explicit assumptions, robustness and reproducibility
+rather than a new general theory of dimension or memory.
+
+Counting caveat: the state bound concerns a single common homogeneous Markov
+realization that includes any hidden persistent degrees of freedom influencing
+evolution. An omitted environment, switching controller, elapsed-time memory or
+preparation-dependent generator changes the model class. Independent uniform
+terminal sampling is an allowed external clock and must not drive the system.
+The two-state quantum model proves attainability within quantum theory; actual
+hardware validation remains absent. The four-state construction matches the
+scalar contrast, not every accessible quantum transcript.
+
+9. STRONGER FORM: MEASURE INITIAL CONTRAST INSTEAD OF ASSUMING EXTREMALITY
+
+The independent reviewer subsequently proved a stronger operational statement:
+with any two fixed preparation distributions and any fixed response f in [0,1],
+every at-most-three-state homogeneous CTMC obeys |C0-C_uniform(T)|<=1. Here C0
+is the directly measured preparation contrast and C_uniform the contrast at an
+independent uniform terminal time. This replaces unobserved support assumptions
+by two additional immediate-reference probabilities. Section 8's sign rule is
+its extremal-preparation corollary, not the strongest current certificate.
+
+Reason supplied by the reviewer: R=(1/T)integral exp(tQ)dt is stochastic with
+column diagonal maxima Rjj>=Rij, by first-hit occupation ordering. For each
+three-state row pair the signed vector (ei-ej)(I-R) has total-variation norm
+1-min(Rii-Rji,Rjj-Rij)<=1. Arbitrary preparation mixtures and f in [0,1] preserve
+the resulting bound. This concise proof is grounded in the previously credited
+first-passage identity, not a newly discovered general stochastic principle.
+
+Follow-up keyword searches including integrated/averaged occupation, temporal
+dimension witnesses, and Dobrushin/three-state contraction did not locate the
+exact inequality. The verified dimension references in section 8 remain the
+essential comparisons. A claim of historical novelty still requires wider
+theorem-level review. No generic first temporal witness or first quantum memory
+advantage claim is appropriate.
+
+Useful implementation consequence sent for independent checking: a shared fixed
+delay d can be absorbed into both preparations if immediate-reference trials
+measure at d and randomized trials at d+U. Homogeneity gives the effective
+preparations mu exp(dQ), nu exp(dQ), allowed by this unrestricted-preparation
+theorem. An independent shared random delay can likewise be averaged into the
+preparations. Arm-dependent delay, detector drift, a clock that drives the
+evolution, and a setting-dependent generator remain different assumptions.

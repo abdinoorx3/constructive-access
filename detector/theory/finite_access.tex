@@ -1,0 +1,450 @@
+\chapter{Finite detector access to a sharp physical minimum}
+\label{ch:dg-finite-access}
+
+An ideal observation law can determine a physical minimum while a finite
+apparatus record remains unable to bound that minimum from above. The
+distinction can be quantified in the same circle family. At fixed exposure
+and positive read-noise variance, passive stationary trials and trials with
+an oriented phase preparation have different sample requirements for a
+specified binary comparison. Allowing read precision to consume a declared
+measurement energy changes that comparison again. This chapter proves all
+three statements in one explicit detector model.
+
+The target is the already attained minimum compatible with the ideal
+cosine-circle law,
+\begin{equation}
+ \mathcal M(\omega)=\frac{\omega^2}{\gamma},\qquad \gamma>0.
+ \label{eq:dg-minimum-target}
+\end{equation}
+It is not an upper bound on the actual entropy of every hidden realization:
+an invisible independently dissipating subsystem would already rule out
+that stronger interpretation under perfect access. Here the detector
+obstructs inference of a functional that is sharply fixed by the ideal
+observed law itself.
+
+\section{One fixed exposure and its moments}
+
+Let the target diffusion satisfy
+\[
+ d\phi_t=\omega\,dt+\sqrt{2\gamma}\,dW_t\pmod{2\pi}.
+\]
+An exposure of fixed length $\tau>0$ yields
+\begin{equation}
+ A_\omega=\frac1\tau\int_0^\tau\cos\phi_t\,dt,
+ \qquad X_\omega=A_\omega+\xi,
+ \qquad \xi\sim N(0,\nu^2),\quad\nu>0,
+ \label{eq:dg-exposure-record}
+\end{equation}
+where the read noise is independent of the entire target trajectory.
+The parameters $\gamma$, $\tau$, and $\nu$ are known and fixed unless a
+different precision law is explicitly declared below. In every case
+$|A_\omega|\leq1$.
+
+For passive stationary trials, the initial phase is uniform and
+$\mathbb E A_\omega=0$. Define $V(\omega)=\mathbb E A_\omega^2$.
+The covariance
+$\mathbb E[\cos\phi_0\cos\phi_t]
+ =\tfrac12e^{-\gamma|t|}\cos(\omega t)$ gives
+\begin{equation}
+ V(\omega)=\frac1{\tau^2}\operatorname{Re}
+ \left\{\frac\tau z-\frac{1-e^{-z\tau}}{z^2}\right\},
+ \qquad z=\gamma-i\omega.
+ \label{eq:dg-exposure-variance}
+\end{equation}
+This follows by integrating the covariance over the exposure square, or
+equivalently by integrating
+$\tau^{-2}(\tau-t)e^{-\gamma t}\cos(\omega t)$ over $0\leq t\leq\tau$.
+
+For an explicit asymptotic comparison, use the resonant sequence
+\begin{equation}
+ \omega_m=2\pi m/\tau,\quad m=1,2,\ldots,
+ \qquad a_0=1-e^{-\gamma\tau}>0.
+ \label{eq:dg-resonant-family}
+\end{equation}
+At these frequencies,
+\begin{equation}
+ V(\omega)=
+ \frac{(\gamma\tau+a_0)\omega^2
+       +(\gamma\tau-a_0)\gamma^2}
+      {\tau^2(\gamma^2+\omega^2)^2}
+ \sim\frac{\gamma\tau+a_0}{\tau^2\omega^2}.
+ \label{eq:dg-resonant-variance}
+\end{equation}
+In particular,
+\begin{equation}
+ \Delta_V(\omega):=|V(\omega)-V(2\omega)|
+ \sim\frac{3(\gamma\tau+a_0)}{4\tau^2\omega^2}.
+ \label{eq:dg-variance-gap}
+\end{equation}
+All asymptotic statements in this chapter fix the detector and confidence
+constants and take $m\to\infty$ along this sequence.
+
+Two moment bounds hold uniformly over the initial phase distribution,
+and hence apply to both stationary and prepared trials. Set
+\begin{align}
+ H_2&=\frac{[2+\gamma\tau+\sqrt{2\gamma\tau}]^2}{\tau^2},\\
+ H_4&=\frac{8[(2+\gamma\tau)^4+12\gamma^2\tau^2]}{\tau^4}.
+ \label{eq:dg-ito-constants}
+\end{align}
+For $\omega\ne0$,
+\begin{equation}
+ \mathbb E A_\omega^2\leq\frac{H_2}{\omega^2},
+ \qquad
+ \mathbb E A_\omega^4\leq\frac{H_4}{\omega^4}.
+ \label{eq:dg-ito-moments}
+\end{equation}
+To see this, It\^o's formula gives
+\begin{equation}
+ \omega\tau A_\omega
+ =\sin\phi_\tau-\sin\phi_0
+   +\gamma\int_0^\tau\sin\phi_s\,ds
+   -\sqrt{2\gamma}\int_0^\tau\cos\phi_s\,dW_s.
+ \label{eq:dg-ito-exposure}
+\end{equation}
+The bounded part has absolute value at most $2+\gamma\tau$. For
+$M_t=\int_0^t\cos\phi_s\,dW_s$, It\^o isometry gives
+$\mathbb E M_\tau^2\leq\tau$ and the fourth-moment identity gives
+\[
+ \mathbb E M_\tau^4
+ =6\mathbb E\int_0^\tau M_s^2\cos^2\phi_s\,ds
+ \leq6\int_0^\tau s\,ds=3\tau^2.
+\]
+Minkowski's inequality proves the second-moment bound. The elementary
+inequality $(x+y)^4\leq8(x^4+y^4)$ proves the fourth-moment bound.
+No independence between the bounded and martingale terms is assumed.
+
+\section{A finite record cannot provide a uniformly finite upper bound}
+
+Fix $n$ predetermined exposure windows, each of width $\tau$, from a
+stationary trajectory. The windows may overlap and their latent exposure
+values may be correlated. Let $P_\omega^{(n)}$ be the law of their noisy
+records under independent Gaussian read errors, and let
+$Q^{(n)}=N(0,\nu^2I_n)$. Convexity of relative entropy under Gaussian
+mixing yields
+\begin{equation}
+ D(P_\omega^{(n)}\Vert Q^{(n)})
+ \leq\frac{\mathbb E\|A_\omega^{(n)}\|^2}{2\nu^2}
+ =\frac{nV(\omega)}{2\nu^2}
+ \leq\frac{nH_2}{2\nu^2\omega^2}.
+ \label{eq:dg-mixture-kl}
+\end{equation}
+Indeed, conditional on the exposure vector, the readout is Gaussian with
+that vector as its mean and covariance $\nu^2I_n$. Its relative entropy
+to $Q^{(n)}$ is the squared mean divided by $2\nu^2$; mixing can only
+decrease the relative entropy. Pinsker's inequality therefore implies
+$\operatorname{TV}(P_\omega^{(n)},Q^{(n)})\to0$ as
+$\omega\to\infty$, whereas $\mathcal M(\omega)\to\infty$.
+
+\begin{theorem}[Upper-confidence obstruction for the sharp minimum]
+\label{thm:dg-upper-obstruction}
+Suppose a measurable extended-valued statistic $U$ of this finite record
+satisfies
+\[
+ P_\omega^{(n)}\{U\geq\mathcal M(\omega)\}\geq1-\alpha
+ \quad\hbox{for every }\omega>0,
+ \qquad 0<\alpha<1.
+\]
+Then $Q^{(n)}\{U=+\infty\}\geq1-\alpha$. In particular, no such
+uniformly covered upper bound is finite almost surely under even one of the
+finite-$\omega$ record laws. The conclusion concerns the fixed finite
+detector design and unbounded frequency class just stated.
+\end{theorem}
+
+\begin{proof}
+For every finite $K$, sufficiently large $\omega$ has
+$\mathcal M(\omega)>K$, so
+\[
+ Q^{(n)}\{U>K\}
+ \geq1-\alpha-\operatorname{TV}(P_\omega^{(n)},Q^{(n)}).
+\]
+Let $\omega\to\infty$ and then $K\to\infty$ to obtain the first
+assertion. Each Gaussian mixture $P_\omega^{(n)}$ has a strictly positive
+density everywhere on $\mathbb R^n$, and is therefore mutually absolutely
+continuous with $Q^{(n)}$. If $U$ were finite almost surely under any one
+$P_\omega^{(n)}$, it would also be finite almost surely under $Q^{(n)}$,
+contradicting the first assertion.
+\end{proof}
+
+The pure-noise law is a limiting reference, not necessarily a finite-parameter
+member of the model class. Accordingly, the theorem does not claim
+$P_\omega^{(n)}\{U=+\infty\}\geq1-\alpha$ at every fixed $\omega$.
+The general quantitative statement is
+\[
+ P_\omega^{(n)}\{U=+\infty\}
+ \geq1-\alpha-\operatorname{TV}(P_\omega^{(n)},Q^{(n)}).
+\]
+A calibrated frequency or generator envelope removes the unbounded class
+used in this argument. Adaptive timing, adaptive precision, or a growing
+number of measurements needs its own sequential analysis; it is not included
+in this fixed-design theorem.
+
+\section{Matching passive sample requirements at fixed precision}
+
+Now compare the known alternatives $\omega$ and $2\omega$ using
+independent stationary trials, each with a fresh stationary preparation and
+one exposure. Define $n^*_{\rm passive}(\omega,\epsilon)$ as the minimum
+number of such trials needed for equal-prior binary error at most
+$\epsilon\in(0,1/2)$. An upper construction below bounds each of the two
+conditional errors by $\epsilon$, which is a stronger guarantee.
+
+The zero stationary mean improves the mixture bound for independent trials.
+Let $P$ be the one-record law of $A+\xi$, $Q=N(0,\nu^2)$, and let
+$A'$ be an independent copy of $A$. Direct multiplication of Gaussian
+likelihood ratios gives
+\begin{equation}
+ \chi^2(P\Vert Q)
+ =\mathbb E e^{AA'/\nu^2}-1
+ =\sum_{k=1}^\infty
+       \frac{(\mathbb E A^k)^2}{k!\nu^{2k}}.
+ \label{eq:dg-mixture-chi-square}
+\end{equation}
+Bounded $A$ justifies termwise expectation. Since $\mathbb E A=0$ and
+$|\mathbb E A^k|\leq\mathbb E A^2=V$ for every $k\geq2$,
+\begin{equation}
+\chi^2(P\Vert Q)\leq C_{\nu,0} V^2,
+ \qquad C_{\nu,0}=e^{1/\nu^2}-1-1/\nu^2>0.
+ \label{eq:dg-stationary-chi-square}
+\end{equation}
+For the stationary circle the bound is stronger. Shifting every phase by
+$\pi$ preserves its stationary path law and changes $A$ to $-A$.
+All odd moments therefore vanish, and retaining only the even terms in
+Equation~\eqref{eq:dg-mixture-chi-square} gives
+\begin{equation}
+ \chi^2(P\Vert Q)\leq C_\nu V^2,
+ \qquad C_\nu=\cosh(1/\nu^2)-1.
+ \label{eq:dg-symmetric-chi-square}
+\end{equation}
+The sharper circle constant is used in the count bounds below.
+For independent trials, relative entropy tensorizes. Using
+$D\leq\log(1+\chi^2)\leq\chi^2$ and the triangle inequality for total
+variation,
+\[
+ \operatorname{TV}(P_\omega^{\otimes n},P_{2\omega}^{\otimes n})
+ \leq\sqrt{\frac{nC_\nu}{2}}\{V(\omega)+V(2\omega)\}.
+\]
+The optimal equal-prior error is $(1-\operatorname{TV})/2$. Hence a necessary
+sample count is
+\begin{equation}
+ n\geq
+ \frac{2(1-2\epsilon)^2}
+      {C_\nu\{V(\omega)+V(2\omega)\}^2}.
+ \label{eq:dg-passive-necessary}
+\end{equation}
+The constant can be numerically weak, especially for small $\nu$; a bound
+below one is vacuous as an integer-count constraint. The asymptotic order
+remains informative at fixed positive $\nu$.
+
+For a matching upper bound, use the sample mean of $X^2$ and put its threshold
+midway between $\nu^2+V(\omega)$ and $\nu^2+V(2\omega)$. Gaussian moments
+and $|A|\leq1$ give
+\begin{align}
+ \operatorname{Var}(X^2)
+ &=\mathbb E A^4-V^2+4\nu^2V+2\nu^4\notag\\
+ &\leq S_\nu(V):=(1+4\nu^2)V-V^2+2\nu^4.
+ \label{eq:dg-square-variance}
+\end{align}
+Chebyshev's inequality then bounds each conditional error by $\epsilon$
+whenever
+\begin{equation}
+ n\geq
+ \left\lceil
+ \frac{4\max\{S_\nu(V(\omega)),S_\nu(V(2\omega))\}}
+      {\epsilon\,\Delta_V(\omega)^2}
+ \right\rceil.
+ \label{eq:dg-passive-sufficient}
+\end{equation}
+A simpler valid numerator is $4(1+6\nu^2+3\nu^4)$, obtained by bounding
+$\mathbb E X^4$ directly. The more precise expression above improves
+constants without changing the access or confidence criterion.
+
+Equations~\eqref{eq:dg-resonant-variance}--\eqref{eq:dg-variance-gap}
+and the two sample bounds prove
+\begin{equation}
+ n^*_{\rm passive}(\omega_m,\epsilon)=\Theta(\omega_m^4)
+      =\Theta(\mathcal M(\omega_m)^2).
+ \label{eq:dg-passive-rate}
+\end{equation}
+The constants may depend on fixed $\gamma$, $\tau$, $\nu$, and
+$\epsilon$. This is a binary comparison along the declared sequence,
+not a minimax theorem for estimating an arbitrary unknown frequency from
+an arbitrary trajectory. Nonoverlapping windows from one stationary
+trajectory are not automatically independent stationary preparations.
+
+\section{Matching requirements with an oriented phase preparation}
+
+Suppose each independent trial can instead start from the actual known
+phase $\phi_0=\pi/2$, under both hypotheses. Its expectation during the
+exposure is $\mathbb E\cos\phi_t=-e^{-\gamma t}\sin(\omega t)$.
+At resonance, the one-record mean is
+\begin{equation}
+ \mu(\omega)=-\frac{a_0\omega}{\tau(\gamma^2+\omega^2)},\qquad
+ \Delta_\mu(\omega)
+ =\frac{a_0|\omega|\,|2\omega^2-\gamma^2|}
+        {\tau(\gamma^2+\omega^2)(\gamma^2+4\omega^2)}
+ \sim\frac{a_0}{2\tau|\omega|}.
+ \label{eq:dg-prepared-mean}
+\end{equation}
+The gap is positive for sufficiently large resonant frequencies; at
+$\omega^2=\gamma^2/2$ this particular mean test has zero gap and supplies
+no discrimination guarantee.
+
+Since $A\in[-1,1]$, its centered version is sub-Gaussian with variance proxy
+one. Adding the independent Gaussian read noise gives proxy $1+\nu^2$.
+The sample-mean midpoint test therefore bounds each conditional error by
+$\epsilon$ with the sufficient count
+\begin{equation}
+ n\geq
+ \left\lceil
+ \frac{8(1+\nu^2)\log(1/\epsilon)}{\Delta_\mu(\omega)^2}
+ \right\rceil.
+ \label{eq:dg-prepared-sufficient}
+\end{equation}
+
+A lower bound of the same order follows without assuming stationarity.
+The uniform second-moment bound~\eqref{eq:dg-ito-moments} and the
+Gaussian-mixture relative-entropy inequality give, for any common fixed
+phase-preparation rule,
+\[
+ D(P_\omega^{\otimes n}\Vert Q^{\otimes n})
+ \leq\frac{nH_2}{2\nu^2\omega^2}.
+\]
+For the pair $\omega,2\omega$, Pinsker and the triangle inequality imply
+\[
+ \operatorname{TV}(P_\omega^{\otimes n},P_{2\omega}^{\otimes n})
+ \leq\frac{3\sqrt{nH_2}}{4\nu|\omega|}.
+\]
+An equal-prior error at most $\epsilon$ consequently requires
+\begin{equation}
+ n\geq\frac{16\nu^2(1-2\epsilon)^2\omega^2}{9H_2}.
+ \label{eq:dg-prepared-necessary}
+\end{equation}
+The construction and obstruction together prove
+\begin{equation}
+ n^*_{\rm prepared}(\omega_m,\epsilon)=\Theta(\omega_m^2)
+         =\Theta(\mathcal M(\omega_m)).
+ \label{eq:dg-prepared-rate}
+\end{equation}
+
+The preparation need not be a perfect point mass. A known initial phase
+law with $\mathbb E\cos\phi_0=0$ and a fixed nonzero
+$r=\mathbb E\sin\phi_0$ multiplies the mean in
+Equation~\eqref{eq:dg-prepared-mean} by $r$, preserving the exponent with
+a sufficient-count constant proportional to $r^{-2}$. Merely preparing
+$Y_0=\cos\phi_0=0$ does not establish this condition: an equal mixture of
+$\pi/2$ and $3\pi/2$ has $r=0$ and cancels the mean signal.
+
+These prepared records are not stationary entropy-production records and are
+not inserted into the stationary local-defect certificate. They distinguish
+two generators whose stationary ideal laws have the target minima
+$\mathcal M(\omega)$ and $4\mathcal M(\omega)$. A phase preparation is a
+change in permitted access, with its own apparatus and energy requirements.
+
+\section{What changes when read precision consumes energy}
+
+The previous exponents count trials at fixed positive read-noise variance.
+They are not total-energy exponents. To make that distinction explicit,
+consider the following additional, declared sensor model:
+\begin{equation}
+ \nu_i^2=\frac{\kappa}{E_i},\qquad \kappa>0,
+ \quad E_i>0,
+ \label{eq:dg-sensor-energy-law}
+\end{equation}
+where $E_i$ is the measurement energy allocated to record $i$. This is an
+assumed calibration law, not a universal thermodynamic law. The finite
+energy schedule is fixed before the data, and read errors remain independent
+of the target and each other. Preparation, reset, exposure duration, and
+actuation costs are not included in $E_i$.
+
+Let $E_{\rm meas}=\sum_iE_i$, and use the Gaussian reference with diagonal
+variances $\kappa/E_i$. Conditional Gaussian relative entropy and
+Equation~\eqref{eq:dg-ito-moments} imply
+\begin{equation}
+ D(P_\omega\Vert Q)
+ \leq\sum_i\frac{E_i\mathbb E A_{\omega,i}^2}{2\kappa}
+ \leq\frac{H_2E_{\rm meas}}{2\kappa\omega^2}.
+ \label{eq:dg-energy-kl}
+\end{equation}
+This bound permits correlated latent exposures at predetermined windows,
+provided each has the stated dynamics and duration. The initial phases can
+follow the same fixed preparation rule under both hypotheses. The
+corresponding pairwise Pinsker bound gives the necessary measurement energy
+\begin{equation}
+ \boxed{\displaystyle
+ E_{\rm meas}\geq
+ \frac{16\kappa(1-2\epsilon)^2\omega^2}{9H_2}.}
+ \label{eq:dg-energy-necessary}
+\end{equation}
+The proof does not cover an energy schedule adaptively selected from noisy
+records or an intervention that changes the dynamics during exposure.
+
+Passive stationary trials can attain the same exponent by buying more
+precision per record. Fix $c>0$ and use
+$E_i=c\omega^2$ under both alternatives, so
+$\nu_i^2=\kappa/(c\omega^2)$. This design is permitted because the
+binary candidate pair is known. Let
+\begin{equation}
+ B_c=H_4+\frac{6\kappa H_2}{c}
+             +\frac{3\kappa^2}{c^2}.
+ \label{eq:dg-energy-fourth-constant}
+\end{equation}
+Under either hypothesis, the Gaussian fourth-moment expansion and
+Equation~\eqref{eq:dg-ito-moments} give
+\[
+ \mathbb E X^4\leq\frac{B_c}{\omega^4}.
+\]
+The midpoint test of the sample mean of $X^2$ consequently has both errors
+at most $\epsilon$ if
+\begin{equation}
+ n\geq
+ \left\lceil\frac{4B_c}
+       {\epsilon\,\omega^4\Delta_V(\omega)^2}\right\rceil.
+ \label{eq:dg-energy-passive-sufficient}
+\end{equation}
+By Equation~\eqref{eq:dg-variance-gap}, the right-hand side remains
+bounded along the high-frequency resonant sequence. Thus a bounded number
+of passive trials, each with energy proportional to $\omega^2$, suffices.
+Together with~\eqref{eq:dg-energy-necessary}, this establishes
+\begin{equation}
+ E^*_{\rm meas,passive}(\omega_m,\epsilon)=\Theta(\omega_m^2).
+ \label{eq:dg-passive-energy-rate}
+\end{equation}
+Prepared trials at fixed $\nu$ already attain this measurement-energy
+order, because each such readout has fixed energy $\kappa/\nu^2$ and
+their required count is $\Theta(\omega^2)$. Therefore, under the declared
+sensor law and allowing precision allocation,
+\begin{equation}
+ \begin{aligned}
+ E^*_{\rm meas,prepared}(\omega_m,\epsilon)
+   &=\Theta(\omega_m^2),\\
+ E^*_{\rm meas,passive}(\omega_m,\epsilon)
+   &=\Theta(\omega_m^2).
+ \end{aligned}
+ \label{eq:dg-energy-comparison}
+\end{equation}
+Both are of order $\mathcal M(\omega_m)$ at fixed $\gamma$; their optimal
+constants and procedures have not been shown equal. Preparation does improve the fixed-precision
+sample exponent; this model supplies no improvement in the optimized
+measurement-energy exponent. A total-energy comparison would additionally
+need calibrated preparation, reset, control, exposure, and timing costs.
+
+\section{Operational scope and reproducible design}
+
+At fixed precision, $n$ independent trials consume $n$ preparations,
+$n$ exposed scalar readouts, and $n\tau$ units of declared evolution time.
+The passive and prepared trial classes have different preparation access.
+Under the precision-energy model, passive inference can instead use a
+bounded trial count with increasing per-read energy. None of these
+accountings identifies declared evolution time with total laboratory time
+or with total energy.
+
+The comparison closes a restricted operational problem: discrimination of
+known candidate generators along a specified high-frequency family, with
+fixed exposure and a declared observation channel. It is supported by exact
+moment identities, Gaussian-mixture information bounds, and explicit tests.
+It does not establish a universal data cap, an optimal estimator for every
+unknown diffusion, or a new physical energy law. The elementary statistical
+ingredients are established; any narrower novelty lies in the particular
+physical target, access comparison, and assumptions, subject to prior-art
+review. Numerical design tables evaluate these proved formulas and their
+resource counts; they are not laboratory measurements or simulated detection
+successes unless separately accompanied by such records.

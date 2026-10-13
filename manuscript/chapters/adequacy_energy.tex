@@ -1,0 +1,375 @@
+\chapter[Model adequacy and physical resources]{Model adequacy, abstention, and physical resource guarantees}
+\label{adequacy:chapter}
+
+A decision rule that must choose between two mechanisms will still choose one
+when both mechanisms are wrong. A scientific workflow therefore needs an
+adequacy layer and an explicit abstention output. It also needs a resource ledger:
+knowing how many operations are executed does not determine how much energy the
+apparatus supplies. This chapter gives contracts under which these two layers
+combine with the precision results of Chapter~\ref{precision:chapter}.
+
+The probability bounds are mathematical guarantees about the stated predictive
+and physical premises. They do not validate a detector, establish local detailed
+balance, measure a fuel channel, or prove that the candidate family contains the
+true system. Those premises must be independently justified for an application.
+
+\section{Conditional predictions are the adequacy contract}
+
+At round $t$, let $\mathcal F_{t-1}$ contain the full retained past, calibration
+information used for this prediction, the next action, and any controller
+randomization used to choose it. This is pre-observation information; one may
+formally enlarge the filtration immediately before each outcome. A binary
+statistic $Y_t$ is then revealed. The statistic and event being recorded must
+also be chosen before seeing that outcome.
+
+A candidate $j$ supplies predictable envelopes
+$[\ell_{j,t},u_{j,t}]\subset[0,1]$. Under a fixed true model, conditional validity
+means
+\begin{equation}
+ \ell_{j,t}\leq p_t:=\mathbb E[Y_t\mid\mathcal F_{t-1}]
+       \leq u_{j,t}\quad\hbox{for every }t.
+ \label{adequacy:conditional}
+\end{equation}
+For a composite candidate, the contract must hold under each fixed member for
+which the candidate is asserted valid. Maximizing and minimizing correct
+conditional forecasts over nuisance values can produce valid but conservative
+envelopes. A fixed nuisance does not become independently redrawn at every round.
+
+This contract allows dependent records, feedback and optional stopping. Its
+strength is also its principal burden: a stationary marginal probability or
+an unconditional error bound is not generally a conditional forecast. For a
+simple failure control, let one fair coin $U$ be drawn and set $Y_t=U$ forever.
+Every marginal is Bernoulli$(1/2)$. After the first observation, however, the
+next conditional probability is zero or one. Treating these outcomes as fresh
+fair coins can generate overwhelming, invalid rejection evidence against the
+true marginal description.
+
+\section{A sequential adequacy certificate}
+
+Before $Y_t$ is revealed, choose a finite predictable stake $\lambda_{j,t}$.
+For a nonnegative stake use $b_{j,t}=u_{j,t}$, and for a negative stake use
+$b_{j,t}=\ell_{j,t}$. Define
+\begin{equation}
+ f_{j,t}(Y_t)=1+\lambda_{j,t}(Y_t-b_{j,t}),
+ \qquad M_{j,n}=\prod_{t=1}^n f_{j,t}(Y_t).
+ \label{adequacy:bet}
+\end{equation}
+Require the two factors at $Y_t=0$ and $Y_t=1$ to be nonnegative. For interior
+endpoints this is $\lambda\leq1/u$ for positive stakes and
+$\lambda\geq-1/(1-\ell)$ for negative stakes; checking both factors directly
+handles zero and one endpoints without dividing by zero.
+
+\begin{proposition}[Anytime exclusion]
+\label{adequacy:anytime}
+Under \eqref{adequacy:conditional}, $M_{j,n}$ is a nonnegative test
+supermartingale starting at one. A fixed convex mixture $E_{j,n}$ of such
+strategies has the same property. For any $0<\alpha_j<1$,
+\begin{equation}
+ \Pr\{\text{some }n:\ E_{j,n}\geq1/\alpha_j\}\leq\alpha_j.
+ \label{adequacy:ville}
+\end{equation}
+\end{proposition}
+\begin{proof}
+The signed endpoint choice gives
+\[
+ \mathbb E[f_{j,t}(Y_t)\mid\mathcal F_{t-1}]
+ =1+\lambda_{j,t}(p_t-b_{j,t})\leq1.
+\]
+Multiplying by past nonnegative wealth gives the supermartingale property;
+fixed convex combinations preserve it. For completeness, stop at the first
+threshold crossing or a deterministic horizon $n$. Optional stopping for this
+bounded stopping time bounds expected stopped wealth by one. On a crossing,
+wealth is at least $1/\alpha_j$, so its probability is at most $\alpha_j$.
+Letting the horizon increase proves \eqref{adequacy:ville}.
+\end{proof}
+
+This is Ville's maximal inequality and bounded betting
+\cite{caVille1939,caWaudbySmithRamdas2024}. Component stakes may depend on the
+past. Fixed mixture weights are chosen before the tested record; replacing them
+after seeing the current outcome requires a separate wealth-accounting argument.
+The test is valid with any permitted predictable intervention policy satisfying
+the envelopes. Validity alone says nothing about power or acquisition efficiency.
+
+Exclude a candidate permanently once its threshold is crossed. Denote the
+surviving set by $S_n$. Permanent exclusion records an ever-crossing event;
+instantaneous wealth can fall again and does not undo that event.
+
+\begin{theorem}[Target commitment with abstention]
+\label{adequacy:commit}
+Suppose one fixed candidate $j_*$ is valid throughout the run, contains the true
+physical model, and has the true target label $g_*$. Each candidate is
+target-homogeneous, with declared label $g_j$. Use level $\alpha_j=\alpha$
+for every candidate. Return:
+\begin{enumerate}
+ \item \texttt{abstain\_all\_rejected} if $S_n$ is empty;
+ \item \texttt{abstain\_ambiguous} if survivors assert different targets;
+ \item \texttt{commit}$(v)$ if $S_n$ is nonempty and every survivor asserts $v$.
+\end{enumerate}
+The probability of ever returning an empty survivor set or ever committing an
+incorrect target is at most $\alpha$.
+\end{theorem}
+\begin{proof}
+If $j_*$ has not been excluded, the survivor set is nonempty and any unanimous
+target equals $g_*$. Thus either unsafe event entails exclusion of $j_*$.
+Proposition~\ref{adequacy:anytime} bounds that ever-exclusion probability.
+\end{proof}
+
+There is no factor equal to the number of candidates in this statement: it
+protects one fixed valid and correctly targeted candidate and the resulting
+decision. To protect every valid candidate simultaneously, use levels with
+$\sum_j\alpha_j\leq\alpha$ and apply a union bound. These are different
+questions. A different candidate fitting each successive prediction is not a
+single candidate valid throughout the run.
+
+If a candidate has unresolved internal target values, retain its target set
+and return the union over survivors. Commitment to one value is justified only
+when that union is a singleton. Observable agreement alone does not validate an
+asserted hidden target: the theorem needs the true model to belong to a
+correctly specified candidate. If truth is outside the declared family, both
+wrong commitment and total rejection can occur without this guarantee.
+Nonrejection is not evidence that all omitted mechanisms have been ruled out.
+There is no general termination theorem; opposite-target models with identical
+accessible laws may remain ambiguous indefinitely.
+
+\section{Calibration uncertainty without invalid conditioning}
+
+A joint calibration statement may guarantee that all conditional prediction
+envelopes used during acquisition are valid with probability at least
+$1-\delta$. One cannot usually prove an anytime guarantee by conditioning on
+this eventual good event: that conditioning can change the conditional outcome
+laws on which the betting calculation depends.
+
+\begin{proposition}[Calibration composition]
+\label{adequacy:calibration}
+Let $G$ be any event on which all envelopes of the designated true candidate
+are conditionally valid. If $\Pr(G^c)\leq\delta$, the unsafe-output probability
+in Theorem~\ref{adequacy:commit} is at most $\alpha+\delta$, capped by one.
+Moreover the probability of unsafe output intersected with $G$ is at most
+$\alpha$.
+\end{proposition}
+\begin{proof}
+The actual conditional mean $p_t$ and the supplied endpoints are predictable,
+even if $p_t$ is unknown to the scientist. Stop the designated candidate's
+wealth before the first round at which its envelope fails, replacing that and
+all later factors by one. The stopped wealth is a nonnegative test
+supermartingale. On $G$ it equals the original wealth throughout the run.
+Unsafe output on $G$ therefore entails a crossing by this valid stopped wealth,
+which has probability at most $\alpha$. Add $\Pr(G^c)$.
+\end{proof}
+
+A separate 95\% interval at every round does not provide one 5\% failure budget
+for the experiment. Calibration must cover every conditional prediction used,
+including drift, filtering, actions and detector behavior. An interface that
+requires \texttt{prepare()} before \texttt{observe()} helps enforce chronology
+but cannot prove that its caller did not inspect future data. Scientific record
+retention remains part of the contract. Adding candidates invented after seeing
+the tested data also requires new valid tests or a justified data-reuse scheme.
+
+\section{What a physical energy budget must cover}
+
+An additive action charge is a bookkeeping variable until calibrated to a
+physical quantity. Time, supplied work, dissipated heat, net free-energy change,
+and operation count are different quantities. Their units and scope must be
+specified. In particular, a reversible added transition channel at a stationary
+distribution does not make the apparatus or its controller free of energy cost.
+
+For a complete experiment, the ledger must cover preparation, acquisition,
+interventions, sensing and readout, controller operation, reset, intervening
+gaps, and calibration. Shared support can be reported separately or amortized
+over a declared number of experiments. Any omitted contribution prevents a
+claim about total energy. A detector-law error bound does not bound energy in
+unobserved physical channels.
+
+Two meanings of a budget are particularly different. A pathwise bound is never
+exceeded within its assumptions. An expected expenditure permits arbitrarily
+large realized expenditure. A finite-time continuous-time Markov process can
+make arbitrarily many jumps, so multiplying an expected event count by an
+event energy does not produce a pathwise cap. The next theorem supplies a
+probabilistic cap under a channel-level physical contract.
+
+\section{A counting-channel acquisition cap}
+
+Let $N_t$ count supplied-energy events, starting at zero. Assume it is a simple,
+unit-jump, nonexplosive counting process with predictable intensity $\lambda_t$
+and compensator
+$A_t=\int_0^t\lambda_s\,ds$. Let $\tau$ be a bounded stopping time for a
+filtration in which this intensity statement is valid. These are assumptions
+on the actual process; observing $N_t$ or knowing its exact intensity online is
+not required for the probability argument. A calibrated predictable intensity
+upper bound may replace $\lambda_t$ and yields the corresponding
+supermartingale bound.
+
+\begin{theorem}[A cap valid at adaptive stopping]
+\label{adequacy:count-tail}
+For $\mu>0$ and an integer $n>\mu$,
+\begin{equation}
+ \Pr\{N_\tau\geq n,\ A_\tau\leq\mu\}
+ \leq \exp\{-n\log(n/\mu)+n-\mu\}.
+ \label{adequacy:count-tail-equation}
+\end{equation}
+In particular this bounds $\Pr(N_\tau\geq n)$ whenever
+$A_\tau\leq\mu$ almost surely. If $A_\tau=0$ almost surely, then
+$N_\tau=0$ almost surely.
+\end{theorem}
+\begin{proof}
+For $s>0$, the counting-process stochastic exponential
+\[
+ Z_t=\exp\{sN_t-(e^s-1)A_t\}
+\]
+is a nonnegative local martingale and hence a supermartingale. This follows,
+for instance, by applying the jump product rule to obtain
+$dZ_t=Z_{t-}(e^s-1)(dN_t-\lambda_t\,dt)$ and then localizing
+\cite{caBremaud1981}. At the bounded stopping time,
+$\mathbb E Z_\tau\leq1$. On the event in
+\eqref{adequacy:count-tail-equation},
+$Z_\tau\geq\exp\{sn-(e^s-1)\mu\}$. Markov's inequality bounds its
+probability by $\exp\{-sn+(e^s-1)\mu\}$. Minimize at
+$s=\log(n/\mu)>0$. When $\mu=0$, use the same event bound for each $s>0$
+and let $s$ increase to infinity for every positive integer $n$.
+\end{proof}
+
+The argument does not assume independent event increments or a Poisson count.
+It does require the counting-process contract. A signed transfer matrix used
+to compute output probabilities does not automatically supply such a physical
+counting instrument.
+
+Choose $n$ so that the right side of
+\eqref{adequacy:count-tail-equation} is at most $\beta$. Suppose the gross work
+per counted event is at most $w_{\max}\geq0$, and a separately justified bound
+$W_{\rm app}$ covers all other supplied energy. On the event where this ledger
+is valid,
+\begin{equation}
+ W_{\rm gross}\leq w_{\max}N_\tau+W_{\rm app}.
+ \label{adequacy:energy-ledger}
+\end{equation}
+Consequently $W_{\rm cap}=nw_{\max}+W_{\rm app}$ is a conservative
+$1-\beta$ energy cap when the compensator and ledger premises hold surely.
+It is deliberately conservative by one count and is neither an exact count
+quantile nor a hard pathwise cap. Signed net work must not replace gross
+supplied work in \eqref{adequacy:energy-ledger} without an appropriate new model.
+
+For rational $\mu$, $\beta$ and a proposed $n$, the cap can be checked without
+trusting floating-point logarithms. For rational $x\geq1$, write
+$z=(x-1)/(x+1)$ and use
+\[
+ L_K(x)=2\sum_{k=0}^{K-1}\frac{z^{2k+1}}{2k+1},\qquad
+ L_K(x)\leq\log x\leq L_K(x)+
+ \frac{2z^{2K+1}}{(2K+1)(1-z^2)}=:U_K(x).
+\]
+The positive series for $\log((1+z)/(1-z))$ proves the lower bound; replacing
+each remaining denominator by $2K+1$ gives the geometric upper tail. Range
+reduction by powers of two improves convergence. A rational certificate is
+\[
+ nL_K(n/\mu)-n+\mu\geq U_K(1/\beta).
+\]
+An independent checker recomputes these inequalities. Their truth validates the
+probability calculation, while the laboratory remains responsible for the
+physical intensity, event energy and apparatus bounds.
+
+\section{A joint inference and energy guarantee}
+
+\begin{theorem}[Composition without independence]
+\label{adequacy:joint}
+Assume one fixed correctly targeted candidate is present. Let $G$ be a joint
+good event of probability at least $1-\delta$ on which:
+\begin{enumerate}
+ \item its full-history conditional prediction envelopes are valid throughout;
+ \item $A_\tau\leq\mu$ for the actual counting process;
+ \item the gross-energy ledger \eqref{adequacy:energy-ledger} holds.
+\end{enumerate}
+Run the target-commitment rule at level $\alpha$, and choose $n$ in
+Theorem~\ref{adequacy:count-tail} at level $\beta$. Then
+\begin{equation}
+ \Pr\{\text{ever incorrect commitment, ever all-candidate rejection,
+       or }W_{\rm gross}>W_{\rm cap}\}
+ \leq\alpha+\beta+\delta,
+ \label{adequacy:joint-equation}
+\end{equation}
+where inference outputs are considered through the bounded experimental stopping
+time. No independence of calibration, inference and energy is required.
+\end{theorem}
+\begin{proof}
+Unsafe inference intersected with $G$ has probability at most $\alpha$ by the
+stopped-before-invalid-forecast argument in
+Proposition~\ref{adequacy:calibration}. Energy overrun intersected with $G$
+implies $N_\tau\geq n$ and $A_\tau\leq\mu$, unless $w_{\max}=0$, in which case
+it is impossible on $G$. Theorem~\ref{adequacy:count-tail} bounds that event by
+$\beta$. Add the two events and $G^c$ by the union bound.
+\end{proof}
+
+The compensator or energy-ledger failure need not be predictable: their terminal
+joint events are used directly. In contrast, conditional forecasts are stopped
+before their first invalid factor to preserve the supermartingale. This
+distinction avoids an unjustified application of optional stopping or
+conditioning. A single joint calibration failure budget is counted once.
+
+\section{An end-to-end handoff from a witness to a physical guarantee}
+
+The following result gives a common handoff between the algebraic, statistical
+and physical layers. It uses a certified score gap; the exact witness that
+motivated that score need not itself optimize the final energy cost.
+
+\begin{corollary}[Robust score, record count, and energy cap]
+\label{adequacy:handoff}
+Fix target classes $+$ and $-$, a predeclared protocol and bounded record score,
+and choose constants $0\leq b<a\leq1$ with $\gamma=a-b>0$.
+Let $M$ be a fixed integer with
+$M\gamma^2/2\geq\log(1/\alpha)$. Assume an event $G$ of probability at least
+$1-\delta$ simultaneously ensures:
+\begin{enumerate}
+ \item under the true fixed target class, every actual score's conditional
+ mean is at least $a$ for $+$ or at most $b$ for $-$;
+ \item the complete bounded acquisition has $A_\tau\leq\mu$ and satisfies
+ the gross-energy ledger \eqref{adequacy:energy-ledger}.
+\end{enumerate}
+The midpoint score decision after $M$ records, with any count cap $n$ certified
+at level $\beta$, obeys
+\begin{equation}
+ \Pr\{\text{wrong target or }W_{\rm gross}>nw_{\max}+W_{\rm app}\}
+ \leq\alpha+\beta+\delta
+ \label{adequacy:handoff-equation}
+\end{equation}
+under every fixed model satisfying those contracts.
+\end{corollary}
+\begin{proof}
+On $G$, the conditional score means obey the required one-sided bound. To avoid
+conditioning on $G$, stop at the first predictable violation of that bound and
+replace that and all subsequent scores by $a$ under $+$, or by $b$ under $-$.
+The modified sequence has the required conditional means everywhere and agrees
+with the executed sequence on $G$. The conditional version of
+Proposition~\ref{precision:score-test} therefore bounds wrong decision
+intersected with $G$ by $\alpha$. Bound energy overrun intersected with $G$
+by Theorem~\ref{adequacy:count-tail}, and add $\Pr(G^c)$.
+\end{proof}
+
+Independent identically prepared records from a fixed actual model are a
+sufficient way to obtain the score contract. The conditional formulation also
+states precisely what would justify using dependent records. If nominal
+expectation bounds and total-variation calibration produce the gap, use
+Equation~\eqref{precision:robust-gap}; do not amplify an uncalibrated nominal
+contrast and add one-record error only at the end. If fresh reset fails or an
+intervention changes the nuisance between records, the model must be rebuilt.
+
+For a simple synthetic calculation, let $a=3/5$, $b=2/5$, and $\alpha=1/20$.
+Then $\gamma=1/5$ and $M=150$ certifies each conditional decision error because
+$M\gamma^2/2=3>\log20$. Suppose the separately specified complete physical
+contract has compensator cap $\mu=150$. The rational counting checker certifies
+$n=189$ at $\beta=1/100$. With joint calibration failure $\delta=1/100$,
+the probability of a wrong decision or exceeding
+$189w_{\max}+W_{\rm app}$ is at most $7/100$.
+These numbers are an arithmetic demonstration, not measured performance.
+If native fuel use continues during preparation or gaps, that exposure must be
+included in $\mu$ or bounded separately in the ledger. The declaration
+$\mu=150$ is insufficient until all relevant physical time has been accounted for.
+
+\section{What a scientist should retain}
+
+A usable result consists of the target and candidate definition; the actual
+observation, preparation and intervention contract; an exact obstruction or
+witness where available; quantitative calibration and sampling bounds; the
+executed policy and complete records; and the physical resource ledger with
+its coverage statement. The inference should return ambiguity or failed model
+adequacy when those are the supported conclusions. A finite certificate is
+portable because another scientist can check its mathematical content. Its
+application becomes credible when another apparatus independently verifies
+the physical premises and reproduces the predicted distinction.

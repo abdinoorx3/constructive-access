@@ -1,0 +1,143 @@
+\chapter{Positioning calibrated detector access}
+\label{ch:dg-literature}
+
+The detector results join an established inverse-problem literature to a
+specific thermodynamic inference target. Exposure correction, deconvolution,
+noisy volatility estimation and inference of dissipation from imperfect
+records all have substantial prior work. The contribution to assess is the
+connection proved here: the sharp compatible-model minimum can survive a
+calibrated detector at the complete-law level while its finite-data
+measurement requirements diverge. The matching count and detector-energy
+bounds concern stated binary experiments, not an unrestricted inference
+problem or a new law of measurement energy.
+
+\section{Exposure inversion and what its zeros mean}
+Landweber iteration is a classical inverse method
+\cite{dgLandweber1951}. Its application to the boxcar filter in
+Chapter~\ref{ch:dg-recovery} is standard spectral regularization. A zero
+of the transfer function loses an exact component only when the signal's
+spectral measure gives that zero positive mass. Covariance decay excludes
+the resonant atoms relevant here. Recovery from the complete continuous
+law can therefore hold despite isolated filter zeros, without providing a
+bounded inverse or stable reconstruction from finitely many measurements.
+The explicit averaging inverse and its error bound make this distinction
+checkable; fixed-grid aliasing remains a separate obstruction.
+
+Known-error deconvolution also has a substantial theory when the error
+characteristic function has zeros. Hall and Meister's ridge construction
+and rate bounds treat such cases under quantitative assumptions
+\cite{dgHall2007}, especially their Theorems~4.2--4.3. Those zeros are in
+the Fourier variable dual to measurement amplitude, whereas shutter zeros
+are in temporal frequency. They are different operators. The bounded-law
+convolution argument here uses analytic uniqueness; it neither introduces a
+new general deconvolution principle nor supplies stable analytic
+continuation. Dense independent readouts are an additional access assumption,
+not a consequence of knowing a sensor's one-time error distribution.
+
+The generator-resolvent identity used for the spectrum is also established;
+Gupta and Khammash give an explicit Markov-process version in
+Eqs.~(6)--(9) \cite{dgGupta2022}. The narrower observation here combines
+that identity with strict ellipticity to identify a boxcar width from its
+population spectral zeros. It assumes a known boxcar shape, calibrated
+time and the specified diffusion class. No unknown-kernel or finite-record
+spectral-zero estimator is established.
+
+\section{Diffusion inference through cameras and noisy observations}
+Berglund derives the shutter and localization-error statistics of free
+Brownian tracking, including Fisher information and the effect of the
+illumination profile \cite{dgBerglund2010}. Vestergaard, Blainey and
+Flyvbjerg develop covariance estimators, calibration corrections and
+finite-sample confidence calculations for that model
+\cite{dgVestergaard2014}; see Sec.~III~C and Appendix~C. These give a
+strong practical baseline. Comparing a proposed detector correction only
+with naive realized variance would understate existing capabilities.
+
+Integrated-diffusion estimation predates those camera applications.
+Gloter's Theorem~3.1 and Remark~3.2 show the factor $2/3$ in quadratic
+variation computed from successive shrinking boxcar averages
+\cite{dgGloter2000}. Nakakita and Uchida estimate an unknown
+exposure-to-frame ratio from quadratic-variation ratios and consistently
+estimate diffusion and drift parameters under explicit assumptions
+\cite{dgNakakita2020}, Theorems~1--4. Their exposure width shrinks with
+the frame interval, while total observation duration grows. Unknown
+shutter calibration is therefore an established research topic. The
+fixed-width, complete-law result here concerns a different regime.
+
+For noisy point observations, pre-averaging estimates integrated volatility
+with a stable central limit theorem \cite{dgJacod2009}, Theorem~3.1.
+Hoffmann, Munk and Schmidt-Hieber estimate the entire possibly random
+volatility path using pre-averaging and adaptive wavelets
+\cite{dgHoffmann2012}, Theorems~2.9 and~2.12. These results require their
+noise, regularity and asymptotic sampling assumptions. They do not directly
+supply the pathwise geometry $V=\Gamma_f(X)$, jointly with the conditional
+short-time statistics in this volume, under fixed nonzero shutter exposure.
+Averaging a continuous path over that fixed width gives zero ordinary
+quadratic variation. Its replacement by a point-sample model, or replacement
+of $V$ by $\mathbb E[V\mid Y]$, would require a separate justification.
+
+\section{Noisy thermodynamic inference}
+Stochastic force inference already treats diffusion estimation, projected
+currents and measurement errors \cite{ogFrishman2020}. The force-free
+kinetic approach also examines the treatment of noise-contaminated short
+lags \cite{ogDiTerlizzi2025}. Their relation to the population geometry
+bound is discussed in Chapter~\ref{ch:og-literature}.
+
+Gingrich and colleagues directly study thermodynamic inference from noisy
+single-molecule records \cite{dgGingrich2026}. In Sec.~II of the inspected
+preprint, Eq.~(13) expresses the noisy two-point law using a memoryless
+measurement kernel; Eq.~(15) inverts that transformation when its matrix
+is invertible. Eqs.~(19)--(22) relate finite-block time-reversal information
+to lower bounds through data processing. The measured record generally
+has memory, and increasing temporal resolution alone can worsen particular
+estimates in the presence of noise. These are close precedents for the
+present access distinction.
+
+That memoryless detector model does not include shutter convolution or
+calibration of local quadratic variation. Moreover, deconvolving a
+sampled transition law does not by itself identify its continuous-time
+generator. A matrix-log reconstruction requires its own uniqueness
+conditions; it cannot remove the fixed-grid aliases exhibited here.
+The present target is also distinct from the noisy record's reversed-path
+KL: it is the minimum ordinary-reversal diffusion entropy among models
+compatible with the ideal law. The stated realization and detector classes
+are indispensable to that conclusion.
+
+\section{The Gaussian testing mechanism is established}
+The second-moment method for Gaussian location mixtures is standard in
+statistical testing \cite{caLeCamYang2000}. Cai and Wu's Lemma~3 in the
+inspected preprint states the precise identity used here, attributing it
+to Ingster and Suslina \cite{dgCai2020}. For independent copies $A,A'$
+and Gaussian read error of variance $\nu^2$, it gives
+\[
+ \chi^2\!\left(\mathcal L(A+\xi)\,\Vert\,N(0,\nu^2)\right)
+ =\mathbb E e^{AA'/\nu^2}-1
+ =\sum_{k\geq1}\frac{(\mathbb E A^k)^2}{k!\nu^{2k}}
+\]
+when boundedness justifies the expansion. A zero signal mean removes the
+$k=1$ term. An oriented preparation can restore mean information; stationarity
+and sign symmetry can leave only even moments. This familiar distinction
+between mean and variance information is the mechanism behind the different
+fixed-precision count exponents. It is not a new Gaussian-channel principle.
+
+The restricted result proved here connects that mechanism to exact exposure
+moments and the sharp ideal-law dissipation minimum, obtaining matching
+orders for a specified high-frequency binary family. Allowing precision to
+consume energy under the declared law $\nu^2=\kappa/E$ changes the comparison:
+the passive and prepared detector-energy orders agree even though their
+fixed-precision count orders differ. This conclusion depends on that sensor
+law and omits preparation, reset and control energy. Neither equal optimal
+constants nor a universal total-energy limit is asserted.
+
+\section{The remaining experimental bridge}
+The next practical obligation is a finite-data joint confidence statement
+for the detector-corrected local geometry and the entropy statistic, with
+shutter, noise and regularity calibration errors propagated through both.
+An inverse at the level of complete laws is insufficient. A useful benchmark
+must match duration, exposure, readout precision and preparation access,
+and must include the established corrected estimators above.
+
+The source ledger records the primary versions and equation locations
+inspected for this comparison. This targeted audit does not establish
+historical priority or exhaust the literature. The results support a
+specific, reproducible extension of an existing inference programme;
+external mathematical review and physical validation remain separate steps.

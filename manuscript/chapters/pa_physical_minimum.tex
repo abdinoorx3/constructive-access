@@ -1,0 +1,296 @@
+\section{A physical minimum in a declared architecture}
+\label{sec:pa-physical-minimum}
+
+An upper bound on a relaxed record divergence is not a realizable upper bound
+on the least dissipation compatible with a measurement. This section gives
+an explicit physical construction and an exact optimization within one
+architecture. The architecture assumption is substantial: translation-invariant
+Markov dynamics on a ring, with the first Fourier mode observed. It is not
+inferred merely from two measured correlations.
+
+Let $n\geq3$ and let $k_j\geq0$ be the rate of the displacement
+$x\mapsto x+j\pmod n$. Assume the displacement support is irreducible.
+The stationary distribution is uniform. Write the first Fourier eigenvalue as
+$-\gamma+i\omega$, where $\gamma>0$, so that
+\begin{align}
+ \gamma&=\sum_{j=1}^{n-1}k_j\{1-\cos(2\pi j/n)\},\\
+ \omega&=\sum_{j=1}^{n-1}k_j\sin(2\pi j/n),\\
+ \sigma&=\sum_{j=1}^{\lfloor(n-1)/2\rfloor}
+       (k_j-k_{n-j})\log(k_j/k_{n-j}).
+ \label{eq:pa-circulant-epr}
+\end{align}
+Terms with both rates zero contribute zero; a positive rate with zero reverse
+rate contributes infinite entropy production. A self-inverse displacement
+$j=n/2$ contributes no entropy. Entropy is dimensionless per unit time;
+converting it to physical power requires the thermodynamic embedding.
+
+The Fourier formulas, the general delocalized-mode inequality
+$\sigma\geq\omega^2/\gamma$, and its saturation by circle drift--diffusion
+are established results, discussed explicitly by Gu~\cite{rfGu2026}.
+The finite-$n$ minimization below supplies a more restrictive, architecture-specific
+answer. No historical-priority claim is made.
+
+\paragraph{Theorem: finite-size circulant minimum.}
+Fix $n,\gamma,\omega$. A finite-entropy circulant realization exists if and
+only if
+\begin{equation}
+ \frac{|\omega|}{\gamma}<\cot(\pi/n).
+ \label{eq:pa-circulant-feasible}
+\end{equation}
+Within that class the minimum is
+\begin{equation}
+ \boxed{\quad
+ \sigma_n^{\min}(\gamma,\omega)
+ =\frac{2\omega}{\sin(2\pi/n)}
+   \operatorname{artanh}\!\left(
+       \frac{\omega}{\gamma}\tan(\pi/n)\right).
+ \quad}
+ \label{eq:pa-circulant-min}
+\end{equation}
+The expression is even in $\omega$ and is zero at $\omega=0$. The minimizer
+uses only the two nearest-neighbor displacements, with rates
+\begin{equation}
+ k_{\pm}=\frac12\left\{
+ \frac{\gamma}{1-\cos(2\pi/n)}
+ \mathbin{\pm}\frac{\omega}{\sin(2\pi/n)}\right\}.
+ \label{eq:pa-circulant-rates}
+\end{equation}
+At equality in \eqref{eq:pa-circulant-feasible}, a one-way ring is possible
+but has infinite ordinary-reversal entropy production. Above the boundary
+there is no such circulant realization, even with infinite entropy.
+
+\paragraph{Proof.}
+Pair the displacements with angle $\theta_j=2\pi j/n\in(0,\pi)$.
+Set $x_j=\tan(\theta_j/2)$, traffic $s_j=k_j+k_{n-j}$ and
+current $d_j=k_j-k_{n-j}$. A nonzero pair contributes
+\[
+ \gamma_j=s_j(1-\cos\theta_j),\qquad
+ \omega_j=d_j\sin\theta_j,\qquad
+ \sigma_j=2d_j\operatorname{artanh}(d_j/s_j).
+\]
+For $u_j=\omega_j/\gamma_j$ this is
+\[
+ \sigma_j=\gamma_j F_{x_j}(u_j),\qquad
+ F_x(u)=\frac{u(1+x^2)}{x}\operatorname{artanh}(xu),
+ \qquad |xu|<1.
+\]
+The function is even in $u$, convex because
+$F_x''(u)=2(1+x^2)/(1-x^2u^2)^2$, and nondecreasing in $x$ at fixed $u$.
+For the last assertion, $\operatorname{artanh}(xu)/x$ is nondecreasing
+for $u\geq0$, as follows from its positive power series; evenness handles
+$u<0$. Since $x_j\geq x_*=\tan(\pi/n)$,
+$F_{x_j}(u_j)\geq F_{x_*}(u_j)$. An antipodal displacement, when present,
+adds damping with $u_j=0$ and zero entropy and can be included as another
+weight. Jensen's inequality with weights $\gamma_j/\gamma$ gives
+\[
+ \sigma\geq\sum_j\gamma_j F_{x_*}(u_j)
+ \geq\gamma F_{x_*}(\omega/\gamma),
+\]
+which is \eqref{eq:pa-circulant-min}. If a reverse rate vanishes the same
+inequality holds with infinite left side. Also,
+$|\omega_j|/\gamma_j\leq1/x_j\leq1/x_*$, strictly below the last
+boundary for a finite-entropy nonzero oscillation. This proves necessity
+of \eqref{eq:pa-circulant-feasible}. The positive rates
+\eqref{eq:pa-circulant-rates} prove sufficiency and attain equality.
+\hfill$\square$
+
+For fixed nonzero $\omega$, the minimum decreases strictly as feasible $n$
+increases, and
+\begin{equation}
+ \sigma_n^{\min}>\frac{\omega^2}{\gamma},\qquad
+ \lim_{n\to\infty}\sigma_n^{\min}=\frac{\omega^2}{\gamma}.
+ \label{eq:pa-circulant-limit}
+\end{equation}
+This follows from the same monotonicity of $F_x$ and $x=\tan(\pi/n)\downarrow0$.
+Equivalently,
+\[
+ \frac{\sigma_n^{\min}}{\omega^2/\gamma}
+ =\sec^2(\pi/n)\,
+   \frac{\operatorname{artanh}(r_n)}{r_n},\qquad
+ r_n=(\omega/\gamma)\tan(\pi/n).
+\]
+The finite-size overhead is physical, not a sampling-confidence penalty.
+
+\paragraph{A complete correlation law with explicit realizations.}
+For $0<A\leq1/2$, the bounded detector
+$f(x)=\sqrt{2A}\cos(2\pi x/n)$ has
+\begin{equation}
+ C(t)=\mathbb E[f(X_0)f(X_t)]
+     =A e^{-\gamma t}\cos(\omega t).
+ \label{eq:pa-mode-correlation}
+\end{equation}
+Every ring constructed above realizes this same law for all $t\geq0$.
+The circle diffusion
+\[
+ d\phi_t=\omega\,dt+\sqrt{2\gamma}\,dW_t\pmod{2\pi},\qquad
+ f(\phi)=\sqrt{2A}\cos\phi
+\]
+has uniform stationary distribution, exactly the same correlation, and
+$\sigma=\omega^2/\gamma$. This is an attainable physical value, unlike
+an upper bound on a record-divergence relaxation. It provides an upper
+bound on the \emph{infimum} of entropy among all compatible models in
+any larger class containing this diffusion. It is not an upper bound on
+the entropy of the unknown system. In the union of circulant finite-state
+architectures, it is an infimum approached by finite rings.
+
+For the earlier calibrated example $C(0)=1/2$, $C(1)=0.38$ and
+$C(2)=0.18$, impose the single-mode model and write
+$z=C(1)/A$, $w=C(2)/A$. Then
+\[
+ e^{-2\gamma}=2z^2-w=497/625,
+ \quad \gamma=0.1145808118\ldots,
+ \quad |\omega|_{\rm principal}=0.5504934894\ldots.
+\]
+The smallest feasible ring has $n=16$. Selected exact-form physical
+minima, evaluated numerically, are
+\begin{center}
+\begin{tabular}{r|rrrrr|r}
+$n$&16&20&40&100&1000&circle\\\hline
+$\sigma_n^{\min}$&5.44695&3.55736&2.80013&2.66781&2.64502&2.64480
+\end{tabular}
+\end{center}
+These numbers sharpen the declared ring problem, not the unrestricted
+inverse problem. A hidden model outside this architecture can have the
+same measured moments. Eigenvalue-only entropy bounds require particular
+care outside the delocalized class; known counterexamples preclude replacing
+this declaration with a universal claim~\cite{rfShiraishi2026}.
+
+\paragraph{An explicit failure outside the architecture.}
+Even the complete scalar correlation function does not by itself justify the
+circulant minimum. Take a four-state nearest-neighbor ring with damping
+$\gamma-\kappa$ and frequency $\omega$, where
+$0<\kappa<\gamma-|\omega|$. Add a fifth state, called the hub.
+From every ring state jump to the hub at rate $\kappa$; from the hub jump
+to each ring state at rate $\beta/4$, where
+$\beta=A\kappa/(1-A)$ and $0<A<1$. The stationary masses are
+$\pi_i=A/4$ on the ring and $\pi_\mathrm{hub}=1-A$.
+The hub edges obey detailed balance. The detector is
+$f=(1,1,-1,-1,0)$, so $\mathbb E f=0$ and $\mathbb E f^2=A$.
+The ring Fourier subspace has zero hub component and its damping increases
+by $\kappa$, giving exactly
+\[
+ C(t)=A e^{-\gamma t}\cos(\omega t),\qquad
+ \sigma=2A\omega\operatorname{artanh}\!\left(
+                       \frac{\omega}{\gamma-\kappa}\right).
+\]
+The chain is irreducible and every nonzero edge has a positive reverse.
+At $A=0.1$, $\gamma=1$, $\omega=0.5$, $\kappa=0.01$, the entropy is
+$0.0556063004\ldots$, below the circle value $0.25$, despite identical
+calibration and identical scalar covariance at every lag. Direct generator
+calculations reproduce both values. Thus a circle construction provides a
+compatible physical upper bound on the infimum; it does not prove the
+unrestricted infimum equals that construction. The detector law beyond
+second-order correlations may distinguish these architectures.
+
+\section{Sampling can hide arbitrarily large physical dissipation}
+\label{sec:pa-entropy-aliasing}
+
+The same realizable example exposes a second limitation. Even full spatial
+resolution at discrete times need not bound physical dissipation. This is a
+thermodynamic consequence of ordinary sampling aliasing, closely related to
+continuous-time system aliasing~\cite{paYue2021}.
+
+\paragraph{Exact grid aliasing.}
+Fix $\gamma>0$ and a sampling interval $\Delta>0$. The circle transition
+kernel at time $\Delta$ depends on $\omega$ only through
+$\omega\Delta\pmod{2\pi}$. Therefore every finite or infinite
+stationary record sampled on that grid has exactly the same probability
+law under
+\begin{equation}
+ \omega_k=\omega+2\pi k/\Delta,\qquad k\in\mathbb Z.
+ \label{eq:pa-frequency-alias}
+\end{equation}
+This statement holds even if the full circle state is read at each instant.
+Any detector or subsequent processing retains the equivalence. Yet
+$\sigma_k=\omega_k^2/\gamma\to\infty$. Thus the known two-parameter
+architecture and arbitrarily many grid records do not supply a finite
+upper bound on dissipation without an additional frequency restriction or
+access to intervening motion.
+
+For the scalar covariance, $C(0),C(\Delta),C(2\Delta)$ identify
+$\gamma$ and the principal value
+\[
+ \omega_0=\Delta^{-1}\arccos\!\left[
+ \frac{C(\Delta)/A}{\sqrt{2(C(\Delta)/A)^2-C(2\Delta)/A}}\right]
+\]
+when the specified single-mode model is feasible. The frequencies
+$\pm\omega_0+2\pi k/\Delta$ remain possible. Their smallest
+circle entropy is $\omega_0^2/\gamma$; the supremum is infinite.
+These conclusions concern the single-mode class and exact moments.
+
+\paragraph{Exact identification need not give a stable entropy upper bound.}
+If $\gamma$ and $A$ are known, three positive lags with pairwise irrational
+ratios determine $|\omega|$ from exact cosine correlations. Indeed,
+$\cos(\omega' t_j)=\cos(\omega t_j)$ implies
+$\omega't_j=s_j\omega t_j+2\pi k_j$, with $s_j\in\{-1,1\}$.
+Among three signs, two agree. An irrational ratio between the associated
+lags forces both integers to vanish, and hence $\omega'=\omega$ or
+$\omega'=-\omega$. Two such lags do not always suffice: at
+$t_1=1,t_2=\sqrt2$, the distinct positive frequencies
+$\pi(\sqrt2-1)$ and $\pi(\sqrt2+1)$ give identical cosines.
+
+Exact uniqueness does not survive as a finite-precision upper bound.
+Fix a finite menu of positive observation gaps, a fixed finite number of
+intervals, and $\gamma>0$. For any reference $\omega$, there is a sequence
+$|\omega_k|\to\infty$ whose entire sampled-state record distributions
+converge in total variation to the reference distribution. This includes
+adaptive choices from the finite gap menu with a bounded number of steps.
+
+To prove the statement, write the gaps as $t_1,\ldots,t_m$ and use
+simultaneous Diophantine approximation to choose arbitrarily large integers
+$q$ such that the distances from $q t_j/t_1$ to integers approach zero.
+If an exact common period exists, its multiples give the conclusion
+immediately; otherwise the approximating denominators are unbounded.
+Set $\omega_k-\omega=2\pi q/t_1$. All the wrapped phase shifts then
+approach zero. For a gap $t$, let $\delta_t$ be its phase shift reduced to
+$[-\pi,\pi]$. Comparing unwrapped normal increments and then wrapping gives
+\begin{equation}
+ \operatorname{TV}(K_\omega^t,K_{\omega_k}^t)
+ \leq 2\Phi\!\left(\frac{|\delta_t|}{2\sqrt{2\gamma t}}\right)-1
+ \leq\frac{|\delta_t|}{2\sqrt{\pi\gamma t}},
+ \label{eq:pa-phase-tv}
+\end{equation}
+uniformly in the starting state. Sequential coupling bounds complete-record
+TV by the sum of these transition bounds, or by the number of steps times
+the largest menu bound. Independent replication multiplies the sum bound
+by the number of records. Stopping and further detector processing cannot
+increase it. Meanwhile $\omega_k^2/\gamma$ diverges.
+
+Consequently every positive-TV neighborhood of the accessible law contains
+models with unbounded entropy. More statistically, any upper procedure $U$
+with uniform coverage $\Pr_\omega\{U\geq\omega^2/\gamma\}\geq1-\alpha$
+for this experiment must satisfy
+\begin{equation}
+ \Pr_\omega\{U=+\infty\}\geq1-\alpha
+ \quad\hbox{at every reference }\omega.
+ \label{eq:pa-alias-upper-no-go}
+\end{equation}
+For any finite $M$, choose near-aliases with entropy exceeding $M$ and
+record TV tending to zero. Uniform coverage then implies
+$\Pr_\omega\{U\geq M\}\geq1-\alpha$; take $M\to\infty$.
+This statement assumes a fixed finite gap menu and bounded experiment.
+It does not address a continuously distributed random timing design whose
+exact realized times are retained, an unbounded observation horizon, or a
+separately calibrated frequency cap. Those changes alter access.
+
+The implementation illustrates the near-alias mechanism constructively.
+At gaps $1$ and $\sqrt2$, Pell solutions $p^2-2q^2=1$ give shifts
+$2\pi q$, with second-gap phase error
+$2\pi/(p+\sqrt2q)$. For $\gamma=1$, reference $\omega=1/2$, and
+$(p,q)=(665857,470832)$, the alternative entropy is
+$8.751688\times10^{12}$ while the two-interval full-state record TV
+is at most $1.119197\times10^{-6}$. This is a mathematical model
+calculation, not a physically achievable drive-rate claim. A calibrated
+bandwidth excludes such alternatives; absent that calibration the model
+allows them.
+
+\paragraph{Reproduction and limits.}
+\texttt{physical\_minimum.py} reconstructs generators, compares matrix
+exponentials with \eqref{eq:pa-mode-correlation}, checks the inequality on
+1,000 seeded nonlocal circulant generators, and saves the physical and
+aliasing examples. Fourteen producer tests cover realization, nonlocal
+jumps, equilibrium, one-way limits, invalid inputs, continuum convergence,
+and exact and near aliasing. Floating-point evaluation is not advertised
+as an interval certificate; the proofs establish the mathematical claims.
+No new measured-data entropy estimate, universal physical minimum, or
+historical priority follows from these calculations.

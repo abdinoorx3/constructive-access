@@ -1,0 +1,216 @@
+\chapter{Finite random-clock certificates for classical realization size}
+\label{ch:finite-erlang}
+
+An observed damped oscillation can require a large classical realization even
+when a qubit produces it. This fact and the relevant spectral obstruction are
+established \cite{rrWolf2009}. The practical difficulty is different: finite,
+noisy observations do not determine an exact pole. We therefore measure a finite
+list of bounded probabilities whose distance from every small classical model
+can be certified directly. The resulting tolerance is conservative; at high
+dimension it is much too small for a practical experiment.
+
+\section{The operational contract}
+Let $Q$ be a conservative, homogeneous generator with at most $n$ hidden states,
+$\rho$ an unknown but fixed initial probability row, and $f\in[0,1]^n$ an unknown
+but fixed binary response vector. The detector may be probabilistic. Neither
+stationarity, reversibility nor a bound on the exit rates is assumed. Each trial
+starts from $\rho$ and measures $f$ at a time chosen independently of the physical
+process. The clock does not change the generator, preparation or detector.
+
+Fix a rate $s>0$. For $k\geq1$, choose an Erlang clock $T_k$ with shape $k$ and
+rate $s$; set $T_0=0$. Resolvent integration gives
+\begin{equation}
+ m_k=\mathbb E[\rho e^{QT_k}f]=\rho R^k f,
+ \qquad R=s(sI-Q)^{-1}.
+ \label{eq:erlang-resolvent}
+\end{equation}
+The matrix $R$ is stochastic. Thus independently randomized observation times
+convert a continuous-time record into finitely many powers of one stochastic
+matrix, without estimating derivatives or the hidden exit rates.
+
+The comparison signal is the $+Z$ occupation probability of a qubit prepared
+in $+Z$, rotating under $\omega X/2$ with isotropic depolarization rate $\gamma$:
+\begin{equation}
+ p_*(t)=\frac{1+e^{-\gamma t}\cos(\omega t)}2,
+ \qquad
+ m_k^*=\frac{1+\operatorname{Re}\mu^k}2,
+ \qquad \mu=\frac{s}{s+\gamma-i\omega}=u+iv.
+ \label{eq:erlang-qubit}
+\end{equation}
+Here $\omega,s>0$, $\gamma\geq0$, and $v>0$. Rational rates give rational
+probabilities $m_k^*$, even though the observation times are continuous.
+
+\section{A finite robustness theorem}
+The established generator spectral bound is
+\begin{equation}
+ |\operatorname{Im}\lambda|
+ \leq-\operatorname{Re}\lambda\cot(\pi/n).
+ \label{eq:generator-sector-rf}
+\end{equation}
+Writing $t_n=\tan(\pi/n)$ shows that every eigenvalue $z$ of $R$ lies in the lens
+\begin{equation}
+ |z|^2-\operatorname{Re}z+t_n|\operatorname{Im}z|\leq0.
+ \label{eq:resolvent-lens}
+\end{equation}
+In particular, for any certified $0<t_0\leq t_n$, the lens is contained
+in both reflected disks with centers $1/2\pm it_0/2$ and radius
+$\sqrt{1+t_0^2}/2$.
+
+For the sharper bound it is useful to normalize the characteristic polynomial.
+Define
+\[
+ \nu=\frac{1-\mu}{1+\mu}=a-ib,\qquad b>0,\qquad
+ K=\sqrt{1+(1+u)^2/v^2},\qquad q=\lfloor(n-1)/2\rfloor.
+\]
+If $\gamma/\omega<t_0$, then $\nu$ is outside the upper-centered bounding disk.
+Choose
+\[
+ 0<d\leq\min\left\{b,
+ \left|\nu-\left(\tfrac12+\tfrac{it_0}{2}\right)\right|
+ -\frac{\sqrt{1+t_0^2}}2\right\},\qquad
+ r_0=\frac{v}{|1+\mu|},\qquad
+ h=\frac{|1+\mu|^2}{4}d(2b-d).
+\]
+Notice that $h\leq r_0^2$.
+
+\begin{theorem}[Finite Erlang exclusion]
+\label{thm:finite-erlang}
+Under the preceding assumptions, every classical model with at most $n\geq3$
+states satisfies
+\begin{equation}
+ \max_{0\leq k\leq n+1}|m_k-m_k^*|
+ \geq\Delta_n,
+ \qquad
+ \Delta_n=\frac{|1-\mu|\,r_0^{n-1-2q}h^q}{4K}>0.
+ \label{eq:finite-erlang-gap}
+\end{equation}
+Only $n+2$ observation settings enter this inequality. No fitted pole, exact
+rank determination, spectral visibility assumption, or exit-rate bound is used.
+\end{theorem}
+
+\begin{proof}
+Pad a smaller model by unreachable absorbing states. Let $P$ be the real monic
+characteristic polynomial of its $n\times n$ stochastic resolvent $R$, and let
+$C$ be the sum of the absolute values of its coefficients. The resolvent roots
+have positive real parts. Each real-linear and conjugate-quadratic factor has
+alternating coefficients, and products preserve those signs. Hence
+$C=|P(-1)|$. Also $P(1)=0$ and $P(R)=0$.
+
+If the maximum moment error is $\varepsilon$, Cayley--Hamilton applied at shifts
+zero and one gives
+\[
+ |\operatorname{Re}P(\mu)|\leq2\varepsilon C,
+ \qquad
+ |\operatorname{Re}(\mu P(\mu))|\leq2\varepsilon C.
+\]
+The constant half of~\eqref{eq:erlang-qubit} cancels because $P(1)=0$.
+Writing $P(\mu)=A+iB$ yields
+$|B|\leq2\varepsilon C(1+u)/v$ and therefore
+$|P(\mu)|/C\leq2\varepsilon K$.
+
+For any root $z=s/(s-\lambda)$, put
+\[
+ w=\frac{1-z}{1+z}=1-\frac{2s}{2s-\lambda}.
+\]
+The lens~\eqref{eq:resolvent-lens} is invariant under $z\mapsto1-z$, so $w$ lies
+in the same lens. Direct algebra gives
+\[
+ \frac{|\mu-z|}{|1+z|}=\frac{|1+\mu|}{2}|\nu-w|.
+\]
+A real root therefore contributes at least $r_0$. For a conjugate pair write
+$y=|\operatorname{Im}w|$. If $y\geq b-d$, the near factor is at least $d$ and
+the far factor at least $b+y\geq2b-d$. If $y\leq b-d$, their product is at least
+$(b-y)(b+y)\geq d(2b-d)$. Thus each normalized conjugate pair contributes at
+least $h$. One root $z=1$ contributes $|1-\mu|/2$. Because $h\leq r_0^2$,
+the most conservative product uses the maximum number $q$ of pairs:
+\[
+ \frac{|P(\mu)|}{|P(-1)|}
+ \geq\frac{|1-\mu|}{2}r_0^{n-1-2q}h^q.
+\]
+Combining the two inequalities proves the result. Defective matrices cause no
+problem because the argument uses the characteristic polynomial, not an
+eigenvector decomposition.
+\end{proof}
+
+The distance calculation is entirely reproducible with rational interval
+arithmetic. If $F=|\nu-c|^2-r^2>0$, then
+\[
+ |\nu-c|-r=\frac{F}{|\nu-c|+r}.
+\]
+Rational upper bounds on the denominator give a lower bound on the distance.
+The implementation obtains $t_0$ from Machin's formula for $\pi$, alternating
+arctangent bounds and $\tan x\geq x+x^3/3$; for $n=4$ it uses $t_0=1$ exactly.
+Integer square roots give directed dyadic bounds for the remaining radicals.
+
+\section{Finite duration, calibration and sampling}
+The ideal Erlang clock is unbounded. A laboratory implementation can return an
+artificial zero when $T_k>L$, without waiting beyond $L$. Its moment changes by
+at most
+\begin{equation}
+ \tau_k(L)=\Pr(T_k>L)
+ =e^{-sL}\sum_{j=0}^{k-1}\frac{(sL)^j}{j!}.
+ \label{eq:erlang-tail}
+\end{equation}
+This tail is bounded above by replacing $e^{-sL}$ with the reciprocal of a
+positive partial sum for $e^{sL}$. No hidden dynamical rate appears in the bound.
+
+Let $\widehat m_k$ be sample means from $N$ independent trials per setting,
+$r_N$ a simultaneous confidence radius, $b$ a calibrated probability error, and
+$\tau\geq\max_k\tau_k(L)$. A valid rejection rule is
+\begin{equation}
+ \max_k|\widehat m_k-m_k^*|+r_N+b+\tau<\Delta_n.
+ \label{eq:erlang-statistical-test}
+\end{equation}
+Hoeffding and a union bound give confidence at least
+$1-2(n+2)e^{-2Nr_N^2}$. The same data cannot first select an unrestricted target
+and then use a confidence guarantee proved only for a predeclared target.
+
+The supplied design takes $r_N=\Delta_n/4$ and $\tau\leq\Delta_n/8$. With $b=0$,
+both false rejection of the classical class and missed detection of the nominal
+qubit target are at most the declared $\alpha$. Under the target, the confidence
+event gives total distance at most $2r_N+2\tau<\Delta_n$. For an additional
+calibration radius, the corresponding power guarantee requires
+$2r_N+2\tau+2b<\Delta_n$.
+
+\section{What the certificate achieves, and its cost}
+For $\gamma=1/10$, $\omega=2$ and $s=13/10$, exact arithmetic certifies
+\[
+ n=4:\qquad\Delta_4>0.0016816962795.
+\]
+There are six clock settings. A fully bounded design with duration at most
+$320/13$ and $\alpha=0.05$ uses a conservative total of $135{,}780{,}096$
+records. This large count is a limitation of the current sufficient bound, not
+a claim of practical superiority. The result closes a qualitative gap: a
+strictly positive finite-data exclusion exists without assuming an exact pole
+or bounding the rates of invisible modes.
+
+\begin{center}
+\begin{tabular}{r r l}
+Excluded state count $n$ & Clock settings & Certified uniform gap\\\hline
+4 & 6 & $1.6816962795\times10^{-3}$\\
+5 & 7 & $3.2905352735\times10^{-4}$\\
+6 & 8 & $8.2677897333\times10^{-5}$\\
+8 & 10 & $2.7407114770\times10^{-6}$\\
+16 & 18 & $1.5863939618\times10^{-13}$\\
+62 & 64 & $1.1657896420\times10^{-117}$
+\end{tabular}
+\end{center}
+All entries concern the same damped qubit; the Erlang rate is chosen separately
+for each declared $n$ and recorded in the reproducibility data. The last entries
+are constructive mathematical bounds, not recommended experimental plans.
+
+A four-state directed cycle of rate $2$, with fixed response probabilities
+$(1,1/2,0,1/2)$, exactly produces
+$(1+e^{-2t}\cos2t)/2$. The certificate correctly stops separating at
+$\gamma=\omega$ for $n=4$. Larger cyclic classical realizations exist for every
+strictly damped sinusoid when sufficiently many states are allowed. Thus the
+witness bounds classical realization size; it does not exclude every classical
+explanation or convert a state count into a thermodynamic energy cost.
+
+The spectral obstruction, resolvent representation and linear recurrence
+machinery are established ingredients. The contribution investigated here is
+the explicit finite-setting, bounded-duration robustness certificate and its
+checkable error accounting. Historical priority remains open. Improving its
+sample complexity is a separate research problem; the finite probability-table
+witness elsewhere in this reference supplies a substantially stronger practical
+comparison in its effective regime.

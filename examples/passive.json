@@ -1,0 +1,102 @@
+{
+  "schema": "constructive-access-contract-v1",
+  "name": "Passive readout alone is insufficient",
+  "question": "Can the available controlled readout distinguish the two candidate response mechanisms?",
+  "target": {
+    "name": "response class",
+    "labels": [
+      "toward state 0",
+      "toward state 1"
+    ]
+  },
+  "models": [
+    {
+      "name": "mechanism A",
+      "initial": [
+        "1/2",
+        "1/2"
+      ],
+      "actions": {
+        "read": {
+          "0": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "1": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "name": "mechanism B",
+      "initial": [
+        "1/2",
+        "1/2"
+      ],
+      "actions": {
+        "read": {
+          "0": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "1": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "resources": {
+    "charge_name": "operation count",
+    "unit": "operation",
+    "meaning": "operation_count",
+    "action_costs": {
+      "read": 1
+    },
+    "per_record_overhead": 1,
+    "calibration": "Each passive read is one counted operation; fresh preparation is one operation.",
+    "included": [
+      "passive read calls",
+      "fresh preparation"
+    ],
+    "excluded": [
+      "apparatus heating",
+      "classical computation",
+      "storage"
+    ]
+  },
+  "preparation": {
+    "description": "Fresh independent preparation in the listed initial distribution before every complete action sequence; a single fixed hypothesis governs all records.",
+    "iid_records": true
+  },
+  "design": {
+    "target_average_error": "1/10"
+  }
+}

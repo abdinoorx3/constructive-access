@@ -1,0 +1,254 @@
+OBSERVED DIFFUSION GEOMETRY — INDEPENDENT INTERNAL REVIEW
+Owner: /root/geometry_independent_review
+Initial proof/implementation audit: 2026-10-12T23:43:27Z
+Final benchmark audit: 2026-10-12T23:47:24Z
+Final combination and consistency audit: 2026-10-13T00:01:41Z
+Status: population and finite-resolution arguments survive the audited
+counterexamples and independent checks. Frozen benchmark replay passed.
+External expert peer review and physical experimental validation are absent.
+
+1. Scope and overall assessment
+
+The main population result is a mathematical theorem for stationary, smooth,
+compact, uniformly elliptic hidden diffusions using ordinary full-state time
+reversal, with a smooth deterministic detector. The ordinary-reversal entropy
+rate is E[v^T D^-1 v]. That class is explicit and essential. The statement is
+not a new universal physical law, a quantum result, or a claim of determining
+every hidden rate from a scalar trajectory.
+
+I independently derived the conditional identity with a=Sf, c=Af:
+ g^2-K=E[c^2|U]-Var(a|U), U=(f,Gamma_f).
+Pointwise metric Cauchy gives c^2<=Gamma_f e. Conditioning, taking the positive
+part, dividing on Gamma_f>=epsilon and monotone convergence establish the
+bound. At Gamma_f=0, positive definiteness forces c=0 and the numerator's
+positive part is zero. No unsupported division or observed-Markov assumption
+is used. Uniform semigroup remainders justify the L-infinity conditional
+limits; all derivatives are bounded in the compact smooth model class.
+
+The path-law invariance argument is sound within that class: dyadic realized
+quadratic variation converges to an observable path functional, whose
+continuous time derivative is 2Gamma_f. Although the construction reads a
+time neighborhood, its ideal limit equals a function of the central complete
+state, so it does not invalidate conditional past/future independence. A
+finite-window volatility estimate is a different object and cannot be
+substituted without new dependence and calibration analysis.
+
+2. Attainment, coordinate changes and extensions
+
+For the uniform cosine circle, a=-gamma Y, Gamma=gamma(1-Y^2), and
+ K=gamma^2 Y^2-omega^2(1-Y^2).
+The bound is exactly omega^2/gamma and the circle attains it. Every admissible
+hidden diffusion with the same complete observed path law has the same local
+conditional functional, which proves the claimed compatible-class minimum
+without fixing hidden dimension or topology. This is a complete solution to
+that specified population realization problem. It is not a finite-data proof
+of exact path-law compatibility.
+
+For even positive smooth rho and D on a circle with stationary flux J, Sf is
+even and therefore measurable through cos(phi). Conditional reversible-drift
+variance vanishes. One-dimensional metric Cauchy is equality away from the two
+zero-probability detector critical points. Thus J^2 integral 1/(rho D) is the
+attained minimum for every observed law in the stated family. Reflection
+converts the hidden generator into its adjoint while fixing the scalar record,
+so these positive-minimum scalar laws are reversible. This does not contradict
+record-level data processing: the restricted realization class carries extra
+physical assumptions.
+
+The exact slack formula follows from m-[m-w]_+=min(m,w). The three stated
+equality conditions are necessary and sufficient almost surely. Scalar smooth
+invertible recalibration has its Ito correction cancel pointwise in g^2-K,
+and Gamma scales by the same squared derivative. Conditioning refinement
+monotonicity follows from total conditional variance and convexity of the
+positive part. The dual completed square is valid for bounded functions and
+truncated inverse volatility, but is not permission for unaccounted same-data
+optimization. The matrix extension's positive-trace variational inequality and
+metric pseudoinverse projection also hold, including singular observed G;
+general singular-vector coordinate invariance is correctly not asserted.
+
+3. Finite-resolution argument
+
+The drift bias h(M2+ + M2-)/4 and product bias
+h(M1- M2+ + M1+ M2-)/2 are valid. The latter need not contain an extra h^2 term,
+because integrated semigroup increment quotients remain bounded by M1+/M1-.
+The frozen score is the completed-square linear witness with both biases
+subtracted before weighting. A pointwise upper envelope a>=Gamma is enough;
+it need not equal Gamma. A conditional average is insufficient.
+
+The score range uses -(q-u)(q-v)<=(u-v)^2/4 with the same central reading,
+and is tighter than treating the two increments as unrelated ranges. The
+conditional-Ito second-moment option uses genuine conditional past/future
+independence. The empirical-Bernstein implementation uses the Maurer-Pontil
+sample-variance theorem, not an illicit replacement of population variance
+inside known-variance Bernstein. Exact sums and sums of squares, range inflation
+for bounded score perturbation, and the final perturbation penalty are sound.
+Logarithm and square-root arithmetic were independently checked against
+100-decimal calculations.
+
+Two clarifications were requested and incorporated in the proof text:
+- Bounded unbiased detector noise must have zero conditional endpoint cross-
+  covariances (conditional independence is sufficient); the central rule cannot
+  be chosen from those noisy readings. Shared central noise then adds the
+  favorable negative center-variance contribution to the expected score.
+- External calibration failure can be added to alpha only when the theorem
+  holds conditionally on pre-test information, e.g. independent calibration,
+  or when a separate joint guarantee is supplied. Same-data calibration cannot
+  silently preserve iid confidence. The frozen numerical bank has fixed rules.
+
+For a deterministic rounded-center rule, q, retention and a are instantaneous
+state functions. If |z0-Y0|<=delta, the circle envelope
+ a(z0)=1-max(0,|z0|-delta)^2
+dominates 1-Y0^2 pointwise. Keeping q, retention and a identical in ideal and
+stored scores gives the reading perturbation bound
+4(R/h+Q)delta/(h a_min). No random conditional-average substitution is hidden
+in this construction. Output flooring requires a full grid-width penalty,
+not the half-grid penalty for nearest rounding.
+
+4. Counterexamples and restrictions actively checked
+
+Connected variable-diffusivity torus: replacing Gamma by E[Gamma|Y] falsely
+certifies 68.303... when sigma=64; the rational lower bound 19619/288>64
+independently confirms the failure. Retaining Gamma restores the exact value.
+
+Smooth nonlinear circle detector: an uncorrected finite-h conditional ratio
+has a nonintegrable internal pole at finite true sigma=1. A fixed positive
+volatility cutoff still gives a rigorously certified false bound above 1.
+An invertible scalar recalibration gives a separate finite, nonsingular
+counterexample: the naive finite-h integral is 11.540... at true sigma=1.
+Thus exact volatility closure and invertible detector calibration do not remove
+the time-step bias obligation. The valid zero-step theorem is invariant; its
+uncorrected finite-step substitute is not.
+
+Generalized parity can produce zero physical entropy despite positive ordinary
+entropy, even for an even observed scalar. Independent sensor noise causes raw
+realized quadratic variation to diverge with sampling frequency. Exposure
+averaging gives a smooth trace with zero quadratic variation and violates the
+instantaneous smooth detector contract. These are correctly presented as
+scope restrictions and not suppressed benchmark failures.
+
+5. Position relative to prior work
+
+The literature chapter credits diffusion calculus, variance sum rules, force-
+free kinetic inference, short-time current optimization, conditional force
+projection, and compatible-hidden-model entropy minimization. Its constant-D
+marginal Fisher-information specialization follows by conditional Jensen from
+the established kinetic identity and is not claimed as a new identity. The
+proposed distinction is the local geometry contract, conditional cancellation,
+and attained broad-class compatible-law minimum. The audit of primary sources
+does not prove historical novelty. External specialists must assess priority
+and significance independently.
+
+6. Reproduction and completed frozen-bank audit
+
+Run python tests/test_independent.py from this phase directory, or use the
+packaged observed_geometry test path with PYTHONPATH=src. The test report binds
+reviewed source files by SHA-256. These tests challenge proofs and independently
+reconstruct formulas; they are not formal proof-assistant verification.
+
+The initial completed audit had 25 passing tests, including random conditional fibers, exact slack,
+refinement, Ito recalibration cancellation, circle semigroup fixtures,
+reflection-family equality, three-time wrapped-kernel reversal, singular matrix
+geometry, multimode finite-h bias, detector-noise dependence, exact confidence
+constants/tails, rounded-center access and analytic rejection countermodels.
+Frozen simulation sufficient statistics, raw exemplars, all certificate values
+and resource matching were independently replayed. Specifically:
+- Every one of the 1200 datasets' weighted empirical-Bernstein, endpoint and
+  weighted Hoeffding certificates was rederived from the exact integer sums
+  and sums of squares without calling producer inference routines.
+- All 600000 raw exemplar triples were checked using Python arbitrary-precision
+  integer inequalities for the floor quantizers; sparse unexpanded Fraction
+  calculations independently checked the expanded score coefficients.
+- All exemplar sums, sums of squares, retention counts and confidence outputs
+  matched. The three exemplar datasets were independently regenerated from
+  their stored seed arrays and stationary forward/reverse Gaussian transitions.
+- Contract, source and raw-file SHA-256 bindings match. Each method uses the
+  identical 600000 readings, 200000 stationary preparations and 16000 modeled
+  evolution-time units per dataset. Geometry and derivative calibration are
+  extra information with unmeasured acquisition cost, not free observations.
+
+The driven mean lower bound is 2.98232920865565 versus endpoint
+0.303963868202308, a factor 9.81145958661; both are positive in 400/400 cases.
+The weakly driven case reverses the practical preference: weighted 0/400,
+endpoint 396/400, with unchanged conservative generator caps. Equilibrium
+produces zero positive certificates, and weighted Hoeffding produces none in
+any of the 1200 datasets. No method exceeds the known truth in this bank.
+Those checks support correct implementation; they do not prove statistical
+coverage empirically or imply universal dominance. Each method has individual
+95% coverage under its contract; taking their maximum is not licensed.
+
+Review conclusion: no blocking mathematical or implementation error remains
+in the audited scope. The complete population minimum, finite-error theorem,
+counterexamples and frozen simulation can be integrated with the stated model,
+calibration, rounding, independence, resource and novelty qualifications.
+
+7. Covered shared-record fallback — review extended 2026-10-12T23:59:03Z
+
+The new combination is an application of the established union bound. With
+fixed component failures alpha_G=alpha_E=0.025, max(L_G,L_E) has statistical
+failure at most 0.05; dependence between the scores is immaterial. One joint
+pre-test calibration failure is counted once. Separate calibration budgets
+can be summed conservatively. Both scores reuse the same triple quota, so
+acquisitions, readouts and modeled evolution time are not doubled.
+
+The API now rejects a shared geometry readout range different from [-1,1],
+avoiding accidental use of the normalized endpoint constants on a wider
+detector. The allocation must be fixed prospectively or enjoy a separate
+simultaneous guarantee. The new equal-allocation evaluation was chosen after
+the original bank and is explicitly a retrospective reanalysis; no new
+confirmatory experiment is claimed and no original result is overwritten.
+
+All 1200 component radii, component bounds, winners and covered maxima were
+reconstructed from frozen sums using independent formulas. Source and data
+hashes, common resources, shared calibration budget, invalid inputs and every
+summary were checked. The stronger allocation yields driven 400/400, mean
+2.8876453933012542; weakly driven 383/400, mean 0.00880994438584348; equilibrium
+0/400. This repairs much of the weak-drive blindness but pays a real power
+cost: original single-method endpoint detection was 396/400, and original
+strong-drive geometry mean was 2.98232920865565. The composition does not
+establish uniform dominance or permission to tune allocations on test data.
+
+8. Constructive consistency and numerical enclosure repair
+
+The final population-to-finite-observation consistency theorem passes review.
+For h=h0*m^-3, epsilon=gamma*m^-2, n=m^12, the circle tail loss is at most
+sigma/m. The corrected score expectation lies between its ideal truncated
+target minus 2Ch/epsilon and that target. With the stated fixed calibration,
+this bias is O(m^-1). Its second moment is at most H^2*m^10 and score range
+at most B0*m^8. Known-variance Bernstein therefore gives a sampling radius
+at most H*sqrt(2 log(2/alpha))/m + 2B0*log(2/alpha)/(3m^4).
+
+The two tails each receive alpha/2, proving the stated joint validity and
+accuracy sandwich with failure at most alpha. Fixed-alpha consistency is
+proved separately from Var(empirical mean)<=H^2/m^2 and the deterministic
+population/radius limits; it is not incorrectly inferred from a fixed success
+probability. The optional summable alpha_m gives almost-sure convergence by
+Borel-Cantelli without assuming independence between successive experiments.
+The conservative exponents n^-1/12 and declared-time T^-1/9 are sufficient,
+not minimax or demonstrations of affordable apparatus operation. Successive
+levels incur cumulative costs. Stored mean/score errors must vanish; changes
+to a rounded detector's selector or geometry require their own proof.
+
+The independent audit found an important arithmetic qualification: the existing
+finite-resolution square-root helper has fixed absolute 90-bit rounding. A
+positive final radius can bottom out at 2^-90, so a literal fixed-grid output
+does not converge exactly to sigma at arbitrarily large m. Its finite-level
+coverage remains valid; the asymptotic implementation claim needed repair.
+The author independently identified the same issue. No frozen inference code
+was changed. The new consistency wrapper instead encloses the fixed constants
+H, B0, log(2/alpha) and sqrt(2 log(2/alpha)) once, and divides their rational
+coefficients exactly by m and m^4. Its conservative radius tends to zero.
+This also avoids comparing rounded per-m moment bounds with an unenclosed
+real constant at a possible equality case.
+
+Two additional independent tests establish exact protocol inequalities in
+twelve rational square-root fixtures, check the wrapper's envelope against
+160-decimal direct Bernstein calculations at ordinary and extreme scales,
+expose the old fixed-grid floor, and verify the new radius falls below that
+floor. All deterministic design records, resource exponents, confidence
+allocation and summary-error penalties are checked. The astronomical m=2^120
+example is an arithmetic diagnostic, not simulated or acquired evidence.
+
+Final result: 30 independent tests pass. The report binds the completed
+population, finite-resolution, countermodel, experiment, combination and
+consistency sources, manuscripts and retained results by SHA-256. No blocking
+error remains in this final audited scope. No external peer-review, historical
+priority, general optimality or laboratory validation claim is licensed.

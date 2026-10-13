@@ -1,0 +1,92 @@
+driven: 100/400
+driven: 200/400
+driven: 300/400
+driven: 400/400
+weak_driven: 100/400
+weak_driven: 200/400
+weak_driven: 300/400
+weak_driven: 400/400
+equilibrium: 100/400
+equilibrium: 200/400
+equilibrium: 300/400
+equilibrium: 400/400
+{
+  "driven": {
+    "true_entropy_rate": 9,
+    "methods": {
+      "weighted": {
+        "positive_certificates": 400,
+        "mean_rate_lower": 2.98232920865565,
+        "minimum_rate_lower": 2.7178960680271955,
+        "maximum_rate_lower": 3.311143116439183,
+        "over_truth": 0
+      },
+      "endpoint": {
+        "positive_certificates": 400,
+        "mean_rate_lower": 0.303963868202308,
+        "minimum_rate_lower": 0.2885096229662175,
+        "maximum_rate_lower": 0.32443795012529175,
+        "over_truth": 0
+      },
+      "hoeffding": {
+        "positive_certificates": 0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "maximum_rate_lower": 0.0,
+        "over_truth": 0
+      }
+    }
+  },
+  "weak_driven": {
+    "true_entropy_rate": 1,
+    "methods": {
+      "weighted": {
+        "positive_certificates": 0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "maximum_rate_lower": 0.0,
+        "over_truth": 0
+      },
+      "endpoint": {
+        "positive_certificates": 396,
+        "mean_rate_lower": 0.011962951839865968,
+        "minimum_rate_lower": 0.0,
+        "maximum_rate_lower": 0.02654462672892366,
+        "over_truth": 0
+      },
+      "hoeffding": {
+        "positive_certificates": 0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "maximum_rate_lower": 0.0,
+        "over_truth": 0
+      }
+    }
+  },
+  "equilibrium": {
+    "true_entropy_rate": 0,
+    "methods": {
+      "weighted": {
+        "positive_certificates": 0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "maximum_rate_lower": 0.0,
+        "over_truth": 0
+      },
+      "endpoint": {
+        "positive_certificates": 0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "maximum_rate_lower": 0.0,
+        "over_truth": 0
+      },
+      "hoeffding": {
+        "positive_certificates": 0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "maximum_rate_lower": 0.0,
+        "over_truth": 0
+      }
+    }
+  }
+}

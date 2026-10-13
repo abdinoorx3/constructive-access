@@ -1,0 +1,107 @@
+2026-10-12 UTC. Owner spectral_frontier. Direct bounded analog inference.
+
+Goal
+Preserve useful analog amplitude information while retaining the existing
+finite-data physical certificate, and determine whether avoiding optional
+encoding noise improves a complete inference procedure at matched access.
+
+Established ingredients and claimed contribution
+Conditional expectation/Rao--Blackwellization, convex order under a martingale
+coupling, Hoeffding concentration and data processing are established. The work
+does not claim to discover them. The derived apparatus result connects them to
+the calibrated reversible moment class and stationary path-KL bound, provides
+an exact rational mean/sum API, and tests the entire inference procedure under
+a frozen matched acquisition design. There is no claim of a new physical law.
+
+Proof
+For bounded Z from a fixed memoryless noninvasive channel with conditional
+mean f and independent endpoint noise, W=(1+Z0*Zt)/2 has mean
+p=(1+<f,exp(Qt)f>_pi)/2. The virtual common kernel B|analog~Bern(W)
+has Bernoulli marginal p. Data processing under Q and its additive reversible
+reference S therefore gives d_Ber(pQ||pS) <= KL(analogQ||analogS) <= pathKL.
+One may infer p from W itself without drawing B. Calibration uses m=EZ and
+A=E f^2 <= Bobs=E Z^2; Bobs is an upper bound, not an equality in general.
+
+For a fixed contrast a and quotas N, bounded-score conditional Hoeffding gives
+radius sqrt(log(1/alpha)*sum(a_k^2 width_k^2/N_k)/2). Subtract exact calibrated
+support, sum |a_k| quantization errors and sum |a_k| conditional-mean drift
+radii. On the science and calibration confidence events, positive remaining
+gap C yields sigma >= 8 C^2/(sum |a_k| sqrt(full_duration_k))^2. The API uses
+exact outward rational bounds. Means may be arbitrary rationals, not counts/N.
+Selection must be predeclared or independent-pilot, and quotas are fixed.
+
+Given the entire analog bank, the direct contrast D equals E[encoded H|bank].
+Conditional Jensen proves convex-order improvement for every convex test
+function. For independent records Var(H)-Var(D) is exactly
+sum a_k^2 E[W_k(1-W_k)]/N_k. Threshold rejection indicators are not convex;
+universal rejection-power dominance is neither proved nor asserted. Physical
+record dependence does not spoil the conditional-expectation identity, but
+requires a valid inference sampling contract.
+
+Quantization
+Stored finite floating values are interpreted as exact digital readings.
+Each W is formed in Fraction arithmetic and rounded to the nearest grid1/M.
+The resulting empirical mean has arithmetic error <=1/(2M); no record-count
+growth. This does not bound sensor or physical-model error. Endpoint errors
+eta0,eta1 within [-1,1] imply score error <=(eta0+eta1)/2. A descriptive helper
+does not infer stationarity, Markovianity, independence or physical entropy.
+
+Frozen synthetic design
+contracts/analog_benchmark.json was written before production. Seed606251.
+20-state stationary cycles, 3000 independent endpoint pairs per lag0.1,0.2,
+4000 independent analog calibration readings, 400replicates/case. Contrast1,-1.
+Science and calibration failure allocations each.025. Sensor is grid-rounded
+cosine (denominator4096). Rates20,1 for driven;10.5,10.5 for equilibrium;
+noisy-driven uses half cosine plus independent fair noise of amplitude.5.
+Both analyses receive the identical science bank and calibration. Direct W
+versus independent B~Bern(W); same universal[0,1] Hoeffding range for both.
+No latent generator enters inference. Expm is used only to evaluate population
+means/variances for benchmarking. Exact endpoint simulation uses independent
+forward/backward Poisson increments modulo20 and uniform stationary starts.
+
+Results (all retained)
+Driven: direct380/400 vs encoded311/400. Nominal Wilson95 intervals respectively
+[.924036,.967403] and [.734209,.815512]. Contrast MSE ratio encoded/direct
+6.036742; exact-model numerical population variance ratio about5.45.
+Equilibrium: both0/400; MSE ratio5.865638.
+Noisy-driven: both0/400; MSE ratio7.056259. Its latent A=.1250244 while
+observable B=.3750244; contrast.02730266 < B/8=.04687805. More precise means
+alone do not repair the loose upper calibration.
+Each replicate uses10000 mixed-type acquisition records:6000 endpoint pairs
+and4000 singles =16000 detector readings. Science evolution time900units.
+Preparation and detector/calibration overhead are unmeasured, not asserted0.
+Independent review suggested preserving exact sufficient statistics and raw
+examples. Added those logging fields and detector-readout count, then reran
+the identical frozen seed and design. All results unchanged. This was no
+retuning or method selection. DesignSHA256:
+3e910e3f0b73ac9005db64ade1e0c6cc8e2d33d1a3db73af3f8a16a59d975b54
+Paired normal intervals are descriptive asymptotic summaries only; boundary
+[0,0] intervals do not establish equality. Primary presentation uses Wilson.
+
+Independent review
+Independent_review checked the common kernel, exact physical first/second
+moments, MGF/convex-order identities, quantization extremes and same-bank
+simulation. No blocking issue reported. Eight independent added checks pass.
+External mathematical peer review and physical validation remain absent.
+Final independent review accepted the chapter without a blocking issue and
+replayed all1200 retained-statistic certificates successfully. Branch frozen.
+
+Owned validation: nine tests pass, including exact noisy-record enumeration and
+raw-bank sufficient-statistic/certificate replay for all three control cases.
+Execution environment: Python3.12.14, NumPy2.3.5, SciPy1.17.0. All certificate
+arithmetic uses Python Fraction; numpy/scipy are simulation/evaluation tools.
+
+Reproduce from /workspace
+PYTHONPATH=discovery_program/virtual_laboratory/release/src python -m unittest discover -s discovery_program/calibrated_inference/tests -p 'test_analog*.py' -v
+PYTHONPATH=discovery_program/virtual_laboratory/release/src python discovery_program/calibrated_inference/code/analog.py
+PYTHONPATH=discovery_program/virtual_laboratory/release/src python discovery_program/calibrated_inference/code/analog_benchmark.py
+
+Scope/failure cases
+Direct scores do not repair detector memory, correlated endpoint noise,
+nonstationarity, wrong reversal convention, same-sample score selection,
+unbounded analog values or invalid independent-record calibration. Finite
+exposure needs the earlier exposure contract and full-duration accounting;
+arbitrary nonlinear exposures need not preserve calibrated m,A under S.
+Different sensor channels f1,f2 give cross moment E f1 f2, not E f1^2. Shared
+noisy single reading encodings estimate E Z^2, not A. No universal test-power
+dominance or universal entropy upper bound is asserted.

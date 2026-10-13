@@ -1,0 +1,141 @@
+PHYSICAL ATTAINABILITY: CLOSEST-PRIOR AUDIT
+2026-10-12 22:35:37 UTC
+Author of audit: attainability_literature agent; internal research, not external review.
+
+SCOPE AND METHOD
+Read the sixth-edition bibliography and prior nearest-neighbor literature audits,
+then searched specifically for entropy bounds from scalar finite-lag correlations,
+circulant-mode dissipation minimization, generator aliasing and physical hidden-model
+optimization. Primary full texts were inspected, not merely abstracts. Downloaded
+source HTML/PDF is temporary working material under /tmp/attainability_sources;
+sources.json retains URLs, exact section/equation pointers and hashes. The release
+should include metadata and our analysis, not copies of copyrighted primary papers.
+A search failing to find an identical theorem does not establish priority.
+
+1. DIRECT FINITE-LAG SCALAR CERTIFICATE
+Candidate supplied by spectral_dynamics:
+  P=P_t, H=(P+Pdagger)/2, B=(P-Pdagger)/2,
+  Delta_s=-s^2 C(0)+2s C(t)-C(2t)
+         =||Bf||_pi^2-||(H-sI)f||_pi^2.
+For a real stationary state observable with range R, conditional Pinsker and
+endpoint/path data processing give sigma >= 8 positive(Delta_s)/(R^2 t).
+The nonlinear version uses half-Jeffreys and gives sigma >= 2 z atanh(z)/t,
+z=2 sqrt(positive(Delta_s))/R. These are candidate results pending the independent
+review gate; this audit assesses prior art, not substitutes for a proof review.
+
+Nearest established ingredients and differences:
+- Reversible autocorrelation spectral positivity and complete monotonicity are
+  classical (Aldous-Fill; existing reference). The equilibrium inequality
+  C(t)^2 <= C(0) C(2t) is a familiar Cauchy-Schwarz consequence, not new.
+- Vu, Vo, Saito, Phys Rev Research6,013273(2024), new key paVu2024, Eq13:
+  |delta C_ba(t)|^2/(D_a(t)+D_b(t)) <= t sigma ||a^2+b^2||infinity
+  (also a cycle-geometric improvement). AppendixD Eqs112-117 explicitly use
+  endpoint/path KL contraction and a current-square bound. Setting a=b yields0.
+  Our proposed scalar contrast does not require measuring a second observable
+  or its cross-asymmetry: semigroup composition at t and 2t supplies a lower
+  bound on an inaccessible antisymmetric response. This is a precise access
+  difference, not a claim that the KL mechanism itself is new.
+- Ohga/Ito/Kolchinsky2023, rfOhga2023, bounds cross-correlation asymmetry by
+  cycle affinity (not stationary entropy). Shiraishi2023, rfShiraishi2023,
+  gives a short-time entropy bound for two observables; Vu2024 extends finite t.
+- Raux/Maier/Seifert2026, rfRaux2026, SecIII Eq30 bounds entropy using two-state-
+  observable cross-asymmetry at arbitrary lag. It also vanishes for one common
+  observable. Preprint status retained. It does not establish the scalar Delta
+  identity or our calibration/finite-record construction in the text inspected.
+- Variance sum rule Di Terlizzi et al2024, ciVSR2024/ciVSRProofs2024, NJP Sec3
+  Eqs11-15, already extracts dissipation from time-symmetric position fluctuations.
+  Its curvature lower bound involves second derivatives at t=0 and calibrated
+  diffusion/mobility, with force-assisted exact formulas when full access exists.
+  Therefore do not claim first scalar-correlation dissipation inference or first
+  detection of strong nonequilibrium by a time-symmetric statistic.
+- Sason2015, paSason2015, Eq17 defines J=(KL(P||Q)+KL(Q||P))/2; Proposition4,
+  Eq19 proves min_{TV=z} J=2z atanh(z). This exactly supplies the nonlinear
+  information inequality. Applying it to conditional transition rows followed by
+  convexity in squared response is the present use; the sharp divergence inequality
+  is established prior work. Existing Falasco2022 and Guntuboyina2014 are relevant.
+
+Assessment: the focused primary-source search has not located the precise direct
+single-observable, three-lag Delta_s entropy bound or its joint analog confidence
+implementation. It is reasonable to present and independently review these specific
+results as contributions of this work, with historical novelty explicitly unsettled.
+The possible significance is a computable physical lower bound linear in the
+certified quadratic-semigroup defect, removing an avoidable squaring introduced
+by a generic observation-distance bound. It is not a proof of optimal physical
+attainability and may remain loose for a given model.
+
+2. CIRCULANT DYNAMICS: WHAT IS ALREADY KNOWN
+Gu2026, rfGu2026, Phys Rev E113,064130; primary arXiv2606.05498:
+  SecII Eq10 sigma >= eta omega^2/gamma,
+  eta=||v||^2_pi/||v||^2_infinity.
+  SecV.1 Eqs33-39 explicitly covers arbitrary translation-invariant jumps on Z_n,
+  gives exact Fourier eigenvalues, and proves eta=1 for every Fourier mode.
+  SecV.2 Eqs40-43 gives the nearest-neighbor biased-ring eigenvalue formulas.
+  SecV.3 Eqs44-48 gives circle drift diffusion, exact sigma=omega^2/gamma, and
+  saturation by the increasingly fine nearest-neighbor ring.
+Thus the continuum envelope and its saturation are established, not discoveries
+of this phase. The proposed finite-n minimization over ALL displacement rates at
+one prescribed fundamental eigenpair may be an additional statement. The inspected
+Gu text does not state that sharper optimization; it must be proved rather than
+inferred from the nearest-neighbor formula.
+
+Barato-Seifert2017 rfBarato2017 bounds coherence by cyclic affinity and topology;
+the conjectured affinity/coherence statement was proved by Ohga2023. Distinguish
+this from the OBS entropy/eigenvalue conjecture, which is different and false in
+general. Kolchinsky2026 paKolchinsky2026 proves a dissipation-coherence result
+under a condition on phase-current fluctuations; weak-noise Gaussian regimes
+satisfy it. It is not an unconditional finite-state spectral theorem.
+
+Shiraishi2026 rfShiraishi2026, arXiv2609.34352, supplies an explicit small-entropy
+counterexample to sigma >= omega^2/gamma using a rare driven layer. Primary full
+text inspected, preprint status retained. Observable amplitude and stationary
+weight cannot be discarded. The scalar Delta_s keeps these factors; a frequency
+and decay inferred from an arbitrarily weak mode are not universal dissipation
+lower bounds by themselves.
+
+3. PHYSICAL REALIZATION OPTIMIZATION
+Ehrich2021 ciEhrich2021, Sec4, fits masked discrete-time Markov models and minimizes
+compatible entropy. It assumes the correct hidden-state number; the full text
+explicitly discusses the nonlinear inverse problem and difficulty beyond the small
+example. Nitzan/Ghosal/Bisker2023 ciNitzan2023, SecIII.1.2 Eqs16-18 and III.4,
+minimizes CTMC entropy over a specified topology using observed transition statistics
+and waiting-time moments. The authors explicitly leave universality of replacing
+the true hidden topology by a smaller one open. A numerical local minimum in an
+assumed model is therefore not a universal entropy lower bound. Feasible generators
+give upper bounds on the compatible-model minimum, not on the true system entropy.
+The broad optimization idea and moment hierarchy are prior art. Value here must
+come from a provably solved class, a certificate valid without that architecture,
+or a new observable/resource tradeoff.
+
+4. TIME RESOLUTION AND ALIASING
+Yue/Thunberg/Ljung/Yuan/Goncalves2021 paYue2021, IEEE TAC66,5788-5801,
+DOI10.1109/TAC.2020.3042487; primary arXiv1605.08590 SecIII and Theorem6:
+matrix-exponential inversion admits system aliases unless the generator's imaginary
+spectrum is appropriately restricted. The critical spectral strip and principal
+logarithm are standard system-identification results. Use a strict strip when
+formulating a new theorem, because branch-boundary eigenvalues require care.
+The circle example omega -> omega+2pi k/Delta makes all regular-grid transition
+kernels identical and sigma unbounded, a thermodynamic specialization of aliasing.
+Simultaneous Diophantine approximation gives arbitrarily high near-aliases for a
+finite fixed menu of lags. The latter needs the protocol length, observed record
+law and continuity estimate specified: pointwise moment similarity alone does not
+prove indistinguishability for unbounded, adaptive or continuously randomized clocks.
+The existing rfAznagulov2026 preprint uses randomized clocks and fully observed
+snapshot dynamics to address a different observation class; do not state a no-go
+that includes those protocols without an additional proof.
+
+5. JOINT ANALOG INFERENCE
+Rao-Blackwellization, bounded-variable concentration, moments of reversible
+semigroups and the law of total variance are established. A common noisy reading
+squared estimates B=E Z^2 >= A=E(E[Z|X])^2, and is not an independent latent-state
+replicate. A negative coefficient on B can turn this distinction into a conservative
+one-sided joint inequality. The contribution should be the exact calibrated
+statistical/physical interface, its assumptions and reproducible acquisition-matched
+comparison, not an invented general statistics principle or noiseless-equivalence
+claim. A noisy squared reading can destroy power; retain that failure case.
+
+PRESENTATION RECOMMENDATION
+Lead with a finite-lag entropy certificate from one bounded observable, its exact
+operator identity, and a validated analog acquisition recipe. Present the solvable
+circulant minimum as a complementary physical reference, not the universal optimum.
+Present aliasing as a theorem explaining what access must be added for upper bounds.
+Retain unresolved historical priority and actual laboratory validation explicitly.

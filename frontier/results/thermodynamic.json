@@ -1,0 +1,51 @@
+{
+  "model": "40-state stationary classical ring; rates 20 and 1; binary half-ring detector",
+  "status": "exact rational certificates for a specified model; no laboratory data",
+  "physical_contract": "ordinary even-state time reversal and local detailed balance",
+  "lags": [
+    "8/5",
+    "21/10"
+  ],
+  "same_probability_bounds": [
+    [
+      "51198946639/100000000000",
+      "511989466391/1000000000000"
+    ],
+    [
+      "736044845959/1000000000000",
+      "18401121149/25000000000"
+    ]
+  ],
+  "individual_nonnegative_correlation_bounds": [
+    0,
+    0
+  ],
+  "two_lag_rate_lower": "457039341/7812500000",
+  "two_lag_rate_lower_decimal": 0.058501035648016814,
+  "true_rate_bounds_decimal": [
+    56.91891319752583,
+    56.91891319752583
+  ],
+  "synthetic_counts": [
+    2560,
+    3680
+  ],
+  "records_per_lag": 5000,
+  "synthetic_confidence_rate_lower": 0.039302147509807414,
+  "synthetic_confidence_failure_upper": "1/20",
+  "preparation_housekeeping_frontier": {
+    "record_information_lower_decimal": 0.027056728987207776,
+    "preparation_divergence_upper": "1/100",
+    "integrated_housekeeping_lower_decimal": 0.03411345797441555,
+    "meaning": "same temporal record; initial stationarity may be replaced by the stated D(initial||stationary) budget"
+  },
+  "factor_four": "sharp for the path-divergence comparison near detailed balance; final observed bound need not be tight",
+  "limitations": [
+    "stationarity",
+    "noninvasive observation",
+    "fixed detector channel and independent readout noise",
+    "independent random lag selection",
+    "even-state physical time reversal",
+    "no claim of quantum entropy production"
+  ]
+}

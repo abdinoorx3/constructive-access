@@ -1,0 +1,16 @@
+[
+  {
+    "original_file": "detector/design/counts.py",
+    "original_sha256": "330ffdaddfec5330237349e8820ffbaed4a80babb46e3812e20066b69122347e",
+    "packaged_file": "src/constructive_access/detector/counts.py",
+    "packaged_sha256": "330ffdaddfec5330237349e8820ffbaed4a80babb46e3812e20066b69122347e",
+    "changes": []
+  },
+  {
+    "original_file": "detector/countermodels/exact_sampling.py",
+    "original_sha256": "d8939f2c50475d25aec4de4b945ca8e561a495a6c1da2ff8a9a68b70d3501cc1",
+    "packaged_file": "src/constructive_access/detector/exact_sampling.py",
+    "packaged_sha256": "d8939f2c50475d25aec4de4b945ca8e561a495a6c1da2ff8a9a68b70d3501cc1",
+    "changes": []
+  }
+]

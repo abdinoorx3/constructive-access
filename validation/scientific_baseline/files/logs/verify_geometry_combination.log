@@ -1,0 +1,140 @@
+{
+  "driven": {
+    "methods": {
+      "combined": {
+        "maximum_rate_lower": 3.2165709769347264,
+        "mean_rate_lower": 2.8876453933012542,
+        "minimum_rate_lower": 2.6234285850238916,
+        "over_truth": 0,
+        "positive_certificates": 400
+      },
+      "endpoint": {
+        "maximum_rate_lower": 0.32102580539847875,
+        "mean_rate_lower": 0.30055009875591077,
+        "minimum_rate_lower": 0.28510615711024495,
+        "over_truth": 0,
+        "positive_certificates": 400
+      },
+      "geometry": {
+        "maximum_rate_lower": 3.2165709769347264,
+        "mean_rate_lower": 2.8876453933012542,
+        "minimum_rate_lower": 2.6234285850238916,
+        "over_truth": 0,
+        "positive_certificates": 400
+      },
+      "original_endpoint": {
+        "maximum_rate_lower": 0.32443795012529175,
+        "mean_rate_lower": 0.303963868202308,
+        "minimum_rate_lower": 0.2885096229662175,
+        "over_truth": 0,
+        "positive_certificates": 400
+      },
+      "original_geometry": {
+        "maximum_rate_lower": 3.311143116439183,
+        "mean_rate_lower": 2.9823292086556505,
+        "minimum_rate_lower": 2.7178960680271955,
+        "over_truth": 0,
+        "positive_certificates": 400
+      }
+    },
+    "records": 400,
+    "true_entropy_rate": 9.0,
+    "winners": {
+      "endpoint": 0,
+      "geometry": 400,
+      "tie": 0
+    }
+  },
+  "equilibrium": {
+    "methods": {
+      "combined": {
+        "maximum_rate_lower": 0.0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 0
+      },
+      "endpoint": {
+        "maximum_rate_lower": 0.0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 0
+      },
+      "geometry": {
+        "maximum_rate_lower": 0.0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 0
+      },
+      "original_endpoint": {
+        "maximum_rate_lower": 0.0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 0
+      },
+      "original_geometry": {
+        "maximum_rate_lower": 0.0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 0
+      }
+    },
+    "records": 400,
+    "true_entropy_rate": 0.0,
+    "winners": {
+      "endpoint": 0,
+      "geometry": 0,
+      "tie": 400
+    }
+  },
+  "weak_driven": {
+    "methods": {
+      "combined": {
+        "maximum_rate_lower": 0.023308804854906377,
+        "mean_rate_lower": 0.00880994438584348,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 383
+      },
+      "endpoint": {
+        "maximum_rate_lower": 0.023308804854906377,
+        "mean_rate_lower": 0.00880994438584348,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 383
+      },
+      "geometry": {
+        "maximum_rate_lower": 0.0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 0
+      },
+      "original_endpoint": {
+        "maximum_rate_lower": 0.02654462672892366,
+        "mean_rate_lower": 0.011962951839865964,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 396
+      },
+      "original_geometry": {
+        "maximum_rate_lower": 0.0,
+        "mean_rate_lower": 0.0,
+        "minimum_rate_lower": 0.0,
+        "over_truth": 0,
+        "positive_certificates": 0
+      }
+    },
+    "records": 400,
+    "true_entropy_rate": 1.0,
+    "winners": {
+      "endpoint": 383,
+      "geometry": 0,
+      "tie": 17
+    }
+  }
+}

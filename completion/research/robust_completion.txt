@@ -1,0 +1,311 @@
+ROBUST ACCESS COMPLETION AND A CALIBRATION–ENERGY COMPLEXITY BOUNDARY
+Abdinoor / 2D Labs / 12 October 2026
+Agent checkpoint: 2026-10-12 18:25 UTC
+
+Status. Mathematical model results and exact computations. No physical sensor
+measurements. No historical-priority claim. LP minimax duality, max-flow/min-cut,
+Holder allocation, and bicriteria-cut hardness are established ingredients.
+The proposed contribution is the explicit, end-to-end connection between a
+hidden-current access target, a calibrated error contract, optimal acquisition
+energy, and the tractability change caused by calibration floors. The closest
+prior-art comparison must accompany any originality claim.
+
+1. Target recovery with conservation and shared calibration nuisance
+
+Let j in R^m obey Bj=0. B is a known real matrix; an incidence matrix is the
+physical network case. Observations are
+
+    y = H j + A eta + e,       |e_i| <= epsilon_i,
+
+where eta in R^k is an unknown, fixed nuisance vector and epsilon >=0 is known.
+The target is b^T j. The parameter space is the ENTIRE conserved-current linear
+space, eta is unrestricted, and the uncertainty set is the full Cartesian box.
+These scope assumptions matter. Bounds on traffic, prior parameter bounds,
+correlated errors, nonlinear responses and stochastic loss change the problem.
+
+Theorem 1 (standard linear minimax geometry with an explicit nuisance contract).
+The global deterministic minimax absolute error over all estimators is
+
+ R = min_{w,phi} sum_i epsilon_i |w_i|
+       subject to H^T w + B^T phi = b,  A^T w=0,
+   = max_{h,z} b^T h
+       subject to Bh=0, |Hh+Az| <= epsilon.
+
+If the primal identity has no solution, R=+infinity. Otherwise both finite LP
+values are attained, including zero error radii and redundant constraints.
+An optimal linear estimator is w^T y. Nonlinearity cannot improve the stated
+global worst-case radius.
+
+Proof. The target identity cancels j's conservation constraints and all fixed
+nuisance, so |w^T y-b^Tj|=|w^T e| <= sum epsilon_i |w_i|. For any dual-feasible
+(h,z), the two mechanisms (j,eta)=(h,z) and (-h,-z), with errors -(Hh+Az) and
+Hh+Az, generate the same record y=0 and targets +/- b^T h. Every estimator has
+maximum error at least |b^T h|. LP duality gives equality. If the target identity
+is infeasible, finite-dimensional annihilator duality supplies Bh=0,
+Hh+Az=0 and b^T h !=0; scaling yields unbounded ambiguity. Existence of finite
+optima follows from finite-dimensional LP attainment when its value is finite.
+Equivalently append exact zero observations Bj=0 and use ordinary linear
+optimal recovery on the augmented parameter (j,eta). QED.
+
+An exact independent certificate consists of (w,phi,h,z) with the displayed
+identities, feasible error bounds and matching primal/dual values. The checker
+does not trust or rerun the optimizer. The synthesis implementation enumerates
+small rational LP supports and vertices; it has no large-system scaling claim.
+
+Example. On an oriented triangle conservation gives j1=j2=j3=J. Two differential
+probes report y1=J+eta+e1 and y2=-J+eta+e2. Then (y1-y2)/2 has exact minimax error
+(epsilon1+epsilon2)/2. At errors 1/10 and 1/5 this is 3/20. Two same-orientation
+probes y1=J+eta+e1 and y2=J+eta+e2 leave J unidentifiable. Replacing the one shared
+eta with two independently unknown offsets also restores ambiguity. Repetition
+does not cancel a fixed arbitrary bias. The sign inversion must be a physically
+justified probe response; changing the sign of an already recorded number also
+changes the bias sign and creates no new information.
+
+Physical realization of lower bounds. For a connected undirected support with
+bidirectional channels, choose any positive stationary distribution pi. For any
+finite circulation j choose a symmetric traffic t_e>|j_e| and channel rates
+Q^e_uv=(t_e+j_e)/(2 pi_u), Q^e_vu=(t_e-j_e)/(2 pi_v). Conservation makes pi
+stationary, all channels are positive, and the stationary channel current is
+j_e. The least-favorable pair +/-h can use the SAME t>|h| and pi. Thus the
+conserved-current ambiguity is not an artifact of allowing physically
+impossible negative rates. This does not establish that a fixed bounded-rate
+device can realize every circulation or every shared-nuisance response model.
+
+2. Exact error for one hidden edge
+
+The graph agent proves this result in graph_theory.txt and graph_access.py.
+Let e0=u->v be a target edge of a finite undirected physical graph. Reference
+orientations are bookkeeping; currents may have either sign. Remove e0. Some
+remaining edge currents are observed with a full jointly allowed error box
+|e_e|<=epsilon_e; this is not a probabilistic independence assumption.
+Other edges are unobserved. All real circulations Bj=0 are allowed.
+
+Then R equals the minimum u-v cut sum of epsilon_e, where an unobserved edge
+has infinite capacity. A finite cut gives a signed sum estimator by conservation.
+A matching maximum flow in the remaining graph, closed through e0, gives the
+least-favorable circulation. An unobserved u-v path gives unbounded ambiguity.
+If e0 is a bridge its stationary current is already zero and R=0.
+
+This exact radius uses a DIFFERENT capacity from an installation-cost cut.
+The same combinatorial structure has several interpretations, but cost, error
+and physical energy must not be conflated.
+
+3. A calibrated acquisition-energy law
+
+Assume each available edge sensor has a DECLARED and justified joint error
+contract
+
+    epsilon_e(E_e) = delta_e + sqrt(a_e / E_e)
+                    = delta_e + sqrt(q_e^3 / E_e),
+    q_e = a_e^(1/3) >0, delta_e >=0, E_e>0.
+
+E is acquisition energy in consistently declared units. E=0 means no reading,
+hence infinite uncertainty. The idealized allocation is continuous. A real
+experiment may require integer records, minimum pulse durations or power
+limits, all of which alter this exact optimum. The law is an input, not a
+universal detector law derived from thermodynamics. It can encode a conservative
+finite-confidence envelope at a fixed declared confidence level. If that JOINT
+envelope holds with probability at least 1-alpha, the resulting accuracy holds
+with the same probability. No independence claim is needed for this implication.
+Constructing that envelope may itself require confidence allocation and
+calibration; a separate marginal confidence for each sensor is insufficient.
+
+For a fixed cut C define A_C=sum_{e in C} q_e and D_C=sum_{e in C} delta_e. With
+desired target-current error tau>0, the optimal acquisition energy on C is
+
+    E_C^* = A_C^3 / (tau-D_C)^2,            tau>D_C,
+
+with E_C^*=infinity for tau<=D_C and nonempty C. The optimal allocations are
+
+    E_e = A_C^2 q_e / (tau-D_C)^2,
+    epsilon_e = delta_e + (tau-D_C) q_e / A_C.
+
+The empty cut has energy zero.
+
+Proof. Let x_e=sqrt(q_e^3/E_e)>0. The constraint is sum_C x_e<=tau-D_C. Holder
+gives
+
+    sum_C q_e
+    = sum_C (q_e^3/x_e^2)^(1/3) x_e^(2/3)
+    <= (sum_C E_e)^(1/3) (sum_C x_e)^(2/3).
+
+Rearranging yields the lower bound; the displayed allocation attains it. QED.
+
+For fixed, nonadaptive resource allocations, the global optimum, allowing
+arbitrary sensor subsets and nonlinear estimators,
+is min_C E_C^*. Indeed every successful energy allocation has some finite cut
+whose summed error is <=tau by the exact minimax cut theorem. Its total energy
+is at least the fixed-cut optimum for that cut. Conversely a cut estimator with
+the displayed allocation attains E_C^*. This is exact RELATIVE TO the full
+adversarial uncertainty contract; it is not a universal physical energy limit.
+
+Adaptive acquisition with repeated measurements and history-dependent budgets
+requires a sequential error and resource contract and is outside this theorem.
+
+4. Ideal calibration gives a polynomial design and a compact certificate
+
+If delta_e=0 for every sensor, then
+
+    E^* = [ minimum u-v cut sum_C q_e ]^3 / tau^2.
+
+Thus one max-flow/min-cut computation jointly chooses which edge sensors to
+use and their precision/energy allocations. Available sensors use capacity q_e;
+unavailable sensors have infinite capacity. For rational q and tau the cut,
+dual flow, allocations and energy are all rational and can be checked exactly.
+The inputs q can equivalently represent the restricted rational sensor family
+a=q^3. General algebraic q require algebraic or certified interval arithmetic;
+the exact implementation does not silently approximate cube roots.
+
+The independent certificate checker verifies graph conservation, capacity
+bounds, cut/flow equality, the energy/error contract and equality in the energy
+lower bound. It also binds the external q, tau and chosen graph to the claim.
+
+5. Calibration floors create an optimization complexity boundary
+
+Decision problem FLOOR-ENERGY-CUT. Given a finite graph and a target edge,
+positive rational q_e, nonnegative rational delta_e on available sensor edges,
+accuracy tau>0 and budget L>=0, does a sensor/energy allocation attain global
+worst-case target error <=tau at total acquisition energy <=L under the declared
+contract? All inputs are binary encoded. There are no setup costs.
+
+Theorem 2. FLOOR-ENERGY-CUT is NP-complete. NP-hardness already holds when all
+sensors are available, all calibration floors are positive, all cuts are
+feasible at finite energy, and the graph is a direct target edge plus n parallel
+two-edge paths with distinct internal vertices. This is a simple graph.
+
+Proof of membership. A cut is a polynomial-size witness. Compute rational A_C,
+D_C and check tau>D_C and A_C^3 <= L(tau-D_C)^2. Its optimal allocation is rational
+and has polynomial encoding length. An empty cut is handled separately.
+
+Proof of hardness. Reduce PARTITION on positive integers v_1,...,v_n with total
+V. Set b=V. For each path s--i--t assign its first edge parameters
+
+       (q,delta)=(b,b+v_i),
+
+and its second edge (q,delta)=(b+v_i,b). A separating cut chooses exactly one
+edge on each path. If S indexes its second-edge choices, then
+
+       A = nb + sum_{i in S} v_i,
+       D = nb + V - sum_{i in S} v_i,
+       A+D=K=2nb+V.
+
+Define A_*=nb+V/2, tau=K-A_*/3 and L=9A_*/4. All numbers have polynomial bit
+length. Every cut has tau-D=A-A_*/3>0, because A>=nV>A_*/3 for n>=1. Its energy is
+
+       f(A)=A^3/(A-A_*/3)^2.
+
+For x>A_*/3, differentiating gives sign(f'(x))=sign(x-A_*). Hence f has its
+unique global minimum f(A_*)=9A_*/4=L. Equivalently, avoiding calculus,
+
+       4 x^3 - 9 A_* (x-A_*/3)^2
+       = (x-A_*)^2 (4x-A_*),
+
+which is nonnegative in the domain, with equality iff x=A_*.
+
+There is an energy-feasible cut with budget L iff A=A_*, iff the original
+integers have an equal partition. QED.
+
+This proof establishes NP-hardness by a PARTITION reduction. It does NOT establish
+strong NP-hardness, nor exclude useful approximation, pseudopolynomial methods,
+special graph classes, or practical mixed-integer optimization. It also does
+not imply that experimental access itself is uncomputable. The exact general
+algorithm may enumerate cuts, and every claimed candidate design remains
+checkable. The zero-floor and floor-aware results therefore distinguish an
+algebraically exact certificate from an efficient search for its optimum.
+
+Closely related background. Bicriteria budgeted terminal-cut optimization is
+already NP-hard. Aissi and Mahjoub, 'On the minimum s-t cut problem with budget
+constraints', primary manuscript https://www.lamsade.dauphine.fr/~mahjoub/Papers/
+Paper-Aissi-Mahjoub-2023.pdf, discusses the known complexity and references the
+earlier literature. The present reduction is included because the nonlinear
+calibrated energy objective is the one actually used here. It must not be sold
+as discovering the general hardness of multiobjective cuts. Global-cut and
+specified-terminal-cut problems have different complexity variants; do not
+substitute claims between them.
+
+Floor threshold. Let rho be the minimum cut sum_C delta_e, with unavailable
+sensors given infinite capacity. For a non-bridge
+target and strictly positive a_e, finite-energy target accuracy tau is possible
+iff tau>rho. At tau=rho finite energy cannot attain the floor, although the
+infimum error can approach rho as energy diverges. A known bridge target is
+the zero-energy exception. A q-minimum cut need not be the energy-minimum cut
+when delta is nonzero.
+
+6. Checkable global bounds when exact floor-aware design is hard
+
+For any chosen rational t>0, define a supporting cut capacity
+
+    c_e(t)=3 t^2 q_e + 2 t^3 delta_e.
+
+Let W(t) be the minimum u-v cut sum of these capacities. Then
+
+    E^* >= max{0, W(t)-2 tau t^3}.
+
+Proof. For each feasible cut write s=tau-D>0 and x=A/s. Its energy obeys
+
+    A^3/s^2 - [3 t^2 A - 2 t^3 s]
+    = s (x-t)^2 (x+2t) >=0.
+
+Thus the displayed expression is a valid lower bound for each feasible cut.
+Taking the minimum over ALL cuts on its right-hand side remains a valid lower
+bound, even when the minimum cut itself has D>=tau. QED.
+
+The mincut carries an independent flow certificate. If its cut also satisfies
+D<tau, the fixed-cut allocation supplies a feasible upper bound. Equality is
+certified whenever the two values match; in particular it holds if t=A/(tau-D)
+for that minimum cut. Otherwise the gap is reported. Repeating over any supplied
+finite set of t values improves the maximum lower bound and minimum available
+upper bound. This is a supporting-hyperplane/Lagrangian bound, an established
+optimization method, not a claimed general exact solver for an NP-complete
+problem. Its usefulness here is an inexpensive, independently checkable global
+performance bracket tied to the physical error contract.
+
+The PARTITION construction also supplies a strict-gap negative control. At
+t=3/2 the q and delta weights coincide, and the lower bound is exactly L for
+every instance. If the integer instance has no equal partition, every real cut
+has energy strictly above L. Thus this lower-bound family need not eliminate
+the combinatorial obstruction. Example [1,2,4] is tested explicitly.
+
+7. Matched-accuracy example and negative controls
+
+Graph: target s--t; alternative path starts with one edge s--a, then splits into
+two parallel physical channels a--t. All currents are conserved, target cannot
+be directly read. Let q(single)=4, q(pair1)=1, q(pair2)=2 and tau=1/10.
+
+With zero floors:
+  Fewest-sensor choice: single edge, energy 4^3/(1/10)^2 = 6400.
+  Joint optimal design: pair, energy 3^3/(1/10)^2 = 2700.
+  Optimal pair energies: 900,1800; errors 1/30,1/15.
+  Equal pair precision 1/20 each: energy 400+3200 = 3600.
+
+Now retain the same q but give floors delta(single)=0, delta(pair1)=3/50,
+delta(pair2)=1/50. The pair requires energy 3^3/(1/50)^2=67500. The global optimum
+switches to the single edge at 6400. This is a constructed, exactly solvable
+comparison at the same robust target accuracy, not a measured detector speedup.
+At support parameter t=40, a single supporting mincut certifies matching global
+lower and upper energies of 6400 despite the nonzero floors. This is saved as
+an independently checkable certificate.
+
+It shows why minimizing measurement count, selecting sensors without allocating
+precision, and ignoring calibration floors solve different design problems.
+
+8. Reproduction and current review status
+
+Commands:
+  python code/robust_completion.py
+  python -m unittest discover -s tests -p test_robust_completion.py -v
+
+At the updated checkpoint, 14 tests pass. They cover shared versus independent bias,
+same-orientation failure, exact errors, zero targets, malformed numeric inputs,
+forged primal/dual and graph certificates, bridge/unavailable sensor cases,
+floor-boundary infeasibility, calibration-driven sensor choice reversal,
+24 seeded PARTITION instances versus independent subset sums and graph-cut
+enumeration, 12 seeded generic-LP/mincut comparisons, and 80 supporting energy
+brackets against full cut enumeration. Seeds are 49170, 191 and 5521.
+Six illustrative reduction instances and all reported allocations are saved in
+results/robust_completion.json. Main arithmetic is fractions.Fraction. The
+scripts import the sibling graph_access module only for graph certificates.
+
+These are producing-agent checks. Independent internal review has been requested
+from the root agent; acceptance and any corrections belong in the root ledger.
+External peer review and laboratory calibration remain absent.

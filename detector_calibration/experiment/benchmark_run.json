@@ -1,0 +1,8 @@
+{
+  "completed_at_utc": "2026-10-13T01:48:01+00:00",
+  "contract_sha256": "f6d7583c18b7df76e5b9cbb865586511f2aa3e2408df9c1adc24d50f6aa9412d",
+  "frozen_at_utc": "2026-10-13T01:45:27+00:00",
+  "note": "First-generation wall-clock provenance; later numerical reproductions retain this original record.",
+  "started_at_utc": "2026-10-13T01:45:40+00:00",
+  "workers": 4
+}

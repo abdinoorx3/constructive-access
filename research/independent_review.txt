@@ -1,0 +1,190 @@
+INDEPENDENT INTERNAL REVIEW — UNIFIED CONSTRUCTIVE ACCESS
+Abdinoor / 2D Labs / 12 October 2026
+
+Status: accepted within the explicit model scope. The final review binds 30
+source files in results/independent_review.json. This file records an internal mathematical and
+software review by a separately assigned agent. It is not external peer review,
+empirical validation, a novelty determination, or an endorsement by a laboratory.
+
+Initial integration audit
+=========================
+
+The correct common object is a scientific target on a declared model family,
+together with its accessible transcript laws. A finite linear representation is
+a computational realization of that object, not the definition of all physical
+systems. The following distinctions must survive the integration:
+
+1. An exact equality certificate is relative to the full declared preparation,
+   operation, outcome and stopping rules. It does not cover omitted controls,
+   unmodeled memory, arbitrary quantum ancillas, or continuous control values.
+2. A minimum-charge nonzero word can have vanishingly small signal. The word's
+   declared additive optimum does not certify the least total sample count,
+   least finite-error experimental charge, or least apparatus energy.
+3. Target identification is weaker than mechanism reconstruction. Two retained
+   models may justify the same target even when their internal states differ.
+4. Full conditional prediction envelopes are required for sequential testing.
+   One-time stationary marginals are insufficient under dependence.
+5. A fixed nuisance parameter is not redrawn each record. Convexifying one-record
+   model families can change the experiment and erase usable repeated-record
+   information.
+6. No finite-model adequacy calculation establishes that nature belongs to the
+   family. Invisible extra subsystems can change hidden current or dissipation
+   while preserving every accessible record law.
+7. Physical energy is an additional model and calibration contract. It cannot
+   be derived from an arbitrary action count or merely from sensor-law accuracy.
+
+Recommended integration statements
+==================================
+
+Target projection: Let C_t be retained model sets and g the target. If the true
+model remains in C_t simultaneously with probability at least 1-alpha-delta,
+then g(C_t) simultaneously covers the true target with that probability. A
+decision correct for every target in g(C_t) inherits the same guarantee. This is
+the standard confidence-set projection principle. It is useful for unifying
+categorical target labels, scalar target intervals, and cautious decisions.
+Empty sets require rejection/abstention, never a vacuous conclusion.
+
+Two-point resource lower bound: For two targets g_0,g_1 and a common experiment
+with record laws P_0,P_1, every real estimator T satisfies
+
+  max_h E_h |T-g_h| >= |g_0-g_1| (1-TV(P_0,P_1))/2.
+
+To prove it, integrate |T-g_0|+|T-g_1| >= |g_0-g_1| against the overlap measure
+min(dP_0,dP_1), whose mass is 1-TV. Estimator randomization is a common channel
+and does not increase total variation. If D_C is the supremal pairwise TV over
+the same declared resource-feasible policy class, replace TV by D_C and then
+take the supremum over model pairs. No minimax interchange or achievability is
+asserted. Infinite invisible target diameter excludes a finite uniform absolute
+error bound, by taking arbitrarily separated finite pairs. This is established
+two-point decision theory, not a new physical law.
+
+Resource composition: A separately calibrated acquisition bound can be joined
+to a target error guarantee by a union bound. A shared joint calibration failure
+probability must be counted once; independence between inference and energy is
+unnecessary. None of these algebraic implications verifies the physical premise.
+
+Initial adversarial checks
+==========================
+
+Command:
+  PYTHONPATH=src python -m unittest discover -s tests -p test_independent.py -v
+
+Eleven tests passed at the initial checkpoint. Expected values use direct
+rational calculations rather than producing routines. The tests include:
+
+- invalid floating, nonstochastic, incomplete-resource and wrong-scope inputs;
+- duplicate JSON-key rejection and detached immutable contract data;
+- a true contrast of 1/50 whose least action charge is one;
+- rejection of a genuine stronger witness with contrast -3/5 and charge three
+  falsely promoted to minimum charge;
+- model-bound verification and checking with generator/coordinate solver disabled;
+- fixed-nuisance two-record agreement 41/50 versus redrawn-nuisance 1/2;
+- target commitment with two unresolved same-target mechanisms;
+- false rejection probability one when a repeated latent bit's stationary
+  marginal is incorrectly supplied as a full conditional prediction;
+- an irreversible hidden three-state ring with current 1/6 and exactly the same
+  binary record law 2^(-n) as a one-state independent fair sensor.
+
+The last two are explicit failure controls: they demonstrate why premise
+validation and model-family limits must remain visible in the final interface.
+
+Substantive chapter review
+==========================
+
+Read the complete foundations, finite_access, precision_design, adequacy_energy,
+continuous_thermodynamics, applications, workflow, entry, toolkit, and
+research_map chapters, together with reference front matter. The reviewed chain
+is coherent: target equivalence, finite exact access, robust precision, cautious
+model retention, physical time and energy, and application-specific transfer.
+
+Two theorem premises were made explicit following review:
+
+1. Finite-horizon Bellman design requires strictly positive prior weights for
+   every candidate when grammar feasibility must hold under every candidate.
+   Otherwise a zero-prior candidate can have an ignored positive-probability
+   physical branch. The revised theorem states the required positivity.
+2. The finite-family decision theorem takes cross-target coverage by the
+   selected experiment suite as a premise. A finite candidate family alone does
+   not imply coverage. The revised theorem states this explicitly.
+
+Additional corrections and interface hardening:
+
+- Suite verification now binds the caller's expected failure budget, instead of
+  silently accepting a replacement budget from the report. The new
+  expected_delta argument is checked by an independent regression test.
+- Robust repeated-record assumptions explicitly condition on pre-acquisition
+  calibration information, with no reuse of classification records to select
+  or calibrate the event. This avoids an ambiguous conditional-good-event claim.
+- The continuous-time rational approximation explicitly requires a rational
+  uniformization rate. A stray control character in a stationary-current
+  display and a missing LaTeX backslash in a trace were corrected.
+- The unrelated-cwd CLI test initially inherited a relative source PYTHONPATH.
+  It now resolves that path before changing cwd. This was a test harness issue;
+  standalone wheel installation is a separate clean-release check.
+
+Reviewed proofs include the set-theoretic factorization and compatible-target
+radius; finite rank closure; cost-priority search with zero-cost operations;
+filtered optimality certificate; action-language lift; strict-cutpoint reduction;
+two-point resource lower bound; row-space and full-positive-orthant/full-box
+minimax duality; calibrated score testing; positive-prior Bellman recurrence;
+predictable betting and stopped-before-invalid calibration; actual-intensity
+counting tail; and the joint target/resource composition. No remaining
+substantive mathematical correction was identified within these stated scopes.
+
+The physical review checks the interface cycle-capacity quotient, survival
+endpoint likelihood, singleton renewal obstruction, switched-current sign,
+hidden-gate coefficient derivation, finite-lag remainder, and the model-specific
+KL/free-energy identity. The applications preserve the distinction between
+aggregate-generator equality and detector-hidden differences, between quantum
+bias and coherent errors, and between a fixed nuisance and independently
+redrawn noise. These are model-level results, not claims of measured devices.
+
+Final independent test coverage
+==============================
+
+The independent suite now contains 24 tests. In addition to the eleven initial
+checks it exercises:
+
+- public analyze and verify_report, plus CLI execution from unrelated cwd;
+- a direct binary-law total variation of 1/2 and Bayes error 1/4;
+- calibrated gap 12/25, threshold 1/2, and 21 sufficient records, with a forged
+  repetition count rejected;
+- calibration gap collapse, calibration failure exhausting the error budget,
+  and withdrawal of repeated-record guarantees when iid preparation is absent;
+- exact one-state versus three-state equivalence with different hidden dynamics;
+- a four-model suite that reports target A while retaining mechanisms a1 and a2
+  after 192 records, and abstains when all four candidates fail;
+- rejection of a silently relaxed suite failure budget;
+- target identification despite incomplete parameter recovery;
+- an exact primal-dual minimax value 1/75, including independent feasibility
+  calculations and rejection of forged precision or substituted error bounds;
+- a counting cap of 189 at compensator bound 150 and failure probability 1/100,
+  with an explicit gross-energy calculation 189*(3/2)+7 = 581/2;
+- refusal to treat a signed linear representation with a negative event weight
+  as a normalized classical experiment.
+
+Two direct physical matrix checks do not import prior producing modules:
+
+1. For a driven triangle at F=1/3 and a reversible controller with stationary
+   law (1/3,2/3), direct six-state generator products give coefficients +2/81
+   and -2/81 at lag powers (1,3) and (3,1), while all lower antisymmetric
+   coefficients vanish. This independently checks the current/Dirichlet formula
+   away from equal controller weights.
+2. Direct construction of the eight-dimensional Lindblad action verifies the
+   stated symbolic stationary density matrix for all symbolic delta, and the
+   XX coefficients (1/2,0,-1/4+4*delta^2/25) and ZXZ coefficients
+   (0,0,1/2-16*delta^2/25). These checks use independent Pauli and jump-operator
+   products, not numerical fitting or a producing physical script.
+
+Command last run successfully with relative source path:
+  cd /workspace
+  PYTHONPATH=discovery_program/unified/src python -m unittest discover \
+    -s discovery_program/unified/tests -p test_independent.py -v
+
+All 24 tests passed again after integration freeze. The machine-readable review
+binds this assessment to 30 exact source hashes; no source changed during that
+final test run. A final Bellman-display transcription typo was corrected before
+the hashes were taken. Full package
+release checks, typography, clean installation and archive hashes are root's
+separate verification responsibilities. There is no external peer-review or
+new physical-measurement evidence in this review.

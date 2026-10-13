@@ -1,0 +1,143 @@
+\section{Relation to existing thermodynamic inference}
+\label{sec:pa-prior-art}
+
+The central practical question is how much dissipation is forced by a specified
+observation law. Optimizing over hidden models compatible with observations is
+an established approach. Ehrich constructs compatible masked Markov models and
+minimizes their entropy production \cite{ciEhrich2021}; the inversion assumes
+the correct hidden-state number. Nitzan, Ghosal and Bisker formulate an
+optimization over a specified CTMC topology using observed transitions and
+waiting-time moments \cite{ciNitzan2023}. Their moment hierarchy progressively
+tightens the compatible-model bound. Their numerical experiments with a
+smaller hidden topology do not establish a universal reduction to that topology;
+the paper explicitly leaves that question open.
+
+This distinction matters for interpreting computations. A feasible physical
+model provides an upper bound on the \emph{minimum compatible dissipation}.
+It need not bound the dissipation of the actual system from above. Conversely,
+a local numerical minimum in a selected architecture need not provide a
+valid lower bound over a larger physical model class. The direct correlation
+certificate developed here and the solvable circulant optimization serve
+different purposes: the former is valid without a specified hidden graph,
+whereas the latter resolves an explicitly restricted realization problem.
+
+\subsection{The particular role of a scalar finite-lag defect}
+
+Reversible autocorrelation functions have positive spectral measures, and their
+log-convexity follows from Cauchy--Schwarz. Those facts predate this work.
+Thermodynamic information in correlation functions is also well established.
+Ohga, Ito and Kolchinsky relate cross-correlation asymmetry to cycle affinity
+\cite{rfOhga2023}. Shiraishi bounds fluctuation oscillations by entropy
+production \cite{rfShiraishi2023}. Van Vu, Vo and Saito extend entropy and
+affinity bounds to finite-time cross-correlations \cite{paVu2024}.
+In particular, their equation~(13) bounds a squared cross-asymmetry divided by
+autocorrelation decay. Their Appendix~D, equations~(112)--(117), uses the
+contraction of path relative entropy to the joint endpoint law. Raux, Maier
+and Seifert give another arbitrary-lag bound for two-observable
+cross-asymmetry \cite{rfRaux2026}; the consulted version is a preprint.
+
+With one common observable, the numerator of each of these two-observable
+asymmetry tests vanishes. The finite-lag construction here instead uses
+\[
+ \Delta_s=-s^2 C(0)+2sC(t)-C(2t).
+\]
+Writing the stationary transition operator as $P_t=H_t+B_t$, with $H_t$
+self-adjoint and $B_t$ skew-adjoint, gives
+\[
+ \Delta_s=\|B_t f\|_\pi^2-\|(H_t-sI)f\|_\pi^2.
+\]
+Thus a quantity available from one scalar autocorrelation bounds an
+unobserved antisymmetric response from below. The subsequent conversion to
+dissipation uses established relative-entropy contraction and bounded-response
+inequalities. The contribution to be assessed is this particular finite-lag
+combination and its calibrated confidence procedure. It is neither a new
+data-processing inequality nor the first use of correlations for thermodynamic
+inference.
+
+The sharper nonlinear conversion also has an established statistical ingredient.
+With the convention
+$J(P,Q)=[D(P\Vert Q)+D(Q\Vert P)]/2$, Sason's Proposition~4 states
+\[
+ \min_{\operatorname{TV}(P,Q)=z}J(P,Q)=2z\operatorname{atanh}z
+ \qquad (0\leq z<1)
+\]
+\cite{paSason2015}. Applying this inequality to conditional transition laws,
+then averaging with the appropriate convexity argument, is distinct from
+claiming the divergence inequality itself. General sharp-divergence and
+thermodynamic-response results provide further context
+\cite{ciGuntuboyina2014,ciFalasco2022}.
+
+Time-symmetric scalar fluctuations already support other entropy estimators.
+The variance sum rule and its proofs derive a lower bound using the initial
+curvature of displacement variance in overdamped Langevin dynamics, with
+calibrated diffusion coefficients \cite{ciVSR2024,ciVSRProofs2024}. Full
+force-assisted measurements can yield an equality. The present bounded
+observable uses specified nonzero lags and a stationary Markov-semigroup
+identity; it does not require estimating a derivative at zero. These are
+different access assumptions, and neither method should be described as
+universally stronger without a comparison under matched access and errors.
+
+\subsection{Circulant optima and the limits of a spectral interpretation}
+
+The thermodynamic cost of coherent oscillations has an extensive literature.
+The affinity-and-topology constraint of Barato and Seifert
+\cite{rfBarato2017} and its proof by Ohga and coworkers
+\cite{rfOhga2023} must be distinguished from an entropy-production bound
+using a relaxation eigenvalue alone. Gu proves
+\[
+ \sigma\geq \eta\,\frac{\omega^2}{\gamma},
+ \qquad
+ \eta=\frac{\|v\|_{2,\pi}^2}{\|v\|_\infty^2},
+\]
+for an oscillatory eigenmode $v$ with eigenvalue $-\gamma+i\omega$
+\cite{rfGu2026}. In that paper, Section~V explicitly treats arbitrary
+translation-invariant jump processes on a ring, establishes $\eta=1$ for
+Fourier modes, and gives the nearest-neighbor ring formulas. The drift-diffusion
+limit on a circle attains $\sigma=\omega^2/\gamma$ there. That continuum
+envelope and its saturation are established results. The finite-size
+minimization over all allowed circulant displacements is a more specific
+optimization problem, whose proof is supplied in this work.
+
+Kolchinsky derives a dissipation-coherence inequality from a condition on
+phase-current fluctuations and proves it in the weak-noise Gaussian regime,
+with some extensions beyond Gaussian fluctuations \cite{paKolchinsky2026}.
+This is not an unconditional eigenvalue-only theorem for arbitrary finite
+Markov networks. Shiraishi's counterexample retains a finite oscillatory
+eigenvalue while making its driven part increasingly rare, with stationary
+entropy production tending to zero \cite{rfShiraishi2026}. The consulted
+counterexample is an unrefereed preprint. It illustrates why observable
+amplitude and stationary population cannot be removed from a universal
+inference claim. The scalar $\Delta_s$ preserves those weights.
+
+\subsection{Temporal access, uncertainty and implementation}
+
+Sampling a continuous-time system at a fixed interval can leave its generator
+ambiguous. System aliasing and the associated matrix-logarithm branches are
+established identification problems \cite{paYue2021}. The circle diffusion
+construction makes their thermodynamic consequence explicit: different drifts
+can produce the same sampled transition kernel while dissipating very
+different amounts. A finite set of irregular lags requires a separate
+finite-precision analysis. Approximate aliases from simultaneous Diophantine
+approximation concern a fixed finite timing menu and a bounded record length;
+they do not automatically establish an impossibility result for continuously
+randomized timing, unlimited records or every adaptive experiment. Randomized
+clocks under detector deadtime are studied in the recent spectral-access
+preprint \cite{rfAznagulov2026}.
+
+The analog acquisition scheme combines standard conditional-variance
+identities, bounded-observation concentration and direct use of the measured
+record. Its value is an explicit interface between the detector contract,
+calibration uncertainty and a physical lower bound. A squared noisy reading
+has second moment $B=\mathbb{E}Z^2$, while the latent conditional mean has
+$A=\mathbb{E}(\mathbb{E}[Z\mid X])^2\leq B$. They are different quantities.
+The sign of the calibration coefficient makes that distinction usable in a
+conservative joint inequality, while retaining its potential loss of power.
+The implementation and acquisition-matched simulations evaluate this complete
+procedure; they do not replace laboratory validation.
+
+The primary sources checked in this audit do not state the precise scalar
+finite-lag entropy certificate and joint analog procedure presented here.
+That finding supports a focused contribution claim, while leaving historical
+priority to broader specialist review. A formal result within the stated
+stationary classical models does not establish a new law for arbitrary
+quantum, inertial or nonstationary systems.

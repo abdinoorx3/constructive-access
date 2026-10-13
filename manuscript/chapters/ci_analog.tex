@@ -1,0 +1,157 @@
+\chapter{Direct inference from bounded analog observations}
+\label{ch:ci-analog}
+
+An analog detector need not discard its amplitude information before the
+binary-observation certificates can be used. A conceptual randomization proves
+the physical comparison; the acquired analog values can estimate its probability
+directly. This removes avoidable encoding noise without changing the physical
+observation model or claiming that every statistical test becomes more powerful.
+
+\section{A virtual binary channel and a directly measured mean}
+Let $Z\in[-1,1]$ be the output of the instantaneous, noninvasive memoryless
+detector of Chapter~\ref{ch:ci-calibration}. Conditional endpoint noise is
+independent, and its conditional mean is $f_i=\mathbb E[Z\mid X=i]$. For one
+stationary pair record define
+\begin{equation}
+ W_t=\frac{1+Z_0Z_t}{2},\qquad
+ p_t=\mathbb E W_t=\frac{1+\langle f,e^{Qt}f\rangle_\pi}{2}.
+ \label{eq:ci-analog-score}
+\end{equation}
+The score $W_t$ belongs to $[0,1]$ but need not be an integer. Given the complete
+analog pair, introduce a virtual bit $B_t\sim\operatorname{Bernoulli}(W_t)$.
+Equivalently, encode each endpoint $z$ independently as a sign with mean $z$
+and retain their agreement. The bit has marginal success probability $p_t$.
+
+\begin{proposition}[The physical binary comparison needs no generated bits]
+Under the same stationary Markov, reversal and detector assumptions as the
+earlier entropy-production comparison, the Bernoulli relative entropy between
+the analog-score means is bounded by the relative entropy of the full physical
+path. Every previous lower bound depending only on these means remains valid
+when the means are inferred directly from $W_t$.
+\end{proposition}
+\begin{proof}
+Use the same virtual randomization kernel under $Q$ and its additive reversible
+reference $S$. Data processing gives
+\[
+ d_{\rm B}(p_t^Q\Vert p_t^S)
+ \leq D(P_{\rm analog}^Q\Vert P_{\rm analog}^S)
+ \leq D(P_{\rm path}^Q\Vert P_{\rm path}^S).
+\]
+The last inequality includes the common detector channel. No virtual bit must
+actually be drawn to estimate its marginal mean. The reference retains the
+same stationary law and detector, so the calibrated moment comparison from
+Chapter~\ref{ch:ci-calibration} applies.
+\end{proof}
+This is a conditional statement for the stated physical model, not a way to
+validate a detector or a reversal convention from analog data alone. Bounded
+analog readouts also supply $A\leq\mathbb E Z^2$; equating these quantities
+would discard the conditional measurement-noise variance.
+
+\section{A certificate for rational sums and means}
+Fix lag indices $k$, coefficients $a_k$, quotas $N_k$, and full physical path
+durations $t_k$. Let $b$ be a certified upper bound on the calibrated reversible
+support $\sup_q a\cdot q$. Suppose score $k$ lies in a trusted interval of width
+$r_k\leq1$. Its conditional mean, given preceding records, differs from the
+fixed target $p_k$ by at most $\delta_k$. Let $\widehat p_k$ be the supplied
+empirical mean, with numerical error at most $\epsilon_k$. Conditional
+Hoeffding concentration~\cite{caHoeffding1963} yields, with failure probability
+at most $\alpha$,
+\begin{equation}
+ C=\left[\sum_k a_k\widehat p_k-b
+ -\sqrt{\frac{\log(1/\alpha)}2\sum_k\frac{a_k^2r_k^2}{N_k}}
+ -\sum_k|a_k|(\delta_k+\epsilon_k)\right]_+
+ \leq [a\cdot p-b]_+.
+ \label{eq:ci-analog-confidence}
+\end{equation}
+Add the failure probability of the calibration region by a union bound; its
+data need not be independent of the science sample for that union bound.
+The contrast and valid concentration contract must still be fixed beforehand
+or selected on an independent pilot. The inherited physical consequence is
+\begin{equation}
+ \sigma\geq\frac{8C^2}{(\sum_k|a_k|\sqrt{t_k})^2}.
+ \label{eq:ci-analog-rate}
+\end{equation}
+The full durations include every exposure interval needed by the comparison.
+Acquisition resets and detector operations require separate resource accounting.
+
+The implementations \texttt{certify\_means} and \texttt{certify\_sums} accept
+exact rational inputs; $N_k\widehat p_k$ is not required to be an integer.
+Outward rational bounds cover the polynomial support, logarithms and square
+roots. The descriptive helper \texttt{quantized\_pair\_summary} first interprets
+stored numeric readings exactly, forms each score, and rounds it to the nearest
+multiple of $1/M$. Its mean error is at most $1/(2M)$, regardless of record
+count. This is an arithmetic guarantee about the stored data. An unknown sensor
+error is a different quantity and is not covered by that rounding radius.
+If both true and quantized endpoint values are in $[-1,1]$, endpoint errors
+$\eta_0,\eta_t$ instead imply score error at most $(\eta_0+\eta_t)/2$.
+
+\section{What avoiding randomization improves}
+For a fixed signed contrast of a complete analog bank, let $D$ use its direct
+scores and $H$ use independently encoded bits. Conditional on the analog bank,
+\[
+ D=\mathbb E[H\mid\text{analog bank}].
+\]
+Conditional Jensen therefore gives $\mathbb E\phi(D)\leq\mathbb E\phi(H)$ for
+every convex $\phi$ for which the expectations exist. This is the established
+Rao--Blackwell conditional-expectation principle~\cite{ciBlackwell1947}. In particular it reduces
+variance and the corresponding exponential moments. With independent records,
+\begin{align}
+ \operatorname{Var}(D)&=\sum_k\frac{a_k^2}{N_k}
+       \{\mathbb E W_k^2-p_k^2\},\\
+ \operatorname{Var}(H)-\operatorname{Var}(D)
+ &=\sum_k\frac{a_k^2}{N_k}\mathbb E[W_k(1-W_k)]\geq0.
+ \label{eq:ci-analog-variance}
+\end{align}
+The conditional-expectation statement itself does not require independent
+physical records. A confidence statement still needs its declared dependence
+contract. A rejection indicator is not generally convex, so this argument does
+not establish universal power dominance. Nor does the universal $[0,1]$
+Hoeffding radius shrink merely because the actual variance decreases.
+
+\section{A frozen comparison at the same physical access}
+The benchmark fixes a twenty-state stationary cycle, two lags $0.1$ and $0.2$,
+$3{,}000$ independently prepared pair records per lag, and $4{,}000$ independent
+single-reading calibration records. The detector is a cosine rounded to a grid
+of denominator $4096$. The driven rates are $20$ and $1$; the equilibrium
+control has both rates $10.5$. A second driven control reports half the cosine
+plus independent fair noise of amplitude one half. These choices, seed, sample
+sizes and contrast $(1,-1)$ were frozen before generating $400$ replicates per
+case.
+
+Each comparison uses exactly the same analog bank, calibration region, $[0,1]$
+Hoeffding radius, and confidence allocation $0.025+0.025$. Only the extra
+independent encoding coins differ. The calibration uses the upper bound on
+$\mathbb E Z^2$, not access to latent detector means.
+\begin{center}
+\begin{tabular}{lrrr}
+\hline
+Case & Direct certificates & Encoded certificates & MSE ratio\\
+ & (out of 400) & (out of 400) & encoded/direct\\
+\hline
+Driven & 380 & 311 & 6.04\\
+Equilibrium & 0 & 0 & 5.87\\
+Noisy driven & 0 & 0 & 7.06\\
+\hline
+\end{tabular}
+\end{center}
+For the driven case, the direct certificate fraction is $95.0\%$ with nominal
+Wilson $95\%$ interval $[92.4,96.7]\%$; the encoded fraction is $77.75\%$ with
+interval $[73.4,81.6]\%$. The theoretical contrast-variance ratio is $5.45$;
+the finite-replicate squared-error ratio is $6.04$. The two quantities differ
+because the latter is estimated from a finite simulation ensemble.
+
+The noisy driven case is a useful limitation. It has conditional second moment
+$A\simeq0.1250$ but observable second moment $B\simeq0.3750$. The observed
+contrast is about $0.0273$, below the relaxed reversible support $B/8\simeq
+0.0469$ even before adding statistical error. Removing encoding noise does not
+repair this calibration obstruction. Neither zero observed rejection fraction
+establishes a zero population rejection probability.
+
+Each replicate comprises $10{,}000$ acquisition records of two different types:
+$6{,}000$ endpoint pairs plus $4{,}000$ calibration singles. It uses $16{,}000$
+detector readouts and $900$ units of declared science evolution time. Preparation,
+detector and calibration overhead are unmeasured, not zero. Results retain all
+replicates, exact sufficient statistics for every certificate and the first raw
+bank from each case. Adding those audit fields after review did not change any
+data-generation or decision choices. These are synthetic demonstrations of
+statistical efficiency; no laboratory performance claim follows.

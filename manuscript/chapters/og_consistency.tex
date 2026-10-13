@@ -1,0 +1,259 @@
+\chapter{A finite-observation route to the attained minimum}
+\label{ch:og-consistency}
+
+The population minimum is an exact statement about ideal process information.
+The finite-resolution certificate makes a different promise: a lower bound
+from a fixed finite experiment, with its approximation and sampling errors
+paid explicitly. This chapter connects the two for the cosine-circle law.
+It constructs a sequence of finite experiments whose covered lower bounds
+approach the exact minimum. The sufficient rate is deliberately conservative;
+neither optimality nor inexpensive laboratory implementation is asserted.
+
+\section{A fixed calibrated family and a sequence of experiments}
+
+Fix a physical reference time $h_0>0$, a calibrated diffusion coefficient
+$\gamma>0$, and a calibrated drift bound $\Omega\geq0$. The target process
+has the stationary law
+\[
+ Y_t=\cos\phi_t,\qquad
+ d\phi_t=\omega\,dt+\sqrt{2\gamma}\,dW_t\pmod{2\pi},
+ \qquad |\omega|\leq\Omega.
+\]
+The value of $\omega$ is not supplied to the score. Assume exact noiseless
+readings for the first theorem. Independent stationary triples, a calibrated
+clock, and ordinary hidden-state reversal remain part of the physical
+contract. In particular, the triples are not overlapping intervals silently
+treated as independent.
+
+Define constants, with their physical time units retained,
+\begin{equation}
+ M=\gamma+\Omega,\qquad R=\gamma^2+\Omega^2,\qquad
+ C=R(2\gamma+\Omega).
+ \label{eq:og-consistency-calibration}
+\end{equation}
+They satisfy $M_{1,+}=M_{1,-}=M$ and $M_{2,+}=M_{2,-}=R$ in the
+finite-resolution contract. Indeed,
+$\|L^{\vphantom\dagger}f\|_\infty
+ =\|L^\dagger f\|_\infty=\sqrt{\gamma^2+\omega^2}\leq M$ and
+$\|L^2f\|_\infty=\|(L^\dagger)^2f\|_\infty
+ =\gamma^2+\omega^2\leq R$.
+The known global diffusivity bound is $\Gamma_f\leq\gamma$.
+
+For an integer $m\geq1$, choose the experiment before its records:
+\begin{equation}
+ \begin{aligned}
+ n_m=m^{12},\qquad h_m=h_0m^{-3},\qquad
+ &\varepsilon_m=\gamma m^{-2},\\
+ q(y)=-\gamma y,
+ \quad a(y)=\gamma(1-y^2),
+ &r_m(y)=\mathbf 1_{\{a(y)\geq\varepsilon_m\}}.
+ \end{aligned}
+ \label{eq:og-consistency-design}
+\end{equation}
+This is the existing weighted three-time score with envelope floor
+$\varepsilon_m$, $Q=\gamma$, and noiseless range $[-1,1]$.
+Every excluded center still consumes a complete record. The envelope is
+exact under the stated circle calibration; it is not estimated from the test
+increments.
+
+Let $W_{m,i}$ be the corrected score in
+Equation~\eqref{eq:og-finite-score}, and let $\mu_m=\mathbb E W_{m,i}$.
+The correction uses
+\[
+ \beta_g=h_m R/2,\qquad \beta_K=h_mMR,
+ \qquad 2|q|\beta_g+\beta_K\leq Ch_m.
+\]
+The known-variance Bernstein option in the finite-resolution implementation
+applies directly. No new concentration algorithm is required.
+
+\section{An explicit population and confidence bound}
+
+The ideal truncated local target is
+\[
+ J_m=\sigma\,\mathbb P\{\Gamma_f\geq\varepsilon_m\},
+ \qquad \sigma=\omega^2/\gamma.
+\]
+Uniform stationary phase gives
+\begin{equation}
+ \sigma-J_m
+ =\sigma\frac2\pi\arcsin(1/m)\leq\frac{\sigma}{m}.
+ \label{eq:og-consistency-tail}
+\end{equation}
+The last inequality uses $\arcsin u\leq\pi u/2$ for $0\leq u\leq1$.
+Since $q=g$ and $a=\Gamma_f$, the corrected finite-step numerator lies
+between its ideal conditional numerator minus twice its bias envelope and
+that ideal numerator. Therefore
+\begin{equation}
+ J_m-\frac{2Ch_m}{\varepsilon_m}
+ \leq\mu_m\leq J_m\leq\sigma,
+ \qquad
+ 0\leq\sigma-\mu_m
+ \leq\frac{\sigma+2Ch_0/\gamma}{m}.
+ \label{eq:og-consistency-population}
+\end{equation}
+This deliberately uses the general calibrated bias bound rather than
+substituting the unknown $\omega$ into an exact finite-step correction.
+
+For explicit concentration constants set
+\begin{align}
+ H&=\frac{(2\gamma+\Omega+\sqrt{2\gamma/h_0})^2+Ch_0}{\gamma},\\
+ B_0&=\frac{h_0^{-2}+(2/h_0+\gamma)^2+Ch_0}{\gamma}.
+ \label{eq:og-consistency-constants}
+\end{align}
+The finite-resolution second-moment bound and range width satisfy
+\begin{equation}
+ \mathbb E W_{m,i}^2\leq H^2m^{10},\qquad
+ B_{m,+}-B_{m,-}\leq B_0m^8.
+ \label{eq:og-consistency-moments}
+\end{equation}
+For example, the square root of the second-moment envelope is at most
+\[
+ \frac{(\gamma+M+\sqrt{2\gamma/h_m})^2+Ch_m}{\varepsilon_m}
+ \leq Hm^5,
+\]
+because $m\geq1$. The range bound follows from
+Equation~\eqref{eq:og-finite-range} with $R=2$ for the detector width;
+this detector-width symbol is separate from the calibrated generator
+constant $R$ in~\eqref{eq:og-consistency-calibration}.
+
+Choose a desired two-sided failure probability $\alpha\in(0,1)$ and put
+$\ell=\log(2/\alpha)$. Choose the calibrated range-width and
+second-moment bounds $b_m=B_0m^8$ and $v_m=H^2m^{10}$, or any valid
+smaller bounds, and set, in exact real arithmetic,
+\begin{equation}
+ \rho_m=\frac{b_m\ell}{3n_m}
+ +\sqrt{\frac{2v_m\ell}{n_m}
+        +\left(\frac{b_m\ell}{3n_m}\right)^2},
+ \qquad
+ \widehat L_m=[\overline W_m-\rho_m]_+.
+ \label{eq:og-consistency-estimator}
+\end{equation}
+This uses the same known-variance Bernstein construction as the implementation, with
+one-sided allocation $\alpha/2$. Applying the same inequality to both signs
+and taking a union bound gives
+$|\overline W_m-\mu_m|\leq\rho_m$ with probability at least $1-\alpha$.
+The deterministic envelopes imply
+\begin{equation}
+ \rho_m\leq
+ \frac{H\sqrt{2\ell}}{m}
+ +\frac{2B_0\ell}{3m^4}.
+ \label{eq:og-consistency-radius}
+\end{equation}
+
+\begin{theorem}[Constructive consistency at the attained circle minimum]
+\label{thm:og-consistency}
+For the calibrated experiment above, with probability at least $1-\alpha$,
+\begin{equation}
+ \boxed{\displaystyle
+ 0\leq\sigma-\widehat L_m
+ \leq
+ \frac{\sigma+2Ch_0/\gamma+2H\sqrt{2\log(2/\alpha)}}{m}
+ +\frac{4B_0\log(2/\alpha)}{3m^4}.}
+ \label{eq:og-consistency-main}
+\end{equation}
+Replacing $\sigma$ on the right by $\Omega^2/\gamma$ gives a completely
+calibrated uniform constant for $|\omega|\leq\Omega$.
+For every fixed $\alpha$, $\widehat L_m\to\sigma$ in probability as
+$m\to\infty$.
+\end{theorem}
+
+\begin{proof}
+On the two-sided Bernstein event,
+$\overline W_m-\rho_m\leq\mu_m\leq\sigma$ and
+$\overline W_m-\rho_m\geq\mu_m-2\rho_m$. Taking the positive part
+preserves the upper inequality because $\sigma\geq0$, and can only improve
+the lower inequality. Equations~\eqref{eq:og-consistency-population} and
+\eqref{eq:og-consistency-radius} establish the displayed bound.
+
+Convergence in probability is not deduced merely by fixing a nonzero
+failure probability in that bound. Rather,
+\[
+ \operatorname{Var}(\overline W_m)
+ \leq\frac{H^2m^{10}}{m^{12}}=\frac{H^2}{m^2}\longrightarrow0.
+\]
+Chebyshev's inequality gives
+$\overline W_m-\mu_m\to0$ in probability, while
+$\mu_m\to\sigma$ and $\rho_m\to0$ deterministically. Continuity of
+the positive-part map proves the stated convergence, including $\omega=0$.
+\end{proof}
+
+The same result holds with a conservative rational radius that actually
+vanishes in an executable implementation. Choose once, by outward
+enclosure, rational constants $\overline H\geq H$,
+$\overline B\geq B_0$, $\overline\ell\geq\log(2/\alpha)$ and
+$\overline k\geq\sqrt{2\overline\ell}$. Use
+\begin{equation}
+ \overline\rho_m=
+ \frac{\overline H\,\overline k}{m}
+       +\frac{2\overline B\,\overline\ell}{3m^4}
+ \label{eq:og-consistency-rational-radius}
+\end{equation}
+and exact rational division by the integer powers of $m$. This radius
+dominates the exact Bernstein radius, gives the same confidence argument,
+and tends to zero; the rate bound uses the corresponding enclosed constants.
+The reference wrapper implements this construction without changing the
+existing finite-resolution module. A fixed absolute rounding grid applied
+directly to the final square root would leave a nonzero numerical floor,
+so the literal fixed-precision final-radius calculation is not used to claim
+asymptotic consistency.
+
+If almost-sure convergence is desired for a sequence of experiments, use a
+summable sequence of two-sided failure budgets, for example
+$\alpha_m=m^{-2}$ for $m\geq2$. The bound then has order
+$\sqrt{\log m}/m$, and Borel--Cantelli gives eventual success and
+almost-sure convergence. Dependence between different experiments does not
+invalidate that summability argument; independence of records within each
+experiment remains required.
+
+\section{Controlled score perturbations and resource costs}
+
+The same conclusion survives a calibrated uniform perturbation of each
+already defined score. Suppose the stored iid scores satisfy
+$|\widetilde W_{m,i}-W_{m,i}|\leq\eta_m$, with the same fixed selection,
+weight and drift rule. Expand the score range by $\eta_m$ at both ends,
+replace the square root of the second-moment bound by
+$\sqrt{v_m}+\eta_m$, and subtract $\eta_m$ from the final lower bound,
+as in the existing quantization interface. Applying the two-sided argument
+to the stored scores gives
+\begin{equation}
+ 0\leq\sigma-\widehat L_m^{\rm stored}
+ \leq\sigma-\mu_m+2\widetilde\rho_m+2\eta_m
+ \label{eq:og-consistency-perturbed}
+\end{equation}
+with probability at least $1-\alpha$. In particular, $\eta_m=O(m^{-1})$
+preserves the sufficient rate and consistency. This covers a proved
+score-rounding envelope. It does not assume that rounding the central
+detector value leaves the selector, local diffusivity or weight unchanged.
+A finite-resolution detector must justify those changes, including the
+boundary of the retention region, before this result applies.
+
+Alternatively, retain the radius computed for the ideal iid scores and
+assume a certified deterministic error
+$|\widetilde{\overline W}_m-\overline W_m|\leq\eta_m$ in their stored
+mean. Subtracting $\eta_m$ then gives the same performance inequality with
+the ideal-score radius and the term $2\eta_m$. This follows directly on
+the ideal-score concentration event and does not require a fresh independence
+claim about numerical errors. The rational consistency wrapper uses this
+version. The error envelope must still cover the actual fixed score rule.
+
+For one experiment at level $m$, the declared costs are
+\begin{equation}
+ \text{stationary preparations}=m^{12},\qquad
+ \text{endpoint readings}=3m^{12},\qquad
+ T_m=2n_mh_m=2h_0m^9.
+ \label{eq:og-consistency-resources}
+\end{equation}
+Thus the conservative sufficient accuracy rate is $n_m^{-1/12}$ in the
+number of preparations, or $(T_m/(2h_0))^{-1/9}$ in declared evolution
+time. These are not minimax exponents. They account for increasingly fine
+timing, a shrinking geometry floor and growing sample size using broad
+uniform bounds. Preparation, reset, sensor bandwidth, calibration,
+data handling, and energy costs are additional; $T_m$ is not total
+laboratory duration. If every level is run successively, the cumulative
+cost is the sum over those levels, rather than the single-level cost above.
+
+The theorem closes a precise existence question: under the stated
+calibration and access assumptions, finite covered experiments can approach
+the population minimum. It does not establish a practical advantage at
+every resource budget, reconstruct the hidden architecture, or transfer the
+same rate to arbitrary nonlinear detectors and diffusions.

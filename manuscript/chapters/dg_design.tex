@@ -1,0 +1,101 @@
+\section{A reproducible design table}
+\label{sec:dg-design-table}
+
+Table~\ref{tab:dg-count-design} evaluates the preceding exact bounds at
+$\gamma=\tau=1$, $\nu=1/2$, $\epsilon=1/10$ and
+$\omega=2\pi m$. The alternatives are the known pair $\omega$ and
+$2\omega$. Passive trials start independently from the uniform stationary
+phase. Prepared trials start independently from the actual oriented phase
+$\pi/2$. Each trial yields one exposed noisy scalar reading.
+
+The passive necessary bound uses
+$C_\nu=\cosh(1/\nu^2)-1$, justified by symmetry of the stationary exposure
+law. Its sufficient bound uses the tighter variance expression
+$S_\nu(V)=(1+4\nu^2)V-V^2+2\nu^4$. The prepared bounds are the information
+lower bound and sub-Gaussian sample-mean construction stated above.
+``Necessary'' means every decision rule in that trial class requires at least
+that many records. ``Sufficient'' refers to the specified constructive test;
+the gap between the columns is not a determination of the exact optimum.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{r|rr|rr}
+\hline
+ & \multicolumn{2}{c|}{Passive stationary} & \multicolumn{2}{c}{Prepared phase}\\
+$m$ & Necessary & Sufficient & Necessary & Sufficient\\
+\hline
+1 & 20 & 9\,419 & 1 & 9\,939\\
+2 & 298 & 99\,499 & 3 & 37\,215\\
+4 & 4\,687 & 1\,395\,963 & 10 & 146\,407\\
+8 & 74\,713 & 21\,559\,862 & 37 & 583\,200\\
+16 & 1\,194\,326 & 341\,864\,087 & 148 & 2\,330\,376\\
+32 & 19\,104\,937 & 5\,457\,459\,068 & 591 & 9\,319\,083\\
+\hline
+\end{tabular}
+\caption{Numerical ceilings of the proved count thresholds. Values use
+100-decimal-digit arithmetic and their displayed ceilings agree at 180 digits.
+This is a deterministic evaluation of analytical bounds, not simulated
+success counts. The numerical implementation does not provide interval-certified
+rounding; the exact inequalities in the theorem are authoritative.}
+\label{tab:dg-count-design}
+\end{table}
+
+A separate calculation in the independent review uses exact rational
+inequalities to certify a finite separation at $m=32$: $10\,000\,000$
+prepared exposures suffice, whereas $17\,000\,000$ passive stationary
+exposures are insufficient for every decision rule in that trial class.
+This conclusion uses coarse proved enclosures for $\pi$, exponentials and
+logarithms; it does not rely on treating the table's numerical ceilings as
+certified intervals.
+
+For completeness, put $w_-=64(157/50)$ and $w_+=64(22/7)$.
+The elementary inequalities
+$157/50<\pi<22/7$, $8/3<e<11/4$, and $\log 10<7/3$ give
+\[
+ \Delta\mu\geq
+ d_-:=\frac{(5/8)w_-(2w_-^2-1)}
+ {(1+w_+^2)(1+4w_+^2)},\qquad
+ \frac{10\log 10}{(\Delta\mu)^2}
+ <\frac{70}{3d_-^2}<10\,000\,000.
+\]
+Also $C_\nu=\cosh4-1<28$ and
+$V(\omega)+V(2\omega)<(5/4)(18/11)/w_-^2$, so the necessary passive
+threshold exceeds
+\[
+ \frac{2(4/5)^2 w_-^4}{28\bigl((5/4)(18/11)\bigr)^2}
+ >17\,000\,000.
+\]
+The final comparisons involve rational numbers only. The independent test
+evaluates these inequalities with exact integer fractions.
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\textwidth]{figures/detector_access.pdf}
+ \caption{Analytical exposure-count bounds at fixed read noise. The shaded
+ regions bracket the required number of trials; they are not statistical
+ confidence bands. The right panel uses the separate exact finite-count
+ certificate. Preparation and total apparatus energy are not matched.}
+ \label{fig:dg-detector-access}
+\end{figure}
+
+The table makes the different fixed-precision count exponents visible.
+At the smallest displayed frequency, the prepared constructive guarantee is
+slightly more expensive than the passive constructive guarantee; the
+asymptotic statement does not promise improvement at every finite parameter.
+For a count $n$, both designs acquire $n$ exposed readouts, require $n$
+independent preparations and spend $n\tau=n$ units of declared evolution
+time. The preparations require different physical access. Their duration,
+accuracy and energy have not been assigned a cost here.
+
+These fixed-noise counts do not establish a total-energy advantage.
+Under the separately assumed sensor law $\nu_i^2=\kappa/E_i$, optimizing
+read precision permits both trial classes to reach the measurement-energy
+order $\Theta(\omega^2)$, as proved above. Preparation, reset, driving,
+exposure, timing and calibration costs remain separate. No universal
+energy--precision law or apparatus performance is inferred from this table.
+
+The implementation retains its exact formulas, 42-digit displays of the real
+thresholds, numerical ceilings and source hash in \path{detector/design/results.json}.
+Seven deterministic tests check the moments against complex integral formulas,
+information-bound constants, constructive error inequalities, asymptotic
+orders, precision stability, reproducibility and input guards.

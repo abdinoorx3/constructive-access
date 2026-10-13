@@ -1,0 +1,20 @@
+driven: 100/400
+driven: 200/400
+driven: 300/400
+driven: 400/400
+{"case": "driven", "detections": {"joint_calibration_pinsker": 399, "two_stage_pinsker": 353, "two_stage_nonlinear": 352, "optimized_extra_lag": 400, "legacy_extra_lag": 393}}
+equilibrium: 100/400
+equilibrium: 200/400
+equilibrium: 300/400
+equilibrium: 400/400
+{"case": "equilibrium", "detections": {"joint_calibration_pinsker": 0, "two_stage_pinsker": 0, "two_stage_nonlinear": 0, "optimized_extra_lag": 0, "legacy_extra_lag": 0}}
+high_readout_noise: 100/400
+high_readout_noise: 200/400
+high_readout_noise: 300/400
+high_readout_noise: 400/400
+{"case": "high_readout_noise", "detections": {"joint_calibration_pinsker": 6, "two_stage_pinsker": 0, "two_stage_nonlinear": 0, "optimized_extra_lag": 8, "legacy_extra_lag": 6}}
+invalid_calibration: 100/400
+invalid_calibration: 200/400
+invalid_calibration: 300/400
+invalid_calibration: 400/400
+{"case": "invalid_calibration", "detections": {"joint_calibration_pinsker": 400, "two_stage_pinsker": 400, "two_stage_nonlinear": 400, "optimized_extra_lag": 0, "legacy_extra_lag": 0}}

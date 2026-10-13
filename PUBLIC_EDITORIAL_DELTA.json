@@ -1,0 +1,336 @@
+{
+  "changes": [
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/boundary_arrow_research_package.zip!boundary_arrow/README.txt",
+      "original_sha256": "017c8a8b90e6bf58fb721b0b85f8bbbf409dfbb10a6a33f8c5d48ba0aacdfe5d",
+      "public_sha256": "d582f022f1dc49019419b8244a2ff63dfc48398152aa514d0afc3b2ad0f30d30"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/boundary_arrow_research_package.zip!boundary_arrow/manuscript/paper.pdf",
+      "original_sha256": "576414382ad5226c5448fcc7a334fce1aa420d310d9ab789f943fc66895f1caa",
+      "public_sha256": "7c3b6d40f45b1490188937ed7ecda83f8e01179401b4426d5e542a659e49b551"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/boundary_arrow_research_package.zip!boundary_arrow/manuscript/paper.tex",
+      "original_sha256": "827d2e2459b50d88294aef56a98aed9b50271dc559b29afd00d4d8e9c8b3a86f",
+      "public_sha256": "f90edc45a68759d30d1b00bf919f6bf69737172929cfaa355d9995fab8008b37"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/boundary_arrow_research_package.zip!boundary_arrow/research/continuation.json",
+      "original_sha256": "b09b5d8288bfd7b73b7990d51e710abda0982b1010b7b41cea6af87470a6daeb",
+      "public_sha256": "f094a4440fa8e241daac3ec1edc394623939d67ec22b835cd2ab3ac0465269df"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/boundary_arrow_research_package.zip!boundary_arrow/research/final_extension_referee.txt",
+      "original_sha256": "e3b32bfeab3c938ce7fff3aa0cac0e5ee95bb1492c0ed9cb4b081006fae79f97",
+      "public_sha256": "2e732dad4e136534a8ab7be631fa6173098d49efd6097ff58243f686bb6c8f92"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/boundary_arrow_research_package.zip!boundary_arrow/research/final_validation.json",
+      "original_sha256": "21c979337f10802290bb295d01a786d4a1bf8f40d83b9c9f7bf205387c96c747",
+      "public_sha256": "75c11cb238350f168258f6b9c0adc2d32154abf49f7d7f231a15ea250b26407f"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/baseline/boundary_arrow_research_package.zip!boundary_arrow/README.txt",
+      "original_sha256": "017c8a8b90e6bf58fb721b0b85f8bbbf409dfbb10a6a33f8c5d48ba0aacdfe5d",
+      "public_sha256": "d582f022f1dc49019419b8244a2ff63dfc48398152aa514d0afc3b2ad0f30d30"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/baseline/boundary_arrow_research_package.zip!boundary_arrow/manuscript/paper.pdf",
+      "original_sha256": "576414382ad5226c5448fcc7a334fce1aa420d310d9ab789f943fc66895f1caa",
+      "public_sha256": "7c3b6d40f45b1490188937ed7ecda83f8e01179401b4426d5e542a659e49b551"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/baseline/boundary_arrow_research_package.zip!boundary_arrow/manuscript/paper.tex",
+      "original_sha256": "827d2e2459b50d88294aef56a98aed9b50271dc559b29afd00d4d8e9c8b3a86f",
+      "public_sha256": "f90edc45a68759d30d1b00bf919f6bf69737172929cfaa355d9995fab8008b37"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/baseline/boundary_arrow_research_package.zip!boundary_arrow/research/continuation.json",
+      "original_sha256": "b09b5d8288bfd7b73b7990d51e710abda0982b1010b7b41cea6af87470a6daeb",
+      "public_sha256": "f094a4440fa8e241daac3ec1edc394623939d67ec22b835cd2ab3ac0465269df"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/baseline/boundary_arrow_research_package.zip!boundary_arrow/research/final_extension_referee.txt",
+      "original_sha256": "e3b32bfeab3c938ce7fff3aa0cac0e5ee95bb1492c0ed9cb4b081006fae79f97",
+      "public_sha256": "2e732dad4e136534a8ab7be631fa6173098d49efd6097ff58243f686bb6c8f92"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/baseline/boundary_arrow_research_package.zip!boundary_arrow/research/final_validation.json",
+      "original_sha256": "21c979337f10802290bb295d01a786d4a1bf8f40d83b9c9f7bf205387c96c747",
+      "public_sha256": "75c11cb238350f168258f6b9c0adc2d32154abf49f7d7f231a15ea250b26407f"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/baseline/boundary_arrow.pdf",
+      "original_sha256": "576414382ad5226c5448fcc7a334fce1aa420d310d9ab789f943fc66895f1caa",
+      "public_sha256": "7c3b6d40f45b1490188937ed7ecda83f8e01179401b4426d5e542a659e49b551"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/baseline/boundary_arrow_research_package.zip",
+      "original_sha256": "de3841cb7f011fd10775dc5c069f4e9fae39c12514b47c214f3c0fcf6c87521e",
+      "public_sha256": "6c3bee2e12caf59d374f33c76664f73283f647f43994c0b0b94d5066010e0a30"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/manuscript/access_to_hidden_currents.pdf",
+      "original_sha256": "0050f5793876b493ffe30ab699d53d7adb4de7e3c2fa8e85342b227de292b193",
+      "public_sha256": "6365fd082f513cfb6360cbf5ffcddf8d05045fb436c0e828282fd6b9b8f017d2"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/manuscript/access_to_hidden_currents.tex",
+      "original_sha256": "cd9d3d3ced76a1ff8c74eae90150a408ca7f9642600e0776d91c8cf5e0e7bca5",
+      "public_sha256": "4c213d11f9c036f1fe9a9ab933a607d07d7892875ca272f17aa9e293d7b0a15e"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/manuscript/access_to_hidden_currents.txt",
+      "original_sha256": "56f8f446020085b523a155590f2b2727fc57bcf6b050310ab1bdab0e9241d48c",
+      "public_sha256": "06cf1275b126de34b08fd6ce60e9976dc91f94117a798fef37ecfa55da1ba8f1"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/manuscript/quantum_access.pdf",
+      "original_sha256": "d20a2002baba3a5f0a293eee234e8ba8d3366494985dffa604f8069559e320ec",
+      "public_sha256": "8340a36f5e748a3401b2536098fd1b9509e5bae91c927c333b279dcf3f4c17cc"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/manuscript/quantum_access.tex",
+      "original_sha256": "5453ff35305d7178880e077d0bd5e11f0cf248ed57ac716e019fca4e831fc83b",
+      "public_sha256": "a03a7564f0419f46b59c36ce520a513539f6b650a684b67bcc79033a30fe3419"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/manuscript/quantum_access.txt",
+      "original_sha256": "4710061dfd5823554ba1bde7e343bd1ddced6da8de8de0f8eea152ed070d140e",
+      "public_sha256": "fae6df7243f9b657e838daa87ed6e1b0f06a11a66f0306b19bbc61c459b6701d"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/boundary_arrow_research_package.zip",
+      "original_sha256": "de3841cb7f011fd10775dc5c069f4e9fae39c12514b47c214f3c0fcf6c87521e",
+      "public_sha256": "6c3bee2e12caf59d374f33c76664f73283f647f43994c0b0b94d5066010e0a30"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program/hardening/README.txt",
+      "original_sha256": "bcf295c41abe1ac6326b53f18eb3c343cf5943d39f6df20e578b82d01d692d2a",
+      "public_sha256": "3cde2f0d081a21e3ccb1686bf2cd6cda109fffa52a92e01fc3200c4720b54bcc"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program/hardening/logs/events.jsonl",
+      "original_sha256": "bb0597090a92573cdee12111ef9d5106b7945bb50008d447ff938990b5edac08",
+      "public_sha256": "f1c1117ed69627f772d08977e36bbcdf3e6060b13527371b3e4ae86728a4450d"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program/hardening/review_packet/expert_questions.txt",
+      "original_sha256": "b93aa04cc4ae2101939cfb1b5f1c27ec8ae42c90912585a87dffef1ac7530cde",
+      "public_sha256": "4ba15630dec8cc3f2153712594c095cca36e3a8feb26d1fba03f44eb298e9cf3"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program/hardening/review_packet/overview.txt",
+      "original_sha256": "09ede753a474513022cd600307c30d4a30af2cc82106b45f093d3d318fd896a8",
+      "public_sha256": "c48660dfc8ddb4f9cd18fb72ec5ae089df2ce45ef4d2ce6cfcde9e90e87fb1a3"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip",
+      "original_sha256": "cbccb276e3a5563059fd8ebc96525fb48ffdf006828ef59ccfbe4eab0b3729df",
+      "public_sha256": "02fa07cf7069bad87d8a5f4ff85b165828b34a9ef949a638cea2510acb60a738"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/discovery_program/application_audit/AGENTS.md",
+      "original_sha256": "a1877d52d820ea496d0870e234bb805fffe4eb904295efca4369bcb89361c55b",
+      "public_sha256": "021e2b8871fb7bde23b2751fbc8e842a257c6c962021f2dfd72be6f2f30c5ed7"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/discovery_program/application_audit/APPLICATIONS.txt",
+      "original_sha256": "e6d11585c43f9213f606a1fcc79382c329e6d62a4bd1bf849ee26426d360b96d",
+      "public_sha256": "ec99d2d42d2b772fc07675c9a72297ab3b42eda4990368b4efd6232f417fcb50"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/discovery_program/application_audit/README.txt",
+      "original_sha256": "058ec6769bb90e5929ce7bb0cda15b256d2dc21b19c2dac8c355b0e2294f8e9f",
+      "public_sha256": "b549e27eb97898a5d21f6d246d1437311ff050e92ca601e6df6fe6a3dd72298d"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/discovery_program/application_audit/logs/events.jsonl",
+      "original_sha256": "a536d35ac2cb52c16a4ea43f7c8a5f8c772cc98e6e6cefe77d1bd997c0cc6d7b",
+      "public_sha256": "d15a5266a1f2e5010dfe6826c6f2aefcb112f124bb378be5e8a8265ff5d2bf15"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/discovery_program/application_audit/research/input_scope.txt",
+      "original_sha256": "6c36ac5c9f0a05ff62213f22ef831d8f3bad9e0737e950330a73b29cb28f4a6c",
+      "public_sha256": "34cdbfd276c42cf1579ca5f018695e5b2b96cde6f79f149bf8385aa94ff1d3f0"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/discovery_program/application_audit/research/manuscript_review_quantum.txt",
+      "original_sha256": "3ebf2c2861eb0ff44d9cdfcd085dcccc6c99b46526edc9daa4145d3aeba0404b",
+      "public_sha256": "d30cf6de7919d178440aa658c197572fac224bf2f6c0f2e3e7bd886b4b0f3ffd"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/discovery_program/manuscript/quantum_access.tex",
+      "original_sha256": "5453ff35305d7178880e077d0bd5e11f0cf248ed57ac716e019fca4e831fc83b",
+      "public_sha256": "a03a7564f0419f46b59c36ce520a513539f6b650a684b67bcc79033a30fe3419"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip",
+      "original_sha256": "b3764a39b5ecac30d5a1eecb2301bbbba096fe51be77e7a4c34363cac47bb8eb",
+      "public_sha256": "b683508ca268336e9974b4e465d152b1cacac795326ecaa11fec4610864e3211"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip",
+      "original_sha256": "bbaaaef9f83b4ebf8c25555695cecdf4512568b5aebaea18a3639c5bafadea32",
+      "public_sha256": "ed634c0cee87112c1db80954cf4ff6fc93965bd5523b8444d0abecd678c548af"
+    },
+    {
+      "path": "detector/theory/detector_recovery.txt",
+      "original_sha256": "4489a93ed0bfbafbbafaf693659b555c5a4597f264d55869c41ee88d36b0f008",
+      "public_sha256": "82d093f0aedc00e528eae3967787cdc71a7d398746ed2e6a81667f94de1f1051"
+    },
+    {
+      "path": "geometry/research/population_theory.txt",
+      "original_sha256": "c9c0309a829b4963a19dc8579b23563561e6295ba78fd4db739558cee5de9472",
+      "public_sha256": "77d57f7edd5a6501c6698ded13fe1ccc557e0369dd438520ed87933424b986a4"
+    },
+    {
+      "path": "README.md",
+      "original_sha256": "2cefe6c8efc430b66ad1a205207f47dfec6024b40f3f0f1f052ed8e2c3d2639d",
+      "public_sha256": "09247ceaaeaebdc020337ed768a2148a3bedfe108b8e64870392f61df39acae4"
+    },
+    {
+      "path": "README.txt",
+      "original_sha256": "2cefe6c8efc430b66ad1a205207f47dfec6024b40f3f0f1f052ed8e2c3d2639d",
+      "public_sha256": "09247ceaaeaebdc020337ed768a2148a3bedfe108b8e64870392f61df39acae4"
+    },
+    {
+      "path": "ABSTRACT.txt",
+      "original_sha256": "8788e9993425ff7e5becd9279206ed71046cb4a3b613343b6b2415e4f4a6cd32",
+      "public_sha256": "7656d3278492f058dfa10f6216bcdd7802b9ff0fd40095a0c4ad21d872a6773f"
+    },
+    {
+      "path": "publication/front_matter.tex",
+      "original_sha256": "3dba5409abe2dc6ca3415c93cf06ddf661598d82d2d68f5aa615512a53aa2338",
+      "public_sha256": "f581f2d17c5be8824404e7ee0522e2a4ddcc2b7c81bcab601b2a21116163d4e5"
+    },
+    {
+      "path": "manuscript/reference.tex",
+      "original_sha256": "f97b3c263d4a285b41322a5b4bc6c707584506013d6e55b9a5ecc83aa88cdd8a",
+      "public_sha256": "7b90dc2f8a3a7467e936c829550502b3906c4a7ccb1735b146ca82a8e42fb111"
+    },
+    {
+      "path": "manuscript/reference.pdf",
+      "original_sha256": "62a1ed79822dcd0d2e4c05be8a195b51c45cc54b512f9e11e64bffa09f6b2884",
+      "public_sha256": "1486be4d61321ba3395d4c80bd7b7f30d28f6c32069012c1fe2525d584388bbc"
+    },
+    {
+      "path": "PUBLIC_RELEASE.json",
+      "original_sha256": "9ac762e426fd4fb42639fb3a7d02ad646242a9e2447345874407a5800f9950bd",
+      "public_sha256": "64c9f224499b13b28f6a57acaf758a2106aec9f260f255976ca7fedb5f324f85"
+    },
+    {
+      "path": "PUBLIC_SOFTWARE_VALIDATION.json",
+      "original_sha256": "b974c7d0fbb359bf3efb554f45969e3f426f885401ee394fd9336b0914fc3074",
+      "public_sha256": "3ef3e30cb9202939efd7a090346ebd420f3d336d7f29c281d4aa616f2ced516f"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/discovery_program/application_audit/results/clean_reproduction_verification.json",
+      "original_sha256": "409cc6df94226c773531feeee81ae7eef05203f8fc0a48408490c173cf3ebeef",
+      "public_sha256": "eb479e966af411501a5aed8b51a15b084c7d476a9fdf812cdde26c4bca34b0c1"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/discovery_program/application_audit/results/verification.json",
+      "original_sha256": "e43aba8a04548ce844e6274599d9ae45fa2a0cf6baa7ab199f5faff1d435468b",
+      "public_sha256": "7fb01c9a41a05a6fb4f9801262d441dd5d6ae397e8531151160c08617f996334"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/constructive_access_research_package.zip!constructive_access/results/verification.json",
+      "original_sha256": "94cb10e04f45362f42691d29a582796e1139e6bda34a1fb494ed3b1450bc6b9e",
+      "public_sha256": "fef6c9c95b5302343a1e3370539ec5b07428a9b228e927c35d0565c7395f73fd"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/constructive_access_research_package.zip",
+      "original_sha256": "0c26409099a3082cf08c6e7eca19456703beda888bb3d52e399a379321670551",
+      "public_sha256": "9e3997fc1d30d9cd87ce507d08b2a1dec8ca6d57285e872aa7d1637ba12c509e"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program/hardening/results/clean_reproduction_verification.json",
+      "original_sha256": "ca1e3426b21e1387091e2576414911ddd7c4f595be1c23ca5bb921eae5dfbe12",
+      "public_sha256": "672c501c8d8713b658859dac0212fc4eb0aa7ecddfa705b3d84b9bbd30e50e86"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program/hardening/results/verification.json",
+      "original_sha256": "726843dc0b03cfc38d52ff432a3fb6458e1dfde50b821e01f26e9cb590cd9098",
+      "public_sha256": "d3b3e73b6f5db99d012fa62ab2a1f5ea8745d3b4c63a66dece285a2c4d7342f7"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/results/verification.json",
+      "original_sha256": "cc401834d7a36a3bb6182fe06e8dc6c90286d401f2c81ea0e2989cdf007579e1",
+      "public_sha256": "9e0010a724aa06e40861c5a890b78c1cbbaac15a7dc8ea36f6a31e4c598d4d5d"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/results/verification_logs/previous_manifest_1791776946843214269.json",
+      "original_sha256": "5ae189f8f6a2fa321c68cc451e7ccbdc1e595a906ecd3860d3fe4f22257a9aae",
+      "public_sha256": "46d551d0d0441732fa4c17a0ea959a7feeecac546ff1ed5322e8a1f466cceee7"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/results/verification_logs/previous_manifest_1791777131416697662.json",
+      "original_sha256": "250aa4f7b46db15982b3d62ded8af9e1c5f1633822b4ff59998f40b92a0c9286",
+      "public_sha256": "90fe51e27cb67b5bd35e8b3951f52077d8b2bce5c621c539bd6ae91d33e2532f"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/results/verification_logs/previous_manifest_1791777895768960203.json",
+      "original_sha256": "d94bb37cebc3d193ae2c9e797730c99a9b24745e5f6f30e0db337742895eaa05",
+      "public_sha256": "0dcf3cf91ac783be45b2d09f15fabb1b8f30537adc54f8590a604a04440032ac"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/discovery_program_research_package.zip!discovery_program/results/verification_logs/previous_manifest_1791778022273130671.json",
+      "original_sha256": "480c0186adfa2e26904bf736260b10adaf8d89589343c8af80c95dd32f58692f",
+      "public_sha256": "d12c0f0d9d3b510d0abfebb494bbbbef2e758ba352573b0e132565eebe9f495e"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/equilibrium_gate_research_package.zip!equilibrium_gate_research/results/verification.json",
+      "original_sha256": "76c46723c8315a2bf7ff6012b2b0b3bafb564650f4df91e6876b14a4471a842c",
+      "public_sha256": "09d63e5b6909c277402b56849b7dfb36b21c8cf44e350203b31ae106b06d971f"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/equilibrium_gate_research_package.zip!equilibrium_gate_research/results/verification_firstpass.json",
+      "original_sha256": "3da2089edb23c51a162a1a8dfe593aad53dd88d2c799d62a7bfd6c9e1fd45378",
+      "public_sha256": "ecfd4fcbe1cf4ae6214f1958173d7af832bc65ddaf36f9c129c9ef50d0611a52"
+    },
+    {
+      "path": "physical_diagnostics_research_package.zip!physical_diagnostics/preserved/hardened_access_research_package.zip!hardened_access/equilibrium_gate_research_package.zip",
+      "original_sha256": "3544a194768b44385e12beef452a717be7fbdfa66fbf73f1d1abff3b1e2b8bd4",
+      "public_sha256": "713e1f36a7dd581e6270859e9768dae024ea4fc87eccb2dcdede6daf7d4c0ea9"
+    },
+    {
+      "path": "validation/scientific_baseline/verification.json",
+      "original_sha256": "2a5c730a234935c2c195c02a6b35feef52a78abf48d7d786fbed9cfd30099005",
+      "public_sha256": "5d44368188418bc55346cd450b4a33b0143c524016c0dd4cc29ca768e226d927"
+    },
+    {
+      "path": "validation/scientific_baseline/portability.json",
+      "original_sha256": "6a7a6f719eeb2add29cb414af560378727104b8ba1213383d1dff6859b8b080b",
+      "public_sha256": "156a1e6157704c57a616361d4a7894d1dc1331c48f2655b9b6eed981407715bc"
+    },
+    {
+      "path": "validation/scientific_baseline/files/results/verification.json",
+      "original_sha256": "2a5c730a234935c2c195c02a6b35feef52a78abf48d7d786fbed9cfd30099005",
+      "public_sha256": "5d44368188418bc55346cd450b4a33b0143c524016c0dd4cc29ca768e226d927"
+    },
+    {
+      "path": "validation/scientific_baseline/files/results/portability.json",
+      "original_sha256": "6a7a6f719eeb2add29cb414af560378727104b8ba1213383d1dff6859b8b080b",
+      "public_sha256": "156a1e6157704c57a616361d4a7894d1dc1331c48f2655b9b6eed981407715bc"
+    },
+    {
+      "path": "validation/scientific_baseline/files/results/clean_reproduction_verification.json",
+      "original_sha256": "2a5c730a234935c2c195c02a6b35feef52a78abf48d7d786fbed9cfd30099005",
+      "public_sha256": "5d44368188418bc55346cd450b4a33b0143c524016c0dd4cc29ca768e226d927"
+    },
+    {
+      "path": "PUBLICATION_MAP.json",
+      "original_sha256": "4b8d25fde3855dcf2788bbfccc333ec5e8d857be9fc45a4de55d2ce22cd4ba1a",
+      "public_sha256": "949963cb8f8bfb4c2923318ad51f13e74a9933c7a9a8b09206d0f7d8bc61ec7f"
+    },
+    {
+      "path": "publication/validate_public.py",
+      "original_sha256": "d8b18ddb7dea6b19e215d7baf94a00899e6a9c48646800bc3f1ade1cd14ec64d",
+      "public_sha256": "d8ece782d086c199e1f5de0ac45832fa6f7f09f7141b5e41ecef2cd21ecda0ee"
+    }
+  ],
+  "description": "Publication presentation edits. Mathematical chapters, toolkit code, scientific results and license terms are unchanged. Historical validation reports retain their original input hashes; the current manifest binds the public files.",
+  "environment_paths": "Historical interpreter installation paths are represented as [recorded-python-runtime]; command arguments, outcomes and timestamps are retained."
+}

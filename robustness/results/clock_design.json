@@ -1,0 +1,545 @@
+{
+  "scope": "Exact finite-menu guaranteed-contrast design under expected active-time budget; synthetic physical model",
+  "menu": [
+    {
+      "label": "T=1/4",
+      "horizon": "1/4",
+      "cost": "1/8",
+      "contrast_lower": "42624783859/50000000000",
+      "contrast_upper": "852495677181/1000000000000"
+    },
+    {
+      "label": "T=1/2",
+      "horizon": "1/2",
+      "cost": "1/4",
+      "contrast_lower": "92551240553/125000000000",
+      "contrast_upper": "29616396977/40000000000"
+    },
+    {
+      "label": "T=3/4",
+      "horizon": "3/4",
+      "cost": "3/8",
+      "contrast_lower": "290914167849/500000000000",
+      "contrast_upper": "581828335699/1000000000000"
+    },
+    {
+      "label": "T=1",
+      "horizon": "1",
+      "cost": "1/2",
+      "contrast_lower": "400216577373/1000000000000",
+      "contrast_upper": "200108288687/500000000000"
+    },
+    {
+      "label": "T=5/4",
+      "horizon": "5/4",
+      "cost": "5/8",
+      "contrast_lower": "110154640653/500000000000",
+      "contrast_upper": "220309281307/1000000000000"
+    },
+    {
+      "label": "T=3/2",
+      "horizon": "3/2",
+      "cost": "3/4",
+      "contrast_lower": "16015050261/250000000000",
+      "contrast_upper": "12812040209/200000000000"
+    },
+    {
+      "label": "T=7/4",
+      "horizon": "7/4",
+      "cost": "7/8",
+      "contrast_lower": "-6578037677/125000000000",
+      "contrast_upper": "-10524860283/200000000000"
+    },
+    {
+      "label": "T=2",
+      "horizon": "2",
+      "cost": "1",
+      "contrast_lower": "-30459701571/250000000000",
+      "contrast_upper": "-121838806283/1000000000000"
+    },
+    {
+      "label": "T=9/4",
+      "horizon": "9/4",
+      "cost": "9/8",
+      "contrast_lower": "-72035656863/500000000000",
+      "contrast_upper": "-5762852549/40000000000"
+    },
+    {
+      "label": "T=5/2",
+      "horizon": "5/2",
+      "cost": "5/4",
+      "contrast_lower": "-127096481469/1000000000000",
+      "contrast_upper": "-31774120367/250000000000"
+    },
+    {
+      "label": "T=11/4",
+      "horizon": "11/4",
+      "cost": "11/8",
+      "contrast_lower": "-20926807891/250000000000",
+      "contrast_upper": "-83707231563/1000000000000"
+    },
+    {
+      "label": "T=3",
+      "horizon": "3",
+      "cost": "3/2",
+      "contrast_lower": "-5762444121/200000000000",
+      "contrast_upper": "-7203055151/250000000000"
+    },
+    {
+      "label": "T=13/4",
+      "horizon": "13/4",
+      "cost": "13/8",
+      "contrast_lower": "11750206089/500000000000",
+      "contrast_upper": "23500412179/1000000000000"
+    },
+    {
+      "label": "T=7/2",
+      "horizon": "7/2",
+      "cost": "7/4",
+      "contrast_lower": "12476426101/200000000000",
+      "contrast_upper": "31191065253/500000000000"
+    },
+    {
+      "label": "T=15/4",
+      "horizon": "15/4",
+      "cost": "15/8",
+      "contrast_lower": "81727528059/1000000000000",
+      "contrast_upper": "4086376403/50000000000"
+    },
+    {
+      "label": "T=4",
+      "horizon": "4",
+      "cost": "2",
+      "contrast_lower": "80580663391/1000000000000",
+      "contrast_upper": "2518145731/31250000000"
+    }
+  ],
+  "designs": [
+    {
+      "certificate": {
+        "budget": "3/4",
+        "labels": [
+          "T=1/4",
+          "T=1/2",
+          "T=3/4",
+          "T=1",
+          "T=5/4",
+          "T=3/2",
+          "T=7/4",
+          "T=2",
+          "T=9/4",
+          "T=5/2",
+          "T=11/4",
+          "T=3",
+          "T=13/4",
+          "T=7/2",
+          "T=15/4",
+          "T=4"
+        ],
+        "guaranteed": {
+          "value": "-12812040209/200000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "3/4",
+          "dual_slope": "5834225123/6250000000",
+          "dual_intercept": "-152833443161/200000000000"
+        },
+        "optimistic": {
+          "value": "-16015050261/250000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "3/4",
+          "dual_slope": "5834225123/6250000000",
+          "dual_intercept": "-191041803951/250000000000"
+        },
+        "optimal_value_gap": "1/1000000000000"
+      },
+      "clock": {
+        "steps": [
+          {
+            "left": "0",
+            "right": "3/2",
+            "density": "2/3"
+          }
+        ],
+        "mass": "1",
+        "mean_time": "3/4"
+      }
+    },
+    {
+      "certificate": {
+        "budget": "9/10",
+        "labels": [
+          "T=1/4",
+          "T=1/2",
+          "T=3/4",
+          "T=1",
+          "T=5/4",
+          "T=3/2",
+          "T=7/4",
+          "T=2",
+          "T=9/4",
+          "T=5/2",
+          "T=11/4",
+          "T=3",
+          "T=13/4",
+          "T=7/2",
+          "T=15/4",
+          "T=4"
+        ],
+        "guaranteed": {
+          "value": "332336011943/5000000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "4/5",
+            "1/5",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "9/10",
+          "dual_slope": "17303626217/31250000000",
+          "dual_intercept": "-431877232661/1000000000000"
+        },
+        "optimistic": {
+          "value": "83084002987/1250000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "4/5",
+            "1/5",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "9/10",
+          "dual_slope": "17303626217/31250000000",
+          "dual_intercept": "-21593861633/50000000000"
+        },
+        "optimal_value_gap": "1/1000000000000"
+      },
+      "clock": {
+        "steps": [
+          {
+            "left": "0",
+            "right": "7/4",
+            "density": "39/70"
+          },
+          {
+            "left": "7/4",
+            "right": "2",
+            "density": "1/10"
+          }
+        ],
+        "mass": "1",
+        "mean_time": "9/10"
+      }
+    },
+    {
+      "certificate": {
+        "budget": "1",
+        "labels": [
+          "T=1/4",
+          "T=1/2",
+          "T=3/4",
+          "T=1",
+          "T=5/4",
+          "T=3/2",
+          "T=7/4",
+          "T=2",
+          "T=9/4",
+          "T=5/2",
+          "T=11/4",
+          "T=3",
+          "T=13/4",
+          "T=7/2",
+          "T=15/4",
+          "T=4"
+        ],
+        "guaranteed": {
+          "value": "121838806283/1000000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "1",
+          "dual_slope": "11116253721/62500000000",
+          "dual_intercept": "-56021253253/1000000000000"
+        },
+        "optimistic": {
+          "value": "30459701571/250000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "1",
+          "dual_slope": "11116253721/62500000000",
+          "dual_intercept": "-14005313313/250000000000"
+        },
+        "optimal_value_gap": "1/1000000000000"
+      },
+      "clock": {
+        "steps": [
+          {
+            "left": "0",
+            "right": "2",
+            "density": "1/2"
+          }
+        ],
+        "mass": "1",
+        "mean_time": "1"
+      }
+    },
+    {
+      "certificate": {
+        "budget": "9/8",
+        "labels": [
+          "T=1/4",
+          "T=1/2",
+          "T=3/4",
+          "T=1",
+          "T=5/4",
+          "T=3/2",
+          "T=7/4",
+          "T=2",
+          "T=9/4",
+          "T=5/2",
+          "T=11/4",
+          "T=3",
+          "T=13/4",
+          "T=7/2",
+          "T=15/4",
+          "T=4"
+        ],
+        "guaranteed": {
+          "value": "5762852549/40000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "9/8",
+          "dual_slope": "0",
+          "dual_intercept": "5762852549/40000000000"
+        },
+        "optimistic": {
+          "value": "72035656863/500000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "9/8",
+          "dual_slope": "0",
+          "dual_intercept": "72035656863/500000000000"
+        },
+        "optimal_value_gap": "1/1000000000000"
+      },
+      "clock": {
+        "steps": [
+          {
+            "left": "0",
+            "right": "9/4",
+            "density": "4/9"
+          }
+        ],
+        "mass": "1",
+        "mean_time": "9/8"
+      }
+    },
+    {
+      "certificate": {
+        "budget": "3/2",
+        "labels": [
+          "T=1/4",
+          "T=1/2",
+          "T=3/4",
+          "T=1",
+          "T=5/4",
+          "T=3/2",
+          "T=7/4",
+          "T=2",
+          "T=9/4",
+          "T=5/2",
+          "T=11/4",
+          "T=3",
+          "T=13/4",
+          "T=7/2",
+          "T=15/4",
+          "T=4"
+        ],
+        "guaranteed": {
+          "value": "5762852549/40000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "9/8",
+          "dual_slope": "0",
+          "dual_intercept": "5762852549/40000000000"
+        },
+        "optimistic": {
+          "value": "72035656863/500000000000",
+          "weights": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0"
+          ],
+          "expected_cost": "9/8",
+          "dual_slope": "0",
+          "dual_intercept": "72035656863/500000000000"
+        },
+        "optimal_value_gap": "1/1000000000000"
+      },
+      "clock": {
+        "steps": [
+          {
+            "left": "0",
+            "right": "9/4",
+            "density": "4/9"
+          }
+        ],
+        "mass": "1",
+        "mean_time": "9/8"
+      }
+    }
+  ],
+  "best_single_clock_gap_squared_per_mean_time": {
+    "value": "33210469501515797401/1800000000000000000000",
+    "label": "T=9/4"
+  },
+  "resource_limit": "Expected pulse duration only. Add calibrated preparation, readout, control power and physical overhead; realized tail expenditure is not certified here.",
+  "source": "Nonincreasing densities as uniform scale mixtures and finite-design LP are established mathematical ingredients."
+}

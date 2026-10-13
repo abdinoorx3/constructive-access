@@ -1,0 +1,133 @@
+{
+  "alternative_arm": {
+    "declared_evolution_time": 36000,
+    "pairs": 20000,
+    "readouts": 40000,
+    "settings": [
+      1,
+      2,
+      3
+    ]
+  },
+  "calibrated": {
+    "alpha_calibration": "1/40",
+    "alpha_science": "1/40",
+    "coefficients": [
+      "38/25",
+      "-1"
+    ],
+    "confidence_region": "same covered contrast halfspace and same calibrated polygon for nonlinear and Pinsker",
+    "mixture_weights": [
+      "291409/426973",
+      "135564/426973"
+    ],
+    "polynomial_depth": 7,
+    "proposal_grid": 33
+  },
+  "calibrated_arm": {
+    "declared_evolution_time": 24000,
+    "pairs": 20000,
+    "readouts": 40000,
+    "settings": [
+      0,
+      1,
+      2
+    ]
+  },
+  "calibration_method": "two independently randomized binary readings conditioned on one unchanged uniformly sampled hidden state",
+  "calibration_records": 4000,
+  "cases": [
+    {
+      "calibration_gain": 1.0,
+      "contract": "within",
+      "gain": 1.0,
+      "name": "driven",
+      "rates": "driven"
+    },
+    {
+      "calibration_gain": 1.0,
+      "contract": "within",
+      "gain": 1.0,
+      "name": "equilibrium",
+      "rates": "equal_same_activity"
+    },
+    {
+      "calibration_gain": 0.2,
+      "contract": "within",
+      "gain": 0.2,
+      "name": "high_readout_noise",
+      "rates": "driven"
+    },
+    {
+      "calibration_gain": 0.2,
+      "contract": "outside: detector gain changes between calibration and science",
+      "gain": 1.0,
+      "name": "invalid_calibration",
+      "rates": "equal_same_activity"
+    }
+  ],
+  "cost_limits": [
+    "pair/readout counts matched, evolution times differ",
+    "zero-lag calibration means ideal same-state readings; finite detector exposure not modeled",
+    "reset, sensor hardware, measurement latency and energy uncalibrated, not zero",
+    "joint simulation retains shared lag1/2 records, plus both independent extra menus"
+  ],
+  "datasets_per_case": 400,
+  "declared_outputs": [
+    "matched detection counts and pointwise95% Clopper-Pearson intervals",
+    "all-dataset bound ratios and paired differences, true simulated entropy, calibration and joint confidence coverage",
+    "relaxation primal-dual gaps for every nonlinear result",
+    "exact equilibrium countermodel for uncalibrated two-lag law",
+    "first driven dataset raw records plus all held-out sufficient counts"
+  ],
+  "evidence": "simulated stochastic trajectories; no hardware measurements",
+  "extra_lag_alternative": {
+    "alpha": "1/20",
+    "coefficients": [
+      "-289/2500",
+      "17/25",
+      "-1"
+    ],
+    "criterion": "maximize model-centered finite-data Pinsker rate lower after fixed one-sided Hoeffding penalty; no generated data",
+    "grid": "s=j/100, j=1,...,99",
+    "inference": "predeclared prior-model-designed uncalibrated shifted-cubic contrast with optimized Pinsker time weights",
+    "legacy_coefficients": [
+      "-4/9",
+      "4/3",
+      "-1"
+    ],
+    "parameter": "17/50",
+    "population_probabilities": [
+      "69/100",
+      "59/100",
+      "30357/62500"
+    ],
+    "predicted_objective": 0.0010375836578877552
+  },
+  "model_definition": {
+    "backward": "(gamma/(1-cos(phi))-omega/sin(phi))/2",
+    "detector": "cos(2*pi*j/20)",
+    "forward": "(gamma/(1-cos(phi))+omega/sin(phi))/2",
+    "gamma": "-log(r)",
+    "omega": "acos(19/sqrt(497))",
+    "phi": "2*pi/20",
+    "r": "sqrt(497)/25",
+    "stationary_preparation": "uniform independent reset each pair"
+  },
+  "no_pilot": "model and coefficients chosen analytically before production; no generated pilot or data-based redesign",
+  "numerical_method": "hidden dynamics evaluated in floating point; inference uses rational outward bounds; no exact physical calibration claim",
+  "science_lags": [
+    1,
+    2,
+    3
+  ],
+  "science_records": [
+    8000,
+    8000,
+    4000
+  ],
+  "seed": 73024119,
+  "seed_stream": "SeedSequence([seed,case_index,dataset_index,setting_index]); calibration setting_index3",
+  "states": 20,
+  "version": 1
+}

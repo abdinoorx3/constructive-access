@@ -1,0 +1,55 @@
+LITERATURE AUDIT — 2026-10-12T19:46:21.845329+00:00
+Abdinoor / 2D Labs realization frontier
+
+Scientific priority assessment
+
+The strongest supportable claim is a concrete, robust operational extension, not a new field or a first quantum/classical dimension separation. Wolf and Perez-Garcia (2009) already study dimension from observable dynamics, damped qubit oscillations, arbitrarily large classical dimension gaps, finite Hankel data and perturbation-aware rank bounds. Their noisy spectral discussion suggests rational approximation and pole estimation without a complete nonparametric finite-record exclusion certificate.
+
+The proposed antichain hierarchy has especially close antecedents. Gillis (2020) Theorem 3.20 gives inverse central-binomial nonnegative-rank bounds from support antichains, tracing the Boolean-rank argument to de Caen, Gregory and Pullman (1981). Shahandeh, Yianni and Doosti (2024) Theorem 1 applies that bound to quantum probability tables. Their final discussion explicitly says the zero entries are noise-sensitive and suggests numerical approximate NMF. Heinosaari et al. (2024) use exactly the undamped sinusoidal qubit probability matrix, scaled by 2/N, and prove unbounded classical dimension. For N=7 they prove nonnegative rank six, stronger at exact zero than the generic antichain lower bound five.
+
+What might be added: a nonzero diagonal-error criterion beta>2 sqrt(epsilon)-epsilon for probability-normalized factorization, conversion to 2N-1 fresh prepare-wait-read times under one common homogeneous generator, and exact finite-count confidence implementation. The analytic margin and the temporal implementation are narrower and more defensible novelty candidates. They do not identify the exact minimum positive-realization dimension, and the nonnegative rank of one probability table is only a necessary bound on compatible common dynamics.
+
+The universal finite-window Poisson compiler uses exactly the Szász-Mirakjan operator (Szász1950). Its universal approximation fact and elementary Poisson variance error estimate are established mathematics. Added value can be a finite deterministic-detector homogeneous CTMC realization, explicit truncation/state-count accounting and adaptive finite-record TV error consequences. This is a useful limitation theorem under stated restricted observations, not a classical simulation of all quantum instruments or multi-time invasive records.
+
+Thermodynamic audit
+
+Additive reversibilization and generator KL geometry are established (Choi/Wolfer2024, earlier Diaconis/Miclo2009). The edge factor in KL(Q-path||reversible-path)<=sigma T/4 is the standard Jensen-Shannon/Jeffreys comparison (Crooks/Sivak2011 Eq14). No new energy principle follows merely by renaming these.
+
+A very close new unrefereed candidate appeared on 3 October2026: Anonymous, 'An architecture-independent dissipation floor for alternating-renewal observations', Zenodo10.5281/zenodo.23118474. Its technical account explicitly combines the SAME sigma T/4 comparison with reversible spectral-mixture closure and a dimension-independent positive floor from persistence/dwell laws. Its stated finite errorbox is not a confidence procedure. Therefore our bridge's general form cannot be claimed as newly discovered. A symmetric endpoint-correlation moment-cone and exact finite-count inference could be a distinct operational specialization, and should be compared against the persistence method at matched observation access.
+
+Aznagulov arXiv2609.37205 (29 September2026) gives another close unrefereed analysis: randomized clocks under detector deadtime, reversible comparison, and adaptive finite-data cost against all hidden equilibrium explanations. Its observations are successive full state snapshots, and its matched spectral exponent assumes a normal irreversible alternative. Its paper does not establish our particular binary symmetric endpoint cone bound. Still, broad claims of first operational timing or hidden-equilibrium certificate would be untenable.
+
+Existing peer-reviewed thermodynamic baselines include correlation-asymmetry tests (Ohga/Ito/Kolchinsky2023; Shiraishi2023; Raux/Maier/Seifert2026 preprint) and the correlation-time/short-time-variance test of Dechant/Garnier-Brun/Sasa2023. Ordinary two-time asymmetry of a single stationary binary observable is identically zero; this does not imply all thermodynamic information is zero because continuous-time reversible dynamics imposes stronger spectral shape restrictions. New claims must state the even-variable finite CTMC contract and show matched statistics explicitly.
+
+Most important rejected extrapolation: a nonreal mode does not alone yield a universal stationary energy lower bound. Gu2026 introduces an eigenvector-uniformity factor; Shiraishi arXiv2609.34352 (28 September2026) supplies an explicit counterexample with finite frequency/damping and vanishing stationary EP. The latter was read but not independently rederived in this audit. Observable amplitudes, stationary population and preparation are essential.
+
+Scope and coverage
+
+Searches covered: Wolf/Perez-Garcia; temporal memory witnesses (Vieira/Budroni); positive realization and nonnegative Hankel factorization; noisy antichain/diagonal witnesses; exact sinusoidal prepare-measure matrices; Szász-Mirakjan approximation; reversible-generator information projections; finite-lag thermodynamic inference; current 2026 spectral/coherence developments. Primary sources were used for conclusions. Related unrefereed 2026 claims remain explicitly labelled and are not adopted without proof. This targeted audit is not a complete bibliographic proof of originality. Bibliographic access and precise overlap are recorded in sources.json.
+
+VERIFICATION ADDENDUM
+The anonymous Evidence Press source was verified beyond its web account: the
+12-page PDF and GitHub tagged-release API agree on title, Anonymous authorship,
+3 October2026 date, candidate v1.1 and PDF SHA256
+a7ac46f09407364a7f69e65ac341849834214c6e55fcb1b779c70ff1dce4cd75.
+The DOI10.5281/zenodo.23118474 is printed in that manuscript. Zenodo API403
+prevents independent registration verification. Lemma2/Eq10 contains exactly
+the quarter-factor comparison; Lemma3 and Theorem6/Eq18 concern uninterrupted
+persistence, and Theorem9 alternating-renewal zero-cost realizations. This is
+unrefereed overlap evidence, not independently validated scholarship.
+Aznagulov2609.37205 actual4-page PDF also inspected, authorship/title verified.
+Neither new manuscript should be assigned peer-review status.
+
+The standard nonstationary split is Esposito–Van den Broeck2010: Eqs32/33
+adiabatic/housekeeping and nonadiabatic EP, Eqs37–41 boundary contribution and
+relative-entropy decay for fixed generator. A proposed observable budget
+J<=D(nu||pi)+1/2 E integral sigma_hk is a distinct combination requiring its own
+proof; the split itself and initial free-energy resource are established.
+The anonymous persistence paper does not include this preparation budget.
+
+Succar–Boldini–Porfiri2024 supplies an additional noisy ordinary-rank inference
+baseline. Targeted searches for Erlang/resolvent finite dimension certificates
+did not identify the current quantitative uniform-separation theorem; this
+negative search result does not establish priority. New Olamaei etal2026
+counting-process precision work was abstract-checked and uses a different
+first-tick operational model; it is not an endpoint Erlang-clock theorem.

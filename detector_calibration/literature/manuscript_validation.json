@@ -1,0 +1,21 @@
+{
+  "checked_utc": "2026-10-13T01:35:52.207604+00:00",
+  "scope": "literature chapter, citations, bibliography; not theory validation",
+  "source_count": 12,
+  "chapter_citation_keys": 15,
+  "new_bibliography_entries": 7,
+  "unresolved_citation_keys": [],
+  "duplicate_new_bibliography_keys": [],
+  "compile": "Two pdflatex passes, -interaction=nonstopmode -halt-on-error; isolated book harness with cited entries from existing ninth bibliography and new bibliography; cross-reference placeholder for calibration-limits chapter",
+  "compile_log": "/tmp/dc-literature-compile/check.log",
+  "compile_errors": 0,
+  "compile_warnings": 0,
+  "overfull_boxes": 0,
+  "internal_independent_review": "requested, not yet completed",
+  "sha256": {
+    "manuscript/calibration_literature.tex": "d406283bfcde0335c5f0043a240446f1c8f62bb1e4663dfdb0464d3bae1d636c",
+    "manuscript/calibration_bibitems.tex": "da7076714a3ade854448bc36b5b5cd6b6aa8abf9deb5173cbda609079fad3441",
+    "literature/audit.txt": "f728e3fdf9414939389d2bcba9ffcd3d9056af5ffb7508fe74b79497e486b687",
+    "literature/sources.json": "5d830bef035f8f9365432256984905b86c842064ff0ba4f5497bcf10d095f0a1"
+  }
+}

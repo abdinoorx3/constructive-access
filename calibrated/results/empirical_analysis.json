@@ -1,0 +1,1697 @@
+{
+  "analysis_status": "exploratory descriptive reanalysis of published experimental records",
+  "block_interpretation": "Ranges across eight contiguous, internally recentered blocks are descriptive sensitivity checks, not confidence intervals or independent replicates.",
+  "bounded_channels": {
+    "harmwell_n1.h5": {
+      "contiguous_block_means": [
+        -0.1463361451405891,
+        -0.034078892484005245,
+        -0.09475913807436655,
+        -0.047530054647963456,
+        -0.036766562173399575,
+        0.017513098296697043,
+        -0.05259714101395235,
+        -0.0730478376285248
+      ],
+      "contiguous_block_variances": [
+        0.1639868134514144,
+        0.18252493058864994,
+        0.16990764815725995,
+        0.15099444558677935,
+        0.21862855531117847,
+        0.19591890970053108,
+        0.22870104038528924,
+        0.1535614474372467
+      ],
+      "covariances": [
+        {
+          "covariance": 0.18505918603133303,
+          "lag_samples": 0,
+          "pair_count": 39999
+        },
+        {
+          "covariance": 0.16832056279163368,
+          "lag_samples": 1,
+          "pair_count": 39998
+        },
+        {
+          "covariance": 0.16588933309553236,
+          "lag_samples": 2,
+          "pair_count": 39997
+        },
+        {
+          "covariance": 0.1607725381945573,
+          "lag_samples": 4,
+          "pair_count": 39995
+        },
+        {
+          "covariance": 0.15126540398262162,
+          "lag_samples": 8,
+          "pair_count": 39991
+        },
+        {
+          "covariance": 0.13397390587123345,
+          "lag_samples": 16,
+          "pair_count": 39983
+        },
+        {
+          "covariance": 0.10317640673524099,
+          "lag_samples": 32,
+          "pair_count": 39967
+        },
+        {
+          "covariance": 0.0615761680672808,
+          "lag_samples": 64,
+          "pair_count": 39935
+        },
+        {
+          "covariance": 0.025464028508321333,
+          "lag_samples": 128,
+          "pair_count": 39871
+        },
+        {
+          "covariance": 0.0011450146418896148,
+          "lag_samples": 256,
+          "pair_count": 39743
+        }
+      ],
+      "inequality_margins": [
+        {
+          "block_max": 0.21374054255578817,
+          "block_min": 0.1330748785971013,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            1
+          ],
+          "margin": 0.16832056279163368
+        },
+        {
+          "block_max": 0.003283074389909574,
+          "block_min": 0.002108138197818993,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            1,
+            2
+          ],
+          "margin": 0.0024312296961013224
+        },
+        {
+          "block_max": 0.055034137159608996,
+          "block_min": 0.034465537006785264,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            1,
+            2
+          ],
+          "margin": 0.043833566811731936
+        },
+        {
+          "block_max": 1.3820392941097086e-05,
+          "block_min": -4.061319475224742e-05,
+          "blocks_negative": 6,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            1,
+            2,
+            4
+          ],
+          "margin": -1.0176181933193966e-05
+        },
+        {
+          "block_max": 0.21159941961907486,
+          "block_min": 0.12979180420719172,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            2
+          ],
+          "margin": 0.16588933309553236
+        },
+        {
+          "block_max": 0.005544738307490554,
+          "block_min": 0.004359085024057768,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            2,
+            4
+          ],
+          "margin": 0.005116794900975052
+        },
+        {
+          "block_max": 0.05281617507226454,
+          "block_min": 0.032203873089204284,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            2,
+            4
+          ],
+          "margin": 0.041148001606858206
+        },
+        {
+          "block_max": 4.5950493532515534e-05,
+          "block_min": -2.1634300367728062e-05,
+          "blocks_negative": 4,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            2,
+            4,
+            8
+          ],
+          "margin": 7.095754415003923e-06
+        },
+        {
+          "block_max": 0.2072403345950171,
+          "block_min": 0.12424706589970116,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            4
+          ],
+          "margin": 0.1607725381945573
+        },
+        {
+          "block_max": 0.010389799842842329,
+          "block_min": 0.008928093906239859,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            4,
+            8
+          ],
+          "margin": 0.009507134211935692
+        },
+        {
+          "block_max": 0.04824716619008245,
+          "block_min": 0.028460663617369576,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            4,
+            8
+          ],
+          "margin": 0.03675766229589757
+        },
+        {
+          "block_max": 6.219153222183915e-05,
+          "block_min": -8.640114051273497e-05,
+          "blocks_negative": 3,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            4,
+            8,
+            16
+          ],
+          "margin": 1.7945786611258015e-06
+        },
+        {
+          "block_max": 0.19831224068877723,
+          "block_min": 0.1149591181203759,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            8
+          ],
+          "margin": 0.15126540398262162
+        },
+        {
+          "block_max": 0.019914356339254424,
+          "block_min": 0.01527082075548758,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            8,
+            16
+          ],
+          "margin": 0.017291498111388165
+        },
+        {
+          "block_max": 0.04190443934083473,
+          "block_min": 0.020215528933413877,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            8,
+            16
+          ],
+          "margin": 0.028973298396445094
+        },
+        {
+          "block_max": 0.000142002024317172,
+          "block_min": -0.00022062255691827036,
+          "blocks_negative": 6,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            8,
+            16,
+            32
+          ],
+          "margin": -4.3896321899095786e-05
+        },
+        {
+          "block_max": 0.18304141993328965,
+          "block_min": 0.09742603565709494,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            16
+          ],
+          "margin": 0.13397390587123345
+        },
+        {
+          "block_max": 0.03382392346689296,
+          "block_min": 0.027037307139962122,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            16,
+            32
+          ],
+          "margin": 0.03079749913599246
+        },
+        {
+          "block_max": 0.02620977537333176,
+          "block_min": 0.006832786740364576,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            16,
+            32
+          ],
+          "margin": 0.015467297371840799
+        },
+        {
+          "block_max": 0.00019476036431621802,
+          "block_min": -0.0002296042146801464,
+          "blocks_negative": 5,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            16,
+            32,
+            64
+          ],
+          "margin": 6.879981125575314e-06
+        },
+        {
+          "block_max": 0.15032712275960847,
+          "block_min": 0.06651021100076468,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            32
+          ],
+          "margin": 0.10317640673524099
+        },
+        {
+          "block_max": 0.05705629154578017,
+          "block_min": 0.03080157013556826,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            32,
+            64
+          ],
+          "margin": 0.04160023866796019
+        },
+        {
+          "block_max": 0.012229097640229815,
+          "block_min": -0.011425058898617689,
+          "blocks_negative": 2,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            32,
+            64
+          ],
+          "margin": 0.004664557839873067
+        },
+        {
+          "block_max": 7.463758857887299e-05,
+          "block_min": -8.702180413245219e-05,
+          "blocks_negative": 4,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            32,
+            64,
+            128
+          ],
+          "margin": 3.760032240250139e-05
+        },
+        {
+          "block_max": 0.09891135637148887,
+          "block_min": 0.023997336666546774,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            64
+          ],
+          "margin": 0.0615761680672808
+        },
+        {
+          "block_max": 0.055031491235514464,
+          "block_min": 0.02106110072062524,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            64,
+            128
+          ],
+          "margin": 0.036112139558959463
+        },
+        {
+          "block_max": 0.01746517597618895,
+          "block_min": -0.003210526598723548,
+          "blocks_negative": 2,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            64,
+            128
+          ],
+          "margin": 0.010152656948873795
+        },
+        {
+          "block_max": 2.9383878357261873e-05,
+          "block_min": -0.00023320290310760856,
+          "blocks_negative": 5,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            64,
+            128,
+            256
+          ],
+          "margin": -1.2169837013995662e-05
+        },
+        {
+          "block_max": 0.04438082600520883,
+          "block_min": 0.002936235945921534,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            128
+          ],
+          "margin": 0.025464028508321333
+        },
+        {
+          "block_max": 0.059282294406195334,
+          "block_min": -0.014463536055967452,
+          "blocks_negative": 2,
+          "inequality": "monotone_decay",
+          "lags": [
+            128,
+            256
+          ],
+          "margin": 0.02431901386643172
+        },
+        {
+          "block_max": 0.060094768703129936,
+          "block_min": -0.004695529582318614,
+          "blocks_negative": 2,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            128,
+            256
+          ],
+          "margin": 0.02194578264140154
+        },
+        {
+          "block_max": 0.01961509247727245,
+          "block_min": -0.02609164369827981,
+          "blocks_negative": 4,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            256
+          ],
+          "margin": 0.0011450146418896148
+        }
+      ],
+      "interpretation": "Plug-in margins, not simultaneous confidence bounds; negative margins alone do not reject reversibility.",
+      "observed_second_moment": 0.18847558492631936,
+      "observed_variance": 0.18505918603133303,
+      "sample_mean": -0.05844996916155133,
+      "training_center_nm": 0.6975205220659005,
+      "training_scale_nm": 29.02851280990253
+    },
+    "harmwell_n1_groundtruth.h5": {
+      "contiguous_block_means": [
+        -0.15300664682479465,
+        -0.023410526796794204,
+        -0.09275910204892289,
+        -0.043117660116462925,
+        -0.024876286623406553,
+        0.018974839001894242,
+        -0.04285384369976529,
+        -0.060259745596550146
+      ],
+      "contiguous_block_variances": [
+        0.1600800002564895,
+        0.17995594953834246,
+        0.16571258308178557,
+        0.14558897942593843,
+        0.21399141347070408,
+        0.1920742646376656,
+        0.22333045060078202,
+        0.1491334726959841
+      ],
+      "covariances": [
+        {
+          "covariance": 0.18106935830111776,
+          "lag_samples": 0,
+          "pair_count": 39999
+        },
+        {
+          "covariance": 0.17391344673715972,
+          "lag_samples": 1,
+          "pair_count": 39998
+        },
+        {
+          "covariance": 0.171316236426478,
+          "lag_samples": 2,
+          "pair_count": 39997
+        },
+        {
+          "covariance": 0.16609816713352743,
+          "lag_samples": 4,
+          "pair_count": 39995
+        },
+        {
+          "covariance": 0.15616965518808068,
+          "lag_samples": 8,
+          "pair_count": 39991
+        },
+        {
+          "covariance": 0.13818799570930093,
+          "lag_samples": 16,
+          "pair_count": 39983
+        },
+        {
+          "covariance": 0.1067098647091661,
+          "lag_samples": 32,
+          "pair_count": 39967
+        },
+        {
+          "covariance": 0.062634204232138,
+          "lag_samples": 64,
+          "pair_count": 39935
+        },
+        {
+          "covariance": 0.025675023981509622,
+          "lag_samples": 128,
+          "pair_count": 39871
+        },
+        {
+          "covariance": 0.001605677238420692,
+          "lag_samples": 256,
+          "pair_count": 39743
+        }
+      ],
+      "inequality_margins": [
+        {
+          "block_max": 0.21678437933755196,
+          "block_min": 0.1377188106995172,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            1
+          ],
+          "margin": 0.17391344673715972
+        },
+        {
+          "block_max": 0.0028188359630215154,
+          "block_min": 0.0024427041831653618,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            1,
+            2
+          ],
+          "margin": 0.002597210310681719
+        },
+        {
+          "block_max": 0.05327774696984588,
+          "block_min": 0.03357840889346309,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            1,
+            2
+          ],
+          "margin": 0.04267012926459772
+        },
+        {
+          "block_max": 8.621496779871035e-06,
+          "block_min": -1.6869081782596405e-05,
+          "blocks_negative": 5,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            1,
+            2,
+            4
+          ],
+          "margin": -4.217155755945404e-06
+        },
+        {
+          "block_max": 0.21422951365720233,
+          "block_min": 0.13489997473649568,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            2
+          ],
+          "margin": 0.171316236426478
+        },
+        {
+          "block_max": 0.005859181079795939,
+          "block_min": 0.004778194721528406,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            2,
+            4
+          ],
+          "margin": 0.005218069292950572
+        },
+        {
+          "block_max": 0.05099630969148818,
+          "block_min": 0.03053806377668867,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            2,
+            4
+          ],
+          "margin": 0.04004927028232887
+        },
+        {
+          "block_max": 1.9519891452870683e-05,
+          "block_min": -1.4801146387707562e-05,
+          "blocks_negative": 5,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            2,
+            4,
+            8
+          ],
+          "margin": 1.0466190345486542e-06
+        },
+        {
+          "block_max": 0.209393210698495,
+          "block_min": 0.12904079365669974,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            4
+          ],
+          "margin": 0.16609816713352743
+        },
+        {
+          "block_max": 0.010601174814482972,
+          "block_min": 0.00892332749871666,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            4,
+            8
+          ],
+          "margin": 0.00992851194544675
+        },
+        {
+          "block_max": 0.046909285151478845,
+          "block_min": 0.02586654778346196,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            4,
+            8
+          ],
+          "margin": 0.03533882762983269
+        },
+        {
+          "block_max": 3.6629986292906116e-05,
+          "block_min": -4.514396732537441e-05,
+          "blocks_negative": 4,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            4,
+            8,
+            16
+          ],
+          "margin": 3.597832659582058e-06
+        },
+        {
+          "block_max": 0.20046988319977835,
+          "block_min": 0.11851009658367709,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            8
+          ],
+          "margin": 0.15616965518808068
+        },
+        {
+          "block_max": 0.02046232448285476,
+          "block_min": 0.015483433345949885,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            8,
+            16
+          ],
+          "margin": 0.01798165947877975
+        },
+        {
+          "block_max": 0.03953441742228097,
+          "block_min": 0.018917223917248878,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            8,
+            16
+          ],
+          "margin": 0.02728568009649969
+        },
+        {
+          "block_max": 9.427685346510492e-05,
+          "block_min": -0.00011920219082397349,
+          "blocks_negative": 6,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            8,
+            16,
+            32
+          ],
+          "margin": -3.628445904010078e-05
+        },
+        {
+          "block_max": 0.1841716879718638,
+          "block_min": 0.10103007564444136,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            16
+          ],
+          "margin": 0.13818799570930093
+        },
+        {
+          "block_max": 0.035186637756434005,
+          "block_min": 0.02776931713743558,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            16,
+            32
+          ],
+          "margin": 0.03147813100013483
+        },
+        {
+          "block_max": 0.024137523357356853,
+          "block_min": 0.0043899719776808385,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            16,
+            32
+          ],
+          "margin": 0.01378920857514461
+        },
+        {
+          "block_max": 0.00014112513028173546,
+          "block_min": -0.00028800072715910903,
+          "blocks_negative": 5,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            16,
+            32,
+            64
+          ],
+          "margin": -1.904683158208834e-05
+        },
+        {
+          "block_max": 0.15247659867902516,
+          "block_min": 0.06902280276563759,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            32
+          ],
+          "margin": 0.1067098647091661
+        },
+        {
+          "block_max": 0.061121804275925576,
+          "block_min": 0.03571148746718723,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            32,
+            64
+          ],
+          "margin": 0.0440756604770281
+        },
+        {
+          "block_max": 0.008364527995504432,
+          "block_min": -0.01613281689133996,
+          "blocks_negative": 3,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            32,
+            64
+          ],
+          "margin": 0.0011916790982513387
+        },
+        {
+          "block_max": 9.584544302966474e-05,
+          "block_min": -8.901758491727101e-05,
+          "blocks_negative": 4,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            32,
+            64,
+            128
+          ],
+          "margin": 4.664466522829138e-05
+        },
+        {
+          "block_max": 0.1013851694762973,
+          "block_min": 0.024907210999355493,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            64
+          ],
+          "margin": 0.062634204232138
+        },
+        {
+          "block_max": 0.05646654085588128,
+          "block_min": 0.023505575358430706,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            64,
+            128
+          ],
+          "margin": 0.03695918025062838
+        },
+        {
+          "block_max": 0.017922570412015688,
+          "block_min": -0.004836035690147129,
+          "blocks_negative": 2,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            64,
+            128
+          ],
+          "margin": 0.008308159324651058
+        },
+        {
+          "block_max": 2.7754462285957716e-05,
+          "block_min": -0.00023947697350608095,
+          "blocks_negative": 5,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            64,
+            128,
+            256
+          ],
+          "margin": -1.0626010130978175e-05
+        },
+        {
+          "block_max": 0.04605514342702039,
+          "block_min": -0.00039145698821740633,
+          "blocks_negative": 1,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            128
+          ],
+          "margin": 0.025675023981509622
+        },
+        {
+          "block_max": 0.059849399407457315,
+          "block_min": -0.01603718047831053,
+          "blocks_negative": 2,
+          "inequality": "monotone_decay",
+          "lags": [
+            128,
+            256
+          ],
+          "margin": 0.02406934674308893
+        },
+        {
+          "block_max": 0.06102616786289615,
+          "block_min": -0.008659243779589057,
+          "blocks_negative": 3,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            128,
+            256
+          ],
+          "margin": 0.02119799283219051
+        },
+        {
+          "block_max": 0.01959441753192277,
+          "block_min": -0.028763782049980893,
+          "blocks_negative": 4,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            256
+          ],
+          "margin": 0.001605677238420692
+        }
+      ],
+      "interpretation": "Plug-in margins, not simultaneous confidence bounds; negative margins alone do not reject reversibility.",
+      "observed_second_moment": 0.18384279533745834,
+      "observed_variance": 0.18106935830111776,
+      "sample_mean": -0.05266343168025239,
+      "training_center_nm": 0.7052498744460509,
+      "training_scale_nm": 29.02851280990253
+    },
+    "harmwell_n2.h5": {
+      "contiguous_block_means": [
+        0.022572416040954977,
+        0.12415280344553058,
+        -0.020877470060588058,
+        0.017567830309022044,
+        0.010507528753855161,
+        0.16708661563148067,
+        0.12752659086791418,
+        0.09931101083173918
+      ],
+      "contiguous_block_variances": [
+        0.16727595603467,
+        0.17104316048244436,
+        0.21347999645152332,
+        0.1811045932604011,
+        0.19250376088964882,
+        0.1429789638686981,
+        0.19394963129952056,
+        0.18093224252141915
+      ],
+      "covariances": [
+        {
+          "covariance": 0.18457171744628986,
+          "lag_samples": 0,
+          "pair_count": 39999
+        },
+        {
+          "covariance": 0.16141288100297746,
+          "lag_samples": 1,
+          "pair_count": 39998
+        },
+        {
+          "covariance": 0.1586082389429859,
+          "lag_samples": 2,
+          "pair_count": 39997
+        },
+        {
+          "covariance": 0.1542757154756922,
+          "lag_samples": 4,
+          "pair_count": 39995
+        },
+        {
+          "covariance": 0.14487349498932947,
+          "lag_samples": 8,
+          "pair_count": 39991
+        },
+        {
+          "covariance": 0.12856315450465244,
+          "lag_samples": 16,
+          "pair_count": 39983
+        },
+        {
+          "covariance": 0.10128579933819025,
+          "lag_samples": 32,
+          "pair_count": 39967
+        },
+        {
+          "covariance": 0.05807508228135614,
+          "lag_samples": 64,
+          "pair_count": 39935
+        },
+        {
+          "covariance": 0.015152623131119676,
+          "lag_samples": 128,
+          "pair_count": 39871
+        },
+        {
+          "covariance": 0.0007006429359798253,
+          "lag_samples": 256,
+          "pair_count": 39743
+        }
+      ],
+      "inequality_margins": [
+        {
+          "block_max": 0.19222001549029616,
+          "block_min": 0.1193487927865339,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            1
+          ],
+          "margin": 0.16141288100297746
+        },
+        {
+          "block_max": 0.003754184862110266,
+          "block_min": 0.002252456121846741,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            1,
+            2
+          ],
+          "margin": 0.0028046420599915634
+        },
+        {
+          "block_max": 0.05060272190246147,
+          "block_min": 0.03199055610506426,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            1,
+            2
+          ],
+          "margin": 0.0433382873015809
+        },
+        {
+          "block_max": 4.178118858326691e-05,
+          "block_min": -9.634879988062572e-06,
+          "blocks_negative": 1,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            1,
+            2,
+            4
+          ],
+          "margin": 2.9477904822533714e-05
+        },
+        {
+          "block_max": 0.1894527382798768,
+          "block_min": 0.11559460792442364,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            2
+          ],
+          "margin": 0.1586082389429859
+        },
+        {
+          "block_max": 0.0051249027804849134,
+          "block_min": 0.003273036465995832,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            2,
+            4
+          ],
+          "margin": 0.0043325234672937085
+        },
+        {
+          "block_max": 0.04874049207608035,
+          "block_min": 0.03151695908932348,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            2,
+            4
+          ],
+          "margin": 0.04181040589427876
+        },
+        {
+          "block_max": 2.4200755097630953e-05,
+          "block_min": -7.294097679719095e-05,
+          "blocks_negative": 7,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            2,
+            4,
+            8
+          ],
+          "margin": -2.739502722079023e-05
+        },
+        {
+          "block_max": 0.1848232312430763,
+          "block_min": 0.1113668260465726,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            4
+          ],
+          "margin": 0.1542757154756922
+        },
+        {
+          "block_max": 0.0104617823021865,
+          "block_min": 0.008751951164397698,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            4,
+            8
+          ],
+          "margin": 0.009402220486362717
+        },
+        {
+          "block_max": 0.04290821681069433,
+          "block_min": 0.026519325139431706,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            4,
+            8
+          ],
+          "margin": 0.03674070887520975
+        },
+        {
+          "block_max": 8.0742375014522e-05,
+          "block_min": -5.190225636615524e-05,
+          "blocks_negative": 3,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            4,
+            8,
+            16
+          ],
+          "margin": 1.927851972079132e-05
+        },
+        {
+          "block_max": 0.1743614489408898,
+          "block_min": 0.10214141021882978,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            8
+          ],
+          "margin": 0.14487349498932947
+        },
+        {
+          "block_max": 0.01899373823155795,
+          "block_min": 0.014838779888471071,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            8,
+            16
+          ],
+          "margin": 0.016310340484677027
+        },
+        {
+          "block_max": 0.03655313735060657,
+          "block_min": 0.020867117821880297,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            8,
+            16
+          ],
+          "margin": 0.02983258887689544
+        },
+        {
+          "block_max": 6.87042199456955e-05,
+          "block_min": -4.8050030236660834e-05,
+          "blocks_negative": 5,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            8,
+            16,
+            32
+          ],
+          "margin": 8.656035642901939e-07
+        },
+        {
+          "block_max": 0.15754458717861555,
+          "block_min": 0.08726378707353555,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            16
+          ],
+          "margin": 0.12856315450465244
+        },
+        {
+          "block_max": 0.03015217975363131,
+          "block_min": 0.023957335222421924,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            16,
+            32
+          ],
+          "margin": 0.027277355166462194
+        },
+        {
+          "block_max": 0.02384070005438714,
+          "block_min": 0.010358200005485547,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            16,
+            32
+          ],
+          "margin": 0.01886557419511027
+        },
+        {
+          "block_max": 1.9711932778753165e-05,
+          "block_min": -0.0005539430232219208,
+          "blocks_negative": 7,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            16,
+            32,
+            64
+          ],
+          "margin": -7.917898119618133e-05
+        },
+        {
+          "block_max": 0.12801528812012186,
+          "block_min": 0.06187724611184657,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            32
+          ],
+          "margin": 0.10128579933819025
+        },
+        {
+          "block_max": 0.06580972662470766,
+          "block_min": 0.03473388262716503,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            32,
+            64
+          ],
+          "margin": 0.04321071705683411
+        },
+        {
+          "block_max": 0.007482978316985148,
+          "block_min": -0.012439727511826829,
+          "blocks_negative": 2,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            32,
+            64
+          ],
+          "margin": 0.002932212304738356
+        },
+        {
+          "block_max": 0.00010624198250770608,
+          "block_min": -0.00041992450530214237,
+          "blocks_negative": 5,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            32,
+            64,
+            128
+          ],
+          "margin": -4.042278230763572e-05
+        },
+        {
+          "block_max": 0.07293063357182818,
+          "block_min": 0.02629165675560289,
+          "blocks_negative": 0,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            64
+          ],
+          "margin": 0.05807508228135614
+        },
+        {
+          "block_max": 0.07314155383738627,
+          "block_min": 0.019788878370411055,
+          "blocks_negative": 0,
+          "inequality": "monotone_decay",
+          "lags": [
+            64,
+            128
+          ],
+          "margin": 0.042922459150236465
+        },
+        {
+          "block_max": 0.01595586259676347,
+          "block_min": -0.01977155472450544,
+          "blocks_negative": 4,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            64,
+            128
+          ],
+          "margin": 0.0032204702113360004
+        },
+        {
+          "block_max": 8.101927417495213e-05,
+          "block_min": -8.748524559247438e-05,
+          "blocks_negative": 5,
+          "inequality": "weighted_centered_log_convexity",
+          "lags": [
+            64,
+            128,
+            256
+          ],
+          "margin": -1.1160033232578214e-06
+        },
+        {
+          "block_max": 0.03704818113693786,
+          "block_min": -0.010935992341972072,
+          "blocks_negative": 1,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            128
+          ],
+          "margin": 0.015152623131119676
+        },
+        {
+          "block_max": 0.03338668645191421,
+          "block_min": -0.004195317241443051,
+          "blocks_negative": 1,
+          "inequality": "monotone_decay",
+          "lags": [
+            128,
+            256
+          ],
+          "margin": 0.014451980195139852
+        },
+        {
+          "block_max": 0.05756531635432388,
+          "block_min": 0.015100721372965926,
+          "blocks_negative": 0,
+          "inequality": "variance_upper_only_drop",
+          "lags": [
+            128,
+            256
+          ],
+          "margin": 0.031690949166432614
+        },
+        {
+          "block_max": 0.024584741832482118,
+          "block_min": -0.023459832291640902,
+          "blocks_negative": 4,
+          "inequality": "nonnegative_centered_covariance",
+          "lags": [
+            256
+          ],
+          "margin": 0.0007006429359798253
+        }
+      ],
+      "interpretation": "Plug-in margins, not simultaneous confidence bounds; negative margins alone do not reject reversibility.",
+      "observed_second_moment": 0.18926124769946298,
+      "observed_variance": 0.18457171744628986,
+      "sample_mean": 0.0684801449558417,
+      "training_center_nm": -4.185259480840841,
+      "training_scale_nm": 30.970748150195465
+    }
+  },
+  "detector_comparison": {
+    "covariance_rows": [
+      {
+        "auto_n1_nm2": 234.41115000280283,
+        "auto_reference_minus_n1_nm2": -7.986795583309799,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -12.65164668050204,
+          -4.101268380507577
+        ],
+        "auto_reference_nm2": 226.42435441949303,
+        "cross_lag_asymmetry_nm2": 0.0,
+        "cross_lag_asymmetry_nm2_block_range": [
+          0.0,
+          0.0
+        ],
+        "cross_n1_to_reference_nm2": 218.3871853263946,
+        "cross_reference_to_n1_nm2": 218.3871853263946,
+        "lag_samples": 0,
+        "lag_seconds": 0.0,
+        "pair_count": 39999,
+        "residual_autocorrelation": 1.0,
+        "residual_autocorrelation_block_range": [
+          1.0,
+          1.0
+        ],
+        "residual_covariance_nm2": 24.06113376950663,
+        "symmetrized_cross_nm2": 218.3871853263946
+      },
+      {
+        "auto_n1_nm2": 213.9680227454004,
+        "auto_reference_minus_n1_nm2": 3.8809316295651684,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -0.6918729888911344,
+          7.712430770985236
+        ],
+        "auto_reference_nm2": 217.84895437496556,
+        "cross_lag_asymmetry_nm2": 0.19486393611040853,
+        "cross_lag_asymmetry_nm2_block_range": [
+          -0.3591989988418618,
+          0.5516919372100233
+        ],
+        "cross_n1_to_reference_nm2": 215.89500402438574,
+        "cross_reference_to_n1_nm2": 215.70014008827533,
+        "lag_samples": 1,
+        "lag_seconds": 1e-05,
+        "pair_count": 39998,
+        "residual_autocorrelation": 0.009219557558259076,
+        "residual_autocorrelation_block_range": [
+          -0.015119038681817683,
+          0.02592651264948847
+        ],
+        "residual_covariance_nm2": 0.22183300770493752,
+        "symmetrized_cross_nm2": 215.79757205633052
+      },
+      {
+        "auto_n1_nm2": 211.13942101113284,
+        "auto_reference_minus_n1_nm2": 3.5695086226924957,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -0.9469945890320446,
+          7.0735071151530065
+        ],
+        "auto_reference_nm2": 214.70892963382533,
+        "cross_lag_asymmetry_nm2": 0.0962097526438015,
+        "cross_lag_asymmetry_nm2_block_range": [
+          -0.5844730915760579,
+          0.5320813370137785
+        ],
+        "cross_n1_to_reference_nm2": 212.71453788515768,
+        "cross_reference_to_n1_nm2": 212.61832813251388,
+        "lag_samples": 2,
+        "lag_seconds": 2e-05,
+        "pair_count": 39997,
+        "residual_autocorrelation": 0.021423954175423886,
+        "residual_autocorrelation_block_range": [
+          -0.00637523791727372,
+          0.054102691011370614
+        ],
+        "residual_covariance_nm2": 0.5154846272866542,
+        "symmetrized_cross_nm2": 212.66643300883578
+      },
+      {
+        "auto_n1_nm2": 204.93557631490225,
+        "auto_reference_minus_n1_nm2": 3.541868718500581,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -0.687544700130843,
+          6.652664205653707
+        ],
+        "auto_reference_nm2": 208.47744503340283,
+        "cross_lag_asymmetry_nm2": 0.16032583196579253,
+        "cross_lag_asymmetry_nm2_block_range": [
+          -0.44603106829168837,
+          0.7062133716752328
+        ],
+        "cross_n1_to_reference_nm2": 206.66508115969822,
+        "cross_reference_to_n1_nm2": 206.50475532773243,
+        "lag_samples": 4,
+        "lag_seconds": 4e-05,
+        "pair_count": 39995,
+        "residual_autocorrelation": 0.01010695768553558,
+        "residual_autocorrelation_block_range": [
+          -0.01615460242774046,
+          0.028782246873431894
+        ],
+        "residual_covariance_nm2": 0.2431848608744147,
+        "symmetrized_cross_nm2": 206.58491824371532
+      },
+      {
+        "auto_n1_nm2": 193.16108657194505,
+        "auto_reference_minus_n1_nm2": 3.356260819231352,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -0.8628380993055771,
+          6.535204237256011
+        ],
+        "auto_reference_nm2": 196.5173473911764,
+        "cross_lag_asymmetry_nm2": -0.05185676385363536,
+        "cross_lag_asymmetry_nm2_block_range": [
+          -1.2032945022926356,
+          0.6441609835760289
+        ],
+        "cross_n1_to_reference_nm2": 194.63294141915256,
+        "cross_reference_to_n1_nm2": 194.6847981830062,
+        "lag_samples": 8,
+        "lag_seconds": 8e-05,
+        "pair_count": 39991,
+        "residual_autocorrelation": 0.014990746671288328,
+        "residual_autocorrelation_block_range": [
+          -0.006258955563972219,
+          0.031902815369298246
+        ],
+        "residual_covariance_nm2": 0.36069436096265467,
+        "symmetrized_cross_nm2": 194.6588698010794
+      },
+      {
+        "auto_n1_nm2": 171.69872486101698,
+        "auto_reference_minus_n1_nm2": 2.884385468002506,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -0.6089147577186793,
+          5.135060784231797
+        ],
+        "auto_reference_nm2": 174.5831103290195,
+        "cross_lag_asymmetry_nm2": -0.16804065601399998,
+        "cross_lag_asymmetry_nm2_block_range": [
+          -2.4479427596106973,
+          1.1443806950365172
+        ],
+        "cross_n1_to_reference_nm2": 172.82786246508857,
+        "cross_reference_to_n1_nm2": 172.99590312110257,
+        "lag_samples": 16,
+        "lag_seconds": 0.00016,
+        "pair_count": 39983,
+        "residual_autocorrelation": 0.01903773979370083,
+        "residual_autocorrelation_block_range": [
+          0.0029676994238134694,
+          0.036419688664815784
+        ],
+        "residual_covariance_nm2": 0.4580696038452952,
+        "symmetrized_cross_nm2": 172.91188279309557
+      },
+      {
+        "auto_n1_nm2": 133.96998381794774,
+        "auto_reference_minus_n1_nm2": 2.5805029579149448,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -0.7251101388084749,
+          4.707338393278661
+        ],
+        "auto_reference_nm2": 136.55048677586268,
+        "cross_lag_asymmetry_nm2": 0.1736961732925124,
+        "cross_lag_asymmetry_nm2_block_range": [
+          -2.3288170875468097,
+          2.820276897573521
+        ],
+        "cross_n1_to_reference_nm2": 135.2561632334141,
+        "cross_reference_to_n1_nm2": 135.0824670601216,
+        "lag_samples": 32,
+        "lag_seconds": 0.00032,
+        "pair_count": 39967,
+        "residual_autocorrelation": 0.007557428590715587,
+        "residual_autocorrelation_block_range": [
+          -0.014749021321603255,
+          0.02703999661684405
+        ],
+        "residual_covariance_nm2": 0.18184030027470172,
+        "symmetrized_cross_nm2": 135.16931514676784
+      },
+      {
+        "auto_n1_nm2": 80.87423540497628,
+        "auto_reference_minus_n1_nm2": 0.259304806401488,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -1.836350043732665,
+          1.926758974133861
+        ],
+        "auto_reference_nm2": 81.13354021137776,
+        "cross_lag_asymmetry_nm2": 0.14639065595616785,
+        "cross_lag_asymmetry_nm2_block_range": [
+          -2.0402947676734158,
+          3.9480525675313416
+        ],
+        "cross_n1_to_reference_nm2": 81.06451616719544,
+        "cross_reference_to_n1_nm2": 80.91812551123927,
+        "lag_samples": 64,
+        "lag_seconds": 0.00064,
+        "pair_count": 39935,
+        "residual_autocorrelation": 0.0010445866001206566,
+        "residual_autocorrelation_block_range": [
+          -0.029473510860756492,
+          0.030978627100367074
+        ],
+        "residual_covariance_nm2": 0.02513393791933725,
+        "symmetrized_cross_nm2": 80.99132083921735
+      },
+      {
+        "auto_n1_nm2": 32.75825840652484,
+        "auto_reference_minus_n1_nm2": -0.1940743014461077,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -4.548041038670439,
+          3.247972414547583
+        ],
+        "auto_reference_nm2": 32.56418410507873,
+        "cross_lag_asymmetry_nm2": -0.15446830463880445,
+        "cross_lag_asymmetry_nm2_block_range": [
+          -2.6236693557890964,
+          1.8283096921444193
+        ],
+        "cross_n1_to_reference_nm2": 32.4311692012624,
+        "cross_reference_to_n1_nm2": 32.585637505901204,
+        "lag_samples": 128,
+        "lag_seconds": 0.00128,
+        "pair_count": 39871,
+        "residual_autocorrelation": 0.012702468942975987,
+        "residual_autocorrelation_block_range": [
+          -0.011543851824287176,
+          0.040063665202711485
+        ],
+        "residual_covariance_nm2": 0.3056358044399487,
+        "symmetrized_cross_nm2": 32.5084033535818
+      },
+      {
+        "auto_n1_nm2": 0.7187535034293676,
+        "auto_reference_minus_n1_nm2": 0.5080034027240851,
+        "auto_reference_minus_n1_nm2_block_range": [
+          -2.8375006551662345,
+          3.0224277472544694
+        ],
+        "auto_reference_nm2": 1.2267569061534527,
+        "cross_lag_asymmetry_nm2": 0.4098889924219863,
+        "cross_lag_asymmetry_nm2_block_range": [
+          -1.777023128709951,
+          5.255288171811401
+        ],
+        "cross_n1_to_reference_nm2": 1.1885440439159023,
+        "cross_reference_to_n1_nm2": 0.778655051493916,
+        "lag_samples": 256,
+        "lag_seconds": 0.00256,
+        "pair_count": 39743,
+        "residual_autocorrelation": -0.0009013991624320266,
+        "residual_autocorrelation_block_range": [
+          -0.010527426727089577,
+          0.007775012252180738
+        ],
+        "residual_covariance_nm2": -0.021688685826998226,
+        "symmetrized_cross_nm2": 0.9835995477049091
+      }
+    ],
+    "unit_gain_independent_noise_variance_decomposition": {
+      "interpretation": "Conditional on unit gains and mutually independent additive detector errors independent of particle; not a calibrated noise estimate.",
+      "latent_variance_candidate_nm2": 218.3871853263946,
+      "n1_noise_variance_candidate_nm2": 16.02396467640824,
+      "reference_noise_variance_candidate_nm2": 8.037169093098441
+    }
+  },
+  "eight_block_lengths": [
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    5000,
+    4999
+  ],
+  "evaluation_samples": 39999,
+  "evaluation_span_seconds_per_record": 0.39998000000000006,
+  "exposure_note": "Simultaneous detectors share one physical exposure; overlapping lag pairs and adjacent blocks are dependent. Separate n2 record has undocumented alignment to n1.",
+  "lag_grid_samples": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "nominal_dt_seconds": 1e-05,
+  "original_sha256": {
+    "harmwell_n1.h5": "ffa81dda2576934bd51cf544199a12da7d5568806883401a08848ad215c1286c",
+    "harmwell_n1_groundtruth.h5": "ef390252ce9730b53c688958cad5fa4ff2379800f09ccc13ac2d6e90bb0e413b",
+    "harmwell_n2.h5": "38efb704da6fb86a9da49938d3e84ff4c3d1e4c56588768cbdf37149f28b4a2e"
+  },
+  "paper_doi": "10.1016/j.isci.2022.104731",
+  "protocol_note": "Split and lag grid fixed before new correlation calculations; whole-file descriptive statistics and sources had already been inspected, so this is not prospectively blinded validation.",
+  "source_authors": [
+    "J. S. Bryan IV",
+    "P. Basak",
+    "J. Bechhoefer",
+    "S. Presse"
+  ],
+  "source_doi": "10.5281/zenodo.6680673",
+  "source_license": "CC-BY-4.0",
+  "thermodynamic_certificate": {
+    "alpha": null,
+    "entropy_rate_lower_bound": null,
+    "reasons": [
+      "No independently established hidden-process dependence bound",
+      "No uniform detector memory or conditional-independence calibration",
+      "No actual timestamp jitter bound",
+      "No finite-sample stationary mean/variance calibration",
+      "Population Markov/reversal and physical entropy scope remain assumptions"
+    ],
+    "status": "abstain"
+  },
+  "training_ou_model": {
+    "amplitude_nm2": 198.9672213064687,
+    "fit_lags_samples": [
+      1,
+      2,
+      4,
+      8,
+      16
+    ],
+    "held_out_comparison": [
+      {
+        "error_normalized_by_zero_lag_cross": -0.0909593992102202,
+        "lag_samples": 1,
+        "observed_symmetrized_cross_nm2": 215.79757205633052,
+        "predicted_covariance_nm2": 195.93320488383065
+      },
+      {
+        "error_normalized_by_zero_lag_cross": -0.09030282308647798,
+        "lag_samples": 2,
+        "observed_symmetrized_cross_nm2": 212.66643300883578,
+        "predicted_covariance_nm2": 192.9454536479525
+      },
+      {
+        "error_normalized_by_zero_lag_cross": -0.08919471478722987,
+        "lag_samples": 4,
+        "observed_symmetrized_cross_nm2": 206.58491824371532,
+        "predicted_covariance_nm2": 187.10593553534164
+      },
+      {
+        "error_normalized_by_zero_lag_cross": -0.08566032896712186,
+        "lag_samples": 8,
+        "observed_symmetrized_cross_nm2": 194.6588698010794,
+        "predicted_covariance_nm2": 175.95175166381662
+      },
+      {
+        "error_normalized_by_zero_lag_cross": -0.07927797439915402,
+        "lag_samples": 16,
+        "observed_symmetrized_cross_nm2": 172.91188279309557,
+        "predicted_covariance_nm2": 155.59858910568636
+      },
+      {
+        "error_normalized_by_zero_lag_cross": -0.06175432231960471,
+        "lag_samples": 32,
+        "observed_symmetrized_cross_nm2": 135.16931514676784,
+        "predicted_covariance_nm2": 121.68296251365042
+      },
+      {
+        "error_normalized_by_zero_lag_cross": -0.030099373078567464,
+        "lag_samples": 64,
+        "observed_symmetrized_cross_nm2": 80.99132083921735,
+        "predicted_covariance_nm2": 74.41800347249995
+      },
+      {
+        "error_normalized_by_zero_lag_cross": -0.02140453298715452,
+        "lag_samples": 128,
+        "observed_symmetrized_cross_nm2": 32.5084033535818,
+        "predicted_covariance_nm2": 27.833927641291158
+      },
+      {
+        "error_normalized_by_zero_lag_cross": 0.013325621508188173,
+        "lag_samples": 256,
+        "observed_symmetrized_cross_nm2": 0.9835995477049091,
+        "predicted_covariance_nm2": 3.893744521602989
+      }
+    ],
+    "interpretation": "Naive single-exponential covariance fit on training data; not a mixing or thermodynamic calibration.",
+    "relaxation_rate_per_second": 1536.6284365326312,
+    "relaxation_time_seconds": 0.0006507754094779596,
+    "status": "fitted"
+  },
+  "training_samples": 10000,
+  "training_span_seconds_per_record": 0.09999000000000001
+}

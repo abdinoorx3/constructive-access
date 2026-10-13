@@ -1,0 +1,163 @@
+OBSERVED GEOMETRY: POPULATION PROOF AND ATTAINMENT
+Owner: /root/population_theory
+Date: 2026-10-12 UTC
+Status: complete mathematical derivation for independent internal review;
+historical novelty, finite-data implementation, and external review not claimed.
+
+Authoritative proof: manuscript/population_theory.tex.
+
+1. Precise scope
+M compact connected smooth manifold without boundary, arbitrary finite dimension;
+smooth positive invariant density pi, smooth uniformly elliptic D, smooth v with
+div(pi v)=0. Generator L=S+A, S=pi^-1 div(pi D grad), A=v dot grad. Smooth
+deterministic scalar detector f. Full stationary two-sided noiseless continuous
+path Y=f(X), calibrated clock. Complete hidden state uses ORDINARY reversal.
+Entropy convention sigma=E[v^T D^-1 v], local noise covariance 2D dt.
+No diffusion-coordinate closure Gamma_f=a(f) is assumed.
+
+2. The proof
+V=Gamma_f(X0), U=(f(X0),V). Quadratic variation [Y]'=2V makes this an ideal
+path-law observable. Conditional on X0, past/future independent. Smooth compact
+semigroup expansions in supremum norm give
+ g=lim E[(Yh+Y-h-2Y0)/(2h)|U]=E[Sf|U]
+ K=lim E[(Yh-Y0)(Y-h-Y0)/h²|U]=E[(Sf)²-(Af)²|U].
+Limits exist in L-infinity; no observed-Markov assumption. Put a=Sf,c=Af.
+ d=g²-K=E[c²|U]-Var(a|U).
+Then d_+<=E[c²|U]<=V E[e|U]. Truncate V>=epsilon, divide/integrate, and
+monotone convergence give I(Y)=E[1_{V>0}d_+/V]<=sigma. On V=0, gradf=0,
+c=0, and d_+=0. This is a zero numerator convention, not division by zero.
+
+Path-law invariance is rigorous: dyadic squared-increment sums converge to
+quadratic variation uniformly a.s. for the current bounded-coefficient Itô
+semimartingale (L2 supremum error O(mesh), dyadic meshes summable). Its derivative
+is continuous and gives V. Thus common Y law fixes (U,Y-h,Y0,Yh), conditional
+laws modulo null sets, uniform limits, and the integrated truncated limit.
+Finite-window V estimates do not inherit this exact argument automatically.
+
+3. Exact slack/equality
+Let m=E[c²|U],w=Var(a|U). Then
+ sigma-I = E[e;V=0]+E[e-c²/V;V>0]+E[min(m,w)/V;V>0].
+Every term nonnegative finite. Equality iff e=0 on V=0, v proportional to
+D gradf on V>0, and on every positive-V observation fiber either m=0 or w=0.
+The last condition isolates reversible-drift heterogeneity as an information
+loss, while the metric term isolates dissipation in unobserved directions.
+
+4. Attained global compatible-model minimum
+Fix complete observed process law of Y=cosphi with dphi=omega dt+sqrt(2gamma)dW,
+uniform phase and gamma>0. For circle,
+ V=gamma(1-Y²), g=-gammaY,
+ K=gamma²Y²-omega²(1-Y²).
+Thus d_+/V=omega²/gamma a.s. (endpoints Y=±1 have zero probability).
+Every compatible admissible hidden diffusion, independent of finite hidden
+dimension/topology, has sigma>=omega²/gamma. Circle is feasible and has this
+entropy, hence the minimum is attained and equals omega²/gamma.
+This minimum concerns COMPLETE path law, not covariance, finitely sampled data,
+or arbitrary generalized-reversal physical models.
+The scalar path law itself is reversible: reversal changes omega to -omega;
+phase reflection does the same while preserving cos. Observed-path KL is zero.
+Positive minimum comes from admissible hidden diffusion geometry, so it does
+not contradict data processing or claim visible time asymmetry.
+
+5. Scalar recalibration invariance
+For smooth invertible z=psi(y), psi' nonzero, U_z and U_y determine each other.
+With p=psi',r=psi'', Vz=p²V, az=pa+rV, cz=pc.
+gz=pg+rV, Kz=p²K+2prVg+r²V², hence dz=p²d and I(Z)=I(Y).
+Fixed numerical truncations need not match after change of diffusivity units.
+Noninjective recalibration and singular inverse not claimed invariant.
+
+6. Refining access and exact variational dual
+If instantaneous conditioning fields G⊂H both include V, then
+ d_G=E[d_H|G]-Var(E[a|H]|G), so I_G<=I_H<=sigma by convexity of positive part.
+This is a population comparison; estimating finer conditioning costs data.
+Exact dual:
+ I=sup E[w(U)(2q(U)g(U)-q(U)²-K(U))],
+ bounded measurable q,w, w>=0,wV<=1.
+Take q=g and w=1_{V>=epsilon,d>0}/V for attainment in increasing limits.
+Root has a finite-resolution construction for frozen q,w; selecting q,w on
+inference data is not licensed by this population optimization identity.
+
+7. Vector extension
+F vector smooth, G=JDJ^T half observed quadratic-covariation derivative,
+U=(F,G), g=E[SF|U], Ksym=E[(SF)(SF)^T-(AF)(AF)^T|U].
+With Q=G^+ and positive spectral part,
+ sigma>=E tr[(Q^1/2(gg^T-Ksym)Q^1/2)_+].
+Proof: gg^T-Ksym=E[cc^T|U]-Cov(a|U), c=Jv,
+c^TG^+c<=e. Matrix positive-trace monotonicity gives result even singular G.
+Truncate ||G^+|| before integration. No singular-vector general coordinate
+invariance asserted: pseudoinverse whitening under nonlinear reparameterization
+requires a separate support analysis. Scalar diffeomorphism result is secure.
+
+8. Finite-h circle formulas
+r=exp(-gammah),c=cos(omegah),s=sin(omegah):
+ g_h=(rc-1)y/h,
+ K_h=((rc-1)²y²-r²s²(1-y²))/h²,
+ I_h=exp(-2gammah)sin²(omegah)/(gammah²)<=omega²/gamma.
+No universal finite-h inference inferred from this one-model expression.
+
+9. Attempted disproof / scope checks
+Hidden phase reflection makes Y reversible but does not lower ordinary hidden
+entropy, because the conditional squared current survives. It therefore tests
+the difference from data-processing-only inference rather than disproving it.
+Extra hidden independent equilibrium coordinates preserve bound and equality;
+extra dissipative independent coordinates create positive geometric slack.
+The earlier hub covariance countermodel is a jump process and cannot preserve
+this continuous observation law or its quadratic variation. Equal covariance
+does not meet the theorem's hypothesis.
+Replacing V by E[V|Y] fails in general (a smooth connected
+torus countermodel supplies a counterexample). Dropping stationarity destroys the reverse-semigroup step.
+Generalized reversal can have zero physical entropy despite the same apparent
+ordinary drift; ordinary reversal must be physically justified. Hidden sensor
+memory changes which full system's entropy could be bounded. Finite-window
+local-volatility estimates can be endogenous to the scored increments.
+
+10. Prior-art and status
+Constituent calculus is established. Root flagged Di Terlizzi, PRL135 (2025),
+Force-Free Kinetic Inference of Entropy Production, doi10.1103/fsph-437v,
+arxiv2502.07540. Dedicated literature agent is evaluating its closest relation.
+No priority claim is made for local curvature bounds, inferred drift, or the
+conditional variance algebra. The exact proposed contribution to audit is the
+observed-geometry access contract, path-law invariant bound, equality/slack
+classification and attained minimum over arbitrary finite hidden dimension for
+one specified reversible scalar law.
+
+Next: independent adversarial proof review; finite-h uniform remainder and
+sensor access contract; finite-sample frozen witness and resource comparison.
+
+11. Root-requested extension, independently proved
+Let rho(phi)>0 and D(phi)>0 smooth, even and periodic on circle, rho normalized
+against dphi. S=rho^-1 dphi(rho D dphi), v=J/rho, A=v dphi. For f=cosphi,
+Sf,V=Dsin²phi,e=J²/(rho²D) are all even and hence measurable functions of Y.
+Conditional Var(Sf|Y,V)=0, and in one dimension metric Cauchy is equality away
+from detector critical points (zero probability). Therefore I=sigma exactly,
+with sigma=J² integral dphi/(rho D). Every other admissible hidden diffusion
+with that full observed process law has sigma at least this value, and the
+reference circle attains it. Reflection preserves rho, commutes with S,
+changes A sign and leaves f fixed: all these scalar observed laws reversible.
+Thus nonzero global minimum among ordinary overdamped hidden models persists
+for a full reflection-symmetric family, not just constant-speed Brownian phase.
+Uniform rho=1/(2pi),D=gamma,J=omega/(2pi) recovers omega²/gamma exactly.
+
+12. Essential integration order
+For cosine circle, E[g²/V] and E[K/V] separately diverge. The finite object is
+the conditional pointwise difference d=g²-K, then positive part, then weighted
+integral with truncation before the limit. Never subtract divergent integrals.
+This warning has been added explicitly to the manuscript.
+
+13. Stronger compatibility statement
+The attained minimum remains true if compatibility specifies only the
+stationary law of U=(Y,V) and the local conditional functions g,K, rather
+than the whole scalar process law. Every such model shares I, and the sharp
+reference model is still feasible. This larger compatible class is a useful
+statement of exactly which observable population data fix the minimum.
+Those functions are not a finite set of low-resolution correlations.
+
+14. Symbolic checks actually executed
+Python3/SymPy command verified (exact simplify/expand equalities):
+ (p*g+r*V)^2-(p²K+2prVg+r²V²) == p²(g²-K);
+ for f=cosx, (omega f')²/[gamma(f')²] == omega²/gamma;
+ for rho=(1+a cosx)/(2pi), D=gamma(1+b cosx),
+ Sf=rho^-1 d_x(rho D f') is even;
+ [(J/rho)f']²/[D(f')²] == J²/(rho²D).
+All four symbolic identities passed on 2026-10-12 UTC. These consistency
+checks support the written algebra; they do not replace the analytic proof
+or constitute independent external review.

@@ -1,0 +1,198 @@
+DETECTOR BOUNDARY: SHARP HAZARD--RESET TRADEOFF
+Abdinoor / 2D Labs
+Research agent: /root/detector_boundary
+Checkpoint: 12 October 2026; source, tests, and manuscript completed this turn.
+
+STATUS
+A complete scoped stochastic-model theorem with exact certificates and internal
+independent review. Historical priority and empirical support are not established.
+The response_redteam agent accepted the proof and independently checked rational
+extremizers. The methods (strong Markov property, bounded-hazard survival, total
+variation, first-hitting comparisons) are established. The candidate contribution
+is their sharp quantitative combination for a coarse-detector response contract
+and explanatory inverse bounds. This is not a universal physical law or a
+device-independent quantum witness.
+
+PRIMARY RESULT
+Let R be a finite CTMC, B a detector region, nuA supported outside B, and nuB
+supported inside B. Define U_nu(T)=integral_0^T Pr_nu(X_s in B) ds and
+H=U_nuB-U_nuA. Every outside-to-B instantaneous hazard is <=a and every
+inside-to-outside hazard is <=b. Conditional on first entrance time tau=u,
+the entrance distribution zeta_u obeys TV(zeta_u,nuB)<=eta for almost every
+entrance time u<=T. This time-conditional reset bound must not be replaced by
+an unconditional mixture bound.
+
+Set A_c=(1-exp(-cT))/c (A_0=T), G=integral_0^T exp(-bs-a(T-s)) ds,
+and K=T-A_a-A_b+G. Then H>=G-eta K, sharply.
+
+PROOF
+First entrance gives the exact decomposition H=G_actual-Remainder, where
+G_actual=integral_0^T P_nuB(B,s) Pr(tau>T-s) ds >= G.
+For each x in B, A_b(v)<=U_x(v)<=v, hence osc_B U(v)<=v-A_b(v).
+The reset defect gives Remainder<=eta E[g_b((T-tau)+)], with g_b(v)=v-A_b(v).
+Since the entrance hazard is <=a, tau stochastically dominates Exp(a).
+Integrating the increasing function g_b gives E g_b<=K. Neither irreducibility
+nor stationarity is required.
+
+Attainment uses states i,j,k,l, detector B={j,k}, initial states i and j, and
+transitions i->j at a(1-eta), i->k at a eta, j->l at b. States k and l are
+absorbing. Every inequality in the proof is then an equality.
+
+PHYSICAL SELECTIVE-CHANNEL COMPATIBILITY
+For 0<eta<1, add j->i, k->j, and l->i at rate epsilon, reducing j->l to b-epsilon.
+The caps and reset law remain unchanged, and the graph becomes irreducible.
+Doubling the i<->j rates defines a native generator Q; suppression by r=1/2
+returns R. Its positive stationary pi gives pi R=gamma(ej-ei), D_B=gamma H,
+and gamma=-J_native/2. The kernel H approaches the sharp bound as epsilon
+vanishes. The native current also vanishes, so sharpness is not a resource-free
+measurement advantage. Four epsilon values verify the stationary identity.
+
+BROADER ETA=1 RESULT
+Without a reset assumption, H>=A_a+A_b-T. A direct first-crossing survival proof
+applies to any classical binary process whose conditional crossing intensities
+are uniformly bounded under all histories, without a finite hidden dimension,
+time homogeneity, or Markov property. Singular deterministic jumps and unbounded
+crossing intensities are outside this class.
+
+With a common cap lambda, H/T>=F(lambda T), where
+F(z)=2(1-exp(-z))/z-1 decreases strictly. Its zero is 1.593624260..., defined
+exactly by z=2(1-exp(-z)); rational certificates bracket it by 1.593 and 1.594.
+Given a calibrated upper contrast bound c_U, every finite-hazard classical
+explanation has lambda>=F^{-1}(c_U)/T. This is a minimum kinetic activity
+required of an explanation, not an energy cost.
+
+With declared caps a,b and K>0, a contrast bound implies
+eta>=max(0,(G-T c_U)/K). A value exceeding one excludes the declared hazard
+contract; it does not exclude every possible classical model.
+
+MIXED PREPARATIONS
+The manuscript and mixed_preparation_bound helper also handle
+rho=p nu_in+(1-p)nu_out, with nu_in supported inside B and within TV eta0 of
+nuB, while the outside component has entrance reset defect eta1. The sharp bound
+is H >= (1-p)(G-eta1 K)-p eta0(T-A_b). The same four-state extremizer attains it
+with nu_in=(1-eta0)delta_j+eta0 delta_k. Without reset assumptions the bound is
+H >= A_b+(1-p)A_a-T and has the broader conditional-hazard scope. This prevents
+applying the p=0 theorem to a preparation with partial detector occupancy. The
+p=1 negative-bound control is included in the tests.
+
+CERTIFICATE CODE
+code/detector_boundary.py implements bounded_hazard_response,
+reset_defect_lower_bound, classical_hazard_lower_bound, and
+mixed_preparation_bound using exact rational interval arithmetic. Inputs are
+integers, Fractions, or rational strings; floats and bools are rejected.
+Exponential enclosures use Taylor sums and geometric tails. Large-root
+bisection uses exp(z)>=(1+z/64)^64. The inverse helper returns a root bracket
+and an explicit lower-endpoint contrast certificate. If either hazard cap is
+zero, K is set exactly to (0,0), and no inverse defect division is attempted.
+Graph gate preorders and contamination envelopes are separate helpers.
+Numerical illustrations are isolated in make_results().
+
+GRAPH CERTIFICATE
+U_x>=U_y whenever x is inside B and all paths x->B-complement hit y, or y is
+outside B and all paths y->B hit x. These primitive first-hitting comparisons
+compose transitively. The resulting preorder strictly extends the original
+entrance-gateway condition and includes closed detector regions.
+
+A complete universal-support characterization was explored but not proved.
+Failure of the implemented certificate does not imply that a graph is
+unprotected. Preliminary four-state combinatorial searches found uncertified
+graphs with no obvious disjoint first-crossing paths; that observation was not
+promoted to a theorem.
+
+FINITE CALIBRATION LIMIT
+Adding transitions with total intensity at most delta gives full-record
+TV<=delta L for total pathwise horizon L, including adapted controls preserving
+the intensity bound. Arbitrarily weak hidden bypasses cannot be uniformly
+excluded with finite evidence.
+
+An explicit family has i->k at rate one and j->l at delta, with B={j,k}.
+At delta=0, H=1-exp(-T)>0 for all positive T. At any delta>0,
+H=A_delta+A_1-T eventually becomes negative. Records nevertheless approach
+those of the protected model on every fixed bounded horizon as delta tends to
+zero. A structural assumption, tolerance, or separation gap is therefore needed.
+
+VALIDATION
+Command:
+python -m unittest discover -s response_robustness/tests -p test_detector_boundary.py -v
+
+All 16 tests pass. The checks include 83 numerical sharp extremizers, 180 random
+unrestricted coarse chains, 180 random partial-reset models, 40 composed-gateway
+models, exact phase brackets, inverse certificates, a very large root, four
+irreducible physical-channel limits, and the mixed-preparation extension.
+These are synthetic numerical and mathematical checks, not experimental data.
+
+Reproduction:
+python response_robustness/code/detector_boundary.py --output response_robustness/results/detector_boundary.json
+
+manuscript/reset_boundary.tex contains the full proofs, physical interpretations,
+inverse bounds, direct uniform-clock sampling, graph certificate, and the finite
+calibration limitation. The parent agent integrates the authoritative release.
+
+LIMITATIONS
+Hazard caps must hold at every relevant hidden state or history, not merely for
+observed mean rates. Dissipative Lindblad rates cannot be substituted for an
+arbitrary classical hazard cap. The direct preparation comparison is free of
+stationarity assumptions; using a stationary pulse response requires separate
+forcing calibration and valid interval division by gamma. Reset defect does not
+necessarily indicate temporal memory or quantum coherence. No thermodynamic
+energy floor follows from a hazard lower bound alone. Physical validation,
+historical priority assessment, and external review remain unresolved.
+
+SHARP CLASSICAL STATE-COUNT COROLLARY
+A new independent check confirms the root's structural corollary: a negative
+uniform integrated contrast between preparations supported inside and outside
+a deterministic binary detector requires at least four states in any common
+finite homogeneous CTMC. With at most three states, B or its complement is a
+singleton, so the first-hitting theorem (directly or after complementing) gives
+strict positivity. The four-state eta=1 extremizer attains every scalar contrast
+in (-1,0) at a chosen horizon. This is not a claim about reproducing the entire
+quantum record with four states. A qubit with Hamiltonian gX and orthogonal
+basis preparations has contrast sin(2gT)/(2gT), negative for suitable T.
+
+A conservative robustness extension permits a fixed stochastic detector
+f(x) in [0,1] and arbitrary preparations. Every <=3-state homogeneous model
+satisfies C_f>=m_B-m_A-1, with m_B and m_A the initial detector means. Proof:
+apply the singleton result after conditioning on threshold detector regions,
+bound purification error by their initial impurity, and integrate the layer-cake
+representation of f. Simultaneous initial-mean bounds therefore give an
+experimentally usable state-count exclusion without exact support assumptions.
+
+Time homogeneity is necessary: on three states, j->k at rate10 for duration0.1,
+then i->j at rate10 for duration0.1, then a frozen generator for duration1 gives
+H(1.2)=1.9/e-0.9<0. The code checks this counterexample. The classical claim
+concerns autonomous common generators, not arbitrary hidden clocks or histories.
+
+API: three_state_exclusion(contrast_upper, initial_inside_lower=1,
+initial_outside_upper=0). Its confidence and calibration coverage must come
+from external valid intervals. It reports a >=4-state requirement only when the
+provided bounds exclude the <=3-state class. Two added tests check 200 random
+two-/three-state models, stochastic detector/preparation bounds, and the
+time-dependent failure case. Full proofs appear in reset_boundary.tex.
+
+DIRECT OBSERVABLE FORM AND FROZEN INTERFACE
+Swapping preparation labels gives the symmetric form |C0-C_uniform|<=1 for any
+fixed stochastic readout and arbitrary preparations in a <=3-state homogeneous
+model. This form is the primary directly observable dimension witness: exact
+hidden preparation supports need not be certified. The bound is sharp as a
+supremum. A three-state model with a reference absorbing state of response c,
+a comparison state of response0, and a rate-lambda jump to an absorbing state
+of response1 has score1-A_lambda(T)/T, approaching1. The more specific impurity
+form is not claimed tight at every separately specified pair of initial means.
+
+A common deterministic or independently randomized delay before every baseline
+and uniform observation only changes the effective preparations and is allowed.
+Readout stability is essential: reversing binary labels between baseline and
+readout lets two frozen states produce score2. The time-dependent-generator
+counterexample remains a separate essential control. For a unital qubit with
+orthogonal preparations, the four-state equal-hazard example matches both
+averaged arm probabilities after discarding timestamps. It does not match the
+full time-resolved process. Source, tests, results, and manuscript are frozen
+for parent integration; the owned suite remains16 tests.
+
+CLOCK EXTENSION
+The arbitrary-preparation dimension bound also holds for every independent
+nonincreasing clock density starting at zero. Such clocks are mixtures of
+uniform clocks, and |C0-C_w|<=integral |C0-C_uniform(T)| mu(dT)<=1. A common
+random latency is independent of the clock draw as well as of the physical
+trajectory. Trajectory-dependent stopping is not covered. No further source
+mutations are planned after this integration note.

@@ -1,0 +1,1021 @@
+{
+  "status": "all exact certificate checks passed",
+  "shared_nuisance_cancelled": {
+    "model": {
+      "conservation": [
+        [
+          -1,
+          0,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          0,
+          1,
+          -1
+        ]
+      ],
+      "target": [
+        1,
+        0,
+        0
+      ],
+      "epsilon": [
+        "1/10",
+        "1/5"
+      ],
+      "observation": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ],
+      "nuisance": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "certificate": {
+      "finite": true,
+      "weights": [
+        "1/2",
+        "-1/2"
+      ],
+      "conservation_multiplier": [
+        "-1",
+        "0",
+        "-1/2"
+      ],
+      "current_direction": [
+        "3/20",
+        "3/20",
+        "3/20"
+      ],
+      "nuisance_direction": [
+        "-1/20"
+      ],
+      "absolute_error": "3/20",
+      "verification": {
+        "verified": true,
+        "finite": true,
+        "absolute_error": "3/20",
+        "least_favorable_targets": [
+          "-3/20",
+          "3/20"
+        ],
+        "shared_record": [
+          "0",
+          "0"
+        ],
+        "scope": "Full real conserved-current space, unrestricted fixed nuisance, full deterministic coordinatewise error box"
+      }
+    }
+  },
+  "same_orientation_failure": {
+    "model": {
+      "conservation": [
+        [
+          -1,
+          0,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          0,
+          1,
+          -1
+        ]
+      ],
+      "target": [
+        1,
+        0,
+        0
+      ],
+      "epsilon": [
+        "1/10",
+        "1/5"
+      ],
+      "observation": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ]
+      ],
+      "nuisance": [
+        [
+          1
+        ],
+        [
+          1
+        ]
+      ]
+    },
+    "certificate": {
+      "finite": false,
+      "current_direction": [
+        "-1",
+        "-1",
+        "-1"
+      ],
+      "nuisance_direction": [
+        "1"
+      ],
+      "verification": {
+        "verified": true,
+        "finite": false,
+        "absolute_error": "infinity"
+      }
+    }
+  },
+  "independent_nuisance_failure": {
+    "model": {
+      "conservation": [
+        [
+          -1,
+          0,
+          1
+        ],
+        [
+          1,
+          -1,
+          0
+        ],
+        [
+          0,
+          1,
+          -1
+        ]
+      ],
+      "target": [
+        1,
+        0,
+        0
+      ],
+      "epsilon": [
+        "1/10",
+        "1/5"
+      ],
+      "observation": [
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ],
+      "nuisance": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    "certificate": {
+      "finite": false,
+      "current_direction": [
+        "1",
+        "1",
+        "1"
+      ],
+      "nuisance_direction": [
+        "-1",
+        "1"
+      ],
+      "verification": {
+        "verified": true,
+        "finite": false,
+        "absolute_error": "infinity"
+      }
+    }
+  },
+  "ideal_fixed_cut_allocation": {
+    "feasible": true,
+    "q": [
+      "1",
+      "8"
+    ],
+    "floor": [
+      "0",
+      "0"
+    ],
+    "accuracy": "1/10",
+    "errors": [
+      "1/90",
+      "4/45"
+    ],
+    "energies": [
+      "8100",
+      "64800"
+    ],
+    "total_energy": "72900",
+    "verification": {
+      "verified": true,
+      "feasible": true,
+      "total_energy": "72900"
+    }
+  },
+  "floor_aware_fixed_cut_allocation": {
+    "feasible": true,
+    "q": [
+      "1",
+      "8"
+    ],
+    "floor": [
+      "1/100",
+      "1/50"
+    ],
+    "accuracy": "1/10",
+    "errors": [
+      "4/225",
+      "37/450"
+    ],
+    "energies": [
+      "810000/49",
+      "6480000/49"
+    ],
+    "total_energy": "7290000/49",
+    "verification": {
+      "verified": true,
+      "feasible": true,
+      "total_energy": "7290000/49"
+    }
+  },
+  "finite_energy_impossible_at_floor": {
+    "feasible": false,
+    "q": [
+      "1",
+      "8"
+    ],
+    "floor": [
+      "1/100",
+      "1/50"
+    ],
+    "accuracy": "3/100",
+    "calibration_floor": "3/100",
+    "verification": {
+      "verified": true,
+      "feasible": false
+    }
+  },
+  "global_ideal_energy_design": {
+    "feasible": true,
+    "cut_certificate": {
+      "status": "identified",
+      "value": "3",
+      "cut": [
+        "s",
+        "a"
+      ],
+      "coefficients": {
+        "pair_1": -1,
+        "pair_2": -1
+      },
+      "circulation": {
+        "target": "3",
+        "single": "-3",
+        "pair_1": "-1",
+        "pair_2": "-2"
+      }
+    },
+    "sensor_edges": [
+      "pair_1",
+      "pair_2"
+    ],
+    "allocation": {
+      "feasible": true,
+      "q": [
+        "1",
+        "2"
+      ],
+      "floor": [
+        "0",
+        "0"
+      ],
+      "accuracy": "1/10",
+      "errors": [
+        "1/30",
+        "1/15"
+      ],
+      "energies": [
+        "900",
+        "1800"
+      ],
+      "total_energy": "2700"
+    },
+    "verification": {
+      "verified": true,
+      "feasible": true,
+      "total_energy": "2700"
+    }
+  },
+  "calibration_floors_change_best_sensor_set": {
+    "feasible": true,
+    "cuts_checked": 2,
+    "feasible_cuts": 2,
+    "sensor_edges": [
+      "single"
+    ],
+    "cut": [
+      "a",
+      "t"
+    ],
+    "allocation": {
+      "feasible": true,
+      "q": [
+        "4"
+      ],
+      "floor": [
+        "0"
+      ],
+      "accuracy": "1/10",
+      "errors": [
+        "1/10"
+      ],
+      "energies": [
+        "6400"
+      ],
+      "total_energy": "6400"
+    },
+    "total_energy": "6400"
+  },
+  "single_mincut_global_floor_optimum_certificate": {
+    "support_parameter": "40",
+    "cut_certificate": {
+      "status": "identified",
+      "value": "19200",
+      "cut": [
+        "s"
+      ],
+      "coefficients": {
+        "single": -1
+      },
+      "circulation": {
+        "target": "19200",
+        "single": "-19200",
+        "pair_1": "-12480",
+        "pair_2": "-6720"
+      }
+    },
+    "structurally_feasible": true,
+    "sensor_edges": [
+      "single"
+    ],
+    "lower_energy": "6400",
+    "candidate_allocation": {
+      "feasible": true,
+      "q": [
+        "4"
+      ],
+      "floor": [
+        "0"
+      ],
+      "accuracy": "1/10",
+      "errors": [
+        "1/10"
+      ],
+      "energies": [
+        "6400"
+      ],
+      "total_energy": "6400"
+    },
+    "verification": {
+      "verified": true,
+      "structurally_feasible": true,
+      "lower_energy": "6400",
+      "upper_energy": "6400",
+      "absolute_gap": "0",
+      "global_optimum_certified": true
+    }
+  },
+  "matched_precision_benchmarks": {
+    "target_error": "1/10",
+    "optimal_ideal_energy": "2700",
+    "fewest_sensor_choice_energy": "6400",
+    "equal_precision_on_optimal_cut_energy": "3600",
+    "ignoring_floors_then_correcting_same_cut_energy": "67500",
+    "floor_aware_global_energy": "6400",
+    "meaning": "Exact constructed model comparison at equal deterministic target accuracy; no measured device claim"
+  },
+  "partition_reduction_cases": [
+    {
+      "instance": {
+        "values": [
+          1,
+          2,
+          3
+        ],
+        "target": [
+          "s",
+          "t"
+        ],
+        "sensor_edges": [
+          {
+            "id": "left_0",
+            "u": "s",
+            "v": "v0",
+            "q": "6",
+            "floor": "7"
+          },
+          {
+            "id": "right_0",
+            "u": "v0",
+            "v": "t",
+            "q": "7",
+            "floor": "6"
+          },
+          {
+            "id": "left_1",
+            "u": "s",
+            "v": "v1",
+            "q": "6",
+            "floor": "8"
+          },
+          {
+            "id": "right_1",
+            "u": "v1",
+            "v": "t",
+            "q": "8",
+            "floor": "6"
+          },
+          {
+            "id": "left_2",
+            "u": "s",
+            "v": "v2",
+            "q": "6",
+            "floor": "9"
+          },
+          {
+            "id": "right_2",
+            "u": "v2",
+            "v": "t",
+            "q": "9",
+            "floor": "6"
+          }
+        ],
+        "accuracy": "35",
+        "threshold_energy": "189/4",
+        "desired_q_sum": "21",
+        "constant_q_plus_floor": "42"
+      },
+      "verification": {
+        "cuts_checked": 8,
+        "best_bits": [
+          0,
+          0,
+          1
+        ],
+        "best_energy": "189/4",
+        "threshold_energy": "189/4",
+        "partition_exists": true,
+        "allocation": {
+          "feasible": true,
+          "q": [
+            "6",
+            "6",
+            "9"
+          ],
+          "floor": [
+            "7",
+            "8",
+            "6"
+          ],
+          "accuracy": "35",
+          "errors": [
+            "11",
+            "12",
+            "12"
+          ],
+          "energies": [
+            "27/2",
+            "27/2",
+            "81/4"
+          ],
+          "total_energy": "189/4"
+        }
+      }
+    },
+    {
+      "instance": {
+        "values": [
+          1,
+          2,
+          4
+        ],
+        "target": [
+          "s",
+          "t"
+        ],
+        "sensor_edges": [
+          {
+            "id": "left_0",
+            "u": "s",
+            "v": "v0",
+            "q": "7",
+            "floor": "8"
+          },
+          {
+            "id": "right_0",
+            "u": "v0",
+            "v": "t",
+            "q": "8",
+            "floor": "7"
+          },
+          {
+            "id": "left_1",
+            "u": "s",
+            "v": "v1",
+            "q": "7",
+            "floor": "9"
+          },
+          {
+            "id": "right_1",
+            "u": "v1",
+            "v": "t",
+            "q": "9",
+            "floor": "7"
+          },
+          {
+            "id": "left_2",
+            "u": "s",
+            "v": "v2",
+            "q": "7",
+            "floor": "11"
+          },
+          {
+            "id": "right_2",
+            "u": "v2",
+            "v": "t",
+            "q": "11",
+            "floor": "7"
+          }
+        ],
+        "accuracy": "245/6",
+        "threshold_energy": "441/8",
+        "desired_q_sum": "49/2",
+        "constant_q_plus_floor": "49"
+      },
+      "verification": {
+        "cuts_checked": 8,
+        "best_bits": [
+          0,
+          0,
+          1
+        ],
+        "best_energy": "562500/10201",
+        "threshold_energy": "441/8",
+        "partition_exists": false,
+        "allocation": {
+          "feasible": true,
+          "q": [
+            "7",
+            "7",
+            "11"
+          ],
+          "floor": [
+            "8",
+            "9",
+            "7"
+          ],
+          "accuracy": "245/6",
+          "errors": [
+            "1907/150",
+            "2057/150",
+            "2161/150"
+          ],
+          "energies": [
+            "157500/10201",
+            "157500/10201",
+            "247500/10201"
+          ],
+          "total_energy": "562500/10201"
+        }
+      }
+    },
+    {
+      "instance": {
+        "values": [
+          2,
+          2,
+          3,
+          5
+        ],
+        "target": [
+          "s",
+          "t"
+        ],
+        "sensor_edges": [
+          {
+            "id": "left_0",
+            "u": "s",
+            "v": "v0",
+            "q": "12",
+            "floor": "14"
+          },
+          {
+            "id": "right_0",
+            "u": "v0",
+            "v": "t",
+            "q": "14",
+            "floor": "12"
+          },
+          {
+            "id": "left_1",
+            "u": "s",
+            "v": "v1",
+            "q": "12",
+            "floor": "14"
+          },
+          {
+            "id": "right_1",
+            "u": "v1",
+            "v": "t",
+            "q": "14",
+            "floor": "12"
+          },
+          {
+            "id": "left_2",
+            "u": "s",
+            "v": "v2",
+            "q": "12",
+            "floor": "15"
+          },
+          {
+            "id": "right_2",
+            "u": "v2",
+            "v": "t",
+            "q": "15",
+            "floor": "12"
+          },
+          {
+            "id": "left_3",
+            "u": "s",
+            "v": "v3",
+            "q": "12",
+            "floor": "17"
+          },
+          {
+            "id": "right_3",
+            "u": "v3",
+            "v": "t",
+            "q": "17",
+            "floor": "12"
+          }
+        ],
+        "accuracy": "90",
+        "threshold_energy": "243/2",
+        "desired_q_sum": "54",
+        "constant_q_plus_floor": "108"
+      },
+      "verification": {
+        "cuts_checked": 16,
+        "best_bits": [
+          0,
+          1,
+          0,
+          1
+        ],
+        "best_energy": "166375/1369",
+        "threshold_energy": "243/2",
+        "partition_exists": false,
+        "allocation": {
+          "feasible": true,
+          "q": [
+            "12",
+            "14",
+            "12",
+            "17"
+          ],
+          "floor": [
+            "14",
+            "12",
+            "15",
+            "12"
+          ],
+          "accuracy": "90",
+          "errors": [
+            "1214/55",
+            "1178/55",
+            "1269/55",
+            "1289/55"
+          ],
+          "energies": [
+            "36300/1369",
+            "42350/1369",
+            "36300/1369",
+            "51425/1369"
+          ],
+          "total_energy": "166375/1369"
+        }
+      }
+    },
+    {
+      "instance": {
+        "values": [
+          1,
+          1,
+          1
+        ],
+        "target": [
+          "s",
+          "t"
+        ],
+        "sensor_edges": [
+          {
+            "id": "left_0",
+            "u": "s",
+            "v": "v0",
+            "q": "3",
+            "floor": "4"
+          },
+          {
+            "id": "right_0",
+            "u": "v0",
+            "v": "t",
+            "q": "4",
+            "floor": "3"
+          },
+          {
+            "id": "left_1",
+            "u": "s",
+            "v": "v1",
+            "q": "3",
+            "floor": "4"
+          },
+          {
+            "id": "right_1",
+            "u": "v1",
+            "v": "t",
+            "q": "4",
+            "floor": "3"
+          },
+          {
+            "id": "left_2",
+            "u": "s",
+            "v": "v2",
+            "q": "3",
+            "floor": "4"
+          },
+          {
+            "id": "right_2",
+            "u": "v2",
+            "v": "t",
+            "q": "4",
+            "floor": "3"
+          }
+        ],
+        "accuracy": "35/2",
+        "threshold_energy": "189/8",
+        "desired_q_sum": "21/2",
+        "constant_q_plus_floor": "21"
+      },
+      "verification": {
+        "cuts_checked": 8,
+        "best_bits": [
+          0,
+          1,
+          1
+        ],
+        "best_energy": "5324/225",
+        "threshold_energy": "189/8",
+        "partition_exists": false,
+        "allocation": {
+          "feasible": true,
+          "q": [
+            "3",
+            "4",
+            "4"
+          ],
+          "floor": [
+            "4",
+            "3",
+            "3"
+          ],
+          "accuracy": "35/2",
+          "errors": [
+            "133/22",
+            "63/11",
+            "63/11"
+          ],
+          "energies": [
+            "484/75",
+            "1936/225",
+            "1936/225"
+          ],
+          "total_energy": "5324/225"
+        }
+      }
+    },
+    {
+      "instance": {
+        "values": [
+          3,
+          5,
+          6,
+          8
+        ],
+        "target": [
+          "s",
+          "t"
+        ],
+        "sensor_edges": [
+          {
+            "id": "left_0",
+            "u": "s",
+            "v": "v0",
+            "q": "22",
+            "floor": "25"
+          },
+          {
+            "id": "right_0",
+            "u": "v0",
+            "v": "t",
+            "q": "25",
+            "floor": "22"
+          },
+          {
+            "id": "left_1",
+            "u": "s",
+            "v": "v1",
+            "q": "22",
+            "floor": "27"
+          },
+          {
+            "id": "right_1",
+            "u": "v1",
+            "v": "t",
+            "q": "27",
+            "floor": "22"
+          },
+          {
+            "id": "left_2",
+            "u": "s",
+            "v": "v2",
+            "q": "22",
+            "floor": "28"
+          },
+          {
+            "id": "right_2",
+            "u": "v2",
+            "v": "t",
+            "q": "28",
+            "floor": "22"
+          },
+          {
+            "id": "left_3",
+            "u": "s",
+            "v": "v3",
+            "q": "22",
+            "floor": "30"
+          },
+          {
+            "id": "right_3",
+            "u": "v3",
+            "v": "t",
+            "q": "30",
+            "floor": "22"
+          }
+        ],
+        "accuracy": "165",
+        "threshold_energy": "891/4",
+        "desired_q_sum": "99",
+        "constant_q_plus_floor": "198"
+      },
+      "verification": {
+        "cuts_checked": 16,
+        "best_bits": [
+          0,
+          1,
+          1,
+          0
+        ],
+        "best_energy": "891/4",
+        "threshold_energy": "891/4",
+        "partition_exists": true,
+        "allocation": {
+          "feasible": true,
+          "q": [
+            "22",
+            "27",
+            "28",
+            "22"
+          ],
+          "floor": [
+            "25",
+            "22",
+            "22",
+            "30"
+          ],
+          "accuracy": "165",
+          "errors": [
+            "119/3",
+            "40",
+            "122/3",
+            "134/3"
+          ],
+          "energies": [
+            "99/2",
+            "243/4",
+            "63",
+            "99/2"
+          ],
+          "total_energy": "891/4"
+        }
+      }
+    },
+    {
+      "instance": {
+        "values": [
+          8
+        ],
+        "target": [
+          "s",
+          "t"
+        ],
+        "sensor_edges": [
+          {
+            "id": "left_0",
+            "u": "s",
+            "v": "v0",
+            "q": "8",
+            "floor": "16"
+          },
+          {
+            "id": "right_0",
+            "u": "v0",
+            "v": "t",
+            "q": "16",
+            "floor": "8"
+          }
+        ],
+        "accuracy": "20",
+        "threshold_energy": "27",
+        "desired_q_sum": "12",
+        "constant_q_plus_floor": "24"
+      },
+      "verification": {
+        "cuts_checked": 2,
+        "best_bits": [
+          1
+        ],
+        "best_energy": "256/9",
+        "threshold_energy": "27",
+        "partition_exists": false,
+        "allocation": {
+          "feasible": true,
+          "q": [
+            "16"
+          ],
+          "floor": [
+            "8"
+          ],
+          "accuracy": "20",
+          "errors": [
+            "20"
+          ],
+          "energies": [
+            "256/9"
+          ],
+          "total_energy": "256/9"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "No empirical sensor energy calibration is supplied.",
+    "Acquisition energy excludes installation, preparation, control, reset and readout overhead.",
+    "The exact LP and subset enumeration are small-example solvers, not scalable general algorithms.",
+    "Complexity result concerns the declared adversarial precision-energy model; it is not a physical impossibility theorem."
+  ]
+}

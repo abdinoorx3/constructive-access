@@ -1,0 +1,100 @@
+PHYSICAL MINIMUM BRANCH — 2026-10-12T22:38:59Z
+Owner: /root/physical_minimum. Author attribution remains Abdinoor / 2D Labs.
+
+Research question
+Can an actual stationary physical model realize the apparent minimum entropy,
+rather than merely attain an observational divergence relaxation?
+
+Surviving conditional theorem
+For every irreducible circulant n-state CTMC, fix its FIRST Fourier eigenvalue
+-gamma+i omega. Among all nonnegative displacement rates, the minimum ordinary-
+reversal stationary entropy is
+  2 omega / sin(2pi/n) * atanh[(omega/gamma) tan(pi/n)].
+Finite entropy is feasible iff |omega|/gamma < cot(pi/n). The nearest-neighbor
+ring realizes the minimum. Complete proof is in manuscript/physical_minimum.tex:
+pair jump angles, express each cost as gamma_j F_xj(u_j), use monotonicity in x
+and convexity in u, include antipodal damping as a zero-u contribution.
+This is a model-class optimization, not a universal inverse result.
+
+Prior art found and scope changed
+Literature agent inspected Gu 2026 arXiv:2606.05498 (already in sixth bibliography,
+rfGu2026). Its Sec V already contains arbitrary circulant rates, Fourier formulas,
+sigma>=omega^2/gamma, nearest-neighbor rings, circle diffusion equality, and the
+diffusive limit. Those are credited as established. The stronger fixed-n minimum
+over arbitrary displacement rates is not asserted in the inspected section.
+Historical novelty remains unestablished. Shiraishi 2026 (rfShiraishi2026) has
+counterexamples to unrestricted bare eigenvalue bounds; no generalization claimed.
+System-aliasing connection credited to Yue et al., IEEE TAC 66, 5788–5801 (2021),
+DOI 10.1109/TAC.2020.3042487, paYue2021.
+
+Exact example and physical meaning
+For C(t)=.5 exp(-gamma t) cos(omega t), C1=.38,C2=.18 give gamma=.1145808118,
+principal omega=.5504934894. Minima for n=16,20,40,100,1000 are approximately
+5.44695,3.55736,2.80013,2.66781,2.64502. Circle entropy=2.6447978253.
+Each ring realizes the WHOLE correlation function, not just two moments.
+The circle is a physical candidate and therefore an upper bound on the infimum
+in larger compatible-model classes containing it. It is NOT an upper bound on
+the actual unknown entropy. All numerical values here are floating-point
+illustrations of analytic formulas, not interval-certified inference outputs.
+
+Aliasing obstruction
+Even full circle-state observations at grid spacing Delta have identical entire
+sampled-record laws for omega+2pi k/Delta, while entropy diverges quadratically.
+Three pairwise irrational lags determine |omega| from EXACT cosine values when
+gamma,A are known; two fail at gaps 1,sqrt2 for pi(sqrt2 +/-1).
+For ANY finite positive gap menu and bounded number of observations, simultaneous
+Diophantine approximation gives unbounded frequency nearaliases whose full-state
+record laws converge in TV. Sequential coupling also allows adaptive gap choice
+from the finite menu. Thus a uniformly 1-alpha covered entropy upper bound must
+be infinite with probability >=1-alpha at each reference model. Continuous random
+timing with exact retained time and external bandwidth calibration are outside
+this theorem. This separates exact identifiability from stable physical bounding.
+Pell p^2-2q^2=1 gives a concrete two-gap nearalias with entropy 8.751688e12 and
+whole two-interval state-record TV <=1.119197e-6; enormous rates are mathematical
+model alternatives, not claims about available laboratory drive power.
+
+Reproduction
+PYTHONPATH=/workspace/discovery_program/physical_attainability/code \
+OPENBLAS_NUM_THREADS=1 python -m unittest discover \
+-s /workspace/discovery_program/physical_attainability/tests \
+-p test_physical_minimum.py -v
+13 tests pass. Initial hand-estimated example thresholds expected the eighth Pell
+iterate to exceed 1e13 entropy and fall below 1e-6 TV. Actual values were 8.75e12
+and 1.119e-6; the test now uses the ninth iterate, while the reported eighth remains
+unchanged. This corrected a test threshold, not the formula or mathematical claim.
+
+python code/physical_minimum.py --output results/physical_minimum.json
+Seed 6121013, 1000 random positive nonlocal circulant rate sets, n=3..30.
+Minimum numerical entropy-minus-bound margin -1.14e-13 (roundoff); maximum
+three-state equality residual 2.99e-12. Direct generator exponential covariance
+residual 2.22e-16. Deterministic JSON output; no empirical data or optimizer.
+
+Files owned
+code/physical_minimum.py
+ tests/test_physical_minimum.py
+ manuscript/physical_minimum.tex
+ results/physical_minimum.json
+ research/physical_minimum.txt
+
+Status
+Producer proof and implementation complete; independent review requested from
+/root/independent_review. Root integrates bibliography/release and receives any
+subsequent corrections. Sixth release was not modified.
+
+2026-10-12T22:41:14Z — addition: explicit noncirculant 5-state
+countermodel added. Four active ring states, reversible hub, f=(1,1,-1,-1,0),
+active mass A; ring damping gamma-kappa, frequency omega. Then exactly
+C(t)=A exp(-gamma t) cos(omega t), but entropy is
+2 A omega atanh[omega/(gamma-kappa)]. At A=.1,gamma1,omega.5,kappa.01 this is
+.055606300391741616 vs circle .25. Tests independently reconstruct stationary
+flux entropy and matrix-exponential covariance. Fourteen producer tests pass.
+This constructive failure outside the declared class is stronger evidence of
+scope than merely citing an eigenvalue counterexample. No new novelty claim.
+
+2026-10-12T22:42:08Z — independent review received from /root/independent_review:
+finite-n convexity/Jensen proof and independent nonlocal generator tests found no
+blocker. Reviewer reports a child independently confirmed finite-menu adaptive
+alias TV/no-upper proof and the three-irrational-lag identification statement.
+Gated-hub algebra confirmed; independent matrix-semigroup test being added in
+reviewer's separately owned files. This is internal independent review, not
+external peer review. Root controls final review/release status.

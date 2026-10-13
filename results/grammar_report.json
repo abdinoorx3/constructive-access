@@ -1,0 +1,846 @@
+{
+  "certificate": {
+    "certificate": {
+      "basis": [
+        {
+          "cost": "0",
+          "effect": [
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "1"
+          ],
+          "word": []
+        },
+        {
+          "cost": "1",
+          "effect": [
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0"
+          ],
+          "word": [
+            "s1"
+          ]
+        },
+        {
+          "cost": "1",
+          "effect": [
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0",
+            "0",
+            "0",
+            "0",
+            "1",
+            "0",
+            "0"
+          ],
+          "word": [
+            "s2"
+          ]
+        }
+      ],
+      "beta_coefficients": [
+        "1",
+        "0",
+        "0"
+      ],
+      "closure": [
+        {
+          "coefficients": [
+            "0",
+            "0",
+            "0"
+          ],
+          "letter": "s0",
+          "source": 0
+        },
+        {
+          "coefficients": [
+            "0",
+            "1",
+            "0"
+          ],
+          "letter": "s1",
+          "source": 0
+        },
+        {
+          "coefficients": [
+            "0",
+            "0",
+            "1"
+          ],
+          "letter": "s2",
+          "source": 0
+        },
+        {
+          "coefficients": [
+            "0",
+            "0",
+            "0"
+          ],
+          "letter": "s1",
+          "source": 1
+        },
+        {
+          "coefficients": [
+            "0",
+            "0",
+            "0"
+          ],
+          "letter": "s2",
+          "source": 1
+        },
+        {
+          "coefficients": [
+            "0",
+            "0",
+            "0"
+          ],
+          "letter": "s1",
+          "source": 2
+        },
+        {
+          "coefficients": [
+            "0",
+            "0",
+            "0"
+          ],
+          "letter": "s2",
+          "source": 2
+        }
+      ],
+      "mode": "optimal_witness",
+      "witness": {
+        "contrast": "1/2",
+        "cost": "3",
+        "word": [
+          "s0",
+          "s1"
+        ]
+      }
+    },
+    "model": {
+      "alpha": [
+        "1/2",
+        "1/2",
+        "0",
+        "0",
+        "0",
+        "0",
+        "-1/2",
+        "-1/2",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "beta": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1",
+        "1"
+      ],
+      "letters": [
+        {
+          "action": "drive",
+          "cost": "2",
+          "id": "s0",
+          "matrix": [
+            [
+              "0",
+              "0",
+              "3/4",
+              "1/4",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "3/4",
+              "1/4",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/4",
+              "3/4",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1/4",
+              "3/4",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "outcome": "done"
+        },
+        {
+          "action": "read",
+          "cost": "1",
+          "id": "s1",
+          "matrix": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "outcome": "0"
+        },
+        {
+          "action": "read",
+          "cost": "1",
+          "id": "s2",
+          "matrix": [
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "1"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ],
+            [
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0",
+              "0"
+            ]
+          ],
+          "outcome": "1"
+        }
+      ]
+    },
+    "model_sha256": "be9dd751b9600289507dc2575259f5a2367652835cc5ebd1c274a1f8617f839d",
+    "schema": "finite-access-cost-certificate-v1"
+  },
+  "certificate_verification": {
+    "checked_closure_identities": 7,
+    "contrast": "1/2",
+    "dimension": 12,
+    "expected_model_bound": true,
+    "minimum_action_cost": "3",
+    "mode": "optimal_witness",
+    "model_sha256": "be9dd751b9600289507dc2575259f5a2367652835cc5ebd1c274a1f8617f839d",
+    "retained_effects": 3,
+    "scope": "Declared exact rational linear representation; physical validity and calibration are separate",
+    "shortest_length_at_minimum_cost": 2,
+    "verified": true,
+    "witness": [
+      "s0",
+      "s1"
+    ]
+  },
+  "conclusion": "A least-action-charge contrast exists; the complete action experiment and its explicitly scoped statistical guarantees are reported",
+  "contract_name": "Action-only grammar forces a complete drive and read experiment",
+  "contract_sha256": "d6d49bcbac724903cd4e85caf9c6e6c5b02804d14279ba6024802bf07a96b71c",
+  "experiment": {
+    "actions": [
+      "drive",
+      "read"
+    ],
+    "affinity_upper": "158212193200139176340255174621777356218523550541/182687704666362864775460604089535377456991567872",
+    "assumptions": [
+      "iid records with the supplied initial preparations",
+      "same fixed action protocol and known models under both hypotheses",
+      "equal prior probabilities; optimal iid likelihood classification",
+      "resource bounds are supplied assumptions, not inferred thermodynamics"
+    ],
+    "certified_average_error_upper": "260115891995661188322872617932170488605755572231/2923003274661805836407369665432566039311865085952",
+    "classifier": "Equal-prior likelihood ratio on complete iid transcripts; ties may be assigned arbitrarily",
+    "error_certificate_method": "Bhattacharyya with outward rational rounding",
+    "nominal_batch_declared_charge": "48",
+    "per_record_declared_charge": "4",
+    "precision_bits": 160,
+    "single_record_bayes_error": "1/4",
+    "status": "evaluated",
+    "sufficient_records": 12,
+    "target_error": "1/10",
+    "total_variation": "1/2",
+    "transcripts": [
+      {
+        "outcomes": [
+          "done",
+          "0"
+        ],
+        "probability0": "3/4",
+        "probability1": "1/4"
+      },
+      {
+        "outcomes": [
+          "done",
+          "1"
+        ],
+        "probability0": "1/4",
+        "probability1": "3/4"
+      }
+    ]
+  },
+  "model_names": [
+    "mechanism A",
+    "mechanism B"
+  ],
+  "preparation": {
+    "description": "Fresh independent preparation in the listed initial distribution before every complete action sequence; a single fixed hypothesis governs all records.",
+    "iid_records": true
+  },
+  "question": "Can the available controlled readout distinguish the two candidate response mechanisms?",
+  "resources": {
+    "action_costs": {
+      "drive": "2",
+      "read": "1"
+    },
+    "calibration": "Each read is one counted operation, each drive two; fresh preparation is one additional operation. This is an operation model, not a measured energy model.",
+    "charge_name": "operation count",
+    "excluded": [
+      "apparatus heating",
+      "classical computation",
+      "storage"
+    ],
+    "included": [
+      "read and drive calls",
+      "one preparation per complete record"
+    ],
+    "meaning": "operation_count",
+    "per_record_overhead": "1",
+    "unit": "operation"
+  },
+  "robust_experiment": {
+    "scope": "Nominal-model results do not include calibration error",
+    "status": "not_supplied"
+  },
+  "schema": "constructive-access-report-v1",
+  "scope": [
+    "Exactly two specified finite classical rational instruments",
+    "Exact equivalence or minimum additive action-charge nonzero witness under the declared action grammar",
+    "A finite model certificate does not establish physical calibration, model completeness, or historical novelty",
+    "Minimum witness charge does not imply minimum repeated-record charge or optimal adaptive design",
+    "Resource accounting covers only the explicitly included items"
+  ],
+  "status": "distinguishable_under_declared_access",
+  "target": {
+    "labels": [
+      "toward state 0",
+      "toward state 1"
+    ],
+    "name": "response class"
+  },
+  "toolkit_version": "0.1.0",
+  "witness": {
+    "actions": [
+      "drive",
+      "read"
+    ],
+    "implementation": "Apply the entire fixed action sequence to every record and retain every outcome; no postselection",
+    "length": 2,
+    "minimum_action_charge": "3",
+    "outcome_event": [
+      "done",
+      "0"
+    ],
+    "probabilities": [
+      "3/4",
+      "1/4"
+    ],
+    "symbols": [
+      [
+        "drive",
+        "done"
+      ],
+      [
+        "read",
+        "0"
+      ]
+    ]
+  }
+}

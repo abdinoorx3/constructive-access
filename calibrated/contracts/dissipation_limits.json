@@ -1,0 +1,66 @@
+{
+  "cost_scope": "Total observed physical exposure is bounded in coupling theorem. Fixed-jump inference has random duration, separately bounded with minimum exit rate; reset/detector overhead not measured.",
+  "coupled_controls": [
+    {
+      "name": "exact_parity_equivalence",
+      "q_a": "1/2",
+      "q_b": "1/1000",
+      "rates": "equal"
+    },
+    {
+      "name": "weak_rate_tag",
+      "q_a": "1/2",
+      "q_b": "1/1000",
+      "rates": "tagged"
+    },
+    {
+      "name": "near_irreversible",
+      "parameters": "construct_two_finite_models_from_exact_budget",
+      "rates": "tagged"
+    }
+  ],
+  "equal_rates": [
+    "1",
+    "1",
+    "1",
+    "1"
+  ],
+  "equivalent_reverse_probabilities": [
+    "1/2",
+    "1/10",
+    "1/1000"
+  ],
+  "evidence": "Mathematical construction and synthetic validation; no laboratory data",
+  "exposure": "10",
+  "finite_budget_target": {
+    "entropy_gap_lower": "100",
+    "record_tv_upper": "1/100"
+  },
+  "frozen_at_utc": "2026-10-12T21:09:31.872265+00:00",
+  "replications": 20000,
+  "resolved_direction_example": {
+    "alpha": "1/20",
+    "bits": 22,
+    "fixed_jumps": 1000,
+    "reverse_count": 10,
+    "reverse_probability_floor": "1/1000"
+  },
+  "seed": 611200801,
+  "tagged_rates": [
+    "51/50",
+    "26/25",
+    "49/50",
+    "24/25"
+  ],
+  "validation": "Exact stationary flux algebra; exact rational entropy bounds; parity path likelihood checks; coupled full/coarse trajectory records; MonteCarloClopperPearson intervals",
+  "version": 1,
+  "waiting_time_thresholds": [
+    "1",
+    "1"
+  ],
+  "weak_tag_amplitudes": [
+    "1/100",
+    "1/50",
+    "1/10"
+  ]
+}

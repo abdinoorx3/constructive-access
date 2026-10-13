@@ -1,0 +1,28 @@
+{
+  "checks": [
+    "robust antichain inclusion bound and exact support sharpness",
+    "classical cycle matching damped quantum populations",
+    "resolvent moments, spectral lens, normalized characteristic factors",
+    "finite Poisson clock and adaptive fresh-record transcript coupling",
+    "exact reversible lift and irreducible refresh strengthening",
+    "stationary entropy comparison and reversible Hausdorff moments",
+    "nonstationary preparation/housekeeping budget and sharp half factor",
+    "exact rational logarithms and Bernstein polynomial upper bounds",
+    "reference-mean calibration guard and positive-monotone curvature witness",
+    "high-precision quantum-grid and exact binomial-tail cross-checks",
+    "independent matrix-exponential check of thermodynamic count certificate"
+  ],
+  "errors": 0,
+  "failures": 0,
+  "limitations": [
+    "internal review only",
+    "historical priority unresolved",
+    "synthetic models and counts",
+    "physical assumptions require experimental validation"
+  ],
+  "passed": true,
+  "reproduction": "python tests/test_independent.py",
+  "review_document": "research/redteam.txt",
+  "scope": "independent mathematical and computational review; no laboratory data",
+  "tests_run": 29
+}

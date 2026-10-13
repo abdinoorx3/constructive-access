@@ -1,0 +1,852 @@
+{
+  "activity": {
+    "activity_cap": "1",
+    "asymmetry_lower": "34137893171383415532111/37778931862957161709568",
+    "asymmetry_upper": "2133618323211463470757/2361183241434822606848",
+    "bits": 75,
+    "contract": "stationary ordinary-reversal CTMC; separately calibrated upper bound on total microscopic jump activity; no inference of activity from detector changes",
+    "entropy_production_rate_lower": "31518439606042306618057837219323279572253577177089/11692013098647223345629478661730264157247460343808",
+    "expected_duration": "1",
+    "kl_per_activity": "1/2",
+    "linear_bridge_lower": "2",
+    "record_kl_lower": "1/2",
+    "status": "certified_activity_bridge"
+  },
+  "analytic_bernoulli": {
+    "certificate": {
+      "boxes": [
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "coefficients": [
+        "1"
+      ],
+      "contract": "conditional record-KL relaxation; stationary ordinary-reversal CTMC and calibrated full duration needed for entropy rate; no physical optimality claim",
+      "depth": 7,
+      "durations": [
+        "1"
+      ],
+      "entropy_production_rate_lower": "1193032260397827341717137297/1547425049106725343623905280",
+      "expectation_minimizer": [
+        "4/5"
+      ],
+      "expected_duration": "1",
+      "lags": [
+        1
+      ],
+      "log_expectation_lower": "1193032260397827341717137297/6189700196426901374495621120",
+      "lower": "4/5",
+      "normalizer": {
+        "normalizer_upper": "1",
+        "polynomial_bounds": [
+          "1"
+        ],
+        "polynomials": [
+          [
+            "1",
+            "0"
+          ]
+        ]
+      },
+      "record_kl_lower": "1193032260397827341717137297/6189700196426901374495621120",
+      "scores": [
+        [
+          "2/5",
+          "8/5"
+        ]
+      ],
+      "status": "positive_certificate",
+      "vertices": [
+        [
+          "0",
+          "0"
+        ]
+      ],
+      "weights": [
+        "1"
+      ]
+    },
+    "certified_relaxation_gap_upper": "3/3094850098213450687247810560",
+    "interpretation": "exact bracket on a convex observational relaxation; no physical optimality or empirical validation claim",
+    "primal": {
+      "atoms": [
+        [
+          0,
+          "0",
+          "1/41"
+        ],
+        [
+          0,
+          "1/40",
+          "1/41"
+        ],
+        [
+          0,
+          "1/20",
+          "1/41"
+        ],
+        [
+          0,
+          "3/40",
+          "1/41"
+        ],
+        [
+          0,
+          "1/10",
+          "1/41"
+        ],
+        [
+          0,
+          "1/8",
+          "1/41"
+        ],
+        [
+          0,
+          "3/20",
+          "1/41"
+        ],
+        [
+          0,
+          "7/40",
+          "1/41"
+        ],
+        [
+          0,
+          "1/5",
+          "1/41"
+        ],
+        [
+          0,
+          "9/40",
+          "1/41"
+        ],
+        [
+          0,
+          "1/4",
+          "1/41"
+        ],
+        [
+          0,
+          "11/40",
+          "1/41"
+        ],
+        [
+          0,
+          "3/10",
+          "1/41"
+        ],
+        [
+          0,
+          "13/40",
+          "1/41"
+        ],
+        [
+          0,
+          "7/20",
+          "1/41"
+        ],
+        [
+          0,
+          "3/8",
+          "1/41"
+        ],
+        [
+          0,
+          "2/5",
+          "1/41"
+        ],
+        [
+          0,
+          "17/40",
+          "1/41"
+        ],
+        [
+          0,
+          "9/20",
+          "1/41"
+        ],
+        [
+          0,
+          "19/40",
+          "1/41"
+        ],
+        [
+          0,
+          "1/2",
+          "1/41"
+        ],
+        [
+          0,
+          "21/40",
+          "1/41"
+        ],
+        [
+          0,
+          "11/20",
+          "1/41"
+        ],
+        [
+          0,
+          "23/40",
+          "1/41"
+        ],
+        [
+          0,
+          "3/5",
+          "1/41"
+        ],
+        [
+          0,
+          "5/8",
+          "1/41"
+        ],
+        [
+          0,
+          "13/20",
+          "1/41"
+        ],
+        [
+          0,
+          "27/40",
+          "1/41"
+        ],
+        [
+          0,
+          "7/10",
+          "1/41"
+        ],
+        [
+          0,
+          "29/40",
+          "1/41"
+        ],
+        [
+          0,
+          "3/4",
+          "1/41"
+        ],
+        [
+          0,
+          "31/40",
+          "1/41"
+        ],
+        [
+          0,
+          "4/5",
+          "1/41"
+        ],
+        [
+          0,
+          "33/40",
+          "1/41"
+        ],
+        [
+          0,
+          "17/20",
+          "1/41"
+        ],
+        [
+          0,
+          "7/8",
+          "1/41"
+        ],
+        [
+          0,
+          "9/10",
+          "1/41"
+        ],
+        [
+          0,
+          "37/40",
+          "1/41"
+        ],
+        [
+          0,
+          "19/20",
+          "1/41"
+        ],
+        [
+          0,
+          "39/40",
+          "1/41"
+        ],
+        [
+          0,
+          "1",
+          "1/41"
+        ]
+      ],
+      "bernoulli_kl_intervals": [
+        [
+          "1193032260397827341717137297/6189700196426901374495621120",
+          "1193032260397827341717137303/6189700196426901374495621120"
+        ]
+      ],
+      "comparison_probabilities": [
+        "1/2"
+      ],
+      "interpretation": "upper bound on convex record-KL relaxation only; not an upper bound on physical entropy production",
+      "probabilities": [
+        "4/5"
+      ],
+      "record_kl_relaxation_upper": "1193032260397827341717137303/6189700196426901374495621120"
+    },
+    "proposal_grid": 41,
+    "proposal_iterations": 1,
+    "proposal_status": "Optimization terminated successfully",
+    "proposal_success": true
+  },
+  "calibrated": {
+    "certificate": {
+      "boxes": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "coefficients": [
+        "38/25",
+        "-1"
+      ],
+      "contract": "conditional record-KL relaxation; stationary ordinary-reversal CTMC and calibrated full duration needed for entropy rate; no physical optimality claim",
+      "depth": 7,
+      "durations": [
+        "1",
+        "2"
+      ],
+      "entropy_production_rate_lower": "15862654226385315402470711/5802843934150220038589644800",
+      "expectation_minimizer": [
+        "3647/3800",
+        "1"
+      ],
+      "expected_duration": "3/2",
+      "lags": [
+        1,
+        2
+      ],
+      "log_expectation_lower": "31769588564158857949001597/30948500982134506872478105600",
+      "lower": "1147/2500",
+      "normalizer": {
+        "normalizer_upper": "552875143639930148731806626651303790485/552874352604673070477839575450816479232",
+        "polynomial_bounds": [
+          "552875143639930148731806626651303790485/552874352604673070477839575450816479232"
+        ],
+        "polynomials": [
+          [
+            "67141273039004313609533914384179215/67489544995687630673564401300148496",
+            "67557652935970025/4821264017654585888",
+            "-4259913025245947/447945897995568144"
+          ]
+        ]
+      },
+      "record_kl_lower": "15862654226385315402470711/15474250491067253436239052800",
+      "scores": [
+        [
+          "733959257/794644489",
+          "785498437/758399524"
+        ],
+        [
+          "96938983/92495782",
+          "588384235/605359899"
+        ]
+      ],
+      "status": "positive_certificate",
+      "vertices": [
+        [
+          "0",
+          "1/2"
+        ]
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ]
+    },
+    "certified_relaxation_gap_upper": "13636926424904060359747043232221357/9315666735063392039018154710751877529600",
+    "interpretation": "exact bracket on a convex observational relaxation; no physical optimality or empirical validation claim",
+    "primal": {
+      "atoms": [
+        [
+          0,
+          "29/40",
+          "1"
+        ]
+      ],
+      "bernoulli_kl_intervals": [
+        [
+          "6445949082331989988743097658984104909/4657833367531696019509077355375938764800",
+          "6445949082331989988743101421551935109/4657833367531696019509077355375938764800"
+        ],
+        [
+          "410154979355035130749913145805771/612872811517328423619615441496834048",
+          "820309958710070261499827281760971/1225745623034656847239230882993668096"
+        ]
+      ],
+      "comparison_probabilities": [
+        "109/160",
+        "4041/6400"
+      ],
+      "interpretation": "upper bound on convex record-KL relaxation only; not an upper bound on physical entropy production",
+      "probabilities": [
+        "2654838620063/3762567830200",
+        "607654890/990149429"
+      ],
+      "record_kl_relaxation_upper": "9563126925430256982442445092243624909/9315666735063392039018154710751877529600"
+    },
+    "proposal_grid": 41,
+    "proposal_iterations": 106,
+    "proposal_status": "Optimization terminated successfully",
+    "proposal_success": true
+  },
+  "diffusion": {
+    "detector": "conditional binary mean sin(X_1); same noninvasive channel with independent readout noise",
+    "driven": {
+      "agreement_interval": [
+        "471730199087/1000000000000",
+        "29483137443/62500000000"
+      ],
+      "certificate": {
+        "boxes": [
+          [
+            "471730199087/1000000000000",
+            "29483137443/62500000000"
+          ]
+        ],
+        "coefficients": [
+          "0"
+        ],
+        "contract": "conditional record-KL relaxation; stationary ordinary-reversal CTMC and calibrated full duration needed for entropy rate; no physical optimality claim",
+        "depth": 7,
+        "durations": [
+          "1"
+        ],
+        "entropy_production_rate_lower": "123733342266487235556736995894486689/19342813113834066795298816000000000000",
+        "expectation_minimizer": [
+          "29483137443/62500000000"
+        ],
+        "expected_duration": "1",
+        "lags": [
+          1
+        ],
+        "log_expectation_lower": "123733342266487235556736995894486689/77371252455336267181195264000000000000",
+        "lower": "0",
+        "normalizer": {
+          "normalizer_upper": "1",
+          "polynomial_bounds": [
+            "1",
+            "1",
+            "37738415927/40000000000"
+          ],
+          "polynomials": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "-2261584073/40000000000"
+            ],
+            [
+              "37738415927/40000000000",
+              "0"
+            ]
+          ]
+        },
+        "record_kl_lower": "123733342266487235556736995894486689/77371252455336267181195264000000000000",
+        "scores": [
+          [
+            "42261584073/40000000000",
+            "37738415927/40000000000"
+          ]
+        ],
+        "status": "positive_certificate",
+        "vertices": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "weights": [
+          "1"
+        ]
+      },
+      "detector_correlation_interval": [
+        "-28269800913/500000000000",
+        "-1766862557/31250000000"
+      ],
+      "exact_full_path_kl_to_reversible_reference": "2",
+      "exact_stationary_entropy_rate": "8",
+      "underlying_gaussian_correlation_interval": [
+        "-6123674627/40000000000",
+        "-76545932837/500000000000"
+      ]
+    },
+    "equilibrium": {
+      "agreement_interval": [
+        "113840861267/200000000000",
+        "17787634573/31250000000"
+      ],
+      "certificate": {
+        "boxes": [
+          [
+            "113840861267/200000000000",
+            "17787634573/31250000000"
+          ]
+        ],
+        "coefficients": [
+          "0"
+        ],
+        "contract": "conditional record-KL relaxation; stationary ordinary-reversal CTMC and calibrated full duration needed for entropy rate; no physical optimality claim",
+        "depth": 7,
+        "durations": [
+          "1"
+        ],
+        "entropy_production_rate_lower": "0",
+        "expectation_minimizer": [
+          "17787634573/31250000000"
+        ],
+        "expected_duration": "1",
+        "lags": [
+          1
+        ],
+        "log_expectation_lower": "-364992930666176636309856910251874321/38685626227668133590597632000000000000",
+        "lower": "0",
+        "normalizer": {
+          "normalizer_upper": "1",
+          "polynomial_bounds": [
+            "1",
+            "1",
+            "37738415927/40000000000"
+          ],
+          "polynomials": [
+            [
+              "1",
+              "0"
+            ],
+            [
+              "1",
+              "-2261584073/40000000000"
+            ],
+            [
+              "37738415927/40000000000",
+              "0"
+            ]
+          ]
+        },
+        "record_kl_lower": "0",
+        "scores": [
+          [
+            "42261584073/40000000000",
+            "37738415927/40000000000"
+          ]
+        ],
+        "status": "no_positive_certificate",
+        "vertices": [
+          [
+            "0",
+            "0"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "1",
+            "1"
+          ]
+        ],
+        "weights": [
+          "1"
+        ]
+      },
+      "detector_correlation_interval": [
+        "138408612671/1000000000000",
+        "2162634573/15625000000"
+      ],
+      "exact_stationary_entropy_rate": "0",
+      "underlying_gaussian_correlation_interval": [
+        "367879441171/1000000000000",
+        "91969860293/250000000000"
+      ]
+    },
+    "evidence": "exact Gaussian model calculation with rational transcendental enclosures; no sampled or empirical records",
+    "mean": "0",
+    "parameters": {
+      "angular_rate": "2",
+      "diffusion_constant": "1",
+      "duration": "1",
+      "gamma": "1"
+    },
+    "scope": "diffusion transfer uses path likelihood and spectral theorem; jump-activity inversion is inapplicable",
+    "second_moment_interval": [
+      "432332358381/1000000000000",
+      "216166179191/500000000000"
+    ]
+  },
+  "evidence": "deterministic mathematical examples; not measured data",
+  "uncalibrated": {
+    "certificate": {
+      "boxes": [
+        [
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "coefficients": [
+        "38/25",
+        "-1"
+      ],
+      "contract": "conditional record-KL relaxation; stationary ordinary-reversal CTMC and calibrated full duration needed for entropy rate; no physical optimality claim",
+      "depth": 7,
+      "durations": [
+        "1",
+        "2"
+      ],
+      "entropy_production_rate_lower": "0",
+      "expectation_minimizer": [
+        "1",
+        "0"
+      ],
+      "expected_duration": "3/2",
+      "lags": [
+        1,
+        2
+      ],
+      "log_expectation_lower": "-834786637383969324887/2475880078570760549798248448",
+      "lower": "1147/2500",
+      "normalizer": {
+        "normalizer_upper": "759010974869535071/759010924952662589",
+        "polynomial_bounds": [
+          "2147936118932391412944367581775744975/2147936052158468280109771712450514768",
+          "759010974869535071/759010924952662589",
+          "759010974869535071/759010924952662589"
+        ],
+        "polynomials": [
+          [
+            "2147936118932391412944367581775744975/2147936052158468280109771712450514768",
+            "0",
+            "0"
+          ],
+          [
+            "2147936118932391412944367581775744975/2147936052158468280109771712450514768",
+            "-286562350713/1718118914030001814",
+            "503733975019/2500334563130199024"
+          ],
+          [
+            "759010974869535071/759010924952662589",
+            "0",
+            "0"
+          ]
+        ]
+      },
+      "record_kl_lower": "0",
+      "scores": [
+        [
+          "933823704/933823283",
+          "919937730/919937929"
+        ],
+        [
+          "757614769/757615116",
+          "825067828/825067541"
+        ]
+      ],
+      "status": "no_positive_certificate",
+      "vertices": [
+        [
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "1",
+          "1"
+        ]
+      ],
+      "weights": [
+        "1/2",
+        "1/2"
+      ]
+    },
+    "certified_relaxation_gap_upper": "29513151081598126602344521/459625545303054507967056226275871948800",
+    "interpretation": "exact bracket on a convex observational relaxation; no physical optimality or empirical validation claim",
+    "primal": {
+      "atoms": [
+        [
+          1,
+          "1/8",
+          "11535154465/999999999999"
+        ],
+        [
+          1,
+          "3/20",
+          "332873104/12987012987"
+        ],
+        [
+          1,
+          "7/40",
+          "4223765990/111111111111"
+        ],
+        [
+          1,
+          "1/5",
+          "16227716390/333333333333"
+        ],
+        [
+          1,
+          "9/40",
+          "19212998263/333333333333"
+        ],
+        [
+          1,
+          "1/4",
+          "64881430766/999999999999"
+        ],
+        [
+          1,
+          "11/40",
+          "70410457102/999999999999"
+        ],
+        [
+          1,
+          "3/10",
+          "8247341533/111111111111"
+        ],
+        [
+          1,
+          "13/40",
+          "76328280850/999999999999"
+        ],
+        [
+          1,
+          "7/20",
+          "6974279842/90909090909"
+        ],
+        [
+          1,
+          "3/8",
+          "5799420464/76923076923"
+        ],
+        [
+          1,
+          "2/5",
+          "72354444161/999999999999"
+        ],
+        [
+          1,
+          "17/40",
+          "67603012649/999999999999"
+        ],
+        [
+          1,
+          "9/20",
+          "61138171495/999999999999"
+        ],
+        [
+          1,
+          "19/40",
+          "17653306900/333333333333"
+        ],
+        [
+          1,
+          "1/2",
+          "6152608609/142857142857"
+        ],
+        [
+          1,
+          "21/40",
+          "4494741455/142857142857"
+        ],
+        [
+          1,
+          "11/20",
+          "954754862/47619047619"
+        ],
+        [
+          1,
+          "23/40",
+          "11661810008/999999999999"
+        ],
+        [
+          1,
+          "3/5",
+          "2019002768/999999999999"
+        ],
+        [
+          1,
+          "5/8",
+          "3217674986/333333333333"
+        ],
+        [
+          1,
+          "13/20",
+          "201065981/47619047619"
+        ],
+        [
+          1,
+          "27/40",
+          "80895733/27027027027"
+        ],
+        [
+          1,
+          "7/10",
+          "1132887671/999999999999"
+        ],
+        [
+          1,
+          "29/40",
+          "57955004/333333333333"
+        ],
+        [
+          1,
+          "3/4",
+          "48822154/999999999999"
+        ]
+      ],
+      "bernoulli_kl_intervals": [
+        [
+          "11206140980826650977024501/229812772651527253983528113137935974400",
+          "11206140980826836618303851/229812772651527253983528113137935974400"
+        ],
+        [
+          "8029390395075045764369/100795075724354058764705312779796480",
+          "32117561580300508743931/403180302897416235058821251119185920"
+        ]
+      ],
+      "comparison_probabilities": [
+        "7722953877733/11428571428560",
+        "33067778667331/58181818181760"
+      ],
+      "interpretation": "upper bound on convex record-KL relaxation only; not an upper bound on physical entropy production",
+      "probabilities": [
+        "501794554831/742565117400",
+        "555314273/977059365"
+      ],
+      "record_kl_relaxation_upper": "29513151081598126602344521/459625545303054507967056226275871948800"
+    },
+    "proposal_grid": 41,
+    "proposal_iterations": 22,
+    "proposal_status": "Optimization terminated successfully",
+    "proposal_success": true
+  }
+}

@@ -1,0 +1,497 @@
+\chapter{Observed diffusion geometry and a compatible-model minimum}
+\label{ch:og-population}
+
+An observed continuous path contains local information that a list of
+correlations need not retain. In a diffusion, quadratic variation records the
+noise strength along the observed coordinate. A conditional comparison of
+past and future increments then separates a directed contribution from
+variation of the reversible drift inside an unresolved observation fiber.
+The result below bounds entropy production without fixing the dimension or
+architecture of the hidden diffusion. For one complete scalar process law,
+the bound determines and attains the minimum over the entire declared hidden
+model class.
+
+These are population statements for ideal noiseless continuous observations.
+They do not certify that a finite dataset has a specified process law. Their
+physical interpretation requires ordinary reversal of the complete hidden
+state; in particular, an equilibrium inertial model is not covered merely
+because its measured position is even under reversal. The proof uses standard
+diffusion calculus, conditional expectation, and the stationary reverse
+semigroup. Historical priority for the combination and its consequences is
+not asserted.
+
+\section{Model class, entropy convention, and observed geometry}
+
+Let $M$ be a compact connected smooth Riemannian manifold without boundary,
+of arbitrary finite dimension. Let $\pi$ be a strictly positive smooth
+probability density relative to its volume form, $D$ a smooth symmetric
+uniformly positive definite diffusion tensor, and $v$ a smooth vector field
+such that $\operatorname{div}(\pi v)=0$. On smooth real functions define
+\begin{equation}
+ L=S+A,\qquad
+ Sf=\pi^{-1}\operatorname{div}(\pi D\nabla f),\qquad
+ Af=v\mathbin{\cdot}\nabla f.
+ \label{eq:og-generator}
+\end{equation}
+Consider the stationary two-sided diffusion $X=(X_t)_{t\in\mathbb R}$ with
+generator $L$ and invariant density $\pi$. These assumptions imply
+$L^\dagger=S-A$ in $L^2(\pi)$ and smooth bounded generator derivatives of
+every smooth detector. Its stationary reverse process has generator
+$L^\dagger$.
+
+The convention for the diffusion coefficient is local covariance $2D\,dt$.
+Write
+\begin{equation}
+ e(x)=v(x)^{\mathsf T}D(x)^{-1}v(x),\qquad
+ \sigma=\int_M e\,d\pi.
+ \label{eq:og-entropy}
+\end{equation}
+For ordinary reversal, Girsanov's formula gives the relative entropy of the
+forward and reverse stationary hidden path laws on an interval of length
+$T$ as $T\sigma$: their drift difference is $2v$ and their covariance is
+$2D$. Equation~\eqref{eq:og-entropy} is dimensionless entropy per unit
+physical time. A conversion into dissipated heat or power needs a valid
+thermodynamic embedding and its temperature convention.
+
+Let $f\in C^\infty(M;\mathbb R)$ be a deterministic noninvasive detector and
+$Y_t=f(X_t)$. Define the observed local diffusivity
+\begin{equation}
+ V_t=\Gamma_f(X_t),\qquad
+ \Gamma_f=\nabla f^{\mathsf T}D\nabla f,
+ \qquad U_t=(Y_t,V_t).
+ \label{eq:og-geometry}
+\end{equation}
+The scalar semimartingale quadratic variation satisfies
+\begin{equation}
+ [Y]_t-[Y]_s=2\int_s^t V_r\,dr.
+ \label{eq:og-qv}
+\end{equation}
+Since $V$ has continuous paths, its value is half the time derivative of
+this quadratic variation, including at a fixed time such as zero. Thus
+$V_t$ is determined by an ideal continuous record of $Y$ and its calibrated
+clock; it need not be a function of $Y_t$ alone.
+
+This observation is a pathwise limiting statement. The square of one
+increment, a regression of squared increments given $Y_t$, and a measurement
+blurred by exposure averaging are not interchangeable with $V_t$. The
+theorem below cannot be applied to them without an additional access and
+error argument.
+
+\section{The conditional local-defect theorem}
+
+All conditional quantities in this chapter are defined up to the stationary
+law's null sets. For $h>0$ put
+\begin{align}
+ g_h(U_0)
+ &=\frac{\mathbb E[Y_h+Y_{-h}-2Y_0\mid U_0]}{2h},\\
+ K_h(U_0)
+ &=\frac{\mathbb E[(Y_h-Y_0)(Y_{-h}-Y_0)\mid U_0]}{h^2}.
+ \label{eq:og-conditional-finite-h}
+\end{align}
+The symmetric definition of $g_h$ is essential. In general,
+$\mathbb E[Af\mid Y_0,V_0]$ need not vanish, so a forward conditional
+drift cannot silently replace it.
+
+\begin{theorem}[Observed-geometry dissipation bound]
+\label{thm:og-local}
+Under the preceding assumptions, $g_h$ and $K_h$ converge in $L^\infty$
+as $h\downarrow0$, with limits
+\begin{align}
+ g(U_0)&=\mathbb E[Sf(X_0)\mid U_0],\\
+ K(U_0)&=\mathbb E[(Sf(X_0))^2-(Af(X_0))^2\mid U_0].
+ \label{eq:og-conditional-limits}
+\end{align}
+Set $d(U)=g(U)^2-K(U)$, and define its ratio by zero on $V=0$. Then
+\begin{equation}
+ \boxed{\displaystyle
+ \sigma\ \geq\ \mathcal I(Y)
+ :=\mathbb E\!\left[
+       \mathbf 1_{\{V_0>0\}}\frac{[d(U_0)]_+}{V_0}
+                    \right].}
+ \label{eq:og-local-bound}
+\end{equation}
+Equivalently, the truncated bounds
+\[
+ \mathcal I_\varepsilon(Y)
+ =\mathbb E\!\left[
+   \mathbf 1_{\{V_0\geq\varepsilon\}}
+   \frac{[d(U_0)]_+}{V_0}\right]\leq\sigma,
+ \qquad \varepsilon>0,
+\]
+increase to $\mathcal I(Y)$ as $\varepsilon\downarrow0$.
+The number $\mathcal I(Y)$ depends only on the full stationary continuous
+path law of $Y$, with its time scale, and not on the particular compatible
+hidden diffusion used to calculate it.
+\end{theorem}
+
+\begin{proof}
+Let $P_h$ and $P_h^\dagger$ be the forward and reverse semigroups. The past
+and future are conditionally independent given $X_0$. Consequently,
+\begin{align*}
+ \mathbb E[Y_h-Y_0\mid X_0]&=(P_hf-f)(X_0),\\
+ \mathbb E[Y_{-h}-Y_0\mid X_0]&=(P_h^\dagger f-f)(X_0),\\
+ \mathbb E[(Y_h-Y_0)(Y_{-h}-Y_0)\mid X_0]
+ &=(P_hf-f)(X_0)(P_h^\dagger f-f)(X_0).
+\end{align*}
+For a smooth function on the compact manifold, the semigroup expansion is
+uniform in the hidden state:
+\[
+ \frac{P_hf-f}{h}=Lf+O(h),\qquad
+ \frac{P_h^\dagger f-f}{h}=L^\dagger f+O(h).
+\]
+For example, the first remainder has supremum norm at most
+$h\|L^2f\|_\infty/2$, by the integrated semigroup identity and its
+supremum-norm contraction. Conditional expectation is an
+$L^\infty$ contraction. Averaging the two expansions and multiplying them
+therefore gives~\eqref{eq:og-conditional-limits} in $L^\infty$.
+No Markov assumption on $Y$ has been used.
+
+Abbreviate $a=Sf(X_0)$ and $c=Af(X_0)$. The conditional defect has the exact
+form
+\begin{equation}
+ d(U_0)=\mathbb E[c^2\mid U_0]
+             -\operatorname{Var}(a\mid U_0).
+ \label{eq:og-defect-fiber}
+\end{equation}
+In particular,
+\[
+ [d(U_0)]_+\leq\mathbb E[c^2\mid U_0].
+\]
+Pointwise Cauchy--Schwarz in the diffusion metric gives
+\[
+ c^2=(v\mathbin{\cdot}\nabla f)^2
+       \leq (\nabla f^{\mathsf T}D\nabla f)
+             (v^{\mathsf T}D^{-1}v)=V_0 e(X_0).
+\]
+Since $V_0$ is included in $U_0$,
+\[
+ [d(U_0)]_+\leq V_0\mathbb E[e(X_0)\mid U_0].
+\]
+Divide on $V_0\geq\varepsilon$ and integrate to obtain the truncated
+bound. Monotone convergence gives~\eqref{eq:og-local-bound}. On $V_0=0$,
+uniform positive definiteness of $D$ implies $\nabla f=0$ and hence $c=0$.
+Equation~\eqref{eq:og-defect-fiber} then gives $[d]_+=0$ on this event;
+the declared zero value of the ratio is consistent.
+
+Finally, continuous observation determines quadratic variation as a limiting
+path functional, and~\eqref{eq:og-qv} determines its continuous derivative.
+One precise construction uses the sums of squared increments along dyadic
+partitions on each bounded interval. For the present bounded smooth It\^o
+coefficients, these converge uniformly almost surely to quadratic variation:
+the usual martingale estimate gives a squared supremum error of order the
+mesh, and the dyadic meshes are summable. Defining the functional to be zero
+on the null set of nonconvergent paths makes it Borel measurable. Taking its
+right derivative at zero recovers $V_0$. Thus the continuous path law fixes
+the joint law of $U_0,Y_{-h},Y_0,Y_h$ and the integrated conditional quantities
+above for every $h$. Their unique $L^\infty$ limits, followed by the
+nonnegative truncated limits, have the same value in every compatible model.
+Versions on null sets cannot change that value.
+\end{proof}
+
+Although the quadratic-variation construction uses a path neighborhood,
+under every admissible model its limit equals the instantaneous function
+$\Gamma_f(X_0)$. Conditioning on this ideal limit therefore does not spoil
+the conditional independence step given $X_0$. Replacing that limit with a
+finite-window estimate built from the same increments is a different
+statistical procedure and can introduce dependence and selection bias.
+
+\section{The exact sources of slack}
+
+The theorem provides more than an inequality: it separates two losses of
+information. On $V_0>0$ write
+\[
+ m(U_0)=\mathbb E[c^2\mid U_0],\qquad
+ w(U_0)=\operatorname{Var}(a\mid U_0).
+\]
+Since $m-[m-w]_+=\min(m,w)$, the following decomposition is exact:
+\begin{align}
+ \sigma-\mathcal I(Y)
+ &=\mathbb E[e\,\mathbf 1_{\{V_0=0\}}]
+   +\mathbb E\!\left[
+      \left(e-\frac{c^2}{V_0}\right)
+           \mathbf 1_{\{V_0>0\}}\right] \notag\\
+ &\quad+\mathbb E\!\left[
+      \frac{\min(m,w)}{V_0}\mathbf 1_{\{V_0>0\}}\right].
+ \label{eq:og-slack}
+\end{align}
+Every term is nonnegative and finite. The second term is dissipation in
+directions not detected by $f$ in the local diffusion metric. The third
+records the loss caused by variation of the reversible drift inside a
+retained observation fiber. In particular, equality holds if and only if,
+up to stationary null sets:
+\begin{enumerate}
+ \item $e=0$ wherever $V_0=0$;
+ \item on $V_0>0$, $v$ is a scalar multiple of $D\nabla f$;
+ \item on $V_0>0$, either $\mathbb E[c^2\mid U_0]=0$ or
+       $\operatorname{Var}(a\mid U_0)=0$.
+\end{enumerate}
+The conditions concern a particular compatible model. Their satisfaction
+by one model, together with a path-law invariant lower bound, establishes
+attainment of the minimum over the compatible class.
+
+\section{Coordinate invariance and increasing physical access}
+
+\begin{proposition}[Invertible scalar recalibration]
+\label{prop:og-recalibration}
+Let $\psi$ be a smooth one-to-one scalar transformation on an open interval
+containing the range of $f$, with a smooth inverse and nonzero derivative.
+Then the observed process $Z_t=\psi(Y_t)$ has
+$\mathcal I(Z)=\mathcal I(Y)$.
+\end{proposition}
+
+\begin{proof}
+Write $p=\psi'(Y_0)$ and $r=\psi''(Y_0)$. Diffusion calculus gives
+\[
+ \Gamma_{\psi\circ f}=p^2V_0,\qquad
+ S(\psi\circ f)=p a+rV_0,\qquad
+ A(\psi\circ f)=p c.
+\]
+The conditioning coordinates $(\psi(Y_0),p^2V_0)$ determine, and are
+determined by, $(Y_0,V_0)$. Thus
+\[
+ g_Z=pg+rV_0,\qquad
+ K_Z=p^2K+2prV_0g+r^2V_0^2,
+ \qquad g_Z^2-K_Z=p^2(g^2-K).
+\]
+The ratio in~\eqref{eq:og-local-bound} is unchanged pointwise, including
+its zero convention. The full bounds are invariant; truncations using the
+same numerical threshold on the two different diffusivities need not be.
+\end{proof}
+
+For a complementary access statement, let $\mathcal G\subseteq\mathcal H
+\subseteq\sigma(X_0)$ be instantaneous conditioning sigma-fields that both
+contain $V_0$. Define the same conditional defect using each field; assume
+the required conditioning variables are justified by the retained access.
+The tower property and total conditional variance give
+\[
+ d_{\mathcal G}
+ =\mathbb E[d_{\mathcal H}\mid\mathcal G]
+  -\operatorname{Var}\!\left(
+       \mathbb E[a\mid\mathcal H]\mid\mathcal G\right).
+\]
+Convexity of the positive part and the measurability of $V_0$ imply
+\begin{equation}
+ \mathcal I_{\mathcal G}\leq\mathcal I_{\mathcal H}\leq\sigma.
+ \label{eq:og-refinement}
+\end{equation}
+Retaining more valid instantaneous information therefore cannot weaken this
+population certificate. This statement does not assume that the refined
+conditioning variables can be learned accurately from a finite dataset.
+
+An exact variational form makes the connection with experimental witnesses
+explicit:
+\begin{equation}
+ \mathcal I(Y)=
+ \sup_{q,w}\mathbb E\!\left[
+ w(U_0)\{2q(U_0)g(U_0)-q(U_0)^2-K(U_0)\}\right],
+ \label{eq:og-dual}
+\end{equation}
+where $q,w$ are bounded measurable functions, $w\geq0$, and $w(U_0)V_0\leq1$.
+For fixed $w$, the identity
+$2qg-q^2-K=d-(q-g)^2$ shows that $q=g$ is optimal. Taking
+$w=V_0^{-1}\mathbf 1_{\{V_0\geq\varepsilon,\,d>0\}}$ and letting
+$\varepsilon\downarrow0$ proves equality. Each fixed admissible pair is
+already a lower bound; the supremum is a population characterization, not
+permission to optimize functions on the inference records without accounting
+for selection.
+
+\section{An attained minimum across hidden architectures}
+
+Let $\mathbb P_{\gamma,\omega}^{\cos}$ denote the complete stationary
+continuous path law of
+\begin{equation}
+ d\phi_t=\omega\,dt+\sqrt{2\gamma}\,dW_t\pmod{2\pi},\qquad
+ Y_t=\cos\phi_t,
+ \quad \phi_0\ \hbox{uniform},\quad \gamma>0.
+ \label{eq:og-circle}
+\end{equation}
+Define $\mathfrak C(\mathbb P_{\gamma,\omega}^{\cos})$ to contain every
+hidden model satisfying the smooth compact ordinary-diffusion assumptions of
+this chapter, in any finite dimension, whose detector has precisely this
+continuous path law with the same clock.
+
+\begin{theorem}[Global compatible-model minimum for the cosine-circle law]
+\label{thm:og-circle-minimum}
+Within the declared class,
+\begin{equation}
+ \boxed{\displaystyle
+ \min_{(X,f)\in\mathfrak C(\mathbb P_{\gamma,\omega}^{\cos})}
+       \sigma(X)=\frac{\omega^2}{\gamma}.}
+ \label{eq:og-circle-min}
+\end{equation}
+The circle model itself attains the minimum. Hidden dimension, topology,
+and additional undetected coordinates are not fixed in this minimization.
+\end{theorem}
+
+\begin{proof}
+For the circle, $Sf=-\gamma\cos\phi$, $Af=-\omega\sin\phi$, and
+$\Gamma_f=\gamma\sin^2\phi$. Hence, with $y=Y_0$,
+\[
+ V_0=\gamma(1-y^2),\qquad
+ g=-\gamma y,\qquad
+ K=\gamma^2y^2-\omega^2(1-y^2).
+\]
+The stationary law of $Y_0$ is the arcsine law; in particular its endpoints
+have probability zero. The ratio in~\eqref{eq:og-local-bound} is therefore
+$\omega^2/\gamma$ almost surely. Path-law invariance implies this same
+lower bound for every member of the compatible class. For the circle's
+constant current velocity $v=\omega$ and diffusivity $D=\gamma$,
+equation~\eqref{eq:og-entropy} gives $\sigma=\omega^2/\gamma$.
+This feasible model attains the lower bound, proving the minimum.
+\end{proof}
+
+Full path-law agreement is sufficient but stronger than necessary for this
+particular minimum. Let the compatibility requirement instead fix the
+stationary joint law of $(Y_0,V_0)$ and the two local conditional functions
+$g$ and $K$ appearing in~\eqref{eq:og-conditional-limits}. Every compatible
+model still has the same $\mathcal I(Y)$, and the reference circle is still
+feasible, so the minimum over this larger class remains
+$\omega^2/\gamma$. These local population functions are substantially more
+information than a finite list of lagged moments; the statement does not
+remove the cost of resolving or estimating them.
+
+This minimum is determined by a reversible observed law. Reversing the
+stationary circle process changes $\omega$ to $-\omega$; reflecting the
+phase $\phi\mapsto-\phi$ makes the same change and leaves $\cos\phi$
+unchanged. Thus the observed forward and backward path laws agree, and their
+relative-entropy rate is zero even when~\eqref{eq:og-circle-min} is positive.
+The result does not contradict data processing: it uses additional
+restrictions on admissible hidden physical models and the diffusion geometry
+encoded in the observed law. It does not assert that $Y$ is Markovian.
+
+The order of operations matters even for this exact example. Near
+$|Y|=1$, the separate weighted terms $g^2/V$ and $K/V$ need not be
+integrable; for the cosine-circle law their expectations are both positive
+infinity. Their pointwise difference is nevertheless finite and equals
+$\omega^2/\gamma$. Equation~\eqref{eq:og-local-bound} first forms the
+conditional local difference, then its positive part, and then the
+truncated integral. It is not a subtraction of divergent global integrals.
+
+\subsection{A family with nonuniform stationary density and diffusivity}
+
+The exact minimum is not confined to a constant-speed circle. Let
+$\rho(\phi)$ and $D(\phi)$ be positive smooth even $2\pi$-periodic
+functions, with $\int_0^{2\pi}\rho(\phi)\,d\phi=1$, and let $J$ be a
+constant stationary probability flux. Define the circle diffusion by
+\begin{equation}
+ S=\rho^{-1}\partial_\phi(\rho D\partial_\phi),\qquad
+ A=\frac{J}{\rho}\partial_\phi,
+ \qquad Y=\cos\phi.
+ \label{eq:og-symmetric-circle-family}
+\end{equation}
+For the complete observed law generated by this model, the minimum over all
+compatible hidden diffusions in the chapter's class is
+\begin{equation}
+ \min\sigma
+ =J^2\int_0^{2\pi}\frac{d\phi}{\rho(\phi)D(\phi)}.
+ \label{eq:og-family-minimum}
+\end{equation}
+Indeed, $Sf$ is even, as are $\Gamma_f=D\sin^2\phi$ and
+$e=J^2/(\rho^2D)$. Every even function on the circle is a measurable
+function of $\cos\phi$. Thus $\operatorname{Var}(Sf\mid Y,V)=0$.
+Away from the two detector critical points, which have zero stationary
+probability, the one-dimensional Cauchy--Schwarz step is equality.
+Equation~\eqref{eq:og-slack} proves $\mathcal I(Y)=\sigma$ for this model;
+path-law invariance and the model's feasibility prove
+\eqref{eq:og-family-minimum} across the compatible class. Reflection of the
+phase preserves the invariant density, commutes with $S$, and changes $A$
+into $-A$. It therefore maps the forward hidden generator to its stationary
+reverse while leaving $Y$ fixed. Every scalar observed law in this family
+is reversible, including the positive-minimum cases $J\ne0$.
+
+More generally, a one-dimensional admissible hidden diffusion attains the
+bound whenever $Sf$ is measurable with respect to $(f,\Gamma_f)$ and
+$\nabla f\ne0$ almost surely. These are sufficient conditions to verify
+in a model, rather than a claim that an arbitrary detector resolves its
+hidden drift. Nonuniform diffusion or stationary density alone does not
+prevent exact inference at the level of a full path law.
+
+Equality of the full scalar covariance is a weaker specification than the
+path law used here. For example, the earlier hub construction matching an
+oscillatory covariance is a jump process and does not reproduce the
+cosine-circle law's continuous paths and local diffusivity. Conversely, this
+chapter gives no theorem that a fitted oscillatory covariance forces the
+minimum~\eqref{eq:og-circle-min}.
+
+For reference, the circle's finite-$h$ conditional quantities are exactly
+\begin{align}
+ g_h(y)&=\frac{e^{-\gamma h}\cos(\omega h)-1}{h}\,y,\\
+ K_h(y)&=\frac{
+ [e^{-\gamma h}\cos(\omega h)-1]^2y^2
+ -e^{-2\gamma h}\sin^2(\omega h)(1-y^2)}{h^2}.
+ \label{eq:og-circle-finite}
+\end{align}
+The untruncated finite-$h$ population ratio integrates to
+\[
+ \frac{e^{-2\gamma h}\sin^2(\omega h)}{\gamma h^2}
+ \leq\frac{\omega^2}{\gamma},
+\]
+with equality in the limit $h\downarrow0$. This one-model identity does not
+license an uncorrected finite-$h$ bound for arbitrary compatible diffusions.
+A finite observation experiment needs explicit approximation, detector,
+selection, and sampling guarantees.
+
+\section{A vector extension}
+
+The same argument has a matrix form. Let $F=(f_1,\ldots,f_k)$ be a smooth
+vector detector and let
+\[
+ G_{ij}(X_0)=\nabla f_i^{\mathsf T}D\nabla f_j,
+ \qquad U=(F(X_0),G(X_0)).
+\]
+The matrix $G$ is half the time derivative of the observed quadratic
+covariation matrix. Put $a=SF$, $c=AF$, $g=\mathbb E[a\mid U]$, and
+\[
+ K_{\rm sym}
+ =\lim_{h\downarrow0}\frac{1}{2h^2}\mathbb E\!\left[
+ (F_h-F_0)(F_{-h}-F_0)^{\mathsf T}
+ +(F_{-h}-F_0)(F_h-F_0)^{\mathsf T}\mid U\right].
+\]
+Uniform componentwise semigroup expansion gives
+$K_{\rm sym}=\mathbb E[aa^{\mathsf T}-cc^{\mathsf T}\mid U]$.
+If $G^+$ is the Moore--Penrose inverse and $H_+$ denotes the positive
+spectral part of a symmetric matrix, then
+\begin{equation}
+ \sigma\geq
+ \mathbb E\operatorname{tr}\left[
+  \left((G^+)^{1/2}(gg^{\mathsf T}-K_{\rm sym})
+                    (G^+)^{1/2}\right)_+\right].
+ \label{eq:og-vector}
+\end{equation}
+This includes singular $G$; it is an inequality, not a claim of general
+coordinate invariance under transformations of a singular vector detector.
+
+To prove it, let $J$ be the detector differential, so that
+$G=JDJ^{\mathsf T}$ and $c=Jv$. Linear algebra gives
+$c^{\mathsf T}G^+c\leq e$ and $c\in\operatorname{range}(G)$.
+Conditionally,
+\[
+ gg^{\mathsf T}-K_{\rm sym}
+ =\mathbb E[cc^{\mathsf T}\mid U]
+                -\operatorname{Cov}(a\mid U)
+ \preceq\mathbb E[cc^{\mathsf T}\mid U].
+\]
+After whitening by $(G^+)^{1/2}$, the right side is positive semidefinite.
+For symmetric $H\preceq N$ with $N\succeq0$, the variational identity
+$\operatorname{tr}H_+=\max_{0\preceq P\preceq I}\operatorname{tr}(PH)$
+gives $\operatorname{tr}H_+\leq\operatorname{tr}N$. Conditional expectation
+and the preceding pointwise metric inequality establish
+\eqref{eq:og-vector}. Truncating to events where $\|G^+\|$ is bounded
+justifies every division; monotone convergence extends to their union,
+which includes every finite matrix. As with the scalar theorem, a physically
+available extra detector has an acquisition cost that must be recorded.
+
+\section{Boundary of the result}
+
+The minimum in~\eqref{eq:og-circle-min} is global over a broad, explicit
+diffusion class, rather than over all conceivable physical descriptions.
+The proof requires stationarity, smooth continuous deterministic detection,
+the ordinary reversal convention for the complete hidden state, calibrated
+time, and enough path access to determine local quadratic variation. It
+does not cover arbitrary jump processes, singular latent dynamics,
+generalized odd-variable reversal, or hidden sensor dynamics. Conditioning
+on an averaged local diffusivity does not establish the required pointwise
+geometry. No finite record proves exact path-law equality, and no laboratory
+validation is supplied by this mathematical argument. These restrictions
+are part of the theorem and are needed when deciding which application or
+extension is scientifically justified.

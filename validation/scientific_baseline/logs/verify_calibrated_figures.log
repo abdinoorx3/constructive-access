@@ -1,0 +1,21 @@
+{
+  "figures": [
+    {
+      "path": "/tmp/constructive-access-clean-u5dilc0q/reference/manuscript/figures/calibrated_inference.pdf",
+      "sha256": "24b5cb6f89447a7716a821af1ea069352e4db3a7d9ecf8b9e2bc5a37288109fd"
+    },
+    {
+      "path": "/tmp/constructive-access-clean-u5dilc0q/reference/manuscript/figures/calibrated_inference.png",
+      "sha256": "de352054946593983fe3b0fdca1a33c35a21316a475a331d40f90627087c6bed"
+    },
+    {
+      "path": "/tmp/constructive-access-clean-u5dilc0q/reference/manuscript/figures/calibrated_resources.pdf",
+      "sha256": "3da2148d604deb74dca951e9e004ebf6ab1c35cd56e00ccc46f70f46f4a022e4"
+    },
+    {
+      "path": "/tmp/constructive-access-clean-u5dilc0q/reference/manuscript/figures/calibrated_resources.png",
+      "sha256": "0109c4ad9fe67f01fc59f4fa4e6d4915192ab97ebe828d143c89eab719aa43d5"
+    }
+  ],
+  "evidence": "Saved synthetic benchmarks and mathematical curves; no empirical validation"
+}

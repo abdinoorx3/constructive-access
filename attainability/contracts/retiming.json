@@ -1,0 +1,29 @@
+{
+  "study": "model_assisted_retiming_after_exact_noise_obstruction",
+  "frozen_before_heldout_generation": true,
+  "selection": "The previous noisy ring failure and its exact population obstruction motivate lag 1/2. The model-assisted choice is fixed before all fresh data below; no performance tuning on this new bank.",
+  "seed": 394817622,
+  "replicates_per_case": 400,
+  "alpha": "1/20",
+  "cycle_states": 20,
+  "sensor_denominator": 4096,
+  "new_lag": "1/2",
+  "new_pair_records": 1800,
+  "baseline_lag_unit": "1/10",
+  "baseline_calibration_records": 4000,
+  "baseline_pairs_per_lag": 3000,
+  "baseline_parameters": ["1/2", "3/4"],
+  "baseline": "Actual frozen joint_analog.certify_means API with the stronger direct physical bridge; both earlier fixed parameters retained. Fresh independent record banks under the same model, not reused held-out data or a weaker statistical baseline.",
+  "new_resources": {"stationary_pair_preparations": 1800, "acquisitions": 1800, "detector_readouts": 3600, "evolution_time": "900", "calibration_acquisitions": 0},
+  "baseline_resources": {"stationary_acquisitions": 10000, "calibration_single_readings": 4000, "pair_acquisitions": 6000, "detector_readouts": 16000, "evolution_time": "900"},
+  "resource_scope": "Evolution time is matched; readout/preparation counts are explicitly different. Preparation, resets, sensor operations, computing time and energy are unmeasured and not assigned zero. No calibrated joule saving or total-wall-time equality is asserted.",
+  "cases": [
+    {"name": "driven", "forward_rate": "20", "backward_rate": "1", "noisy": false},
+    {"name": "equilibrium", "forward_rate": "21/2", "backward_rate": "21/2", "noisy": false},
+    {"name": "noisy_driven", "forward_rate": "20", "backward_rate": "1", "noisy": true},
+    {"name": "noisy_equilibrium", "forward_rate": "21/2", "backward_rate": "21/2", "noisy": true}
+  ],
+  "detector": "Same rounded cosine as the prior benchmark; noisy version is half cosine plus independent fair noise of amplitude one half. Endpoint noises independent, sensor memory absent, acquisitions independently stationary.",
+  "physical_bridge": "At s=0, the direct semigroup defect at lag t=tau/2 is -C(tau). Its other coefficients vanish, so neither a zero-lag calibration nor a t-lag record is required. The pair-score Hoeffding gap is [.5-Wmean-sqrt(log(1/alpha)/(2n))]+ and is supplied to from_gap at lag tau/2.",
+  "reporting": "Report every case and both fixed baseline parameters; no unadjusted maximum of tests. Save exact sufficient statistics for all datasets and first raw bank per case. Retain negative controls and non-detections."
+}

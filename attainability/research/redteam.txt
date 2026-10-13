@@ -1,0 +1,300 @@
+2026-10-12 22:43 UTC — Independent internal mathematical and implementation review
+Owner: /root/independent_review. Counterexample and alias-theorem second review:
+/root/independent_review/spectral_counterexamples. External peer review absent.
+The sixth and earlier releases were treated as immutable input. No producer
+files were edited. This work supplies model proofs/checks and simulated-data
+integrity checks; it supplies no new empirical physical measurements.
+
+1. Direct finite-lag theorem: survives within its stated contract.
+
+For a real L2(pi) stationary homogeneous semigroup, write P=P_t, H=(P+P*)/2,
+B=(P-P*)/2. The adjoint acts in the stationary measure, not the counting
+measure. Direct expansion gives
+  <f,P^2 f> = <P* f,Pf> = ||Hf||^2 - ||Bf||^2,
+  Delta_s = -s^2 C0+2s C1-C2 = ||Bf||^2-||(H-sI)f||^2.
+For range R, each row obeys |Bf(x)| <= R TV(P_x,P*_x)/2. Hence, writing
+d=[Delta_s]+ and u=4d/R^2, u <= E_pi TV_x^2. The stationary endpoint joint
+law and its transpose have equal KL divergences in both directions. Their
+shared first marginal pi makes the endpoint KL equal the pi-average of
+half-Jeffreys row divergences. The established sharp scalar inequality gives
+  D_endpoint >= E_pi[2 v_x atanh(v_x)]
+             >= Phi(E_pi v_x^2) >= Phi(u),
+  Phi(u)=2 sqrt(u)atanh(sqrt(u))=2 sum_{k>=1}u^k/(2k-1).
+Convexity and monotonicity follow from this positive series. Full ordinary
+forward/reversed stationary path KL is t*sigma, and endpoint data processing
+therefore yields sigma >= Phi(u)/t >= 8d/(R^2 t). This is full reversal,
+not the additive-reversible comparison with path KL t*sigma/4 used earlier.
+Interchanging those constants would be wrong.
+
+The Hilbert-valued version also survives. A signed probability-row difference
+of total variation v has vector integral v times a difference of barycenters.
+Its norm is at most v times the image diameter R, since convex hulls preserve
+diameter. The operator identity extends componentwise. Joint diameter is the
+right constraint; summing separate scalar entropy certificates is not justified.
+Unit-circle (cos,sin) access doubles the cosine-only defect at unchanged
+diameter 2, but changes the observation channel and its detector/readout costs.
+
+The rational Phi partial sum and geometric remainder enclose the lower-bound
+formula, not actual dissipation. Independent 100-digit atanh evaluations check
+multiple u and truncations including u=999/1000. The implementation correctly
+flags u>=1 instead of clipping it; the flag is conditional on the confidence
+event and alone does not falsify the apparatus. A zero range must not be used
+as a denominator. Full hidden-state ordinary reversal, valid global detector
+range, stationarity, calibrated time and memoryless noninvasive independent
+endpoint noise are essential. Sample extrema do not establish a range bound.
+
+Proof statement corrected during review: a clipped g=max(0,L) does NOT satisfy
+2g<=Delta when Delta<0. The correct conclusion is 2g<=[Delta]+ (or the signed
+L<=Delta/2 before clipping). Constant f=1 gives Delta=-(1-s)^2. Root and the
+theorem producer corrected the relevant design and theorem text; the final
+entropy implication was unaffected.
+
+2. Endpoint sharpness is not continuous-time physical attainability.
+
+The four-cycle discrete kernel with probabilities (1+z)/2 clockwise and
+(1-z)/2 counterclockwise, uniform pi and f=(1,1,-1,-1), has s=0,
+Delta=z^2, R=2 and endpoint KL=Phi(z^2). It saturates every endpoint step.
+However det(P)=-z^2<0, whereas det(exp(tQ))=exp(t trQ)>0. It cannot be a
+finite-CTMC transition matrix. Its sharpness does not establish the physical
+rate bound's sharpness or the unrestricted physical minimum. Finite hidden
+state dimension is not bounded by the theorem, but this is a different claim.
+
+3. Explicit rejected extensions.
+
+(a) Even measured observable does not establish ordinary physical reversal.
+A biased stationary ring with reflection Theta:j->-j satisfies Q*=Theta QTheta.
+With physical reflection parity its forward and physically reversed path laws
+coincide, so physical EPR is zero. Its even observable cos(2pi j/n) has
+C(t)=exp(-gamma t)cos(omega t)/2 and positive Delta at omega*t=pi/2,s=0.
+The independent test uses n=12, clockwise4/counterclockwise1. A four-state
+exact illustration with rates2/1 has Delta=exp(-3pi)/2 at t=pi/2. The circle
+version Q=omega*d_theta+D*d_theta^2 and Theta(theta)=-theta makes the same
+point. This is generalized reversibility; ordinary-reversal mathematical EPR
+is positive. Merely seeing an even output leaves the hidden parity unresolved.
+
+(b) A reversible generator plus nonstationary preparation is insufficient.
+For Q=[[-1,1],[1,-1]], initial law(.9,.1), f=(1,2), range1,
+t=log2/2 and s=1, uncentered C=(13/10,59/40,25/16), Delta=7/80.
+The proposed Phi bound equals2.3220121508, while the initial total EPR is
+.8 log9=1.7577796619 and the average total EPR on[0,t] is only
+[h(.3)-h(.1)]/t=.8245906113; stationary housekeeping EPR is0.
+Thus neither stationary EPR nor nonstationary total EPR can be substituted
+without a new derivation.
+
+(c) Even a stationary reversible output can fail the memoryless-observable
+contract. Let X be stationary symmetric telegraph noise with C_X(v)=exp(-|v|),
+underlying physical EPR0, t=log2,h=2t. Define the causal filtered observation
+Y_u=X_u-2X_(u-h)+X_(u-2h), range8. Its covariance is
+6e^-|v|-4(e^-|v-h|+e^-|v+h|)+(e^-|v-2h|+e^-|v+2h|).
+At lags0,t,2t it is (33/8,21/32,-159/64). Setting s0 gives positive Delta
+159/64 and false inferred rate Phi(159/1024)/log2=.4736463366.
+The centered palindromic filter X_(u+h)-2X_u+X_(u-h) commutes with time
+reversal, and Y is a time shift of it; the entire observed output is reversible.
+It is nevertheless not an instantaneous observable of the system Markov
+state. This counterexample concerns inference about the underlying system;
+it does not assert that a physical memory-bearing detector has zero cost.
+
+4. Finite-n circulant optimization and a noncirculant countermodel.
+
+For paired displacement angle theta, x=tan(theta/2), damping gamma_j and
+frequency ratio u_j=omega_j/gamma_j, entropy equals gamma_j F_x(u_j), where
+F_x(u)=u(1+x^2)atanh(xu)/x. F is even and convex in u with
+F_x''(u)=2(1+x^2)/(1-x^2 u^2)^2, and nondecreasing in x at fixed u. Replacing
+x by x_min=tan(pi/n), including any entropy-free antipodal damping at u0,
+then applying Jensen proves the claimed all-circulant finite-n minimum.
+Nearest-neighbor positive rates attain it iff |omega|/gamma<cot(pi/n).
+At the boundary only one-way active motion can attain the frequency ratio,
+giving infinite ordinary-reversal entropy. The continuum value omega^2/gamma
+is approached by finite rings and attained by the ordinary-even circle
+diffusion; the broader delocalized-mode bound and circle saturation are prior
+work. This is an architecture-scoped result, not a universal physical minimum.
+
+The new gated-hub construction explicitly defeats such an unrestricted claim.
+Four active ring states have f=(1,1,-1,-1), total stationary mass A=.1;
+a hub has f0 and mass.9. Exit rate kappa=.01, balanced return total A*kappa/(1-A),
+and active ring rates(.745,.245) give exact C(t)=.1 e^-t cos(.5t) for all t.
+Hub fluxes are balanced and active EPR is .1*.5 log(.745/.245)=.05560630039,
+strictly below the circle value .25. Independent matrices verify stationarity,
+full covariance on33 time points, and unordered-flux entropy. A single-mode
+correlation law alone therefore does not establish the circulant architecture.
+
+5. Aliasing and the upper-confidence impossibility theorem.
+
+Grid observations of the full circle state have exactly the same law under
+omega and omega+2pi*k/Delta, with entropy diverging quadratically. For a fixed
+finite positive gap menu and bounded number of intervals, simultaneous
+Diophantine approximation gives unbounded shifts with every wrapped phase
+increment approaching0. A shifted unwrapped Gaussian comparison gives
+TV<=|wrapped_shift|/(2sqrt(pi gamma t)); wrapping contracts TV. Sequential
+coupling applies also to adaptive choices from the same finite menu, because
+on matched histories both experiments select the same next gap. Bounded
+independent replication multiplies the TV bound. Thus arbitrarily high entropy
+models approach every reference record law in total variation.
+
+If U has uniform1-alpha upper coverage over all these frequencies, for every
+finite M the nearby high-entropy laws imply P_ref(U>=M)>=1-alpha. Letting M
+increase gives P_ref(U=+infinity)>=1-alpha. The proof survives independent
+adversarial review. Finite menu, bounded experiment and unrestricted frequency
+are material. It says nothing about exact continuous-random observation times,
+unbounded horizons or an externally calibrated frequency cap.
+
+The three-pairwise-irrational-lag exact identification claim is also correct
+when amplitude A and damping gamma are known: among three signs in cosine
+equalities, two agree; their irrational time ratio forces both winding integers
+to vanish, leaving omega'=+/-omega. Two lags do not suffice in general:
+pi(sqrt2-1) and pi(sqrt2+1) agree at times1,sqrt2. Exact identification does
+not provide a stable finite-precision upper bound. The independent suite
+integrates the actual wrapped heat kernel and checks Pell near-aliases.
+
+6. Analog inference, confidence and resources.
+
+The observed single-readout second moment B=E Z^2 upper-bounds latent
+A=E(E[Z|X]^2); it does not identify A. The negative zero-lag coefficient gives
+g_pop=(-s^2 B+2s C1-C2)/2 <= Delta_s/2. Noise loses s^2(B-A)/2 of signal.
+Score ranges are[1/2,1] for the squared single reading and[0,1] for pairs,
+so the one-event Hoeffding proxy is s^4/(4n0)+4s^2/n1+1/n2. Lag-zero sampling
+uncertainty remains. Independent/predictably controlled acquisition means
+are needed; marginal stationarity alone is not a concentration assumption.
+Bounded conditional discrepancies and numerical rounding errors must be
+subtracted with absolute coefficient weights. External failure is added once.
+
+The finite library wrapper correctly deduplicates a predeclared rational
+library, gives each of M candidates alpha/M, and maximizes the resulting
+simultaneously covered clipped gap. Candidate independence is unnecessary.
+Shared physical acquisitions are counted once. The all-library bound and
+the individual fixed-alpha comparators are separate procedures. Their
+unadjusted maximum is not covered. Enlargement based on these inference
+observations must not be called predeclared. The proof wording was corrected
+to positive-part Delta as recorded above.
+
+All1,600 held-out datasets and all six methods were replayed without producer
+certificate functions. Independent floating formulas derive the split support
+as (2s-1)/2+[s^2 B_upper-(1-s)^2 u_lower]/2; Hoeffding calibration, joint/split
+radii, old quadratic conversions and new Phi conversions reproduce each saved
+rate to1e-12. The four first raw archives reproduce integer calibration squares,
+products and coin counts. Every method receives10,000 acquisitions,16,000
+readouts and900 declared evolution-time units. Preparation/reset/detector
+energy and method-specific computation remain unmeasured overhead; there is
+no absolute joule accounting or universal power advantage.
+
+Driven joint analog detects399/400 versus split analog377/400 at s1/2,
+379/400 at s3/4, and split coin293/400. Tuned joint coin gives361/400 and one
+equilibrium rejection; analog gives none. The tuned joint mean Phi bound
+.884824 is about179 times the old quadratic mean .00494257 but only1.55%
+of actual model sigma56.9189. The average clipped coin bound can exceed the
+analog average despite worse detection; the manuscript retains that caveat.
+Noise-only obstruction is not hidden: all methods produce0 in the noisy-driven
+bank. A new exact uniformization enclosure and completed square show the
+supremum over all real s is below-.007 for those fixed noisy settings. The
+independent check computes the same covariances via a100-digit Fourier
+diagonalization, rather than the producer's uniformization.
+
+Changing calibration to zero gain while retaining the science detector gives
+false joint positives400/400 at equilibrium. The declared discrepancy repair
+delta0=.5 returns0/400. No physical inequality repairs an invalid common-channel
+contract automatically. Invalid-control results remain visible.
+
+The predeclared17-member simultaneous library loses power here:362/400 driven
+positives and mean linear bound .346861 versus399/400 and .870376 for fixed
+s3/4. This is a real selection penalty, not a failed positive result to omit.
+The sixth-edition retrospective analysis independently replays all1,600 original
+count banks and their old rates, then substitutes the new same-event physical
+bridge. It does not retune contrasts, collect records or spend a new alpha.
+
+7. Reproduction and finalization.
+
+Source command (run in this phase directory):
+  PYTHONPATH=../calibrated_inference/release/src python tests/test_independent.py
+Portable cumulative-release command:
+  PYTHONPATH=src python attainability/tests/test_independent.py
+Environment: Python3.12.14, NumPy2.3.5, SciPy1.17.0, mpmath1.3.0. Random proof
+challenge seeds871991 and309471 are declared in the independent source.
+Rational APIs are compared to Fraction and100-digit numerical calculations;
+matrix/benchmark replay uses float64 with explicit tolerances. Source and result
+hash bindings are recorded in results/independent_review.json. Reproduction
+does not regenerate held-out data in this reviewer; the authoritative release
+harness independently regenerates producer artifacts.
+
+Checkpoint: first19 tests passed; expanded22-test run found only a stale
+design.json data SHA after the producer added its unused population-audit
+helper and regenerated metadata. Root was notified to rebuild the dependent
+design artifact. No mathematical or inference blocker was found. Final exact
+test count and completion status will be appended after that dependency settles.
+
+2026-10-12 22:45 UTC — Final independent freeze.
+All 23 tests pass (0.305 seconds of suite time, 0 failures, 0 errors). The
+dependent design artifact now binds the final joint bank SHA a74991c9...;
+all 1,600 finite-library selections and comparators reproduce independently.
+The noise-obstruction intervals contain independently computed 100-digit
+Fourier covariances, including their approximately 1e-49 narrow first interval.
+The declared scoped theorems, numerical implementations, same-event bridges,
+failure examples and final benchmark summaries have no unresolved blocker.
+The reviewer source, results/independent_review.json and this research record
+are frozen for root's authoritative clean-release reproduction. External peer
+review remains absent; no unrestricted physical minimum, universal estimator
+dominance, historical priority or new empirically validated physical law follows.
+
+2026-10-12 22:48 UTC — Authorized targeted successor: negative-correlation timing.
+Root requested a separately frozen retiming experiment to address the proved
+population failure of the original noisy two-lag family. The accepted base
+23 tests and conclusions remain intact. This is a new timing design, evaluated
+on fresh draws; it does not revise the old frozen bank or its negative result.
+
+For one declared lag tau, independent pair scores W=(1+Z0 Ztau)/2 lie in[0,1].
+The lower gap g=[1/2-Wmean-sqrt(log(1/alpha)/(2n))]+ is bounded on its coverage
+event by [-C(tau)]+/2. In the direct theorem choose s=0 and hidden semigroup
+lag t=tau/2. Then Delta=-C(tau), giving
+  sigma >= 2 Phi(2g)/tau >= 8g/tau
+for detector conditional-mean range at most2. No observations at the hidden
+half-lag or at zero lag are required because their coefficients vanish.
+Both independent reviewers confirm the constants and acquisition logic.
+Absence of dedicated zero-lag calibration acquisitions does not remove the
+need for valid detector support, stable channel, independent endpoint noise,
+ordinary full-state reversal, calibrated time and stationary preparation.
+
+The proposed tau=.5 and n=1,800 pairs spend900 declared evolution units and
+3,600 readings, compared with the fresh earlier pattern's900 units,10,000
+acquisitions and16,000 readings. Equal declared evolution time is the principal
+matching criterion. Lower readout/preparation counts do not by themselves
+measure total energy, wall-clock time or reset overhead. Model-guided timing
+may succeed in this oscillatory family; it need not help an unknown spectrum,
+a process whose accessible autocorrelations stay nonnegative, or an apparatus
+with memory. The proof itself needs no model rates, but choosing a useful lag
+can use independent design information or must pay an appropriate selection
+penalty. Individual fixed procedures retain their separate alpha events.
+
+2026-10-12 22:51 UTC — Retiming implementation and fresh data review complete.
+Six independent tests were appended without changing the accepted base tests.
+All 29 now pass (0.907 seconds, zero failures/errors). Every retimed and both
+baseline rate across 1,600 fresh datasets is reproduced from independent
+closed-form statistics; first raw banks, integer sums, artifact hashes and both
+resource vectors are checked. A separate 100-digit Fourier calculation encloses
+the exact population correlations in the producer's rational uniformization
+intervals. For a valid zero-entropy fair detector, exact binomial tail sums
+check false positive probability at quotas 20, 100 and 1,800 against alpha=.05.
+API checks cover exact sums, half-lag constants, numerical/conditional penalties,
+external failure, and rejection of unsupported lag selection or detector memory.
+
+All four cases contain 400 fresh datasets. Clean driven: retimed and both
+baselines detect 400/400, with respective mean lower bounds 2.05449554,
+.621639846 (baseline s=.5) and .900410632 (baseline s=.75). Noisy driven:
+retimed detects 386/400, mean lower .124947264, versus zero detections for both
+baselines. Clean and noisy equilibrium have zero positives for all methods.
+No saved rate exceeds the declared model's entropy in this bank; this is a
+Monte Carlo observation, not a proof of universal realized coverage.
+The redesigned noisy population covariance is approximately -.0732037920,
+whereas the original two-lag all-s obstruction remains strictly negative.
+This constitutes a successful proof/model-guided change of access at matched
+declared evolution, not removal of noise from unchanged records or universal
+dominance. Source/result SHA bindings now include retiming.py, its independent
+contract, fresh JSON and raw NPZ. The remaining review item is the producer's
+final prose; no mathematical or implementation blocker is open.
+
+Final retiming prose reviewed after the producer chapter appeared. It correctly
+states the absence of dedicated zero-lag acquisitions while retaining apparatus
+calibration; distinguishes changed access from processing unchanged records;
+uses the stronger direct baseline; reports the 14 noisy non-detections, both
+equilibrium controls and the small recovered fraction of true entropy; and
+keeps sensor-memory and odd-parity failures explicit. No remaining blocker.
+The successor review is now frozen at 29 passing independent tests, with
+external peer review and physical experimental validation still absent.

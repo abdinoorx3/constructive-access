@@ -1,0 +1,383 @@
+JOINT DETECTOR CALIBRATION: INDEPENDENT ADVERSARIAL ASSESSMENT
+Owner: /root/geometry_independent_review
+Date: 2026-10-13 UTC
+Scope: new detector_calibration phase. All nine earlier releases are preserved.
+This record contains proof review and candidate derivations, not laboratory
+measurements, claimed external peer review, or a historical-priority claim.
+
+1. WHAT THE EXISTING FINITE CERTIFICATE ACTUALLY REQUIRES
+
+The earlier score needs a pointwise bound Gamma_f(X0)<=a(U), where the
+selection/weight rule is a function of the true central state and is frozen
+before testing, or is covered by a separately proved simultaneous argument.
+Replacing Gamma by E[Gamma|Y], a fitted bin average or a sample maximum does
+not supply that contract. A noisy center is not automatically the true-state
+coordinate U. Selecting or weighting with the same noisy center also breaks
+the simple conservative shared-center-noise argument in the earlier chapter.
+
+Global bounds on Lf, Ldagger f, L²f and (Ldagger)²f are separate assumptions.
+Smoothness of each model, a stationary density and lower ellipticity do not
+provide common numeric values. Calibration cannot assume a circle generator's
+sup-norm formulas while claiming validity for all hidden diffusions.
+
+2. A REPLICATED POLYNOMIAL ROUTE WITHOUT NOISY-CENTER SELECTION
+
+For |f|<=1, take no retention, a constant pointwise envelope G>0, and
+q(f)=−lambda f. The tuning value lambda is fixed before testing, or handled
+uniformly through a jointly covered fixed moment vector. Put b=1−lambda h.
+With two independently unbiased central readouts and independently unbiased
+endpoint readouts, the raw score
+ T=−(Z_plus−b Z0_1)(Z_minus−b Z0_2)/h²
+has the correct ideal expectation conditional on the complete true triple.
+Conditional independence of these detector errors is essential. Repeated
+readout of the same exposure is not independent replication of the physical
+trajectory and does not itself remove blur.
+
+For point readouts, subtracting 2|lambda| beta_g+beta_K and dividing by G
+gives the earlier finite-h inequality without local selection or estimated
+bin occupancies. It uses four readouts per triple. Bounded detector output
+permits bounded-score concentration. Gaussian output requires an actual
+unbounded-score argument, for example calibrated variance concentration or
+median-of-means, rather than simply using the bounded-readout theorem.
+For the ideal circle with lambda=gamma and G=gamma, its small-h mean reaches
+sigma/2. This is a potentially useful conservative baseline, not the sharp
+local reciprocal-Gamma weight.
+
+The polynomial hierarchy proposed independently by root is valid under the
+STRUCTURAL relation Gamma_f=gamma(1−f²):
+ w_m(f)=sum_(j=0)^m f^(2j),
+ w_m(f) Gamma_f=gamma(1−f^(2m+2))<=gamma.
+The same inequality for the entropy score uses the numerator
+(Af)^2−(Sf+lambda f)^2. Its expectation is at most gamma sigma after
+multiplication by w_m. All moments in w_m times the raw quadratic score can
+be estimated without read-noise bias using 2m+2 independent center replicas
+and two endpoint readings. Shared replicas across different monomials affect
+their covariance but not unbiasedness; concentration must handle that shared
+record structure.
+
+At an ideal circle with lambda=gamma the population limit is
+ sigma[1−E cos(phi)^(2m+2)],
+which approaches sigma as m increases. The extra replicas, moment variances
+and blur penalties are real resource costs. This is not a free replacement
+for a local geometry measurement.
+
+3. JOINT CALIBRATION AND ITS CIRCULARITY TRAPS
+
+Stationarity implies C'(0+)=E fLf=−E Gamma_f, where C(t)=E f0 ft.
+With the exact structural equality above,
+ C0−Ch=h gamma(1−C0)+R, |R|<=h² ||L²f||infinity/2.
+Thus jointly covered moments can constrain gamma. The equality is crucial:
+if only Gamma_f<=gamma(1−f²) is assumed, the same ratio describes an
+averaged quantity and does not upper-calibrate the pointwise coefficient.
+If 1−C0 is not separated from zero on the confidence region, inversion
+must retain that degeneracy and return an unbounded/inconclusive result.
+
+Same-record calibration is not automatically invalid. A fixed vector of
+unbiased moment statistics may receive simultaneous coverage, after which a
+deterministic nuisance-region optimization preserves coverage. Supremizing
+over lambda, or over a predeclared finite set of polynomial degrees, is valid
+when the same covered moment event proves all those inequalities. Substituting
+a fitted score into a concentration theorem for a predeclared score is not.
+
+Likewise, a concentration radius monotone in a nuisance value can be evaluated
+at a simultaneously covered upper nuisance bound using an unconditional union
+bound. Conditioning on that random calibration event and assuming the original
+sampling law remains unchanged would be a different, generally invalid step.
+
+Independent Gaussian replica differences identify their read-noise variance
+without the physical signal: (Z1−Z2)/sqrt(2) is centered Gaussian under the
+declared noise contract. They do not by themselves identify shutter width or
+generator suprema. Exposure needs declared reference calibration or a justified
+model confidence region. A numerical parameter search box cannot silently
+discard unbounded alternatives; any finite prior bounds must be explicit.
+
+Model-specific inversion of a circle parameter confidence region is another
+valid route, but then omega²/gamma is an entropy statement within the assumed
+circle model. It must not be presented as a general hidden-diffusion inference
+unless the broader geometry and generator contracts are separately proved.
+
+4. A SHARP SIMPLE BLUR CORRECTION FOR THE CONSTANT WEIGHT
+
+For a common causal boxcar of width tau<=h, stationarity gives
+ C_A(t)=E C(t+U−V), with U,V independent Uniform[0,tau].
+If |f|<=1 and ||L²f||infinity<=M2, then |C''(t)|<=M2 for t>=0.
+Since E(U−V)=0 and E(U−V)²=tau²/6,
+ |C_A(kh)−C(kh)|<=M2 tau²/12, k=1,2.
+At zero, symmetry of C and its right derivative give
+ C_A0=C0−(tau/3)E Gamma_f+R0, |R0|<=M2 tau²/12.
+Here E|U−V|=tau/3.
+
+The raw constant-weight score expectation is
+ −[C(2h)−2b C(h)+b² C0]/h².
+Consequently blur can INCREASE the score, creating an apparent positive
+defect even for reversible dynamics. A safe upward-bias subtraction is
+ b² G tau/(3h²)+(1+|b|)² M2 tau²/(12h²)
+when E Gamma_f<=G. This is O(tau/h²), sharper than the generic pathwise
+L2 perturbation bound O(sqrt(tau)/h²). The calculation is restricted to the
+quadratic constant-weight score; it does not by itself prove a higher-degree
+weighted correction.
+
+5. ROOT'S GENERAL SEMIGROUP-WORD BLUR LEMMA
+
+The proposed lemma survives independent derivation. Assume a stationary smooth
+diffusion with invariant pi, |f|<=1 and ||Lf||infinity<=M. All products and
+semigroup words below must lie in the generator domain; the smooth compact
+diffusion setting supplies this closure.
+
+For a real word g with ||g||infinity<=1 and B=||Lg||_(L1(pi)), invariance gives
+ E Gamma_f=−E fLf<=M,
+ E Gamma_g=−E gLg<=B.
+The diffusion product rule and Cauchy--Schwarz give
+ ||L(fg)||1<=B+M+2sqrt(MB)=(sqrt(B)+sqrt(M))².
+Between products, L P_t g=P_t Lg and invariant Markov L1 contraction preserve
+this bound. Starting from the constant one therefore proves ||Lg||1<=k²M
+for every semigroup word containing k factors f. No reversibility is needed.
+
+For a d-point ordered moment, differentiating gap j applies L to the future
+suffix with d−j factors. The past prefix, transferred using the stationary
+adjoint, is a SIGNED conditional moment with absolute value at most one.
+It is not necessarily a nonnegative likelihood. Pairing this prefix with the
+suffix derivative proves an absolute gap derivative bound (d−j)² M.
+Coincident times use the right derivative and domain continuity.
+
+Compare sorted blurred times with sorted ideal times. If each time is shifted
+by a causal exposure offset in [-tau,0], sorting preserves
+ t_i−tau<=u_i<=t_i.
+Each adjacent gap thus changes by at most tau, rather than 2tau. Integrating
+the derivative bounds yields the safe crude error
+ M tau sum_(k=1)^(d−1) k².
+Sharper constants follow by integrating the actual absolute gap displacements.
+This avoids an unknown Gamma bound in the blur correction itself. The global
+bound M remains a substantive structural/calibration premise.
+
+6. REVIEW OF THE COMPACT RARE-REGION IMPOSSIBILITY PROOF
+
+I reviewed countermodels/RARE_BUMP_PROOF.txt and its implementation. The model
+on T4 has L=d(z)partial_xx+Delta_z, d=1+(M−1)b(|z|/r), f=cos x. Its divergence
+form is correct even though d varies with z, because the varying diffusion
+entry is the xx entry. Uniform pi is invariant, the generator is self-adjoint,
+D>=I and the common L2 spectral gap is at least one. All models have zero
+ordinary entropy. The plateau implies sup Gamma_f=||Lf||infinity=M and
+||L^k f||infinity>=M^k.
+
+The Newtonian-potential argument for the hitting bound is valid. A smooth
+radial charge in ball r/2 gives p_r=r/|z| outside that support, with p_r>=1
+on ball r. The C2 cutoff supported inside radius two fits the torus chart.
+In its annulus, Delta[chi(s)/s]=chi''(s)/s and |chi''|<6, giving Delta u<=6r.
+The stationary initial expectation is at most r(2+r/2)²/(4pi²)<9r/64.
+Stopped Dynkin therefore bounds the hitting probability by r(9/64+6T).
+The coupling of full hidden paths is identical before this hit, giving the
+stated total-variation bound independently of the bump height M.
+
+The resulting upper-confidence impossibility theorem is sound. Shrinking r
+at each fixed M makes the bumped finite record arbitrarily close to baseline;
+uniform coverage forces the baseline upper confidence bound to be infinite
+with probability at least 1−alpha. The extension to an almost-surely finite
+common stopping rule is valid when the rule is nonanticipating. Literal
+pointwise and merely almost-everywhere envelopes are correctly distinguished
+in the proof; evaluating an arbitrary a.e. envelope at y=0 would otherwise be
+a null-set loophole.
+
+This result concerns global assumptions used for finite-error inference, not
+a new dissipation lower bound or a change to the sharp compatible minimum.
+It explicitly does not prevent model-based or structurally justified
+calibration. A minor reporting correction was requested: numerical JSON
+values are not outward-rounded bounds, and a tiny positive mean correction
+can round to exactly 1/2. The analytic formulas remain authoritative.
+
+7. CURRENT REVIEW STATUS
+
+No mathematical blocker was found in the candidate hierarchy, general blur
+lemma, or rare-bump proof under the assumptions recorded above. These checks
+do not yet certify a complete new finite-data procedure. Actual integrated
+proofs, numerical confidence calculations, exposure-moment solver, frozen
+design choices and full simulation protocol remain to be reviewed as they
+arrive. No new experimental success or completed release is asserted here.
+
+8. ACTUAL JOINT PROOF AND EXECUTABLE API AUDIT
+
+2026-10-13 UTC. I read theory/calibration_theory.txt Sections 1--8,
+code/certification.py, experiment/exposure_moments.py, their producer tests,
+and manuscript/calibration_limits.tex. No blocking finite-coverage error was
+found. This is an internal independent audit, not external peer review.
+
+The conditional replica polynomial has the stated gain degree and finite-step
+bias. The corrected score includes the blur of the correction moment itself.
+The bidirectional word bound min(j^2 M1-,(d-j)^2 M1+) is valid for signed
+prefix products. For nonoverlapping uniform shutters, the cross-cluster
+coefficient equals E|U_min(q)-U_max(p)|, including the positive-part beta
+integral. The degree-two sharpening respects the covariance cusp at zero.
+The ratio [p]+[a]+/u follows from p<=gamma*sigma and u>=gamma*(1-C0),
+a<=1-C0 on the same event. It does not assume independence between covered
+statistics. The literal pointwise geometry identity and generator caps remain
+premises, and must not be described as learned universally from these data.
+
+The API uses exact rational score summaries and sign-aware normalization over
+a covered gain interval. Its two-sided empirical-Bernstein logarithm is
+log(4/alpha), reflecting the two tail events in the stated Maurer--Pontil
+bound. Bounded reference Hoeffding intervals receive their own allocation.
+The conditional elementary products use distinct replicas; reuse among
+terms does not invalidate joint unconditional coverage. The degenerate gain
+case abstains. Rectangular gain propagation is conservative, not a claim to
+solve the coupled nuisance optimum. Synthetic reference response shares the
+same gain and shutter only by the declared apparatus contract.
+
+The exposure simulator closes its finite Fourier/additive-functional moment
+cone exactly. Its rational matrix Taylor remainder, stage propagation and
+probability polynomial yield a stated total-variation enclosure. Collapsed
+center counts preserve exchangeability exactly. Declared gain enters each
+monomial as gain^degree. The dyadic sampler needs independent uniform bits
+as its pseudorandom implementation idealization; independent-trial product
+law TV is at most n times the single-record radius. This does not validate
+correlated trajectory sampling or unknown apparatus behavior.
+
+A numerical asymptotic qualification was reported to the theory owner and
+root: fixed 90-bit absolute sqrt/log enclosures are valid at every finite
+design, but the fixed sqrt floor is eventually amplified by inverse gain
+powers. The sharp hierarchy consistency construction must use increasing
+certified numerical precision (for example, quadratically increasing bits)
+or be explicitly separated from the unchanged finite-precision API. This
+qualification does not invalidate any finite confidence guarantee.
+
+9. INDEPENDENT FIXTURES AND UPDATED RARE-BUMP STATUS
+
+review/test_independent.py supplies independent checks rather than a physical
+experiment or empirical coverage claim. A separately implemented signed-complex
+25-state Fourier matrix exponential checks the fourth exposure moment at
+(gamma,omega,h,tau)=(7/5,-9/4,1/8,1/50), with 100-digit arithmetic. Exact
+nonzero-exposure covariance formulas check the pair moments. Independent
+beta-density integration checks the uniform cross-gap coefficient. An exact
+conditional product-law fixture at unequal latent values and nonunit gain
+checks score signs, symmetric replica normalization and gain degrees.
+
+A reversible gamma=1 circle with h=tau=1/10 gives a positive uncorrected
+blurred score although its true ordinary entropy is zero. The implemented
+finite-step/exposure correction removes that false positive. Other fixtures
+check signed gain extrema, nonidentifying reference abstention, the fixed
+absolute numerical floor, and the exact C2 cutoff curvature constant.
+High-precision comparisons are numerical diagnostics against analytic
+identities; the producer's rational intervals remain the enclosure objects.
+
+The previously requested rare-bump reporting correction is now verified:
+rounded JSON values are labelled non-outward-rounded diagnostics. The final
+LaTeX chapter retains the nonanticipating stopping requirement and the a.e.
+versus literal-pointwise envelope distinction. Its two strengthened variants
+are also checked: divergence-form x drift gives ||Lf||>=N/2 despite D<=2I;
+the radial profile at 3/4 gives L^2 f=9/4+64/(3r^2) despite D<=2I and
+||Lf||=2. All these models have zero entropy. They invalidate unjustified
+global calibration extrapolation, not the conditional positive theorem.
+
+The integrated simulation design, final manuscript presentation, source
+bindings and full clean reproduction remain pending. No released artifact
+was modified and no completed new release is asserted at this checkpoint.
+
+10. FINAL THEORY REFINEMENTS AND COVARIANCE-PRESERVING IMPLEMENTATION
+
+The updated theory makes its increasing-precision requirement explicit,
+including refinement of logarithm truncations as well as output rounding.
+Its improved schedule h=2^-k, tau<=2^-4k, m=k, n=nref=2^((8B+16)k), with
+known gain floor at least 2^-B, is sufficient. The grid [0,k] at spacing
+2^-k has logarithmic family-size penalty O(k). Raw score ranges O(2^2k),
+inverse gain powers at most 2^(2B(k+1)), and sqrt(n)=2^((4B+8)k) give
+statistical error polynomial(k)*2^(-(2B+6)k). Gain-interval propagation
+has the same exponential order. Blur is O(k^4*2^-2k), finite-lag loss is
+O(k^2*2^-k), and the arcsine hierarchy residual O(k^-1/2) dominates.
+The sufficient O((log n)^-1/2) rate is not an optimality claim. Known
+shrinking shutter brackets, extra replicas, independent preparations,
+references and increasingly accurate arithmetic are all growing access.
+
+The new API concentration for fixed nominal-gain projections R_l is valid.
+Its covered mean is corrected by the four-corner minimum of each residual
+coefficient interval times its covered raw S_j mean interval. Maximizing
+this lower bound with the older componentwise lower bound, and choosing any
+covered prefix l<=m, is safe on the same joint event. Each added R_l is
+included in the initial scalar union allocation. Prefix scores use the
+same K=2m+2 center replicas, with correctly normalized elementary products.
+A nominal gain is a fixed design constant, or must come from a pilot truly
+independent of inference records; arbitrary data-dependent reference fitting
+cannot be justified by the later union bound alone.
+
+The endpoint comparator is also valid. Under common invariant density,
+diffusion tensor and ordinary reversal, Girsanov gives
+ KL(P_L[0,t] || P_S[0,t])=sigma*t/4, S=(L+L^dagger)/2.
+Bounded endpoint products and Pinsker give |C_L(t)-C_S(t)|<=sqrt(sigma*t/2).
+The ideal zero-lag moments agree, while the reversible contrast is
+ -||(exp(hS)-bI)f||^2<=0. Consequently a gain- and exposure-corrected lower
+bound s on [2b C(h)-C(2h)-b^2 C(0)]/h^2 gives
+ sigma>=2h^3 [s]+^2/(2b+sqrt(2))^2, for 0<=b<=1.
+This is the existing entropy-bridge comparison in current normalization.
+It does not need the derivative beta penalty; it does need deblurring before
+using zero-lag invariance. No stronger physical assumption or new divergence
+inequality is asserted. Both this comparator and the geometry certificate
+may use the same covered moments and reference records.
+
+The final finite API reuses the S0 event for R0=S0/kappa0^2 by exact positive
+rescaling, rather than spending twice on the identical event. R1 through Rm
+still receive their own original allocations. The actual code and independent
+projection/allocation fixtures check this refinement. Ten independent tests
+passed at the prebenchmark checkpoint. The report is deliberately marked
+prebenchmark until the frozen acquisition and generated results are reviewed.
+
+11. SHARP HIDDEN-MODULATION FAMILY
+
+The actual final theorem covers L=gamma*d_phi^2+c(z)*d_phi+L_Z, with compact
+reversible elliptic Z and ordinary/even reversal for every coordinate. The
+product stationary law makes Z independent of phi. Consequently g(Y)=-gammaY,
+K(Y)=gamma^2Y^2-E[c^2](1-Y^2), and Gamma=gamma(1-Y^2). The observed-geometry
+functional is E[c^2]/gamma; the exhibited realization attains it. Reflection
+phi -> -phi intertwines L and its stationary adjoint while fixing f=cos(phi),
+proving reversibility of the complete scalar observation law. Thus a reversible
+observed signal can have a positive attained compatible minimum in the declared
+ordinary compact diffusion class even when E[c]=0. This is not an entropy claim
+for odd-variable physical reversal or arbitrary hidden realizations.
+
+The exact L^2 formula, the forward/adjoint supremum expressions and the
+c=epsilon*cos(z), L_Z=eta*d_z^2 specialization are checked. A symbolic fixture
+independently verifies the generator composition and the conditional ratio
+E[c^2]/gamma=epsilon^2/(2gamma). The same sufficient hierarchy schedule applies
+with valid generator/gain envelopes: its arcsine stationary marginal, ideal
+hierarchy formula and already general finite-error bounds are unchanged.
+No hidden-modulation simulation or physical experiment is claimed.
+
+12. FINAL FROZEN-BANK AND PRESENTATION REVIEW
+
+The frozen contract was inspected, including its four cases, source hashes,
+seeds, exposure/gain priors, fixed nominal gain, error allocation and supplied
+common generator caps. All 1,600 saved records pass independent K=4 score
+reconstruction through Newton/product identities, exact summary comparison,
+certificate replay, resource checks and simulator-law discrepancy accounting.
+Three existing seeds (driven replicate0, equilibrium399, changed calibration399)
+were regenerated with a separately batched integer implementation; science and
+both reference counts agree exactly. No new dataset or experiment was added.
+
+The enclosed population score means certify simultaneous target-event inclusion
+in 400/400 driven, 399/400 equilibrium, 399/400 weak and 397/400 changed-calibration
+datasets. There are no ambiguous enclosure-boundary cases. All 1,600 reference
+regions contain the actual gain and width, all gamma upper bounds are finite
+and contain the actual gamma, and neither entropy method overshoots. These are
+separate simulation diagnostics. The per-dataset confidence proof, not these
+frequencies, establishes its stated coverage.
+
+Geometry detections are 400,0,0,395, compared with endpoint 400,0,27,400. Mean
+geometry bounds are about0.57735 and0.59905 in the two stronger cases, whose
+true simulator rates are9 and18. Prefix0 is selected in every dataset. The
+weak and changed cases prevent a dominance claim. Each dataset uses13,333,333
+stationary target trials and80,199,998 target-plus-reference readings; physical
+preparation, hardware and energy remain additional unmeasured resources.
+
+The tutorial's deterministic maximum of the two lower bounds is valid on their
+shared confidence event, with no additional failure allocation, under the
+stricter geometry contract. It is labelled as a post-benchmark combination.
+Its positive counts are400,0,27,400. The final independent tests include exact
+branch checks and replay of the supplied actual simulated tutorial fixture.
+
+The final theory, limits, literature, entry, benchmark chapter, release entry,
+claims, tutorial and scientific figure source were read. The benchmark preserves
+its negative regimes, source provenance and distinction between population design
+diagnostics and sampled outcomes. The nominal-gain selection condition and
+increasing numerical precision are explicit. There is no claimed new physical
+law, external peer-review decision, laboratory measurement or established
+historical priority. The final report records13 independent fixtures, full-bank
+replay and source bindings. Mutable SWARM.md and generated figure files are
+excluded from the scientific bindings. Packaging and full clean reproduction
+are separate final release gates handled by the integration owner.

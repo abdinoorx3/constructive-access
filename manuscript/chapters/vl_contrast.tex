@@ -1,0 +1,177 @@
+\chapter{A direct contrast for finite-record energy inference}
+\label{vl:contrast}
+
+The virtual laboratory exposes a statistical cost in the earlier procedure.
+A simultaneous interval for every measured probability supports arbitrary
+later score selection, but it can be unnecessarily wide when the relevant
+physical contrast is known before acquisition. This chapter supplies a direct
+alternative. It uses the same observations and physical assumptions, and
+credits its ingredients to standard concentration, Pinsker's inequality and
+optimal allocation~\cite{caHoeffding1963,vlHoward2021,vlCochran1977}. The practical question is whether their combination
+improves a complete inference procedure at matched acquisition cost.
+
+\section{A contrast certified against every reversible explanation}
+At positive integer gap indices $k$, let $p_k$ be the probability of matching
+binary observations. The comparison set is the reversible moment class
+\[
+ q_k=r+(1-r)\int_0^1x^k\,\mu(dx),\qquad r\in[1/2,1].
+\]
+The timing and detector chapter gives physical implementations of this class.
+Choose real coefficients $a_k$ before observing the test records. An exact
+polynomial bound gives
+\[
+ b\geq\sup_{r\in[1/2,1],\,x\in[0,1]}
+       \sum_k a_k\{r+(1-r)x^k\}.
+\]
+Then $a\cdot q\leq b$ for every comparison law, including limits of hidden
+networks with unbounded rates. Rational Bernstein subdivision supplies a
+checkable $b$. With $a=(-1,2,-1)$ at indices $(1,2,3)$, one can take $b=0$
+because $-x+2x^2-x^3=-x(1-x)^2\leq0$.
+
+A stronger predeclared family is
+\[
+ a_s=(-s^2,2s,-1),\qquad b_s=-\frac{(1-s)^2}{2},\qquad 0\leq s\leq1.
+\]
+The support is exact because the polynomial is $-x(x-s)^2\leq0$; the
+largest baseline contribution occurs at $r=1/2$. In correlation coordinates
+$C_k=2p_k-1$, the contrast is
+$(-s^2C_1+2sC_2-C_3)/2$. When $C_1>0$, its unconstrained maximum is at
+$s=C_2/C_1$, exposing the Hankel log-convexity condition
+$C_2^2\leq C_1C_3$. A pilot may propose a rational $s$ and freeze it for later
+data. The refinement study fixes $s=2/3$ before its independently seeded
+production sample. This is an established moment inequality compiled into the
+present apparatus and confidence contracts.
+
+\section{From a contrast to a physical resource requirement}
+Suppose the true probabilities satisfy $a\cdot p-b\geq C>0$. For positive
+mixture weights $w_k$ summing to one, Bernoulli Pinsker and Cauchy--Schwarz give
+\begin{align}
+ \sum_k w_k d_{\rm B}(p_k\Vert q_k)
+ &\geq2\sum_k w_k(p_k-q_k)^2\\
+ &\geq\frac{2C^2}{\sum_k a_k^2/w_k}.
+ \label{vl:contrast-kl}
+\end{align}
+All logarithms are natural. Settings with $a_k=0$ can be omitted. The
+stationary path comparison from Chapter~\ref{ch:rf-thermodynamic} therefore
+implies
+\begin{equation}
+ \sigma\geq
+ \frac{8C^2}{(\sum_k w_k t_k)(\sum_k a_k^2/w_k)},
+ \label{vl:contrast-rate}
+\end{equation}
+where $t_k>0$ is the expected full path duration for setting $k$, or a
+calibrated upper bound on it. Finite exposure intervals must be included.
+
+\begin{proposition}[Optimized comparison mixture]
+Under the stationary ordinary-reversal Markov and noninvasive observation
+contract, a contrast lower bound $C$ certifies
+\begin{equation}
+ \boxed{\quad \sigma\geq
+ \frac{8C^2}{\left(\sum_k|a_k|\sqrt{t_k}\right)^2}.\quad}
+ \label{vl:contrast-optimal-rate}
+\end{equation}
+\end{proposition}
+\begin{proof}
+Cauchy--Schwarz gives
+$(\sum_k w_kt_k)(\sum_k a_k^2/w_k)
+\geq(\sum_k|a_k|\sqrt{t_k})^2$.
+Equality holds at $w_k$ proportional to $|a_k|/\sqrt{t_k}$. Insert this valid
+choice into \eqref{vl:contrast-rate}. The weights describe a mixture of record
+laws for the proof. They need not equal the proportions of samples collected
+at each setting.
+\end{proof}
+This optimizes the stated lower-bound formula, not all experimental inference
+procedures. For a preparation--housekeeping statement, the alternative rational
+weights $w_k=|a_k|/\sum_j|a_j|$ maximize the bound
+\eqref{vl:contrast-kl}, yielding
+\[
+ D(\nu\Vert\pi)+\frac12\mathbb E_w\Sigma_{\rm hk}
+ \geq \frac{2C^2}{(\sum_k|a_k|)^2}.
+\]
+This expectation uses those stated weights. A narrowed stationary-reference
+mean requires separate calibration and cannot be replaced by a transient mean.
+
+\section{A confidence statement from complete records}
+Collect fixed quotas $N_k$ of agreement bits at each setting. A record may
+depend on earlier records, provided its conditional agreement probability is
+within a declared $\delta_k$ of one fixed target probability $p_k$, conditional
+on the full preceding history. Independent repetitions correspond to
+$\delta_k=0$. Predictable routing between fixed quotas is allowed; stopping at
+a favorable count is not.
+
+Let $S_k$ be the number of agreements. Conditional Hoeffding's inequality
+applied to the weighted increments $a_k Z/N_k$ gives, with probability at
+least $1-\alpha$,
+\begin{equation}
+ a\cdot p-b\geq
+ \sum_k a_k\frac{S_k}{N_k}-b
+ -\sqrt{\frac{\log(1/\alpha)}2\sum_k\frac{a_k^2}{N_k}}
+ -\sum_k|a_k|\delta_k.
+ \label{vl:contrast-confidence}
+\end{equation}
+Each increment has conditional range length $|a_k|/N_k$; summing its squared
+range over the fixed quotas proves the concentration term. The conditional
+bias contributes at most the final term. No multiplication of $\delta_k$ by
+the total number of records is required. Any failure probability of an
+externally supplied calibration event must be added separately.
+
+Truncate the right-hand side at zero and substitute it into
+\eqref{vl:contrast-optimal-rate}. The software bounds logarithms and square
+roots outward with rational arithmetic. The support, contrast and confidence
+rule are fixed before the test sample, or chosen from an independent pilot.
+Selecting an arbitrary contrast from these same counts would invalidate this
+single-contrast guarantee. The older simultaneous-box method remains useful
+when such post-acquisition exploration is needed.
+
+\section{Acquisition allocation and the matched experiment}
+For a fixed total record count, minimizing the concentration proxy
+$\sum_k a_k^2/N_k$ gives $N_k$ proportional to $|a_k|$ in the continuous
+relaxation. If record $k$ costs $c_k>0$ units of calibrated acquisition time,
+then at fixed total time the relaxed optimum has
+$N_k$ proportional to $|a_k|/\sqrt{c_k}$. This is standard cost-adjusted
+allocation. The code proposes rounded integer quotas and checks their actual
+cost; it does not claim a globally optimal integer design. Evolution time,
+reset overhead, exposure and any independently calibrated energy charge must
+be accounted for consistently.
+
+The held-out virtual-laboratory comparison uses the fixed curvature contrast
+$(-1,2,-1)$, the previous continuous-moment box certificate and the same
+trajectory-generated datasets. Each receives identical settings, counts and
+physical exposure. The inference method changes; the acquired data do not.
+No detector model or hidden generator is supplied to either inference routine.
+The generator is retained by the simulator solely to evaluate the known-truth
+performance and failure controls. Results and Monte Carlo intervals appear in
+the simulation chapter.
+
+The API is \path{constructive_access.virtual.contrast.certify_counts}; its
+inputs include quotas, counts, coefficients, conditional probability radii and
+full expected path durations. A positive output is a model-bound confidence
+statement. It does not validate the detector, the physical reversal convention,
+or stationarity by calculation alone.
+
+
+\section{An exact check on the confidence-region limitation}
+The module also searches for a two-state equilibrium curve inside a supplied
+probability box. For rational $0<x<1$ and $0\leq A\leq1$, set
+\[
+ q_k=\frac{1+A x^k}{2}.
+\]
+At deterministic times $k\Delta$, this is realized by a stationary symmetric
+two-state chain with jump rate $-\log x/(2\Delta)$ and fixed detector means
+$\pm\sqrt A$. For each trial $x$, the box inequalities are linear intervals
+for $A$; a nonempty intersection gives an exact countermodel. A separate
+checker verifies the probabilities directly. Failure of this limited search
+proves no infeasibility.
+
+If such a curve lies inside a rectangular confidence region, no strictly
+positive dissipation bound can hold for every vector in that region. This does
+not prevent another confidence procedure from using the empirical counts: the
+direct contrast has a different coverage event. Nor is information necessarily
+lost by storing the box, whose midpoint can retain the counts. The limitation
+concerns treating the entire rectangle as the admissible set.
+
+For a random-scale clock, the same curve is a point in the conservative moment
+comparison class, but it need not be generated by a two-state chain under that
+particular clock law. The benchmark distinguishes these claims. Independent
+calibration of zero-lag detector variance would also narrow the comparison
+class and can remove countermodels; that extra access is not assumed here.

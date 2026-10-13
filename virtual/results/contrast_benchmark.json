@@ -1,0 +1,480 @@
+{
+  "baseline_note": "Optimized box scores have exact continuous-domain checking. An optimizer failure affects power only; a zero certificate does not prove that every score fails.",
+  "confidence_note": "Each method has95% model-based confidence per dataset. MonteCarlo intervals describe repeated simulation performance; familywise simultaneous performance across scenarios is not claimed.",
+  "evidence": "independent simulated trajectories; no measured laboratory data",
+  "first_contract_sha256": "84f8c333b15d7a8197386faccc186024d29db2c563b3c31f482d08151d6c5218",
+  "new_refinement_holdout": [
+    {
+      "actual_mean_evolution_time": 4500.0,
+      "box_radius": "3385818251302442833780689/154742504910672534362390528",
+      "case": "driven",
+      "confidence_level": 0.95,
+      "contrast_coefficients": [
+        "-4/9",
+        "4/3",
+        "-1"
+      ],
+      "fixed_contrast": {
+        "datasets": 400,
+        "detections": 367,
+        "monte_carlo_95_interval": [
+          0.8860892715325912,
+          0.9425316426372068
+        ],
+        "rate": 0.9175
+      },
+      "mean_fixed_contrast_entropy_lower": 0.0011491170245482997,
+      "mean_optimized_box_entropy_lower": 0.0,
+      "nominal_evolution_time_per_dataset": 4500.0,
+      "optimized_continuous_cone_box": {
+        "datasets": 400,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.00917980458366526
+        ],
+        "rate": 0.0
+      },
+      "optimizer_successes": 400,
+      "outside_physical_contract": false,
+      "paired_comparison": {
+        "both": 0,
+        "box_only": 0,
+        "direct_only": 367,
+        "neither": 33,
+        "two_sided_exact_mcnemar_p": 6.653062250012736e-111
+      },
+      "previous_frozen_score_box": {
+        "datasets": 400,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.00917980458366526
+        ],
+        "rate": 0.0
+      },
+      "records_per_dataset": 15000,
+      "records_per_setting": 5000
+    },
+    {
+      "actual_mean_evolution_time": 4500.0,
+      "box_radius": "3385818251302442833780689/154742504910672534362390528",
+      "case": "equilibrium",
+      "confidence_level": 0.95,
+      "contrast_coefficients": [
+        "-4/9",
+        "4/3",
+        "-1"
+      ],
+      "fixed_contrast": {
+        "datasets": 400,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.00917980458366526
+        ],
+        "rate": 0.0
+      },
+      "mean_fixed_contrast_entropy_lower": 0.0,
+      "mean_optimized_box_entropy_lower": 0.0,
+      "nominal_evolution_time_per_dataset": 4500.0,
+      "optimized_continuous_cone_box": {
+        "datasets": 400,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.00917980458366526
+        ],
+        "rate": 0.0
+      },
+      "optimizer_successes": 400,
+      "outside_physical_contract": false,
+      "paired_comparison": {
+        "both": 0,
+        "box_only": 0,
+        "direct_only": 0,
+        "neither": 400,
+        "two_sided_exact_mcnemar_p": 1.0
+      },
+      "previous_frozen_score_box": {
+        "datasets": 400,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.00917980458366526
+        ],
+        "rate": 0.0
+      },
+      "records_per_dataset": 15000,
+      "records_per_setting": 5000
+    },
+    {
+      "actual_mean_evolution_time": 4500.0,
+      "box_radius": "3385818251302442833780689/154742504910672534362390528",
+      "case": "high_readout_noise",
+      "confidence_level": 0.95,
+      "contrast_coefficients": [
+        "-4/9",
+        "4/3",
+        "-1"
+      ],
+      "fixed_contrast": {
+        "datasets": 400,
+        "detections": 6,
+        "monte_carlo_95_interval": [
+          0.005524109504580661,
+          0.032361294480775016
+        ],
+        "rate": 0.015
+      },
+      "mean_fixed_contrast_entropy_lower": 1.0461310657557562e-06,
+      "mean_optimized_box_entropy_lower": 0.0,
+      "nominal_evolution_time_per_dataset": 4500.0,
+      "optimized_continuous_cone_box": {
+        "datasets": 400,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.00917980458366526
+        ],
+        "rate": 0.0
+      },
+      "optimizer_successes": 400,
+      "outside_physical_contract": false,
+      "paired_comparison": {
+        "both": 0,
+        "box_only": 0,
+        "direct_only": 6,
+        "neither": 394,
+        "two_sided_exact_mcnemar_p": 0.03125
+      },
+      "previous_frozen_score_box": {
+        "datasets": 400,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.00917980458366526
+        ],
+        "rate": 0.0
+      },
+      "records_per_dataset": 15000,
+      "records_per_setting": 5000
+    },
+    {
+      "actual_mean_evolution_time": 4499.956248471126,
+      "box_radius": "3385818251302442833780689/154742504910672534362390528",
+      "case": "independent_clock_jitter",
+      "confidence_level": 0.95,
+      "contrast_coefficients": [
+        "-4/9",
+        "4/3",
+        "-1"
+      ],
+      "fixed_contrast": {
+        "datasets": 400,
+        "detections": 370,
+        "monte_carlo_95_interval": [
+          0.894662361386154,
+          0.9488283203953312
+        ],
+        "rate": 0.925
+      },
+      "mean_fixed_contrast_entropy_lower": 0.001225736445320444,
+      "mean_optimized_box_entropy_lower": 0.0,
+      "nominal_evolution_time_per_dataset": 4500.0,
+      "optimized_continuous_cone_box": {
+        "datasets": 400,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.00917980458366526
+        ],
+        "rate": 0.0
+      },
+      "optimizer_successes": 400,
+      "outside_physical_contract": false,
+      "paired_comparison": {
+        "both": 0,
+        "box_only": 0,
+        "direct_only": 370,
+        "neither": 30,
+        "two_sided_exact_mcnemar_p": 8.31632781251592e-112
+      },
+      "previous_frozen_score_box": {
+        "datasets": 400,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.00917980458366526
+        ],
+        "rate": 0.0
+      },
+      "records_per_dataset": 15000,
+      "records_per_setting": 5000
+    }
+  ],
+  "primary_existing_holdout": [
+    {
+      "actual_mean_evolution_time": 45000.0,
+      "box_radius": "8565517933987266153692587/1237940039285380274899124224",
+      "case": "driven",
+      "confidence_level": 0.95,
+      "contrast_coefficients": [
+        "-1",
+        "2",
+        "-1"
+      ],
+      "fixed_contrast": {
+        "datasets": 200,
+        "detections": 189,
+        "monte_carlo_95_interval": [
+          0.9037223555660872,
+          0.9722277454479935
+        ],
+        "rate": 0.945
+      },
+      "mean_fixed_contrast_entropy_lower": 0.00018494203305843786,
+      "mean_optimized_box_entropy_lower": 0.0016867680007594723,
+      "nominal_evolution_time_per_dataset": 45000.0,
+      "optimized_continuous_cone_box": {
+        "datasets": 200,
+        "detections": 200,
+        "monte_carlo_95_interval": [
+          0.9817246596448638,
+          1.0
+        ],
+        "rate": 1.0
+      },
+      "optimizer_successes": 200,
+      "outside_physical_contract": false,
+      "paired_comparison": {
+        "both": 189,
+        "box_only": 11,
+        "direct_only": 0,
+        "neither": 0,
+        "two_sided_exact_mcnemar_p": 0.0009765625
+      },
+      "previous_frozen_score_box": {
+        "datasets": 200,
+        "detections": 1,
+        "monte_carlo_95_interval": [
+          0.00012658102786701825,
+          0.02754189845720562
+        ],
+        "rate": 0.005
+      },
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000
+    },
+    {
+      "actual_mean_evolution_time": 45000.0,
+      "box_radius": "8565517933987266153692587/1237940039285380274899124224",
+      "case": "equilibrium",
+      "confidence_level": 0.95,
+      "contrast_coefficients": [
+        "-1",
+        "2",
+        "-1"
+      ],
+      "fixed_contrast": {
+        "datasets": 200,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.01827534035513624
+        ],
+        "rate": 0.0
+      },
+      "mean_fixed_contrast_entropy_lower": 0.0,
+      "mean_optimized_box_entropy_lower": 0.0,
+      "nominal_evolution_time_per_dataset": 45000.0,
+      "optimized_continuous_cone_box": {
+        "datasets": 200,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.01827534035513624
+        ],
+        "rate": 0.0
+      },
+      "optimizer_successes": 200,
+      "outside_physical_contract": false,
+      "paired_comparison": {
+        "both": 0,
+        "box_only": 0,
+        "direct_only": 0,
+        "neither": 200,
+        "two_sided_exact_mcnemar_p": 1.0
+      },
+      "previous_frozen_score_box": {
+        "datasets": 200,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.01827534035513624
+        ],
+        "rate": 0.0
+      },
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000
+    },
+    {
+      "actual_mean_evolution_time": 45000.0,
+      "box_radius": "8565517933987266153692587/1237940039285380274899124224",
+      "case": "high_readout_noise",
+      "confidence_level": 0.95,
+      "contrast_coefficients": [
+        "-1",
+        "2",
+        "-1"
+      ],
+      "fixed_contrast": {
+        "datasets": 200,
+        "detections": 1,
+        "monte_carlo_95_interval": [
+          0.00012658102786701825,
+          0.02754189845720562
+        ],
+        "rate": 0.005
+      },
+      "mean_fixed_contrast_entropy_lower": 3.45733829968275e-09,
+      "mean_optimized_box_entropy_lower": 0.0,
+      "nominal_evolution_time_per_dataset": 45000.0,
+      "optimized_continuous_cone_box": {
+        "datasets": 200,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.01827534035513624
+        ],
+        "rate": 0.0
+      },
+      "optimizer_successes": 200,
+      "outside_physical_contract": false,
+      "paired_comparison": {
+        "both": 0,
+        "box_only": 0,
+        "direct_only": 1,
+        "neither": 199,
+        "two_sided_exact_mcnemar_p": 1.0
+      },
+      "previous_frozen_score_box": {
+        "datasets": 200,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.01827534035513624
+        ],
+        "rate": 0.0
+      },
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000
+    },
+    {
+      "actual_mean_evolution_time": 45001.53461874312,
+      "box_radius": "8565517933987266153692587/1237940039285380274899124224",
+      "case": "independent_clock_jitter",
+      "confidence_level": 0.95,
+      "contrast_coefficients": [
+        "-1",
+        "2",
+        "-1"
+      ],
+      "fixed_contrast": {
+        "datasets": 200,
+        "detections": 186,
+        "monte_carlo_95_interval": [
+          0.8853402664628894,
+          0.9612044295704372
+        ],
+        "rate": 0.93
+      },
+      "mean_fixed_contrast_entropy_lower": 0.0001166795473295659,
+      "mean_optimized_box_entropy_lower": 0.0014382439870780064,
+      "nominal_evolution_time_per_dataset": 45000.0,
+      "optimized_continuous_cone_box": {
+        "datasets": 200,
+        "detections": 200,
+        "monte_carlo_95_interval": [
+          0.9817246596448638,
+          1.0
+        ],
+        "rate": 1.0
+      },
+      "optimizer_successes": 200,
+      "outside_physical_contract": false,
+      "paired_comparison": {
+        "both": 186,
+        "box_only": 14,
+        "direct_only": 0,
+        "neither": 0,
+        "two_sided_exact_mcnemar_p": 0.0001220703125
+      },
+      "previous_frozen_score_box": {
+        "datasets": 200,
+        "detections": 0,
+        "monte_carlo_95_interval": [
+          0.0,
+          0.01827534035513624
+        ],
+        "rate": 0.0
+      },
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000
+    },
+    {
+      "actual_mean_evolution_time": 45000.0,
+      "box_radius": "8565517933987266153692587/1237940039285380274899124224",
+      "case": "detector_memory",
+      "confidence_level": 0.95,
+      "contrast_coefficients": [
+        "-1",
+        "2",
+        "-1"
+      ],
+      "fixed_contrast": {
+        "datasets": 200,
+        "detections": 187,
+        "monte_carlo_95_interval": [
+          0.8914127634961848,
+          0.9649392913430209
+        ],
+        "rate": 0.935
+      },
+      "mean_fixed_contrast_entropy_lower": 0.00017337739152737422,
+      "mean_optimized_box_entropy_lower": 0.001629065217475515,
+      "nominal_evolution_time_per_dataset": 45000.0,
+      "optimized_continuous_cone_box": {
+        "datasets": 200,
+        "detections": 200,
+        "monte_carlo_95_interval": [
+          0.9817246596448638,
+          1.0
+        ],
+        "rate": 1.0
+      },
+      "optimizer_successes": 200,
+      "outside_physical_contract": true,
+      "paired_comparison": {
+        "both": 187,
+        "box_only": 13,
+        "direct_only": 0,
+        "neither": 0,
+        "two_sided_exact_mcnemar_p": 0.000244140625
+      },
+      "previous_frozen_score_box": {
+        "datasets": 200,
+        "detections": 1,
+        "monte_carlo_95_interval": [
+          0.00012658102786701825,
+          0.02754189845720562
+        ],
+        "rate": 0.005
+      },
+      "records_per_dataset": 150000,
+      "records_per_setting": 50000
+    }
+  ],
+  "refinement_contract_sha256": "d1b7838804777b53fc72832dc67fbee16b552ea07a3aebd1abb0292bb3cbb3f2",
+  "refinement_counts_sha256": "8a977dc028dfd9219de5accb77d0a6f58978f6880ab12bf4dcddaa9fd6acdf7f"
+}

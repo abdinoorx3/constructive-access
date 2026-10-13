@@ -1,0 +1,36 @@
+{
+  "schema": "virtual-laboratory-contrast-benchmark-v1",
+  "frozen_utc": "2026-10-12T20:24:20.620592+00:00",
+  "evidence": "simulation protocol, not an empirical experiment",
+  "target": "curvature contrast against stationary reversible moment class",
+  "lags": [
+    1,
+    2,
+    3
+  ],
+  "mean_gap_unit": "3/20",
+  "coefficients": [
+    -1,
+    2,
+    -1
+  ],
+  "alpha": "1/20",
+  "mean_interval": [
+    -1,
+    1
+  ],
+  "conditional_probability_radii": [
+    0,
+    0,
+    0
+  ],
+  "selection": "predeclared",
+  "scores": "Existing fourth-edition fixed curvature score, as supplied by generator baseline. No tuning on held-out data.",
+  "primary_comparison": "Direct contrast vs simultaneous-box full-moment certificate on identical held-out trajectory counts; both95% pointwise procedures.",
+  "reporting": "Monte Carlo success rates with exact Clopper-Pearson intervals, paired discordance, actual acquisition duration, out-of-contract controls explicitly identified.",
+  "planned_records_per_setting": 50000,
+  "planned_datasets": 200,
+  "data_provider": "thermodynamic_lab; separate frozen generator contract/seeds",
+  "additional_prespecified_comparison": "equal-count allocation [37500,75000,37500] with independent seed330173;200 nominal-curvature datasets, total150000records; added time overhead0 for comparison, expected path exposure45000modeltime",
+  "no_global_optimality_claim": true
+}

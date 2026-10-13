@@ -1,0 +1,467 @@
+INDEPENDENT ADVERSARIAL REVIEW: RESPONSE ROBUSTNESS
+Abdinoor / 2D Labs / 12 October 2026
+Reviewer: /root/response_redteam
+
+SCOPE AND STATUS
+
+The reviewer derived the central results independently and wrote tests whose reference
+calculations do not depend on the implementation helpers being checked. This is internal
+adversarial review, not external peer review or empirical physical validation.
+The core prepare-integrate claim and the matched-preparation/coupling/delay
+bounds survive this review subject to the explicit access contracts below.
+Historical novelty has not been established by this mathematical audit.
+
+CORE POSITIVITY: ACCEPTED
+
+For any finite, time-homogeneous CTMC with transition semigroup P(t), distinct
+individual states i,j and any T>0,
+
+ K(T)=integral_0^T (P_jj(t)-P_ij(t)) dt > 0.
+
+The first hitting time tau_j from i and the strong Markov property give
+
+ K(T)=integral_0^T P_jj(s) Pr_i(tau_j>T-s) ds.
+
+This follows by subtracting expected occupation accumulated after tau_j from
+occupation under an initial j preparation. Holding rates are finite, so both
+integrand factors have positive no-jump lower bounds at every finite time.
+Irreducibility, reversibility, stationarity, graph size and detailed balance
+are unnecessary. Reducible networks and infinite hitting times are included.
+Endpoint exit caps Lambda_i,Lambda_j provide a computable lower bound
+integral_0^T exp[-Lambda_j s-Lambda_i(T-s)]ds.
+
+A clock U uniform on [0,T], sampled independently of preparation, trajectory,
+and readout, implements K(T)/T with one endpoint readout per preparation arm.
+Thus the new protocol can dispense with stationary preparation and selective
+channel intervention if the two actual classical singleton states can instead
+be prepared and read out. This is a change in the access contract, not removal
+of every experimental assumption.
+
+A nonnegative nonincreasing density w has a positive mixture-of-initial-window
+representation; integration by parts against K proves nonnegative response.
+Monotonicity is SUFFICIENT, not claimed necessary. For example a clock measure
+3/4 delta_0 + 1/4 delta_T has contrast at least 1/2 for every pair of stochastic
+kernels, despite a positive-time atom. A complete characterization of universal
+clock measures has not been proved in this audit.
+
+CLASSICAL FAILURE CONTROLS: VERIFIED
+
+1. A fixed-time readout can be negative. The directed unit-rate three-cycle
+   Q=[[-1,1,0],[0,-1,1],[1,0,-1]], j=0,i=2 has
+   P_jj(2)-P_ij(2) approximately -0.0363653, while K(2)>0.
+   Pointwise return-probability dominance is false.
+
+2. A shifted uniform clock is not covered. For the same directed cycle,
+   averaging over [3/2,5/2] gives a strictly negative result, certified using
+   rational Taylor bounds. A readout dead time cannot silently be relabeled
+   as a uniform initial-window clock. An increasing normalized density 2t/25
+   on [0,5] also gives approximately -0.00010680343058, exactly certified.
+
+3. Coarse observation can violate the sign even with a homogeneous finite
+   generator. Take j=0,i=1,k=2,a=3, j->a and i->k at rate2, with k,a absorbing,
+   and detect B={j,k}. The instantaneous contrast is 2exp(-2t)-1; averaging
+   over [0,1] is -exp(-2)<0. The initial i path enters B at k rather than
+   regenerating the j preparation. A protected interface/reset condition is
+   essential for extending the singleton theorem to macrostates.
+
+4. Time-dependent generators can violate the sign with exact singleton
+   preparations and readout. During [0,1], only j->a occurs, at rate4.
+   During [1,2], only i->j occurs, at rate4. Both preparation arms experience
+   the same schedule. The average over [0,2] is
+
+   [2(1-exp(-4))/4 + exp(-4)-1]/2 = -0.2454210902778...
+
+   Therefore Markovianity by itself is insufficient; time homogeneity (or a
+   separate proved nonstationary extension) is required.
+
+5. A trajectory-dependent clock invalidates the simple mixture argument.
+   Preparing the same observed macrostate with different hidden ages or
+   environmental correlations also invalidates a singleton Markov model.
+   Independent fresh trials are sufficient for the fixed-sample analysis;
+   sequential analysis must state its conditional-mean assumption explicitly.
+
+These failures mean that negative contrast excludes the declared classical
+access model. It does not exclude all classical hidden-state descriptions or
+certify quantum coherence without independent access calibration.
+
+QUANTUM EXAMPLE: ACCEPTED AND INDEPENDENTLY VERIFIED
+
+For a qubit with Hamiltonian H=(omega/2)X and depolarizing generator
+L(rho)=-i[H,rho]+gamma(Tr(rho)I/2-rho), prepare Z eigenstates and read the first
+Z projector. The pointwise contrast is exp(-gamma t)cos(omega t), and the
+uniform contrast is
+
+ [gamma+exp(-gamma T)(-gamma cos(omega T)+omega sin(omega T))]
+ /[(gamma^2+omega^2)T].
+
+For gamma>0, the integrated contrast has its first negative candidate minimum
+at T=3pi/(2omega). All subsequent minima have smaller oscillatory amplitudes.
+A negative contrast exists iff r log r > 3pi/2, r=omega/gamma. The unique
+positive boundary with r>1 is approximately 3.644173671645632. This criterion
+is a property of this chosen physical model, not a universal coherence threshold.
+
+At gamma=1/10, omega=2, T=9/4, a 96-order EXACT RATIONAL matrix Taylor enclosure
+certifies contrast<-4/25. Independently constructing the 4x4 complex Liouville
+superoperator and its augmented 8x8 integration matrix gives the same result.
+This avoids reliance on the implementation's closed-form formula. Results are
+model predictions, not measured physical data.
+
+ROBUST PHYSICS BOUNDS: ACCEPTED
+
+Let pi Q=0, Qr=Q-sL_e, s=1-r, with selected forward/backward rates a,b, and
+endpoint test f=1_j. Matched controlled and native arms starting at common rho
+have contrast C_rho=rho(P_r-P)f. For TV(rho,pi)<=eta,
+
+ |C_rho-C_pi| <= eta*s*(a+b)*t.
+
+Proof: Duhamel writes P_r-P as an integral of Markov contractions around the
+local generator difference. Its action on a [0,1] test has oscillation at most
+s(a+b). Signed mass rho-pi contracts test oscillation with coefficient eta.
+The separate maximal-coupling bound gives
+
+ |C_rho-C_pi| <= 2eta[1-exp(-s max(a,b)t)].
+
+The factor2 is necessary for the generic oscillation bound: the controlled-minus-
+native test can have both signs. Fixed initial TV error is not automatically
+amplified as 1/t in the matched contrast, unlike a comparison to an unmatched
+stationary baseline.
+
+For two finite generators Q,R, set kappa=max_x ||(Q-R)_{x,.}||_1/2. Equivalently
+this is max over rows of the larger of positive and negative off-diagonal
+excess totals. A valid common-state coupling matches shared jumps and pairs
+positive and negative excess departures to different destinations. Its total
+divergence hazard is the larger excess total, not their sum. Therefore
+
+ sup_x TV(P_Q(t)(x,.),P_R(t)(x,.)) <= 1-exp(-kappa t).
+
+This also covers a known pointwise bound on a time-dependent mismatch rate via
+an integrated hazard, but it does not make the underlying sign theorem valid
+for arbitrary scheduled native generators.
+
+For a common post-pulse semigroup R_d and stationary ideal preparation, write
+omega_d=osc((R_d-I)f). The delay error is at most s|J|t omega_d. For native
+postprocessing,
+
+ omega_d <= (1-exp(-lambda_j d))+(1-exp(-beta_j d)),
+ beta_j=max_{x!=j}q_xj.
+
+The first term bounds loss from j; the second bounds entry to j from outside.
+A sufficient sign-protection condition is omega_d<exp(-Lambda_p t). This is a
+sufficient bound, not a necessary criterion or a statement that arbitrary delay
+preserves the sign. The old delayed-readout counterexample remains relevant.
+
+STATISTICAL REVIEW CHECKPOINT
+
+The proposed matched-pair e-process is valid if X_n in[-1,1] and conditional on
+all available past evidence E[X_n|past]<=b_n, with predictable b_n in[0,1).
+Then W_n=(X_n-b_n)/(1+b_n) lies in[-1,1] and has conditional mean<=0. For any
+predictable lambda_n in[0,1], products of 1+lambda_n W_n are nonnegative
+supermartingales. A fixed nonnegative mixture is also one, so Ville bounds
+anytime rejection at 1/alpha by alpha. For the prepare-integrate protocol,
+X should be detector outcome under i minus outcome under j. A globally valid
+joint calibration event adds its failure probability once.
+
+Adaptive protocol choice is safe only if EACH chosen experiment has the
+conditional null bound. Marginally unbiased trials with latent shared drift do
+not imply this bound. Two sign-oriented e-processes can be combined by an
+intersection-union rule only if at least one orientation is a null for the
+whole path; varying native current sign across chosen setups breaks that premise.
+
+The exact implementation, fixed-power certificate, confidence inversion, and
+cross-layer explanation APIs have now passed the independent checks described
+below. No sample-optimality claim follows.
+
+REPRODUCTION AND COVERAGE
+
+python -m unittest discover -s tests -p test_independent.py -v
+python tests/test_independent.py --report
+
+26 tests pass at the final checkpoint. Tests cover 120 finite random CTMCs with five
+positive horizons each, including absorbing states; 120 matched-preparation
+delayed-readout, nonstationary-current, and common-generator-drift perturbation
+instances; 100 random generator coupling
+bounds; exact rational classical failure certificates; and a quantum comparison
+through both rational Bloch and independent full-Liouville constructions.
+Seeds 81017 and 11903 are fixed. Floating numerical comparisons use an absolute
+2e-12 allowance; exact sign tests instead use rational matrix-norm remainder
+bounds. The independent.json report contains exact rational sign enclosures.
+
+
+FINAL ADDENDUM: SHARP COARSE-INTERFACE BOUND — ACCEPTED
+
+Let B be a detected set, nuB supported inside B, nuA outside B. Every hidden
+outside state has entrance hazard into B at most a; every inside state has
+exit hazard from B at most b. Let conditional first-entrance laws, at almost
+every entrance time, differ from nuB in total variation by at most eta.
+For U_nu(T)=integral_0^T P_nu(B,t)dt, define
+
+ A_a=(1-exp(-aT))/a, A_b=(1-exp(-bT))/b,
+ G=integral_0^T exp[-bs-a(T-s)]ds,
+ K=T-A_a-A_b+G.
+
+Zero rates use the continuous extension A_0=T. Then
+
+ U_nuB-U_nuA >= G-eta K.
+
+The proof is valid: the reset term in the hitting decomposition is at least G.
+For any x in B, integrated B occupancy lies between A_b(v) and v, so the
+oscillation of that occupation reward within B is at most v-A_b(v). The reset
+error is at most eta E[g_b((T-tau)+)] with g_b(v)=v-A_b(v). Bounded entrance
+hazard makes tau stochastically no smaller than Exp(a); this expectation is at
+most K. The four-state chain i->j at a(1-eta), i->k at a eta, j->ell at b,
+B={j,k}, with k and ell absorbing, attains equality. Seven rational extremizers
+were independently evaluated by integrated matrix Taylor series; 360 random
+coarse-network cases check the unrestricted eta=1 inequality.
+
+At eta=1 the bound reduces to A_a+A_b-T and does not need a regenerative
+interface or time homogeneity: bounded conditional macrostate crossing hazards
+are sufficient. This is the strongest robust scope extension in the phase.
+The caps must apply to every relevant hidden state or history. They cannot be
+identified with observed initial slopes or dissipative Lindblad jump rates
+without a separate physical argument. A violation can supply a lower bound on
+the peak classical crossing intensity required to explain the data. It does not
+bound total dynamical activity, energetic dissipation, or all classical models.
+
+The mixed-preparation extension is also correct. If a comparison preparation
+has inside mass p, inside-reset TV defect eta0 and outside-entry defect eta1,
+then its contrast satisfies
+
+ H >= (1-p)(G-eta1 K)-p eta0(T-A_b).
+
+The same extremizer attains equality with inside preparation
+(1-eta0)delta_j+eta0 delta_k. Taking both defects to one gives
+H>=A_b+(1-p)A_a-T. This is necessary when using a comparison such as a quantum
+Y state with initial detector probability one half; the outside-only bound
+cannot silently be applied to that experiment.
+
+FINAL ADDENDUM: COHERENT PREPARATION AND MATCHED BASELINES — ACCEPTED
+
+Only the reference preparation must be a trusted singleton for the integrated
+return maximum. An arbitrary fixed comparison distribution follows by convexity.
+For the qubit generator, the adjoint averaged effect is (I+C Z+S Y)/2; the Y sign
+is positive since i[(omega/2)X,Z]=omega Y. The best comparison-state gap is
+(sqrt(C^2+S^2)-C)/2. The nonzero off-diagonal effect guarantees a positive
+spectral gap; with positive damping, the integrated sine S is positive at every
+positive horizon. These statements require the declared coherent preparations.
+An independent rational matrix Taylor certificate and full Liouville calculation
+confirm the gain-9/10, horizon-7/4, +Y example has gap>257/1000.
+
+The baseline comparison correctly counts two independent physical records to
+form the Bernoulli product estimator of P_jj(t)^2. Its record proxy coefficient
+is (sqrt(2)+1)^2, expected-time coefficient 8t. The simpler uniform method uses
+coefficients4 and2T; the linear survival contrast uses9 and(2+sqrt(2))^2t.
+These are common sufficient Hoeffding-bound proxies, not optimal statistical
+complexities. Extra coherent comparison preparation is an additional resource.
+The manuscript correctly records that an established nonlinear survival baseline
+beats the orthogonal uniform assay under this particular comparison.
+
+FINAL ADDENDUM: ROBUST CURRENT IMPLEMENTATION — ACCEPTED
+
+The arbitrary-preparation current identity and its O(t) bias follow directly
+from Duhamel, bounded membership-change hazards, and the endpoint contrast's
+short-time deviation from1. The target is the instantaneous prepared-ensemble
+current, not an unknown stationary current. Independent random checks cover120
+instances. The shared additive generator drift bound is also correct:
+
+ |D_actual-D_reference|
+ <=s(a+b+2max(a,b)) integral_0^t(1-exp(-kappa u))du
+ <=s(a+b+2max(a,b)) kappa t^2/2.
+
+Splitting the two Duhamel products yields (a+b) times the first propagation
+TV error and 2max(a,b) times the second. This requires a shared additive drift
+in the two native/controlled arms, valid full generators, and an unchanged local
+channel difference. It does not include an independently changed terminal
+postprocessing map. The complete current-interval API was tested against an
+exact rational record-law enclosure with preparation mismatch, asymmetric
+native/control generator errors, common readout delay, and nonunit detector
+gain; it contains the true native current and certifies its positive sign.
+
+FINAL ADDENDUM: CLOCK DESIGN AND CLOCK INDEPENDENCE — ACCEPTED WITH SCOPE
+
+The finite-menu design is a standard two-constraint linear program. An optimum
+needs at most two uniform clocks. The implementation's primal weights and
+nonnegative supporting-line slope certify the returned objective exactly.
+Independent SciPy linprog comparisons checked both pessimistic and optimistic
+objectives on240 rational menus, including zero costs and tied costs:480
+objective comparisons. Tampered dual certificates are rejected.
+
+The no-mixture improvement for positive gap squared per expected energy is valid
+by Cauchy-Schwarz, using positive-part gaps and strictly positive energy costs.
+It concerns unconstrained efficiency. Under an additional per-record budget,
+a mixture using an expensive useful clock can outperform all individually
+feasible pure clocks. Expected duration/energy is not a realized expenditure
+bound. Clock-TV error changes a contrast by at most twice the TV radius.
+
+Matching UNCONDITIONAL clock marginals is not sufficient. A separate numerical
+counterexample uses the symmetric unit-rate two-state CTMC and first jump time
+tau~Exp(1). In the reference-j arm take U=2(1-exp(-tau)); in the comparison-i arm
+take U=2exp(-tau). Both clock marginals are Uniform[0,2], but they are correlated
+with the first jump via a shared initial random seed. Their singleton contrast
+is approximately -0.0186567. Independent quadrature of the conditional laws
+verifies the reversal. This is a numerical failure control, not an experimental
+observation or an exact rational sign certificate. The clock must be independent
+of the trajectory, or a suitable joint-law error bound must be supplied.
+
+FINAL ADDENDUM: EXACT STATISTICS AND EXPLANATION INVERSION — ACCEPTED
+
+The independent binomial reference sums comb(n,k) a^k(b-a)^(n-k) directly over
+one common integer denominator, distinct from the implementation's recurrence.
+It confirms the N600, threshold321 test satisfies both stated error allowances
+for gap18/125, radius1/1000 and alpha=beta=.05. Exact enumeration of adapted
+non-iid null trials with predictable changing radius confirms the e-process
+supermartingale and optional-stopping bound through10 records.
+
+Fixed lower-binomial confidence bounds agree with independent beta quantiles;
+exact coverage was checked at n20 over true probabilities1/10 through9/10.
+Anytime confidence inversion was checked by exact path recursion through12
+records at three true probabilities. Stable-mean coverage and rejection of a
+uniform conditional upper bound are distinct interpretations; arbitrary time-
+varying average means are not covered by the stated APIs.
+
+The root explanation API has correct signs: encoded success probability theta
+means observed reference-minus-comparison contrast1-2theta. A lower bound thetaL
+therefore gives C_observed<=1-2thetaL, and gain g with contrast drift radius d
+gives C_physical<=(1-2thetaL+d)/g. Multiplying by T supplies the correct upper
+bound on H for reset inversion. Both the reset-defect lower bound and peak-
+hazard inverse were independently compared with elementary scalar formulas and
+a separately solved numerical root. The synthetic343/600 example is correctly
+labeled synthetic. All resulting scientific statements remain conditional on
+preparation support, calibrated detector gain/drift, and a common independent
+clock. Calibration-event failure is added once, separately from sampling error.
+
+DISPOSITION
+
+All reviewed promoted mathematical claims and the checked implementations pass
+this internal review with the stated assumptions. The broad hazard envelope is
+sharp; numerical protocol comparisons and model examples are clearly scoped.
+No device-independent quantum claim, universal energy-information law, empirical
+validation, external peer review, or historical priority has been established.
+The surviving work is an executable framework for deciding which calibrated
+classical explanation contracts a record can sustain, and what extra physical
+rates or reset mismatch any surviving explanation requires.
+
+
+FINAL DIMENSION-WITNESS REVIEW: ACCEPTED
+
+For a finite, time-homogeneous classical CTMC with at most three hidden states,
+let R=T^{-1}integral_0^T exp(tQ)dt. The integrated return maximum proves
+R_jj>=R_ij for every i,j, strictly for distinct states at finite positive T.
+This gives two useful and distinct conclusions.
+
+A. If a reference preparation is supported inside a proper detected set B and
+   the comparison outside B, their uniform integrated contrast is positive.
+   For at most three states, either B or its complement is a singleton. The
+   first case is exactly the return maximum. In the second, complementing the
+   detector swaps the two preparations and reduces to the same maximum.
+   Therefore a negative contrast requires at least four hidden classical states
+   under these assumptions. Four suffice for this one averaged contrast: the
+   four-state extremizer with equal entrance/exit rate lambda gives
+
+     C(T)=2(1-exp(-lambda T))/(lambda T)-1.
+
+   This decreases continuously from1 to-1, since exp(z)>1+z for z>0. Every
+   negative value strictly between-1 and0 has a finite-rate realization.
+
+B. A stronger operational form avoids the trusted-support assumption. For any
+   two arbitrary fixed preparation distributions mu,nu and any fixed stochastic
+   detector f taking values in[0,1], define
+
+     C0=(mu-nu)f,
+     CT=(mu-nu)R f.
+
+   Every at-most-three-state homogeneous CTMC satisfies
+
+     |C0-CT|<=1.
+
+   Proof: for any two distinct states i,j, put
+   a=R_ii-R_ji>=0 and b=R_jj-R_ij>=0. For three states, the row difference
+   (e_i-e_j)(I-R) has entries1-a, -1+b, and a-b. Its total-variation norm is
+   exactly1-min(a,b)<=1. For two states a=b and the same bound follows.
+   Any zero-mass difference of preparation distributions is a convex mixture
+   of such row differences, and any f in[0,1] contracts their TV norm.
+   This proves the claimed absolute bound. It is strict for finite positive
+   T and distinct preparations, but1 is a sharp universal supremum.
+
+   Sharpness example: state0 is absorbing, state1 jumps at rate lambda to
+   absorbing state2. Take detector responses(c,0,1), reference state0 and
+   comparison state1. Then C0=c, CT=c-1+(1-exp(-lambda T))/(lambda T), so
+   C0-CT approaches1 from below. No exact extremal-preparation assumption is
+   needed in this version; C0 is measured as an additional reference arm.
+
+The qubit example with gamma1/10, omega2, T9/4, and common detector gain9/10
+has C0=.9 and CT<-.144, hence C0-CT>261/250>1. The strict rational inequality
+is independently certified from the matrix Taylor enclosure. It excludes
+at-most-three-state homogeneous classical explanations with the specified
+common evolution, detector, preparations, and independent randomized timing.
+It does not exclude four-state explanations, arbitrary classical memory,
+within-record scheduled dynamics, or setting-dependent preparation/detection.
+
+A shared dead time d is harmless for this stronger form if the baseline reads
+at d and the delayed arm at d+U: use effective preparations mu exp(dQ) and
+nu exp(dQ). The same applies to a shared random latency independent of the
+preparation arm and U. Static arm-independent mixtures of valid classical
+models also preserve the linear inequality by convexity. Decreasing-density
+clocks preserve the diagonal-column maximum of R, so the proof applies to
+those clocks as well.
+
+The four-state sufficiency statement concerns the integrated endpoint record,
+not the full time-tagged trajectory law. With symmetric rates, the four-state
+model also matches both averaged arm probabilities of the unital orthogonal
+qubit example; it need not match probabilities conditioned on the actual
+readout time. This distinction is essential when claiming minimal state count.
+The conclusion is a hidden-state cardinality requirement, not a lower bound on
+Shannon entropy, physical energy, or a universal computational memory advantage.
+
+Independent tests exhaust all729 three-state generators with off-diagonal rates
+in{0,1,2}, at three horizons. They check6561 operator row-pair bounds and26244
+separated binary-detector/preparation comparisons. Additional tests verify the
+quantum score certificate, the exact four-state counterexample, sharp three-
+state approximation, and60 shared-latency examples. All26 independent tests pass after the final tilted-preparation extension below.
+
+The four-arm statistical encoding is correct: sample reference/comparison and
+baseline/randomized readout with fresh equal assignment; complement the binary
+outcome on negative-coefficient arms. Encoded success probability is
+(2+W)/4, W=C0-CT. For a total W-calibration radius1/1000 and alternative floor
+261/250, null and alternative thresholds are respectively3001/4000 and3043/4000.
+Independent SciPy binomial calculations for N20000 and rejection at15107
+successes give type-I probability approximately.04841147778069 and miss
+probability.03631507742379. The statistics agent supplies the exact integer-tail
+certificate. The radius refers to the whole four-arm score, not automatically
+one of its two component contrasts. Four-arm assignment and timing assumptions
+are substantive experimental conditions, not consequences of the counts.
+
+
+FINAL TILTED-PREPARATION CERTIFICATE — ACCEPTED AND FROZEN
+
+For the same valid qubit generator, take gamma1/10, omega2, uniform horizon2,
+common detector gain9/10, and antipodal preparation Bloch vectors
+n=(0,-12/37,35/37) and -n. These are pure states since12^2+35^2=37^2.
+Writing averaged cosine and sine C,S as above, the four-arm score is
+
+ W=(9/10)[(35/37)(1-C)+(12/37)S]
+   =1.0806050936582667... >27/25.
+
+An independent exact rational matrix Taylor enclosure certifies the strict
+27/25 bound, and an independently constructed full4x4 GKSL Liouville generator
+agrees. The public preparation certificate is checked against these independent
+calculations. No global optimization claim is needed or made for this rational
+preparation direction.
+
+With full four-arm score calibration radius1/500, the encoded success bounds
+are1501/2000 under the at-most-three-state classical null and1539/2000 under
+the stated alternative. The exact plan uses6000 physical records and rejects
+at4560 encoded successes. Independent SciPy tail checks give
+
+ false rejection .04548280602825733,
+ miss probability .03946468297121635.
+
+These agree with the software's rigorously outward-rounded integer-tail
+certificates. All16 possible four-arm binary outcome patterns verify the
+encoding identity. A tampered calibration-radius certificate is rejected.
+The radius1/500 is consistent with four separate per-arm probability errors
+of1/2000; shared or overlapping errors require the declared joint accounting.
+This plan certifies sufficient sample size under the specified physical model
+and calibration contract, not sample optimality or observed laboratory power.
+
+The independent suite is now frozen at26 passing tests. Final owned files are
+research/redteam.txt, tests/test_independent.py, and results/independent.json.

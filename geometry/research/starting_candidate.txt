@@ -1,0 +1,265 @@
+NEXT MATHEMATICAL DEPENDENCY — 2026-10-12T22:58:37Z
+Owner: /root/physical_minimum; assessment requested by root during final release.
+Status: PROVISIONAL NEXT-PHASE CANDIDATE. NOT A CURRENT RELEASE RESULT.
+No frozen source, manuscript, benchmark, or seventh-release claim was altered.
+No new benchmark was run for this assessment.
+
+1. Bottleneck
+The endpoint defect gives a dimension-independent physical lower bound, but its
+sharp discrete kernel is not CTMC-embeddable. The exact circulant minimum only
+closes a declared architecture; the five-state hub countermodel proves that a
+complete scalar covariance does not enforce that architecture. Another generic
+endpoint divergence optimization will not by itself remove this mismatch.
+
+The highest-leverage extra access may be a state-resolved quadratic variation
+and a conditional two-sided short-time correlation. This changes the observed
+information and can retain the local diffusion geometry lost by a global range
+bound. It is a more concrete next dependency than claiming universal embedding
+sharpness from existing moments.
+
+2. Proposed small theorem to prove/adversarially audit
+Assume an ordinary-reversal stationary overdamped diffusion on a compact smooth
+periodic domain, with smooth coefficients, positive stationary density pi and
+uniformly positive diffusion matrix D. Let L=S+A in L2(pi), where
+ S = pi^-1 div(pi D grad), A=v dot grad,
+ sigma=E_pi[v^T D^-1 v].
+Let Y=f(X) for smooth real f. Crucially require a justified POINTWISE closure
+ Gamma_f(x)=grad f(x)^T D(x) grad f(x)=a(f(x)),
+not merely the identity E[Gamma_f|Y=y]=a(y), which holds by definition for a
+conditional average and is insufficient for the argument.
+
+Define observable conditional symmetric drift and past/future product
+ g(y)=lim_{h down 0} E[Y_h+Y_-h-2Y_0 | Y_0=y]/(2h),
+ K(y)=lim_{h down 0} E[(Y_h-Y_0)(Y_-h-Y_0) | Y_0=y]/h^2.
+Candidate bound:
+ sigma >= E[ (g(Y)^2-K(Y))_+ / a(Y) ].
+Initially prove its truncated version on {a(Y)>=epsilon}, epsilon>0. This
+avoids dividing by a vanishing local diffusion coefficient. Give a separate
+justification for taking epsilon down to zero.
+
+Population argument to audit, not a priority claim:
+- Conditional on complete X_0, stationary past and future are independent.
+- The two-sided product tends to (Lf)(Ldagger f)=(Sf)^2-(Af)^2.
+- Hence K(y)=E[(Sf)^2-(Af)^2 | Y=y], and g(y)=E[Sf | Y=y].
+- Conditional Jensen gives g(y)^2-K(y)<=E[(Af)^2|Y=y]; nonnegativity permits
+  taking the positive part on the left.
+- Pointwise Cauchy gives (Af)^2<=Gamma_f v^T D^-1 v.
+- The pointwise closure allows division by the same observable a(Y), followed
+  by conditional expectation and integration.
+Root independently checked this population chain. That internal check is not
+an independent prior-art audit, finite-sample theorem, or release result.
+
+3. Exact first experiment — analytic before simulation
+Use the stationary uniform circle
+ d phi=omega dt+sqrt(2 gamma)dW mod 2pi, Y=cos phi.
+Here
+ a(y)=gamma(1-y^2), g(y)=-gamma y,
+ K(y)=gamma^2 y^2-omega^2(1-y^2).
+The proposed population lower bound equals omega^2/gamma, exactly the circle's
+physical entropy. Thus it closes the endpoint gap in a concrete continuous-time
+model without asserting a universal covariance-only minimum.
+
+For finite h, set r=exp(-gamma h), c=cos(omega h), s=sin(omega h). Exact formulas:
+ g_h(y)=(r c-1)y/h,
+ K_h(y)=[(r c-1)^2 y^2-r^2 s^2(1-y^2)]/h^2.
+Therefore the untruncated plug-in population expression is
+ exp(-2 gamma h) sin^2(omega h)/(gamma h^2),
+which approaches omega^2/gamma from below in this circle model. A future test
+should derive these independently from the transition semigroup, verify the
+omega=0 negative control, and retain truncation near |y|=1. Restricting to
+|y|<=1-epsilon multiplies the limiting circle value by the exactly known
+stationary fraction 1-(2/pi) arccos(1-epsilon).
+
+Do not assume the finite-h expression is a valid lower bound in all diffusions.
+A general finite-h bias enclosure is an additional theorem to prove, perhaps
+under explicit generator derivative bounds. Derivative access is stronger than
+three endpoint moments at one fixed lag.
+
+4. Disproof and failure conditions
+- Replace pointwise Gamma closure by its conditional mean and construct a hidden
+  diffusivity mixture correlated with Af; the candidate may overestimate sigma.
+  This is the first adversarial architecture test.
+- Add independent detector noise, exposure averaging, or detector memory.
+  Raw quadratic variation/drift estimates then generally violate the contract.
+- Check generalized/odd-variable reversal separately. Equilibrium underdamped
+  oscillations must not be presented as physical dissipation evidence.
+- Construct smooth noncircle models with significant finite-h bias; reject any
+  uncorrected finite-h generalization if it crosses their known entropy.
+- Even under valid closure, the numerator and denominator are estimated. A
+  confidence interval for an averaged variance does not establish the needed
+  pointwise upper or equality. A practically usable theorem needs an auditable
+  closure assumption or a genuinely stronger measurement/calibration protocol.
+- Short-time products are statistically expensive: increments are O(sqrt(h)),
+  their product is O(h), and division by h^2 amplifies fluctuations. Sensor
+  precision, exposure, sample dependence, truncation, and full elapsed time must
+  enter the eventual acquisition comparison. Formal derivative recovery is not
+  yet an experimental advantage.
+
+5. Prior-art audit required before promotion
+Compare precisely against variance-sum-rule work (Di Terlizzi et al. 2024 and
+its proof), Harada-Sasa relations, local/conditional short-time entropy inference,
+projected diffusion/carre-du-champ identities, and conditional acceleration or
+force reconstruction. Cauchy/Jensen and two-sided Markov factorization are
+standard ingredients. The potentially useful contribution would be a correct
+access contract, a sharp realizable case, finite-error implementation, and a
+matched-resource gain, not invented novelty for those ingredients.
+
+6. Next acceptance gate
+First: complete the population proof with measurable conditioning and truncated
+limits; either disprove or delimit the conditional-average substitution.
+Second: derive a finite-h bias envelope and a sensor-noise contract.
+Third: only then freeze a cost-matched experiment against the seventh-edition
+endpoint certificate on the exact circle and a valid noncircle example.
+If the required pointwise calibration is experimentally inaccessible, pivot to
+an inequality with a directly calibratable upper envelope for Gamma_f or to an
+explicit access limitation; do not silently replace it with an average.
+
+7. Population refinements requested by root — 2026-10-12T23:07:56Z
+PROVISIONAL, UNRELEASED, NO HISTORICAL-PRIORITY CLAIM. No new benchmark run.
+The following sharpens the future problem statement; it does not modify the
+frozen current release or claim an experimentally available procedure.
+
+7a. A pointwise upper envelope suffices
+The equality Gamma_f(x)=a(f(x)) assumed above can be weakened to a justified
+pointwise bound Gamma_f(x)<=a(f(x)). Indeed, writing
+ e(x)=v(x)^T D(x)^-1 v(x)>=0,
+one has (Af)^2<=Gamma_f e<=a(Y)e. Therefore the same conditional-Jensen
+argument gives sigma>=E[(g(Y)^2-K(Y))_+/a(Y)], first on {a(Y)>=epsilon}.
+A conditional average of Gamma is still insufficient: it need not dominate
+Gamma pointwise and can be correlated with the hidden e or Af.
+Thus equality was a convenient sufficient contract, not a necessary one.
+
+7b. Measure local quadratic variation as an additional coordinate
+In the ideal continuous observation model, define V=Gamma_f(X_0) and retain
+U=(Y_0,V). Keep the SAME symmetric conditional drift and two-sided product,
+now conditioned on U:
+ g(U)=lim_{h down 0} E[Y_h+Y_-h-2Y_0 | U]/(2h),
+ K(U)=lim_{h down 0} E[(Y_h-Y_0)(Y_-h-Y_0) | U]/h^2.
+Then the candidate is
+ sigma >= E[ 1_{V>=epsilon} (g(U)^2-K(U))_+ / V ], epsilon>0.
+This no longer requires Gamma to be a function of Y alone.
+
+Audited population chain:
+1. U is a deterministic function of X_0. Conditional past/future independence
+   given the complete X_0 is unchanged by subsequently conditioning on U.
+2. Smooth compact-domain semigroup expansions give
+   g(U)=E[Sf|U],
+   K(U)=E[(Sf)^2-(Af)^2|U].
+   Conditional Jensen therefore gives
+   (g(U)^2-K(U))_+ <= E[(Af)^2|U].
+3. The pointwise diffusion inequality is (Af)^2<=V e(X_0). Because V is
+   U-measurable, E[(Af)^2|U]<=V E[e(X_0)|U].
+4. Divide on {V>=epsilon}, integrate, and use nonnegativity of e to obtain the
+   displayed bound. If sigma is finite, monotone convergence as epsilon falls
+   to zero is justified and the resulting bound remains finite. At V=0,
+   positive-definite D forces grad f=0 and hence Af=0. Jensen gives
+   (g(U)^2-K(U))_+=0 there, so the ratio may consistently be defined as zero.
+
+There is no need to assume E[Af|U]=0. That identity need not hold after
+conditioning on local volatility. The symmetric past/future definition of g
+is essential to avoid making such an unsupported replacement.
+
+Why V is an ideal observable, and why this is not yet an apparatus claim:
+For the convention dX=b dt+sqrt(2D)dW, the scalar observed path has
+ [Y]_t=2 integral_0^t Gamma_f(X_s) ds.
+When Gamma_f(X_t) is continuous, half the derivative of this quadratic variation
+is V_t. Exact continuous-path access therefore determines V_t, even when the
+hidden state itself is inaccessible. Quadratic variation is a limiting path
+functional, not the square of a single short increment or an ordinary finite
+sample variance. Time averaging or a conditional regression of squared
+increments generally estimates a different quantity.
+
+The population conditioning is legitimate because the ideal V_0 is a function
+of X_0. In finite data, a V estimate built from the same increments as g or K
+can introduce endogeneity and selection bias; treating that estimate as exact
+would invalidate the argument. Independent high-frequency calibration,
+carefully separated windows, or a joint confidence construction would require
+new proofs. Detector noise, finite exposure, unresolved memory, and finite-h
+bias still obstruct immediate application. A valid upper envelope for local
+volatility could be more practical than trying to recover its exact value.
+
+Assessment: the logical population chain survives. The next mathematical
+bottleneck becomes finite-resolution access to V and a finite-h, statistically
+covered conditional defect. This is a stronger and more general future
+research target than imposing closure by Y alone. It still needs a close
+prior-art comparison and independent adversarial review before any novelty or
+release claim. No additional empirical evidence has been produced.
+
+8. Global minimum for a complete observed diffusion law — 2026-10-12T23:10:59Z
+PROVISIONAL NEXT-PHASE CONSEQUENCE. NOT INCLUDED IN THE CURRENT RELEASE.
+No simulation, source edit, or physical measurement accompanies this note.
+
+Claim to formalize and independently review
+Consider the class of all stationary smooth ordinary-reversal overdamped hidden
+diffusions satisfying the regularity/integrability contract above, in arbitrary
+finite hidden dimension, with a smooth scalar deterministic detector Y=f(X).
+Fix the COMPLETE NOISELESS CONTINUOUS-TIME stationary law of Y, with a calibrated
+physical clock. Suppose that law is exactly the law of
+ Y_t=cos(phi_t), d phi_t=omega dt+sqrt(2 gamma)dW_t mod 2pi,
+with uniform stationary phase and gamma>0.
+The proposed weighted local-defect theorem would imply that the infimum of
+stationary entropy over this entire compatible hidden-diffusion class is
+ omega^2/gamma,
+and the circle itself attains it. This would be a global compatible-model
+minimum within the declared broad diffusion class, not merely a circulant
+architecture minimum.
+
+Why the population logic survives
+- A full continuous scalar-path law determines its quadratic-variation law.
+  Under smooth continuous coefficients, V_t=Gamma_f(X_t) is half its derivative.
+  Thus the joint law of U_t=(Y_t,V_t), past and future Y values, and all conditional
+  expectations entering g(U),K(U) is the same in every compatible model.
+- Conditional versions may differ on null sets, but the integrated bound does
+  not. Hence the proposed bound is an invariant of the specified observed law.
+- For the cosine-circle law, V=gamma(1-Y^2), g=-gamma Y, and
+  K=gamma^2Y^2-omega^2(1-Y^2). The ratio equals omega^2/gamma almost surely;
+  Y=+/-1 has zero stationary probability. Truncations increase to this value.
+- Every compatible hidden diffusion must therefore have entropy at least that
+  value. The declared circle is one compatible diffusion whose entropy equals
+  it, proving attainment once the general population theorem is established.
+
+A useful equivalent perspective: full-law compatibility with the cosine circle
+actually forces Gamma_f=gamma(1-f^2) almost surely under each compatible hidden
+stationary law, by uniqueness of quadratic variation. With positive density and
+smooth coefficients this may strengthen to a pointwise identity on the support.
+The extra diffusion-geometry relation is supplied by observed-path access,
+rather than assumed from a covariance fit. This removes the earlier logical
+reason that covariance alone could not enforce the physical minimum.
+
+Strict scope and noncontradictions
+- Equality of a few lagged moments, or even the complete scalar covariance C(t),
+  does NOT imply equality of the continuous path law or local quadratic variation.
+  The previously constructed five-state hub counterexample matches covariance,
+  not this path law; it is also a jump process. There is no contradiction.
+- No corresponding conclusion is established for generalized/odd-variable
+  reversal, inertial equilibrium models, jumps, singular/non-Markov latent models,
+  noisy or history-dependent detectors, uncertain clocks, or a record sampled
+  only at finitely many times.
+- The complete scalar observed law may itself be reversible. The conclusion uses
+  the smooth ordinary-overdamped hidden-model restriction and its local diffusion
+  geometry; it is not the entropy of the scalar time-reversed record alone.
+- The law is an ideal infinite-information research object. Proving its minimum
+  does not mean a finite laboratory dataset can certify that exact law or recover
+  the same entropy. Finite-h and finite-sample coverage remain separate gates.
+- No claim that the observed process is Markovian is needed or justified. The
+  Markov property used in the proof belongs to each complete hidden diffusion.
+
+Acceptance gate before promotion
+1. State a precise model class, quadratic-variation reconstruction convention,
+   conditional-expectation versions, generator-domain assumptions, and the
+   truncated limiting argument. Prove the population bound in that class.
+2. Independently audit path-law invariance and circle attainment. Attempt to
+   construct a lower-entropy compatible smooth ordinary diffusion; any success
+   must invalidate an explicit step, not merely match its covariance.
+3. Compare against conditional/local short-time entropy inference, variance sum
+   rules, coarse-grained diffusion reconstruction, and prior variational minimum-
+   dissipation results. Do not claim novelty from this note or internal agreement.
+4. Derive a finite-h bias bound, detector-noise/exposure contract, and a covered
+   estimator of the conditional defect/local volatility with honest physical
+   acquisition cost. Only then assess practical gain against current endpoint
+   inference at matched resources.
+
+Assessment: this is a coherent stronger next target. If formalized and new in
+the relevant sense, it would close a global physical-realization problem for a
+specified observed continuous law while clearly identifying the extra access
+needed. It is neither a released theorem here nor a claim of a new physical law.

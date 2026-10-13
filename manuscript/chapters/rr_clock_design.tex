@@ -1,0 +1,148 @@
+\chapter{Designing a protected random observation clock}
+\label{rr:clock}
+
+Timing is part of experimental access. A fixed-time population comparison can
+have either sign in a classical network, while its uniform average starting at
+preparation has a protected sign. This chapter describes clocks that retain
+that guarantee and makes a limited resource-design problem exactly solvable.
+The mixture representation and linear-programming geometry are established
+mathematical tools; their use here does not assert new generic optimization
+theory.
+
+\section{Decreasing densities are mixtures of uniform clocks}
+For a protected classical reset state $j$ and any other initial distribution
+$\rho$, write
+\[
+ f(t)=P_j(X_t=j)-P_\rho(X_t=j),\qquad
+ H(T)=\int_0^T f(t)\,dt\geq0.
+\]
+The same statement applies to a region with the required regenerative reset
+property. A clock is drawn independently of the physical trajectory, with a
+common probability density $w$ for both preparations. Its contrast is
+$C_w=\int_0^\infty w(t)f(t)\,dt$.
+
+\begin{proposition}[A constructive protected clock class]
+Every nonincreasing probability density on $[0,\infty)$ is, up to changes on
+a set of measure zero, a mixture of uniform densities starting at zero:
+\[
+ w(t)=\int_{(t,\infty)}\frac{1}{T}\,\mu(dT),\qquad
+ \mu\ \hbox{a probability measure on }(0,\infty).
+\]
+Consequently $C_w=\int H(T)/T\,\mu(dT)\geq0$. When the expected duration
+exists, $\mathbb E_w t=\frac12\int T\,\mu(dT)$.
+\end{proposition}
+\begin{proof}
+Take a right-continuous nonincreasing representative and its nonnegative
+Stieltjes measure $-dw$. Set $\mu(dT)=-T\,dw(T)$. Integrability and
+monotonicity imply $T w(T)\to0$ at both endpoints. Integration by parts gives
+$\int\mu(dT)=\int_0^\infty w(t)\,dt=1$, and Stieltjes integration gives
+the displayed representation. Since $|f|\leq1$, Fubini applies to the contrast;
+each mixture component contributes $H(T)/T$. The duration formula follows
+from the mean of a uniform distribution.
+\end{proof}
+
+The construction gives a direct implementation: choose a horizon $T$ using
+$\mu$, then draw the actual readout time uniformly from $[0,T]$. The horizon
+mixture and readout time are chosen independently of the current system
+trajectory. A common exponential clock belongs to this class, but some clocks
+erase a particular quantum signal. Classical validity and signal strength
+are separate design questions.
+
+This is a sufficient clock class, not a characterization of every density
+valid for every classical model. A shifted uniform window or an increasing
+density need not preserve the guarantee. The independent tests supply fully
+classical counterexamples for both.
+
+\section{Exact design on a finite menu}
+For each available uniform horizon $T_k$, suppose a model calculation supplies
+an enclosing signed-contrast interval $[l_k,u_k]$. The desired reversal
+advantage is $v_k=-C_k$. Let $c_k\geq0$ be a calibrated expected acquisition
+cost and $B$ an expected-cost budget. A randomized horizon choice has weights
+$p_k\geq0$, $\sum_kp_k=1$. Its guaranteed advantage is at least
+$\sum_kp_k(-u_k)$. The finite design problem is
+\begin{equation}\label{rr:clock-lp}
+ \max_p\sum_kp_k v_k\quad\hbox{subject to}\quad
+ \sum_kp_kc_k\leq B,\quad \sum_kp_k=1,\quad p_k\geq0,
+\end{equation}
+first with $v_k=-u_k$ and then with $v_k=-l_k$.
+
+\begin{proposition}[Two horizons and a checkable global certificate]
+If the menu is finite and feasible, problem~\eqref{rr:clock-lp} has an optimum
+supported on at most two horizons. An admissible $p$, a slope $a\geq0$ and an
+intercept $b$ certify global optimality if
+\[
+ b+a c_k\geq v_k\quad\hbox{for every }k,
+ \qquad\sum_kp_kv_k=b+aB.
+\]
+\end{proposition}
+\begin{proof}
+An extreme feasible point has at most two positive coordinates: with three,
+a nonzero supported perturbation can preserve both total probability and
+total cost, giving a feasible line segment through the point. If the cost
+constraint is slack, an extreme point has one positive coordinate. A linear
+objective attains an optimum at an extreme point of this compact polytope.
+For any feasible $p'$, the supporting inequalities give
+$\sum_kp'_kv_k\leq b+a\sum_kp'_kc_k\leq b+aB$. Equality at $p$ proves
+optimality without repeating the optimization.
+\end{proof}
+
+The implementation enumerates feasible singletons and pairs, then exports
+the supporting line. A separate checker verifies feasibility and the dual
+inequalities using exact rational arithmetic. Solving with $-u_k$ gives an
+achievable guaranteed advantage; solving with $-l_k$ gives an upper bound on
+the unknown true optimum. Their difference is an explicit numerical-enclosure
+gap. An interval covering negative advantage is not declared a successful
+reversal experiment.
+
+The quantum example uses sixteen horizons $T=k/4$, $k=1,\ldots,16$,
+depolarization rate $1/10$, rotation frequency $2$, and detector gain $9/10$.
+Exact enclosures are rounded outward, never to the nearest favorable value.
+The supplied budgets constrain mean active evolution time $T/2$. A physical
+energy model must additionally account for preparation, control, measurement
+and any duration-dependent supplied power. The code accepts such calibrated
+costs but does not infer them from the horizon labels.
+
+\section{When mixing does not improve an energy objective}
+A timing mixture can improve a constrained tradeoff while providing no gain
+for a different objective. Suppose $c_k>0$ and the chosen sufficient precision
+bound depends on advantage squared per expected energy. For any mixture with
+positive average advantage,
+\[
+ \frac{(\sum_kp_kv_k)_+^2}{\sum_kp_kc_k}
+ \leq\sum_kp_k\frac{(v_k)_+^2}{c_k}
+ \leq\max_k\frac{(v_k)_+^2}{c_k}.
+\]
+Here $x_+=\max\{0,x\}$. Replace $v_k$ by its positive part and apply
+Cauchy--Schwarz to $\sqrt{p_kc_k}$ and
+$\sqrt{p_k}(v_k)_+/\sqrt{c_k}$. Thus a mixture cannot beat the best single
+horizon for this particular proxy. Exact binomial power, preparation-dependent
+overheads, simultaneous objectives or additional constraints require their
+own calculation. Neither this proxy nor the mean-cost budget supplies a
+pathwise expenditure guarantee for a stopped sequential experiment.
+
+\section{Clock calibration and adaptive use}
+If the actual common clock law differs from its declared protected law by
+total variation at most $\zeta$, then its contrast can change by at most
+$2\zeta$, because $f\in[-1,1]$. If each arm has its own discrepancy radius
+$\zeta_j,\zeta_\rho$, a bound is $\zeta_j+\zeta_\rho$, since each
+population lies in $[0,1]$. A fixed nonnegative readout delay $d$ shifts a
+uniform $[0,T]$ clock; the total variation from the original law is
+$\min\{1,d/T\}$. Delay therefore belongs in the physical model or the
+calibration budget. It cannot be dismissed as an innocuous change of origin.
+
+For sequential testing, select the horizon mixture and betting rule using
+completed earlier trials. The current arm and readout time must then be
+drawn without allowing those fresh values to select the bet. The classical
+null is valid after averaging the clock; it need not be valid conditional on
+its realized time. Later trials may use all earlier timing records. This
+distinction permits adaptive design while preventing selection of the very
+time intervals in which a classical instantaneous contrast is negative.
+
+\begin{verbatim}
+from constructive_access.robust import clock_design
+
+certificate = clock_design.design(menu, budget)
+assert clock_design.verify(menu, budget, certificate)
+\end{verbatim}
+The menu is a supplied physical-model and calibration contract. The checker
+certifies the declared design problem, not the truth of the apparatus model.

@@ -1,0 +1,129 @@
+{
+  "certificate": {
+    "alpha": "1/20",
+    "coefficients": [
+      "-1",
+      "2",
+      "-1"
+    ],
+    "concentration_variance_proxy": "3/25000",
+    "conditional_bias_penalty": "0",
+    "conditional_radii": [
+      "0",
+      "0",
+      "0"
+    ],
+    "confidence_failure_upper": "1/20",
+    "contract": "fixed contrast and quotas; declared conditional record means; reversible moment reference; stationary ordinary-reversal CTMC for rate; calibrated full path durations",
+    "contrast_lower": "16969717760992069962157702013/1934281311383406679529881600000",
+    "depth": 6,
+    "durations": [
+      "3/20",
+      "3/10",
+      "9/20"
+    ],
+    "empirical_contrast": "1109/50000",
+    "entropy_denominator_upper": "444216554195800684333917901582189829933209992206462769/95780971304118053647396689196894323976171195136475136",
+    "entropy_production_rate_lower": "11753931464805294371957729402098093308739319874975683762/88531679327925837917314632808950460366153139390637509765625",
+    "lags": [
+      1,
+      2,
+      3
+    ],
+    "mean_interval": [
+      "-1",
+      "1"
+    ],
+    "preparation_plus_half_housekeeping_lower": "287971320887729712112964370351403286064113336936904252169/29931553532536891764811465374029476242553498480148480000000000",
+    "record_kl_lower": "287971320887729712112964370351403286064113336936904252169/29931553532536891764811465374029476242553498480148480000000000",
+    "records": [
+      50000,
+      50000,
+      50000
+    ],
+    "reference_mean_calibrated": false,
+    "resource_mixture_weights": [
+      "1/4",
+      "1/2",
+      "1/4"
+    ],
+    "sampling_radius_upper": "8298445352157404860740823/618970019642690137449562112",
+    "selection": "predeclared",
+    "signed_contrast_lower": "16969717760992069962157702013/1934281311383406679529881600000",
+    "status": "positive_certificate",
+    "successes": [
+      35849,
+      32265,
+      27572
+    ],
+    "support": {
+      "coefficients": [
+        "-1",
+        "2",
+        "-1"
+      ],
+      "depth": 6,
+      "lags": [
+        1,
+        2,
+        3
+      ],
+      "mean_interval": [
+        "-1",
+        "1"
+      ],
+      "polynomial_bounds": [
+        "0",
+        "0"
+      ],
+      "polynomials": [
+        [
+          "0",
+          "-1/2",
+          "1",
+          "-1/2"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "0"
+        ]
+      ],
+      "reversible_support_upper": "0"
+    }
+  },
+  "equal_record_proposal": {
+    "actual_cost": "150000",
+    "budget": "150000",
+    "costs": [
+      "1",
+      "1",
+      "1"
+    ],
+    "integer_optimality_claimed": false,
+    "records": [
+      37500,
+      75000,
+      37500
+    ],
+    "variance_proxy": "1/9375"
+  },
+  "equal_time_proposal": {
+    "actual_cost": "899991/20",
+    "budget": "45000",
+    "costs": [
+      "3/20",
+      "3/10",
+      "9/20"
+    ],
+    "integer_optimality_claimed": false,
+    "records": [
+      53952,
+      76299,
+      31149
+    ],
+    "variance_proxy": "1468369399/14247149905728"
+  },
+  "evidence": "illustrative synthetic counts; not a laboratory dataset"
+}

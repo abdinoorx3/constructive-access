@@ -1,0 +1,113 @@
+{
+  "cases": [
+    {
+      "calibration_region_inclusion": 400,
+      "calibration_usable": 400,
+      "combined_mean_diagnostic": 0.5773466552361303,
+      "combined_overshoots": 0,
+      "combined_positive": 400,
+      "datasets": 400,
+      "endpoint_mean_diagnostic": 8.16404587255747e-05,
+      "endpoint_overshoots": 0,
+      "finite_gamma_upper_bounds": 400,
+      "gamma_upper_coverage": 400,
+      "geometry_mean_diagnostic": 0.5773466552361303,
+      "geometry_overshoots": 0,
+      "joint_target_event_boundary_unresolved": 0,
+      "joint_target_event_covered": 400,
+      "joint_target_event_missed": 0,
+      "name": "driven",
+      "positive_endpoint": 400,
+      "positive_geometry": 400,
+      "simultaneous_target_and_reference_inclusion": 400,
+      "unbounded_gamma_abstentions": 0
+    },
+    {
+      "calibration_region_inclusion": 400,
+      "calibration_usable": 400,
+      "combined_mean_diagnostic": 0.0,
+      "combined_overshoots": 0,
+      "combined_positive": 0,
+      "datasets": 400,
+      "endpoint_mean_diagnostic": 0.0,
+      "endpoint_overshoots": 0,
+      "finite_gamma_upper_bounds": 400,
+      "gamma_upper_coverage": 400,
+      "geometry_mean_diagnostic": 0.0,
+      "geometry_overshoots": 0,
+      "joint_target_event_boundary_unresolved": 0,
+      "joint_target_event_covered": 399,
+      "joint_target_event_missed": 1,
+      "name": "equilibrium",
+      "positive_endpoint": 0,
+      "positive_geometry": 0,
+      "simultaneous_target_and_reference_inclusion": 399,
+      "unbounded_gamma_abstentions": 0
+    },
+    {
+      "calibration_region_inclusion": 400,
+      "calibration_usable": 400,
+      "combined_mean_diagnostic": 6.821132458255821e-09,
+      "combined_overshoots": 0,
+      "combined_positive": 27,
+      "datasets": 400,
+      "endpoint_mean_diagnostic": 6.821132458255821e-09,
+      "endpoint_overshoots": 0,
+      "finite_gamma_upper_bounds": 400,
+      "gamma_upper_coverage": 400,
+      "geometry_mean_diagnostic": 0.0,
+      "geometry_overshoots": 0,
+      "joint_target_event_boundary_unresolved": 0,
+      "joint_target_event_covered": 399,
+      "joint_target_event_missed": 1,
+      "name": "weak_driven",
+      "positive_endpoint": 27,
+      "positive_geometry": 0,
+      "simultaneous_target_and_reference_inclusion": 399,
+      "unbounded_gamma_abstentions": 0
+    },
+    {
+      "calibration_region_inclusion": 400,
+      "calibration_usable": 400,
+      "combined_mean_diagnostic": 0.5990525733013711,
+      "combined_overshoots": 0,
+      "combined_positive": 400,
+      "datasets": 400,
+      "endpoint_mean_diagnostic": 6.961060542805496e-05,
+      "endpoint_overshoots": 0,
+      "finite_gamma_upper_bounds": 400,
+      "gamma_upper_coverage": 400,
+      "geometry_mean_diagnostic": 0.5990521159263453,
+      "geometry_overshoots": 0,
+      "joint_target_event_boundary_unresolved": 0,
+      "joint_target_event_covered": 397,
+      "joint_target_event_missed": 3,
+      "name": "changed_calibration",
+      "positive_endpoint": 400,
+      "positive_geometry": 395,
+      "simultaneous_target_and_reference_inclusion": 397,
+      "unbounded_gamma_abstentions": 0
+    }
+  ],
+  "datasets": 1600,
+  "independently_batched_seed_replay": [
+    {
+      "all_counts_match": true,
+      "case": "driven",
+      "replicate": 0
+    },
+    {
+      "all_counts_match": true,
+      "case": "equilibrium",
+      "replicate": 399
+    },
+    {
+      "all_counts_match": true,
+      "case": "changed_calibration",
+      "replicate": 399
+    }
+  ],
+  "scope": "Population event inclusion uses rational law enclosures; no unresolved-boundary event is silently called covered. Gamma abstention is explicitly an infinite upper bound. Selected saved seeds were regenerated with a separately batched integer sampler; no new dataset or experiment was added.",
+  "status": "complete_sufficient_count_replay",
+  "whole_bank_product_tv_upper": "82760739793405127981511069312327110493403341735236293933613492987509936354974805948431888118777285711274584810492456944199440109150324748256012214199319356387308198083909992378417154314946493677940344308580310539869938491240839407583891972132306703525796923106040189546307452871771754504452112510408790815052185891953884855842660137595621687127337468048787772915839137897712641777837124573664149179773031423028531646766800878164298962321016950236620505588906975509008275003866963551764715704436328409374737934656508081030432640908045128022327198902951726067538818435230376215251849881702593320325224403970744966629351845712502047809207178731768135365738640723753799016354784828759197160308295407388378837904532227914699852438283546917706968174328221457314145064949670023029513085954880819157629543526554561815569210431782982826129443263977315464745384192339339986974173937503859372777097659888333253947273770870218494671293713447444838856145992306345430947649588602226596704408505977618259667711081045132935764894168036220695620175091893289/3955234618015122976008384090211021925303975389172729299243869497283895688763908213445764143657947567772671844522682319995134999336452594232237147663546784394565805690188058206878304250999812265474449135984603342621900800000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+}

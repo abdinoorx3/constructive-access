@@ -1,0 +1,115 @@
+\chapter{Interfaces that preserve experimental meaning}
+\label{completion:composition}
+
+A local equivalence certificate is useful in a larger apparatus only when
+the allowed coupling respects what that certificate preserves. This chapter
+states a finite classical interface contract, proves its error propagation,
+and gives an exact refinement algorithm. The ingredients are established
+stochastic lumpability, intertwining and partition refinement. Their role
+here is to make modular use of access certificates checkable.
+
+\section{Joint outcome and interface state}
+A finite classical instrument has nonnegative matrices $M_{a,y}$ with
+$\sum_yM_{a,y}$ stochastic. Let $C$ be an $n\times k$ row-stochastic
+interface, and $B_{a,y}$ a $k$-state instrument with the same actions and
+outcomes. Define the local defect
+\[
+ \epsilon_a(x)=\frac12\sum_{y,z}
+       |(M_{a,y}C-CB_{a,y})_{xz}|.
+\]
+The defect includes both the recorded outcome and the state passed to later
+operations. Agreement of immediate readout probabilities alone is not enough.
+Preparations, couplings, controls and readout updates belong to the contract.
+
+\begin{theorem}[Adaptive composition bound]
+Let $P,Q$ be the complete terminal-record laws of the concrete and quotient
+instruments under the same finite adaptive policy tree, with respective
+initial rows $\mu,\nu$. At each internal history $h$, let
+$\mu_h=\mu M_h$ be the unnormalized concrete branch row and $a(h)$ its
+chosen action. Then
+\[
+ \operatorname{TV}(P,Q)\leq
+ \min\left\{1,\operatorname{TV}(\mu C,\nu)
+                  +\sum_h\mu_h\epsilon_{a(h)}\right\}.
+\]
+In particular, exact intertwining $M_{a,y}C=CB_{a,y}$ and matching interface
+preparations imply identical records for every permitted finite adaptive
+policy, including outcome-dependent stopping.
+\end{theorem}
+\begin{proof}
+For a quotient branch row $\nu_h$, put $d_h=\mu_hC-\nu_h$. At an action $a$,
+\[
+ d_{hy}=\mu_h(M_{a,y}C-CB_{a,y})+d_hB_{a,y}.
+\]
+Nonnegativity gives
+$\sum_y\|\mu_h(M_{a,y}C-CB_{a,y})\|_1\leq2\mu_h\epsilon_a$.
+Outcome normalization gives
+$\sum_y\|d_hB_{a,y}\|_1\leq\|d_h\|_1$.
+Sum through the tree, retaining every outcome and stopped branch. The leaf
+probability difference is $d_h\mathbf1$ because $C\mathbf1=\mathbf1$.
+Half the sum of absolute leaf probability differences proves the claim.
+\end{proof}
+
+The defect sum is an expected accumulated error under the concrete model;
+it can improve on horizon times a uniform worst-case defect. Exact
+intertwining is a sufficient contextual certificate. It is not asserted to
+characterize every trace-equivalent pair.
+
+\section{Independent components and new couplings}
+For product instruments with product interface $C_1\otimes C_2$, the local
+joint defect at a state pair obeys
+\[
+ \epsilon_{12}\leq\epsilon_1+\epsilon_2-\epsilon_1\epsilon_2.
+\]
+Maximally couple each pair of normalized outcome/interface distributions
+independently. Both agree with probability at least
+$(1-\epsilon_1)(1-\epsilon_2)$, proving the bound. For several factors use
+$1-\prod_i(1-\epsilon_i)$. A subsequent adaptive context is covered by the
+preceding theorem if every added interaction also has a checked joint defect.
+
+Matching local preparation marginals does not establish matching joint
+preparations. The distributions $(00+11)/2$ and $(01+10)/2$ have identical
+one-bit marginals; a controlled-NOT followed by target-bit readout identifies
+their parity perfectly. Joint interface equality must be established,
+for example through an independently justified product preparation.
+
+\section{Constructing a sufficient deterministic interface}
+Given an initial observation partition $\mathcal P_0$, repeatedly split each
+block according to the signature
+\[
+ \left(\sum_{j\in B}M_{a,y}(i,j)\right)_{a,y,B\in\mathcal P}.
+\]
+\begin{proposition}
+The iteration terminates after at most $n-|\mathcal P_0|$ strict rounds and
+returns the coarsest deterministic Markov interface refining $\mathcal P_0$
+for all declared instruments and all initial preparations.
+\end{proposition}
+\begin{proof}
+Each strict round increases the number of blocks. At termination, states in
+one block send the same outcome/transition mass to every target block, exactly
+the required intertwining identity for the deterministic partition matrix.
+Any stable refinement of the current partition must separate unequal
+signatures, since each current block is a union of refined blocks. Induction
+shows that every stable refinement refines every iteration, and hence the
+terminal partition. This proves coarseness as well as closure.
+\end{proof}
+
+The software exports the forced refinements and independently checks every
+split and final closure. Minimality refers to deterministic Markov interfaces;
+it does not imply a smallest linear realization or a cheapest physical sensor.
+An algorithm naming a finer hidden block does not supply physical access to it.
+
+In the four-state model $(h,o)$, passive readout sees only $o$. Preparations
+$(0,0)$ and $(1,0)$ are passively identical. Adding the allowed reversible
+logical coupling $(h,o)\mapsto(h,o\mathbin{\mathrm{XOR}}h)$ makes a subsequent
+visible readout distinguish them. The coarsest interface expands from two
+states to four. This illustrates an actual change in permitted access, while
+making no claim that physical implementation of the logical gate costs zero
+energy. A second example has identical immediate output laws but different
+hidden updates; its later records separate. The joint defect detects that
+failure of a readout-only calibration.
+
+The exact implementations are in
+\path{constructive_access/completion/composition.py}; reproducible examples
+and independent checks accompany the source. No theorem in this chapter is
+claimed for arbitrary quantum couplings or unmodeled shared environments.

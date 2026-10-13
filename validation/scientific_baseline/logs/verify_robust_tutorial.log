@@ -1,0 +1,1 @@
+{"output": "results/robust_tutorial.json", "fixed_records": 600, "anytime_sufficient_records": 1100, "dimension_records": 6000, "synthetic_reset_defect_lower": 0.6040934688016155}

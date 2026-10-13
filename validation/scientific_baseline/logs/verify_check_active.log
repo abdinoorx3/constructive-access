@@ -1,0 +1,8 @@
+{
+  "certificate_mode": "optimal_witness",
+  "contract_sha256": "ed2c585a51d2946200285ed90614eaa1e2773ffb892a67bbabc519035da39b15",
+  "scope": "Mathematical report integrity under the independently supplied contract; empirical calibration is not checked",
+  "status": "distinguishable_under_declared_access",
+  "synthesis_repeated": false,
+  "verified": true
+}

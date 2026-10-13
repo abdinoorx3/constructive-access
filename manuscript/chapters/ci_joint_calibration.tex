@@ -1,0 +1,241 @@
+\chapter{Calibrating and testing in one contrast}
+\label{ch:ci-joint-calibration}
+
+The same-state measurement supplies information about the detector, but it
+does not have to be converted into a separate calibration interval before
+testing dynamics. A predetermined linear contrast can combine its raw
+agreement count with the positive-lag counts under one confidence allowance.
+This avoids paying separate worst-case statistical margins for an intermediate
+quantity that the final decision does not need on its own. Its proof uses the
+same established reversible moment inequality and Hoeffding bound as the
+earlier construction; the change is how the available records are used.
+
+\section{The lag-zero quadratic inequality}
+Let a stationary hidden CTMC have a fixed noninvasive binary detector with
+conditional mean $f(x)\in[-1,1]$. At each setting, the two detector draws have
+independent noise conditional on their hidden states. At lag zero they are
+fresh readings of \emph{one unchanged hidden state}. They use the same detector
+channel as the positive-lag settings. Write
+\[
+ C_k=\langle f,e^{k\Delta Q}f\rangle_\pi,\qquad
+ q_k=\frac{1+C_k}{2},\qquad C_0=A=\langle f,f\rangle_\pi.
+\]
+These definitions do not replace the twin reading by the square of one noisy
+bit, whose value would always be one.
+
+\begin{proposition}[Joint reversible support]
+For $0\leq s\leq1$, define
+\begin{equation}
+ a_s=(-s^2,2s,-1),\qquad b_s=-\frac{(1-s)^2}{2}.
+ \label{eq:ci-joint-support}
+\end{equation}
+Every stationary reversible explanation with this access contract obeys
+$a_s\cdot(q_0,q_1,q_2)\leq b_s$. The support $b_s$ is exact even when the
+hidden dimension, rates, detector mean and $A$ are unknown.
+\end{proposition}
+\begin{proof}
+For reversible $Q$, $P=e^{\Delta Q}$ is self-adjoint in $L^2(\pi)$. Thus
+\[
+ -s^2 C_0+2s C_1-C_2=-\|(P-sI)f\|_\pi^2\leq0.
+\]
+The constant part of $a_s\cdot q$ is $b_s$. A fair state-independent detector
+has $f=0$ and attains equality, so the support is exact. For $0<s<1$, a
+mean-zero reversible one-mode detector with decay $s$ and nonzero $A$ also
+attains equality. Equivalently, the reversible spectral measure satisfies
+$2sC_1-C_2-s^2C_0=-\int(x-s)^2\,\mu(dx)$.
+\end{proof}
+
+This is a quadratic moment inequality, equivalently a $2\times2$ Hankel
+positivity condition. It is not a new law of reversibility or a new
+concentration theorem~\cite{vlAldousFill2002,caHoeffding1963}.
+With $C_0>0$, the population gap is largest at $s=C_1/C_0$ when that ratio is
+in $[0,1]$, and a positive optimized gap means $C_1^2>C_0C_2$.
+For finite data, $s$ must be fixed in advance or selected using independent
+pilot records; optimizing it on the inference data requires a different,
+simultaneously valid confidence procedure.
+
+\section{One confidence budget, with lag-zero uncertainty retained}
+Collect independent stationary agreement records with fixed counts
+$n_0,n_1,n_2$ and success fractions $\widehat p_k$. At level $1-\alpha$, a
+valid lower bound on the population contrast is
+\begin{equation}
+ L_s=-s^2\widehat p_0+2s\widehat p_1-\widehat p_2
+ -\sqrt{\frac{\log(1/\alpha)}2
+       \left(\frac{s^4}{n_0}+\frac{4s^2}{n_1}+\frac1{n_2}\right)}.
+ \label{eq:ci-joint-confidence}
+\end{equation}
+This follows directly from Hoeffding for the weighted sum of all independent
+bounded observations. A declared probability error $\delta_k$ between the
+observed and ideal target law subtracts a further
+$s^2\delta_0+2s\delta_1+\delta_2$. An externally valid calibration-contract
+failure probability $\gamma$ adds to statistical failure, giving
+$\alpha+\gamma$. Setting $\gamma=0$ in a mathematical model does not verify
+the corresponding hardware assumptions.
+
+The statistical saving can be isolated without any physical approximation.
+Put $v_0=s^4/n_0$ and $v_+=4s^2/n_1+1/n_2$. If two linear parts of the same
+contrast are bounded separately at failures $\alpha_0,\alpha_+$ with
+$\alpha_0+\alpha_+=\alpha$, their combined Hoeffding penalty is
+\[
+ \sqrt{v_0\log(1/\alpha_0)/2}
+ +\sqrt{v_+\log(1/\alpha_+)/2}
+ \ \geq\ \sqrt{(v_0+v_+)\log(1/\alpha)/2}.
+\]
+The right side is the joint penalty. This comparison concerns that fixed
+linear target; it does not order a richer calibration region and every
+possible subsequent test.
+
+The zero-lag term remains in the variance. An exact counterexample shows why.
+Take a reversible mean-zero one-mode detector with
+$A=1/2$, decay $x=1/2$, and $s=1/2$. Then
+$(p_0,p_1,p_2)=(3/4,5/8,9/16)$ saturates the support. If only one zero-lag
+pair is collected, its agreement is zero with probability $1/4$. Treating
+that empirical value as exact, even with perfectly known positive-lag means,
+creates a false gap $3/16$. The correct radius in
+\eqref{eq:ci-joint-confidence} prevents that error. Zero lag is a statement
+about the ideal physical evolution interval, not zero measurement uncertainty
+or zero apparatus cost.
+
+\section{Why the physical comparison omits lag zero}
+Let $p$ be generated by a stationary, possibly irreversible $Q$, and let
+$q$ be generated by $S=(Q+Q^\dagger)/2$ using the same stationary law and
+detector. Then $q$ is reversible and \emph{exactly} $p_0=q_0$. Hence
+\begin{equation}
+ a_s\cdot p-b_s\leq a_s\cdot(p-q)
+ =2s(p_1-q_1)-(p_2-q_2).
+ \label{eq:ci-joint-zero-cancels}
+\end{equation}
+Under the previously established ordinary-time-reversal stationary Markov
+entropy bridge,
+$D(P_Q^t\Vert P_S^t)\leq\sigma t/4$. Data processing and Pinsker imply
+$|p_k-q_k|\leq\sqrt{\sigma k\Delta/8}$. Thus a confidence-certified
+$g=[L_s-b_s]_+$ yields
+\begin{equation}
+ \boxed{\quad
+ \sigma\geq\frac{8g^2}{(2s\sqrt{\Delta}+\sqrt{2\Delta})^2}.
+ \quad}
+ \label{eq:ci-joint-rate}
+\end{equation}
+The cancellation uses a common ideal twin law. If the detector changes
+between settings, or finite exposure changes the state between the alleged
+twins, it requires an explicit error bound before the cancellation can be
+used. The zero-lag count still contributes two endpoint readings, a stationary
+preparation and its uncertainty. Odd-variable physical reversal, invasive
+readout and uncalibrated transients remain outside this interpretation.
+
+The cancellation has a general form. Suppose a comparison construction gives
+$a\cdot q\leq b$, and a set of measured coordinates $I$ satisfies
+$p_j=q_j$ exactly for every allowed original/reference pair. If the remaining
+coordinates obey $|p_j-q_j|\leq\sqrt{\sigma t_j/8}$ and their weighted
+duration denominator below is positive, then any joint confidence gap $g$ implies
+\[
+ \sigma\geq\frac{8g^2}{(\sum_{j\notin I}|a_j|\sqrt{t_j})^2}.
+\]
+All coordinates still enter the statistical variance and acquisition cost.
+This is a bookkeeping rule for physically invariant measurements, not a new
+divergence inequality. For example, a fixed instantaneous detector's mean
+and second moment are unchanged by additive reversibilization because its
+stationary law and detector channel are unchanged. Whether a particular
+apparatus measures such an invariant must be established independently.
+
+For the fixed example $s=19/25$, the coefficients are
+$(-361/625,38/25,-1)$ and $b_s=-18/625$. At population probabilities
+$(3/4,69/100,59/100)$, the exact reversible gap is $34/625=0.0544$.
+Illustrative mean-centered counts $(3000,5520,4720)$ out of
+$(4000,8000,8000)$ at $\alpha=0.05$ give a sampling radius $0.02729006$,
+gap $0.02710994$, and entropy-rate lower bound $0.00068291$. These
+illustrative counts are deterministic arithmetic examples, not an additional
+simulation or physical measurement.
+
+The extra measurement addresses a real ambiguity in this example. The
+positive-lag pair $(p_1,p_2)=(0.69,0.59)$ also has an exactly reversible
+two-state explanation with $A=361/450$ and decay $x=9/19$. That explanation
+predicts $p_0=811/900$, whereas the driven example predicts $p_0=3/4$.
+The joint contrast uses this additional observable to exclude the hidden
+reversible explanation. It does not reconstruct all hidden currents or
+determine total dissipation.
+
+\section{A paired, independently seeded evaluation}
+The evaluation contract was frozen before new data generation. It uses
+$400$ datasets for each of the four previous cases: the driven twenty-state
+ring, its reversible same-activity counterpart, a driven low-gain detector,
+and a deliberately invalid calibration in which the detector gain changes
+between the twin and positive-lag measurements. The new seed is independent
+of all earlier evaluations. The parameter $s=0.76$ is inherited from the
+prior model and fixed before these records.
+
+The joint method and actual two-stage implementations use the identical
+$4000$ twin pairs and $8000$ pairs at each of lags $1$ and $2$. The latter
+retain their original separate $0.025$ calibration and $0.025$ science
+allowances, calibrated polygon, Pinsker bound and certified nonlinear
+projection. The optimized and legacy extra-lag implementations use the same
+lag-$1/2$ data, replacing the twins by $4000$ independent lag-$3$ pairs.
+The optimized extra-lag parameter remains the earlier fixed $0.34$; neither
+method is redesigned using these held-out observations.
+
+Each arm has $20000$ pair records and $40000$ detector readings. The joint
+and two-stage arms use $24000$ declared evolution units; the extra-lag arm
+uses $36000$. Generating all menus for the paired simulation requires
+$24000$ distinct pairs and $48000$ readings, with the shared records reused
+only for comparison of methods. Preparation energy, detector duration,
+finite exposure and hardware verification of the twin contract remain
+unmeasured. Equal record counts do not imply equal total physical energy.
+
+Full sufficient counts, an illustrative full record dataset, exact certificate
+examples and pointwise 95\% Clopper--Pearson Monte Carlo intervals are
+retained. The actual earlier inference functions are called unchanged, and
+their specification is checked against its saved frozen contract before
+sampling. The result records hashes of both contracts and the count archives.
+The computation uses outward rational bounds for certificate arithmetic;
+floating-point simulation is separately identified.
+
+\begin{center}
+\begin{tabular}{l|r|r|r}
+Method & Driven detections /400 & Mean entropy lower & Evolution time\\\hline
+Joint calibration & $399$ & $0.000800513$ & $24000$\\
+Two-stage Pinsker & $353$ & $0.000244061$ & $24000$\\
+Two-stage nonlinear & $352$ & $0.000281353$ & $24000$\\
+Optimized extra lag & $400$ & $0.001122925$ & $36000$\\
+Legacy extra lag & $393$ & $0.000302670$ & $36000$
+\end{tabular}
+\end{center}
+
+Joint detection is $99.75\%$, with pointwise 95\% Clopper--Pearson interval
+$[0.98615,0.99994]$. The two-stage Pinsker and nonlinear rates are
+$88.25\%$ and $88\%$, with intervals $[0.84683,0.91238]$ and
+$[0.84406,0.91018]$. The joint method adds $46$ and $47$ paired detections,
+respectively, with no paired losses on these driven datasets. Its mean lower
+bound is $3.28$ times the two-stage Pinsker mean and $2.85$ times the
+two-stage nonlinear mean. These are ratios of dataset means, not guaranteed
+improvement factors for an arbitrary model.
+
+The optimized extra-lag method remains stronger on mean certified rate and
+detects all $400$ datasets; its additional evolution time is explicitly
+reported. The true simulated entropy rate is about $3.55736$, so even the
+joint lower-bound mean recovers only about $0.023\%$ of it. Improving
+statistical use of the records does not remove the observational and physical
+bridge limitations on quantitative dissipation inference.
+
+Every method produces zero exclusions among the $400$ valid equilibrium
+datasets. With high readout noise, the joint, two-stage Pinsker, two-stage
+nonlinear, optimized extra-lag and legacy methods detect respectively
+$6,0,0,8,6$ of $400$ driven datasets. This remains a low-power regime.
+Joint-contrast coverage is $397/400$, $399/400$ and $396/400$ in the driven,
+equilibrium and high-noise cases; the nominal guarantee is at least $95\%$.
+These empirical coverage frequencies are simulation diagnostics, separate
+from the theorem.
+
+In the deliberately invalid detector-change control, all three
+calibration-dependent methods falsely exclude equilibrium in $400/400$
+datasets. Both extra-lag methods, which do not use the changed calibration
+channel, give zero exclusions. The control is outside the stated twin
+contract and demonstrates that increased statistical precision cannot repair
+a systematically wrong calibration channel. It is not omitted from the
+reported comparison.
+
+The methods are not universally ordered. A two-stage confidence region can
+support many later scientific questions and exploit a tightly calibrated
+nonzero detector mean; the predetermined scalar contrast addresses one
+specific question. Additional lags can expose failures that this quadratic
+cannot see. The joint method's intended advantage is avoiding unnecessary
+statistical separation when the final contrast is already fixed.

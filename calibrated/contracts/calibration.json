@@ -1,0 +1,27 @@
+{
+  "study": "same_state_calibration_and_zero_lag_boundary",
+  "frozen_before_results": true,
+  "evidence": "exact rational constructions and deterministic numerical cross-checks, not laboratory data",
+  "calibration_contract": "same stationary hidden state, two conditionally independent noninvasive binary readings, independent calibration records",
+  "moments": "mean m=E[Y], conditional second moment A=E[f(X)^2], not E[Y^2]",
+  "exact_countermodel_menu": [
+    1,
+    2
+  ],
+  "general_countermodel_menu": "positive integer lags 1 through K, K=1,...,6",
+  "reversible_models": "two-state blocks and irreducible products of symmetric telegraph chains",
+  "numerical_seed": 760381,
+  "rate_repair_contract": "stationary finite homogeneous CTMC with a calibrated uniform exit-rate cap, independent readout noise",
+  "energy_boundary": "zero stationary entropy production alone does not bound reversible relaxation rates",
+  "addendum": {
+    "extension": "bounded memoryless analog observation supplies upper-only A calibration",
+    "evidence": "exact synthetic four-point noise calculation, not held-out sampling",
+    "noise_example": {
+      "signal_amplitude": "1/4",
+      "noise_amplitude": "1/2",
+      "A": "1/16",
+      "observed_second_moment": "5/16"
+    },
+    "confidence_scope": "analog summary helper requires iid calibration records; externally valid dependent-data intervals may be supplied to analog_vertices"
+  }
+}

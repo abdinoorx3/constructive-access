@@ -1,0 +1,477 @@
+\chapter{Precision, calibration, and acquisition energy}
+\label{ch:access-resources}
+
+An intervention can make a current identifiable while leaving its numerical
+value too uncertain to be useful. Conversely, a very precise instrument can
+remain blind to the desired distinction. Experimental design must address both
+questions: which observations determine the target, and which attainable error
+bounds make the answer useful?
+
+This chapter connects those questions for conserved currents. It first treats
+shared calibration errors, then optimizes a declared relation between sensor
+precision and acquisition energy. A sharp change occurs when irreducible
+calibration errors are admitted: a design problem solvable by one minimum cut
+becomes NP-complete in general. We nevertheless obtain inexpensive certificates
+that bound the optimum and sometimes determine it exactly.
+
+The ingredients---linear-programming duality, max-flow/min-cut, H\"older's
+inequality, and supporting hyperplanes---are established mathematics. Their
+role here is to provide a connected, checkable experimental-design method.
+The energy results are conditional on an explicit sensor contract. They are
+not universal thermodynamic lower bounds.
+
+\section{Recovering a target in the presence of shared nuisance}
+
+Let $j\in\mathbb R^m$ denote a vector of currents and let $Bj=0$ encode known
+conservation laws. For a graph incidence matrix, a column has $-1$ at the tail
+and $+1$ at the head of its oriented edge. Negative currents are permitted;
+the orientation only fixes the sign convention. Suppose the available
+observations satisfy
+\begin{equation}
+ y=Hj+A\eta+e,\qquad |e_i|\leq\varepsilon_i,
+ \label{eq:res-observation}
+\end{equation}
+where $\eta\in\mathbb R^k$ is an unknown fixed calibration nuisance. Its effect
+across observations is the known matrix $A$. The scientific target is $b^Tj$.
+
+Throughout this section, the admissible parameter space is the entire linear
+space $\ker B$, the nuisance is unrestricted, and the error set is the full
+coordinatewise box. These assumptions define the minimax claim. Bounded
+traffic, known affinities, correlated errors, or prior parameter bounds can
+change the sharp answer.
+
+\begin{theorem}[Constrained linear minimax recovery]
+\label{thm:res-nuisance}
+Under \eqref{eq:res-observation}, the minimum, over all estimators, of the
+worst-case absolute error is
+\begin{align}
+ R
+ &=\min_{w,\phi}\ \sum_i\varepsilon_i|w_i|
+ &&\text{subject to }H^Tw+B^T\phi=b,\quad A^Tw=0,
+ \label{eq:res-primal}\\
+ &=\max_{h,z}\ b^Th
+ &&\text{subject to }Bh=0,\quad |Hh+Az|\leq\varepsilon.
+ \label{eq:res-dual}
+\end{align}
+If the constraints in \eqref{eq:res-primal} have no solution, $R=+\infty$.
+Otherwise the finite optima are attained, and an optimal estimator is $w^Ty$.
+\end{theorem}
+
+\begin{proof}
+The identities in \eqref{eq:res-primal} give
+$w^Ty-b^Tj=w^Te$, whose absolute value is at most
+$\sum_i\varepsilon_i|w_i|$. For any feasible $(h,z)$ in
+\eqref{eq:res-dual}, the two parameter pairs $(j,\eta)=(h,z)$ and $(-h,-z)$
+produce the same observation $y=0$ when their errors are respectively
+$-(Hh+Az)$ and $Hh+Az$. Their targets are $b^Th$ and $-b^Th$, so every
+estimator incurs maximum error at least $|b^Th|$. Linear-programming duality
+equates the two bounds. Equivalently, append the exact observations $Bj=0$
+to \eqref{eq:res-observation} and apply linear optimal recovery to $(j,\eta)$.
+If the primal identities are infeasible, the annihilator alternative provides
+$Bh=0$, $Hh+Az=0$, and $b^Th\ne0$. Scaling this direction proves unbounded
+ambiguity. Finite-dimensional linear programs attain their finite optima,
+including the cases of redundant constraints and zero error radii.
+\end{proof}
+
+The certificate contains the estimator weights $(w,\phi)$ and the
+least-favorable perturbation $(h,z)$. Checking linear identities, error bounds,
+and equality of the two objective values establishes optimality without
+rerunning the optimizer. The small exact solver supplied with this release
+enumerates supports and vertices; that implementation is intended for examples,
+not large-scale general linear programming.
+
+\paragraph{A shared bias can be cancelled; an arbitrary bias cannot.}
+On an oriented triangle, conservation gives $j_1=j_2=j_3=J$. Consider
+\[
+ y_1=J+\eta+e_1,\qquad y_2=-J+\eta+e_2.
+\]
+The estimator $(y_1-y_2)/2$ has exact worst-case error
+$(\varepsilon_1+\varepsilon_2)/2$. For radii $1/10$ and $1/5$, the result is
+$3/20$. If both responses are $J+\eta$, the current remains unidentifiable.
+It also remains unidentifiable if the two offsets are independently unknown.
+The useful operation is a physical response change that reverses the current
+contribution while preserving the shared offset. Negating an existing recorded
+number reverses both contributions and creates no additional access.
+
+\paragraph{The lower-bound currents can have positive physical rates.}
+For a connected bidirectional network, fix any positive stationary distribution
+$\pi$. Given a finite circulation $j$, choose symmetric edge traffics
+$t_e>|j_e|/2$. On an edge $e:u\to v$, set
+\[
+ q^e_{uv}=\frac{t_e+j_e/2}{\pi_u},\qquad
+ q^e_{vu}=\frac{t_e-j_e/2}{\pi_v}.
+\]
+All rates are positive, $\pi$ is stationary by conservation, and the channel
+current is $j_e$. A least-favorable pair $\pm h$ can use the same $\pi$ and
+the same traffics $t_e>|h_e|/2$. Thus the circulation lower bound does not rely
+on negative transition rates. This construction does not imply that every
+fixed device with bounded rates can realize the entire current space.
+
+\section{The exact uncertainty of one hidden current}
+
+Let $e_0:u\to v$ be an edge whose current cannot be measured directly. Remove
+that edge from the graph. Some remaining edges have sensor records
+$y_e=j_e+e_e$, with $|e_e|\leq\varepsilon_e$; other edges are unobserved.
+The errors jointly range over the full box. No probabilistic independence
+assumption is involved.
+
+\begin{proposition}[Current uncertainty as a minimum cut]
+\label{prop:res-current-cut}
+Over the full circulation space, the exact minimax absolute error for $j_{e_0}$
+is the minimum $u$--$v$ cut capacity in the graph without $e_0$, assigning
+capacity $\varepsilon_e$ to a measured edge and infinite capacity to an
+unobserved edge. An unobserved $u$--$v$ path makes the error unbounded. If
+$e_0$ is a bridge, its stationary current is zero and needs no measurement.
+\end{proposition}
+
+\begin{proof}
+Conservation expresses the target current as a signed sum of the other currents
+crossing any separating cut. A cut containing only measured edges therefore
+gives an estimator with error at most the sum of its radii. A maximum flow from
+$v$ to $u$ through the remaining graph, closed by a flow through $e_0$, gives a
+circulation $h$ with $|h_e|\leq\varepsilon_e$ on every measured edge. The pair
+$\pm h$ has a common possible record and target separation $2h_{e_0}$.
+Max-flow/min-cut equates these bounds. An entirely unobserved return path
+supports an arbitrarily scaled invisible circulation. A bridge cannot carry
+a nonzero conserved current.
+\end{proof}
+
+The same minimum-cut algorithm can optimize installation cost, error, or a
+transformed parameter for acquisition energy. These are different inputs and
+different scientific claims. An error capacity must not be interpreted as an
+energy cost merely because the same graph algorithm processes it.
+
+\section{A declared relation between precision and acquisition energy}
+
+Assume that an available sensor has the calibrated error contract
+\begin{equation}
+ \varepsilon_e(E_e)
+ =\delta_e+\sqrt{\frac{a_e}{E_e}}
+ =\delta_e+\sqrt{\frac{q_e^3}{E_e}},
+ \qquad q_e=a_e^{1/3}>0,\quad \delta_e\geq0,
+ \label{eq:res-energy-law}
+\end{equation}
+where $E_e>0$ is acquisition energy in consistently declared units. The floor
+$\delta_e$ represents an error that additional acquisition energy cannot
+remove under this contract. Zero allocation means no reading and hence
+unbounded uncertainty.
+
+Equation \eqref{eq:res-energy-law} is an input to the design problem. It must
+be justified for the estimated \emph{current}, including the response model
+that converts a detector output into that current. A square-root uncertainty
+law for raw photon or transition counts does not by itself establish the same
+law after an uncertain dynamical inversion. Finite pulses, poorly known gains,
+and systematic response errors can produce different exponents or additional
+floors.
+
+The optimization below concerns fixed sensor selections and nonadaptive,
+continuous energy allocations. Integer record counts, power limits, minimum
+pulse durations, and history-dependent acquisition require additional
+constraints. Preparation, control, reset, calibration, installation, and
+thermal-support energy are additional unless explicitly included in $E_e$.
+
+If \eqref{eq:res-energy-law} describes a simultaneous confidence envelope
+valid with probability at least $1-\alpha$, the resulting target-error bound
+has that same confidence. Marginal guarantees for individual sensors do not
+automatically give a joint guarantee. If the envelope is conservative, the
+optimum below is the optimum certified by the declared adversarial box; it
+need not be the minimum energy of every physically conceivable experiment.
+
+\begin{theorem}[Optimal allocation on a cut]
+\label{thm:res-cut-allocation}
+For a nonempty sensor cut $C$, define
+\[
+ Q_C=\sum_{e\in C}q_e,\qquad
+ \Delta_C=\sum_{e\in C}\delta_e.
+\]
+The minimum acquisition energy giving target-current error at most $\tau>0$
+through that cut is
+\begin{equation}
+ E_C^*=\frac{Q_C^3}{(\tau-\Delta_C)^2},\qquad \tau>\Delta_C.
+ \label{eq:res-cut-energy}
+\end{equation}
+It is attained by
+\begin{equation}
+ E_e=\frac{Q_C^2q_e}{(\tau-\Delta_C)^2},\qquad
+ \varepsilon_e=\delta_e+
+       \frac{(\tau-\Delta_C)q_e}{Q_C}.
+ \label{eq:res-allocation}
+\end{equation}
+No finite energy suffices if $\tau\leq\Delta_C$. An empty cut has zero cost.
+\end{theorem}
+
+\begin{proof}
+Put $x_e=\sqrt{q_e^3/E_e}>0$. Feasibility requires
+$\sum_{e\in C}x_e\leq\tau-\Delta_C$. H\"older's inequality gives
+\[
+ Q_C=\sum_{e\in C}
+       \left(\frac{q_e^3}{x_e^2}\right)^{1/3}x_e^{2/3}
+ \leq\left(\sum_{e\in C}E_e\right)^{1/3}
+       \left(\sum_{e\in C}x_e\right)^{2/3}.
+\]
+This proves the lower bound in \eqref{eq:res-cut-energy}, and
+\eqref{eq:res-allocation} attains equality.
+\end{proof}
+
+\begin{corollary}[Global sensor and energy design]
+\label{cor:res-global-energy}
+Under the full circulation and box-error model, the optimum over fixed
+allocations, arbitrary sensor subsets, and all estimators is
+\begin{equation}
+ E^*=\min_C\frac{Q_C^3}{(\tau-\Delta_C)^2},
+ \label{eq:res-global-energy}
+\end{equation}
+where the minimum ranges over sensor-only separating cuts with
+$\Delta_C<\tau$, with the bridge exception assigned zero energy.
+\end{corollary}
+
+\begin{proof}
+Every successful allocation has some separating cut whose summed error is
+at most $\tau$, by Proposition~\ref{prop:res-current-cut}. Its total acquisition
+energy is at least the optimal allocation on that cut. Conversely, a cut
+estimator with \eqref{eq:res-allocation} attains the displayed value.
+\end{proof}
+
+The formula also supplies a finite-energy feasibility test. Let $\rho$ be the
+minimum cut sum of $\delta_e$, with unavailable sensors assigned infinite
+capacity. For a nonbridge target with strictly positive $a_e$, finite energy
+is possible exactly when $\tau>\rho$. At $\tau=\rho$, more acquisition can
+approach the floor but cannot attain it at finite energy.
+
+\begin{remark}[Other calibrated precision exponents]
+The allocation argument is not specific to a square-root law. For a declared
+contract $\varepsilon_e=\delta_e+(a_e/E_e)^{1/p}$ with $p>0$, put
+$q_e=a_e^{1/(p+1)}$. The same H\"older argument gives
+$E_C^*=Q_C^{p+1}/(\tau-\Delta_C)^p$ and
+$E_e=Q_C^p q_e/(\tau-\Delta_C)^p$.
+This algebraic extension does not establish which exponent a physical sensor
+obeys. The exact allocation software in this release implements $p=2$.
+\end{remark}
+
+\section{An efficient exact case and a complexity boundary}
+
+\subsection{Zero calibration floors}
+If every $\delta_e=0$, minimizing \eqref{eq:res-global-energy} amounts to
+minimizing $Q_C$. Thus one minimum cut with edge capacities $q_e$ gives
+\begin{equation}
+ E^*=\frac{\left(\min_C\sum_{e\in C}q_e\right)^3}{\tau^2}.
+ \label{eq:res-ideal-energy}
+\end{equation}
+The cut chooses the sensors and \eqref{eq:res-allocation} chooses their
+precision. A matching flow certifies that no alternative sensor set can have
+less energy under the contract.
+
+For rational $q_e$ and $\tau$, all quantities in this certificate are rational.
+Equivalently, the input sensor family has $a_e=q_e^3$. General cube roots require
+algebraic or certified interval arithmetic; the exact implementation does not
+silently round them. The checker verifies the graph, capacity bounds,
+conservation, cut--flow equality, and the allocation identities, against the
+externally supplied sensor parameters.
+
+\subsection{Irreducible calibration floors}
+Consider the following decision problem. Given a graph, target edge, available
+sensors with rational $q_e>0$ and $\delta_e\geq0$, rational accuracy $\tau>0$,
+and rational acquisition budget $L\geq0$, does a fixed allocation achieve
+worst-case target error at most $\tau$ with total energy at most $L$?
+
+\begin{theorem}[Floor-aware design complexity]
+\label{thm:res-floor-hardness}
+For binary-encoded rational inputs, this decision problem is NP-complete.
+NP-hardness holds even when all nontarget sensors are available, all calibration floors
+are positive, every cut is feasible at finite energy, and the graph is a target
+edge plus parallel two-edge paths with distinct internal vertices.
+\end{theorem}
+
+\begin{proof}
+A separating cut is a polynomial-size witness. Compute its rational $Q_C$ and
+$\Delta_C$ and check
+\[
+ \tau>\Delta_C,\qquad Q_C^3\leq L(\tau-\Delta_C)^2.
+\]
+The corresponding allocation has polynomial encoding length. An empty cut is
+handled separately. Thus the decision problem is in NP.
+
+For hardness, reduce PARTITION on positive integers $v_1,\ldots,v_n$ whose sum
+is $V$. Set $\beta=V$. For each $i$, introduce the path $s$--$i$--$t$, with
+sensor parameters
+\[
+ (q,\delta)=(\beta,\beta+v_i)
+ \quad\text{on }s\text{--}i,\qquad
+ (q,\delta)=(\beta+v_i,\beta)
+ \quad\text{on }i\text{--}t.
+\]
+The target is the direct edge $s$--$t$. Every separating cut in the graph
+without the target chooses one edge from each path. If $S$ indexes its
+second-edge choices, then
+\[
+ Q=n\beta+\sum_{i\in S}v_i,\qquad
+ \Delta=n\beta+V-\sum_{i\in S}v_i,
+ \qquad Q+\Delta=K=2n\beta+V.
+\]
+Set
+\[
+ Q_*=n\beta+\frac V2,\qquad
+ \tau=K-\frac{Q_*}{3},\qquad
+ L=\frac{9Q_*}{4}.
+\]
+All numbers have polynomial bit length. Every cut has
+$\tau-\Delta=Q-Q_*/3>0$, because $Q\geq nV>Q_*/3$. Its energy is
+\[
+ f(Q)=\frac{Q^3}{(Q-Q_*/3)^2}.
+\]
+The exact factorization
+\[
+ 4x^3-9Q_*(x-Q_*/3)^2=(x-Q_*)^2(4x-Q_*)
+\]
+shows that $f(x)\geq9Q_*/4$ for $x>Q_*/3$, with equality exactly at $x=Q_*$.
+There is therefore a feasible cut with energy at most $L$ precisely when
+$\sum_{i\in S}v_i=V/2$. This completes the reduction.
+\end{proof}
+
+The reduction establishes NP-hardness through PARTITION; it does not establish
+strong NP-hardness or rule out useful approximation, pseudopolynomial methods,
+or tractable subclasses. It separates an efficiently checkable design from
+an efficient general search for the optimum. The result also does not mean
+that scientific access is uncomputable.
+
+Budgeted terminal-cut problems already have a substantial complexity literature.
+For example, Aissi and Mahjoub's treatment of minimum $s$--$t$ cuts with budget
+constraints discusses related hardness results and earlier work.\footnote{Primary
+manuscript: \url{https://www.lamsade.dauphine.fr/~mahjoub/Papers/Paper-Aissi-Mahjoub-2023.pdf}.}
+The direct reduction above addresses the particular nonlinear
+precision--energy objective used here; it is not a claim to have discovered
+the hardness of multiobjective cuts.
+
+\section{Global certificates when exact design is difficult}
+
+Computational hardness does not prevent a useful guarantee on a proposed
+design. For any chosen rational support parameter $\lambda>0$, assign capacities
+\begin{equation}
+ c_e(\lambda)=3\lambda^2q_e+2\lambda^3\delta_e,
+ \label{eq:res-support-capacity}
+\end{equation}
+and let $W(\lambda)$ be their minimum cut value.
+
+\begin{proposition}[Supporting-cut energy bracket]
+\label{prop:res-support}
+The optimum floor-aware acquisition energy obeys
+\begin{equation}
+ E^*\geq\max\{0,W(\lambda)-2\tau\lambda^3\}.
+ \label{eq:res-support-bound}
+\end{equation}
+If a minimum cut returned for \eqref{eq:res-support-capacity} satisfies
+$\Delta_C<\tau$, its allocation in \eqref{eq:res-allocation} provides a feasible
+upper bound. Matching bounds certify global optimality.
+\end{proposition}
+
+\begin{proof}
+For a feasible cut, write $s=\tau-\Delta_C>0$ and $x=Q_C/s$. Then
+\[
+ \frac{Q_C^3}{s^2}
+ -\left(3\lambda^2Q_C-2\lambda^3s\right)
+ =s(x-\lambda)^2(x+2\lambda)\geq0.
+\]
+Minimizing the supporting expression $3\lambda^2Q_C-2\lambda^3s$ over all cuts gives
+$W(\lambda)-2\tau\lambda^3$. Allowing infeasible cuts in that minimum can
+only lower it, so it remains a valid lower bound. Energy is also nonnegative.
+The upper bound follows from the explicit feasible allocation.
+\end{proof}
+
+One max-flow computation supplies the lower-bound certificate. Its flow and
+cut can be checked without rerunning the optimization. Repeating this procedure
+for a declared finite set of support parameters gives the maximum certified
+lower bound and the minimum feasible upper bound encountered. This is a
+supporting-hyperplane bound, not a general exact solution of the NP-complete
+problem.
+
+The hardness construction also supplies a useful failure control. At
+$\lambda=3/2$, the weights of $q_e$ and $\delta_e$ coincide. The lower bound is
+exactly the PARTITION threshold $L$ for every instance. If the integers have no
+equal partition, the true optimum is strictly larger. Thus a valid global
+lower bound need not be attainable by any physical sensor cut.
+
+\section{A complete design example}
+
+Consider three vertices $s,a,t$. Besides the inaccessible target $s$--$t$,
+there is one edge from $s$ to $a$ and two parallel physical channels from $a$
+to $t$. Let
+\[
+ q_{\rm single}=4,\qquad q_{\rm pair,1}=1,\qquad
+ q_{\rm pair,2}=2,\qquad \tau=\frac1{10}.
+\]
+The two possible sensor cuts are the single first edge or the pair of parallel
+channels. With zero floors, the single sensor costs $6400$ acquisition units.
+The pair costs $2700$ when its energies are $900$ and $1800$, giving error
+radii $1/30$ and $1/15$. Requiring equal error radii $1/20$ instead costs $3600$.
+
+Now give the paired sensors floors $3/50$ and $1/50$, retaining a zero floor
+for the single sensor. The pair requires $67500$ units to attain the same target
+accuracy. The optimum switches to the single sensor at $6400$.
+
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Design at target error $1/10$ & Acquisition energy\\
+\midrule
+Zero floors: optimal sensor and precision choice & $2700$\\
+Zero floors: equal precision on the optimal pair & $3600$\\
+Zero floors: fewest-sensor choice & $6400$\\
+Nonzero paired floors: retaining the former pair & $67500$\\
+Nonzero paired floors: revised optimal choice & $6400$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+At support parameter $\lambda=40$, one supporting cut certifies matching lower
+and upper values of $6400$ for the floor-aware problem. This example illustrates
+why measurement count, precision allocation, and calibration robustness are
+different design objectives. Its values are exact results for a constructed
+model, not measurements of an experimental device.
+
+\subsection{Executable example and independent checking}
+From the release's \texttt{code} directory, the following example constructs
+the ideal design and checks its certificate:
+\begin{verbatim}
+from constructive_access.completion.graph_access import Edge, Graph
+from constructive_access.completion.robust_completion import (
+    minimum_ideal_energy, verify_ideal_energy,
+    floor_energy_bound, verify_floor_energy_bound,
+)
+
+g = Graph(("s", "a", "t"), (
+    Edge("target", "s", "t"),
+    Edge("single", "s", "a"),
+    Edge("pair_1", "a", "t"),
+    Edge("pair_2", "a", "t"),
+))
+q = {"single": 4, "pair_1": 1, "pair_2": 2}
+design = minimum_ideal_energy(g, "target", q, "1/10")
+checked = verify_ideal_energy(g, "target", q, "1/10", design)
+assert checked["total_energy"] == "2700"
+
+floor = {"single": 0, "pair_1": "3/50", "pair_2": "1/50"}
+bracket = floor_energy_bound(g, "target", q, floor, "1/10", 40)
+checked = verify_floor_energy_bound(
+    g, "target", q, floor, "1/10", bracket
+)
+assert checked["lower_energy"] == "6400"
+assert checked["upper_energy"] == "6400"
+\end{verbatim}
+
+The generic nuisance interface provides two separate calls:
+\begin{verbatim}
+certificate = robust_target_certificate(model)
+checked = verify_robust_certificate(model, certificate)
+\end{verbatim}
+The model fields specify conservation, observations, nuisance coefficients,
+the target, and error radii. The checker tests the primal and dual identities
+against that supplied model. Exact inputs are integers,
+rational strings, or Python \texttt{Fraction} values; floating-point inputs
+are rejected.
+
+The test suite includes shared and independent bias, inaccessible targets,
+bridge targets, zero error, corrupted certificates, calibration-induced sensor
+choice reversal, PARTITION instances, comparisons with exhaustive cut search,
+and strict lower-bound gaps. Its purpose is to test both successful design
+and the conditions under which a conclusion must be withheld. Physical use
+additionally requires validation of the observation and energy contracts.

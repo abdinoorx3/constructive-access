@@ -1,0 +1,14 @@
+{
+  "phase": "virtual_laboratory",
+  "study": "timing_and_block_detector_closure",
+  "evidence": "exact rational constructions and deterministic numerical cross-checks; no empirical data",
+  "frozen_before_generation": true,
+  "physical_null": "finite homogeneous stationary reversible CTMC, noninvasive fixed binary readout, clocks independent of hidden dynamics",
+  "clock_families": ["common iid nonnegative increments", "common random scale", "unrelated settingwise laws with ordered means", "stochastically ordered nonconvolution laws"],
+  "exposure_controls": ["disjoint reversal-symmetric endpoint average", "overlapping endpoint average", "reversal-antisymmetric endpoint difference"],
+  "exact_reference": {"symmetric_two_state_decay_per_unit": "1/2", "stationary_distribution": ["1/2", "1/2"]},
+  "numerical_seed": 560219,
+  "numerical_checks": "reversible generators with 2 through 7 states; finite discrete clock distributions; direct matrix exponentiation and spectral decomposition",
+  "inference_scope": "population apparatus closure; sampling uncertainty is handled by the existing inference modules",
+  "rate_calibration": "none required for valid closure laws; example rates are synthetic"
+}

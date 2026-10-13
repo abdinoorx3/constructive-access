@@ -1,0 +1,810 @@
+{
+  "status": "mathematical/synthetic; no laboratory data",
+  "foundations": "Sperner antichain bound and positive-realization factorization are established.",
+  "hierarchy": [
+    {
+      "grid_size": 7,
+      "settings": 13,
+      "coherence_ratio": 1000,
+      "certificate": {
+        "certified": true,
+        "minimum_states": 5,
+        "grid_size": 7,
+        "threshold": {
+          "lower": "437203/7812500",
+          "upper": "437203/7812500",
+          "approx": 0.055961984
+        },
+        "classical_comparison_bound": {
+          "lower": "108792224933/1000000000000",
+          "upper": "54396112467/500000000000",
+          "approx": 0.10879222493356024
+        },
+        "margin": {
+          "lower": "79742570159/1000000000000",
+          "upper": "996782127/12500000000",
+          "approx": 0.07974257015943977
+        },
+        "diagonal_upper": {
+          "lower": "391467961/125000000000",
+          "upper": "391467961/125000000000",
+          "approx": 0.003131743688
+        },
+        "offdiagonal_lower": {
+          "lower": "188534795093/1000000000000",
+          "upper": "188534795093/1000000000000",
+          "approx": 0.188534795093
+        }
+      }
+    },
+    {
+      "grid_size": 11,
+      "settings": 21,
+      "coherence_ratio": 10000,
+      "certificate": {
+        "certified": true,
+        "minimum_states": 6,
+        "grid_size": 11,
+        "threshold": {
+          "lower": "8860877/500000000",
+          "upper": "8860877/500000000",
+          "approx": 0.017721754
+        },
+        "classical_comparison_bound": {
+          "lower": "35129448829/1000000000000",
+          "upper": "3512944883/100000000000",
+          "approx": 0.035129448829920626
+        },
+        "margin": {
+          "lower": "11066952553/250000000000",
+          "upper": "44267810213/1000000000000",
+          "approx": 0.04426781021207937
+        },
+        "diagonal_upper": {
+          "lower": "31406059/100000000000",
+          "upper": "31406059/100000000000",
+          "approx": 0.00031406059
+        },
+        "offdiagonal_lower": {
+          "lower": "39698629521/500000000000",
+          "upper": "39698629521/500000000000",
+          "approx": 0.079397259042
+        }
+      }
+    },
+    {
+      "grid_size": 21,
+      "settings": 41,
+      "coherence_ratio": 100000,
+      "certificate": {
+        "certified": true,
+        "minimum_states": 7,
+        "grid_size": 21,
+        "threshold": {
+          "lower": "5604903/1000000000",
+          "upper": "5604903/1000000000",
+          "approx": 0.005604903
+        },
+        "classical_comparison_bound": {
+          "lower": "11178391481/1000000000000",
+          "upper": "5589195741/500000000000",
+          "approx": 0.011178391481165362
+        },
+        "margin": {
+          "lower": "2759158789/250000000000",
+          "upper": "11036635157/1000000000000",
+          "approx": 0.011036635156834639
+        },
+        "diagonal_upper": {
+          "lower": "1570747/50000000000",
+          "upper": "1570747/50000000000",
+          "approx": 3.141494e-05
+        },
+        "offdiagonal_lower": {
+          "lower": "11107513319/500000000000",
+          "upper": "11107513319/500000000000",
+          "approx": 0.022215026638
+        }
+      }
+    }
+  ],
+  "five_state_design": {
+    "grid_size": 7,
+    "coherence_ratio": {
+      "lower": "1000",
+      "upper": "1000",
+      "approx": 1000.0
+    },
+    "probability_bias": {
+      "lower": "0",
+      "upper": "0",
+      "approx": 0.0
+    },
+    "witness": {
+      "certified": true,
+      "minimum_states": 5,
+      "grid_size": 7,
+      "threshold": {
+        "lower": "2/25",
+        "upper": "2/25",
+        "approx": 0.08
+      },
+      "classical_comparison_bound": {
+        "lower": "149/1000",
+        "upper": "149/1000",
+        "approx": 0.149
+      },
+      "margin": {
+        "lower": "1/1000",
+        "upper": "1/1000",
+        "approx": 0.001
+      }
+    },
+    "settings": [
+      {
+        "n": 1900,
+        "critical": 313,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "9432356221/200000000000",
+          "upper": "23580890553/500000000000",
+          "approx": 0.04716178110516178
+        },
+        "miss_bound": {
+          "lower": "443918301/125000000000",
+          "upper": "3551346409/1000000000000",
+          "approx": 0.0035513464080445607
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "188534795093/1000000000000",
+          "upper": "188534795093/1000000000000",
+          "approx": 0.188534795093
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 1,
+        "probability_interval": [
+          {
+            "lower": "188534795093/1000000000000",
+            "upper": "188534795093/1000000000000",
+            "approx": 0.188534795093
+          },
+          {
+            "lower": "94267397547/500000000000",
+            "upper": "94267397547/500000000000",
+            "approx": 0.188534795094
+          }
+        ]
+      },
+      {
+        "n": 100,
+        "critical": 22,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "21338182849/500000000000",
+          "upper": "42676365699/1000000000000",
+          "approx": 0.04267636569859576
+        },
+        "miss_bound": {
+          "lower": "0",
+          "upper": "1/1000000000000",
+          "approx": 3.1465847120995244e-16
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "152765227957/250000000000",
+          "upper": "152765227957/250000000000",
+          "approx": 0.611060911828
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 2,
+        "probability_interval": [
+          {
+            "lower": "152765227957/250000000000",
+            "upper": "152765227957/250000000000",
+            "approx": 0.611060911828
+          },
+          {
+            "lower": "611060911829/1000000000000",
+            "upper": "611060911829/1000000000000",
+            "approx": 0.611060911829
+          }
+        ]
+      },
+      {
+        "n": 100,
+        "critical": 22,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "21338182849/500000000000",
+          "upper": "42676365699/1000000000000",
+          "approx": 0.04267636569859576
+        },
+        "miss_bound": {
+          "lower": "0",
+          "upper": "1/1000000000000",
+          "approx": 3.591395689620987e-82
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "949273004101/1000000000000",
+          "upper": "949273004101/1000000000000",
+          "approx": 0.949273004101
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 3,
+        "probability_interval": [
+          {
+            "lower": "949273004101/1000000000000",
+            "upper": "949273004101/1000000000000",
+            "approx": 0.949273004101
+          },
+          {
+            "lower": "474636502051/500000000000",
+            "upper": "474636502051/500000000000",
+            "approx": 0.949273004102
+          }
+        ]
+      },
+      {
+        "n": 100,
+        "critical": 22,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "21338182849/500000000000",
+          "upper": "42676365699/1000000000000",
+          "approx": 0.04267636569859576
+        },
+        "miss_bound": {
+          "lower": "0",
+          "upper": "1/1000000000000",
+          "approx": 6.652600690171033e-82
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "948869918527/1000000000000",
+          "upper": "948869918527/1000000000000",
+          "approx": 0.948869918527
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 4,
+        "probability_interval": [
+          {
+            "lower": "948869918527/1000000000000",
+            "upper": "948869918527/1000000000000",
+            "approx": 0.948869918527
+          },
+          {
+            "lower": "14826092477/15625000000",
+            "upper": "14826092477/15625000000",
+            "approx": 0.948869918528
+          }
+        ]
+      },
+      {
+        "n": 100,
+        "critical": 22,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "21338182849/500000000000",
+          "upper": "42676365699/1000000000000",
+          "approx": 0.04267636569859576
+        },
+        "miss_bound": {
+          "lower": "0",
+          "upper": "1/1000000000000",
+          "approx": 3.309983910904159e-16
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "305381125001/500000000000",
+          "upper": "305381125001/500000000000",
+          "approx": 0.610762250002
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 5,
+        "probability_interval": [
+          {
+            "lower": "305381125001/500000000000",
+            "upper": "305381125001/500000000000",
+            "approx": 0.610762250002
+          },
+          {
+            "lower": "610762250003/1000000000000",
+            "upper": "610762250003/1000000000000",
+            "approx": 0.610762250003
+          }
+        ]
+      },
+      {
+        "n": 1800,
+        "critical": 297,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "49047623509/1000000000000",
+          "upper": "4904762351/100000000000",
+          "approx": 0.04904762350969613
+        },
+        "miss_bound": {
+          "lower": "3062075841/1000000000000",
+          "upper": "1531037921/500000000000",
+          "approx": 0.0030620758412160517
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "189929515577/1000000000000",
+          "upper": "189929515577/1000000000000",
+          "approx": 0.189929515577
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 6,
+        "probability_interval": [
+          {
+            "lower": "189929515577/1000000000000",
+            "upper": "189929515577/1000000000000",
+            "approx": 0.189929515577
+          },
+          {
+            "lower": "94964757789/500000000000",
+            "upper": "94964757789/500000000000",
+            "approx": 0.189929515578
+          }
+        ]
+      },
+      {
+        "n": 10300,
+        "critical": 48,
+        "direction": "low",
+        "false_rejection_bound": {
+          "lower": "47868557919/1000000000000",
+          "upper": "299178487/6250000000",
+          "approx": 0.0478685579193318
+        },
+        "miss_bound": {
+          "lower": "467836251/125000000000",
+          "upper": "3742690009/1000000000000",
+          "approx": 0.0037426900089751677
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/500",
+          "upper": "3/500",
+          "approx": 0.006
+        },
+        "alternative_bound": {
+          "lower": "391467961/125000000000",
+          "upper": "391467961/125000000000",
+          "approx": 0.003131743688
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 7,
+        "probability_interval": [
+          {
+            "lower": "3131743687/1000000000000",
+            "upper": "3131743687/1000000000000",
+            "approx": 0.003131743687
+          },
+          {
+            "lower": "391467961/125000000000",
+            "upper": "391467961/125000000000",
+            "approx": 0.003131743688
+          }
+        ]
+      },
+      {
+        "n": 1800,
+        "critical": 297,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "49047623509/1000000000000",
+          "upper": "4904762351/100000000000",
+          "approx": 0.04904762350969613
+        },
+        "miss_bound": {
+          "lower": "2542299553/1000000000000",
+          "upper": "1271149777/500000000000",
+          "approx": 0.0025422995535866436
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "5952676671/31250000000",
+          "upper": "5952676671/31250000000",
+          "approx": 0.190485653472
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 8,
+        "probability_interval": [
+          {
+            "lower": "5952676671/31250000000",
+            "upper": "5952676671/31250000000",
+            "approx": 0.190485653472
+          },
+          {
+            "lower": "190485653473/1000000000000",
+            "upper": "190485653473/1000000000000",
+            "approx": 0.190485653473
+          }
+        ]
+      },
+      {
+        "n": 100,
+        "critical": 22,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "21338182849/500000000000",
+          "upper": "42676365699/1000000000000",
+          "approx": 0.04267636569859576
+        },
+        "miss_bound": {
+          "lower": "0",
+          "upper": "1/1000000000000",
+          "approx": 3.5400938975952987e-16
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "610365283209/1000000000000",
+          "upper": "610365283209/1000000000000",
+          "approx": 0.610365283209
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 9,
+        "probability_interval": [
+          {
+            "lower": "610365283209/1000000000000",
+            "upper": "610365283209/1000000000000",
+            "approx": 0.610365283209
+          },
+          {
+            "lower": "61036528321/100000000000",
+            "upper": "61036528321/100000000000",
+            "approx": 0.61036528321
+          }
+        ]
+      },
+      {
+        "n": 100,
+        "critical": 22,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "21338182849/500000000000",
+          "upper": "42676365699/1000000000000",
+          "approx": 0.04267636569859576
+        },
+        "miss_bound": {
+          "lower": "0",
+          "upper": "1/1000000000000",
+          "approx": 2.4037900854629297e-80
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "118307373539/125000000000",
+          "upper": "118307373539/125000000000",
+          "approx": 0.946458988312
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 10,
+        "probability_interval": [
+          {
+            "lower": "118307373539/125000000000",
+            "upper": "118307373539/125000000000",
+            "approx": 0.946458988312
+          },
+          {
+            "lower": "946458988313/1000000000000",
+            "upper": "946458988313/1000000000000",
+            "approx": 0.946458988313
+          }
+        ]
+      },
+      {
+        "n": 100,
+        "critical": 22,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "21338182849/500000000000",
+          "upper": "42676365699/1000000000000",
+          "approx": 0.04267636569859576
+        },
+        "miss_bound": {
+          "lower": "0",
+          "upper": "1/1000000000000",
+          "approx": 4.293515277488038e-80
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "946058427459/1000000000000",
+          "upper": "946058427459/1000000000000",
+          "approx": 0.946058427459
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 11,
+        "probability_interval": [
+          {
+            "lower": "946058427459/1000000000000",
+            "upper": "946058427459/1000000000000",
+            "approx": 0.946058427459
+          },
+          {
+            "lower": "47302921373/50000000000",
+            "upper": "47302921373/50000000000",
+            "approx": 0.94605842746
+          }
+        ]
+      },
+      {
+        "n": 100,
+        "critical": 22,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "21338182849/500000000000",
+          "upper": "42676365699/1000000000000",
+          "approx": 0.04267636569859576
+        },
+        "miss_bound": {
+          "lower": "0",
+          "upper": "1/1000000000000",
+          "approx": 3.7223066589279576e-16
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "38129280753/62500000000",
+          "upper": "38129280753/62500000000",
+          "approx": 0.610068492048
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 12,
+        "probability_interval": [
+          {
+            "lower": "38129280753/62500000000",
+            "upper": "38129280753/62500000000",
+            "approx": 0.610068492048
+          },
+          {
+            "lower": "610068492049/1000000000000",
+            "upper": "610068492049/1000000000000",
+            "approx": 0.610068492049
+          }
+        ]
+      },
+      {
+        "n": 1700,
+        "critical": 282,
+        "direction": "high",
+        "false_rejection_bound": {
+          "lower": "10943434137/250000000000",
+          "upper": "43773736549/1000000000000",
+          "approx": 0.043773736548136974
+        },
+        "miss_bound": {
+          "lower": "1404232657/500000000000",
+          "upper": "561693063/200000000000",
+          "approx": 0.0028084653140201003
+        },
+        "valid": true,
+        "null_boundary": {
+          "lower": "3/20",
+          "upper": "3/20",
+          "approx": 0.15
+        },
+        "alternative_bound": {
+          "lower": "95935819071/500000000000",
+          "upper": "95935819071/500000000000",
+          "approx": 0.191871638142
+        },
+        "alpha": {
+          "lower": "1/20",
+          "upper": "1/20",
+          "approx": 0.05
+        },
+        "beta": {
+          "lower": "1923076923/500000000000",
+          "upper": "3846153847/1000000000000",
+          "approx": 0.0038461538461538464
+        },
+        "step": 13,
+        "probability_interval": [
+          {
+            "lower": "95935819071/500000000000",
+            "upper": "95935819071/500000000000",
+            "approx": 0.191871638142
+          },
+          {
+            "lower": "191871638143/1000000000000",
+            "upper": "191871638143/1000000000000",
+            "approx": 0.191871638143
+          }
+        ]
+      }
+    ],
+    "total_records": 18300,
+    "total_steps": 126900,
+    "false_rejection_bound": {
+      "lower": "49047623509/1000000000000",
+      "upper": "4904762351/100000000000",
+      "approx": 0.04904762350969613
+    },
+    "miss_bound": {
+      "lower": "125655017/8000000000",
+      "upper": "7853438563/500000000000",
+      "approx": 0.015706877125843895
+    },
+    "independent_trials_per_setting": true,
+    "laboratory_data": false,
+    "design_is_globally_minimal": false
+  },
+  "assumptions": [
+    "One common prepared distribution and one fixed stochastic binary detector",
+    "One common homogeneous Markov transition applied repeatedly",
+    "Every hidden controller or clock state is included in the state count",
+    "The statistical design uses independent reset records within each setting"
+  ],
+  "limitations": [
+    "Not a universal classical exclusion",
+    "No thermodynamic energy bound",
+    "No assertion of historical priority",
+    "No globally optimal sample-count claim"
+  ]
+}

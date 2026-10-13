@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "constructive-access"
+version = "0.10.0"
+description = "Model-bound certificates and experiment design for restricted physical access"
+requires-python = ">=3.10"
+authors = [{name = "Abdinoor"}]
+dependencies = ["sympy>=1.12,<2", "mpmath>=1.3,<2"]
+
+[project.scripts]
+constructive-access = "constructive_access.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+"constructive_access._vendor" = ["PROVENANCE.json"]
+"constructive_access.completion" = ["PROVENANCE.json"]
+"constructive_access.robust" = ["PROVENANCE.json"]
+
+"constructive_access.frontier" = ["PROVENANCE.json"]
+
+"constructive_access.virtual" = ["PROVENANCE.json"]
+
+"constructive_access.calibrated" = ["PROVENANCE.json"]
+
+"constructive_access.attainability" = ["PROVENANCE.json"]
+
+"constructive_access.observed_geometry" = ["PROVENANCE.json"]
+
+"constructive_access.detector" = ["PROVENANCE.json"]
+
+"constructive_access.detector_calibration" = ["PROVENANCE.json"]
+
+[project.optional-dependencies]
+simulation = ["numpy>=1.26,<3", "scipy>=1.11,<2", "matplotlib>=3.7,<4"]
+
+empirical = ["numpy>=1.26,<3", "scipy>=1.11,<2", "h5py>=3.10,<4"]

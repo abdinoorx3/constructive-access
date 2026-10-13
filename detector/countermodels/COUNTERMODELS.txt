@@ -1,0 +1,198 @@
+DETECTOR GEOMETRY: ADVERSARIAL IDENTIFIABILITY AND STABILITY AUDIT
+2026-10-13T00:08:19Z
+Owner /root/geometry_countermodels. Exploratory next dependency only.
+No files in observed_geometry or any released edition were changed.
+
+1. VERDICT AND DISTINCTIONS
+Known boxcar exposure does preserve the full ideal continuous path law of a
+stationary square-integrable process under a suitable no-spectral-atoms
+condition at its discrete transfer zeros. Mixing supplies that condition. It
+would be incorrect to infer that fixed-rate samples or a finite noisy record
+preserve that law, or that inversion is stable uniformly across model classes.
+
+An independent-noise specification must distinguish:
+(a) exact full record distributions and their deconvolution;
+(b) one arbitrarily densely sampled path with fresh independent point noise;
+(c) a continuous correlated-noise or white-noise observation channel;
+(d) finitely many readings with their physical resource cost.
+These are different information resources. A law-identifiability proof is not
+a finite-sample certificate or a pathwise noise-removal theorem for every model.
+
+2. WHERE BOXCAR INFORMATION IS LOST
+For Z_t=(1/delta) integral_{t-delta}^t Y_s ds, the transfer function is
+ H_delta(omega)=exp(-i omega delta/2)*sinc(omega delta/2),
+ H_delta(0)=1, zeros at omega=2pi k/delta for nonzero integers k.
+Thus DC is preserved, not erased. The exact nullspace on continuous paths is
+delta-periodic zero-mean signals: Z=0 implies Y_t=Y_{t-delta} by differentiation,
+and the average over one period is zero. Conversely, those signals integrate
+to zero in every exposure window.
+
+An exact stationary counterexample without mixing is
+ Y_t=A cos(2pi t/delta+Theta), Theta uniform on [0,2pi).
+Its full exposed path is identically zero for every A, so amplitude is lost.
+It is stationary and continuous but not mixing. The phase dynamics are a
+deterministic circle rotation; this is not a uniformly elliptic diffusion.
+The continuous-time stationary process can be ergodic while the time-delta
+sampled shift is not ergodic. Consequently, continuous-time ergodicity alone
+does not justify replacing mixing in a proposed inverse theorem.
+
+A direct reconstruction under sampled-shift ergodicity complements the spectral
+proof owned by population_theory. For a two-sided integrable stationary signal
+with continuous paths and known mean m, differentiation of the exposed path gives
+ delta Z'_t=Y_t-Y_{t-delta}.
+For every positive integer N,
+ delta sum_{k=0}^{N-1}(1-k/N) Z'_{t-k delta}
+   =Y_t-(1/N)sum_{j=1}^N Y_{t-j delta}.
+If the time-delta shift is ergodic, Birkhoff's theorem makes the last average
+converge almost surely to m. Hence the weighted derivative sums plus m recover
+Y_t. The complete stationary exposed law determines m=E[Z_0]. Simultaneous
+reconstruction at countably many times, followed by continuity, determines the
+whole path law. This is an infinite-horizon, exact-derivative statement and is
+not numerically stable under uncalibrated finite measurement error.
+
+3. EXACT FIXED-SAMPLING AMBIGUITY WITH KNOWN NONZERO EXPOSURE
+This example is within smooth, mixing, stationary, uniformly elliptic Gaussian
+OU diffusions on Euclidean space. It is NONCOMPACT, with an UNBOUNDED linear
+observable. It does not refute the continuous-law inverse theorem or claim an
+example inside the earlier compact bounded-detector class.
+
+For m=0,1,... and a>0 consider the two-dimensional oscillator
+ dX_t=(-I+omega_m J)X_t dt+sqrt(2a)dW_t,
+ omega_m=2pi m, J=[[0,-1],[1,0]].
+Its stationary covariance is aI, and Y_t is the first coordinate. Then
+ Cov(Y_0,Y_t)=a exp(-|t|)cos(omega_m t).
+This is a smooth, nondegenerate, exponentially mixing diffusion. For ordinary
+reversal (both hidden coordinates even), the stationary current velocity is
+omega_m JX, D=aI, so entropy is
+ sigma_m=E[(omega_m JX)^T(aI)^-1(omega_m JX)]=2omega_m^2.
+Generalized parity conventions would change that physical interpretation and
+are not being used here.
+
+Retain unit-width boxcar averages ONLY at integer times:
+ Z_k=integral_{k-1}^k Y_t dt, k in Z.
+For a=1, write x_m=(2pi m)^2, e=exp(-1), C=2(cosh(1)-1). Direct integration gives
+ V_m=Var(Z_0)=2[e+(2-e)x_m]/(1+x_m)^2,
+ F_m=C(1-x_m)/(1+x_m)^2,
+ Cov(Z_0,Z_k)=F_m exp(-|k|), k!=0.
+For reference, using lambda_m=-1+i omega_m, these follow from
+ V_m=2 Re[(exp(lambda_m)-1-lambda_m)/lambda_m^2],
+ Cov(Z_0,Z_k)=Re[exp(lambda_m k)
+                *(exp(lambda_m)+exp(-lambda_m)-2)/lambda_m^2], k>=1.
+Since exp(lambda_m)=exp(-1), every integer-frequency alias has the same
+sampled exponential decay. Its variance and off-diagonal coefficient differ.
+
+Define R_m=F_m/V_m. As a function of x>=0,
+ R(x)=(C/2)*(1-x)/[e+(2-e)x],
+ R'(x)=-C/[e+(2-e)x]^2<0.
+Therefore, for every integer n>=2, R_0>R_1>R_n. Define strictly positive weights
+ A_0 = V_1(R_1-R_n)/[(R_0-R_n)V_0],
+ A_n = V_1(R_0-R_1)/[(R_0-R_n)V_n].
+These exact real formulas satisfy
+ A_0 V_0+A_n V_n=V_1,
+ A_0 F_0+A_n F_n=F_1.
+
+Model A: one oscillator m=1 with stationary coordinate variance a=1.
+Model B_n: independent oscillators m=0 and m=n with stationary variances A_0
+and A_n, observing the sum of their first coordinates. The hidden state is
+four-dimensional, its diffusion matrix diag(A_0I_2,A_nI_2) is positive definite,
+and the model is exponentially mixing. Both models have centered Gaussian
+records. The displayed identities match variance and all nonzero-lag
+covariances of the sampled averaged records. Consequently EVERY finite-
+dimensional distribution of the entire doubly infinite sampled record agrees
+exactly. This is not equality of only a finite covariance checklist.
+
+Their latent continuous laws differ. For n=2,
+ A_0 approximately 0.000457735094,
+ A_2 approximately 3.85314606709;
+latent variance is 1 for Model A versus A_0+A_2 approximately 3.85360380218.
+Their ordinary entropy rates are
+ sigma_A=8pi^2,
+ sigma_B_n=8pi^2 n^2.
+Thus the compatible entropy is unbounded above as n grows, despite known
+nonzero exposure, no sensor noise and arbitrarily many samples at this FIXED
+spacing. Each member is a finite-dimensional, uniformly elliptic model, but
+no common uniform bound on diffusion coefficients or frequencies is imposed
+across the sequence. The ambiguity is a sampling obstruction, not a nullspace
+of the full continuous exposed law.
+
+Implementation: exact_sampling.py; tests: test_exact_sampling.py; numerical
+report: results.json. Five tests pass, including independent double exposure
+integrals, exact-formula covariance matching, positivity and entropy scaling.
+The analytical proof establishes all-time Gaussian-law equality. Floating-point
+covariance residuals are reproduction diagnostics, not the source of exactness.
+
+4. ADDITIVE NOISE: WHAT DENSE ACCESS DOES AND DOES NOT GIVE
+Suppose observations are indexed by a countable dense set D of times,
+ W_t=Z_t+eta_t, with Z continuous, eta_t iid, independent of Z, finite first
+moment, and known mean b. For any t, choose distinct t_j in D with t_j->t.
+Then, almost surely,
+ (1/N)sum_{j=1}^N W_{t_j}->Z_t+b,
+by continuity of Z and the iid strong law. Subtracting b recovers Z_t. Apply
+this construction on a countable dense target set and extend continuously.
+Thus arbitrarily dense fresh independent fixed-variance point observations
+can recover the clean exposed path under this precise, infinitely informative
+access model. The noise distribution need not otherwise be known; knowing its
+mean and the independence/integrability contract suffices. An unknown mean
+leaves an additive constant ambiguity, not automatically all centered dynamics.
+The finite-first-moment assumption is a simple sufficient condition, not a
+necessary condition for every known-noise model.
+
+For population law deconvolution, a different sufficient condition is available:
+if the additive independent noise's known joint characteristic function is
+nonzero for every finite tuple and frequency vector, then divide the observed
+joint characteristic function by it. A known Gaussian noise process has this
+property, even if temporally correlated. This identifies the latent process
+law at population level but does NOT pathwise separate two independent
+continuous Gaussian processes from a single observed sum.
+
+Conversely, unmodeled continuous sensor noise creates exact ambiguity even with
+known exposure. Let X and N be independent centered OU processes with the same
+decay rate and measure W=B_delta X+B_delta N. Here the clean exposed signal is
+B_delta X and the independent detector noise is the continuous stationary
+process B_delta N. The complete W law depends only on the sum of X and N's
+variances. Any positive allocation of total variance between them produces the
+same complete observation law. This is an unknown sensor-noise amplitude
+example, not a counterexample when the whole noise law is known.
+
+A continuous white-noise channel dO_t=Z_t dt+nu dW_t is not a continuum of
+independent point readings of fixed variance. Dividing its interval increment
+by the interval length gives noise variance nu^2/Delta, which increases as
+sampling is refined. The dense averaging argument for fixed-variance point
+noise cannot be imported into that physically different resource model.
+Finite exposure, sensor bandwidth, per-reading energy, read time and heat must
+be declared before comparing finite protocols.
+
+5. UNKNOWN EXPOSURE IS NOT AUTOMATICALLY NONIDENTIFIABLE
+For the earlier compact smooth uniformly elliptic class, a nonconstant centered
+smooth detector has strictly positive power spectral density at all real
+frequencies. Let u=(i omega-L)^-1 f on mean-zero L2(pi). The spectral gap makes
+this resolvent well-defined, and
+ S_Y(omega)=2 Re<f,u>=2 integral (grad u)^*D(grad u) d pi>0.
+Equality would force u constant by connectedness and positive D, and therefore
+f constant, contrary to the assumption. Thus a known boxcar SHAPE with unknown
+positive width delta has exposed spectral density
+ S_Z=|H_delta|^2 S_Y,
+whose exact zero set is precisely {2pi k/delta:k!=0}. Its first positive zero
+identifies delta at the ideal population level. This assertion needs the
+specified diffusion/spectral positivity class and an uncorrupted or correctly
+deconvolved continuous exposed law. Finite records do not observe exact zeros;
+unknown correlated detector noise can fill them. Width estimation and stable
+inversion remain separate tasks. The population_theory agent independently
+checked this resolvent argument and owns its integration.
+
+6. FINITE-DATA INSTABILITY
+Even where the continuous-law inverse is injective, H_delta has discrete zeros
+and decays at high frequency. There is no uniformly bounded inverse on all
+mixing stationary signals without spectral restrictions. One can concentrate
+continuous spectra arbitrarily close to a transfer zero while retaining no
+spectral atoms; exposed power tends to zero although latent power stays fixed.
+That is approximate loss and poor conditioning, not exact law nonidentifiability.
+
+Root separately owns a stronger compact-diffusion finite-access construction:
+fixed-gamma drifting cosine-circle signals at increasingly large |omega| have
+boxcar variance O(omega^-2) and physical ordinary entropy omega^2/gamma.
+For finitely many windows with independent Gaussian read noise of variance nu^2,
+convexity of KL bounds divergence from pure noise by n Var(boxcar)/(2nu^2),
+even when latent exposed readings are correlated. That obstruction should be
+integrated only after its independent review. It is not tested or claimed as
+part of this countermodel implementation.

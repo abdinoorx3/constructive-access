@@ -1,0 +1,54 @@
+FINAL BIBLIOGRAPHY INTEGRATION REVIEW
+Abdinoor / 2D Labs / 12 October 2026
+
+Status: PASS with two minor edits during root bibliography consolidation.
+
+All58 cited keys are supplied across the four input files. Ten aliases reduce
+them to48 distinct sources. No cited key is missing and no entry is unused.
+Forty distinct DOI identities are corroborated:35 successful Crossref records
+and five publisher/primary-metadata fallbacks. The latter include four API
+rate limits and the valid Dagstuhl DOI registered outside Crossref.
+
+Exact alias map (old -> canonical):
+  p_blackwell -> f_blackwell
+  p_tzeng -> f_tzeng
+  p_kiefer -> f_kiefer
+  p_thon -> f_thon
+  p_jaeger -> f_jaeger
+  p_littman -> f_littman
+  p_wang -> f_wang
+  p_qian -> physics-qian
+  p_bonato -> physics-bonato
+  p_betting -> caWaudbySmithRamdas2024
+
+Required metadata cleanup:
+1. f_petreczky: remove appended "Part I: realization theory of linear switched
+   systems" from the title. The correct published title is "Realization theory
+   for linear and bilinear switched systems: A formal power series approach".
+   PartI is described in the abstract; DOI/year/volume/pages already match.
+2. p_maier: complete Journal of Statistical Physics191 with article104 (2024).
+
+Resolved during integration:
+caBremaud1981 originally supplied an unverified DOI whose exact Crossref query
+returned404. Current statistics_bibliography.txt has replaced it with verified
+ISBN978-0-387-90536-5. Do not reintroduce that DOI from an earlier copy.
+
+Recent source distinctions:
+Riechers--Elliott is an arXiv2025 preprint, with no journal entry; the immutable
+version record governs the year rather than a rendered body-date artifact.
+Maier etal2024 proves one estimator and conjectures another; current chapter
+does not turn that conjecture into a theorem. Dieball--Godec2025 is a
+perspective on coarse-observation reversal assumptions. Stace2024 and
+Bonato2016 are prior experimental adaptive-design demonstrations, not evidence
+for this release's hardware. E-process sources support statistical machinery,
+not calibration of a physical apparatus. No new novelty downgrade beyond the
+explicitly attributed position already used in research_map.tex is needed.
+
+Suggested final positioning, if a concise replacement is wanted:
+
+Constructive Access is a unified reference and executable workflow for identifying target properties of hidden dynamics under specified physical access. It connects exact obstructions and distinguishing experiments to independently checkable certificates, calibrated statistical decisions, and declared physical resource budgets. The practical contribution is that a scientist can follow one argument from apparatus assumptions to a defensible conclusion, including an explicit reason to change the experiment or abstain.
+
+The strongest specific mathematical candidates remain the reversible-gate current coefficient and its scoped activation and information-order results, together with the prescribed-cost filtered certificate and the worked model classifications. Finite linear equivalence, predictive representations, adaptive design, optimal recovery, and testing by betting already have substantial prior literature. The unified release makes those foundations and the specific results usable together; historical priority and physical validation of the proposed constructions remain questions for specialist review and experiment.
+
+All findings and snapshot hashes are in bibliography_review.json. No chapter
+files were changed by this audit. Source metadata checks are not proof audits.

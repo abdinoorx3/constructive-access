@@ -1,0 +1,373 @@
+\chapter{What calibrated exposure preserves at the population level}
+\label{ch:dg-recovery}
+
+Finite exposure changes a diffusion observation before measurement noise is
+added. In particular, a boxcar average of a continuous signal is continuously
+differentiable and has zero quadratic variation. The local geometry theorem
+therefore cannot be applied directly to an exposed trace as if it were the
+original diffusion coordinate. The question here is different: does the
+complete exposed observation law still determine the ideal law from which
+that trace came?
+
+Under the assumptions below, the answer is yes, even after a known independent
+additive noise channel. The recovery uses dense temporal population access
+and an infinite limiting reconstruction. It does not provide a stable
+finite-data inverse or recover local quadratic variation by differentiating
+noisy samples. The constituent deconvolution and averaging arguments are
+established mathematical tools; historical priority is not asserted.
+
+\section{Detector and access model}
+
+Let $Y=(Y_t)_{t\in\mathbb R}$ be a real stationary continuous process,
+bounded by a finite deterministic constant, and write $\mu=\mathbb E Y_0$.
+Assume
+\begin{equation}
+ \operatorname{Cov}(Y_0,Y_t)\longrightarrow0
+ \quad\hbox{as }|t|\longrightarrow\infty.
+ \label{eq:dg-covariance-mixing}
+\end{equation}
+This condition is satisfied by a smooth bounded coordinate of a stationary
+compact connected uniformly elliptic diffusion. A known exposure width
+$\tau>0$ produces the causal boxcar signal
+\begin{equation}
+ Z_t=(A_\tau Y)_t
+      :=\frac1\tau\int_{t-\tau}^tY_s\,ds.
+ \label{eq:dg-exposure}
+\end{equation}
+Let $\mathcal T$ be a known countable dense subset of the real time axis.
+At each distinct $t\in\mathcal T$, the retained measurement is
+\begin{equation}
+ B_t=Z_t+\xi_t,
+ \label{eq:dg-readout}
+\end{equation}
+where the $\xi_t$ are independent of $Y$, independent across distinct
+timestamps, and have a known probability law $\nu$. The known noise law
+need not have finite variance or a nowhere-zero characteristic function for
+the population uniqueness statement. Its independence and calibration are
+part of the detector contract.
+
+The accessible research object in this section is the complete joint law of
+$(B_t)_{t\in\mathcal T}$, rather than one finite record. Repeated samples
+of a finite collection of timestamps do not automatically supply this
+infinite family of joint distributions. The clock, exposure rule, and noise
+law are common to every model being compared.
+
+\section{Noise removal as an identifiability statement}
+
+\begin{lemma}[Known additive convolution on a bounded latent law]
+\label{lem:dg-bounded-convolution}
+Let $P$ and $Q$ be compactly supported probability laws on $\mathbb R^k$,
+and let $N$ be any probability law on $\mathbb R^k$. If
+$P*N=Q*N$, then $P=Q$.
+\end{lemma}
+
+\begin{proof}
+The characteristic function $\widehat N$ is continuous and equals one at
+the origin, so it is nonzero on some neighborhood of zero. The convolution
+identity implies $\widehat P=\widehat Q$ on that neighborhood. Compact
+support makes both characteristic functions real analytic on
+$\mathbb R^k$ (indeed entire after complexification). Analytic uniqueness
+therefore extends the equality to all real arguments. Uniqueness of
+characteristic functions gives $P=Q$.
+\end{proof}
+
+Apply this lemma at any finite set of distinct timestamps, with the known
+noise law $N=\nu^{\otimes k}$. Equality of the noisy record laws implies
+equality of the corresponding finite-dimensional laws of $Z$. Since $Z$ is
+continuous, its values on the countable dense set determine its law on
+$C(\mathbb R)$, equipped with uniform convergence on compact intervals.
+Thus the complete noisy law identifies the complete exposure law.
+
+This proof does not divide by the noise characteristic function at its
+zeros. It uses bounded latent support and uniqueness of analytic
+continuation; it supplies no stability estimate for that continuation. If
+bounded support is dropped, a standard sufficient replacement is a noise
+characteristic function that is nowhere zero. These are different
+identifiability contracts. Known correlated additive noise can also be
+treated if its complete joint laws are supplied and remain independent of
+the signal; knowing only its one-time marginal would not suffice.
+
+\subsection{What infinitely dense independent readouts can recover}
+
+For the iid noise contract, dense access permits a stronger statement that
+does not require bounded signal amplitude. Let $Z$ have continuous finite
+real-valued paths and let $B_t=Z_t+\xi_t$ be observed on the countable dense
+set, with the same known iid noise independent of $Z$. Then the complete
+continuous exposure path is a measurable function of the infinitely dense
+noisy record, almost surely.
+
+To prove this, fix a target $t$ in the dense set and a deterministic sequence
+of distinct available timestamps $t_j\to t$. For any fixed real $u$, the
+bounded complex observations satisfy
+\begin{equation}
+ \frac1n\sum_{j=1}^n e^{iuB_{t_j}}
+ \longrightarrow e^{iuZ_t}\widehat\nu(u)
+ \quad\hbox{almost surely}.
+ \label{eq:dg-dense-noise-average}
+\end{equation}
+Conditioned on the entire continuous $Z$ path, the centered summands are
+independent bounded variables. The independent-variable strong law applies
+because the sum of their variances divided by $j^2$ is finite. Their average
+conditional means converge to the right-hand side by continuity of $Z$.
+The argument uses no moment of $\xi_t$.
+
+Choose a countable sequence $u_k\to0$ with $u_k\ne0$. The known noise
+characteristic function is nonzero for all sufficiently large $k$.
+Dividing the limits in~\eqref{eq:dg-dense-noise-average} by
+$\widehat\nu(u_k)$ determines $e^{iu_kZ_t}$, and
+\[
+ Z_t=\lim_{k\to\infty}
+       \frac{\operatorname{Im}(e^{iu_kZ_t})}{u_k}
+\]
+removes the phase ambiguity. A countable intersection of probability-one
+events recovers every dense-set $Z_t$; continuity supplies the full path.
+All operations are limits of measurable coordinate functions, with an
+arbitrary default on the null set where the limits fail.
+
+Consequently the main injectivity theorem below also holds with boundedness
+replaced by finite second moment, using this dense iid reconstruction and
+the same covariance-decay assumption. The compact diffusion application
+remains bounded. The proposition spends infinitely many independent
+readouts in arbitrarily small time neighborhoods. It is not a claim that
+faster sampling makes actual sensor errors independent: overlapping
+exposures, photon reuse, memory, or correlated readout noise can invalidate
+the stipulated iid contract. The earlier bounded-law convolution argument
+is still useful for known correlated noise at the population-law level,
+where pathwise separation from one continuous record need not hold.
+
+\section{An explicit finite-window reconstruction and its limit}
+
+Continuity of $Y$ gives the pathwise identity
+\begin{equation}
+ \tau Z'_t=Y_t-Y_{t-\tau}.
+ \label{eq:dg-derivative}
+\end{equation}
+The derivative is a measurable functional of the ideal $C^1$ exposure path,
+for example the limit of rational difference quotients. For $N\geq1$ set
+\begin{equation}
+ \mathcal R_N Z(t)
+ :=\mathbb E Z_0+
+ \tau\sum_{k=0}^{N-1}\left(1-\frac{k}{N}\right)Z'_{t-k\tau}.
+ \label{eq:dg-triangular-reconstruction}
+\end{equation}
+Telescoping gives the exact relation
+\begin{equation}
+ \mathcal R_N Z(t)
+ =Y_t-\left\{\frac1N\sum_{j=1}^NY_{t-j\tau}-\mu\right\}.
+ \label{eq:dg-reconstruction-error}
+\end{equation}
+Only a window whose length grows as $N\tau$ is used at each finite $N$,
+but exact derivatives of the exposed path are required.
+
+\begin{theorem}[Dense-law injectivity through boxcar exposure and known noise]
+\label{thm:dg-injectivity}
+Within the bounded continuous stationary class satisfying
+Equation~\eqref{eq:dg-covariance-mixing}, equality of the noisy dense-time
+laws in~\eqref{eq:dg-readout}, for a common known boxcar width and noise
+law, implies equality of the ideal continuous path laws of $Y$.
+\end{theorem}
+
+\begin{proof}
+The preceding lemma identifies the common continuous law of $Z$.
+Stationarity gives $\mathbb E Z_0=\mu$. By
+Equation~\eqref{eq:dg-reconstruction-error},
+\begin{align}
+ \mathbb E|\mathcal R_N Z(t)-Y_t|^2
+ &=\frac1{N^2}\sum_{i,j=1}^N
+          \operatorname{Cov}(Y_0,Y_{(i-j)\tau})\notag\\
+ &=\frac{\operatorname{Var}(Y_0)}N
+   +\frac2{N^2}\sum_{j=1}^{N-1}(N-j)
+                \operatorname{Cov}(Y_0,Y_{j\tau})
+ \longrightarrow0.
+ \label{eq:dg-mean-square-recovery}
+\end{align}
+For the last limit, bound the finite initial part of the covariance sum by
+a constant times $N^{-1}$, and use arbitrarily small covariance on its
+remaining tail. The same conclusion holds jointly at every finite set of
+times, by summing their mean-square errors. The law of each
+$\mathcal R_N Z$ is fixed by the common exposure law, so the limiting
+finite-dimensional laws of $Y$ agree. Continuity again identifies the full
+path laws.
+\end{proof}
+
+An explicitly calibrated covariance-decay bound gives a finite-window
+population estimate. If
+$|\operatorname{Cov}(Y_0,Y_t)|\leq C e^{-\kappa|t|}$ for $C<\infty$
+and $\kappa>0$, then
+\begin{equation}
+ \mathbb E|\mathcal R_N Z(t)-Y_t|^2
+ \leq\frac{C}{N}\coth(\kappa\tau/2).
+ \label{eq:dg-reconstruction-rate}
+\end{equation}
+This controls truncation of an ideal derivative reconstruction. It does
+not control estimation of $Z'$ from finitely many noisy or exposed readings.
+For example, if a derivative approximation has root mean-square error at
+most $\delta$ at each of the retained times, and the stationary mean has
+error at most $\delta_\mu$, the triangle inequality gives only
+\[
+ \|\widehat{\mathcal R_N Z}(t)-Y_t\|_2
+ \leq \sqrt{\frac C N\coth(\kappa\tau/2)}
+       +\frac{\tau(N+1)}2\,\delta+\delta_\mu.
+\]
+Increasing the reconstruction window can amplify derivative error. Any
+finite-data use must pay for both terms under an explicit detector model.
+
+\section{The spectral obstruction and a derivative-free population inverse}
+
+The exposure multiplier at frequency $\lambda$ is
+\begin{equation}
+ H_\tau(\lambda)
+ =e^{-i\lambda\tau/2}\frac{\sin(\lambda\tau/2)}{\lambda\tau/2},
+ \qquad H_\tau(0)=1.
+ \label{eq:dg-transfer}
+\end{equation}
+It vanishes exactly at $\lambda=2\pi k/\tau$, $k\in\mathbb Z\setminus\{0\}$.
+The decay assumption excludes spectral atoms at those frequencies. The
+minimal spectral premise for recovering a particular $Y$ is that its
+spectral measure assign zero mass to those zeros; full mixing is a convenient
+sufficient assumption.
+
+For completeness, the usual Landweber reconstruction gives a second proof
+that does not explicitly differentiate $Z$. On the stationary $L^2$ shift
+space let $A=A_\tau$ and $T=A^*A$, so $0\preceq T\preceq I$. Define
+\begin{equation}
+ \mathcal L_N Z
+   =\sum_{j=0}^{N-1}(I-T)^jA^*Z.
+ \label{eq:dg-landweber}
+\end{equation}
+Since $Z=AY$,
+\[
+ \mathcal L_N Z=[I-(I-T)^N]Y.
+\]
+The spectral theorem gives $L^2$ convergence to $Y$ exactly when $Y$ has no
+component in $\ker A$. The kernel consists of the nonzero boxcar-resonant
+spectral modes above; the stationary mean is preserved because $H_\tau(0)=1$.
+Each iterate is a finite linear combination of finite-window averages of
+$Z$ and is therefore a fixed measurable function of its continuous path.
+
+This inverse is also not uniformly stable as $N\to\infty$. Its operator
+norm is at most $\sqrt N$, because for $0\leq x\leq1$,
+\[
+ \sqrt{x}\sum_{j=0}^{N-1}(1-x)^j
+ =\frac{1-(1-x)^N}{\sqrt x}
+ \leq\min\{N\sqrt x,x^{-1/2}\}\leq\sqrt N.
+\]
+At $x=0$ the expression is defined by its zero limit for fixed $N$.
+For a stationary $L^2$ perturbation of the entire input process, this bounds
+its amplification by $\sqrt N$. It is not an assertion that a finite
+collection of independent point-noise values forms a directly integrable
+continuous error process.
+
+The spectral bias is explicitly
+\[
+ \|\mathcal L_N AY-Y\|_2^2
+ =\int(1-|H_\tau(\lambda)|^2)^{2N}\,d\mu_Y(\lambda).
+\]
+Vanishing mass at exact zeros ensures convergence; a useful finite-error
+rate additionally needs quantitative control of spectral mass near the
+zeros and at large frequencies. Injectivity alone supplies no such rate.
+
+\section{Consequences for the compatible diffusion minimum}
+
+Every admissible compact connected uniformly elliptic hidden diffusion in
+the observed-geometry chapter has a bounded smooth detector and exponentially
+decaying centered correlations. Consequently, if its ideal coordinate is
+observed through the detector contract here, the complete noisy dense-time
+law determines its ideal continuous observation law.
+
+In particular, fix the noisy exposed law generated by the stationary
+cosine-circle process with parameters $\gamma>0$ and $\omega$, with the
+same calibrated detector channel used in all compatible models. Every
+compatible admissible hidden diffusion then has the same ideal law as that
+circle. The earlier attained minimum therefore remains
+\begin{equation}
+ \min\sigma=\omega^2/\gamma.
+ \label{eq:dg-minimum-preserved}
+\end{equation}
+The circle with the stated detector is feasible, so this is an attained
+minimum, not only a lower bound. The result concerns entropy production in
+the target hidden diffusion, not the unmodeled energy consumed by the
+detector or the readout process.
+
+The identification uses infinitely rich population information. It does
+not show that a finite noisy experiment can attain the same accuracy as a
+noiseless high-bandwidth experiment. In particular, $Z$ itself has zero
+quadratic variation. Local geometry is recovered only after an appropriate
+limiting reconstruction of the ideal law, rather than by applying the
+previous local formula directly to $Z$ or $B$.
+
+\section{When the width itself is identifiable}
+
+Here and in the preceding compatible-minimum statement, the diffusion
+assumptions are those of the earlier observed-geometry class: a smooth compact
+connected manifold without boundary, smooth coefficients and strictly positive
+stationary density, uniform ellipticity, and ordinary reversal of the complete
+hidden state. No unspecified boundary condition or generalized reversal is
+included by the shorter phrase ``compact elliptic'' below.
+
+Within the compact elliptic model class, a known boxcar shape has a further
+population property: its width can be identified from the exposed law even
+if that width was not initially supplied. Assume the detector is nonconstant.
+Let $f$ now denote the centered detector, and use the complex
+$L^2(\pi)$ inner product. The symmetric part of the generator has a
+Poincar\'e gap, so its mean-zero semigroup decays exponentially and the
+resolvent exists at every $i\lambda$, $\lambda\in\mathbb R$.
+For $u=(i\lambda-L)^{-1}f$, the ideal power spectral density is
+\begin{equation}
+ S_Y(\lambda)
+ =2\operatorname{Re}\langle f,(i\lambda-L)^{-1}f\rangle_\pi
+ =2\int_M\nabla\overline u^{\mathsf T}D\nabla u\,d\pi
+ >0.
+ \label{eq:dg-positive-spectrum}
+\end{equation}
+The identity follows from $f=(i\lambda-L)u$ and skew-adjointness of the
+stationary current term. The Dirichlet form vanishes only for constant $u$;
+in the mean-zero subspace this would force $u=0$ and then $f=0$, contrary
+to the nonconstant detector assumption.
+
+The centered exposed spectrum is
+$S_Z(\lambda)=|H_\tau(\lambda)|^2S_Y(\lambda)$. Its zero set is
+therefore exactly the nonzero boxcar frequencies. The smallest positive
+zero equals $2\pi/\tau$ and identifies $\tau$. Known-noise deconvolution
+may first be used to identify the exposure law; no finite-variance noise
+assumption is needed if the bounded-law uniqueness argument is used.
+This proposition assumes the boxcar shape, nonconstant diffusion detector,
+continuous population spectrum and calibrated time. A constant signal has
+no such width information. Estimating an exact spectral zero from a finite
+noisy record is a separate problem, and an unknown general response kernel
+is not identified by this argument.
+
+\section{Necessary distinctions}
+
+The mathematical ingredients have substantial prior art. Landweber's 1951
+iteration is an established inverse method. Known-error deconvolution with
+characteristic-function zeros is treated, under quantitative assumptions,
+by Hall and Meister (2007). Nakakita and Uchida (2020) already estimate an
+unknown exposure-to-frame ratio for convolutionally observed diffusions in
+a shrinking-exposure, increasing-duration regime. The fixed-width
+full-law argument here is a different observation regime, not the first
+inference of an unknown shutter parameter. Markov-generator resolvent
+formulas for power spectra are also established; Gupta and Khammash (2022)
+provide a close explicit use for stochastic reaction networks. The focused
+primary-source audit is recorded separately in this research phase. These
+comparisons leave historical priority for any narrower combination open.
+
+A stationary periodic signal with uniform random phase at frequency
+$2\pi/\tau$ is erased exactly by the boxcar. Such a process is stationary
+and can be ergodic under the full continuous time-shift group while failing
+mixing and ergodicity under the sampled $\tau$-shift. Continuous-flow
+ergodicity alone is therefore not a sufficient replacement for the
+assumptions used here.
+
+A fixed discrete sampling grid also supplies less information than the
+dense-time law in the theorem. Continuity does not reconstruct an exposed
+path between grid points. Exact aliasing or different hidden dynamics can
+survive fixed-grid exposure data, and no claim of injectivity for that
+access model follows from this chapter.
+
+Finally, the inverse has no uniform stability bound over all admissible
+mixing signals. Boxcar multipliers become arbitrarily small near their
+zeros and at high frequency. Additional bandwidth, dynamical, detector or
+resource restrictions are needed for a useful finite-error conclusion.
+Population identifiability, physical attainability, finite-data confidence,
+and experimental energy are separate claims throughout this argument.

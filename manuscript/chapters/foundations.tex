@@ -1,0 +1,309 @@
+\chapter{Scientific questions as access problems}
+\label{foundations:chapter}
+
+\section{Start with a quantity, a system, and an experiment}
+
+A scientist rarely needs every microscopic parameter of a system. A useful
+question is usually narrower: which direction does a current flow, how much
+fuel does a process consume, does a particular error mechanism occur, or which
+of several interventions changes a reaction pathway? The framework begins
+with that quantity and asks whether the available experiments can determine
+it. This order matters. A model can contain invisible parameters while the
+quantity of interest remains identifiable.
+
+Here is a small example that will recur in more detailed physical form.
+Suppose two parallel channels contribute positive rates $a$ and $c$ to the
+same observed transition. A detector identifies only the total rate
+$k=a+c$. Replacing $(a,c)$ by $(a+h,c-h)$, while keeping both positive,
+preserves every observation whose law depends only on $k$. The total rate
+is identifiable; the individual rates are not. If a calibrated intervention
+multiplies the first channel by a known $r\ne1$, a second observed total
+$k_r=ra+c$ gives
+\begin{equation}\label{foundations:twochannel}
+ a=\frac{k-k_r}{1-r},\qquad c=\frac{k_r-rk}{1-r}.
+\end{equation}
+The intervention changes what can be identified. When $r$ is close to one,
+the same formulas amplify measurement and calibration error. If $r$ is
+unknown, the new observation need not remove the ambiguity. Thus an
+experimental design requires both a model of intervention and a statement
+of its accuracy.
+
+The general object is an \emph{access specification}. It contains:
+\begin{enumerate}
+\item a candidate family $\Theta$, including nuisance parameters and the
+      assumptions that make it a physically admissible family;
+\item a target $g:\Theta\to\mathcal G$, with the units and required
+      precision or decision loss stated;
+\item available preparations, controls, measurements, retained records,
+      and the rules governing their histories;
+\item a calibration model and a resource account, including preparation,
+      reset, sensing, control, and acquisition where these are used.
+\end{enumerate}
+This specification is a scientific input. Algebra can test its consequences;
+it cannot establish from notation alone that an apparatus realizes it.
+In particular, knowledge of the transition probabilities does not determine
+the energy used by an unobserved subsystem.
+
+Preparation belongs to access. A system that starts in an unknown state can
+be observationally equivalent to a different system with another preparation.
+A known reset, an independently calibrated stationary preparation, or a
+recorded preparation outcome can change that conclusion. If preparation
+depends on an unknown physical parameter, that dependence belongs in the
+candidate model. It is not information available to the experimenter for
+free.
+
+\section{Transcript laws and targets}
+
+Let $\mathcal A$ denote an access specification and $\Pi_{\mathcal A}$ its
+permitted protocols. A protocol $\pi$ selects actions causally from retained
+observations and any recorded or modeled randomization; it specifies when
+to stop. Its complete accessible transcript has probability law
+$P_\theta^\pi$ under candidate $\theta$. A transcript may contain action
+choices, timestamps, detector outputs, preparation outcomes, and stopping
+information. Omitting one of these changes the law being compared.
+The same protocol is used under every candidate. A policy that secretly
+knows the true candidate is not an experiment for distinguishing candidates.
+
+\begin{definition}[Operational equivalence]\label{foundations:equivalence}
+For a fixed access specification, write
+\begin{equation}
+ \theta\sim_{\mathcal A}\theta'
+ \quad\Longleftrightarrow\quad
+ P_\theta^\pi=P_{\theta'}^\pi
+ \quad\text{for every }\pi\in\Pi_{\mathcal A}.
+\end{equation}
+The complete law profile is
+$\Phi_{\mathcal A}(\theta)=(P_\theta^\pi)_{\pi\in\Pi_{\mathcal A}}$.
+A target is \emph{structurally identifiable under $\mathcal A$} when
+equality of these profiles implies equality of the target.
+\end{definition}
+
+This is identifiability from ideal experiment laws. It does not mean that
+a finite noisy record determines a real parameter exactly. The distinction
+is standard in statistical and dynamical-system identification
+\cite{f_nemcova,f_thon}. It remains essential when the word ``observable''
+is used with different conventions in different fields.
+
+\begin{theorem}[Target factorization]\label{foundations:factorization}
+A target $g$ is structurally identifiable under $\mathcal A$ if and only if
+it is constant on each equivalence class of $\sim_{\mathcal A}$. Equivalently,
+there is a unique map $\bar g$ on the attained profiles
+$\Phi_{\mathcal A}(\Theta)$ such that
+\begin{equation}
+ g=\bar g\circ\Phi_{\mathcal A}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+If a factorization exists, equal profiles have equal images under
+$\bar g$ and hence equal targets. Conversely, define
+$\bar g(\Phi_{\mathcal A}(\theta))=g(\theta)$. Constancy on each class
+makes this definition independent of the representative. Every element
+of the attained profile space has such a representative, proving uniqueness.
+\end{proof}
+
+The theorem is a set-theoretic quotient statement, not a claim that the
+factor map is measurable, continuous, numerically stable, or efficiently
+computable. Those properties need additional structure. Its practical use
+is to separate an experimental obstruction from a difficult calculation.
+An algorithm cannot reconstruct a target that takes two values on the
+same attained profile without using further assumptions or further access.
+
+For example, a hidden-state model may have several coordinate descriptions
+related by a relabeling of latent states. Individual coordinates need not be
+identifiable, while predictions and invariant target quantities are. The
+quotient treats such representational ambiguity and physically different
+but observationally equivalent mechanisms by the same mathematical rule.
+Their scientific interpretations still differ.
+
+\section{Processing, comparison, and the value of additional access}
+
+For probability laws on a common measurable space define
+\begin{equation}
+ \operatorname{TV}(P,Q)=\sup_B|P(B)-Q(B)|.
+\end{equation}
+For a finite record alphabet this equals
+$\frac12\sum_y|P(y)-Q(y)|$. A randomized processing rule is a Markov
+kernel $K$: it maps a complete record to a reported statistic or decision
+without knowing the true candidate.
+
+\begin{proposition}[Data processing and access refinement]
+\label{foundations:processing}
+For any Markov kernel $K$,
+\begin{equation}
+ \operatorname{TV}(KP,KQ)\leq\operatorname{TV}(P,Q).
+\end{equation}
+Suppose every protocol $\pi$ available under $\mathcal A$ can be simulated
+by some protocol $\rho$ under $\mathcal B$, followed by a
+candidate-independent kernel $K$, so that
+$P_\theta^\pi=K P_\theta^\rho$ for all $\theta$. Then
+$\theta\sim_{\mathcal B}\theta'$ implies
+$\theta\sim_{\mathcal A}\theta'$. Every target identifiable under
+$\mathcal A$ is therefore identifiable under $\mathcal B$.
+\end{proposition}
+\begin{proof}
+For any output event $B$, the function $z\mapsto K(z,B)$ takes values in
+$[0,1]$. Integrating this function against $P-Q$ has absolute value at most
+$\operatorname{TV}(P,Q)$, by the layer-cake representation as an integral
+of indicator functions. Taking the supremum over $B$ proves contraction.
+If the two $\mathcal B$ laws coincide, applying their common kernel gives
+equal $\mathcal A$ laws for every $\pi$. Target identifiability then follows
+from Theorem~\ref{foundations:factorization}.
+\end{proof}
+
+This is the familiar comparison-of-experiments principle
+\cite{f_blackwell}, used here to compare experimental capabilities. A more
+accurate detector, a new control, a retained controller record, or an allowed
+reset can refine the equivalence classes. Conversely, discarding the action
+history or averaging away a temporal correlation can merge classes.
+The comparison needs a real simulation relation: two devices with
+different resolution or resource requirements are not ordered merely
+because one has more components.
+
+For two fixed candidates and a declared resource budget $C$, let
+\begin{equation}\label{foundations:frontier}
+ D_{\mathcal A}(C;\theta_0,\theta_1)
+ =\sup_{\pi\in\Pi_{\mathcal A}(C)}
+   \operatorname{TV}(P_{\theta_0}^\pi,P_{\theta_1}^\pi).
+\end{equation}
+Here $\Pi_{\mathcal A}(C)$ must specify whether $C$ bounds elapsed time,
+gross supplied energy, expected energy, operation count, or another
+quantity. These constraints define different feasible sets. If a simulation
+preserves the stated budget, Proposition~\ref{foundations:processing}
+also orders the corresponding discrimination frontiers.
+
+For known equally likely alternatives, the infimum average error over
+protocols and tests is
+\begin{equation}\label{foundations:bayes}
+ \varepsilon^*(C)=\frac{1-D_{\mathcal A}(C;\theta_0,\theta_1)}{2}.
+\end{equation}
+Indeed, for a fixed protocol the likelihood comparison selects the larger
+of the two probabilities or densities at each record, giving error
+$(1-\operatorname{TV})/2$. Optimizing over protocols proves the expression.
+Suprema and infima need not be attained. In particular, $D=1$ can describe
+a limiting sequence of improving experiments without any single finite
+experiment having zero error.
+
+If two candidates with different targets are equivalent, every randomized
+decision has the same distribution under both. A binary decision between
+the two has average success at most $1/2$ under equal priors. For a real
+target, every estimate $\widehat g$ satisfies
+\begin{equation}\label{foundations:losslower}
+ \max_{i=0,1}\mathbb E_{\theta_i}
+       |\widehat g-g(\theta_i)|
+ \geq \frac{|g(\theta_0)-g(\theta_1)|}{2}.
+\end{equation}
+The expectations use the same law for $\widehat g$; the triangle
+inequality bounds the sum of the two risks below by the target separation.
+Unlimited reprocessing of the same accessible evidence cannot remove this
+obstruction. Additional physical access or a justified restriction of the
+candidate family can.
+
+\section{A common geometry for uncertainty and abstention}
+
+Exact equality is only one source of ambiguity. Calibration bounds and
+finite records also leave sets of compatible candidates. Let $z$ be reported
+evidence and let a specified relation $\mathcal R\subseteq\Theta\times
+\mathcal Z$ describe what that evidence permits. Define
+\begin{equation}
+ \Theta(z)=\{\theta:(\theta,z)\in\mathcal R\},\qquad
+ G(z)=\{g(\theta):\theta\in\Theta(z)\}.
+\end{equation}
+For example, the relation may be exact equality of an observable profile,
+a deterministic measurement enclosure, or a confidence construction with
+a separately proved coverage guarantee. These interpretations should be
+recorded, because they support different conclusions.
+
+\begin{proposition}[Compatible-target radius]\label{foundations:radius}
+Suppose $g$ is real valued, $\Theta(z)$ is nonempty, and estimates may take
+any value in $\mathbb R$. If $G(z)$ is bounded, write
+$a=\inf G(z)$ and $b=\sup G(z)$. Then
+\begin{equation}
+ \inf_{t\in\mathbb R}\sup_{\theta\in\Theta(z)}|t-g(\theta)|
+ =\frac{b-a}{2},
+\end{equation}
+attained at $t=(a+b)/2$. If $G(z)$ is unbounded, every finite estimate has
+infinite worst-case absolute error.
+\end{proposition}
+\begin{proof}
+For bounded $G(z)$, the supremum loss is
+$\max\{|t-a|,|t-b|\}$, whether or not the endpoints are attained. Its
+minimum is the half-width, attained at the midpoint. If $G(z)$ is unbounded,
+there are target values arbitrarily far from each fixed $t$.
+\end{proof}
+
+An empty compatible set is an inconsistency between evidence and the
+declared model/calibration contract, rather than a uniquely identified
+mechanism. A nonempty set on which $g$ is constant supports an exact target
+within that contract even when several mechanisms survive. A wide target
+set supports an interval or abstention. If $\Theta(Z)$ covers the true
+candidate with probability at least $1-\delta$, the target set $G(Z)$
+inherits that same coverage; the geometric proposition does not create the
+coverage guarantee. For categorical targets or another loss function, the
+appropriate decision problem replaces the real-valued midpoint.
+
+This elementary geometry gives the common meaning of several later outputs:
+an exact obstruction, a calibrated target interval, and a refusal to make an
+unsupported decision. The linear intervention theorem specializes it to a
+computable global worst-case radius. Sequential model checking supplies
+coverage under adaptive actions and stopping. Neither step assumes that
+surviving candidates are the whole of nature.
+
+\section{When pairwise certificates give a finite scientific program}
+
+\begin{theorem}[Finite target-separating suite]
+\label{foundations:suite}
+Let $\Theta=\{\theta_1,\ldots,\theta_K\}$ be a finite family. Suppose
+the permitted elementary experiments have finite transcript alphabets and
+any selected finite list can be executed on fresh preparations, independently
+conditional on the same fixed candidate. Assume structural target
+identifiability relative to these experiments. Then at most
+$K(K-1)/2$ experiments suffice to form a suite whose joint law separates
+every pair with different target values. If the individual models have
+finite linear representations, witnesses can be synthesized with the finite
+bound of Theorem~\ref{finite:span}.
+\end{theorem}
+\begin{proof}
+For each unordered pair with distinct targets, identifiability supplies an
+experiment with unequal laws. On a finite alphabet, some transcript event
+has unequal probability. Choose one such experiment for each pair, dropping
+duplicates. Fresh preparation gives a product joint law for the suite under
+each fixed candidate. Its marginal for the chosen pair's experiment differs,
+so the joint laws differ for that pair. There are at most $K(K-1)/2$ pairs.
+The finite-representation assertion follows by applying
+Theorem~\ref{finite:span} to each pair.
+\end{proof}
+
+The fresh-preparation assumption is consequential: concatenating probes on
+one uncontrolled evolving specimen need not preserve their earlier
+discriminating laws. The fixed-candidate qualification prevents a nuisance
+parameter from being redrawn between trials merely to simplify a likelihood.
+The theorem gives a finite separation program, not a finite-sample accuracy
+claim or an efficient selection algorithm. Positive gaps can be small.
+Section~\ref{workflow:suite} turns this existence result into a
+calibration-aware experiment-cover workflow with explicit sample bounds.
+
+\section{What is universal here}
+
+The law-profile, comparison, and compatible-target constructions apply to
+any well-defined family of experiments and targets. They are universal in
+that mathematical sense. Finite-dimensional algorithms, Markovian dynamics,
+quantum instruments, calibrated interventions, and energy envelopes impose
+additional assumptions to make particular questions constructive.
+
+The broad scientific contribution is an explicit chain from a question to
+an admissible experiment and a checked conclusion. Its components connect
+established statistical decision theory, system identification, control,
+and physical modeling. This volume does not infer new conservation laws
+from the shared formalism, and it does not equate an access limitation with
+a general limit on computation. It provides a way to locate the unresolved
+distinction, state the extra access that would remove it, and test whether
+that access is practical.
+
+The original boundary-and-arrow question is one instance: fix the allowed
+local record, compare candidate dynamics with different time orientations,
+and ask whether orientation is constant on the resulting equivalence
+classes. A geometric boundary must be modeled as a physical restriction on
+preparation, dynamics, coupling, or measurement. It cannot be silently
+replaced by an unspecified loss of information. This operational entry point
+preserves the physical question while allowing the same tools to address
+reaction channels, sensor design, and quantum error hypotheses.

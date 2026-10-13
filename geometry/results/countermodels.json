@@ -1,0 +1,100 @@
+{
+  "averaged_gamma": {
+    "diffusion_minimum_eigenvalue": 0.5,
+    "invalid_conditional_mean_substitution": 68.30307164743289,
+    "relative_overestimate": 0.06723549449113886,
+    "true_entropy_rate": 64.0,
+    "valid_retained_volatility_bound": 64.0
+  },
+  "averaged_gamma_rational_certificate": {
+    "invalid_bound_strictly_exceeds": "19619/288",
+    "proof_uses": [
+      "atan(u)<u for u>0",
+      "pi>3"
+    ],
+    "strict_violation_margin_lower": "1187/288",
+    "true_entropy_rate": "64"
+  },
+  "equilibrium_negative_control": "g_h^2-K_h=-Var((P_h f-f)/h|U)<=0 exactly",
+  "finite_h_quadrature": {
+    "epsilon": 6.4e-05,
+    "h": 1.0,
+    "included_intervals": [
+      [
+        -0.9999679953908697,
+        -0.5046332018759441
+      ],
+      [
+        -0.4953952471544535,
+        0.9999964444212684
+      ]
+    ],
+    "naive_truncated_value": 3.610087355004591,
+    "quadrature_estimated_error": 8.659214248989908e-11,
+    "true_entropy_rate": 1.0
+  },
+  "finite_h_rational_certificate": {
+    "epsilon": "1/15625",
+    "h": "1",
+    "naive_truncated_value_strictly_exceeds": "6517/2750",
+    "proof_uses": [
+      "8/3<e<11/4",
+      "sin(1)>5/6",
+      "pi<22/7"
+    ],
+    "strict_violation_margin_lower": "3767/2750",
+    "true_entropy_rate": "1",
+    "untruncated_expectation": "positive_infinity"
+  },
+  "generalized_parity": {
+    "generalized_entropy_rate": 0.0,
+    "observable_is_even_under_parity": true,
+    "ordinary_entropy_rate": 0.4463899658965347,
+    "ordinary_local_defect_bound": 0.4463899658965347,
+    "physical_parity": "Theta(q,p)=(q,-p)"
+  },
+  "invertible_recalibration": {
+    "h": 1.0,
+    "invalid_finite_h_functional": 11.5402133662279,
+    "kappa": 0.49,
+    "minimum_recalibration_derivative": 0.020000000000000018,
+    "pointwise_volatility_closure": true,
+    "true_entropy_rate": 1.0
+  },
+  "noisy_quadratic_variation": [
+    {
+      "clean_continuous_qv_expectation": 1.0,
+      "clean_expected_realized_qv": 0.9999668329999989,
+      "expected_realized_qv": 2.999966832999999,
+      "n": 100,
+      "sensor_contribution": 2.0
+    },
+    {
+      "clean_continuous_qv_expectation": 1.0,
+      "clean_expected_realized_qv": 0.9999996668332845,
+      "expected_realized_qv": 20.999999666833283,
+      "n": 1000,
+      "sensor_contribution": 20.0
+    },
+    {
+      "clean_continuous_qv_expectation": 1.0,
+      "clean_expected_realized_qv": 0.9999999966670003,
+      "expected_realized_qv": 200.999999996667,
+      "n": 10000,
+      "sensor_contribution": 200.0
+    }
+  ],
+  "recalibration_rational_certificate": {
+    "h": "1",
+    "invalid_finite_h_value_strictly_exceeds": "4205/396",
+    "kappa": "49/100",
+    "proof_uses": [
+      "e^-1 sin(1)>3/10",
+      "0<e^-4 sin(2)/2<1/100",
+      "sqrt(99)<10"
+    ],
+    "strict_violation_margin_lower": "3809/396",
+    "true_entropy_rate": "1"
+  },
+  "status": "analytic countermodels with numerical checks; no physical experiment"
+}

@@ -1,0 +1,194 @@
+\chapter{Why local geometry and finite resolution cannot be interchanged}
+\label{chap:og-countermodels}
+
+The local-volatility theorem depends on a physical access contract. The
+following exact countermodels delimit that contract within smooth, connected,
+compact, uniformly elliptic stationary diffusions. They also distinguish
+ordinary hidden-state reversal from a reversal involving odd variables.
+Numerical values below are reproducible checks; the rejection arguments are
+analytic.
+
+\section{A conditional average of volatility is insufficient}
+On the two-dimensional periodic torus let
+\[
+ d(z)=1+\tfrac12\cos z,\qquad
+ L=d(z)\partial_x^2+\partial_z^2+c\,d(z)\partial_x.
+\]
+The uniform density is stationary, the diffusion matrix is
+$D=\operatorname{diag}(d,1)\succeq I/2$, and the current velocity is
+$v=(cd,0)$. Thus the ordinary entropy rate is $\sigma=c^2$.
+For $Y=\cos x$,
+\[
+ Sf=-dY,\quad Af=-cd\sin x,\quad
+ \Gamma_f=d(1-Y^2),\quad
+ \mathbb E[d]=1,\quad \operatorname{Var}(d)=\tfrac18.
+\]
+If only $Y$ is retained, the limiting conditional quantities are
+\[
+ g(Y)=-Y,\qquad
+ K(Y)=\tfrac98Y^2-\tfrac98c^2(1-Y^2).
+\]
+Replacing actual local volatility by its conditional mean
+$\mathbb E[\Gamma_f\mid Y]=1-Y^2$ would give
+\begin{align*}
+ B_{\rm mean}
+ &=\mathbb E\left[\left(\tfrac98c^2-\tfrac18\cot^2x\right)_+\right]\\
+ &=\frac2\pi\left[(A+B)\arctan\sqrt{A/B}-\sqrt{AB}\right],
+ \qquad A=\tfrac98c^2,\quad B=\tfrac18.
+\end{align*}
+At $c=8$ this is $68.30307165$, exceeding the actual entropy $64$.
+The failure does not rely on numerical precision: using
+$\arctan(24)=\pi/2-\arctan(1/24)>\pi/2-1/24$ and $\pi>3$ gives
+\[
+ B_{\rm mean}>\frac{19619}{288}>64.
+\]
+All regularity assumptions are intact. The substituted denominator is the
+invalid step.
+
+Retaining $U=(Y,V)$ with $V=\Gamma_f$ repairs the same model. Almost surely,
+$U$ determines $d=V/(1-Y^2)$; consequently $Sf$ is $U$-measurable and the
+conditional Jensen loss vanishes. The correct functional is exactly
+\[
+ \mathbb E\frac{(g(U)^2-K(U))_+}{V}
+ =\mathbb E[c^2d]=64.
+\]
+Local path geometry can therefore contain essential information that a
+conditional second-moment regression discards.
+
+\section{Finite-lag substitution can diverge at finite entropy}
+Consider the stationary circle $dX=dt+\sqrt2\,dW$ and the smooth bounded detector
+$f(x)=\cos x+\tfrac12\cos2x$. Its ordinary entropy rate is $1$. Writing
+$c=\cos x$ gives
+\[
+ Y=c^2+c-\tfrac12,\qquad V=(1-c^2)(1+2c)^2.
+\]
+The pair $U=(Y,V)$ determines $c$: the only other possible solution to the same
+$Y$ is $c'=-1-c$, but $V(c)-V(c')=(1+2c)^3$, which vanishes only where the two
+solutions coincide.
+
+Let $g_h$ and $K_h$ denote the two-sided conditional drift and product at a
+finite lag, using denominators $2h$ and $h^2$, respectively. Set
+$H_h=(P_h+P_h^\dagger)/2$ and $B_h=(P_h-P_h^\dagger)/2$.
+Conditional past--future independence gives
+\[
+ g_h=\mathbb E[(H_hf-f)/h\mid U],\qquad
+ K_h=\mathbb E[((H_hf-f)^2-(B_hf)^2)/h^2\mid U].
+\]
+Here $H_hf-f$ is $U$-measurable and
+\[
+ B_hf=-\sin x\,[e^{-h}\sin h+e^{-4h}\sin(2h)c].
+\]
+The uncorrected finite-lag ratio is therefore
+\[
+ F_h(c)=\frac{g_h^2-K_h}{V}
+ =\frac{[e^{-h}\sin h+e^{-4h}\sin(2h)c]^2}
+ {h^2(1+2c)^2}.
+\]
+At $c=-1/2$ its numerator before squaring is
+$\sin h(e^{-h}-e^{-4h}\cos h)$, nonzero for every $0<h<\pi$.
+The stationary density $1/(\pi\sqrt{1-c^2})$ is positive there. Hence
+$\mathbb E[F_h]=+\infty$ at every such finite lag, although $\sigma=1$.
+Scaling $f$ to lie in $[-1,1]$ leaves this ratio unchanged.
+
+The failure persists with a fixed positive cutoff. Take $h=1$ and
+$\epsilon=1/15625$. The two intervals
+$1/200\leq|c+1/2|\leq1/10$ lie inside $\{V\geq\epsilon\}$.
+Elementary bounds give $e^{-1}\sin1>3/10$ and
+$|e^{-4}\sin2|<1/50$. Integrating over those intervals and using
+$\pi<22/7$ yields the certified inequality
+\[
+ \mathbb E[\mathbf1_{\{V\geq\epsilon\}}F_1]
+ >\left(\frac7{25}\right)^2\frac{190}{2}\frac7{22}
+ =\frac{6517}{2750}>1.
+\]
+Numerical quadrature gives approximately $3.610087355$.
+For each noncritical state, $F_h\to1$ as $h\downarrow0$. Thus this example
+invalidates an interchange of the small-lag and small-volatility limits;
+it does not invalidate the truncated limiting theorem. A finite-resolution
+certificate must control the bias before removing the cutoff.
+
+Under exact equilibrium, this particular failure mechanism is absent at all
+lags. If $L=L^\dagger$, then for every current-state conditioning variable $U$,
+\[
+ g_h^2-K_h
+ =-\operatorname{Var}((P_hf-f)/h\mid U)\leq0.
+\]
+This is an exact negative control rather than an asymptotic approximation.
+
+\subsection{Failure under an invertible scalar recalibration}
+An additional example removes the internal critical point and has a pointwise
+volatility closure. On the same circle use
+$f(x)=\cos x+\kappa\cos^2x$ with $\kappa=49/100$.
+The map $\psi(c)=c+\kappa c^2$ has derivative at least $1/50$ on $[-1,1]$
+and is a smooth diffeomorphism on a slightly larger interval. Thus $Y$ alone
+determines $c=\cos x$ and its local volatility. The naive finite-lag ratio is
+\[
+ F_h(c)=\frac{[e^{-h}\sin h+\kappa e^{-4h}\sin(2h)c]^2}
+ {h^2(1+2\kappa c)^2}.
+\]
+Set $r=2\kappa$, $\alpha=e^{-4h}\sin(2h)/2$ and
+$\beta=e^{-h}\sin h-\alpha$. Direct circle integration yields
+\[
+ \mathbb E[F_h]=\frac1{h^2}\left[
+ \alpha^2+\frac{2\alpha\beta}{\sqrt{1-r^2}}
+ +\frac{\beta^2}{(1-r^2)^{3/2}}\right].
+\]
+At $h=1$ this is $11.54021337$, while $\sigma=1$.
+The violation has the rational certificate
+\[
+ \mathbb E[F_1]>
+ \left(\frac{29}{100}\right)^2\frac{12500}{99}
+ =\frac{4205}{396}>1,
+\]
+because $\alpha>0$, $\beta>29/100$, $1-r^2=99/2500$ and $\sqrt{99}<10$.
+There is no divergent integral or cutoff limit in this example. The limiting
+functional is invariant under this scalar recalibration; its uncorrected
+finite-lag substitute is neither invariant nor generally an entropy bound.
+
+\section{An even observation does not determine physical reversal}
+On a torus $(q,p)$, set
+\[
+ \pi\propto e^{\cos p},\qquad
+ S=\partial_q^2+\partial_p^2-\sin p\,\partial_p,
+ \qquad A=c\sin p\,\partial_q,
+ \qquad \Theta(q,p)=(q,-p).
+\]
+The diffusion matrix is $I$. The density is invariant under $\Theta$, and
+$\Theta S\Theta=S$, $\Theta A\Theta=-A$. Therefore
+$L^\dagger=\Theta L\Theta$: the stationary path entropy under time reversal
+combined with this parity is zero.
+
+The detector $f=\sin q$ is even under $\Theta$, yet
+\[
+ \Gamma_f=1-Y^2,\qquad Sf=-Y,\qquad Af=c\sin p\cos q.
+\]
+The local-defect functional equals the positive ordinary-reversal entropy
+\[
+ \sigma_{\rm ordinary}
+ =c^2\mathbb E_\pi[\sin^2p]
+ =c^2\frac{I_1(1)}{I_0(1)},
+\]
+where $I_j$ are modified Bessel functions. At $c=1$ its value is
+$0.4463899659$, while the generalized-reversal entropy remains zero.
+A measured scalar being even is therefore insufficient to identify the
+reversal convention of inaccessible variables.
+
+\section{Noise and exposure change the path geometry}
+For a stationary cosine-circle trace recorded with independent additive noise
+of variance $\nu^2$ at $n+1$ equally spaced times on $[0,T]$,
+\[
+ \mathbb E\sum_{k=1}^{n}(Z_k-Z_{k-1})^2
+ =n[1-e^{-\gamma T/n}\cos(\omega T/n)]+2n\nu^2.
+\]
+The clean term tends to $\gamma T$; the noise term diverges with sampling
+frequency. Raw noisy quadratic variation cannot be substituted for the
+latent local volatility.
+
+Finite exposure causes a different obstruction. If
+$Z_t=\delta^{-1}\int_{t-\delta}^tY_s\,ds$, continuous latent paths make $Z$
+continuously differentiable, with
+$\dot Z_t=(Y_t-Y_{t-\delta})/\delta$. Thus $[Z]_t=0$, although the two-sided
+product limit is $-\mathbb E[\dot Z_t^2\mid Z_t]$ and need not vanish.
+This history-dependent detector violates the current-state observation
+contract. A separate calibrated apparatus model is required; finer sampling
+alone does not restore the theorem's assumptions.

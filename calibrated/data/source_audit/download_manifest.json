@@ -1,0 +1,123 @@
+[
+  {
+    "file": "dryad_dataset.json",
+    "sha256": "cd62a58950ac1474c989d1b9605feaa7b655d41bfc97fe93ecca5b849c80bc5a",
+    "size": 10880,
+    "status": "downloaded",
+    "url": "https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.h44j0zpsw"
+  },
+  {
+    "file": "dryad_switchingtrap_file.json",
+    "sha256": "1a71e3c13c33783491d444854fe6db3faaf66ff0d91204dd6cacf0adfec56b56",
+    "size": 631,
+    "status": "downloaded",
+    "url": "https://datadryad.org/api/v2/files/2936856"
+  },
+  {
+    "file": "zenodo_vsr_software.json",
+    "sha256": "72e37cf9293ef94603bef0e573891ac36b7990ad7511c1986caf6ac9251d3035",
+    "size": 11132,
+    "status": "downloaded",
+    "url": "https://zenodo.org/api/records/10472505"
+  },
+  {
+    "file": "zenodo_feedbacktrap.json",
+    "sha256": "23f51302db2de3a149de2b5c88bce70ae33b89eeccb4aa17831ddc92737a4509",
+    "size": 34000,
+    "status": "downloaded",
+    "url": "https://zenodo.org/api/records/6680673"
+  },
+  {
+    "file": "vsr_fit.ipynb",
+    "sha256": "c6efaa35ad308a41dd6ad6b4e0079c0f4589fe163443be12fa108ff96090e635",
+    "size": 983732,
+    "status": "downloaded",
+    "url": "https://zenodo.org/api/records/10472505/files/VSR_fit.ipynb/content"
+  },
+  {
+    "file": "vsr_theory.pdf",
+    "sha256": "3472d66929946273bde8d433b90eeaeb802065d764880c5b38d5d736383ff6b0",
+    "size": 2141747,
+    "status": "downloaded",
+    "url": "https://arxiv.org/pdf/2403.10442"
+  },
+  {
+    "file": "vsr_science_preprint.pdf",
+    "sha256": "e841692eb7a5092535b9af344ef22e8a5f580a42e1d48327dd707d74ac51a2a1",
+    "size": 11175337,
+    "status": "downloaded",
+    "url": "https://arxiv.org/pdf/2302.08565"
+  },
+  {
+    "file": "harmwell_n1.h5",
+    "license": "CC-BY-4.0",
+    "published_checksum": "md5:49b329a8e9616f3440038ba8ceb15ded",
+    "published_checksum_verified": true,
+    "sha256": "ffa81dda2576934bd51cf544199a12da7d5568806883401a08848ad215c1286c",
+    "size": 402056,
+    "status": "downloaded",
+    "url": "https://zenodo.org/api/records/6680673/files/harmwell_n1.h5/content"
+  },
+  {
+    "file": "harmwell_n1_groundtruth.h5",
+    "license": "CC-BY-4.0",
+    "published_checksum": "md5:7975a2e94fcd1d770731e658bdb59706",
+    "published_checksum_verified": true,
+    "sha256": "ef390252ce9730b53c688958cad5fa4ff2379800f09ccc13ac2d6e90bb0e413b",
+    "size": 408248,
+    "status": "downloaded",
+    "url": "https://zenodo.org/api/records/6680673/files/harmwell_n1_groundtruth.h5/content"
+  },
+  {
+    "file": "harmwell_n2.h5",
+    "license": "CC-BY-4.0",
+    "published_checksum": "md5:0573b22c861752a1ee489348ca4551ad",
+    "published_checksum_verified": true,
+    "sha256": "38efb704da6fb86a9da49938d3e84ff4c3d1e4c56588768cbdf37149f28b4a2e",
+    "size": 402056,
+    "status": "downloaded",
+    "url": "https://zenodo.org/api/records/6680673/files/harmwell_n2.h5/content"
+  },
+  {
+    "file": "feedbacktrap_preprint.pdf",
+    "sha256": "f181fab3c65460be5c5a08aa6333e9b8b1cf3e491e25aabafa50b421b0443218",
+    "size": 1044352,
+    "status": "downloaded",
+    "url": "https://arxiv.org/pdf/2202.02347"
+  },
+  {
+    "file": "feedbacktrap_fulltext.xml",
+    "sha256": "595459da167de8a7205bf5066e14fb3d8fc6e39d2c6fb9dadcadb0033c803ea2",
+    "size": 210187,
+    "status": "downloaded",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9400092/fullTextXML"
+  },
+  {
+    "file": "feedbacktrap_figures.py",
+    "sha256": "17e7c6398a86a5733f4985d508eb93ca57ad608c1cf7bdd3a545b611858f7236",
+    "size": 9127,
+    "status": "downloaded",
+    "url": "https://zenodo.org/api/records/6680638/files/figures.py/content"
+  },
+  {
+    "file": "feedbacktrap_main.py",
+    "sha256": "774a6efc463addddadc77a85607d83cede376833dbf14d82e56d6ed626314b79",
+    "size": 1629,
+    "status": "downloaded",
+    "url": "https://zenodo.org/api/records/6680638/files/main.py/content"
+  },
+  {
+    "file": "feedbacktrap_potential_learner.py",
+    "sha256": "bf2b28d2c06fbe074effffc63e59c3a912ca12a1249b6805c341207e2a80c43d",
+    "size": 48003,
+    "status": "downloaded",
+    "url": "https://zenodo.org/api/records/6680638/files/potential_learner.py/content"
+  },
+  {
+    "file": "crooks_inequality_access_response.html",
+    "sha256": "f49aec45d336a0264df734ab4f0b95c2b65a41b87849cf84cc27b1daeb63e2da",
+    "size": 545,
+    "status": "access challenge HTML, not the requested paper",
+    "url": "https://threeplusone.com/Crooks-inequality.pdf"
+  }
+]

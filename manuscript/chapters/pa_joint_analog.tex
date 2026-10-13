@@ -1,0 +1,233 @@
+\chapter{Joint inference with one-reading analog calibration}
+\label{ch:pa-joint-analog}
+
+A bounded analog detector can supply its calibration coordinate with a single
+reading. No unchanged-state twin is needed for the conservative construction
+below. Combining that coordinate with the two dynamical scores gives a single
+confidence bound. The direct semigroup dissipation inequality then converts
+the same covered contrast into a substantially stronger physical certificate.
+The statistical construction extends the joint-calibration and direct-analog
+chapters; its ingredients remain the reversible quadratic moment inequality,
+conditional Jensen, and Hoeffding concentration.
+
+\section{The observable second moment has the useful inequality sign}
+Let $Z\in[-1,1]$ be the output of a fixed noninvasive memoryless detector, with
+conditional mean $f(x)=\mathbb E[Z\mid X=x]$. Use the stationary notation
+\[
+ A=\mathbb E_\pi f^2,\qquad B=\mathbb E_\pi Z^2,
+ \qquad C_k=\langle f,P^k f\rangle_\pi,
+ \qquad P=e^{\Delta Q}.
+\]
+Conditional detector noise at the two endpoints of a positive-lag pair is
+independent. Consequently
+\[
+ B=A+\mathbb E_\pi\operatorname{Var}(Z\mid X)\geq A.
+\]
+\[
+ W_0=\frac{1+Z^2}{2}\in[1/2,1],\qquad
+ W_k=\frac{1+Z_0Z_{k\Delta}}2\in[0,1]\quad(k=1,2),
+\]
+and their means are $p_0=(1+B)/2$ and $p_k=(1+C_k)/2$.
+Here $C_0=A$; the observable squared reading estimates $B$, not $A$.
+
+\begin{proposition}[One-reading analog reversible support]
+For fixed $0\leq s\leq1$, let $a_s=(-s^2,2s,-1)$ and
+$b_s=-(1-s)^2/2$. Every reversible model satisfying this detector contract obeys
+\begin{equation}
+ a_s\cdot p-b_s
+ =\frac{-s^2B+2sC_1-C_2}{2}
+ =-\frac{\|(P-sI)f\|_\pi^2+s^2(B-A)}2\leq0.
+ \label{eq:pa-analog-support}
+\end{equation}
+The support $b_s$ is sharp across the allowed detector class.
+\end{proposition}
+\begin{proof}
+For reversible $Q$, the operator $P$ is self-adjoint, so
+$\|(P-sI)f\|_\pi^2=C_2-2sC_1+s^2A$.
+The additional conditional-variance term is nonnegative. The deterministic
+zero-output detector attains equality for every $s$.
+\end{proof}
+
+The detector's noise costs population signal:
+\[
+ g_s^{\rm analog}=g_s^{\rm ideal\ twins}-\frac{s^2}{2}(B-A).
+\]
+Avoiding twins therefore does not guarantee better power. When the detector
+noise dominates its state-dependent signal, the conservative square may erase
+the violation entirely. For a state-independent fair detector with outputs
+$\pm1$, $A=0$, $B=1$, and the analog gap is $-s^2/2$, even though its true
+conditional mean contains no state information. This example also shows why
+one cannot silently reinterpret a squared noisy reading as $A$.
+
+\section{One confidence event, with every acquisition counted}
+Take $n_0$ independent stationary single readings and $n_1,n_2$ independent
+stationary pairs at the two lags. Let $\widehat p_k$ denote their score means.
+For a fixed or independently piloted $s$, define
+\begin{align}
+ r_s&=\sqrt{\frac{\log(1/\alpha)}2
+       \left(\frac{s^4}{4n_0}+\frac{4s^2}{n_1}+\frac1{n_2}\right)},
+       \label{eq:pa-analog-radius}\\
+ \underline g_s&=\left[
+   -s^2\widehat p_0+2s\widehat p_1-\widehat p_2-b_s-r_s
+   -\sum_{k=0}^2|a_{s,k}|(e_k+\delta_k)
+ \right]_+.
+ \label{eq:pa-analog-gap}
+\end{align}
+Here $e_k$ bounds numerical error in an empirical mean, and $\delta_k$ bounds
+the conditional mean discrepancy from its ideal target given the entire past.
+Independent stationary acquisitions have $\delta_k=0$. The conditional version
+requires a valid external bound, not merely marginal stationarity. Hoeffding's
+bound, or its conditional exponential-moment proof, gives the stated event
+with failure at most $\alpha$. Independently established contract failure can
+be added by a union bound. The API records these premises without verifying
+them from the score summaries.
+
+The factor $1/4$ in the first variance term is the square of the score's range
+length $1/2$. It does not eliminate that term. For example, use a reversible
+reset generator with stationary distribution $(1/2,1/4,1/4)$, detector values
+$(0,1,-1)$, decay $1/2$, and $s=1/2$. Then $A=1/2$ and the ideal score means
+are $(3/4,5/8,9/16)$, exactly on the support. One calibration reading is zero
+with probability $1/2$, giving $\widehat p_0=1/2$. Even if the two dynamical
+means were known exactly, treating that calibration reading as exact would
+create a false gap $1/16$. Equation~\eqref{eq:pa-analog-radius} retains the
+uncertainty and prevents this example from giving a positive certificate.
+
+This design uses
+\[
+ N_{\rm acquisitions}=n_0+n_1+n_2,\qquad
+ N_{\rm readouts}=n_0+2n_1+2n_2,\qquad
+ T_{\rm evolution}=\Delta n_1+2\Delta n_2.
+\]
+Preparation, reset, sensor and calibration overhead must also be counted when
+known. None is assigned zero physical energy here. The exact square-summary
+helper rounds the score with a declared numerical radius; it bounds the
+rounding error of stored digital readings, not unknown sensor calibration
+error.
+
+\section{A direct physical conversion on the same event}
+Under the stationary even-variable Markov assumptions of the direct spectral
+dissipation theorem, the detector mean has range at most two and
+\[
+ -s^2B+2sC_1-C_2\leq -s^2A+2sC_1-C_2.
+\]
+Thus the covered gap in~\eqref{eq:pa-analog-gap} supplies
+\begin{equation}
+ \sigma\geq\frac{4\underline g_s}{\Delta},\qquad
+ \sigma\geq\frac{\phi(2\underline g_s)}{\Delta},\qquad
+ \phi(u)=2\sqrt u\,\operatorname{atanh}\sqrt u,
+ \quad 0\leq u<1.
+ \label{eq:pa-analog-direct-bridge}
+\end{equation}
+The implementation encloses $\phi$ with a positive rational series. The
+interval is an enclosure of this lower-bound formula, not an interval for
+the true entropy production. An incompatible normalized defect is flagged
+on the coverage event; it is not silently clipped or presented as empirical
+falsification.
+
+For comparison, the earlier additive-reversible record argument gives
+\begin{equation}
+ \sigma\geq
+ \frac{8\underline g_s^2}{(2s\sqrt\Delta+\sqrt{2\Delta})^2}.
+ \label{eq:pa-analog-old-bridge}
+\end{equation}
+The zero-lag squared-reading law is unchanged by additive reversibilization
+because the stationary law and detector channel are unchanged. It therefore
+contributes sampling uncertainty and apparatus expenditure but no comparison
+divergence in~\eqref{eq:pa-analog-old-bridge}. The stronger direct argument
+uses the semigroup identity and forward/reverse comparison instead. Both
+physical conversions reuse the same confidence event; they spend no additional
+$\alpha$. Different choices of $s$ still require independent selection or a
+simultaneously valid procedure.
+
+\section{Frozen comparison on the same analog data}
+The benchmark fixes all models, parameters, counts, rules and random seed
+before drawing its 1,600 held-out synthetic datasets. Each of four cases has
+400 independent datasets. A 20-state circulant CTMC is observed through a
+cosine detector rounded to denominator 4096. Each dataset contains 4,000
+single-reading calibration acquisitions and 3,000 pairs at each of lags
+$1/10$ and $1/5$. Every compared method therefore receives the same
+10,000 acquisitions, 16,000 detector readings and 900 declared units of
+evolution time.
+These comparisons match acquisition resources. Their analysis-computation
+time and energy are unmeasured and are not asserted equal.
+
+The base contrast has $s=1/2$, reproducing the earlier difference of positive-lag
+scores. A second contrast fixes $s=3/4$ before production; ``tuned'' refers to
+this predetermined design, not a fit to the held-out records. The split methods
+call the sixth edition's actual analog calibration and score APIs, with
+$\alpha/2=1/40$ for each stage. The joint methods use $\alpha=1/20$. Virtual
+coin methods retain a draw from $\operatorname{Bernoulli}(W_k)$ for each same
+analog pair. The calibration singles are common to every method.
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Method & Driven & Equilibrium & Noisy driven\\
+\midrule
+Joint analog, $s=1/2$ &399/400&0/400&0/400\\
+Joint analog, $s=3/4$ &399/400&0/400&0/400\\
+Joint coin, $s=3/4$ &361/400&1/400&0/400\\
+Split analog, $s=1/2$ &377/400&0/400&0/400\\
+Split analog, $s=3/4$ &379/400&0/400&0/400\\
+Split coin, $s=1/2$ &293/400&0/400&0/400\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The driven rates are 20 forward and 1 backward; equilibrium rates are both
+$21/2$. The noisy detector outputs half the rounded cosine plus an independent
+fair noise of amplitude $1/2$. Its squared-reading calibration is too
+conservative here, and every method returns zero in all 400 datasets.
+An exact population audit explains this failure. For $B>0$, completing the
+square gives
+\[
+ \sup_{s\in\mathbb R}g_s^{\rm analog}
+ =\frac12\left(\frac{C_1^2}{B}-C_2\right).
+\]
+Rational uniformization of this fixed noisy ring encloses both correlations
+and certifies that the right side is below $-0.007$. Its numerical value is
+approximately $-0.00789686$. The entire two-lag quadratic family therefore
+lacks a positive population gap here. More samples at these same settings
+cannot repair this obstruction; different lags, additional noise calibration
+or different observables remain possible. This retrospective exact audit does
+not change the frozen inference design or any reported decisions.
+The single equilibrium rejection by the joint coin method is reported rather
+than removed; the methods have individual 5\% failure allowances.
+
+Keeping the older quadratic physical conversion isolates the statistical
+improvement. At $s=1/2$, the driven mean lower bound rises from $0.00145847$
+for split analog to $0.00351542$ for joint analog. At $s=3/4$, it rises from
+$0.00164098$ to $0.00494257$. Applying the new direct bridge to that same
+joint $s=3/4$ event gives a mean linear bound $0.870376$ and a mean nonlinear
+bound $0.884824$: the latter is about 179 times the older quadratic mean.
+The simulated model's actual rate is $56.9189$, so even the improved mean is
+only 1.55\% of the microscopic value. This large remaining gap is explicit.
+
+The virtual coin's greater variance can increase the average of a clipped
+quadratic lower bound even while reducing detection probability. Indeed its
+joint $s=3/4$ quadratic mean is $0.00639217$, above the analog value, despite
+361 rather than 399 detections. This is why an average positive-part bound
+alone does not establish estimator quality or universal statistical dominance.
+The matched table reports detection counts, means, medians and Monte Carlo
+intervals in the accompanying results.
+
+\section{A detector change remains a physical failure}
+The fourth case uses an equilibrium ring with rates 70 in both directions,
+but replaces the calibration detector by zero gain while retaining the cosine
+science detector. This deliberately violates the common-channel contract.
+Both joint analog methods and both split analog methods falsely return positive
+values in all 400 datasets. The split coin returns 395 positives and the joint
+coin 400. Correcting the zero-lag conditional-mean discrepancy by the general
+bound $\delta_0=1/2$ makes the reported repair return zero in all datasets.
+This repair is deliberately conservative; obtaining a useful smaller bound
+requires actual detector calibration.
+
+The archive retains every dataset's exact integer sufficient statistics and
+the first raw analog bank in each case. Rational score means can be replayed
+without drawing new coins or trajectories. The six methods are separate
+predeclared analyses; their unadjusted maximum is not advertised as a 95\%
+certificate. These are reproducible simulations, not new measured physical
+data or a universal noise-removal procedure. Physical use requires stationary
+preparation, the appropriate reversal convention, detector independence and
+memory control, time calibration, and a justified thermodynamic embedding for
+conversion from entropy rate to dissipated power.

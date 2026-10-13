@@ -1,0 +1,138 @@
+JOINT DETECTOR CALIBRATION: CLOSEST METHODS AND APPROPRIATE BASELINES
+Audit date: 2026-10-13 UTC. Owner: geometry_literature.
+Scope: new detector_calibration phase; prior releases were not changed.
+Primary fulltexts are retained only in temporary directories. Sources and hashes are in sources.json.
+
+DECISION-RELEVANT FINDINGS
+
+The strongest immediate benchmark is an established corrected estimator with its own valid uncertainty calculation, not naive increments. For free Brownian tracking use Vestergaard-Blainey-Flyvbjerg (2014). For a confined linear diffusion at known exposure use Calderon's motion-blur likelihood. For unknown independent same-state read errors, repeated-measurement deconvolution is established, including bounded-signal identifiability without error-law smoothness or nonvanishing characteristic functions. Identification-robust confidence regions built from replica moment restrictions also exist.
+
+The defensible next deliverable is therefore specific: a computable finite-sample confidence set for the chosen detector/dynamical nuisance parameters and an explicitly validated lower endpoint for the entropy functional over that set. It must say when the set remains nonidentifying and output no positive certificate then. It should not claim that repetitions first make unknown-noise deconvolution possible, or that confidence propagation through an identified set is itself new.
+
+Two exact distinctions are especially important:
+(a) In the free Brownian Gaussian increment model, diffusion and an effective blur/noise combination are identified, while unknown blur and localization variance can remain confounded.
+(b) Same-state repeats are new sensor access, but they do not themselves supply temporal information. Isolated stationary cosine-circle states have the same arcsine distribution for every drift and diffusivity; repeats of those states cannot identify the dynamical parameters.
+
+NEW PRIMARY FULLTEXT COMPARISONS
+
+1. Calderon (2016): known-time exposure and joint physical/noise parameter estimation
+Christopher P. Calderon, Motion blur filtering: A statistical approach for extracting confinement forces and diffusivity from a single blurred trajectory.
+Physical Review E 93, 053303. DOI 10.1103/PhysRevE.93.053303.
+Inspected arXiv:1510.06062v2 PDF. The margin records 18 May 2016; its title-page generated date reads September 5, 2018, both retained in source provenance.
+
+Sec II A, Eqs (1)-(2), assumes dr=(v-kappa r)dt+sqrt(2D)dB and a known finite exposure average plus independent mean-zero Gaussian localization error. The fitted parameter vector is (v,kappa,D,sigma_loc); exposure time is supplied, not included among those unknowns. Eqs (3)-(10) exactly discretize this linear model, retaining correlations between dynamical and exposure noise. The modified Kalman innovation likelihood estimates confinement, drift, diffusivity and localization error jointly. Sec III uses simulation and innovation goodness-of-fit tests. Near the end of that section, the paper explicitly warns that much uncertainty theory is asymptotic and recommends simulation in the relevant regime; weakly resolved confinement can identify D/kappa more reliably than D and kappa separately.
+
+Benchmark role: use this exact likelihood for a known-exposure Ornstein-Uhlenbeck calibration control. It is a stronger baseline than free diffusion or an ordinary Kalman filter that omits exposure correlation. It is not an exact finite-N, uniform coverage theorem for arbitrary hidden diffusions or unknown shutter width. A likelihood Hessian or parametric bootstrap is a distinct uncertainty contract from a proven lower confidence bound.
+
+2. Delaigle, Hall and Meister (2008): classical same-state replicate calibration
+On deconvolution with repeated measurements.
+Annals of Statistics 36(2), 665-685. DOI 10.1214/009053607000000884.
+Inspected arXiv:0804.0713v1 published-format PDF.
+
+Sec 2.1, Eq (2.1), observes W_jk=X_j+U_jk, with independent latent units and independent replicate errors. Under Eq (2.2), the error characteristic function is real and nowhere zero. Eq (2.3) estimates it from cosines of within-unit differences, taking a square root. Eq (2.4) inserts this estimate in a ridge deconvolution estimator. Sec 3, in particular Theorems 3.1-3.3, compares estimated-error and known-error procedures under smoothness restrictions; sufficiently few repeats can achieve the same first-order behavior as knowing the error law.
+
+Benchmark role: difference-based noise calibration and replicated-law deconvolution are standard. Their assumptions concern repeated reads of the same latent X, not independent particles sharing only a distribution. The real/nonzero characteristic-function assumption is substantive; squared differences alone identify noise variance under finite-moment assumptions, not an arbitrary asymmetric error distribution. The source's risk and asymptotic results are not automatically a computable simultaneous confidence region for the entropy statistic.
+
+3. Capitao-Miniconi, Gassiat and Lehericy (2025): strong modern replica identification
+Deconvolution of repeated measurements corrupted by unknown noise.
+Electronic Journal of Statistics 19(2), 4141-4173. DOI 10.1214/25-EJS2415.
+Inspected author PDF, HAL hal-04685944v2, submitted 15 July 2025.
+
+Sec 2, Eq (1), observes two d-dimensional replicates (X+epsilon^(1),X+epsilon^(2)). Signal and errors are independent, and (H1) makes the two error vectors independent. Assumption (H2) controls the signal's Laplace transform by a exp(b||lambda||^rho), a condition satisfied by compactly supported signals. Theorem 1 identifies signal and noise laws up to translation, without noise moments, symmetry or nonvanishing characteristic functions. Proposition 2 provides high-probability local characteristic-function estimation bounds with constants and a minimum sample size depending on specified signal/noise classes; those quantitative classes do require noise moment and local characteristic-function lower bounds. Theorems 2-4 give density-estimation rates and a compact-support minimax result.
+
+Benchmark role: the current bounded-signal setting is already covered at the level of two-replica identification. Its transfer to finite-dimensional time vectors still requires independent full error vectors across the two replica channels, alongside the theorem's signal assumptions. This is not a theorem about a single finite trajectory, arbitrary correlated sensor errors, a local-volatility envelope or entropy confidence. Distinguish the assumption-light uniqueness theorem from the stronger assumptions required for its quantitative bounds.
+
+4. Kato, Sasaki and Ura (2021): inference without requiring point identification
+Robust inference in deconvolution.
+Quantitative Economics 12(1), 109-142. DOI 10.3982/QE1643.
+Inspected published PDF via EconStor; publisher PDF returned HTTP 503 during retrieval.
+
+Assumption 1 uses two additive repeated measurements, mutually independent latent variable and errors, finite first moments, and one centered error. Theorem 1, Eq (3), rewrites Kotlarski's identity as a linear complex-valued moment restriction involving the unknown signal characteristic function and its derivative. Remark 1 stresses that inference can use these restrictions without solving the inverse problem or assuming nonvanishing characteristic functions. Theorem 2 establishes uniform coverage at least 1-alpha-C n^(-c), under Assumptions 2-3; the constants depend on class bounds. Theorem 3 gives a power statement. A finite-dimensional approximation and its bias allowances form part of the confidence construction.
+
+Benchmark role: a joint nuisance/identified-set approach robust to failed point identification is established. The distinction to seek here is an explicit finite-N numerical certificate under the declared detector constraints and its proved entropy-functional propagation, not the bare use of moment restrictions or confidence-set projection. This theorem includes a quantitative coverage remainder; it should not be dismissed as having no finite-sample control. Its class-dependent constants and approximation restrictions also should not be presented as a ready exact alpha-level guarantee for this detector.
+
+5. Linden, Curic, Amselem and Elf (2017): information available inside each image
+Pointwise error estimates in localization microscopy.
+Nature Communications 8, 15115. DOI 10.1038/ncomms15115.
+Inspected published main-text XML, PMC5418599; supplement not audited in this phase.
+
+The paper estimates localization precision from image likelihoods/posteriors rather than assuming a uniform localization error. Methods Eq (6) uses a Laplace approximation around the fitted posterior mode. The image model has spot position, width, amplitude and background parameters; camera-noise parameters are supplied by camera calibration. It demonstrates diffusion and state inference using these varying uncertainty estimates and a motion model. The source explicitly distinguishes an expected Fisher-information bound from information about one particular image.
+
+Benchmark role: if the proposed acquisition retains raw pixels, calibrated image-based localization uncertainty is an appropriate baseline. If it retains only scalar coordinates, those pixels cannot be treated as freely available auxiliary data. Approximate posterior precision is not an exact frequentist pointwise bound on hidden diffusion geometry, and the model still uses independent camera calibration.
+
+6. Gobet, Hoffmann and Reiss (2004): what fixed-grid observations can identify in a restricted class
+Nonparametric estimation of scalar diffusions based on low frequency data.
+Annals of Statistics 32(5), 2223-2253. DOI 10.1214/009053604000000797.
+Inspected arXiv:math/0503680v1 published-format PDF.
+
+The observations are X_(n Delta), Delta fixed, of a scalar diffusion on a compact interval with reflecting boundaries. Sec 1.2 and Eq (1.1) use the self-adjoint negative generator and its semigroup; Sec 3 develops spectral reconstruction. Theorems 2.4-2.5 give matching nonparametric upper/lower rates for diffusion and drift under Sobolev class restrictions. The relevant population problem is identifiable in this reversible one-dimensional class, although its estimation is ill-posed.
+
+Benchmark role: fixed temporal sampling does not universally prevent diffusion inference. The obstruction depends on the realization class, topology, observation map and permitted spectrum. Circle drift aliases or nonreversible hidden rotational models cannot be transferred to all reflecting scalar diffusions. Conversely, the self-adjoint scalar spectral result cannot justify a general matrix logarithm or identify an arbitrary hidden generator from a sampled law.
+
+REUSED PRIMARY SOURCES: ADDITIONAL QUESTIONS CHECKED
+
+7. Berglund (2010), DOI 10.1103/PhysRevE.82.011917; Vestergaard, Blainey and Flyvbjerg (2014), DOI 10.1103/PhysRevE.89.022726.
+These were inspected in the detector_geometry audit. Their precise free-Brownian increment model remains central. For fixed frame spacing Delta and blur coefficient R,
+ E[Delta x_n^2]=2D Delta+2q,
+ E[Delta x_n Delta x_(n+1)]=-q,
+ q=sigma_loc^2-2DR Delta,
+with zero covariance at larger lags. Gaussianity makes this covariance the full centered increment law. Thus holding D and q fixed while varying admissible R and sigma_loc^2 gives observationally equivalent increment laws. The model-specific conclusion is exact; it is not a claim about arbitrary stationary absolute-position records.
+
+Vestergaard Sec III C gives unbiased covariance estimators, known-noise variants, calibration-variance terms and exact finite-sample distribution/confidence calculations (Appendix C). The ordinary diffusion estimate combines squared increments and adjacent products and does not require plugging in an R estimate. Localization variance does depend on R. Use the complete corrected procedure as baseline and do not claim that its exact model-specific confidence calculations are merely heuristic asymptotic bars.
+
+8. Nakakita and Uchida (2020), DOI 10.3390/e22091031.
+Their Theorem 1 consistently estimates unknown exposure-to-frame ratio by full/subsampled quadratic-variation ratios. It assumes shrinking exposure rho h_n and increasing duration n h_n. No general independent localization-noise channel is included. A fixed-width noisy detector cannot adopt that result unchanged. It is nevertheless a direct unknown-shutter baseline in its regime.
+
+9. Frishman and Ronceray (2020), DOI 10.1103/PhysRevX.10.021009.
+The previously inspected arXiv:1809.09650v3 fulltext was revisited. Eqs (12)-(14) jointly estimate spatially varying diffusion and drift in a finite basis. Eq (13), inspired by Vestergaard, corrects local diffusion estimation for measurement-noise bias using adjacent increments. Appendix G.2 discusses this correction; Appendix F treats time discretization and localization errors. Figure 4F and the uncertainty analysis give self-consistent entropy error estimates; the discussion recognizes noise-induced blurring of currents and finite-step bias. Appendix E limits what hidden-variable projection can recover.
+
+Comparison: noise-aware diffusion/current/entropy inference with uncertainty estimates already exists. A correction for average/projected diffusion is not the exact pathwise V=Gamma_f(X) required by the conditional geometry certificate. For the reversible scalar cosine law, a projected-current entropy estimator has a different estimand and may return zero legitimately. It must not be labelled an inferior estimator of the same target unless its assumptions and target are aligned.
+
+10. Gingrich, Igoshin, Kolomeisky and Makarov (2026), DOI 10.1063/5.0354355.
+The inspected arXiv:2606.23619v1 is recorded in the previous audit. Sec II, Eqs (13),(15),(19)-(22), uses a known memoryless error kernel, deconvolves pair statistics when invertible, and relates finite-block reversed-record information through data processing. It does not provide unknown-noise replica calibration or finite-shutter local geometry. It remains a close noisy-entropy baseline. Its generator-recovery discussion is not a solution to general fixed-grid aliasing.
+
+A focused search for thermodynamic inference specifically using same-state detector replicas did not produce a primary paper that establishes the current full calibration-plus-entropy guarantee. This is a search outcome, not a priority claim. Searches also returned unreliable aggregator matches; an alleged CYNAR association with arXiv:2603.24675 was rejected after the primary arXiv page showed a different chaos paper. Only checked primary findings above are used.
+
+REPLICA ALGEBRA: WHAT THE NEW ACQUISITION ACTUALLY BUYS
+
+The following are elementary consequences of the measurement model, not novel identifiability theorems. For B_1=Z+epsilon_1 and B_2=Z+epsilon_2, conditional centering and conditional independence give E[B_1 B_2|Z]=Z^2. Under independent centered errors with finite variances, E[(B_1-B_2)^2]=Var(epsilon_1)+Var(epsilon_2); identical error laws give twice their variance. Products of k independent centered replicas conditionally average to Z^k. Analogous cross-channel products at several times estimate latent joint moments if the required conditional independence really holds.
+
+For independent same-exposure replica errors N(0,nu^2), there is also an exact classical calibration pivot: across n independent pairs, sum_i(B_i1-B_i2)^2/(2nu^2) has a chi-square_n law. Thus [S/(2 q_(1-alpha/2)), S/(2 q_(alpha/2))], where S is the difference-square sum and q_p the chi-square_n quantile, is an exact 1-alpha interval for nu^2. This uses known Gaussian form, common variance and independence; it is not an arbitrary-noise result. It gives a strong finite-N baseline before adding nonlinear geometry. For arbitrary unknown tails, unbiased cross-replica products alone do not imply a uniform finite-N concentration radius.
+
+Four limitations must remain explicit:
+- The shared object is the same latent state or exposure value, not merely two independent realizations at the same nominal time. Independent system copies generally produce products of means instead of the intended same-state moments.
+- A common sensor error survives in both channels and is not identified by their difference. A difference statistic cannot validate absence of such common-mode noise.
+- Replicates of a shutter average calibrate that averaged observable. They do not directly provide an unblurred coordinate, its pathwise quadratic variation or hidden diffusion coefficient.
+- Repeated readings count as extra physical acquisition. A camera photon split, two detectors or a frozen-state interrogation have different noise, backaction and energy budgets. Reusing one digitized value is not an independent replicate.
+
+For the stationary cosine circle, one-time Y=cos(phi) is arcsine and independent of gamma and omega. Replication at one instant can separate sensor variance from state variation but cannot estimate gamma or omega. Time-separated moments or interventions are necessary. At fixed point-sampling intervals, any existing temporal aliases also persist through independent same-time replica channels. Known or varied exposure may change particular aliases; that needs an explicit forward model, not an assumption that more repeats solve aliasing.
+
+RECOMMENDED BENCHMARK AND GUARANTEE LADDER
+
+A. Algebra and Gaussian control: free diffusion with known timing, comparing Vestergaard CVE/exact model confidence, a declared naive method as a diagnostic only, and the proposed replicate calibration. Include two (R,sigma_loc^2) points on the same q-fiber as a no-extra-access negative control.
+
+B. Confined control: the known-exposure OU model with Calderon likelihood. Compare finite-data bias and interval coverage at equal acquisition duration, pixel/coordinate access, shutter rule and number of independent reads. A point estimate and Hessian interval may be useful practical comparators without being promoted to a uniform confidence theorem.
+
+C. Actual entropy target: the cosine-circle or other explicitly declared model. Recover only the nuisance combinations supported by the finite observation design. Use a covered feasible set C_n, and establish the event on which the true nuisance is in it. Minimize the justified entropy lower bound over C_n. Empty C_n should flag incompatibility/failed coverage or numerical error, never imply infinite entropy. A large C_n containing zero-dissipation-compatible values must yield an inconclusive/zero lower bound.
+
+D. Joint validity: confidence-set projection and union bounds are standard. The real proof obligations are error-law assumptions, exposure calibration, time/geometry regularity envelopes, simultaneous coverage for all statistics actually selected, numerical enclosure of the minimization, and proper handling of dependent trajectories. The same data may be reused if one joint event covers the reuse; sample splitting is one sufficient option, not a requirement of statistics in general.
+
+E. Stress tests: wrong shutter width, nonuniform exposure shape, correlated replica errors, nonzero common bias, unequal error variances, state-dependent detection, timing uncertainty and hidden states that invalidate the proposed volatility envelope. Empirical coverage is a simulation diagnostic, not proof of uniform coverage; label synthetic records accordingly.
+
+The most useful first deliverable is a complete theorem and executable certificate for this narrow acquisition, together with exact indistinguishability controls. It is stronger positioning than either an unsupported universal calibration claim or a benchmark that withholds relevant established methods.
+
+
+CALIBRATION-MANUSCRIPT ADDENDUM: STRUCTURAL ROUTE AND GLOBAL ENVELOPES
+Recorded 2026-10-13 UTC.
+
+12. Sohl and Trabs (2016): positive sup-norm inference under structure
+Adaptive confidence bands for Markov chains and diffusions: Estimating the invariant measure and the drift. ESAIM: Probability and Statistics 20,432-462. DOI10.1051/ps/2016017. Inspected published PDF via Numdam, downloaded only to temporary storage; source hash recorded separately.
+
+Assumption3.1 treats a scalar constant-volatility diffusion with continuously differentiable drift, Holder regularity on an enlarged interval, bounded drift derivative, volatility in a bounded interval away from zero, and an inward drift condition outside a compact region. The subsequent drift confidence construction takes sigma=1; the text discusses extension to separately estimated constant sigma. Equation3.6 and Proposition3.4 map a confidence set for the invariant density through xi(f)=f'/(2f), giving asymptotic coverage and a shrinking sup-norm diameter. The local-Lipschitz argument uses positivity of the invariant density over the region of interest. Theorem3.5 establishes a functional central limit theorem with additional truncation/weight conditions. Assumption4.1 requires both upper and lower wavelet approximation-bias bounds at the smoothness rate (self-similarity); Theorem4.6 then establishes adaptive asymptotic coverage. The Section4.4 discussion spells out additional uniform ingredients needed for honest uniform coverage. The printed liminf theorem should not be silently upgraded to an explicit finite-N numerical bound.
+
+This is a useful positive comparator: finite-resolution drift confidence is possible in a specified regular class, and mapping a covered region into another parameter is established. It does not promise a finite uniform upper confidence bound for arbitrary hidden generator suprema over the union of all individually smooth models. The rare-region argument in calibration_limits.tex uses a separate, elementary total-variation confidence transfer and an explicit smooth elliptic construction. It concerns unseen global/essential suprema. It is not the same impossibility as fully adaptive honest bands over unrestricted smoothness classes, and it does not contradict local quadratic-variation reconstruction along an ideal observed path. Le Cam and Yang (existing caLeCamYang2000) is retained as general statistical-method attribution, not as a claimed published source for our exact rare-bump diffusion.
+
+Positioning of the actual positive route:
+The exact pointwise identity Gamma_f=gamma(1-f^2) is a premise with unknown scalar gamma. Polynomial weights w_m=sum(j=0..m)f^(2j) obey w_m Gamma_f=gamma(1-f^(2m+2))<=gamma. Genuine distinct conditional-mean replicas identify finite powers of the shared exposure, also for bounded state-dependent shot noise outside the independent additive-error model. Elementary symmetric-polynomial symmetrization and unbiased product moments are not claimed new. A finite moment family, simultaneous bounded-mean confidence, reference constraints for common gain/exposure, finite-step/exposure bias radii, and supplied generator caps form the actual inference contract. The connection being documented is their propagation through this entropy score, together with the ideal sharp circle hierarchy and a constructive growing-access limit. No fixed-positive-exposure consistency or efficient sample scaling follows from that constructive schedule.
+
+The chapter cites all eleven earlier audited baseline sources where relevant, plus this new regularity source, and reuses existing bibliography keys where available. The new bibliography contains seven entries rather than duplicate prior dg/og keys. The free-Brownian covariance estimator is expressly restricted to its acquisition model; an entropy comparison on the cosine circle requires an adapted forward model and uncertainty analysis. Image-likelihood access is also distinct from scalar-only access. No theorem is credited as a direct universal solution of detector calibration, and no search-absence priority claim is made.

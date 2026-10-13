@@ -1,0 +1,230 @@
+DRIVEN-QUBIT RESPONSE AND A CLASSICAL SELECTIVE-PULSE BOUNDARY
+Abdinoor / 2D Labs / 12 October 2026
+
+Status
+
+Analytical result with exact rational computational certificates. No laboratory
+data, external peer review, historical-priority claim, or thermodynamic heat
+interpretation is supplied. The intended comparison is the classical stationary
+finite-CTMC single-edge selective-suppression theorem developed in this phase.
+This is a conditional separation of model classes, not device-independent
+certification of quantum behavior. Composition/intertwining support remains in
+composition.txt; it should not distract from this sharper physical result.
+
+1. Model and observable
+
+Use the basis states A=|0>, B=|1>, Pauli operators X,Y,Z, hbar=1, and
+D[L](rho)=L rho L^dagger - {L^dagger L,rho}/2. Let sigma_plus=|1><0|
+and sigma_minus=|0><1|. The native generator is
+
+  L(rho) = -i[g X,rho]
+           + sum_e a_e D[sigma_plus](rho)
+           + sum_e b_e D[sigma_minus](rho)
+           + d D[Z](rho),
+
+where g>=0, d>=0, and sum_e a_e=sum_e b_e=K>0. All these are rates
+or angular frequencies in a declared time unit. The native stationary state
+rho_*=I/2 is used as the preparation, independently for each record. The selected
+physical jump channel has rates (a,b), with 0<=a,b<=K, and native directed
+channel current J=(a-b)/2. The Hamiltonian contributes zero current at rho_*.
+
+At time zero retain a fraction r in [0,1) of this channel's two rates, leaving
+the Hamiltonian and every other rate unchanged. Let eta=1-r and
+
+  Gamma = 2K-eta(a+b) > 0,       gamma=Gamma/4.
+
+The post-pulse generator is a valid finite-dimensional GKSL generator with
+nonnegative rates. When r>0 and all native rates are positive, no channel is
+deleted. The observed response is
+
+  Delta_B(t)=Tr(|1><1| rho(t))-1/2.
+
+The jump basis is not the Hamiltonian energy basis. These are driven,
+engineered reservoirs. A thermal-bath/local-detailed-balance interpretation is
+not assumed, and a jump count is not automatically a work or heat meter.
+
+2. General pulse reduction
+
+Put z=Tr(Z rho), y=Tr(Y rho), and x=Tr(X rho). Native preparation gives
+x(0)=y(0)=z(0)=0. After the pulse, x remains zero and
+
+  d/dt [z;y] = A [z;y] + [2 eta J;0],
+  A = [-4 gamma, 2g; -2g, -2 gamma-2d].
+
+Consequently
+
+  I(t)=integral_0^t (exp(Au))_11 du,
+  z(t)=2 eta J I(t),       Delta_B(t)=-eta J I(t).
+
+In particular Delta_B'(0)=-eta J. If J=0 there is no response at any time.
+The expressions follow by evaluating the dissipators on the Bloch coordinates:
+the population forcing is post-pulse downward rate minus upward rate =2 eta J;
+the longitudinal decay is Gamma; the transverse decay is Gamma/2+2d; and the
+Hamiltonian rotates the y,z components with angular frequency 2g.
+
+3. Exact all-time phase boundary without added dephasing
+
+Theorem. Suppose d=0 and J != 0. Define q=g/gamma. There exists a time t>0 at
+which Delta_B(t) has the opposite sign to Delta_B'(0) if and only if
+
+  q > q_c,
+
+where q_c>1 is the unique solution of
+
+  log q_c = 3 [pi+atan sqrt(4q_c^2-1)] / sqrt(4q_c^2-1).
+
+The exact rational enclosure produced by the code is
+
+  4.57066453253 < q_c < 4.57066453254.
+
+For q>1/2 put Omega=sqrt(4g^2-gamma^2). Then
+
+  I(t) = {2gamma + exp(-3gamma t)
+           [-2gamma cos(Omega t)
+            +(Omega+3gamma^2/Omega) sin(Omega t)]}
+         /(4g^2+8gamma^2).
+
+The first positive local minimum occurs at
+
+  t_* = [pi+atan(Omega/gamma)]/Omega,
+
+and is
+
+  I(t_*)=[2gamma-2g exp(-3gamma t_*)]/(4g^2+8gamma^2).
+
+When this quantity is negative it is the global minimum on [0,infinity), so
+t_* is the greatest reversal amplitude for the fixed physical parameters.
+At q=q_c the first minimum touches zero; a strictly reversed response requires
+the strict inequality above. This does not optimize over all possible physical
+control protocols, preparation procedures, pulse strengths, or energy costs.
+
+Proof. Write A=-3gamma I+B, where B=[-gamma,2g;-2g,gamma] and
+B^2=(gamma^2-4g^2)I. In the underdamped case,
+
+  I'(t)=exp(-3gamma t)[cos(Omega t)-(gamma/Omega)sin(Omega t)].
+
+Integrating gives the stated expression. Its critical points satisfy
+Omega t=atan(Omega/gamma)+n pi, n>=0. The even n points are maxima and odd n
+points are minima. At each odd n point, cos=-gamma/(2g) and
+sin=-Omega/(2g). The first minimum therefore has the displayed value and every
+subsequent minimum is larger, because its negative exponential term decays.
+I(0)=0 and I(infinity)=2gamma/(4g^2+8gamma^2)>0. A negative value exists exactly
+when g exp(-3gamma t_*)>gamma.
+
+For 0<g<gamma/2 put h=sqrt(gamma^2-4g^2). Then
+I'(t)=exp(-3gamma t)[cosh(ht)-(gamma/h)sinh(ht)]. This derivative has exactly
+one zero, from positive to negative. Thus I rises from zero to a maximum and
+then decreases to its positive limit; it never becomes negative. For g=0,
+I(t)=(1-exp(-4gamma t))/(4gamma)>0. At g=gamma/2 the derivative is
+exp(-3gamma t)(1-gamma t), and the same maximum/positive-limit argument applies.
+
+For q>1/2 the negative-minimum condition becomes
+log q > 3(pi+atan w)/w, w=sqrt(4q^2-1). It is impossible for q<=1.
+For q>1, log q strictly increases, while (pi+atan w)/w strictly decreases:
+its derivative with respect to w is
+[w/(1+w^2)-pi-atan w]/w^2 <0. The left-minus-right expression is negative at
+q=1 and tends to positive infinity. Hence there is exactly one crossing.
+This proves all directions, including necessity, and not merely a sufficient
+underdamping condition.
+
+4. Added dephasing: exact criterion
+
+Put alpha=3gamma+d, beta=gamma-d, and Omega=sqrt(4g^2-beta^2). If 2g>|beta|,
+
+ I(t)={(alpha-beta)+exp(-alpha t)
+       [-(alpha-beta)cos(Omega t)
+        +(Omega+alpha beta/Omega)sin(Omega t)]}/(alpha^2+Omega^2).
+
+The first minimum is at
+
+ t_*=[pi+atan2(Omega,beta)]/Omega,
+ I(t_*)=[(alpha-beta)-2g exp(-alpha t_*)]/(alpha^2+Omega^2).
+
+Thus reversal occurs exactly when 2g exp(-alpha t_*)>alpha-beta. The atan2
+branch lies in (0,pi), which is essential when d>gamma. The same critical-point
+calculation gives the result; all later minima are higher. When 2g<=|beta|,
+the hyperbolic derivative has no zero if beta<=0 and at most one zero from
+positive to negative if beta>0. Its limiting integral is positive because
+alpha-beta>0 and det(-A)=8gamma^2+8gamma d+4g^2>0. There is no reversal.
+
+This shows exactly how calibrated pure dephasing changes the criterion. It is
+not a guarantee against arbitrary non-Markovian noise, drift, or control errors.
+
+5. Finite rational protocol and exact numerical certificates
+
+Use native channel1(up,down)=(3kappa,kappa), channel2=(kappa,3kappa),
+g=1, kappa=1/10, r=1/10, and d=0. Native J=kappa=1/10; the post-pulse
+rates are up=13/100, down=31/100, Gamma=11/25, gamma=11/100, q=100/11.
+All four channel rates remain positive. Exact Taylor enclosures prove:
+
+  t=1/2:  Delta_B=-0.03416833483914909... <0,
+  t=9/4:  Delta_B=+0.01523153262660271... >0,
+  t=5/2:  Delta_B=+0.01439706666827132... >0.
+
+The times 1/2 and 9/4 give a directly testable change of response sign. No
+knowledge of the microscopic native current orientation is needed to reject
+the same-sign consequence, provided both records share the validated native
+stationary preparation and physical intervention contract. The purely
+incoherent g=0 control retains the same native stationary population and
+channel currents and has no sign reversal. Its full native temporal record law
+is NOT the same as that of the driven qubit; no such equality is claimed.
+
+Within the explicitly finite menu t=j/4, j=1,...,16, the time 9/4 maximizes both
+the positive response and the positive response squared divided by pulse
+duration. Both comparisons are made using disjoint exact response intervals.
+The second objective is an acquisition-time proxy assuming the appropriate
+independent-repeat precision scaling and zero additional per-record overhead.
+It is not a full-energy optimum and need not remain optimal with preparation,
+measurement, reset, control, bandwidth, and calibration costs included.
+
+For a rational 2x2 matrix A and rational t>=0, the integral is computed as
+
+  S_N=sum_{k=0}^N (A^k)_11 t^(k+1)/(k+1)!.
+
+Let s=t||A||_infinity and choose N+3>s. Submultiplicativity gives
+
+  |I(t)-S_N| <= t s^(N+1)/(N+2)! / [1-s/(N+3)].
+
+This follows by bounding all omitted terms by their matrix norms and a
+geometric series whose successive ratios are at most s/(N+3). At N=80 and
+t=9/4 the integral radius is less than 4.1e-63. The public JSON rounds the exact
+endpoints OUTWARD to 20 decimal places; the underlying routine returns full
+rational centers, radii and endpoints.
+
+The threshold bracket uses Machin's identity pi=16 atan(1/5)-4 atan(1/239),
+alternating rational atan series, the positive atanh series for log q, and an
+integer-square-root enclosure. Evaluation of the monotone threshold function
+is strictly negative at the lower endpoint and strictly positive at the upper.
+No floating-point root finder is used to certify the threshold.
+
+6. Classical comparison and limits of interpretation
+
+The classical theorem concerns a native stationary finite CTMC, a specified
+physical edge channel i<->j whose two rates alone are multiplied by r, and
+observation of the particular endpoint state j. Its all-time population shift
+has the same sign as its initial derivative. This follows from the positivity
+of an integrated return-minus-first-passage kernel. Its exact hypotheses must
+be retained in the statement paired with this quantum calculation.
+
+A two-outcome detector does not by itself establish that outcome B is one
+microscopic classical state. If B aggregates multiple hidden classical states,
+if preparation is nonstationary, if the control perturbs additional channels,
+if an external controller has memory, or if its causal action is unknown, a
+classical explanation need not satisfy that theorem. Consequently this is not
+a device-independent quantumness witness, proof that all classical models fail,
+or a thermodynamic arrow-of-time claim. It is a conditional experimental test
+of a sharply stated classical selective-channel model.
+
+The possibility of damped coherent response is established open-system physics.
+Any historical novelty claim must concern the exact classical/quantum response
+boundary and its constructive use, compared directly with prior work, rather
+than the existence of Rabi oscillations or underdamped transients.
+
+7. Reproduction
+
+  python code/quantum_completion.py
+  python -m unittest discover -s tests -p test_quantum_completion.py
+
+Results are in results/quantum_completion.json. The implementation uses only
+Python standard-library exact integers and Fraction. Separate red-team checks
+evaluate the density-matrix model and finite-time sign independently.

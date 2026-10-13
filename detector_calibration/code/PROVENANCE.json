@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "tests": 24,
+  "command": "python -m unittest discover -s tests -v",
+  "physical_experiment": false,
+  "source_bindings": {
+    "code/certification.py": "c44cd9dde9dcc64fe7558bf7767bad9912554bbd7d06e4b2308e6ec9717f13c3",
+    "code/API.txt": "be194e08f7af78d3a43af549c382f86abfe7f3082dd54e1e212eed08784b3101",
+    "tests/test_certification.py": "ea7ffff3181eda4b857e99c12c896f595f3026ee4b993380e05f1db799ad8d75"
+  },
+  "inherited_exact_helpers": {
+    "source": "ninth edition/src/constructive_access/observed_geometry/finite_resolution.py",
+    "sha256": "5f34bc6dc812e7451e79649cda97880158a2cb99cbf40f6ccf55a490231e412c",
+    "functions": [
+      "exact",
+      "log_interval",
+      "sqrt_upper"
+    ],
+    "note": "Local standard-library adaptation preserves exact outward arithmetic; no new concentration theorem is claimed."
+  },
+  "extension": "Optional fixed nominal-gain projections and all prefixes share simultaneous coverage; R0 derives from S0 without a duplicate failure allocation."
+}
